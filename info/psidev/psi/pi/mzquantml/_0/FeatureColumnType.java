@@ -14,28 +14,25 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlID;
 import javax.xml.bind.annotation.XmlIDREF;
-import javax.xml.bind.annotation.XmlList;
 import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.CollapsedStringAdapter;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 
 /**
- * <p>Java class for MatchedFeatureType complex type.
+ * <p>Java class for FeatureColumnType complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="MatchedFeatureType">
+ * &lt;complexType name="FeatureColumnType">
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="feature_refs" type="{http://www.w3.org/2001/XMLSchema}IDREFS"/>
+ *         &lt;element name="DataType" type="{http://psidev.info/psi/pi/mzQuantML/0.1}cvParamRefType" maxOccurs="unbounded"/>
  *       &lt;/sequence>
- *       &lt;attribute name="id" use="required" type="{http://www.w3.org/2001/XMLSchema}ID" />
+ *       &lt;attribute name="index" use="required" type="{http://www.w3.org/2001/XMLSchema}int" />
+ *       &lt;attribute name="processingStep_ref" use="required" type="{http://www.w3.org/2001/XMLSchema}IDREF" />
  *     &lt;/restriction>
  *   &lt;/complexContent>
  * &lt;/complexType>
@@ -44,73 +41,87 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "MatchedFeatureType", propOrder = {
-    "featureRefs"
+@XmlType(name = "FeatureColumnType", propOrder = {
+    "dataType"
 })
-public class MatchedFeatureType {
+public class FeatureColumnType {
 
-    @XmlList
-    @XmlElement(name = "feature_refs", required = true)
-    @XmlIDREF
-    @XmlSchemaType(name = "IDREFS")
-    protected List<Object> featureRefs;
+    @XmlElement(name = "DataType", required = true)
+    protected List<CvParamRefType> dataType;
     @XmlAttribute(required = true)
-    @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
-    @XmlID
-    @XmlSchemaType(name = "ID")
-    protected String id;
+    protected int index;
+    @XmlAttribute(name = "processingStep_ref", required = true)
+    @XmlIDREF
+    @XmlSchemaType(name = "IDREF")
+    protected Object processingStepRef;
 
     /**
-     * Gets the value of the featureRefs property.
+     * Gets the value of the dataType property.
      * 
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the featureRefs property.
+     * This is why there is not a <CODE>set</CODE> method for the dataType property.
      * 
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
-     *    getFeatureRefs().add(newItem);
+     *    getDataType().add(newItem);
      * </pre>
      * 
      * 
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link Object }
+     * {@link CvParamRefType }
      * 
      * 
      */
-    public List<Object> getFeatureRefs() {
-        if (featureRefs == null) {
-            featureRefs = new ArrayList<Object>();
+    public List<CvParamRefType> getDataType() {
+        if (dataType == null) {
+            dataType = new ArrayList<CvParamRefType>();
         }
-        return this.featureRefs;
+        return this.dataType;
     }
 
     /**
-     * Gets the value of the id property.
+     * Gets the value of the index property.
+     * 
+     */
+    public int getIndex() {
+        return index;
+    }
+
+    /**
+     * Sets the value of the index property.
+     * 
+     */
+    public void setIndex(int value) {
+        this.index = value;
+    }
+
+    /**
+     * Gets the value of the processingStepRef property.
      * 
      * @return
      *     possible object is
-     *     {@link String }
+     *     {@link Object }
      *     
      */
-    public String getId() {
-        return id;
+    public Object getProcessingStepRef() {
+        return processingStepRef;
     }
 
     /**
-     * Sets the value of the id property.
+     * Sets the value of the processingStepRef property.
      * 
      * @param value
      *     allowed object is
-     *     {@link String }
+     *     {@link Object }
      *     
      */
-    public void setId(String value) {
-        this.id = value;
+    public void setProcessingStepRef(Object value) {
+        this.processingStepRef = value;
     }
 
 }

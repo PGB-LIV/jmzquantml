@@ -8,15 +8,11 @@
 
 package info.psidev.psi.pi.mzquantml._0;
 
-import java.util.ArrayList;
-import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlID;
-import javax.xml.bind.annotation.XmlIDREF;
-import javax.xml.bind.annotation.XmlList;
 import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
 import javax.xml.bind.annotation.adapters.CollapsedStringAdapter;
@@ -24,16 +20,20 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 
 /**
- * <p>Java class for MatchedFeatureType complex type.
+ * All the data types generated about the raw features e.g. prior to
+ * 				feature matching.
+ * 
+ * <p>Java class for FeatureQuantLayerType complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="MatchedFeatureType">
+ * &lt;complexType name="FeatureQuantLayerType">
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="feature_refs" type="{http://www.w3.org/2001/XMLSchema}IDREFS"/>
+ *         &lt;element name="FeatureColumnIndex" type="{http://psidev.info/psi/pi/mzQuantML/0.1}FeatureColumnIndexType"/>
+ *         &lt;element name="DataMatrix" type="{http://psidev.info/psi/pi/mzQuantML/0.1}DataMatrixType"/>
  *       &lt;/sequence>
  *       &lt;attribute name="id" use="required" type="{http://www.w3.org/2001/XMLSchema}ID" />
  *     &lt;/restriction>
@@ -44,16 +44,16 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "MatchedFeatureType", propOrder = {
-    "featureRefs"
+@XmlType(name = "FeatureQuantLayerType", propOrder = {
+    "featureColumnIndex",
+    "dataMatrix"
 })
-public class MatchedFeatureType {
+public class FeatureQuantLayerType {
 
-    @XmlList
-    @XmlElement(name = "feature_refs", required = true)
-    @XmlIDREF
-    @XmlSchemaType(name = "IDREFS")
-    protected List<Object> featureRefs;
+    @XmlElement(name = "FeatureColumnIndex", required = true)
+    protected FeatureColumnIndexType featureColumnIndex;
+    @XmlElement(name = "DataMatrix", required = true)
+    protected DataMatrixType dataMatrix;
     @XmlAttribute(required = true)
     @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
     @XmlID
@@ -61,32 +61,51 @@ public class MatchedFeatureType {
     protected String id;
 
     /**
-     * Gets the value of the featureRefs property.
+     * Gets the value of the featureColumnIndex property.
      * 
-     * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the featureRefs property.
-     * 
-     * <p>
-     * For example, to add a new item, do as follows:
-     * <pre>
-     *    getFeatureRefs().add(newItem);
-     * </pre>
-     * 
-     * 
-     * <p>
-     * Objects of the following type(s) are allowed in the list
-     * {@link Object }
-     * 
-     * 
+     * @return
+     *     possible object is
+     *     {@link FeatureColumnIndexType }
+     *     
      */
-    public List<Object> getFeatureRefs() {
-        if (featureRefs == null) {
-            featureRefs = new ArrayList<Object>();
-        }
-        return this.featureRefs;
+    public FeatureColumnIndexType getFeatureColumnIndex() {
+        return featureColumnIndex;
+    }
+
+    /**
+     * Sets the value of the featureColumnIndex property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link FeatureColumnIndexType }
+     *     
+     */
+    public void setFeatureColumnIndex(FeatureColumnIndexType value) {
+        this.featureColumnIndex = value;
+    }
+
+    /**
+     * Gets the value of the dataMatrix property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link DataMatrixType }
+     *     
+     */
+    public DataMatrixType getDataMatrix() {
+        return dataMatrix;
+    }
+
+    /**
+     * Sets the value of the dataMatrix property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link DataMatrixType }
+     *     
+     */
+    public void setDataMatrix(DataMatrixType value) {
+        this.dataMatrix = value;
     }
 
     /**
