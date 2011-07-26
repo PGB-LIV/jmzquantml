@@ -24,7 +24,7 @@ import javax.xml.bind.annotation.XmlType;
  * 				ambiguous i.e. one modification or another. A cvParam must be provided with the
  * 				identification of the modification sourced from a suitable CV e.g. UNIMOD. If the
  * 				modification is not present in the CV (and this will be checked by the semantic
- * 				validator within a given tolerance window), there is a “unknown modification” CV
+ * 				validator within a given tolerance window), there is a "unknown modification" CV
  * 				term that must be used instead. A neutral loss should be defined as an additional
  * 				CVParam within Modification. If more complex information should be given about
  * 				neutral losses (such as presence/absence on particular product ions), this can
