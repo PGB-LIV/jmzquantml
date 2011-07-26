@@ -11,24 +11,24 @@ package info.psidev.psi.pi.mzquantml._0;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlSeeAlso;
 import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * A single entry from an ontology or a controlled
- * 				vocabulary.
+ * Other classes in the model can be specified as sub-classes, inheriting from Identifiable. Identifiable gives classes a unique identifier within the scope and a name that need not be unique. Identifiable also provides a mechanism for annotating objects with BibliographicReference(s) and DatabaseEntry(s).	
  * 
- * <p>Java class for CVParamType complex type.
+ * <p>Java class for IdentifiableType complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="CVParamType">
+ * &lt;complexType name="IdentifiableType">
  *   &lt;complexContent>
- *     &lt;extension base="{http://psidev.info/psi/pi/mzQuantML/0.1}AbstractParamType">
- *       &lt;attribute name="cvRef" use="required" type="{http://www.w3.org/2001/XMLSchema}string" />
- *       &lt;attribute name="accession" use="required" type="{http://www.w3.org/2001/XMLSchema}string" />
- *     &lt;/extension>
+ *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+ *       &lt;attribute name="id" use="required" type="{http://www.w3.org/2001/XMLSchema}string" />
+ *       &lt;attribute name="name" type="{http://www.w3.org/2001/XMLSchema}string" />
+ *     &lt;/restriction>
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
@@ -36,62 +36,63 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "CVParamType")
-public class CVParamType
-    extends AbstractParamType
-{
+@XmlType(name = "IdentifiableType")
+@XmlSeeAlso({
+    ExternalDataType.class
+})
+public abstract class IdentifiableType {
 
     @XmlAttribute(required = true)
-    protected String cvRef;
-    @XmlAttribute(required = true)
-    protected String accession;
+    protected String id;
+    @XmlAttribute
+    protected String name;
 
     /**
-     * Gets the value of the cvRef property.
+     * Gets the value of the id property.
      * 
      * @return
      *     possible object is
      *     {@link String }
      *     
      */
-    public String getCvRef() {
-        return cvRef;
+    public String getId() {
+        return id;
     }
 
     /**
-     * Sets the value of the cvRef property.
+     * Sets the value of the id property.
      * 
      * @param value
      *     allowed object is
      *     {@link String }
      *     
      */
-    public void setCvRef(String value) {
-        this.cvRef = value;
+    public void setId(String value) {
+        this.id = value;
     }
 
     /**
-     * Gets the value of the accession property.
+     * Gets the value of the name property.
      * 
      * @return
      *     possible object is
      *     {@link String }
      *     
      */
-    public String getAccession() {
-        return accession;
+    public String getName() {
+        return name;
     }
 
     /**
-     * Sets the value of the accession property.
+     * Sets the value of the name property.
      * 
      * @param value
      *     allowed object is
      *     {@link String }
      *     
      */
-    public void setAccession(String value) {
-        this.accession = value;
+    public void setName(String value) {
+        this.name = value;
     }
 
 }
