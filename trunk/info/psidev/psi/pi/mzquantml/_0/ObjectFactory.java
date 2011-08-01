@@ -40,123 +40,19 @@ private final static QName _MzQuantML_QNAME = new QName("http://psidev.info/psi/
     }
 
     /**
-     * Create an instance of {@link InputFilesType }
+     * Create an instance of {@link StudyVariableType.AssayRef }
      * 
      */
-    public InputFilesType createInputFilesType() {
-        return new InputFilesType();
+    public StudyVariableType.AssayRef createStudyVariableTypeAssayRef() {
+        return new StudyVariableType.AssayRef();
     }
 
     /**
-     * Create an instance of {@link IdentificationFilesType.IdentificationFile }
+     * Create an instance of {@link SourceFileType }
      * 
      */
-    public IdentificationFilesType.IdentificationFile createIdentificationFilesTypeIdentificationFile() {
-        return new IdentificationFilesType.IdentificationFile();
-    }
-
-    /**
-     * Create an instance of {@link IdentificationRefType }
-     * 
-     */
-    public IdentificationRefType createIdentificationRefType() {
-        return new IdentificationRefType();
-    }
-
-    /**
-     * Create an instance of {@link ProtocolType }
-     * 
-     */
-    public ProtocolType createProtocolType() {
-        return new ProtocolType();
-    }
-
-    /**
-     * Create an instance of {@link ExternalDataType }
-     * 
-     */
-    public ExternalDataType createExternalDataType() {
-        return new ExternalDataType();
-    }
-
-    /**
-     * Create an instance of {@link IdentificationFilesType }
-     * 
-     */
-    public IdentificationFilesType createIdentificationFilesType() {
-        return new IdentificationFilesType();
-    }
-
-    /**
-     * Create an instance of {@link FeatureColumnType }
-     * 
-     */
-    public FeatureColumnType createFeatureColumnType() {
-        return new FeatureColumnType();
-    }
-
-    /**
-     * Create an instance of {@link AssayType.DataProcessingOrder }
-     * 
-     */
-    public AssayType.DataProcessingOrder createAssayTypeDataProcessingOrder() {
-        return new AssayType.DataProcessingOrder();
-    }
-
-    /**
-     * Create an instance of {@link StudyVariableRefsType.StudyVariableRef }
-     * 
-     */
-    public StudyVariableRefsType.StudyVariableRef createStudyVariableRefsTypeStudyVariableRef() {
-        return new StudyVariableRefsType.StudyVariableRef();
-    }
-
-    /**
-     * Create an instance of {@link ModParamType }
-     * 
-     */
-    public ModParamType createModParamType() {
-        return new ModParamType();
-    }
-
-    /**
-     * Create an instance of {@link CvListType }
-     * 
-     */
-    public CvListType createCvListType() {
-        return new CvListType();
-    }
-
-    /**
-     * Create an instance of {@link ProteinDetectionHypothesisRefsType.ProteinDetectionHypothesisRef }
-     * 
-     */
-    public ProteinDetectionHypothesisRefsType.ProteinDetectionHypothesisRef createProteinDetectionHypothesisRefsTypeProteinDetectionHypothesisRef() {
-        return new ProteinDetectionHypothesisRefsType.ProteinDetectionHypothesisRef();
-    }
-
-    /**
-     * Create an instance of {@link SpectraSetType }
-     * 
-     */
-    public SpectraSetType createSpectraSetType() {
-        return new SpectraSetType();
-    }
-
-    /**
-     * Create an instance of {@link UserParamType }
-     * 
-     */
-    public UserParamType createUserParamType() {
-        return new UserParamType();
-    }
-
-    /**
-     * Create an instance of {@link ProteinGroupType }
-     * 
-     */
-    public ProteinGroupType createProteinGroupType() {
-        return new ProteinGroupType();
+    public SourceFileType createSourceFileType() {
+        return new SourceFileType();
     }
 
     /**
@@ -176,99 +72,11 @@ private final static QName _MzQuantML_QNAME = new QName("http://psidev.info/psi/
     }
 
     /**
-     * Create an instance of {@link RatioListType }
+     * Create an instance of {@link ColumnType }
      * 
      */
-    public RatioListType createRatioListType() {
-        return new RatioListType();
-    }
-
-    /**
-     * Create an instance of {@link CvType }
-     * 
-     */
-    public CvType createCvType() {
-        return new CvType();
-    }
-
-    /**
-     * Create an instance of {@link MatchedFeatureListType }
-     * 
-     */
-    public MatchedFeatureListType createMatchedFeatureListType() {
-        return new MatchedFeatureListType();
-    }
-
-    /**
-     * Create an instance of {@link ProteinGroupListType }
-     * 
-     */
-    public ProteinGroupListType createProteinGroupListType() {
-        return new ProteinGroupListType();
-    }
-
-    /**
-     * Create an instance of {@link MzQuantML }
-     * 
-     */
-    public MzQuantML createMzQuantML() {
-        return new MzQuantML();
-    }
-
-    /**
-     * Create an instance of {@link StudyVariableRefsType }
-     * 
-     */
-    public StudyVariableRefsType createStudyVariableRefsType() {
-        return new StudyVariableRefsType();
-    }
-
-    /**
-     * Create an instance of {@link ProteinType }
-     * 
-     */
-    public ProteinType createProteinType() {
-        return new ProteinType();
-    }
-
-    /**
-     * Create an instance of {@link PeptideRefType }
-     * 
-     */
-    public PeptideRefType createPeptideRefType() {
-        return new PeptideRefType();
-    }
-
-    /**
-     * Create an instance of {@link CVParamType }
-     * 
-     */
-    public CVParamType createCVParamType() {
-        return new CVParamType();
-    }
-
-    /**
-     * Create an instance of {@link ProtocolListType }
-     * 
-     */
-    public ProtocolListType createProtocolListType() {
-        return new ProtocolListType();
-    }
-
-    /**
-     * Create an instance of {@link FeatureType }
-     * 
-     */
-    public FeatureType createFeatureType() {
-        return new FeatureType();
-    }
-
-    /**
-     * Create an instance of {@link RowType }
-     * 
-     */
-    public RowType createRowType() {
-        return new RowType();
+    public ColumnType createColumnType() {
+        return new ColumnType();
     }
 
     /**
@@ -280,91 +88,11 @@ private final static QName _MzQuantML_QNAME = new QName("http://psidev.info/psi/
     }
 
     /**
-     * Create an instance of {@link QuantLayerRefType }
+     * Create an instance of {@link StudyVariableType }
      * 
      */
-    public QuantLayerRefType createQuantLayerRefType() {
-        return new QuantLayerRefType();
-    }
-
-    /**
-     * Create an instance of {@link AssayListType }
-     * 
-     */
-    public AssayListType createAssayListType() {
-        return new AssayListType();
-    }
-
-    /**
-     * Create an instance of {@link ModificationType }
-     * 
-     */
-    public ModificationType createModificationType() {
-        return new ModificationType();
-    }
-
-    /**
-     * Create an instance of {@link RawFilesGroupType }
-     * 
-     */
-    public RawFilesGroupType createRawFilesGroupType() {
-        return new RawFilesGroupType();
-    }
-
-    /**
-     * Create an instance of {@link ProteinListType }
-     * 
-     */
-    public ProteinListType createProteinListType() {
-        return new ProteinListType();
-    }
-
-    /**
-     * Create an instance of {@link PeptideRefsType }
-     * 
-     */
-    public PeptideRefsType createPeptideRefsType() {
-        return new PeptideRefsType();
-    }
-
-    /**
-     * Create an instance of {@link SearchDatabaseType }
-     * 
-     */
-    public SearchDatabaseType createSearchDatabaseType() {
-        return new SearchDatabaseType();
-    }
-
-    /**
-     * Create an instance of {@link DataProcessingType }
-     * 
-     */
-    public DataProcessingType createDataProcessingType() {
-        return new DataProcessingType();
-    }
-
-    /**
-     * Create an instance of {@link AssayType }
-     * 
-     */
-    public AssayType createAssayType() {
-        return new AssayType();
-    }
-
-    /**
-     * Create an instance of {@link FeatureQuantLayerType }
-     * 
-     */
-    public FeatureQuantLayerType createFeatureQuantLayerType() {
-        return new FeatureQuantLayerType();
-    }
-
-    /**
-     * Create an instance of {@link ParamListType }
-     * 
-     */
-    public ParamListType createParamListType() {
-        return new ParamListType();
+    public StudyVariableType createStudyVariableType() {
+        return new StudyVariableType();
     }
 
     /**
@@ -384,99 +112,43 @@ private final static QName _MzQuantML_QNAME = new QName("http://psidev.info/psi/
     }
 
     /**
-     * Create an instance of {@link CvParamRefType }
+     * Create an instance of {@link CvListType }
      * 
      */
-    public CvParamRefType createCvParamRefType() {
-        return new CvParamRefType();
+    public CvListType createCvListType() {
+        return new CvListType();
     }
 
     /**
-     * Create an instance of {@link SourceFileType }
+     * Create an instance of {@link RowType }
      * 
      */
-    public SourceFileType createSourceFileType() {
-        return new SourceFileType();
+    public RowType createRowType() {
+        return new RowType();
     }
 
     /**
-     * Create an instance of {@link PeptideListType }
+     * Create an instance of {@link ModificationType }
      * 
      */
-    public PeptideListType createPeptideListType() {
-        return new PeptideListType();
+    public ModificationType createModificationType() {
+        return new ModificationType();
     }
 
     /**
-     * Create an instance of {@link AssayType.DataProcessingOrder.DataProcessingOrderElement }
+     * Create an instance of {@link GlobalQuantLayerType }
      * 
      */
-    public AssayType.DataProcessingOrder.DataProcessingOrderElement createAssayTypeDataProcessingOrderDataProcessingOrderElement() {
-        return new AssayType.DataProcessingOrder.DataProcessingOrderElement();
+    public GlobalQuantLayerType createGlobalQuantLayerType() {
+        return new GlobalQuantLayerType();
     }
 
     /**
-     * Create an instance of {@link FeatureColumnIndexType }
+     * Create an instance of {@link UserParamType }
      * 
      */
-    public FeatureColumnIndexType createFeatureColumnIndexType() {
-        return new FeatureColumnIndexType();
-    }
-
-    /**
-     * Create an instance of {@link SpectraSetType.SpectrumIdentificationItemRef }
-     * 
-     */
-    public SpectraSetType.SpectrumIdentificationItemRef createSpectraSetTypeSpectrumIdentificationItemRef() {
-        return new SpectraSetType.SpectrumIdentificationItemRef();
-    }
-
-    /**
-     * Create an instance of {@link SpectraSetsType }
-     * 
-     */
-    public SpectraSetsType createSpectraSetsType() {
-        return new SpectraSetsType();
-    }
-
-    /**
-     * Create an instance of {@link StudyVariableType }
-     * 
-     */
-    public StudyVariableType createStudyVariableType() {
-        return new StudyVariableType();
-    }
-
-    /**
-     * Create an instance of {@link StudyVariableType.AssayRef }
-     * 
-     */
-    public StudyVariableType.AssayRef createStudyVariableTypeAssayRef() {
-        return new StudyVariableType.AssayRef();
-    }
-
-    /**
-     * Create an instance of {@link FileFormatType }
-     * 
-     */
-    public FileFormatType createFileFormatType() {
-        return new FileFormatType();
-    }
-
-    /**
-     * Create an instance of {@link MatchedFeatureType }
-     * 
-     */
-    public MatchedFeatureType createMatchedFeatureType() {
-        return new MatchedFeatureType();
-    }
-
-    /**
-     * Create an instance of {@link ProteinDetectionHypothesisRefsType }
-     * 
-     */
-    public ProteinDetectionHypothesisRefsType createProteinDetectionHypothesisRefsType() {
-        return new ProteinDetectionHypothesisRefsType();
+    public UserParamType createUserParamType() {
+        return new UserParamType();
     }
 
     /**
@@ -488,11 +160,187 @@ private final static QName _MzQuantML_QNAME = new QName("http://psidev.info/psi/
     }
 
     /**
+     * Create an instance of {@link QuantLayerRefType }
+     * 
+     */
+    public QuantLayerRefType createQuantLayerRefType() {
+        return new QuantLayerRefType();
+    }
+
+    /**
+     * Create an instance of {@link ProteinDetectionHypothesisRefsType.ProteinDetectionHypothesisRef }
+     * 
+     */
+    public ProteinDetectionHypothesisRefsType.ProteinDetectionHypothesisRef createProteinDetectionHypothesisRefsTypeProteinDetectionHypothesisRef() {
+        return new ProteinDetectionHypothesisRefsType.ProteinDetectionHypothesisRef();
+    }
+
+    /**
+     * Create an instance of {@link ProcessingMethodType }
+     * 
+     */
+    public ProcessingMethodType createProcessingMethodType() {
+        return new ProcessingMethodType();
+    }
+
+    /**
+     * Create an instance of {@link FeatureType }
+     * 
+     */
+    public FeatureType createFeatureType() {
+        return new FeatureType();
+    }
+
+    /**
+     * Create an instance of {@link InputFilesType }
+     * 
+     */
+    public InputFilesType createInputFilesType() {
+        return new InputFilesType();
+    }
+
+    /**
+     * Create an instance of {@link SmallMoleculeType }
+     * 
+     */
+    public SmallMoleculeType createSmallMoleculeType() {
+        return new SmallMoleculeType();
+    }
+
+    /**
+     * Create an instance of {@link MzQuantML }
+     * 
+     */
+    public MzQuantML createMzQuantML() {
+        return new MzQuantML();
+    }
+
+    /**
+     * Create an instance of {@link SmallMoleculeListType }
+     * 
+     */
+    public SmallMoleculeListType createSmallMoleculeListType() {
+        return new SmallMoleculeListType();
+    }
+
+    /**
+     * Create an instance of {@link RawFilesGroupType }
+     * 
+     */
+    public RawFilesGroupType createRawFilesGroupType() {
+        return new RawFilesGroupType();
+    }
+
+    /**
+     * Create an instance of {@link SoftwareListType }
+     * 
+     */
+    public SoftwareListType createSoftwareListType() {
+        return new SoftwareListType();
+    }
+
+    /**
+     * Create an instance of {@link AssayType }
+     * 
+     */
+    public AssayType createAssayType() {
+        return new AssayType();
+    }
+
+    /**
      * Create an instance of {@link StudyVariableListType }
      * 
      */
     public StudyVariableListType createStudyVariableListType() {
         return new StudyVariableListType();
+    }
+
+    /**
+     * Create an instance of {@link DataMatrixType }
+     * 
+     */
+    public DataMatrixType createDataMatrixType() {
+        return new DataMatrixType();
+    }
+
+    /**
+     * Create an instance of {@link SoftwareType }
+     * 
+     */
+    public SoftwareType createSoftwareType() {
+        return new SoftwareType();
+    }
+
+    /**
+     * Create an instance of {@link ExternalDataType }
+     * 
+     */
+    public ExternalDataType createExternalDataType() {
+        return new ExternalDataType();
+    }
+
+    /**
+     * Create an instance of {@link IdentificationRefType }
+     * 
+     */
+    public IdentificationRefType createIdentificationRefType() {
+        return new IdentificationRefType();
+    }
+
+    /**
+     * Create an instance of {@link ProteinGroupType }
+     * 
+     */
+    public ProteinGroupType createProteinGroupType() {
+        return new ProteinGroupType();
+    }
+
+    /**
+     * Create an instance of {@link ProteinDetectionHypothesisRefsType }
+     * 
+     */
+    public ProteinDetectionHypothesisRefsType createProteinDetectionHypothesisRefsType() {
+        return new ProteinDetectionHypothesisRefsType();
+    }
+
+    /**
+     * Create an instance of {@link ProteinListType }
+     * 
+     */
+    public ProteinListType createProteinListType() {
+        return new ProteinListType();
+    }
+
+    /**
+     * Create an instance of {@link ProteinGroupListType }
+     * 
+     */
+    public ProteinGroupListType createProteinGroupListType() {
+        return new ProteinGroupListType();
+    }
+
+    /**
+     * Create an instance of {@link IdentificationFilesType }
+     * 
+     */
+    public IdentificationFilesType createIdentificationFilesType() {
+        return new IdentificationFilesType();
+    }
+
+    /**
+     * Create an instance of {@link RatioListType }
+     * 
+     */
+    public RatioListType createRatioListType() {
+        return new RatioListType();
+    }
+
+    /**
+     * Create an instance of {@link MatchedFeatureType }
+     * 
+     */
+    public MatchedFeatureType createMatchedFeatureType() {
+        return new MatchedFeatureType();
     }
 
     /**
@@ -504,13 +352,141 @@ private final static QName _MzQuantML_QNAME = new QName("http://psidev.info/psi/
     }
 
     /**
-     * Create an instance of {@link DataMatrixType }
+     * Create an instance of {@link SmallMolModificationType }
      * 
      */
-    public DataMatrixType createDataMatrixType() {
-        return new DataMatrixType();
+    public SmallMolModificationType createSmallMolModificationType() {
+        return new SmallMolModificationType();
     }
 
+    /**
+     * Create an instance of {@link ModParamType }
+     * 
+     */
+    public ModParamType createModParamType() {
+        return new ModParamType();
+    }
+
+    /**
+     * Create an instance of {@link SearchDatabaseType }
+     * 
+     */
+    public SearchDatabaseType createSearchDatabaseType() {
+        return new SearchDatabaseType();
+    }
+
+    /**
+     * Create an instance of {@link MatchedFeatureListType }
+     * 
+     */
+    public MatchedFeatureListType createMatchedFeatureListType() {
+        return new MatchedFeatureListType();
+    }
+
+    /**
+     * Create an instance of {@link FileFormatType }
+     * 
+     */
+    public FileFormatType createFileFormatType() {
+        return new FileFormatType();
+    }
+
+    /**
+     * Create an instance of {@link AssayListType }
+     * 
+     */
+    public AssayListType createAssayListType() {
+        return new AssayListType();
+    }
+
+    /**
+     * Create an instance of {@link CVParamType }
+     * 
+     */
+    public CVParamType createCVParamType() {
+        return new CVParamType();
+    }
+
+    /**
+     * Create an instance of {@link PeptideListType }
+     * 
+     */
+    public PeptideListType createPeptideListType() {
+        return new PeptideListType();
+    }
+
+    /**
+     * Create an instance of {@link CvType }
+     * 
+     */
+    public CvType createCvType() {
+        return new CvType();
+    }
+
+    /**
+     * Create an instance of {@link AnalysisSummaryType }
+     * 
+     */
+    public AnalysisSummaryType createAnalysisSummaryType() {
+        return new AnalysisSummaryType();
+    }
+
+    /**
+     * Create an instance of {@link DBIdentificationRefType }
+     * 
+     */
+    public DBIdentificationRefType createDBIdentificationRefType() {
+        return new DBIdentificationRefType();
+    }
+
+    /**
+     * Create an instance of {@link ProteinType }
+     * 
+     */
+    public ProteinType createProteinType() {
+        return new ProteinType();
+    }
+
+    /**
+     * Create an instance of {@link ParamListType }
+     * 
+     */
+    public ParamListType createParamListType() {
+        return new ParamListType();
+    }
+
+    /**
+     * Create an instance of {@link ColumnIndexType }
+     * 
+     */
+    public ColumnIndexType createColumnIndexType() {
+        return new ColumnIndexType();
+    }
+
+    /**
+     * Create an instance of {@link DataProcessingType }
+     * 
+     */
+    public DataProcessingType createDataProcessingType() {
+        return new DataProcessingType();
+    }
+
+    /**
+     * Create an instance of {@link IdentificationFileType }
+     * 
+     */
+    public IdentificationFileType createIdentificationFileType() {
+        return new IdentificationFileType();
+    }
+
+    /**
+     * Create an instance of {@link CvParamRefType }
+     * 
+     */
+    public CvParamRefType createCvParamRefType() {
+        return new CvParamRefType();
+    }
+    
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link MzQuantML }{@code >}}
      * 
