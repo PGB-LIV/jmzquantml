@@ -31,7 +31,7 @@ import javax.xml.namespace.QName;
 @XmlRegistry
 public class ObjectFactory {
 
-private final static QName _MzQuantML_QNAME = new QName("http://psidev.info/psi/pi/mzQuantML/0.1", "mzQuantML"); 
+private final static QName _MzQuantML_QNAME = new QName("http://psidev.info/psi/pi/mzQuantML/0.1", "MzQuantML"); 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: info.psidev.psi.pi.mzquantml._0
      * 
@@ -491,7 +491,7 @@ private final static QName _MzQuantML_QNAME = new QName("http://psidev.info/psi/
      * Create an instance of {@link JAXBElement }{@code <}{@link MzQuantML }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://psidev.info/psi/pi/mzQuantML/0.1", name = "mzQuantML")
+    @XmlElementDecl(namespace = "http://psidev.info/psi/pi/mzQuantML/0.1", name = "MzQuantML")
     public JAXBElement<MzQuantML> createMzQuantML(MzQuantML value) {
         return new JAXBElement<MzQuantML>(_MzQuantML_QNAME, MzQuantML.class, null, value);
     }
