@@ -10,24 +10,24 @@ package info.psidev.psi.pi.mzquantml._0;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlIDREF;
+import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * Helper complexType to include one cvParam as a sub-element
+ * The containing organization (the university or business which a lab belongs to, etc.) 
  * 
- * <p>Java class for cvParamRefType complex type.
+ * <p>Java class for ParentOrganizationType complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="cvParamRefType">
+ * &lt;complexType name="ParentOrganizationType">
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;sequence>
- *         &lt;element name="cvParam" type="{http://psidev.info/psi/pi/mzQuantML/0.1}CVParamType"/>
- *       &lt;/sequence>
+ *       &lt;attribute name="organization_ref" use="required" type="{http://www.w3.org/2001/XMLSchema}IDREF" />
  *     &lt;/restriction>
  *   &lt;/complexContent>
  * &lt;/complexType>
@@ -36,36 +36,36 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "cvParamRefType", propOrder = {
-    "cvParam"
-})
-public class CvParamRefType {
+@XmlType(name = "ParentOrganizationType")
+public class ParentOrganizationType {
 
-    @XmlElement(required = true)
-    protected CVParamType cvParam;
+    @XmlAttribute(name = "organization_ref", required = true)
+    @XmlIDREF
+    @XmlSchemaType(name = "IDREF")
+    protected Object organizationRef;
 
     /**
-     * Gets the value of the cvParam property.
+     * Gets the value of the organizationRef property.
      * 
      * @return
      *     possible object is
-     *     {@link CVParamType }
+     *     {@link Object }
      *     
      */
-    public CVParamType getCvParam() {
-        return cvParam;
+    public Object getOrganizationRef() {
+        return organizationRef;
     }
 
     /**
-     * Sets the value of the cvParam property.
+     * Sets the value of the organizationRef property.
      * 
      * @param value
      *     allowed object is
-     *     {@link CVParamType }
+     *     {@link Object }
      *     
      */
-    public void setCvParam(CVParamType value) {
-        this.cvParam = value;
+    public void setOrganizationRef(Object value) {
+        this.organizationRef = value;
     }
 
 }
