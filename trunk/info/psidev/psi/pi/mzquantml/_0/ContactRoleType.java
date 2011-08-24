@@ -11,24 +11,29 @@ package info.psidev.psi.pi.mzquantml._0;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlIDREF;
 import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * A reference to an object identified in the SearchDatabase object defined in this file.
+ * The role that a Contact plays in an organization or with respect to the associating class. A Contact may have several Roles within scope, and as such,
+ * 				associations to ContactRole allow the use of a Contact in a certain manner. Examples
+ * 				might include a provider, or a data analyst. 
  * 
- * <p>Java class for DBIdentificationRefType complex type.
+ * <p>Java class for ContactRoleType complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="DBIdentificationRefType">
+ * &lt;complexType name="ContactRoleType">
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;attribute name="id_ref" use="required" type="{http://www.w3.org/2001/XMLSchema}string" />
- *       &lt;attribute name="SearchDatabase_ref" use="required" type="{http://www.w3.org/2001/XMLSchema}IDREF" />
+ *       &lt;sequence>
+ *         &lt;element name="Role" type="{http://psidev.info/psi/pi/mzQuantML/0.1}RoleType"/>
+ *       &lt;/sequence>
+ *       &lt;attribute name="contact_ref" use="required" type="{http://www.w3.org/2001/XMLSchema}IDREF" />
  *     &lt;/restriction>
  *   &lt;/complexContent>
  * &lt;/complexType>
@@ -37,62 +42,64 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "DBIdentificationRefType")
-public class DBIdentificationRefType {
+@XmlType(name = "ContactRoleType", propOrder = {
+    "role"
+})
+public class ContactRoleType {
 
-    @XmlAttribute(name = "id_ref", required = true)
-    protected String idRef;
-    @XmlAttribute(name = "SearchDatabase_ref", required = true)
+    @XmlElement(name = "Role", required = true)
+    protected RoleType role;
+    @XmlAttribute(name = "contact_ref", required = true)
     @XmlIDREF
     @XmlSchemaType(name = "IDREF")
-    protected Object searchDatabaseRef;
+    protected Object contactRef;
 
     /**
-     * Gets the value of the idRef property.
+     * Gets the value of the role property.
      * 
      * @return
      *     possible object is
-     *     {@link String }
+     *     {@link RoleType }
      *     
      */
-    public String getIdRef() {
-        return idRef;
+    public RoleType getRole() {
+        return role;
     }
 
     /**
-     * Sets the value of the idRef property.
+     * Sets the value of the role property.
      * 
      * @param value
      *     allowed object is
-     *     {@link String }
+     *     {@link RoleType }
      *     
      */
-    public void setIdRef(String value) {
-        this.idRef = value;
+    public void setRole(RoleType value) {
+        this.role = value;
     }
 
     /**
-     * Gets the value of the searchDatabaseRef property.
+     * Gets the value of the contactRef property.
      * 
      * @return
      *     possible object is
      *     {@link Object }
      *     
      */
-    public Object getSearchDatabaseRef() {
-        return searchDatabaseRef;
+    public Object getContactRef() {
+        return contactRef;
     }
 
     /**
-     * Sets the value of the searchDatabaseRef property.
+     * Sets the value of the contactRef property.
      * 
      * @param value
      *     allowed object is
      *     {@link Object }
      *     
      */
-    public void setSearchDatabaseRef(Object value) {
-        this.searchDatabaseRef = value;
+    public void setContactRef(Object value) {
+        this.contactRef = value;
     }
 
 }

@@ -15,20 +15,20 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * Helper complexType to include one cvParam as a sub-element
+ * Organizations are entities like companies, universities, government agencies. Any additional information such as the address, email etc. should be supplied either as CV parameters or as user parameters. 
  * 
- * <p>Java class for cvParamRefType complex type.
+ * <p>Java class for OrganizationType complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="cvParamRefType">
+ * &lt;complexType name="OrganizationType">
  *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+ *     &lt;extension base="{http://psidev.info/psi/pi/mzQuantML/0.1}AbstractContactType">
  *       &lt;sequence>
- *         &lt;element name="cvParam" type="{http://psidev.info/psi/pi/mzQuantML/0.1}CVParamType"/>
+ *         &lt;element name="Parent" type="{http://psidev.info/psi/pi/mzQuantML/0.1}ParentOrganizationType" minOccurs="0"/>
  *       &lt;/sequence>
- *     &lt;/restriction>
+ *     &lt;/extension>
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
@@ -36,36 +36,38 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "cvParamRefType", propOrder = {
-    "cvParam"
+@XmlType(name = "OrganizationType", propOrder = {
+    "parent"
 })
-public class CvParamRefType {
+public class OrganizationType
+    extends AbstractContactType
+{
 
-    @XmlElement(required = true)
-    protected CVParamType cvParam;
+    @XmlElement(name = "Parent")
+    protected ParentOrganizationType parent;
 
     /**
-     * Gets the value of the cvParam property.
+     * Gets the value of the parent property.
      * 
      * @return
      *     possible object is
-     *     {@link CVParamType }
+     *     {@link ParentOrganizationType }
      *     
      */
-    public CVParamType getCvParam() {
-        return cvParam;
+    public ParentOrganizationType getParent() {
+        return parent;
     }
 
     /**
-     * Sets the value of the cvParam property.
+     * Sets the value of the parent property.
      * 
      * @param value
      *     allowed object is
-     *     {@link CVParamType }
+     *     {@link ParentOrganizationType }
      *     
      */
-    public void setCvParam(CVParamType value) {
-        this.cvParam = value;
+    public void setParent(ParentOrganizationType value) {
+        this.parent = value;
     }
 
 }

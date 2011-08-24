@@ -15,14 +15,15 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * Helper complexType to include one cvParam as a sub-element
+ * The roles (lab equipment sales, contractor, etc.) the Contact fills.
+ * 			
  * 
- * <p>Java class for cvParamRefType complex type.
+ * <p>Java class for RoleType complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="cvParamRefType">
+ * &lt;complexType name="RoleType">
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
@@ -36,10 +37,10 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "cvParamRefType", propOrder = {
+@XmlType(name = "RoleType", propOrder = {
     "cvParam"
 })
-public class CvParamRefType {
+public class RoleType {
 
     @XmlElement(required = true)
     protected CVParamType cvParam;
