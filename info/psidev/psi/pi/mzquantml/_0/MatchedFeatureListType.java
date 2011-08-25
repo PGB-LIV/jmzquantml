@@ -23,18 +23,18 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 
 /**
- * The list of all individual proteins (i.e. ungrouped) for which quantification values are being reported. If quantification is done on protein groups, the constituent proteins should be listed here with no QuantLayers.
+ * A list of MatchedFeature elements produced from a single feature matching process, such as global alignment of LC-MS runs in label free mode, or SILAC pairing etc. 
  * 
- * <p>Java class for ProteinListType complex type.
+ * <p>Java class for MatchedFeatureListType complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="ProteinListType">
+ * &lt;complexType name="MatchedFeatureListType">
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="Protein" type="{http://psidev.info/psi/pi/mzQuantML/0.1}ProteinType" maxOccurs="unbounded" minOccurs="0"/>
+ *         &lt;element name="MatchedFeature" type="{http://psidev.info/psi/pi/mzQuantML/0.1}MatchedFeatureType" maxOccurs="unbounded"/>
  *         &lt;element name="GlobalQuantLayer" type="{http://psidev.info/psi/pi/mzQuantML/0.1}GlobalQuantLayerType" maxOccurs="unbounded" minOccurs="0"/>
  *         &lt;element name="AssayQuantLayer" type="{http://psidev.info/psi/pi/mzQuantML/0.1}QuantLayerType" maxOccurs="unbounded" minOccurs="0"/>
  *         &lt;element name="StudyVariableQuantLayer" type="{http://psidev.info/psi/pi/mzQuantML/0.1}QuantLayerType" maxOccurs="unbounded" minOccurs="0"/>
@@ -50,18 +50,18 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "ProteinListType", propOrder = {
-    "protein",
+@XmlType(name = "MatchedFeatureListType", propOrder = {
+    "matchedFeature",
     "globalQuantLayer",
     "assayQuantLayer",
     "studyVariableQuantLayer",
     "ratioQuantLayer",
     "paramGroup"
 })
-public class ProteinListType {
+public class MatchedFeatureListType {
 
-    @XmlElement(name = "Protein")
-    protected List<ProteinType> protein;
+    @XmlElement(name = "MatchedFeature", required = true)
+    protected List<MatchedFeatureType> matchedFeature;
     @XmlElement(name = "GlobalQuantLayer")
     protected List<GlobalQuantLayerType> globalQuantLayer;
     @XmlElement(name = "AssayQuantLayer")
@@ -71,8 +71,8 @@ public class ProteinListType {
     @XmlElement(name = "RatioQuantLayer")
     protected List<QuantLayerType> ratioQuantLayer;
     @XmlElements({
-        @XmlElement(name = "cvParam", type = CVParamType.class),
-        @XmlElement(name = "userParam", type = UserParamType.class)
+        @XmlElement(name = "userParam", type = UserParamType.class),
+        @XmlElement(name = "cvParam", type = CVParamType.class)
     })
     protected List<AbstractParamType> paramGroup;
     @XmlAttribute(required = true)
@@ -82,32 +82,32 @@ public class ProteinListType {
     protected String id;
 
     /**
-     * Gets the value of the protein property.
+     * Gets the value of the matchedFeature property.
      * 
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the protein property.
+     * This is why there is not a <CODE>set</CODE> method for the matchedFeature property.
      * 
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
-     *    getProtein().add(newItem);
+     *    getMatchedFeature().add(newItem);
      * </pre>
      * 
      * 
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link ProteinType }
+     * {@link MatchedFeatureType }
      * 
      * 
      */
-    public List<ProteinType> getProtein() {
-        if (protein == null) {
-            protein = new ArrayList<ProteinType>();
+    public List<MatchedFeatureType> getMatchedFeature() {
+        if (matchedFeature == null) {
+            matchedFeature = new ArrayList<MatchedFeatureType>();
         }
-        return this.protein;
+        return this.matchedFeature;
     }
 
     /**
@@ -244,8 +244,8 @@ public class ProteinListType {
      * 
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link CVParamType }
      * {@link UserParamType }
+     * {@link CVParamType }
      * 
      * 
      */

@@ -16,6 +16,8 @@ import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlElements;
 import javax.xml.bind.annotation.XmlID;
+import javax.xml.bind.annotation.XmlIDREF;
+import javax.xml.bind.annotation.XmlList;
 import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
 import javax.xml.bind.annotation.adapters.CollapsedStringAdapter;
@@ -23,22 +25,21 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 
 /**
- * The list of all peptides objects for which quantification values are reported.
+ * An element identifying a peptide by its sequence and modifications for which quantitative values are represented.
  * 
- * <p>Java class for PeptideListType complex type.
+ * <p>Java class for PeptideType complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="PeptideListType">
+ * &lt;complexType name="PeptideType">
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="Peptide" type="{http://psidev.info/psi/pi/mzQuantML/0.1}PeptideType" maxOccurs="unbounded"/>
- *         &lt;element name="GlobalQuantLayer" type="{http://psidev.info/psi/pi/mzQuantML/0.1}GlobalQuantLayerType" maxOccurs="unbounded" minOccurs="0"/>
- *         &lt;element name="AssayQuantLayer" type="{http://psidev.info/psi/pi/mzQuantML/0.1}QuantLayerType" maxOccurs="unbounded" minOccurs="0"/>
- *         &lt;element name="StudyVariableQuantLayer" type="{http://psidev.info/psi/pi/mzQuantML/0.1}QuantLayerType" maxOccurs="unbounded" minOccurs="0"/>
- *         &lt;element name="RatioQuantLayer" type="{http://psidev.info/psi/pi/mzQuantML/0.1}QuantLayerType" maxOccurs="unbounded" minOccurs="0"/>
+ *         &lt;element name="PeptideSequence" type="{http://psidev.info/psi/pi/mzQuantML/0.1}sequence"/>
+ *         &lt;element name="Modification" type="{http://psidev.info/psi/pi/mzQuantML/0.1}ModificationType" maxOccurs="unbounded" minOccurs="0"/>
+ *         &lt;element name="IdentificationRef" type="{http://psidev.info/psi/pi/mzQuantML/0.1}IdentificationRefType" maxOccurs="unbounded" minOccurs="0"/>
+ *         &lt;element name="MatchedFeature_refs" type="{http://www.w3.org/2001/XMLSchema}IDREFS" minOccurs="0"/>
  *         &lt;group ref="{http://psidev.info/psi/pi/mzQuantML/0.1}ParamGroup" maxOccurs="unbounded" minOccurs="0"/>
  *       &lt;/sequence>
  *       &lt;attribute name="id" use="required" type="{http://www.w3.org/2001/XMLSchema}ID" />
@@ -50,26 +51,26 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "PeptideListType", propOrder = {
-    "peptide",
-    "globalQuantLayer",
-    "assayQuantLayer",
-    "studyVariableQuantLayer",
-    "ratioQuantLayer",
+@XmlType(name = "PeptideType", propOrder = {
+    "peptideSequence",
+    "modification",
+    "identificationRef",
+    "matchedFeatureRefs",
     "paramGroup"
 })
-public class PeptideListType {
+public class PeptideType {
 
-    @XmlElement(name = "Peptide", required = true)
-    protected List<PeptideType> peptide;
-    @XmlElement(name = "GlobalQuantLayer")
-    protected List<GlobalQuantLayerType> globalQuantLayer;
-    @XmlElement(name = "AssayQuantLayer")
-    protected List<QuantLayerType> assayQuantLayer;
-    @XmlElement(name = "StudyVariableQuantLayer")
-    protected List<QuantLayerType> studyVariableQuantLayer;
-    @XmlElement(name = "RatioQuantLayer")
-    protected List<QuantLayerType> ratioQuantLayer;
+    @XmlElement(name = "PeptideSequence", required = true)
+    protected String peptideSequence;
+    @XmlElement(name = "Modification")
+    protected List<ModificationType> modification;
+    @XmlElement(name = "IdentificationRef")
+    protected List<IdentificationRefType> identificationRef;
+    @XmlList
+    @XmlElement(name = "MatchedFeature_refs")
+    @XmlIDREF
+    @XmlSchemaType(name = "IDREFS")
+    protected List<Object> matchedFeatureRefs;
     @XmlElements({
         @XmlElement(name = "userParam", type = UserParamType.class),
         @XmlElement(name = "cvParam", type = CVParamType.class)
@@ -82,152 +83,118 @@ public class PeptideListType {
     protected String id;
 
     /**
-     * Gets the value of the peptide property.
+     * Gets the value of the peptideSequence property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getPeptideSequence() {
+        return peptideSequence;
+    }
+
+    /**
+     * Sets the value of the peptideSequence property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setPeptideSequence(String value) {
+        this.peptideSequence = value;
+    }
+
+    /**
+     * Gets the value of the modification property.
      * 
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the peptide property.
+     * This is why there is not a <CODE>set</CODE> method for the modification property.
      * 
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
-     *    getPeptide().add(newItem);
+     *    getModification().add(newItem);
      * </pre>
      * 
      * 
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link PeptideType }
+     * {@link ModificationType }
      * 
      * 
      */
-    public List<PeptideType> getPeptide() {
-        if (peptide == null) {
-            peptide = new ArrayList<PeptideType>();
+    public List<ModificationType> getModification() {
+        if (modification == null) {
+            modification = new ArrayList<ModificationType>();
         }
-        return this.peptide;
+        return this.modification;
     }
 
     /**
-     * Gets the value of the globalQuantLayer property.
+     * Gets the value of the identificationRef property.
      * 
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the globalQuantLayer property.
+     * This is why there is not a <CODE>set</CODE> method for the identificationRef property.
      * 
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
-     *    getGlobalQuantLayer().add(newItem);
+     *    getIdentificationRef().add(newItem);
      * </pre>
      * 
      * 
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link GlobalQuantLayerType }
+     * {@link IdentificationRefType }
      * 
      * 
      */
-    public List<GlobalQuantLayerType> getGlobalQuantLayer() {
-        if (globalQuantLayer == null) {
-            globalQuantLayer = new ArrayList<GlobalQuantLayerType>();
+    public List<IdentificationRefType> getIdentificationRef() {
+        if (identificationRef == null) {
+            identificationRef = new ArrayList<IdentificationRefType>();
         }
-        return this.globalQuantLayer;
+        return this.identificationRef;
     }
 
     /**
-     * Gets the value of the assayQuantLayer property.
+     * Gets the value of the matchedFeatureRefs property.
      * 
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the assayQuantLayer property.
+     * This is why there is not a <CODE>set</CODE> method for the matchedFeatureRefs property.
      * 
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
-     *    getAssayQuantLayer().add(newItem);
+     *    getMatchedFeatureRefs().add(newItem);
      * </pre>
      * 
      * 
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link QuantLayerType }
+     * {@link Object }
      * 
      * 
      */
-    public List<QuantLayerType> getAssayQuantLayer() {
-        if (assayQuantLayer == null) {
-            assayQuantLayer = new ArrayList<QuantLayerType>();
+    public List<Object> getMatchedFeatureRefs() {
+        if (matchedFeatureRefs == null) {
+            matchedFeatureRefs = new ArrayList<Object>();
         }
-        return this.assayQuantLayer;
+        return this.matchedFeatureRefs;
     }
 
     /**
-     * Gets the value of the studyVariableQuantLayer property.
-     * 
-     * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the studyVariableQuantLayer property.
-     * 
-     * <p>
-     * For example, to add a new item, do as follows:
-     * <pre>
-     *    getStudyVariableQuantLayer().add(newItem);
-     * </pre>
-     * 
-     * 
-     * <p>
-     * Objects of the following type(s) are allowed in the list
-     * {@link QuantLayerType }
-     * 
-     * 
-     */
-    public List<QuantLayerType> getStudyVariableQuantLayer() {
-        if (studyVariableQuantLayer == null) {
-            studyVariableQuantLayer = new ArrayList<QuantLayerType>();
-        }
-        return this.studyVariableQuantLayer;
-    }
-
-    /**
-     * Gets the value of the ratioQuantLayer property.
-     * 
-     * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the ratioQuantLayer property.
-     * 
-     * <p>
-     * For example, to add a new item, do as follows:
-     * <pre>
-     *    getRatioQuantLayer().add(newItem);
-     * </pre>
-     * 
-     * 
-     * <p>
-     * Objects of the following type(s) are allowed in the list
-     * {@link QuantLayerType }
-     * 
-     * 
-     */
-    public List<QuantLayerType> getRatioQuantLayer() {
-        if (ratioQuantLayer == null) {
-            ratioQuantLayer = new ArrayList<QuantLayerType>();
-        }
-        return this.ratioQuantLayer;
-    }
-
-    /**
-     * CV terms for the entire list.Gets the value of the paramGroup property.
+     * Additional parameters or values about this peptide.Gets the value of the paramGroup property.
      * 
      * <p>
      * This accessor method returns a reference to the live list,
