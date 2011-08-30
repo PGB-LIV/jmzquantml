@@ -18,18 +18,18 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * Helper type to allow multiple cvParams or userParams to be given for an element.
+ * A raw mass spectrometry output file that has been analysed e.g. in mzML format. The same raw file can be referenced in multiple assays, for example if it contains multiple samples differentially labelled or tagged. Note, the name raw file does not necessarily imply that the file has not been processed, since in some quant methods, processed peak list formats such as MGF or dta can be used, which could be referenced here.  
  * 
- * <p>Java class for ParamListType complex type.
+ * <p>Java class for RawFileType complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="ParamListType">
+ * &lt;complexType name="RawFileType">
  *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;group ref="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc1}ParamGroup" maxOccurs="unbounded"/>
- *     &lt;/restriction>
+ *     &lt;extension base="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc1}ExternalDataType">
+ *       &lt;group ref="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc1}ParamGroup" maxOccurs="unbounded" minOccurs="0"/>
+ *     &lt;/extension>
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
@@ -37,10 +37,12 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "ParamListType", propOrder = {
+@XmlType(name = "RawFileType", propOrder = {
     "paramGroup"
 })
-public class ParamListType {
+public class RawFileType
+    extends ExternalDataType
+{
 
     @XmlElements({
         @XmlElement(name = "cvParam", type = CVParamType.class),
@@ -49,7 +51,7 @@ public class ParamListType {
     protected List<AbstractParamType> paramGroup;
 
     /**
-     * Gets the value of the paramGroup property.
+     * Additional parameters about the raw file.Gets the value of the paramGroup property.
      * 
      * <p>
      * This accessor method returns a reference to the live list,
