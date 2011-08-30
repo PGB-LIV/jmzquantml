@@ -8,8 +8,10 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.Writer;
 import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBElement;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
+import javax.xml.namespace.QName;
 
 /**
  * Class for writing out whole mzQuantML objects.
@@ -56,7 +58,9 @@ public class MzQuantMLMarshaller {
     public void marshall(MzQuantMLType mzQuantML) {
         try {
             if (this.fw != null) {
-                this.marsh.marshal(mzQuantML, this.fw);
+                JAXBElement<MzQuantMLType> jaxbElement = new JAXBElement<MzQuantMLType>(new QName(null, "MzQuantMLType"), MzQuantMLType.class, mzQuantML);
+                this.marsh.marshal(jaxbElement, this.fw);
+                //this.marsh.marshal(mzQuantML, this.fw);
                 this.fw.flush();
                 this.fw.close();
             }
