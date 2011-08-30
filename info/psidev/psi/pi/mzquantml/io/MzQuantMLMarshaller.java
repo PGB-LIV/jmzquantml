@@ -3,7 +3,7 @@
  */
 package info.psidev.psi.pi.mzquantml.io;
 
-import info.psidev.psi.pi.mzquantml._0.MzQuantML;
+import info.psidev.psi.pi.mzquantml._1_0.MzQuantMLType;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.Writer;
@@ -36,7 +36,7 @@ public class MzQuantMLMarshaller {
         }
 
         try {
-            JAXBContext context = JAXBContext.newInstance(MzQuantML.class);
+            JAXBContext context = JAXBContext.newInstance(MzQuantMLType.class);
             this.marsh = context.createMarshaller();
 
             this.marsh.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
@@ -53,7 +53,7 @@ public class MzQuantMLMarshaller {
      * Marshalling of a whole MzQuantML object.
      * @param mzQuantML
      */
-    public void marshall(MzQuantML mzQuantML) {
+    public void marshall(MzQuantMLType mzQuantML) {
         try {
             if (this.fw != null) {
                 this.marsh.marshal(mzQuantML, this.fw);
