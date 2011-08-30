@@ -3,7 +3,7 @@
  */
 package info.psidev.psi.pi.mzquantml.io;
 
-import info.psidev.psi.pi.mzquantml._0.MzQuantML;
+import info.psidev.psi.pi.mzquantml._1_0.MzQuantMLType;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.Reader;
@@ -37,7 +37,7 @@ public class MzQuantMLUnmarshaller {
         }
 
         try {
-            JAXBContext context = JAXBContext.newInstance(new Class[] { MzQuantML.class});
+            JAXBContext context = JAXBContext.newInstance(new Class[] { MzQuantMLType.class});
             this.unmarsh = context.createUnmarshaller();
             this.unmarsh.setEventHandler(new DefaultValidationEventHandler());
             //this.unmarsh.setValidating(true);
@@ -49,14 +49,14 @@ public class MzQuantMLUnmarshaller {
 
     /**
      * Unmarshalling of a whole MzQuantML object.
-     * @return MzQuantML
+     * @return MzQuantMLType
      */
-    public MzQuantML unmarshall() {
-        MzQuantML mzQuantML = null;
+    public MzQuantMLType unmarshall() {
+        MzQuantMLType mzQuantML = null;
 
         try {
             if (this.fr != null) {
-                mzQuantML = (MzQuantML) this.unmarsh.unmarshal(this.fr);
+                mzQuantML = (MzQuantMLType) this.unmarsh.unmarshal(this.fr);
                 this.fr.close();
             }
         }
