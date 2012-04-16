@@ -14,14 +14,14 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * A file from which this MzQuantML instance was created, including potentially MzQuantML files for earlier stages in a workflow.
+ * A single methods file associated with this analysis e.g. a TraML file used for SRM analysis.
  * 
- * <p>Java class for SourceFileType complex type.
+ * <p>Java class for MethodFileType complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="SourceFileType">
+ * &lt;complexType name="MethodFileType">
  *   &lt;complexContent>
  *     &lt;extension base="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc1}ExternalDataType">
  *     &lt;/extension>
@@ -32,8 +32,8 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "SourceFileType")
-public class SourceFileType
+@XmlType(name = "MethodFileType")
+public class MethodFileType
     extends ExternalDataType
 {
 
