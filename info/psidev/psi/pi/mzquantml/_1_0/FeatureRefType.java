@@ -12,25 +12,25 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlIDREF;
+import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * A specification of labels or tags used to define the assay within the raw file, such as heavy labelling or iTRAQ tag mass.
+ * A reference to the Feature that has been identified as this peptide.
  * 
- * <p>Java class for LabelType complex type.
+ * <p>Java class for FeatureRefType complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="LabelType">
+ * &lt;complexType name="FeatureRefType">
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;sequence>
- *         &lt;element name="cvParam" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc1}CVParamType" minOccurs="0"/>
- *         &lt;element name="Modification" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc1}ModParamType" maxOccurs="unbounded"/>
- *       &lt;/sequence>
+ *       &lt;attribute name="feature_ref" use="required" type="{http://www.w3.org/2001/XMLSchema}IDREF" />
+ *       &lt;attribute name="assay_refs" use="required" type="{http://www.w3.org/2001/XMLSchema}IDREFS" />
  *     &lt;/restriction>
  *   &lt;/complexContent>
  * &lt;/complexType>
@@ -39,67 +39,69 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "LabelType", propOrder = {
-    "cvParam",
-    "modification"
-})
-public class LabelType {
+@XmlType(name = "FeatureRefType")
+public class FeatureRefType {
 
-    protected CVParamType cvParam;
-    @XmlElement(name = "Modification", required = true)
-    protected List<ModParamType> modification;
+    @XmlAttribute(name = "feature_ref", required = true)
+    @XmlIDREF
+    @XmlSchemaType(name = "IDREF")
+    protected Object featureRef;
+    @XmlAttribute(name = "assay_refs", required = true)
+    @XmlIDREF
+    @XmlSchemaType(name = "IDREFS")
+    protected List<Object> assayRefs;
 
     /**
-     * Gets the value of the cvParam property.
+     * Gets the value of the featureRef property.
      * 
      * @return
      *     possible object is
-     *     {@link CVParamType }
+     *     {@link Object }
      *     
      */
-    public CVParamType getCvParam() {
-        return cvParam;
+    public Object getFeatureRef() {
+        return featureRef;
     }
 
     /**
-     * Sets the value of the cvParam property.
+     * Sets the value of the featureRef property.
      * 
      * @param value
      *     allowed object is
-     *     {@link CVParamType }
+     *     {@link Object }
      *     
      */
-    public void setCvParam(CVParamType value) {
-        this.cvParam = value;
+    public void setFeatureRef(Object value) {
+        this.featureRef = value;
     }
 
     /**
-     * Gets the value of the modification property.
+     * Gets the value of the assayRefs property.
      * 
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the modification property.
+     * This is why there is not a <CODE>set</CODE> method for the assayRefs property.
      * 
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
-     *    getModification().add(newItem);
+     *    getAssayRefs().add(newItem);
      * </pre>
      * 
      * 
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link ModParamType }
+     * {@link Object }
      * 
      * 
      */
-    public List<ModParamType> getModification() {
-        if (modification == null) {
-            modification = new ArrayList<ModParamType>();
+    public List<Object> getAssayRefs() {
+        if (assayRefs == null) {
+            assayRefs = new ArrayList<Object>();
         }
-        return this.modification;
+        return this.assayRefs;
     }
 
 }
