@@ -12,27 +12,24 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * A small molecule modification specification, given by cvParams.
+ * Summary information about the analysis in terms of the type of analysis, any global scores or metrics and global thresholds used.
  * 
- * <p>Java class for SmallMolModificationType complex type.
+ * <p>Java class for AnalysisSummaryType complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="SmallMolModificationType">
+ * &lt;complexType name="AnalysisSummaryType">
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="cvParam" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc1}CVParamType" maxOccurs="unbounded"/>
+ *         &lt;element name="cvParam" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc1}CVParamType" maxOccurs="unbounded" minOccurs="0"/>
+ *         &lt;element name="userParam" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc1}UserParamType" maxOccurs="unbounded" minOccurs="0"/>
  *       &lt;/sequence>
- *       &lt;attribute name="avgMassDelta" type="{http://www.w3.org/2001/XMLSchema}double" />
- *       &lt;attribute name="monoisotopicMassDelta" type="{http://www.w3.org/2001/XMLSchema}double" />
  *     &lt;/restriction>
  *   &lt;/complexContent>
  * &lt;/complexType>
@@ -41,17 +38,14 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "SmallMolModificationType", propOrder = {
-    "cvParam"
+@XmlType(name = "AnalysisSummaryType", propOrder = {
+    "cvParam",
+    "userParam"
 })
-public class SmallMolModificationType {
+public class AnalysisSummaryType {
 
-    @XmlElement(required = true)
     protected List<CVParamType> cvParam;
-    @XmlAttribute
-    protected Double avgMassDelta;
-    @XmlAttribute
-    protected Double monoisotopicMassDelta;
+    protected List<UserParamType> userParam;
 
     /**
      * Gets the value of the cvParam property.
@@ -83,51 +77,32 @@ public class SmallMolModificationType {
     }
 
     /**
-     * Gets the value of the avgMassDelta property.
+     * Gets the value of the userParam property.
      * 
-     * @return
-     *     possible object is
-     *     {@link Double }
-     *     
-     */
-    public Double getAvgMassDelta() {
-        return avgMassDelta;
-    }
-
-    /**
-     * Sets the value of the avgMassDelta property.
+     * <p>
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the userParam property.
      * 
-     * @param value
-     *     allowed object is
-     *     {@link Double }
-     *     
-     */
-    public void setAvgMassDelta(Double value) {
-        this.avgMassDelta = value;
-    }
-
-    /**
-     * Gets the value of the monoisotopicMassDelta property.
+     * <p>
+     * For example, to add a new item, do as follows:
+     * <pre>
+     *    getUserParam().add(newItem);
+     * </pre>
      * 
-     * @return
-     *     possible object is
-     *     {@link Double }
-     *     
-     */
-    public Double getMonoisotopicMassDelta() {
-        return monoisotopicMassDelta;
-    }
-
-    /**
-     * Sets the value of the monoisotopicMassDelta property.
      * 
-     * @param value
-     *     allowed object is
-     *     {@link Double }
-     *     
+     * <p>
+     * Objects of the following type(s) are allowed in the list
+     * {@link UserParamType }
+     * 
+     * 
      */
-    public void setMonoisotopicMassDelta(Double value) {
-        this.monoisotopicMassDelta = value;
+    public List<UserParamType> getUserParam() {
+        if (userParam == null) {
+            userParam = new ArrayList<UserParamType>();
+        }
+        return this.userParam;
     }
 
 }

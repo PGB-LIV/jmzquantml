@@ -14,21 +14,11 @@ import javax.xml.bind.Marshaller;
 import javax.xml.namespace.QName;
 
 /**
- * Class for marshalling a MzQuantMLFile.
+ * Class for writing out whole mzQuantML objects.
  * @author Gerhard Mayer, MPC, Ruhr-University of Bochum
  */
 public class MzQuantMLMarshaller {
 
-    /**
-     * Constants.
-     */
-    private static final String ENCODING = "UTF-8";
-    private static final String MZQUANTML = "MzQuantML";
-
-    private static final String MZQUANTML_NS = "http://psidev.info/psi/pi/mzQuantML/1.0.0-rc2";
-    private static final String MZQUANTML_REL_PATH = " ../../schema/mzQuantML_1_0_0-rc2.xsd";
-    private static final String MZQUANTML_SCHEMA_LOCATION_RC2 = MZQUANTML_NS + MZQUANTML_REL_PATH;
-    
     /**
      * Members.
      */
@@ -51,10 +41,10 @@ public class MzQuantMLMarshaller {
             JAXBContext context = JAXBContext.newInstance(MzQuantMLType.class);
             this.marsh = context.createMarshaller();
 
-            this.marsh.setProperty(Marshaller.JAXB_ENCODING, ENCODING);
-            this.marsh.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
-            this.marsh.setProperty(Marshaller.JAXB_FRAGMENT, true);
-            this.marsh.setProperty(Marshaller.JAXB_SCHEMA_LOCATION, MZQUANTML_SCHEMA_LOCATION_RC2);
+            this.marsh.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
+            this.marsh.setProperty(Marshaller.JAXB_ENCODING, "UTF-8");
+            // Set JAXB_FRAGMENT_PROPERTY to true for all objects that do not have a @XmlRootElement annotation
+            //this.marsh.setProperty(Marshaller.JAXB_FRAGMENT, true);
         }
         catch (JAXBException jaxbex) {
             jaxbex.printStackTrace(System.err);
@@ -68,8 +58,9 @@ public class MzQuantMLMarshaller {
     public void marshall(MzQuantMLType mzQuantML) {
         try {
             if (this.fw != null) {
-                JAXBElement<MzQuantMLType> jaxbElement = new JAXBElement<>(new QName(MZQUANTML_NS, MZQUANTML), MzQuantMLType.class, mzQuantML);
+                JAXBElement<MzQuantMLType> jaxbElement = new JAXBElement<MzQuantMLType>(new QName("http://psidev.info/psi/pi/mzQuantML/1.0.0-rc1", "MzQuantML"), MzQuantMLType.class, mzQuantML);
                 this.marsh.marshal(jaxbElement, this.fw);
+                //this.marsh.marshal(mzQuantML, this.fw);
                 this.fw.flush();
                 this.fw.close();
             }
