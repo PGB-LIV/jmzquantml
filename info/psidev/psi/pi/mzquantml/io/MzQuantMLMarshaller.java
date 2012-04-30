@@ -68,7 +68,7 @@ public class MzQuantMLMarshaller {
     public void marshall(MzQuantMLType mzQuantML) {
         try {
             if (this.fw != null) {
-                JAXBElement<MzQuantMLType> jaxbElement = new JAXBElement<>(new QName(MZQUANTML_NS, MZQUANTML), MzQuantMLType.class, mzQuantML);
+                JAXBElement<MzQuantMLType> jaxbElement = new JAXBElement<MzQuantMLType>(new QName(MZQUANTML_NS, MZQUANTML), MzQuantMLType.class, mzQuantML);
                 this.marsh.marshal(jaxbElement, this.fw);
                 this.fw.flush();
                 this.fw.close();
