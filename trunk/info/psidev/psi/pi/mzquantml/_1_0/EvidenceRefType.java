@@ -19,18 +19,20 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * A reference to an external identification file defined in the document, plus a unique identifier for the object in that file, such as an ID of a SpectrumIdentificationItem, ProteinDetectionHypothesis or ProteinAmbiguityGroup in mzIdentML. 
+ * Evidence associated with the PeptideConsensus, including mandatory associations to features and optional references to identifications that have been assigned to the feature.
  * 
- * <p>Java class for IdentificationRefType complex type.
+ * <p>Java class for EvidenceRefType complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="IdentificationRefType">
+ * &lt;complexType name="EvidenceRefType">
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;attribute name="id_refs" use="required" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc2}listOfStrings" />
- *       &lt;attribute name="identificationFile_ref" use="required" type="{http://www.w3.org/2001/XMLSchema}IDREF" />
+ *       &lt;attribute name="assay_refs" use="required" type="{http://www.w3.org/2001/XMLSchema}IDREFS" />
+ *       &lt;attribute name="id_refs" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc2}listOfStrings" />
+ *       &lt;attribute name="identificationFile_ref" type="{http://www.w3.org/2001/XMLSchema}IDREF" />
+ *       &lt;attribute name="feature_ref" type="{http://www.w3.org/2001/XMLSchema}IDREF" />
  *     &lt;/restriction>
  *   &lt;/complexContent>
  * &lt;/complexType>
@@ -39,15 +41,52 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "IdentificationRefType")
-public class IdentificationRefType {
+@XmlType(name = "EvidenceRefType")
+public class EvidenceRefType {
 
-    @XmlAttribute(name = "id_refs", required = true)
+    @XmlAttribute(name = "assay_refs", required = true)
+    @XmlIDREF
+    @XmlSchemaType(name = "IDREFS")
+    protected List<Object> assayRefs;
+    @XmlAttribute(name = "id_refs")
     protected List<String> idRefs;
-    @XmlAttribute(name = "identificationFile_ref", required = true)
+    @XmlAttribute(name = "identificationFile_ref")
     @XmlIDREF
     @XmlSchemaType(name = "IDREF")
     protected Object identificationFileRef;
+    @XmlAttribute(name = "feature_ref")
+    @XmlIDREF
+    @XmlSchemaType(name = "IDREF")
+    protected Object featureRef;
+
+    /**
+     * Gets the value of the assayRefs property.
+     * 
+     * <p>
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the assayRefs property.
+     * 
+     * <p>
+     * For example, to add a new item, do as follows:
+     * <pre>
+     *    getAssayRefs().add(newItem);
+     * </pre>
+     * 
+     * 
+     * <p>
+     * Objects of the following type(s) are allowed in the list
+     * {@link Object }
+     * 
+     * 
+     */
+    public List<Object> getAssayRefs() {
+        if (assayRefs == null) {
+            assayRefs = new ArrayList<Object>();
+        }
+        return this.assayRefs;
+    }
 
     /**
      * Gets the value of the idRefs property.
@@ -100,6 +139,30 @@ public class IdentificationRefType {
      */
     public void setIdentificationFileRef(Object value) {
         this.identificationFileRef = value;
+    }
+
+    /**
+     * Gets the value of the featureRef property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link Object }
+     *     
+     */
+    public Object getFeatureRef() {
+        return featureRef;
+    }
+
+    /**
+     * Sets the value of the featureRef property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link Object }
+     *     
+     */
+    public void setFeatureRef(Object value) {
+        this.featureRef = value;
     }
 
 }
