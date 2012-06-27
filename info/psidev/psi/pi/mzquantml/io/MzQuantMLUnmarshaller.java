@@ -8,10 +8,13 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.Reader;
-import javax.xml.bind.JAXBContext;
-import javax.xml.bind.JAXBException;
-import javax.xml.bind.Unmarshaller;
+import java.util.ArrayList;
+import static javax.xml.XMLConstants.W3C_XML_SCHEMA_NS_URI;
+import javax.xml.bind.*;
 import javax.xml.bind.helpers.DefaultValidationEventHandler;
+import javax.xml.validation.Schema;
+import javax.xml.validation.SchemaFactory;
+import org.xml.sax.SAXException;
 //import uk.ac.liv.jmzquantml.xml.xxindex.MzQuantMLIndexer;
 //import uk.ac.liv.jmzquantml.xml.xxindex.MzQuantMLIndexerFactory;
 
@@ -27,6 +30,7 @@ public class MzQuantMLUnmarshaller {
      */
     private Unmarshaller unmarsh = null;
     private Reader fr = null;
+    private static final ArrayList<String> exMsgs = new ArrayList<String>();
     //private final MzQuantMLIndexer index;
 
     /**
@@ -51,6 +55,70 @@ public class MzQuantMLUnmarshaller {
             //this.unmarsh.setValidating(true);
         } catch (JAXBException jaxbex) {
             jaxbex.printStackTrace(System.err);
+        }
+    }
+    /*
+     *
+     * @param fullFileName, schemaValidating, schemaFn
+     */
+
+    public MzQuantMLUnmarshaller(String fullFileName, boolean schemaValidating, String schemaFn) {
+
+        //this(MzQuantMLIndexerFactory.getInstance().buildIndex(new File(fullFileName)));
+
+        try {
+            this.fr = new FileReader(fullFileName);
+        } catch (IOException ioex) {
+            ioex.printStackTrace(System.err);
+
+
+        }
+
+        if (schemaValidating) {
+            try {
+                JAXBContext context = JAXBContext.newInstance(new Class[]{MzQuantMLType.class
+                        });
+                this.unmarsh = context.createUnmarshaller();
+
+                SchemaFactory sf = SchemaFactory.newInstance(W3C_XML_SCHEMA_NS_URI);
+                Schema schema = sf.newSchema(new File(schemaFn));
+                this.unmarsh.setSchema(schema);
+
+                ValidationEventHandler veh = new ValidationEventHandler() {
+
+                    @Override
+                    public boolean handleEvent(ValidationEvent event) {
+                        //ignore warnings
+                        if (event.getSeverity() != ValidationEvent.WARNING) {
+                            ValidationEventLocator vel = event.getLocator();
+                            System.out.println("Line:Col[" + vel.getLineNumber()
+                                    + ":" + vel.getColumnNumber()
+                                    + "]:" + event.getMessage());
+                            exMsgs.add("Line:Col[" + vel.getLineNumber()
+                                    + ":" + vel.getColumnNumber()
+                                    + "]:" + event.getMessage());
+                        }
+                        return true;
+                    }
+                };
+                this.unmarsh.setEventHandler(veh);
+
+            } catch (JAXBException jaxbex) {
+                jaxbex.printStackTrace();
+            } catch (SAXException ex) {
+                System.out.println("Unable to validate due to follow error.");
+                ex.printStackTrace();
+            }
+        } else {
+            try {
+                JAXBContext context = JAXBContext.newInstance(new Class[]{MzQuantMLType.class
+                        });
+                this.unmarsh = context.createUnmarshaller();
+                this.unmarsh.setEventHandler(new DefaultValidationEventHandler());
+                //this.unmarsh.setValidating(true);
+            } catch (JAXBException jaxbex) {
+                jaxbex.printStackTrace(System.err);
+            }
         }
     }
 
@@ -89,7 +157,6 @@ public class MzQuantMLUnmarshaller {
     /*
      * public methods
      */
-
     /**
      * @param xpath the xpath defining the XML element.
      * @return the number of XML elements matching the xpath or -1 if no
@@ -102,4 +169,7 @@ public class MzQuantMLUnmarshaller {
 //            return -1;
 //        }
 //    }
+    public ArrayList<String> getExceptionalMessages() {
+        return exMsgs;
+    }
 }
