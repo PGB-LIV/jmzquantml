@@ -1,0 +1,17 @@
+#summary Summary of changes in the jmzquantml API.
+
+----
+*jmzquantml Version 1.0.0 - (27, June 2012)*
+
+  * move to Maven 3.0.4
+  * add README.txt, LICENCE.txt
+  * add bindings.xjb and mzQuantML_1_0_0-rc2.xsd (11, June 2012) for customization to JAXB bindings
+  * change package name to "uk.ac.liv.jmzqml.model.mzqml"
+
+----
+*jmzquantml Version 1.0.0-rc2 - (7, June 2012)*
+
+  * comply to mQuantML_1_0_0-rc2.xsd (7, June 2012)
+  * provide basic marshaller and unmarshaller classes
+
+----
