@@ -27,7 +27,7 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "MethodFileType")
-public class MethhodFile
+public class MethodFile
     extends ExternalData
     implements Serializable
 {

@@ -261,7 +261,7 @@
         </jxb:bindings>
 		
         <jxb:bindings node="//xsd:complexType[@name='MethodFileType']">
-            <jxb:class name="MethhodFile"/>
+            <jxb:class name="MethodFile"/>
         </jxb:bindings>
 
         <jxb:bindings node="//xsd:complexType[@name='ModParamType']">
