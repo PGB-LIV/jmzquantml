@@ -42,7 +42,7 @@ public class MethodFiles
 
     private final static long serialVersionUID = 100L;
     @XmlElement(name = "MethodFile", required = true)
-    protected List<MethhodFile> methodFile;
+    protected List<MethodFile> methodFile;
 
     /**
      * Gets the value of the methodFile property.
@@ -66,9 +66,9 @@ public class MethodFiles
      * 
      * 
      */
-    public List<MethhodFile> getMethodFile() {
+    public List<MethodFile> getMethodFile() {
         if (methodFile == null) {
-            methodFile = new ArrayList<MethhodFile>();
+            methodFile = new ArrayList<MethodFile>();
         }
         return this.methodFile;
     }

@@ -189,8 +189,8 @@ public class ObjectFactory {
      * Create an instance of {@link MethhodFile }
      * 
      */
-    public MethhodFile createMethhodFile() {
-        return new MethhodFile();
+    public MethodFile createMethhodFile() {
+        return new MethodFile();
     }
 
     /**
