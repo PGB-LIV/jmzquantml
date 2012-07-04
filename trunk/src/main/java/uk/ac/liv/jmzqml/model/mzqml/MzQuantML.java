@@ -5,12 +5,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlSchemaType;
-import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.*;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import uk.ac.liv.jmzqml.model.MzQuantMLObject;
 import uk.ac.liv.jmzqml.xml.jaxb.adapter.CalendarAdapter;
@@ -73,6 +68,7 @@ import uk.ac.liv.jmzqml.xml.jaxb.adapter.CalendarAdapter;
     "smallMoleculeList",
     "featureList"
 })
+@XmlRootElement(name="MzQuantML")
 public class MzQuantML
     implements Serializable, MzQuantMLObject
 {
