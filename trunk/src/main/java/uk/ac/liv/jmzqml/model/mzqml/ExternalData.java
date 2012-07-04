@@ -41,7 +41,7 @@ import javax.xml.bind.annotation.XmlType;
 })
 @XmlSeeAlso({
     IdentificationFile.class,
-    MethhodFile.class,
+    MethodFile.class,
     SourceFile.class,
     RawFile.class,
     SearchDatabase.class
