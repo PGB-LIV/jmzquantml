@@ -73,7 +73,7 @@ Generated on: 2012.06.19 at 03:08:54 PM BST
       <class ref="uk.ac.liv.jmzqml.model.mzqml.RatioList"/>
     </bindings>
     <bindings scd="~tns:MethodFileType">
-      <class ref="uk.ac.liv.jmzqml.model.mzqml.MethhodFile"/>
+      <class ref="uk.ac.liv.jmzqml.model.mzqml.MethodFile"/>
     </bindings>
     <bindings scd="~tns:SmallMolModificationType">
       <class ref="uk.ac.liv.jmzqml.model.mzqml.SmallMolModification"/>
