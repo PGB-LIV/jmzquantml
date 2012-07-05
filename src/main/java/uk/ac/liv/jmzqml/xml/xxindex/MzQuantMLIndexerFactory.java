@@ -1,17 +1,27 @@
 /*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
+ * Date: 11-May-2012
+ * Author: Da Qi
+ * File: uk.ac.liv.jmzqml.xml.xxindex.MzQuantMLIndexerFactory.java
+ *
+ * jmzquantml is Copyright 2012 University of Liverpool.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 package uk.ac.liv.jmzqml.xml.xxindex;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 import psidev.psi.tools.xxindex.SimpleXmlElementExtractor;
 import psidev.psi.tools.xxindex.StandardXpathAccess;
 import psidev.psi.tools.xxindex.XmlElementExtractor;
@@ -20,7 +30,9 @@ import psidev.psi.tools.xxindex.index.XpathIndex;
 
 /**
  *
- * @author Da Qi @time 00:42:25 11-May-2012 @institution University of Liverpool
+ * @author Da Qi
+ * @time 00:42:25 11-May-2012
+ * @institution University of Liverpool
  */
 public class MzQuantMLIndexerFactory {
 
@@ -91,6 +103,7 @@ public class MzQuantMLIndexerFactory {
         "/MzQuantML/FeatureList/MS2StudyVariableQuantLayer",
         "/MzQuantML/FeatureList/MS2RatioQuantLayer"};
     private static Set<String> xpathsToIndex = new HashSet<String>(Arrays.asList(xpathsArray));
+
     static {
         xpathsToIndex = Collections.unmodifiableSet(xpathsToIndex);
     }
@@ -172,6 +185,7 @@ public class MzQuantMLIndexerFactory {
         /**
          *
          * @param xpathExpression the xpath defining the XML element.
+         *
          * @return the number of XML elements matching the xpath or -1 if no
          * elements were found for the specified xpath.
          */
