@@ -22,11 +22,19 @@ package uk.ac.liv.jmzqml.xml.xxindex;
 import java.io.File;
 import java.io.IOException;
 import java.util.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import javax.naming.ConfigurationException;
+import org.apache.log4j.Logger;
 import psidev.psi.tools.xxindex.SimpleXmlElementExtractor;
 import psidev.psi.tools.xxindex.StandardXpathAccess;
 import psidev.psi.tools.xxindex.XmlElementExtractor;
 import psidev.psi.tools.xxindex.index.IndexElement;
 import psidev.psi.tools.xxindex.index.XpathIndex;
+import uk.ac.liv.jmzqml.MzQuantMLElement;
+import uk.ac.liv.jmzqml.model.MzQuantMLObject;
+import uk.ac.liv.jmzqml.model.mzqml.Identifiable;
+import uk.ac.liv.jmzqml.xml.Constants;
 
 /**
  *
@@ -36,85 +44,19 @@ import psidev.psi.tools.xxindex.index.XpathIndex;
  */
 public class MzQuantMLIndexerFactory {
 
+    private static final Logger logger = Logger.getLogger(MzQuantMLIndexerFactory.class);
     private static final MzQuantMLIndexerFactory instance = new MzQuantMLIndexerFactory();
-    private static String[] xpathsArray = {"/MzQuantML/CvList",
-        "/MzQuantML/CvList/Cv",
-        "/MzQuantML/Provider",
-        "/MzQuantML/Provider/ContactRole",
-        "/MzQuantML/Provider/ContactRole/Role",
-        "/MzQuantML/AuditCollection",
-        "/MzQuantML/AuditCollection/Person",
-        "/MzQuantML/AuditCollection/Person/Affiliation",
-        "/MzQuantML/AuditCollection/Organization",
-        "/MzQuantML/AuditCollection/Organization/Parent",
-        "/MzQuantML/AnalysisSummary",
-        "/MzQuantML/InputFiles",
-        "/MzQuantML/InputFiles/RawFilesGroup",
-        "/MzQuantML/InputFiles/RawFilesGroup/RawFile",
-        "/MzQuantML/InputFiles/MethodFiles",
-        "/MzQuantML/InputFiles/MethodFiles/MethodFile",
-        "/MzQuantML/InputFiles/IdentificationFiles",
-        "/MzQuantML/InputFiles/IdentificationFiles/IdentificationFile",
-        "/MzQuantML/InputFiles/SearchDatabase",
-        "/MzQuantML/InputFiles/SearchDatabase/DatabaseName",
-        "/MzQuantML/InputFiles/SourceFile",
-        "/MzQuantML/SoftwareList",
-        "/MzQuantML/SoftwareList/Software",
-        "/MzQuantML/DataProcessingList",
-        "/MzQuantML/DataProcessingList/DataProcessing",
-        "/MzQuantML/DataProcessingList/DataProcessing/ProcessingMethod",
-        "/MzQuantML/BibliographicReference",
-        "/MzQuantML/AssayList",
-        "/MzQuantML/AssayList/Assay",
-        "/MzQuantML/AssayList/Assay/Label",
-        "/MzQuantML/StudyVariableList",
-        "/MzQuantML/StudyVariableList/StudyVariable",
-        "/MzQuantML/RatioList",
-        "/MzQuantML/RatioList/Ratio",
-        "/MzQuantML/RatioList/Ratio/RatioCalculation",
-        "/MzQuantML/ProteinGroupList",
-        "/MzQuantML/ProteinGroupList/ProteinGroup",
-        "/MzQuantML/ProteinGroupList/GlobalQuantLayer",
-        "/MzQuantML/ProteinGroupList/AssayQuantLayer",
-        "/MzQuantML/ProteinGroupList/StudyVariableQuantLayer",
-        "/MzQuantML/ProteinGroupList/RatioQuantLayer",
-        "/MzQuantML/ProteinList",
-        "/MzQuantML/ProteinList/Protein",
-        "/MzQuantML/ProteinList/GlobalQuantLayer",
-        "/MzQuantML/ProteinList/AssayQuantLayer",
-        "/MzQuantML/ProteinList/StudyVariableQuantLayer",
-        "/MzQuantML/ProteinList/RatioQuantLayer",
-        "/MzQuantML/PeptideConsensusList",
-        "/MzQuantML/PeptideConsensusList/PeptideConsensus",
-        "/MzQuantML/PeptideConsensusList/GlobalQuantLayer",
-        "/MzQuantML/PeptideConsensusList/AssayQuantLayer",
-        "/MzQuantML/PeptideConsensusList/StudyVariableQuantLayer",
-        "/MzQuantML/PeptideConsensusList/RatioQuantLayer",
-        "/MzQuantML/SmallMoleculeList",
-        "/MzQuantML/SmallMoleculeList/SmallMolecule",
-        "/MzQuantML/SmallMoleculeList/GlobalQuantLayer",
-        "/MzQuantML/SmallMoleculeList/AssayQuantLayer",
-        "/MzQuantML/SmallMoleculeList/StudyVariableQuantLayer",
-        "/MzQuantML/SmallMoleculeList/RatioQuantLayer",
-        "/MzQuantML/FeatureList",
-        "/MzQuantML/FeatureList/Feature",
-        "/MzQuantML/FeatureList/FeatureQuantLayer",
-        "/MzQuantML/FeatureList/MS2AssayQuantLayer",
-        "/MzQuantML/FeatureList/MS2StudyVariableQuantLayer",
-        "/MzQuantML/FeatureList/MS2RatioQuantLayer"};
-    private static Set<String> xpathsToIndex = new HashSet<String>(Arrays.asList(xpathsArray));
+    private static final Pattern ID_PATTERN = Pattern.compile("\\sid\\s*=\\s*['\"]([^'\"]*)['\"]", Pattern.CASE_INSENSITIVE);
 
-    static {
-        xpathsToIndex = Collections.unmodifiableSet(xpathsToIndex);
+    private MzQuantMLIndexerFactory() {
     }
-    private static final Set<String> XML_INDEXED_XPATHS = xpathsToIndex;
 
     public static MzQuantMLIndexerFactory getInstance() {
         return instance;
     }
 
     public MzQuantMLIndexer buildIndex(File xmlFile) {
-        return buildIndex(xmlFile, XML_INDEXED_XPATHS);
+        return buildIndex(xmlFile, Constants.XML_INDEXED_XPATHS);
     }
 
     public MzQuantMLIndexer buildIndex(File xmlFile, Set<String> xpaths) {
@@ -128,10 +70,13 @@ public class MzQuantMLIndexerFactory {
         private XmlElementExtractor xmlExtractor = null;
         private XpathIndex index = null;
         private String mzQuantMLAttributeXMLString = null;
+        // a unified cache of all the id maps
+        private Map<Class, Map<String, IndexElement>> idMapCache =
+                new HashMap<Class, Map<String, IndexElement>>();
+
         /*
          * Constructor
          */
-
         private MzQuantMLIndexerImpl(File xmlFile, Set<String> xpaths) {
             if (xmlFile == null) {
                 throw new IllegalStateException("XML File to index must not be null");
@@ -145,7 +90,9 @@ public class MzQuantMLIndexerFactory {
 
             try {
                 // generate XXINDEX
+                logger.info("Creating index: ");
                 xpathAccess = new StandardXpathAccess(xmlFile, xpaths);
+                logger.debug("done!");
 
                 // create xml element extractor
                 xmlExtractor = new SimpleXmlElementExtractor();
@@ -155,14 +102,19 @@ public class MzQuantMLIndexerFactory {
                 index = xpathAccess.getIndex();
 
                 // check if the xxindex contains this root
-                if (!index.containsXpath("/MzQuantML")) {
+                if (!index.containsXpath(MzQuantMLElement.MzQuantML.getXpath())) {
+                    logger.info("Index does not contain mzQuantML root! We are not dealing with an mzQuantML file!");
                     throw new IllegalStateException("Index does not contain mzQuantML root!");
                 }
+
+                // initalize the ID maps
+                initIdMaps();
 
                 // extract the MzQuantML attributes from the MzQuantML start tag
                 mzQuantMLAttributeXMLString = extractMzQuantMLStartTag(xmlFile);
 
             } catch (IOException e) {
+                logger.error("MzQuantMLIndexerFactory$MzQuantMLIndexerImpl.MzQuantMLIndexterImpl", e);
                 throw new IllegalStateException("Could not generate MzQuantML index for file: " + xmlFile);
             }
         }
@@ -208,9 +160,99 @@ public class MzQuantMLIndexerFactory {
             return index.getKeys();
         }
 
+        public String getXmlString(String ID, Class clazz) {
+            logger.debug("Getting cached ID: " + ID + " from cache: " + clazz);
+
+            Map<String, IndexElement> idMap = idMapCache.get(clazz);
+            IndexElement element = idMap.get(ID);
+
+            String xmlSnippet = null;
+            if (element != null) {
+                xmlSnippet = readXML(element);
+                if (logger.isTraceEnabled()) {
+                    logger.trace("Retrived xml for class " + clazz + " with ID" + ID + ": " + xmlSnippet);;
+                }
+            }
+            return xmlSnippet;
+        }
+
+        public String getStartTag(String id, Class clazz) {
+            logger.debug("Getting start tag of element with id: " + id + " for class: " + clazz);
+            String tag = null;
+
+            Map<String, IndexElement> idMap = idMapCache.get(clazz);
+            if (idMap != null) {
+                IndexElement element = idMap.get(id);
+                if (element != null) {
+                    try {
+                        tag = xpathAccess.getStartTag(element);
+                    } catch (IOException e) {
+                        //ToDo: proper handling
+                        e.printStackTrace();
+                    }
+                } else {
+                    // ToDo: what if the element exists, but its id was not cached?
+                    // ToDo: throw an exception?
+                }
+            }
+            return tag;
+        }
+
+        public boolean isIDmapped(String id, Class clazz) {
+            if (clazz == null) {
+                return false;
+            }
+            Map<String, IndexElement> idMap = idMapCache.get(clazz);
+            return idMap != null && idMap.containsKey(id);
+        }
+
+        public Set<String> getIDsForElement(MzQuantMLElement element) throws ConfigurationException {
+            if (element.isIdMapped()) {
+                return idMapCache.get(element.<MzQuantMLObject>getClazz()).keySet();
+            } else {
+                throw new ConfigurationException("API not configured to support ID mapping for element: " + element.getTagName());
+            }
+        }
+
+        public <T extends MzQuantMLObject> Set<String> getElementIDs(
+                Class<T> clazz) {
+            if (idMapCache == null) {
+                return null;
+            }
+            Map<String, IndexElement> classCache = idMapCache.get(clazz);
+            if (classCache == null) {
+                return null;
+            }
+            return classCache.keySet();
+        }
         /*
          * private methods
          */
+
+        private String readXML(IndexElement byteRange) {
+            return readXML(byteRange, 0);
+        }
+
+        private String readXML(IndexElement byteRange, int maxChars) {
+            try {
+                if (byteRange != null) {
+                    long stop;
+                    long limitedStop = byteRange.getStart() + maxChars;
+                    if (maxChars > 0 && byteRange.getStop() > limitedStop) {
+                        stop = limitedStop;
+                    } else {
+                        stop = byteRange.getStop();
+                    }
+                    return xmlExtractor.readString(byteRange.getStart(), stop, xmlFile);
+                } else {
+                    throw new IllegalStateException("Attempting to read NULL ByteRange");
+                }
+            } catch (IOException e) {
+                logger.error("MzQuantMLIndexerFactory$MzQuantMLIndexerImpl.readXML", e);
+                throw new IllegalStateException("Could not extraxt XML from file: " + xmlFile);
+            }
+        }
+
         private String extractMzQuantMLStartTag(File xmlFile) throws IOException {
             // get start position of the mzIdentML element
             List<IndexElement> ie = index.getElements("/MzQuantML");
@@ -219,7 +261,7 @@ public class MzQuantMLIndexerFactory {
 
             // get end position of the mzIdentML start tag
             // this is the start position of the next tag (cvList)
-            ie = index.getElements("/MzQuantML/CvList");
+            ie = index.getElements(MzQuantMLElement.CvList.getXpath());
             // there will always be one and only one cvList
             long stopPos = ie.get(0).getStart() - 1;
 
@@ -230,6 +272,55 @@ public class MzQuantMLIndexerFactory {
                 startTag = startTag.replace("\n", "");
             }
             return startTag;
+        }
+
+        /**
+         * Method to generate and populate ID maps for the XML elements that
+         *
+         * TODO: finish the comments
+         */
+        private void initIdMaps() throws IOException {
+            for (MzQuantMLElement element : MzQuantMLElement.values()) {
+                // only for elements were an ID map is needed and a xpath is given            
+                if (element.isIdMapped() && element.isIndexed()) {
+                    if (element.getClazz().isAssignableFrom(Identifiable.class)) {
+                        logger.warn("Element for class " + element.getClass() + " may not contain an 'id' attribute, but was selected for id mapping!");
+                    }
+                    logger.debug("Initiating ID map for " + element.getClazz().getName());
+                }
+
+                Map<String, IndexElement> map = idMapCache.get(element.getClazz());
+                if (map == null) {
+                    map = new HashMap<String, IndexElement>();
+                    idMapCache.put(element.getClazz(), map);
+                }
+                initIdMapCache(map, element.getXpath());
+            }
+        }
+
+        private void initIdMapCache(Map<String, IndexElement> idMap,
+                                    String xpath) throws IOException {
+            List<IndexElement> ranges = index.getElements(xpath);
+            for (IndexElement byteRange : ranges) {
+                String xml = xpathAccess.getStartTag(byteRange);
+                String id = getIdFromRawXML(xml);
+                if (id != null) {
+                    idMap.put(id, byteRange);
+                } else {
+                    throw new IllegalStateException("Error initializing ID cache: No id attribute found for element " + xml);
+                }
+            }
+        }
+
+        private String getIdFromRawXML(String xml) {
+            Matcher match = ID_PATTERN.matcher(xml);
+
+            // ToDo: more checks: if no id found or more than one match, ...
+            if (match.find()) {
+                return match.group(1).intern();
+            } else {
+                throw new IllegalStateException("Invalid ID in xml: " + xml);
+            }
         }
     }
 }
