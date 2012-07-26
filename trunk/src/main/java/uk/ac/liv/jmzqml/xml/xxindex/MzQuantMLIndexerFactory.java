@@ -122,11 +122,13 @@ public class MzQuantMLIndexerFactory {
         /*
          * public methods
          */
-        public String getMzQuantMLArrributeXMLString() {
+        @Override
+        public String getMzQuantMLAttributeXMLString() {
             return mzQuantMLAttributeXMLString;
         }
 
-        public Iterator<String> getXMLStringIterators(String xpathExpression) {
+        @Override
+        public Iterator<String> getXmlStringIterator(String xpathExpression) {
             if (index.containsXpath(xpathExpression)) {
                 return xpathAccess.getXmlSnippetIterator(xpathExpression);
             } else {
@@ -141,6 +143,7 @@ public class MzQuantMLIndexerFactory {
          * @return the number of XML elements matching the xpath or -1 if no
          * elements were found for the specified xpath.
          */
+        @Override
         public int getCount(String xpathExpression) {
             int retValue = -1;
             if (index.containsXpath(xpathExpression)) {
@@ -152,14 +155,17 @@ public class MzQuantMLIndexerFactory {
             return retValue;
         }
 
+        @Override
         public List<IndexElement> getIndexElements(String xpath) {
             return index.getElements(xpath);
         }
 
+        @Override
         public Set<String> getXpath() {
             return index.getKeys();
         }
 
+        @Override
         public String getXmlString(String ID, Class clazz) {
             logger.debug("Getting cached ID: " + ID + " from cache: " + clazz);
 
@@ -176,6 +182,7 @@ public class MzQuantMLIndexerFactory {
             return xmlSnippet;
         }
 
+        @Override
         public String getStartTag(String id, Class clazz) {
             logger.debug("Getting start tag of element with id: " + id + " for class: " + clazz);
             String tag = null;
@@ -198,6 +205,7 @@ public class MzQuantMLIndexerFactory {
             return tag;
         }
 
+        @Override
         public boolean isIDmapped(String id, Class clazz) {
             if (clazz == null) {
                 return false;
@@ -206,6 +214,7 @@ public class MzQuantMLIndexerFactory {
             return idMap != null && idMap.containsKey(id);
         }
 
+        @Override
         public Set<String> getIDsForElement(MzQuantMLElement element) throws ConfigurationException {
             if (element.isIdMapped()) {
                 return idMapCache.get(element.<MzQuantMLObject>getClazz()).keySet();
