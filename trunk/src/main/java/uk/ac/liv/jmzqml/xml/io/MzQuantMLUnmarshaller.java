@@ -36,6 +36,7 @@ public class MzQuantMLUnmarshaller {
 
     private static final Logger logger = Logger.getLogger(MzQuantMLUnmarshaller.class);
     private final MzQuantMLIndexer index;
+    private final MzQuantMLObjectCache cache;
     /**
      * Members.
      */
@@ -60,7 +61,7 @@ public class MzQuantMLUnmarshaller {
 
         //this(MzQuantMLIndexerFactory.getInstance().buildIndex(new File(fullFileName)));
         this.index = null;
-
+        this.cache = null;
         try {
             this.fr = new FileReader(fullFileName);
         } catch (IOException ioex) {
@@ -82,11 +83,11 @@ public class MzQuantMLUnmarshaller {
      */
 
     public MzQuantMLUnmarshaller(String fullFileName, boolean schemaValidating,
-                                 String schemaFn) {
+            String schemaFn) {
 
         //this(MzQuantMLIndexerFactory.getInstance().buildIndex(new File(fullFileName)));
         this.index = null;
-
+        this.cache = null;
         try {
             this.fr = new FileReader(fullFileName);
         } catch (IOException ioex) {
@@ -174,6 +175,7 @@ public class MzQuantMLUnmarshaller {
 
     public MzQuantMLUnmarshaller(MzQuantMLIndexer indexer) {
         this.index = indexer;
+        this.cache = null;
     }
     /*
      * public methods
@@ -210,14 +212,14 @@ public class MzQuantMLUnmarshaller {
     }
 
     /**
-     * Method to retrieve attribute name-value pairs for a XML element
-     * defined by it's id and Class.
+     * Method to retrieve attribute name-value pairs for a XML element defined
+     * by it's id and Class.
      *
-     * @param id    the value of the 'id' attribute of the XML element.
+     * @param id the value of the 'id' attribute of the XML element.
      * @param clazz the Class representing the XML element.
      *
-     * @return A map of all the found name-value attribute pairs or
-     * null if no element with the specified id was found.
+     * @return A map of all the found name-value attribute pairs or null if no
+     * element with the specified id was found.
      */
     public Map<String, String> getElementAttributes(String id, Class clazz) {
         Map<String, String> attributes = new HashMap<String, String>();
@@ -248,8 +250,8 @@ public class MzQuantMLUnmarshaller {
     /**
      * @param xpath the xpath defining the XML element.
      *
-     * @return the number of XML elements matching the xpath or -1
-     * if no elements were found for the specified xpath.
+     * @return the number of XML elements matching the xpath or -1 if no
+     * elements were found for the specified xpath.
      */
     public int getObjectCountForXpath(String xpath) {
         if (xpath != null) {
@@ -260,8 +262,8 @@ public class MzQuantMLUnmarshaller {
     }
 
     /**
-     * Unmarshal one object for the specified class.
-     * Note: The class has to refer to MzQuantMLObject elements.
+     * Unmarshal one object for the specified class. Note: The class has to
+     * refer to MzQuantMLObject elements.
      *
      * @see #unmarshal(uk.ac.liv.jmzqml.MzQuantMLElement)
      * @param clazz the type of Object to sub-class. It has to be a sub-class of
@@ -280,14 +282,12 @@ public class MzQuantMLUnmarshaller {
     }
 
     /**
-     * Unmarshals one element of the type defined by the MzQuantMLElement.
-     * Note: In case there are more than one element for the specified
-     * MzQuantMLElement,
-     * only one found will be returned. This is usually the first such element,
-     * but
-     * no order is guaranteed! Use appropriate methods to check that there is
-     * only
-     * one such element or to deal with a collection of elements.
+     * Unmarshals one element of the type defined by the MzQuantMLElement. Note:
+     * In case there are more than one element for the specified
+     * MzQuantMLElement, only one found will be returned. This is usually the
+     * first such element, but no order is guaranteed! Use appropriate methods
+     * to check that there is only one such element or to deal with a collection
+     * of elements.
      *
      * @see #unmarshalCollectionFromXpath(uk.ac.liv.jmzqml.MzQuantMLElement)
      * @param element The MzQuantMLElement defining the type of element to
@@ -305,9 +305,28 @@ public class MzQuantMLUnmarshaller {
         return doUnmarshal(clazz, xpath);
     }
 
+    public <T extends MzQuantMLObject> Iterator<T> unmarshalCollectionFromXpath(MzQuantMLElement element) {
+        // caching deactivated
+//        int indexCnt = getObjectCount(element);
+//
+//        if (cache != null) {
+//            List<MzIdentMLObject> list = cache.getEntries(element.getClazz());
+//            if (list != null) {
+//                int cacheCnt = list.size();
+//                if (indexCnt == cacheCnt) {
+//                    // all elements are already cached
+//                    return cache.getEntries(element.<T>getClazz()).iterator();
+//                }
+//            }
+//        }
+
+        // we have to iterate over the XML elements
+        return new MzQuantMLObjectIterator<T>(element, index, cache);
+    }
+
     /**
-     * Depends on the element being indexed and ID mapped.
-     * See configuration of elements via MzQuantMLElement.
+     * Depends on the element being indexed and ID mapped. See configuration of
+     * elements via MzQuantMLElement.
      *
      * @see MzQuantMLElement
      * @param element the element for which to get the IDs.
@@ -327,7 +346,7 @@ public class MzQuantMLUnmarshaller {
      * private methods
      */
     private <T extends MzQuantMLObject> T doUnmarshal(Class<T> clazz,
-                                                      String xpath) {
+            String xpath) {
         T retval = null;
         if (xpath != null) {
             retval = retrieveFromXML(clazz, xpath);
@@ -338,7 +357,7 @@ public class MzQuantMLUnmarshaller {
     }
 
     private <T extends MzQuantMLObject> T retrieveFromXML(Class<T> cls,
-                                                          String xpath) {
+            String xpath) {
         T retval = null;
         try {
             Iterator<String> xpathIter = index.getXmlStringIterator(xpath);
@@ -361,7 +380,7 @@ public class MzQuantMLUnmarshaller {
     }
 
     private <T extends MzQuantMLObject> T generateObject(Class<T> cls,
-                                                         String xmlSt) throws JAXBException {
+            String xmlSt) throws JAXBException {
         T retval;
         if (logger.isDebugEnabled()) {
             logger.trace("XML to unmarshal: " + xmlSt);
