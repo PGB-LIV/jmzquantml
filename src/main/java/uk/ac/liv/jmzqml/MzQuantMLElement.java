@@ -31,13 +31,11 @@ import uk.ac.liv.jmzqml.xml.jaxb.resolver.AbstractReferenceResolver;
 
 /**
  *
- * @author Da Qi
- * @institute University of Liverpool
- * @time 04-Jul-2012 16:44:12
+ * @author Da Qi @institute University of Liverpool @time 04-Jul-2012 16:44:12
  */
 public enum MzQuantMLElement {
 
-    SetupMzIdentMLElement(),
+    SetupMzQuanttMLElement(),
     //Todo
     AbstractContact(getCfg().get(uk.ac.liv.jmzqml.model.mzqml.AbstractContact.class.getName()).getTagName(),
     getCfg().get(uk.ac.liv.jmzqml.model.mzqml.AbstractContact.class.getName()).isIndexed(),
@@ -65,6 +63,15 @@ public enum MzQuantMLElement {
     getCfg().get(uk.ac.liv.jmzqml.model.mzqml.Affiliation.class.getName()).getClazz(),
     getCfg().get(uk.ac.liv.jmzqml.model.mzqml.Affiliation.class.getName()).isAutoRefResolving(),
     getCfg().get(uk.ac.liv.jmzqml.model.mzqml.Affiliation.class.getName()).getRefResolverClass()),
+    //
+    AnalysisSummary(getCfg().get(uk.ac.liv.jmzqml.model.mzqml.AnalysisSummary.class.getName()).getTagName(),
+    getCfg().get(uk.ac.liv.jmzqml.model.mzqml.AnalysisSummary.class.getName()).isIndexed(),
+    getCfg().get(uk.ac.liv.jmzqml.model.mzqml.AnalysisSummary.class.getName()).getXpath(),
+    getCfg().get(uk.ac.liv.jmzqml.model.mzqml.AnalysisSummary.class.getName()).isCached(),
+    getCfg().get(uk.ac.liv.jmzqml.model.mzqml.AnalysisSummary.class.getName()).isIdMapped(),
+    getCfg().get(uk.ac.liv.jmzqml.model.mzqml.AnalysisSummary.class.getName()).getClazz(),
+    getCfg().get(uk.ac.liv.jmzqml.model.mzqml.AnalysisSummary.class.getName()).isAutoRefResolving(),
+    getCfg().get(uk.ac.liv.jmzqml.model.mzqml.AnalysisSummary.class.getName()).getRefResolverClass()),
     //
     AssayList(getCfg().get(uk.ac.liv.jmzqml.model.mzqml.AssayList.class.getName()).getTagName(),
     getCfg().get(uk.ac.liv.jmzqml.model.mzqml.AssayList.class.getName()).isIndexed(),
@@ -644,13 +651,13 @@ public enum MzQuantMLElement {
     }
 
     private <T extends MzQuantMLObject> MzQuantMLElement(String tagName,
-                                                         boolean indexed,
-                                                         String xpath,
-                                                         boolean cached,
-                                                         boolean idMapped,
-                                                         Class<T> clazz,
-                                                         boolean autoRefResolving,
-                                                         Class refResolverClass) {
+            boolean indexed,
+            String xpath,
+            boolean cached,
+            boolean idMapped,
+            Class<T> clazz,
+            boolean autoRefResolving,
+            Class refResolverClass) {
         this.tagName = tagName;
         this.indexed = indexed;
         this.cached = cached;
@@ -721,8 +728,8 @@ public enum MzQuantMLElement {
 
     /**
      * Read the configuration info from the properties file. Note: this simply
-     * loads the information into a hashmap.
-     * Actual setting of values is done through the constructors.
+     * loads the information into a hashmap. Actual setting of values is done
+     * through the constructors.
      */
     private static void loadProperties() {
 
