@@ -296,14 +296,15 @@ public class MzQuantMLIndexerFactory {
                         logger.warn("Element for class " + element.getClass() + " may not contain an 'id' attribute, but was selected for id mapping!");
                     }
                     logger.debug("Initiating ID map for " + element.getClazz().getName());
-                }
 
-                Map<String, IndexElement> map = idMapCache.get(element.getClazz());
-                if (map == null) {
-                    map = new HashMap<String, IndexElement>();
-                    idMapCache.put(element.getClazz(), map);
+
+                    Map<String, IndexElement> map = idMapCache.get(element.getClazz());
+                    if (map == null) {
+                        map = new HashMap<String, IndexElement>();
+                        idMapCache.put(element.getClazz(), map);
+                    }
+                    initIdMapCache(map, element.getXpath());
                 }
-                initIdMapCache(map, element.getXpath());
             }
         }
 
