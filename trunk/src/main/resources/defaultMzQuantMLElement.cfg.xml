@@ -14,19 +14,19 @@ Configurations for various properties of model classes.
           element, it will have to be unmarshalled as part of the enclosing indexed parent element.
         - xpath entries with leading or trailing whitespace will prevent elements from being indexed!
             make sure to use a non-whitespace notation:
-              <xpath>/MzIdentML/xyz</xpath>
+              <xpath>/MzIQuantML/xyz</xpath>
             instead of line breaks:
               <xpath>
-                /MzIdentML/xyz
+                /MzQuantML/xyz
               </xpath>
 -->
-<mzIdentMLElementProperties>
+<mzQuantMLElementProperties>
     <configurations>
         <autoRefResolving>false</autoRefResolving>
         <cached>false</cached>
         <idMapped>false</idMapped>
         <indexed>false</indexed>
-    </configurations>
+    </configurations>	
 	
     <configurations>
         <autoRefResolving>false</autoRefResolving>
@@ -55,9 +55,18 @@ Configurations for various properties of model classes.
 	
     <configurations>
         <autoRefResolving>false</autoRefResolving>
-        <clazz>uk.ac.liv.jmzqml.model.mzqml.AssayList</clazz>
+        <clazz>uk.ac.liv.jmzqml.model.mzqml.AnalysisSummary</clazz>
         <idMapped>false</idMapped>
-        <indexed>false</indexed>
+        <indexed>true</indexed>
+        <tagName>AnalysisSummary</tagName>
+        <xpath>/MzQuantML/AnalysisSummary</xpath>
+    </configurations>    
+    
+    <configurations>
+        <autoRefResolving>false</autoRefResolving>
+        <clazz>uk.ac.liv.jmzqml.model.mzqml.AssayList</clazz>
+        <idMapped>true</idMapped>
+        <indexed>true</indexed>
         <tagName>AssayList</tagName>
         <xpath>/MzQuantML/AssayList</xpath>
     </configurations>	
@@ -75,8 +84,8 @@ Configurations for various properties of model classes.
     <configurations>
         <autoRefResolving>false</autoRefResolving>
         <clazz>uk.ac.liv.jmzqml.model.mzqml.AuditCollection</clazz>
-        <idMapped>false</idMapped>
-        <indexed>false</indexed>
+        <idMapped>true</idMapped>
+        <indexed>true</indexed>
         <tagName>AuditCollection</tagName>
         <xpath>/MzQuantML/AuditCollection</xpath>
     </configurations>
@@ -85,7 +94,7 @@ Configurations for various properties of model classes.
         <autoRefResolving>false</autoRefResolving>
         <clazz>uk.ac.liv.jmzqml.model.mzqml.BibliographicReference</clazz>
         <idMapped>false</idMapped>
-        <indexed>false</indexed>
+        <indexed>true</indexed>
         <tagName>BibliographicReference</tagName>
         <xpath>/MzQuantML/BibliographicReference</xpath>
     </configurations>	
@@ -111,7 +120,7 @@ Configurations for various properties of model classes.
         <autoRefResolving>false</autoRefResolving>
         <clazz>uk.ac.liv.jmzqml.model.mzqml.ContactRole</clazz>
         <idMapped>false</idMapped>
-        <indexed>false</indexed>
+        <indexed>true</indexed>
         <refResolverClass>uk.ac.liv.jmzqml.xml.jaxb.resolver.ContactRoleRefResolver</refResolverClass>
         <tagName>ContactRole</tagName>
         <xpath>/MzQuantML/Provider/ContactRole</xpath>
@@ -120,8 +129,8 @@ Configurations for various properties of model classes.
     <configurations>
         <autoRefResolving>false</autoRefResolving>
         <clazz>uk.ac.liv.jmzqml.model.mzqml.Cv</clazz>
-        <idMapped>false</idMapped>
-        <indexed>false</indexed>
+        <idMapped>true</idMapped>
+        <indexed>true</indexed>
         <tagName>Cv</tagName>
         <xpath>/MzQuangML/CvList/Cv</xpath>
     </configurations>		
@@ -130,7 +139,7 @@ Configurations for various properties of model classes.
         <autoRefResolving>false</autoRefResolving>
         <clazz>uk.ac.liv.jmzqml.model.mzqml.CvList</clazz>
         <idMapped>false</idMapped>
-        <indexed>false</indexed>
+        <indexed>true</indexed>
         <tagName>CvList</tagName>
         <xpath>/MzQuantML/CvList</xpath>
     </configurations>
@@ -156,7 +165,7 @@ Configurations for various properties of model classes.
         <autoRefResolving>false</autoRefResolving>
         <clazz>uk.ac.liv.jmzqml.model.mzqml.DBIdentificationRef</clazz>
         <idMapped>false</idMapped>
-        <indexed>false</indexed>
+        <indexed>true</indexed>
         <refResolverClass>uk.ac.liv.jmzqml.xml.jaxb.resolver.DBIdentificationRefRefResolver</refResolverClass>
         <tagName>DBIdentificationRef</tagName>
         <xpath>/MzQuantML/SmallMoleculeList/SmallMolecule/DBIdentificationRef</xpath>
@@ -174,7 +183,7 @@ Configurations for various properties of model classes.
         <autoRefResolving>false</autoRefResolving>
         <clazz>uk.ac.liv.jmzqml.model.mzqml.DataProcessingList</clazz>
         <idMapped>false</idMapped>
-        <indexed>false</indexed>
+        <indexed>true</indexed>
         <tagName>DataProcessingList</tagName>
         <xpath>/MzQuantML/DataProcessingList</xpath>
     </configurations>	
@@ -182,8 +191,8 @@ Configurations for various properties of model classes.
     <configurations>
         <autoRefResolving>false</autoRefResolving>
         <clazz>uk.ac.liv.jmzqml.model.mzqml.DataProcessing</clazz>
-        <idMapped>false</idMapped>
-        <indexed>false</indexed>
+        <idMapped>true</idMapped>
+        <indexed>true</indexed>
         <refResolverClass>uk.ac.liv.jmzqml.xml.jaxb.resolver.DataProcessingRefResolver</refResolverClass>
         <tagName>DataProcessing</tagName>
         <xpath>/MzQuantML/DataProcessingList/DataProcessing</xpath>
@@ -193,7 +202,7 @@ Configurations for various properties of model classes.
         <autoRefResolving>false</autoRefResolving>
         <clazz>uk.ac.liv.jmzqml.model.mzqml.EvidenceRef</clazz>
         <idMapped>false</idMapped>
-        <indexed>false</indexed>
+        <indexed>true</indexed>
         <refResolverClass>uk.ac.liv.jmzqml.xml.jaxb.resolver.EvidenceRefRefResolver</refResolverClass>
         <tagName>EvidenceRef</tagName>
         <xpath>/MzQuantML/PeptideConsensusList/PeptideConsensus/EvidenceRef</xpath>
@@ -210,7 +219,7 @@ Configurations for various properties of model classes.
         <autoRefResolving>false</autoRefResolving>
         <clazz>uk.ac.liv.jmzqml.model.mzqml.FeatureList</clazz>
         <idMapped>false</idMapped>
-        <indexed>false</indexed>
+        <indexed>true</indexed>
         <refResolverClass>uk.ac.liv.jmzqml.xml.jaxb.resolver.FeatureListRefResolver</refResolverClass>
         <tagName>FeatureList</tagName>
         <xpath>/MzQuantML/FeatureList</xpath>
@@ -219,8 +228,8 @@ Configurations for various properties of model classes.
     <configurations>
         <autoRefResolving>false</autoRefResolving>
         <clazz>uk.ac.liv.jmzqml.model.mzqml.Feature</clazz>
-        <idMapped>false</idMapped>
-        <indexed>false</indexed>
+        <idMapped>true</idMapped>
+        <indexed>true</indexed>
         <refResolverClass>uk.ac.liv.jmzqml.xml.jaxb.resolver.FeatureRefResolver</refResolverClass>
         <tagName>Feature</tagName>
         <xpath>/MzQuantML/FeatureList/Feature</xpath>
@@ -251,8 +260,8 @@ Configurations for various properties of model classes.
     <configurations>
         <autoRefResolving>false</autoRefResolving>
         <clazz>uk.ac.liv.jmzqml.model.mzqml.IdentificationFile</clazz>
-        <idMapped>false</idMapped>
-        <indexed>false</indexed>
+        <idMapped>true</idMapped>
+        <indexed>true</indexed>
         <refResolverClass>uk.ac.liv.jmzqml.xml.jaxb.resolver.IdentificationFileRefResolver</refResolverClass>
         <tagName>IdentificationFile</tagName>
         <xpath>/MzQuantML/InputFiles/IdentificationFiles/IdentificationFile</xpath>
@@ -262,7 +271,7 @@ Configurations for various properties of model classes.
         <autoRefResolving>false</autoRefResolving>
         <clazz>uk.ac.liv.jmzqml.model.mzqml.IdentificationFiles</clazz>
         <idMapped>false</idMapped>
-        <indexed>false</indexed>
+        <indexed>true</indexed>
         <tagName>IdentificationFiles</tagName>
         <xpath>/MzQuantML/InputFiles/IdentificationFiles</xpath>
     </configurations>
@@ -280,7 +289,7 @@ Configurations for various properties of model classes.
         <autoRefResolving>false</autoRefResolving>
         <clazz>uk.ac.liv.jmzqml.model.mzqml.InputFiles</clazz>
         <idMapped>false</idMapped>
-        <indexed>false</indexed>
+        <indexed>true</indexed>
         <tagName>InputFiles</tagName>
         <xpath>/MzQuantML/InputFiles</xpath>
     </configurations>	
@@ -289,7 +298,7 @@ Configurations for various properties of model classes.
         <autoRefResolving>false</autoRefResolving>
         <clazz>uk.ac.liv.jmzqml.model.mzqml.Label</clazz>
         <idMapped>false</idMapped>
-        <indexed>false</indexed>
+        <indexed>true</indexed>
         <tagName>Label</tagName>
         <xpath>/MzQuantML/AssayList/Assay/Label</xpath>
     </configurations>	
@@ -298,7 +307,7 @@ Configurations for various properties of model classes.
         <autoRefResolving>false</autoRefResolving>
         <clazz>uk.ac.liv.jmzqml.model.mzqml.MethodFiles</clazz>
         <idMapped>false</idMapped>
-        <indexed>false</indexed>
+        <indexed>true</indexed>
         <tagName>MethodFiles</tagName>
         <xpath>/MzQuantML/InputFiles/MethodFiles</xpath>
     </configurations>
@@ -306,8 +315,8 @@ Configurations for various properties of model classes.
     <configurations>
         <autoRefResolving>false</autoRefResolving>
         <clazz>uk.ac.liv.jmzqml.model.mzqml.MethodFile</clazz>
-        <idMapped>false</idMapped>
-        <indexed>false</indexed>
+        <idMapped>true</idMapped>
+        <indexed>true</indexed>
         <tagName>MethodFile</tagName>
         <xpath>/MzQuantML/InputFiles/MethodFiles/MethodFile</xpath>
     </configurations>
@@ -317,7 +326,7 @@ Configurations for various properties of model classes.
         <autoRefResolving>false</autoRefResolving>
         <clazz>uk.ac.liv.jmzqml.model.mzqml.ModParam</clazz>
         <idMapped>false</idMapped>
-        <indexed>false</indexed>
+        <indexed>true</indexed>
         <tagName>ModParam</tagName>
         <xpath>/MzQuantML/AssayList/Assay/Label/Modification</xpath>
     </configurations>
@@ -326,7 +335,7 @@ Configurations for various properties of model classes.
         <autoRefResolving>false</autoRefResolving>
         <clazz>uk.ac.liv.jmzqml.model.mzqml.Modification</clazz>
         <idMapped>false</idMapped>
-        <indexed>false</indexed>
+        <indexed>true</indexed>
         <refResolverClass>uk.ac.liv.jmzqml.xml.jaxb.resolver.ModificationRefResolver</refResolverClass>
         <tagName>Modification</tagName>
         <xpath>/MzQuantML/PeptidenConsensusList/PeptideConsensus/Modification</xpath>
@@ -336,7 +345,7 @@ Configurations for various properties of model classes.
         <autoRefResolving>false</autoRefResolving>
         <clazz>uk.ac.liv.jmzqml.model.mzqml.MzQuantML</clazz>
         <idMapped>false</idMapped>
-        <indexed>false</indexed>
+        <indexed>true</indexed>
         <tagName>MzQuantML</tagName>
         <xpath>/MzQuantML</xpath>
     </configurations>
@@ -345,7 +354,7 @@ Configurations for various properties of model classes.
         <autoRefResolving>false</autoRefResolving>
         <clazz>uk.ac.liv.jmzqml.model.mzqml.Organization</clazz>
         <idMapped>false</idMapped>
-        <indexed>false</indexed>
+        <indexed>true</indexed>
         <tagName>Organization</tagName>
         <xpath>/MzQuantML/AuditCollection/Organization</xpath>
     </configurations>
@@ -368,7 +377,7 @@ Configurations for various properties of model classes.
         <autoRefResolving>false</autoRefResolving>
         <clazz>uk.ac.liv.jmzqml.model.mzqml.ParentOrganization</clazz>
         <idMapped>false</idMapped>
-        <indexed>false</indexed>
+        <indexed>true</indexed>
         <refResolverClass>uk.ac.liv.jmzqml.xml.jaxb.ParentOrganizationRefResolver</refResolverClass>
         <tagName>ParentOrganization</tagName>
         <xpath>/MzQuantML/AudiCollection/Organization/ParentOrganization</xpath>
@@ -378,7 +387,7 @@ Configurations for various properties of model classes.
         <autoRefResolving>false</autoRefResolving>
         <clazz>uk.ac.liv.jmzqml.model.mzqml.PeptideConsensusList</clazz>
         <idMapped>false</idMapped>
-        <indexed>false</indexed>
+        <indexed>true</indexed>
         <tagName>PeptideConsensusList</tagName>
         <xpath>/MzQuantML/PeptideConsensusList</xpath>
     </configurations>    
@@ -386,8 +395,8 @@ Configurations for various properties of model classes.
     <configurations>
         <autoRefResolving>false</autoRefResolving>
         <clazz>uk.ac.liv.jmzqml.model.mzqml.PeptideConsensus</clazz>
-        <idMapped>false</idMapped>
-        <indexed>false</indexed>
+        <idMapped>true</idMapped>
+        <indexed>true</indexed>
         <refResolverClass>uk.ac.liv.jmzqml.xml.jaxb.resolver.PeptideConsensusRefResolver</refResolverClass>
         <tagName>PeptideConsensus</tagName>
         <xpath>/MzQuantML/PeptideConsensusList/PeptideConsensus</xpath>
@@ -396,8 +405,8 @@ Configurations for various properties of model classes.
     <configurations>
         <autoRefResolving>false</autoRefResolving>
         <clazz>uk.ac.liv.jmzqml.model.mzqml.Person</clazz>
-        <idMapped>false</idMapped>
-        <indexed>false</indexed>
+        <idMapped>true</idMapped>
+        <indexed>true</indexed>
         <tagName>Person</tagName>
         <xpath>/MzQuantML/AuditCollection/Person</xpath>
     </configurations>    
@@ -406,7 +415,7 @@ Configurations for various properties of model classes.
         <autoRefResolving>false</autoRefResolving>
         <clazz>uk.ac.liv.jmzqml.model.mzqml.ProcessingMethod</clazz>
         <idMapped>false</idMapped>
-        <indexed>false</indexed>
+        <indexed>true</indexed>
         <tagName>ProcessingMethod</tagName>
         <xpath>/MzQuantML/DataProcessingList/DataProcessing/ProcessingMethod</xpath>
     </configurations>
@@ -415,7 +424,7 @@ Configurations for various properties of model classes.
         <autoRefResolving>false</autoRefResolving>
         <clazz>uk.ac.liv.jmzqml.model.mzqml.ProteinGroupList</clazz>
         <idMapped>false</idMapped>
-        <indexed>false</indexed>
+        <indexed>true</indexed>
         <tagName>ProteinGroupList</tagName>
         <xpath>/MzQuantML/ProteinGroupList</xpath>
     </configurations>
@@ -423,8 +432,8 @@ Configurations for various properties of model classes.
     <configurations>
         <autoRefResolving>false</autoRefResolving>
         <clazz>uk.ac.liv.jmzqml.model.mzqml.ProteinGroup</clazz>
-        <idMapped>false</idMapped>
-        <indexed>false</indexed>
+        <idMapped>true</idMapped>
+        <indexed>true</indexed>
         <refResolverClass>uk.ac.liv.jmzqml.xml.jaxb.resolver.ProteinGroupRefResolver</refResolverClass>
         <tagName>ProteinGroup</tagName>
         <xpath>/MzQuantML/ProteinGroupList/ProteinGroup</xpath>
@@ -434,7 +443,7 @@ Configurations for various properties of model classes.
         <autoRefResolving>false</autoRefResolving>
         <clazz>uk.ac.liv.jmzqml.model.mzqml.ProteinList</clazz>
         <idMapped>false</idMapped>
-        <indexed>false</indexed>
+        <indexed>true</indexed>
         <tagName>ProteinList</tagName>
         <xpath>/MzQuantML/ProteinList</xpath>
     </configurations>    
@@ -442,8 +451,8 @@ Configurations for various properties of model classes.
     <configurations>
         <autoRefResolving>false</autoRefResolving>
         <clazz>uk.ac.liv.jmzqml.model.mzqml.Protein</clazz>
-        <idMapped>false</idMapped>
-        <indexed>false</indexed>
+        <idMapped>true</idMapped>
+        <indexed>true</indexed>
         <refResolverClass>uk.ac.liv.jmzqml.xml.jaxb.resolver.ProteinRefResolver</refResolverClass>
         <tagName>Protein</tagName>
         <xpath>/MzQuantML/ProteinList/Protein</xpath>
@@ -452,8 +461,8 @@ Configurations for various properties of model classes.
     <configurations>
         <autoRefResolving>false</autoRefResolving>
         <clazz>uk.ac.liv.jmzqml.model.mzqml.Provider</clazz>
-        <idMapped>false</idMapped>
-        <indexed>false</indexed>
+        <idMapped>true</idMapped>
+        <indexed>true</indexed>
         <refResolverClass>uk.ac.liv.jmzqml.xml.jaxb.resolver.ProviderRefResolver</refResolverClass>
         <tagName>Provider</tagName>
         <xpath>/MzQuantML/Provider</xpath>
@@ -471,7 +480,7 @@ Configurations for various properties of model classes.
         <autoRefResolving>false</autoRefResolving>
         <clazz>uk.ac.liv.jmzqml.model.mzqml.RatioList</clazz>
         <idMapped>false</idMapped>
-        <indexed>false</indexed>
+        <indexed>true</indexed>
         <tagName>RatioList</tagName>
         <xpath>/MzQuantML/RatioList</xpath>
     </configurations>
@@ -479,8 +488,8 @@ Configurations for various properties of model classes.
     <configurations>
         <autoRefResolving>false</autoRefResolving>
         <clazz>uk.ac.liv.jmzqml.model.mzqml.Ratio</clazz>
-        <idMapped>false</idMapped>
-        <indexed>false</indexed>
+        <idMapped>true</idMapped>
+        <indexed>true</indexed>
         <refResolverClass>uk.ac.liv.jmzqml.xml.jaxb.resolver.RatioRefResolver</refResolverClass>
         <tagName>Ratio</tagName>
         <xpath>/MzQuantML/RatioList/Ratio</xpath>
@@ -490,7 +499,7 @@ Configurations for various properties of model classes.
         <autoRefResolving>false</autoRefResolving>
         <clazz>uk.ac.liv.jmzqml.model.mzqml.RawFile</clazz>
         <idMapped>false</idMapped>
-        <indexed>false</indexed>
+        <indexed>true</indexed>
         <refResolverClass>uk.ac.liv.jmzqml.xml.jaxb.resolver.RawFileRefResolver</refResolverClass>
         <tagName>RawFile</tagName>
         <xpath>/MzQuantML/InputFiles/RawFilesGroup/RawFile</xpath>
@@ -500,7 +509,7 @@ Configurations for various properties of model classes.
         <autoRefResolving>false</autoRefResolving>
         <clazz>uk.ac.liv.jmzqml.model.mzqml.RawFilesGroup</clazz>
         <idMapped>false</idMapped>
-        <indexed>false</indexed>
+        <indexed>true</indexed>
         <tagName>RawFilesGroup</tagName>
         <xpath>/MzQuantML/InputFiles/RawFilesGroup</xpath>
     </configurations>  
@@ -509,7 +518,7 @@ Configurations for various properties of model classes.
         <autoRefResolving>false</autoRefResolving>
         <clazz>uk.ac.liv.jmzqml.model.mzqml.Role</clazz>
         <idMapped>false</idMapped>
-        <indexed>false</indexed>
+        <indexed>true</indexed>
         <tagName>Role</tagName>
         <xpath>/MzQuantML/Provider/ContactRole/Role</xpath>
     </configurations>
@@ -526,8 +535,8 @@ Configurations for various properties of model classes.
     <configurations>
         <autoRefResolving>false</autoRefResolving>
         <clazz>uk.ac.liv.jmzqml.model.mzqml.SearchDatabase</clazz>
-        <idMapped>false</idMapped>
-        <indexed>false</indexed>
+        <idMapped>true</idMapped>
+        <indexed>true</indexed>
         <tagName>SearchDatabase</tagName>
         <xpath>/MzQuantML/InputFiles/SearchDatabase</xpath>
     </configurations>
@@ -536,7 +545,7 @@ Configurations for various properties of model classes.
         <autoRefResolving>false</autoRefResolving>
         <clazz>uk.ac.liv.jmzqml.model.mzqml.SmallMoleculeList</clazz>
         <idMapped>false</idMapped>
-        <indexed>false</indexed>
+        <indexed>true</indexed>
         <tagName>SmallMoleculeList</tagName>
         <xpath>/MzQuantML/SmallMoleculeList</xpath>
     </configurations>  
@@ -544,8 +553,8 @@ Configurations for various properties of model classes.
     <configurations>
         <autoRefResolving>false</autoRefResolving>
         <clazz>uk.ac.liv.jmzqml.model.mzqml.SmallMolecule</clazz>
-        <idMapped>false</idMapped>
-        <indexed>false</indexed>
+        <idMapped>true</idMapped>
+        <indexed>true</indexed>
         <refResolverClass>uk.ac.liv.jmzqml.xml.jaxb.resolver.SmallMoleculeRefResolver</refResolverClass>
         <tagName>SmallMolecule</tagName>
         <xpath>/MzQuantML/SmallMoleculeList/SmallMolecule</xpath>
@@ -556,7 +565,7 @@ Configurations for various properties of model classes.
         <autoRefResolving>false</autoRefResolving>
         <clazz>uk.ac.liv.jmzqml.model.mzqml.SmallMolModification</clazz>
         <idMapped>false</idMapped>
-        <indexed>false</indexed>
+        <indexed>true</indexed>
         <tagName>SmallMolModification</tagName>
         <xpath>/MzQuantML/SmallMoleculeList/SmallMolecule/SmallMolModification</xpath>
     </configurations>      
@@ -565,7 +574,7 @@ Configurations for various properties of model classes.
         <autoRefResolving>false</autoRefResolving>
         <clazz>uk.ac.liv.jmzqml.model.mzqml.SoftwareList</clazz>
         <idMapped>false</idMapped>
-        <indexed>false</indexed>
+        <indexed>true</indexed>
         <tagName>SoftwareList</tagName>
         <xpath>/MzQuantML/SoftwareList</xpath>
     </configurations>
@@ -573,8 +582,8 @@ Configurations for various properties of model classes.
     <configurations>
         <autoRefResolving>false</autoRefResolving>
         <clazz>uk.ac.liv.jmzqml.model.mzqml.Software</clazz>
-        <idMapped>false</idMapped>
-        <indexed>false</indexed>
+        <idMapped>true</idMapped>
+        <indexed>true</indexed>
         <tagName>Softwaer</tagName>
         <xpath>/MzQuantML/SoftwareList/Software</xpath>
     </configurations>  
@@ -583,7 +592,7 @@ Configurations for various properties of model classes.
         <autoRefResolving>false</autoRefResolving>
         <clazz>uk.ac.liv.jmzqml.model.mzqml.SourceFile</clazz>
         <idMapped>false</idMapped>
-        <indexed>false</indexed>
+        <indexed>true</indexed>
         <tagName>SourceFile</tagName>
         <xpath>/MzQuantML/InputFiles/SourceFile</xpath>
     </configurations>
@@ -592,7 +601,7 @@ Configurations for various properties of model classes.
         <autoRefResolving>false</autoRefResolving>
         <clazz>uk.ac.liv.jmzqml.model.mzqml.StudyVariableList</clazz>
         <idMapped>false</idMapped>
-        <indexed>false</indexed>
+        <indexed>true</indexed>
         <tagName>StudyVariableList</tagName>
         <xpath>/MzQuantML/StudyVariableList</xpath>
     </configurations>   
@@ -600,8 +609,8 @@ Configurations for various properties of model classes.
     <configurations>
         <autoRefResolving>false</autoRefResolving>
         <clazz>uk.ac.liv.jmzqml.model.mzqml.StudyVariable</clazz>
-        <idMapped>false</idMapped>
-        <indexed>false</indexed>
+        <idMapped>true</idMapped>
+        <indexed>true</indexed>
         <refResolverClass>uk.ac.liv.jmzqml.xml.jaxb.resolver.StudyVariableRefResolver</refResolverClass>
         <tagName>StudyVariable</tagName>
         <xpath>/MzQuantML/StudyVariableList/StudyVariable</xpath>
@@ -616,5 +625,5 @@ Configurations for various properties of model classes.
         <tagName>userParam</tagName>
     </configurations>  
 
-</mzIdentMLElementProperties>
+</mzQuantMLElementProperties>
 
