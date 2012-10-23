@@ -64,15 +64,6 @@ public enum MzQuantMLElement {
     getCfg().get(uk.ac.liv.jmzqml.model.mzqml.Affiliation.class.getName()).isAutoRefResolving(),
     getCfg().get(uk.ac.liv.jmzqml.model.mzqml.Affiliation.class.getName()).getRefResolverClass()),
     //
-    AnalysisSummary(getCfg().get(uk.ac.liv.jmzqml.model.mzqml.AnalysisSummary.class.getName()).getTagName(),
-    getCfg().get(uk.ac.liv.jmzqml.model.mzqml.AnalysisSummary.class.getName()).isIndexed(),
-    getCfg().get(uk.ac.liv.jmzqml.model.mzqml.AnalysisSummary.class.getName()).getXpath(),
-    getCfg().get(uk.ac.liv.jmzqml.model.mzqml.AnalysisSummary.class.getName()).isCached(),
-    getCfg().get(uk.ac.liv.jmzqml.model.mzqml.AnalysisSummary.class.getName()).isIdMapped(),
-    getCfg().get(uk.ac.liv.jmzqml.model.mzqml.AnalysisSummary.class.getName()).getClazz(),
-    getCfg().get(uk.ac.liv.jmzqml.model.mzqml.AnalysisSummary.class.getName()).isAutoRefResolving(),
-    getCfg().get(uk.ac.liv.jmzqml.model.mzqml.AnalysisSummary.class.getName()).getRefResolverClass()),
-    //
     AssayList(getCfg().get(uk.ac.liv.jmzqml.model.mzqml.AssayList.class.getName()).getTagName(),
     getCfg().get(uk.ac.liv.jmzqml.model.mzqml.AssayList.class.getName()).isIndexed(),
     getCfg().get(uk.ac.liv.jmzqml.model.mzqml.AssayList.class.getName()).getXpath(),

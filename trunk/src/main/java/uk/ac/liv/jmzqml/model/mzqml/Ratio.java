@@ -28,6 +28,8 @@ import uk.ac.liv.jmzqml.model.MzQuantMLObject;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
  *         &lt;element name="RatioCalculation" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc2}ParamListType" minOccurs="0"/>
+ *         &lt;element name="NumeratorDataType" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc2}cvParamRefType"/>
+ *         &lt;element name="DenominatorDataType" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc2}cvParamRefType"/>
  *       &lt;/sequence>
  *       &lt;attribute name="numerator_ref" use="required" type="{http://www.w3.org/2001/XMLSchema}IDREF" />
  *       &lt;attribute name="denominator_ref" use="required" type="{http://www.w3.org/2001/XMLSchema}IDREF" />
@@ -42,7 +44,9 @@ import uk.ac.liv.jmzqml.model.MzQuantMLObject;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "RatioType", propOrder = {
-    "ratioCalculation"
+    "ratioCalculation",
+    "numeratorDataType",
+    "denominatorDataType"
 })
 public class Ratio
     implements Serializable, MzQuantMLObject
@@ -51,6 +55,10 @@ public class Ratio
     private final static long serialVersionUID = 100L;
     @XmlElement(name = "RatioCalculation")
     protected ParamList ratioCalculation;
+    @XmlElement(name = "NumeratorDataType", required = true)
+    protected CvParamRef numeratorDataType;
+    @XmlElement(name = "DenominatorDataType", required = true)
+    protected CvParamRef denominatorDataType;
     @XmlAttribute(name = "numerator_ref", required = true)
     @XmlIDREF
     @XmlSchemaType(name = "IDREF")
@@ -89,6 +97,54 @@ public class Ratio
      */
     public void setRatioCalculation(ParamList value) {
         this.ratioCalculation = value;
+    }
+
+    /**
+     * Gets the value of the numeratorDataType property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link CvParamRef }
+     *     
+     */
+    public CvParamRef getNumeratorDataType() {
+        return numeratorDataType;
+    }
+
+    /**
+     * Sets the value of the numeratorDataType property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link CvParamRef }
+     *     
+     */
+    public void setNumeratorDataType(CvParamRef value) {
+        this.numeratorDataType = value;
+    }
+
+    /**
+     * Gets the value of the denominatorDataType property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link CvParamRef }
+     *     
+     */
+    public CvParamRef getDenominatorDataType() {
+        return denominatorDataType;
+    }
+
+    /**
+     * Sets the value of the denominatorDataType property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link CvParamRef }
+     *     
+     */
+    public void setDenominatorDataType(CvParamRef value) {
+        this.denominatorDataType = value;
     }
 
     /**

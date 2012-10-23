@@ -33,7 +33,7 @@ import uk.ac.liv.jmzqml.model.MzQuantMLObject;
  *         &lt;element name="GlobalQuantLayer" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc2}GlobalQuantLayerType" maxOccurs="unbounded" minOccurs="0"/>
  *         &lt;element name="AssayQuantLayer" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc2}QuantLayerType" maxOccurs="unbounded" minOccurs="0"/>
  *         &lt;element name="StudyVariableQuantLayer" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc2}QuantLayerType" maxOccurs="unbounded" minOccurs="0"/>
- *         &lt;element name="RatioQuantLayer" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc2}QuantLayerType" maxOccurs="unbounded" minOccurs="0"/>
+ *         &lt;element name="RatioQuantLayer" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc2}QuantLayerType" minOccurs="0"/>
  *         &lt;group ref="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc2}ParamGroup" maxOccurs="unbounded" minOccurs="0"/>
  *       &lt;/sequence>
  *       &lt;attribute name="id" use="required" type="{http://www.w3.org/2001/XMLSchema}ID" />
@@ -68,7 +68,7 @@ public class PeptideConsensusList
     @XmlElement(name = "StudyVariableQuantLayer")
     protected List<QuantLayer> studyVariableQuantLayer;
     @XmlElement(name = "RatioQuantLayer")
-    protected List<QuantLayer> ratioQuantLayer;
+    protected QuantLayer ratioQuantLayer;
     @XmlElements({
         @XmlElement(name = "cvParam", type = CvParam.class),
         @XmlElement(name = "userParam", type = UserParam.class)
@@ -201,30 +201,25 @@ public class PeptideConsensusList
     /**
      * Gets the value of the ratioQuantLayer property.
      * 
-     * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the ratioQuantLayer property.
-     * 
-     * <p>
-     * For example, to add a new item, do as follows:
-     * <pre>
-     *    getRatioQuantLayer().add(newItem);
-     * </pre>
-     * 
-     * 
-     * <p>
-     * Objects of the following type(s) are allowed in the list
-     * {@link QuantLayer }
-     * 
-     * 
+     * @return
+     *     possible object is
+     *     {@link QuantLayer }
+     *     
      */
-    public List<QuantLayer> getRatioQuantLayer() {
-        if (ratioQuantLayer == null) {
-            ratioQuantLayer = new ArrayList<QuantLayer>();
-        }
-        return this.ratioQuantLayer;
+    public QuantLayer getRatioQuantLayer() {
+        return ratioQuantLayer;
+    }
+
+    /**
+     * Sets the value of the ratioQuantLayer property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link QuantLayer }
+     *     
+     */
+    public void setRatioQuantLayer(QuantLayer value) {
+        this.ratioQuantLayer = value;
     }
 
     /**
