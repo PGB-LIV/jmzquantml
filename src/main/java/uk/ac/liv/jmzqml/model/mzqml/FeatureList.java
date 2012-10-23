@@ -34,7 +34,7 @@ import uk.ac.liv.jmzqml.model.MzQuantMLObject;
  *         &lt;element name="FeatureQuantLayer" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc2}GlobalQuantLayerType" maxOccurs="unbounded" minOccurs="0"/>
  *         &lt;element name="MS2AssayQuantLayer" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc2}QuantLayerType" maxOccurs="unbounded" minOccurs="0"/>
  *         &lt;element name="MS2StudyVariableQuantLayer" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc2}QuantLayerType" maxOccurs="unbounded" minOccurs="0"/>
- *         &lt;element name="MS2RatioQuantLayer" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc2}QuantLayerType" maxOccurs="unbounded" minOccurs="0"/>
+ *         &lt;element name="MS2RatioQuantLayer" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc2}QuantLayerType" minOccurs="0"/>
  *         &lt;group ref="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc2}ParamGroup" maxOccurs="unbounded" minOccurs="0"/>
  *       &lt;/sequence>
  *       &lt;attribute name="rawFilesGroup_ref" use="required" type="{http://www.w3.org/2001/XMLSchema}IDREF" />
@@ -69,7 +69,7 @@ public class FeatureList
     @XmlElement(name = "MS2StudyVariableQuantLayer")
     protected List<QuantLayer> ms2StudyVariableQuantLayer;
     @XmlElement(name = "MS2RatioQuantLayer")
-    protected List<QuantLayer> ms2RatioQuantLayer;
+    protected QuantLayer ms2RatioQuantLayer;
     @XmlElements({
         @XmlElement(name = "cvParam", type = CvParam.class),
         @XmlElement(name = "userParam", type = UserParam.class)
@@ -204,30 +204,25 @@ public class FeatureList
     /**
      * Gets the value of the ms2RatioQuantLayer property.
      * 
-     * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the ms2RatioQuantLayer property.
-     * 
-     * <p>
-     * For example, to add a new item, do as follows:
-     * <pre>
-     *    getMS2RatioQuantLayer().add(newItem);
-     * </pre>
-     * 
-     * 
-     * <p>
-     * Objects of the following type(s) are allowed in the list
-     * {@link QuantLayer }
-     * 
-     * 
+     * @return
+     *     possible object is
+     *     {@link QuantLayer }
+     *     
      */
-    public List<QuantLayer> getMS2RatioQuantLayer() {
-        if (ms2RatioQuantLayer == null) {
-            ms2RatioQuantLayer = new ArrayList<QuantLayer>();
-        }
-        return this.ms2RatioQuantLayer;
+    public QuantLayer getMS2RatioQuantLayer() {
+        return ms2RatioQuantLayer;
+    }
+
+    /**
+     * Sets the value of the ms2RatioQuantLayer property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link QuantLayer }
+     *     
+     */
+    public void setMS2RatioQuantLayer(QuantLayer value) {
+        this.ms2RatioQuantLayer = value;
     }
 
     /**

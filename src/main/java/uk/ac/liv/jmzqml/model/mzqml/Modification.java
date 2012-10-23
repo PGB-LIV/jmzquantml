@@ -8,9 +8,6 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlIDREF;
-import javax.xml.bind.annotation.XmlList;
-import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
 import uk.ac.liv.jmzqml.model.MzQuantMLObject;
 
@@ -28,9 +25,9 @@ import uk.ac.liv.jmzqml.model.MzQuantMLObject;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
  *         &lt;element name="cvParam" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc2}CVParamType" maxOccurs="unbounded"/>
- *         &lt;element name="Feature_refs" type="{http://www.w3.org/2001/XMLSchema}IDREFS" minOccurs="0"/>
  *       &lt;/sequence>
  *       &lt;attribute name="location" type="{http://www.w3.org/2001/XMLSchema}int" />
+ *       &lt;attribute name="residues" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc2}listOfChars" />
  *       &lt;attribute name="avgMassDelta" type="{http://www.w3.org/2001/XMLSchema}double" />
  *       &lt;attribute name="monoisotopicMassDelta" type="{http://www.w3.org/2001/XMLSchema}double" />
  *     &lt;/restriction>
@@ -42,8 +39,7 @@ import uk.ac.liv.jmzqml.model.MzQuantMLObject;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "ModificationType", propOrder = {
-    "cvParam",
-    "featureRefs"
+    "cvParam"
 })
 public class Modification
     implements Serializable, MzQuantMLObject
@@ -52,13 +48,10 @@ public class Modification
     private final static long serialVersionUID = 100L;
     @XmlElement(required = true)
     protected List<CvParam> cvParam;
-    @XmlList
-    @XmlElement(name = "Feature_refs")
-    @XmlIDREF
-    @XmlSchemaType(name = "IDREFS")
-    protected List<Object> featureRefs;
     @XmlAttribute(name = "location")
     protected Integer location;
+    @XmlAttribute(name = "residues")
+    protected List<String> residues;
     @XmlAttribute(name = "avgMassDelta")
     protected Double avgMassDelta;
     @XmlAttribute(name = "monoisotopicMassDelta")
@@ -94,35 +87,6 @@ public class Modification
     }
 
     /**
-     * Gets the value of the featureRefs property.
-     * 
-     * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the featureRefs property.
-     * 
-     * <p>
-     * For example, to add a new item, do as follows:
-     * <pre>
-     *    getFeatureRefs().add(newItem);
-     * </pre>
-     * 
-     * 
-     * <p>
-     * Objects of the following type(s) are allowed in the list
-     * {@link Object }
-     * 
-     * 
-     */
-    public List<Object> getFeatureRefs() {
-        if (featureRefs == null) {
-            featureRefs = new ArrayList<Object>();
-        }
-        return this.featureRefs;
-    }
-
-    /**
      * Gets the value of the location property.
      * 
      * @return
@@ -144,6 +108,35 @@ public class Modification
      */
     public void setLocation(Integer value) {
         this.location = value;
+    }
+
+    /**
+     * Gets the value of the residues property.
+     * 
+     * <p>
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the residues property.
+     * 
+     * <p>
+     * For example, to add a new item, do as follows:
+     * <pre>
+     *    getResidues().add(newItem);
+     * </pre>
+     * 
+     * 
+     * <p>
+     * Objects of the following type(s) are allowed in the list
+     * {@link String }
+     * 
+     * 
+     */
+    public List<String> getResidues() {
+        if (residues == null) {
+            residues = new ArrayList<String>();
+        }
+        return this.residues;
     }
 
     /**

@@ -83,7 +83,7 @@ public class MzQuantMLUnmarshaller {
      */
 
     public MzQuantMLUnmarshaller(String fullFileName, boolean schemaValidating,
-            String schemaFn) {
+                                 String schemaFn) {
 
         //this(MzQuantMLIndexerFactory.getInstance().buildIndex(new File(fullFileName)));
         this.index = null;
@@ -144,6 +144,18 @@ public class MzQuantMLUnmarshaller {
         }
     }
 
+    /*
+     * Constructor
+     */
+    public MzQuantMLUnmarshaller(File mzQuantMLFile) {
+        this(MzQuantMLIndexerFactory.getInstance().buildIndex(mzQuantMLFile));
+    }
+
+    public MzQuantMLUnmarshaller(MzQuantMLIndexer indexer) {
+        this.index = indexer;
+        this.cache = null;
+    }
+
     /**
      * Unmarshalling of a whole MzQuantML object.
      *
@@ -166,21 +178,10 @@ public class MzQuantMLUnmarshaller {
         return mzQuantML;
     }
 
-    /*
-     * Constructor
-     */
-    public MzQuantMLUnmarshaller(File mzQuantMLFile) {
-        this(MzQuantMLIndexerFactory.getInstance().buildIndex(mzQuantMLFile));
-    }
 
-    public MzQuantMLUnmarshaller(MzQuantMLIndexer indexer) {
-        this.index = indexer;
-        this.cache = null;
-    }
     /*
      * public methods
      */
-
     public String getMzQuantMLVersion() {
         if (mzqVersion == null) {
             Matcher match = VERSION_PATTERN.matcher(index.getMzQuantMLAttributeXMLString());
@@ -215,7 +216,7 @@ public class MzQuantMLUnmarshaller {
      * Method to retrieve attribute name-value pairs for a XML element defined
      * by it's id and Class.
      *
-     * @param id the value of the 'id' attribute of the XML element.
+     * @param id    the value of the 'id' attribute of the XML element.
      * @param clazz the Class representing the XML element.
      *
      * @return A map of all the found name-value attribute pairs or null if no
@@ -305,7 +306,8 @@ public class MzQuantMLUnmarshaller {
         return doUnmarshal(clazz, xpath);
     }
 
-    public <T extends MzQuantMLObject> Iterator<T> unmarshalCollectionFromXpath(MzQuantMLElement element) {
+    public <T extends MzQuantMLObject> Iterator<T> unmarshalCollectionFromXpath(
+            MzQuantMLElement element) {
         // caching deactivated
 //        int indexCnt = getObjectCount(element);
 //
@@ -346,7 +348,7 @@ public class MzQuantMLUnmarshaller {
      * private methods
      */
     private <T extends MzQuantMLObject> T doUnmarshal(Class<T> clazz,
-            String xpath) {
+                                                      String xpath) {
         T retval = null;
         if (xpath != null) {
             retval = retrieveFromXML(clazz, xpath);
@@ -357,7 +359,7 @@ public class MzQuantMLUnmarshaller {
     }
 
     private <T extends MzQuantMLObject> T retrieveFromXML(Class<T> cls,
-            String xpath) {
+                                                          String xpath) {
         T retval = null;
         try {
             Iterator<String> xpathIter = index.getXmlStringIterator(xpath);
@@ -380,7 +382,7 @@ public class MzQuantMLUnmarshaller {
     }
 
     private <T extends MzQuantMLObject> T generateObject(Class<T> cls,
-            String xmlSt) throws JAXBException {
+                                                         String xmlSt) throws JAXBException {
         T retval;
         if (logger.isDebugEnabled()) {
             logger.trace("XML to unmarshal: " + xmlSt);
