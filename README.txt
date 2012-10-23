@@ -15,7 +15,7 @@
 Description
 
   jmzquantml is a JAVA API for reading and writing mzQuantML file 
-  which is designed for reording quantitative proteomic data and 
+  which is designed for recording quantitative proteomic data and 
   meta-data.
 
 How to use in maven
@@ -61,8 +61,17 @@ How to use in maven
 
 Changelog
 
-  - Current version 1.0.0-rc2-1.0.0
-  - Previous version 1.0.0-rc2
+  - Current version 1.0.0-rc2-1.0.1
+  - Previous version 1.0.0-rc2-1.0.0
+
+jmzquantml version 1.0.0-rc2-1.0.1 -- (23, October 2012)
+
+  - update this (README.txt) document
+  - change the model according to schema change
+  - more info about schema change can be found in following links    
+    - http://code.google.com/p/mzquantml/issues/detail?id=43&can=1
+    - http://code.google.com/p/mzquantml/issues/detail?id=44&can=1
+    - http://code.google.com/p/mzquantml/source/detail?r=243
 
 jmzquantml version 1.0.0-rc2-1.0.0 -- (4, July 2012) 
 
