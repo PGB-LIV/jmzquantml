@@ -49,7 +49,7 @@ public class MzQuantMLUnmarshaller {
     private static final Pattern XML_ATT_PATTERN = Pattern.compile("\\s+([A-Za-z:]+)\\s*=\\s*[\"']([^\"'>]+?)[\"']", Pattern.DOTALL);
     private Unmarshaller unmarsh = null;
     private Reader fr = null;
-    private static final ArrayList<String> exMsgs = new ArrayList<String>();
+    private ArrayList<String> exMsgs = new ArrayList<String>();
     //private final MzQuantMLIndexer index;
 
     /**
@@ -83,7 +83,7 @@ public class MzQuantMLUnmarshaller {
      */
 
     public MzQuantMLUnmarshaller(String fullFileName, boolean schemaValidating,
-                                 String schemaFn) {
+                                 File schemaFile) {
 
         //this(MzQuantMLIndexerFactory.getInstance().buildIndex(new File(fullFileName)));
         this.index = null;
@@ -103,7 +103,7 @@ public class MzQuantMLUnmarshaller {
                 this.unmarsh = context.createUnmarshaller();
 
                 SchemaFactory sf = SchemaFactory.newInstance(W3C_XML_SCHEMA_NS_URI);
-                Schema schema = sf.newSchema(new File(schemaFn));
+                Schema schema = sf.newSchema(schemaFile);
                 this.unmarsh.setSchema(schema);
 
                 ValidationEventHandler veh = new ValidationEventHandler() {
