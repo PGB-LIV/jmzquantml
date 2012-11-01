@@ -61,8 +61,12 @@ How to use in maven
 
 Changelog
 
-  - Current version 1.0.0-rc2-1.0.1
-  - Previous version 1.0.0-rc2-1.0.0
+  - Current version 1.0.0-rc3-1.0.0
+  - Previous version 1.0.0-rc2-1.0.1
+
+jmzquantml version 1.0.0-rc3-1.0.0 -- (1, November 2012)
+  - update this (README.txt) document
+  - this version comply to mzQuantML_1_0_0-rc3.xsd (31, October 2012)
 
 jmzquantml version 1.0.0-rc2-1.0.1 -- (23, October 2012)
 
