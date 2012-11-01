@@ -23,15 +23,15 @@ How to use in maven
   jmzquantml artifact is currently using Googlecode host as its maven
   repository. To use it, add the following to your POM:
   
-  First, add jmzquantml dependency:
+  First, add jmzquantml dependency (check the latest version):
   
   <dependency>
      <groupId>uk.ac.liv</groupId>
      <artifactId>jmzquantml</artifactId>
-     <version>1.0.0-rc2-1.0.0</version>
+     <version>1.0.0-rc3-1.0.0</version>
   </dependency>
 
-  Second, add wagon-svn extension (current version 1.12):
+  Second, add wagon-svn extension (current version 1.12) in <build> tag:
   
   <extensions>
      <extension>
@@ -41,7 +41,7 @@ How to use in maven
      </extension>
   </extensions>
 
-  Last, add plugin repository and jmzquantml repository:
+  Finally, add plugin repository and jmzquantml repository:
   
   <pluginRepositories>
      <pluginRepository>
@@ -52,7 +52,7 @@ How to use in maven
   </pluginRepositories>
   <repositories>
      <repository>
-        <id>ddq-maven-repo</id>
+        <id>jmzquantml-maven-repo</id>
         <name>Maven Repository for jmzquantml release</name>
         <url>http://jmzquantml.googlecode.com/svn/maven/repo</url>
      </repository>
