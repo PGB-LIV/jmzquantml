@@ -26,8 +26,8 @@ import uk.ac.liv.jmzqml.model.MzQuantMLObject;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="ColumnDefinition" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc2}ColumnDefinitionType"/>
- *         &lt;element name="DataMatrix" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc2}DataMatrixType"/>
+ *         &lt;element name="ColumnDefinition" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc3}ColumnDefinitionType"/>
+ *         &lt;element name="DataMatrix" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc3}DataMatrixType"/>
  *       &lt;/sequence>
  *       &lt;attribute name="id" use="required" type="{http://www.w3.org/2001/XMLSchema}ID" />
  *     &lt;/restriction>

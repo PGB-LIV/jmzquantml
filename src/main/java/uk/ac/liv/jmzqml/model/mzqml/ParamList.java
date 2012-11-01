@@ -23,7 +23,7 @@ import uk.ac.liv.jmzqml.model.MzQuantMLObject;
  * &lt;complexType name="ParamListType">
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;group ref="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc2}ParamGroup" maxOccurs="unbounded"/>
+ *       &lt;group ref="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc3}ParamGroup" maxOccurs="unbounded"/>
  *     &lt;/restriction>
  *   &lt;/complexContent>
  * &lt;/complexType>

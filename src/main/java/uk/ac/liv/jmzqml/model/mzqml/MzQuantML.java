@@ -23,25 +23,25 @@ import uk.ac.liv.jmzqml.xml.jaxb.adapter.CalendarAdapter;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="CvList" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc2}CvListType"/>
- *         &lt;element name="Provider" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc2}ProviderType" minOccurs="0"/>
- *         &lt;element name="AuditCollection" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc2}AuditCollectionType" minOccurs="0"/>
- *         &lt;element name="AnalysisSummary" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc2}ParamListType"/>
- *         &lt;element name="InputFiles" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc2}InputFilesType"/>
- *         &lt;element name="SoftwareList" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc2}SoftwareListType"/>
- *         &lt;element name="DataProcessingList" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc2}DataProcessingListType"/>
- *         &lt;element name="BibliographicReference" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc2}BibliographicReferenceType" maxOccurs="unbounded" minOccurs="0"/>
- *         &lt;element name="AssayList" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc2}AssayListType"/>
- *         &lt;element name="StudyVariableList" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc2}StudyVariableListType"/>
- *         &lt;element name="RatioList" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc2}RatioListType" minOccurs="0"/>
- *         &lt;element name="ProteinGroupList" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc2}ProteinGroupListType" minOccurs="0"/>
- *         &lt;element name="ProteinList" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc2}ProteinListType" minOccurs="0"/>
- *         &lt;element name="PeptideConsensusList" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc2}PeptideConsensusListType" maxOccurs="unbounded" minOccurs="0"/>
- *         &lt;element name="SmallMoleculeList" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc2}SmallMoleculeListType" minOccurs="0"/>
- *         &lt;element name="FeatureList" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc2}FeatureListType" maxOccurs="unbounded" minOccurs="0"/>
+ *         &lt;element name="CvList" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc3}CvListType"/>
+ *         &lt;element name="Provider" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc3}ProviderType" minOccurs="0"/>
+ *         &lt;element name="AuditCollection" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc3}AuditCollectionType" minOccurs="0"/>
+ *         &lt;element name="AnalysisSummary" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc3}ParamListType"/>
+ *         &lt;element name="InputFiles" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc3}InputFilesType"/>
+ *         &lt;element name="SoftwareList" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc3}SoftwareListType"/>
+ *         &lt;element name="DataProcessingList" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc3}DataProcessingListType"/>
+ *         &lt;element name="BibliographicReference" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc3}BibliographicReferenceType" maxOccurs="unbounded" minOccurs="0"/>
+ *         &lt;element name="AssayList" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc3}AssayListType"/>
+ *         &lt;element name="StudyVariableList" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc3}StudyVariableListType"/>
+ *         &lt;element name="RatioList" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc3}RatioListType" minOccurs="0"/>
+ *         &lt;element name="ProteinGroupList" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc3}ProteinGroupListType" minOccurs="0"/>
+ *         &lt;element name="ProteinList" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc3}ProteinListType" minOccurs="0"/>
+ *         &lt;element name="PeptideConsensusList" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc3}PeptideConsensusListType" maxOccurs="unbounded" minOccurs="0"/>
+ *         &lt;element name="SmallMoleculeList" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc3}SmallMoleculeListType" minOccurs="0"/>
+ *         &lt;element name="FeatureList" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc3}FeatureListType" maxOccurs="unbounded" minOccurs="0"/>
  *       &lt;/sequence>
  *       &lt;attribute name="creationDate" type="{http://www.w3.org/2001/XMLSchema}dateTime" />
- *       &lt;attribute name="version" use="required" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc2}versionRegex" />
+ *       &lt;attribute name="version" use="required" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc3}versionRegex" />
  *     &lt;/restriction>
  *   &lt;/complexContent>
  * &lt;/complexType>

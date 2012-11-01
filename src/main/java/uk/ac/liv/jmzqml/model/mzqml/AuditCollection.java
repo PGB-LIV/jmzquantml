@@ -24,8 +24,8 @@ import uk.ac.liv.jmzqml.model.MzQuantMLObject;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;choice maxOccurs="unbounded">
- *         &lt;element name="Person" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc2}PersonType"/>
- *         &lt;element name="Organization" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc2}OrganizationType"/>
+ *         &lt;element name="Person" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc3}PersonType"/>
+ *         &lt;element name="Organization" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc3}OrganizationType"/>
  *       &lt;/choice>
  *     &lt;/restriction>
  *   &lt;/complexContent>
