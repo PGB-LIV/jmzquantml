@@ -30,13 +30,13 @@ import uk.ac.liv.jmzqml.model.MzQuantMLObject;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="MassTrace" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc2}listOfDoubles" minOccurs="0"/>
- *         &lt;group ref="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc2}ParamGroup" maxOccurs="unbounded" minOccurs="0"/>
+ *         &lt;element name="MassTrace" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc3}listOfDoubles" minOccurs="0"/>
+ *         &lt;group ref="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc3}ParamGroup" maxOccurs="unbounded" minOccurs="0"/>
  *       &lt;/sequence>
  *       &lt;attribute name="id" use="required" type="{http://www.w3.org/2001/XMLSchema}ID" />
- *       &lt;attribute name="rt" use="required" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc2}doubleOrNullType" />
+ *       &lt;attribute name="rt" use="required" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc3}doubleOrNullType" />
  *       &lt;attribute name="mz" use="required" type="{http://www.w3.org/2001/XMLSchema}double" />
- *       &lt;attribute name="charge" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc2}integerOrNullType" />
+ *       &lt;attribute name="charge" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc3}integerOrNullType" />
  *       &lt;attribute name="chromatogram_refs" type="{http://www.w3.org/2001/XMLSchema}string" />
  *       &lt;attribute name="spectrum_refs" type="{http://www.w3.org/2001/XMLSchema}string" />
  *     &lt;/restriction>

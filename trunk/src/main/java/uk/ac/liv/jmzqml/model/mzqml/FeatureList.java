@@ -30,12 +30,12 @@ import uk.ac.liv.jmzqml.model.MzQuantMLObject;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="Feature" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc2}FeatureType" maxOccurs="unbounded"/>
- *         &lt;element name="FeatureQuantLayer" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc2}GlobalQuantLayerType" maxOccurs="unbounded" minOccurs="0"/>
- *         &lt;element name="MS2AssayQuantLayer" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc2}QuantLayerType" maxOccurs="unbounded" minOccurs="0"/>
- *         &lt;element name="MS2StudyVariableQuantLayer" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc2}QuantLayerType" maxOccurs="unbounded" minOccurs="0"/>
- *         &lt;element name="MS2RatioQuantLayer" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc2}QuantLayerType" minOccurs="0"/>
- *         &lt;group ref="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc2}ParamGroup" maxOccurs="unbounded" minOccurs="0"/>
+ *         &lt;element name="Feature" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc3}FeatureType" maxOccurs="unbounded"/>
+ *         &lt;element name="FeatureQuantLayer" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc3}GlobalQuantLayerType" maxOccurs="unbounded" minOccurs="0"/>
+ *         &lt;element name="MS2AssayQuantLayer" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc3}QuantLayerType" maxOccurs="unbounded" minOccurs="0"/>
+ *         &lt;element name="MS2StudyVariableQuantLayer" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc3}QuantLayerType" maxOccurs="unbounded" minOccurs="0"/>
+ *         &lt;element name="MS2RatioQuantLayer" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc3}QuantLayerType" minOccurs="0"/>
+ *         &lt;group ref="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc3}ParamGroup" maxOccurs="unbounded" minOccurs="0"/>
  *       &lt;/sequence>
  *       &lt;attribute name="rawFilesGroup_ref" use="required" type="{http://www.w3.org/2001/XMLSchema}IDREF" />
  *       &lt;attribute name="id" use="required" type="{http://www.w3.org/2001/XMLSchema}ID" />

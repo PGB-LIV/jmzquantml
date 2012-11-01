@@ -25,10 +25,10 @@ import uk.ac.liv.jmzqml.xml.jaxb.adapter.CalendarAdapter;
  * <pre>
  * &lt;complexType name="SearchDatabaseType">
  *   &lt;complexContent>
- *     &lt;extension base="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc2}ExternalDataType">
+ *     &lt;extension base="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc3}ExternalDataType">
  *       &lt;sequence>
- *         &lt;element name="DatabaseName" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc2}ParamType"/>
- *         &lt;element name="cvParam" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc2}CVParamType" maxOccurs="unbounded" minOccurs="0"/>
+ *         &lt;element name="DatabaseName" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc3}ParamType"/>
+ *         &lt;element name="cvParam" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc3}CVParamType" maxOccurs="unbounded" minOccurs="0"/>
  *       &lt;/sequence>
  *       &lt;attribute name="version" type="{http://www.w3.org/2001/XMLSchema}string" />
  *       &lt;attribute name="releaseDate" type="{http://www.w3.org/2001/XMLSchema}dateTime" />

@@ -22,9 +22,9 @@ import javax.xml.bind.annotation.XmlType;
  * <pre>
  * &lt;complexType name="AbstractContactType">
  *   &lt;complexContent>
- *     &lt;extension base="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc2}IdentifiableType">
+ *     &lt;extension base="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc3}IdentifiableType">
  *       &lt;sequence>
- *         &lt;group ref="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc2}ParamGroup" maxOccurs="unbounded" minOccurs="0"/>
+ *         &lt;group ref="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc3}ParamGroup" maxOccurs="unbounded" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/extension>
  *   &lt;/complexContent>

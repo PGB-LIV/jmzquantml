@@ -21,10 +21,10 @@ import javax.xml.bind.annotation.XmlType;
  * <pre>
  * &lt;complexType name="ExternalDataType">
  *   &lt;complexContent>
- *     &lt;extension base="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc2}IdentifiableType">
+ *     &lt;extension base="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc3}IdentifiableType">
  *       &lt;sequence>
  *         &lt;element name="ExternalFormatDocumentation" type="{http://www.w3.org/2001/XMLSchema}anyURI" minOccurs="0"/>
- *         &lt;element name="FileFormat" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc2}FileFormatType" minOccurs="0"/>
+ *         &lt;element name="FileFormat" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc3}FileFormatType" minOccurs="0"/>
  *       &lt;/sequence>
  *       &lt;attribute name="location" use="required" type="{http://www.w3.org/2001/XMLSchema}anyURI" />
  *     &lt;/extension>

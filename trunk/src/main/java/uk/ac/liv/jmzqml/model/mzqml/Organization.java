@@ -18,9 +18,9 @@ import javax.xml.bind.annotation.XmlType;
  * <pre>
  * &lt;complexType name="OrganizationType">
  *   &lt;complexContent>
- *     &lt;extension base="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc2}AbstractContactType">
+ *     &lt;extension base="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc3}AbstractContactType">
  *       &lt;sequence>
- *         &lt;element name="ParentOrganization" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc2}ParentOrganizationType" minOccurs="0"/>
+ *         &lt;element name="ParentOrganization" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc3}ParentOrganizationType" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/extension>
  *   &lt;/complexContent>

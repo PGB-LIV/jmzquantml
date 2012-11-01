@@ -31,10 +31,10 @@ import uk.ac.liv.jmzqml.model.MzQuantMLObject;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="Modification" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc2}SmallMolModificationType" maxOccurs="unbounded" minOccurs="0"/>
- *         &lt;element name="DBIdentificationRef" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc2}DBIdentificationRefType" maxOccurs="unbounded" minOccurs="0"/>
+ *         &lt;element name="Modification" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc3}SmallMolModificationType" maxOccurs="unbounded" minOccurs="0"/>
+ *         &lt;element name="DBIdentificationRef" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc3}DBIdentificationRefType" maxOccurs="unbounded" minOccurs="0"/>
  *         &lt;element name="Feature_refs" type="{http://www.w3.org/2001/XMLSchema}IDREFS" minOccurs="0"/>
- *         &lt;group ref="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc2}ParamGroup" maxOccurs="unbounded" minOccurs="0"/>
+ *         &lt;group ref="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc3}ParamGroup" maxOccurs="unbounded" minOccurs="0"/>
  *       &lt;/sequence>
  *       &lt;attribute name="id" use="required" type="{http://www.w3.org/2001/XMLSchema}ID" />
  *     &lt;/restriction>

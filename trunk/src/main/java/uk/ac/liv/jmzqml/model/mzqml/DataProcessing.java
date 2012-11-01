@@ -33,7 +33,7 @@ import uk.ac.liv.jmzqml.model.MzQuantMLObject;
  *       &lt;sequence>
  *         &lt;element name="InputObject_refs" type="{http://www.w3.org/2001/XMLSchema}IDREFS" minOccurs="0"/>
  *         &lt;element name="OutputObject_refs" type="{http://www.w3.org/2001/XMLSchema}IDREFS" minOccurs="0"/>
- *         &lt;element name="ProcessingMethod" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc2}ProcessingMethodType" maxOccurs="unbounded"/>
+ *         &lt;element name="ProcessingMethod" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc3}ProcessingMethodType" maxOccurs="unbounded"/>
  *       &lt;/sequence>
  *       &lt;attribute name="id" use="required" type="{http://www.w3.org/2001/XMLSchema}ID" />
  *       &lt;attribute name="software_ref" use="required" type="{http://www.w3.org/2001/XMLSchema}IDREF" />

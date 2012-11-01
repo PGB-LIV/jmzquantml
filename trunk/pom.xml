@@ -4,7 +4,7 @@
 
     <groupId>uk.ac.liv</groupId>
     <artifactId>jmzquantml</artifactId>
-    <version>1.0.0-rc2-1.0.2-SNAPSHOT</version>
+    <version>1.0.0-rc3-1.0.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <name>jmzquantml</name>
@@ -55,7 +55,7 @@
                             <extension>true</extension>
                             <schemaDirectory>src/main/resources</schemaDirectory>
                             <schemaIncludes>
-                                <include>mzQuantML_1_0_0-rc2.xsd</include>
+                                <include>mzQuantML_1_0_0-rc3.xsd</include>
                             </schemaIncludes>
                             <bindingDirectory>src/main/resources</bindingDirectory>
                             <bindingIncludes>

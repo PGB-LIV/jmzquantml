@@ -17,7 +17,7 @@ import javax.xml.bind.annotation.XmlType;
  * <pre>
  * &lt;complexType name="SourceFileType">
  *   &lt;complexContent>
- *     &lt;extension base="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc2}ExternalDataType">
+ *     &lt;extension base="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc3}ExternalDataType">
  *     &lt;/extension>
  *   &lt;/complexContent>
  * &lt;/complexType>

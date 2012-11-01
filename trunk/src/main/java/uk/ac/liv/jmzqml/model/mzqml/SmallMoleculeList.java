@@ -29,12 +29,12 @@ import uk.ac.liv.jmzqml.model.MzQuantMLObject;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="SmallMolecule" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc2}SmallMoleculeType" maxOccurs="unbounded"/>
- *         &lt;element name="GlobalQuantLayer" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc2}GlobalQuantLayerType" maxOccurs="unbounded" minOccurs="0"/>
- *         &lt;element name="AssayQuantLayer" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc2}QuantLayerType" maxOccurs="unbounded" minOccurs="0"/>
- *         &lt;element name="StudyVariableQuantLayer" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc2}QuantLayerType" maxOccurs="unbounded" minOccurs="0"/>
- *         &lt;element name="RatioQuantLayer" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc2}QuantLayerType" minOccurs="0"/>
- *         &lt;group ref="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc2}ParamGroup" maxOccurs="unbounded" minOccurs="0"/>
+ *         &lt;element name="SmallMolecule" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc3}SmallMoleculeType" maxOccurs="unbounded"/>
+ *         &lt;element name="GlobalQuantLayer" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc3}GlobalQuantLayerType" maxOccurs="unbounded" minOccurs="0"/>
+ *         &lt;element name="AssayQuantLayer" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc3}QuantLayerType" maxOccurs="unbounded" minOccurs="0"/>
+ *         &lt;element name="StudyVariableQuantLayer" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc3}QuantLayerType" maxOccurs="unbounded" minOccurs="0"/>
+ *         &lt;element name="RatioQuantLayer" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc3}QuantLayerType" minOccurs="0"/>
+ *         &lt;group ref="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc3}ParamGroup" maxOccurs="unbounded" minOccurs="0"/>
  *       &lt;/sequence>
  *       &lt;attribute name="id" use="required" type="{http://www.w3.org/2001/XMLSchema}ID" />
  *     &lt;/restriction>

@@ -30,13 +30,13 @@ import uk.ac.liv.jmzqml.model.MzQuantMLObject;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="PeptideSequence" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc2}sequence" minOccurs="0"/>
- *         &lt;element name="Modification" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc2}ModificationType" maxOccurs="unbounded" minOccurs="0"/>
- *         &lt;element name="EvidenceRef" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc2}EvidenceRefType" maxOccurs="unbounded"/>
- *         &lt;group ref="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc2}ParamGroup" maxOccurs="unbounded" minOccurs="0"/>
+ *         &lt;element name="PeptideSequence" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc3}sequence" minOccurs="0"/>
+ *         &lt;element name="Modification" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc3}ModificationType" maxOccurs="unbounded" minOccurs="0"/>
+ *         &lt;element name="EvidenceRef" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc3}EvidenceRefType" maxOccurs="unbounded"/>
+ *         &lt;group ref="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc3}ParamGroup" maxOccurs="unbounded" minOccurs="0"/>
  *       &lt;/sequence>
  *       &lt;attribute name="id" use="required" type="{http://www.w3.org/2001/XMLSchema}ID" />
- *       &lt;attribute name="charge" use="required" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc2}listOfIntegers" />
+ *       &lt;attribute name="charge" use="required" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc3}listOfIntegers" />
  *       &lt;attribute name="searchDatabase_ref" type="{http://www.w3.org/2001/XMLSchema}IDREF" />
  *     &lt;/restriction>
  *   &lt;/complexContent>

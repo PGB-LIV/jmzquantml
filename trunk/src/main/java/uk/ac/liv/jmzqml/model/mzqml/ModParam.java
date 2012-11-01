@@ -24,10 +24,10 @@ import uk.ac.liv.jmzqml.model.MzQuantMLObject;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="cvParam" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc2}CVParamType"/>
+ *         &lt;element name="cvParam" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc3}CVParamType"/>
  *       &lt;/sequence>
  *       &lt;attribute name="massDelta" type="{http://www.w3.org/2001/XMLSchema}float" />
- *       &lt;attribute name="residues" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc2}listOfChars" />
+ *       &lt;attribute name="residues" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc3}listOfChars" />
  *     &lt;/restriction>
  *   &lt;/complexContent>
  * &lt;/complexType>
