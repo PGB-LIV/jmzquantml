@@ -134,7 +134,7 @@
             <url>svn:https://jmzquantml.googlecode.com/svn/maven/repo</url>
         </repository>
         <snapshotRepository>
-            <id>ddq-maven-snapshot-repo</id>
+            <id>jmzquantml-maven-snapshot-repo</id>
             <name>Maven Repository for jmzquantml (snapshot)</name>
             <url>svn:https://jmzquantml.googlecode.com/svn/maven/snapshot-repo</url>
             <uniqueVersion>false</uniqueVersion>
