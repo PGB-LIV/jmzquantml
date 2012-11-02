@@ -61,8 +61,11 @@ How to use in maven
 
 Changelog
 
-  - Current version 1.0.0-rc3-1.0.0
-  - Previous version 1.0.0-rc2-1.0.1
+  - Current version 1.0.0-rc3-1.0.1
+  - Previous version 1.0.0-rc3-1.0.0
+
+jmzquantml version 1.0.0-rc3-1.0.1 -- (2, November 2012)
+  - fix the bug of wrong namespace in marshall function
 
 jmzquantml version 1.0.0-rc3-1.0.0 -- (1, November 2012)
   - update this (README.txt) document
