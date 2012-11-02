@@ -25,9 +25,9 @@ public class MzQuantMLMarshaller {
     private static final String ENCODING = "UTF-8";
     private static final String MZQUANTML = "MzQuantML";
 
-    private static final String MZQUANTML_NS = "http://psidev.info/psi/pi/mzQuantML/1.0.0-rc2";
-    private static final String MZQUANTML_REL_PATH = " ../../schema/mzQuantML_1_0_0-rc2.xsd";
-    private static final String MZQUANTML_SCHEMA_LOCATION_RC2 = MZQUANTML_NS + MZQUANTML_REL_PATH;
+    private static final String MZQUANTML_NS = "http://psidev.info/psi/pi/mzQuantML/1.0.0-rc3";
+    private static final String MZQUANTML_REL_PATH = " ../../schema/mzQuantML_1_0_0-rc3.xsd";
+    private static final String MZQUANTML_SCHEMA_LOCATION_RC3 = MZQUANTML_NS + MZQUANTML_REL_PATH;
     
     /**
      * Members.
@@ -54,7 +54,7 @@ public class MzQuantMLMarshaller {
             this.marsh.setProperty(Marshaller.JAXB_ENCODING, ENCODING);
             this.marsh.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
             this.marsh.setProperty(Marshaller.JAXB_FRAGMENT, true);
-            this.marsh.setProperty(Marshaller.JAXB_SCHEMA_LOCATION, MZQUANTML_SCHEMA_LOCATION_RC2);
+            this.marsh.setProperty(Marshaller.JAXB_SCHEMA_LOCATION, MZQUANTML_SCHEMA_LOCATION_RC3);
         }
         catch (JAXBException jaxbex) {
             jaxbex.printStackTrace(System.err);
