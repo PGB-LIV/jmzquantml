@@ -4,7 +4,7 @@
 =                jmzquantmL - Java API for MzQuantML                  =
 =                                                                     =
 =                                                                     =
-=                                       jmzquantml  1.0.0-rc2-1.0.0   =
+=                                       jmzquantml  1.0.0-rc3-1.0.2   =
 =                                 (c) University of Liverpool  2012   =
 =                              http://code.google.com/p/jmzquantml/   =
 =                                                                     =
@@ -61,9 +61,12 @@ How to use in maven
 
 Changelog
 
-  - Current version 1.0.0-rc3-1.0.1
-  - Previous version 1.0.0-rc3-1.0.0
+  - Current version 1.0.0-rc3-1.0.2
+  - Previous version 1.0.0-rc3-1.0.1
 
+jmzquantml version 1.0.0-rc3-1.0.2 -- (8, November 2012)
+  - be able to unmarshal ParamList and ParamGroup   
+   
 jmzquantml version 1.0.0-rc3-1.0.1 -- (2, November 2012)
   - fix the bug of wrong namespace in marshall function
 
