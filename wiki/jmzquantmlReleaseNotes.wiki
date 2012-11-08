@@ -1,10 +1,15 @@
 #summary Summary of changes in the jmzquantml API.
-#labels Featured,ChangeLog
+#labels Featured,ChangeLog,Restrict-AddWikiComment-Commit
 
 *_Changelog_*
 
-  * Current version 1.0.0-rc3-1.0.1
-  * Previous version 1.0.0-rc3-1.0.0
+  * Current version 1.0.0-rc3-1.0.2
+  * Previous version 1.0.0-rc3-1.0.1
+
+----
+*jmzquantml version 1.0.0-rc3-1.0.2 -- (8, November 2012)
+
+  * be able to unmarshal ParamList and ParamGroup
 
 ----
 *jmzquantml version 1.0.0-rc3-1.0.1 -- (2, November 2012)
