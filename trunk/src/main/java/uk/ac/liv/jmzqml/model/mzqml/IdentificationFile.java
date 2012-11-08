@@ -12,6 +12,8 @@ import javax.xml.bind.annotation.XmlElements;
 import javax.xml.bind.annotation.XmlIDREF;
 import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
+import uk.ac.liv.jmzqml.model.ParamGroupCapable;
+import uk.ac.liv.jmzqml.model.utils.FacadeList;
 
 
 /**
@@ -42,7 +44,7 @@ import javax.xml.bind.annotation.XmlType;
 })
 public class IdentificationFile
     extends ExternalData
-    implements Serializable
+    implements Serializable, ParamGroupCapable
 {
 
     private final static long serialVersionUID = 100L;
@@ -108,6 +110,16 @@ public class IdentificationFile
      */
     public void setSearchDatabaseRef(Object value) {
         this.searchDatabaseRef = value;
+    }
+
+    @Override
+    public List<CvParam> getCvParam() {
+        return new FacadeList<CvParam>(this.getParamGroup(), CvParam.class);
+    }
+
+    @Override
+    public List<UserParam> getUserParam() {
+        return new FacadeList<UserParam>(this.getParamGroup(), UserParam.class);
     }
 
 }

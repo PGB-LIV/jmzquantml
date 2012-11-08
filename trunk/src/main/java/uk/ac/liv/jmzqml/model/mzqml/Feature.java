@@ -16,6 +16,8 @@ import javax.xml.bind.annotation.XmlType;
 import javax.xml.bind.annotation.adapters.CollapsedStringAdapter;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import uk.ac.liv.jmzqml.model.MzQuantMLObject;
+import uk.ac.liv.jmzqml.model.ParamGroupCapable;
+import uk.ac.liv.jmzqml.model.utils.FacadeList;
 
 
 /**
@@ -52,7 +54,7 @@ import uk.ac.liv.jmzqml.model.MzQuantMLObject;
     "paramGroup"
 })
 public class Feature
-    implements Serializable, MzQuantMLObject
+    implements Serializable, MzQuantMLObject, ParamGroupCapable
 {
 
     private final static long serialVersionUID = 100L;
@@ -273,6 +275,16 @@ public class Feature
      */
     public void setSpectrumRefs(String value) {
         this.spectrumRefs = value;
+    }
+
+    @Override
+    public List<CvParam> getCvParam() {
+        return new FacadeList<CvParam>(this.getParamGroup(), CvParam.class);
+    }
+
+    @Override
+    public List<UserParam> getUserParam() {
+        return new FacadeList<UserParam>(this.getParamGroup(), UserParam.class);
     }
 
 }
