@@ -13,6 +13,8 @@ import javax.xml.bind.annotation.XmlElements;
 import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
 import uk.ac.liv.jmzqml.model.MzQuantMLObject;
+import uk.ac.liv.jmzqml.model.ParamGroupCapable;
+import uk.ac.liv.jmzqml.model.utils.FacadeList;
 
 
 /**
@@ -42,7 +44,7 @@ import uk.ac.liv.jmzqml.model.MzQuantMLObject;
     "paramGroup"
 })
 public class ProcessingMethod
-    implements Serializable, MzQuantMLObject
+    implements Serializable, MzQuantMLObject, ParamGroupCapable
 {
 
     private final static long serialVersionUID = 100L;
@@ -107,6 +109,16 @@ public class ProcessingMethod
      */
     public void setOrder(BigInteger value) {
         this.order = value;
+    }
+
+    @Override
+    public List<CvParam> getCvParam() {
+        return new FacadeList<CvParam>(this.getParamGroup(), CvParam.class);
+    }
+
+    @Override
+    public List<UserParam> getUserParam() {
+        return new FacadeList<UserParam>(this.getParamGroup(), UserParam.class);
     }
 
 }

@@ -10,6 +10,7 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlElements;
 import javax.xml.bind.annotation.XmlType;
 import uk.ac.liv.jmzqml.model.MzQuantMLObject;
+import uk.ac.liv.jmzqml.model.utils.FacadeList;
 
 
 /**
@@ -75,5 +76,25 @@ public class ParamList
         }
         return this.paramGroup;
     }
+    
+    /**
+     * Gets the enzyme name cvparams
+     *
+     * @return possible object is
+     *         {@link uk.ac.ebi.jmzidml.model.utils.FacadeList }
+     */
+    public List<CvParam> getCvParam() {
+        return new FacadeList<CvParam>(this.getParamGroup(), CvParam.class);
+    }
 
+    /**
+     * Gets the enzymename userparams
+     *
+     * @return possible object is
+     *         {@link FacadeList }
+     */
+    public List<UserParam> getUserParam() {
+        return new FacadeList<UserParam>(this.getParamGroup(), UserParam.class);
+    }
+    
 }
