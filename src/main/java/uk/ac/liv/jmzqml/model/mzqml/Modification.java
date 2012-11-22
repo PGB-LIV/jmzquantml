@@ -13,7 +13,7 @@ import uk.ac.liv.jmzqml.model.MzQuantMLObject;
 
 
 /**
- * A molecule modification specification. If n modifications have been found on a peptide, there should be n instances of Modification. If multiple	modifications are provided as cvParams, it is assumed that the modification is ambiguous i.e. one modification or another. A cvParam must be provided with the identification of the modification sourced from a suitable CV e.g. UNIMOD. If the modification is not present in the CV (and this will be checked by the semantic validator within a given tolerance window), there is an _unknown modification_CVerm that must be used instead. A neutral loss should be defined as an additional CVParam within Modification. If the Peptide element is intended to represent a summary of both modified and unmodified instances of the peptide, then the Feature_refs qualifier must be used on Peptide.
+ * A molecule modification specification. If n modifications have been found on a peptide, there should be n instances of Modification. If multiple	modifications are provided as cvParams, it is assumed that the modification is ambiguous i.e. one modification or another. A cvParam must be provided with the identification of the modification sourced from a suitable CV e.g. UNIMOD. If the modification is not present in the CV (and this will be checked by the semantic validator within a given tolerance window), there is an _unknown modification_CV term that must be used instead. A neutral loss should be defined as an additional CVParam within Modification.
  * 
  * <p>Java class for ModificationType complex type.
  * 

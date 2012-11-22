@@ -1,3 +1,4 @@
+
 package uk.ac.liv.jmzqml.model.mzqml;
 
 import java.io.Serializable;
@@ -17,13 +18,14 @@ import uk.ac.liv.jmzqml.model.MzQuantMLObject;
 import uk.ac.liv.jmzqml.model.ParamGroupCapable;
 import uk.ac.liv.jmzqml.model.utils.FacadeList;
 
+
 /**
  * The raw file or collection of raw files that together form one unit of analysis. This is mandatory unless raw files were not used for quantitation e.g. spectral counting. Multiple raw files should only be provided within a group if they have been used for sample pre-fractionation which are later summed together.
- *
+ * 
  * <p>Java class for RawFilesGroupType complex type.
- *
+ * 
  * <p>The following schema fragment specifies the expected content contained within this class.
- *
+ * 
  * <pre>
  * &lt;complexType name="RawFilesGroupType">
  *   &lt;complexContent>
@@ -37,8 +39,8 @@ import uk.ac.liv.jmzqml.model.utils.FacadeList;
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "RawFilesGroupType", propOrder = {
@@ -46,7 +48,8 @@ import uk.ac.liv.jmzqml.model.utils.FacadeList;
     "paramGroup"
 })
 public class RawFilesGroup
-        implements Serializable, MzQuantMLObject, ParamGroupCapable {
+        implements Serializable, MzQuantMLObject, ParamGroupCapable 
+{
 
     private final static long serialVersionUID = 100L;
     @XmlElement(name = "RawFile", required = true)
@@ -64,25 +67,25 @@ public class RawFilesGroup
 
     /**
      * Gets the value of the rawFile property.
-     *
+     * 
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the rawFile property.
-     *
+     * 
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getRawFile().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link RawFile }
-     *
-     *
+     * 
+     * 
      */
     public List<RawFile> getRawFile() {
         if (rawFile == null) {
@@ -93,26 +96,26 @@ public class RawFilesGroup
 
     /**
      * Additional parameters about the raw files specified or the grouping process.Gets the value of the paramGroup property.
-     *
+     * 
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the paramGroup property.
-     *
+     * 
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getParamGroup().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link CvParam }
      * {@link UserParam }
-     *
-     *
+     * 
+     * 
      */
     public List<AbstractParam> getParamGroup() {
         if (paramGroup == null) {
@@ -123,11 +126,11 @@ public class RawFilesGroup
 
     /**
      * Gets the value of the id property.
-     *
+     * 
      * @return
      *     possible object is
      *     {@link String }
-     *
+     *     
      */
     public String getId() {
         return id;
@@ -135,11 +138,11 @@ public class RawFilesGroup
 
     /**
      * Sets the value of the id property.
-     *
+     * 
      * @param value
      *     allowed object is
      *     {@link String }
-     *
+     *     
      */
     public void setId(String value) {
         this.id = value;
@@ -148,7 +151,7 @@ public class RawFilesGroup
     @Override
     public List<CvParam> getCvParam() {
         return new FacadeList<CvParam>(this.getParamGroup(), CvParam.class);
-    }
+}
 
     @Override
     public List<UserParam> getUserParam() {
