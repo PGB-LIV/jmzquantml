@@ -4,7 +4,7 @@
 =                jmzquantmL - Java API for MzQuantML                  =
 =                                                                     =
 =                                                                     =
-=                                       jmzquantml  1.0.0-rc3-1.0.2   =
+=                                       jmzquantml  1.0.0-rc3-1.0.3   =
 =                                 (c) University of Liverpool  2012   =
 =                              http://code.google.com/p/jmzquantml/   =
 =                                                                     =
@@ -61,8 +61,15 @@ How to use in maven
 
 Changelog
 
-  - Current version 1.0.0-rc3-1.0.2
-  - Previous version 1.0.0-rc3-1.0.1
+  - Current version 1.0.0-rc3-1.0.3
+  - Previous version 1.0.0-rc3-1.0.2
+
+jmzquantml version 1.0.0-rc3-1.0.3 -- (22, Novermber 2012)
+  - adapt to latest schema changes:
+    - the root mzQuantML element now has a mandatory id and an optional name
+    - pre order Person before Organization in AuditCollection
+    - add complete definitions to elements
+
 
 jmzquantml version 1.0.0-rc3-1.0.2 -- (8, November 2012)
   - be able to unmarshal ParamList and ParamGroup   
