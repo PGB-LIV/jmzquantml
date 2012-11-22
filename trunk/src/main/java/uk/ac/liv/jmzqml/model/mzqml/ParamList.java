@@ -76,7 +76,7 @@ public class ParamList
         }
         return this.paramGroup;
     }
-    
+
     /**
      * Gets the enzyme name cvparams
      *
@@ -85,7 +85,7 @@ public class ParamList
      */
     public List<CvParam> getCvParam() {
         return new FacadeList<CvParam>(this.getParamGroup(), CvParam.class);
-    }
+}
 
     /**
      * Gets the enzymename userparams

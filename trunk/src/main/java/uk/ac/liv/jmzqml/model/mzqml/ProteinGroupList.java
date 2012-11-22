@@ -31,7 +31,7 @@ import uk.ac.liv.jmzqml.model.utils.FacadeList;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="ProteinGroup" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc3}ProteinGroupType" maxOccurs="unbounded" minOccurs="0"/>
+ *         &lt;element name="ProteinGroup" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc3}ProteinGroupType" maxOccurs="unbounded"/>
  *         &lt;element name="GlobalQuantLayer" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc3}GlobalQuantLayerType" maxOccurs="unbounded" minOccurs="0"/>
  *         &lt;element name="AssayQuantLayer" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc3}QuantLayerType" maxOccurs="unbounded" minOccurs="0"/>
  *         &lt;element name="StudyVariableQuantLayer" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc3}QuantLayerType" maxOccurs="unbounded" minOccurs="0"/>
@@ -60,7 +60,7 @@ public class ProteinGroupList
 {
 
     private final static long serialVersionUID = 100L;
-    @XmlElement(name = "ProteinGroup")
+    @XmlElement(name = "ProteinGroup", required = true)
     protected List<ProteinGroup> proteinGroup;
     @XmlElement(name = "GlobalQuantLayer")
     protected List<GlobalQuantLayer> globalQuantLayer;
@@ -278,7 +278,7 @@ public class ProteinGroupList
     @Override
     public List<CvParam> getCvParam() {
         return new FacadeList<CvParam>(this.getParamGroup(), CvParam.class);
-    }
+}
 
     @Override
     public List<UserParam> getUserParam() {

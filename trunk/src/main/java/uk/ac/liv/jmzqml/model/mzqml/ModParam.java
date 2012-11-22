@@ -13,7 +13,7 @@ import uk.ac.liv.jmzqml.model.MzQuantMLObject;
 
 
 /**
- * The modification searched for, sourced from e.g. UniMod and the mass delta
+ * The modification searched for or used to define the label or tag for quantification. It SHOULD be sourced from UniMod, PSI-MS or PSI-MOD.
  * 
  * <p>Java class for ModParamType complex type.
  * 

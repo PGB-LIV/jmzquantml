@@ -5,7 +5,15 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
-import javax.xml.bind.annotation.*;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlID;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlSchemaType;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.CollapsedStringAdapter;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import uk.ac.liv.jmzqml.model.MzQuantMLObject;
 import uk.ac.liv.jmzqml.xml.jaxb.adapter.CalendarAdapter;
@@ -32,7 +40,7 @@ import uk.ac.liv.jmzqml.xml.jaxb.adapter.CalendarAdapter;
  *         &lt;element name="DataProcessingList" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc3}DataProcessingListType"/>
  *         &lt;element name="BibliographicReference" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc3}BibliographicReferenceType" maxOccurs="unbounded" minOccurs="0"/>
  *         &lt;element name="AssayList" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc3}AssayListType"/>
- *         &lt;element name="StudyVariableList" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc3}StudyVariableListType"/>
+ *         &lt;element name="StudyVariableList" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc3}StudyVariableListType" minOccurs="0"/>
  *         &lt;element name="RatioList" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc3}RatioListType" minOccurs="0"/>
  *         &lt;element name="ProteinGroupList" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc3}ProteinGroupListType" minOccurs="0"/>
  *         &lt;element name="ProteinList" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc3}ProteinListType" minOccurs="0"/>
@@ -42,6 +50,8 @@ import uk.ac.liv.jmzqml.xml.jaxb.adapter.CalendarAdapter;
  *       &lt;/sequence>
  *       &lt;attribute name="creationDate" type="{http://www.w3.org/2001/XMLSchema}dateTime" />
  *       &lt;attribute name="version" use="required" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc3}versionRegex" />
+ *       &lt;attribute name="id" use="required" type="{http://www.w3.org/2001/XMLSchema}ID" />
+ *       &lt;attribute name="name" type="{http://www.w3.org/2001/XMLSchema}string" />
  *     &lt;/restriction>
  *   &lt;/complexContent>
  * &lt;/complexType>
@@ -92,7 +102,7 @@ public class MzQuantML
     protected List<BibliographicReference> bibliographicReference;
     @XmlElement(name = "AssayList", required = true)
     protected AssayList assayList;
-    @XmlElement(name = "StudyVariableList", required = true)
+    @XmlElement(name = "StudyVariableList")
     protected StudyVariableList studyVariableList;
     @XmlElement(name = "RatioList")
     protected RatioList ratioList;
@@ -112,6 +122,13 @@ public class MzQuantML
     protected Calendar creationDate;
     @XmlAttribute(name = "version", required = true)
     protected String version;
+    @XmlAttribute(name = "id", required = true)
+    @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
+    @XmlID
+    @XmlSchemaType(name = "ID")
+    protected String id;
+    @XmlAttribute(name = "name")
+    protected String name;
 
     /**
      * Gets the value of the cvList property.
@@ -558,6 +575,54 @@ public class MzQuantML
      */
     public void setVersion(String value) {
         this.version = value;
+    }
+
+    /**
+     * Gets the value of the id property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getId() {
+        return id;
+    }
+
+    /**
+     * Sets the value of the id property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setId(String value) {
+        this.id = value;
+    }
+
+    /**
+     * Gets the value of the name property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getName() {
+        return name;
+    }
+
+    /**
+     * Sets the value of the name property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setName(String value) {
+        this.name = value;
     }
 
 }

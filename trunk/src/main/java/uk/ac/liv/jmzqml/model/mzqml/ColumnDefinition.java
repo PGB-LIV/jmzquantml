@@ -12,7 +12,7 @@ import uk.ac.liv.jmzqml.model.MzQuantMLObject;
 
 
 /**
- * The definition of all the columns of data about the features
+ * The definition of all the columns of data about the features.
  * 
  * <p>Java class for ColumnDefinitionType complex type.
  * 

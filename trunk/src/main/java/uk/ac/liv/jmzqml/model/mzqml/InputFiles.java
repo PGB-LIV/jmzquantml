@@ -12,7 +12,7 @@ import uk.ac.liv.jmzqml.model.MzQuantMLObject;
 
 
 /**
- * All the raw files, identification files and databases used in the quantitation
+ * All the raw files, identification files and databases used in the quantitation.
  * 
  * <p>Java class for InputFilesType complex type.
  * 

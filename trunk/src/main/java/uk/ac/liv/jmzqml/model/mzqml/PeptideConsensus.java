@@ -21,7 +21,7 @@ import uk.ac.liv.jmzqml.model.utils.FacadeList;
 
 
 /**
- * An element representing a peptide in different assay that may or may not have been identified. If it has been identified, the sequence and modification(s) should be reported. Within the parent list, it is allowed for there to be multiple instances of the same peptide sequence, for example capturing different charge states or different modifications, if they are differentially quantified. If peptides with different modifications or charge states are aggregated, they should be represented by a single PeptideConsensus element.  
+ * An element representing a peptide in different assay that may or may not have been identified. If it has been identified, the sequence and modification(s) SHOULD be reported. Within the parent list, it is allowed for there to be multiple instances of the same peptide sequence, for example capturing different charge states or different modifications, if they are differentially quantified. If peptides with different modifications or charge states are aggregated, they should be represented by a single PeptideConsensus element.  
  * 
  * <p>Java class for PeptideConsensusType complex type.
  * 
@@ -274,7 +274,7 @@ public class PeptideConsensus
     @Override
     public List<CvParam> getCvParam() {
         return new FacadeList<CvParam>(this.getParamGroup(), CvParam.class);
-    }
+}
 
     @Override
     public List<UserParam> getUserParam() {

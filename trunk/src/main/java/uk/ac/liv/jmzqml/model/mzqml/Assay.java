@@ -136,7 +136,7 @@ public class Assay
     }
 
     /**
-     * Additional parameters about the Assay..Gets the value of the paramGroup property.
+     * Additional parameters about the Assay.Gets the value of the paramGroup property.
      * 
      * <p>
      * This accessor method returns a reference to the live list,
@@ -240,7 +240,7 @@ public class Assay
     @Override
     public List<CvParam> getCvParam() {
         return new FacadeList<CvParam>(this.getParamGroup(), CvParam.class);
-    }
+}
 
     @Override
     public List<UserParam> getUserParam() {

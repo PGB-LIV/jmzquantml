@@ -16,7 +16,7 @@ import uk.ac.liv.jmzqml.model.MzQuantMLObject;
 
 
 /**
- * The setup of a ratio of study variables or assays that is referenced elsewhere in the file.
+ * The setup of a ratio of study variables or assays that is referenced elsewhere in the file. It is expected that the numerator and denominator MUST both be Assays or MUST both be StudyVariables. However, StudyVariables MAY contain 1 to many Assays, thus allowing more complex ratios to be constructed if needed via use of StudyVariables with unbalanced numbers of Assays.
  * 
  * <p>Java class for RatioType complex type.
  * 

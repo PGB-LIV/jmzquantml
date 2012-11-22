@@ -42,7 +42,8 @@ import uk.ac.liv.jmzqml.model.MzQuantMLObject;
     AbstractContact.class,
     Provider.class
 })
-public abstract class Identifiable implements Serializable, MzQuantMLObject
+public abstract class Identifiable
+    implements Serializable, MzQuantMLObject
 {
 
     private final static long serialVersionUID = 100L;

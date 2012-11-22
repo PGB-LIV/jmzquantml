@@ -22,6 +22,8 @@ import uk.ac.liv.jmzqml.model.utils.FacadeList;
 
 
 /**
+ * One protein that has been quantified in the file, including references to peptides on which the quantification is based.
+ * 
  * <p>Java class for ProteinType complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
@@ -243,7 +245,7 @@ public class Protein
     @Override
     public List<CvParam> getCvParam() {
         return new FacadeList<CvParam>(this.getParamGroup(), CvParam.class);
-    }
+}
 
     @Override
     public List<UserParam> getUserParam() {

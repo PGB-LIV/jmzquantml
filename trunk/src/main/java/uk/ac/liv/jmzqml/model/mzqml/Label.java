@@ -12,7 +12,7 @@ import uk.ac.liv.jmzqml.model.MzQuantMLObject;
 
 
 /**
- * A specification of labels or tags used to define the assay within the raw file, such as heavy labelling or iTRAQ tag mass.
+ * A specification of labels or tags used to define the assay within the raw file, such as heavy labelling or iTRAQ tag mass. The Label and Modification is mandatory so a specific term is provided under Modification for unlabeled sample for label-free and, for example, so-called light samples in a labelling experiment. 
  * 
  * <p>Java class for LabelType complex type.
  * 
