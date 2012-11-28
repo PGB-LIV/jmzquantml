@@ -450,7 +450,16 @@ public enum MzQuantMLElement {
     getCfg().get(uk.ac.liv.jmzqml.model.mzqml.ProteinList.class.getName()).getClazz(),
     getCfg().get(uk.ac.liv.jmzqml.model.mzqml.ProteinList.class.getName()).isAutoRefResolving(),
     getCfg().get(uk.ac.liv.jmzqml.model.mzqml.ProteinList.class.getName()).getRefResolverClass()),
-    //
+    //Todo
+    ProteinRef(getCfg().get(uk.ac.liv.jmzqml.model.mzqml.ProteinRef.class.getName()).getTagName(),
+    getCfg().get(uk.ac.liv.jmzqml.model.mzqml.ProteinRef.class.getName()).isIndexed(),
+    getCfg().get(uk.ac.liv.jmzqml.model.mzqml.ProteinRef.class.getName()).getXpath(),
+    getCfg().get(uk.ac.liv.jmzqml.model.mzqml.ProteinRef.class.getName()).isCached(),
+    getCfg().get(uk.ac.liv.jmzqml.model.mzqml.ProteinRef.class.getName()).isIdMapped(),
+    getCfg().get(uk.ac.liv.jmzqml.model.mzqml.ProteinRef.class.getName()).getClazz(),
+    getCfg().get(uk.ac.liv.jmzqml.model.mzqml.ProteinRef.class.getName()).isAutoRefResolving(),
+    getCfg().get(uk.ac.liv.jmzqml.model.mzqml.ProteinRef.class.getName()).getRefResolverClass()),
+    //Todo
     Protein(getCfg().get(uk.ac.liv.jmzqml.model.mzqml.Protein.class.getName()).getTagName(),
     getCfg().get(uk.ac.liv.jmzqml.model.mzqml.Protein.class.getName()).isIndexed(),
     getCfg().get(uk.ac.liv.jmzqml.model.mzqml.Protein.class.getName()).getXpath(),
@@ -642,13 +651,13 @@ public enum MzQuantMLElement {
     }
 
     private <T extends MzQuantMLObject> MzQuantMLElement(String tagName,
-            boolean indexed,
-            String xpath,
-            boolean cached,
-            boolean idMapped,
-            Class<T> clazz,
-            boolean autoRefResolving,
-            Class refResolverClass) {
+                                                         boolean indexed,
+                                                         String xpath,
+                                                         boolean cached,
+                                                         boolean idMapped,
+                                                         Class<T> clazz,
+                                                         boolean autoRefResolving,
+                                                         Class refResolverClass) {
         this.tagName = tagName;
         this.indexed = indexed;
         this.cached = cached;

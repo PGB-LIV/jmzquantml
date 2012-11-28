@@ -136,9 +136,9 @@ Distributed under the Creative Commons license http://creativecommons.org/licens
 			<xsd:documentation>Root element of the instance document.</xsd:documentation>
 		</xsd:annotation>
 		<xsd:sequence>
-			<xsd:element name="CvList" type="CvListType"/>
-			<xsd:element name="Provider" type="ProviderType" minOccurs="0"/>
-			<xsd:element name="AuditCollection" type="AuditCollectionType" minOccurs="0"/>
+			<xsd:element name="CvList" type="CvListType" minOccurs="1" maxOccurs="1"/>
+			<xsd:element name="Provider" type="ProviderType" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="AuditCollection" type="AuditCollectionType" minOccurs="0" maxOccurs="1"/>
 			<xsd:element name="AnalysisSummary" type="ParamListType" minOccurs="1" maxOccurs="1">
 				<xsd:annotation>
 					<xsd:documentation>Summary information about the analysis in terms of the type of analysis, any global scores or metrics and global thresholds used.</xsd:documentation>
@@ -146,19 +146,17 @@ Distributed under the Creative Commons license http://creativecommons.org/licens
 			</xsd:element>
 			<xsd:element name="InputFiles" type="InputFilesType" minOccurs="1" maxOccurs="1"/>
 			<xsd:element name="SoftwareList" type="SoftwareListType" minOccurs="1" maxOccurs="1"/>
-			<xsd:element name="DataProcessingList" type="DataProcessingListType" minOccurs="1"
-				maxOccurs="1"/>
+			<xsd:element name="DataProcessingList" type="DataProcessingListType" minOccurs="1" maxOccurs="1"/>
 			<xsd:element name="BibliographicReference" type="BibliographicReferenceType"
 				minOccurs="0" maxOccurs="unbounded"/>
-			<xsd:element name="AssayList" type="AssayListType"/>
-			<xsd:element name="StudyVariableList" type="StudyVariableListType" minOccurs="0"/>
-			<xsd:element name="RatioList" type="RatioListType" maxOccurs="1" minOccurs="0"/>
-			<xsd:element name="ProteinGroupList" type="ProteinGroupListType" minOccurs="0"/>
-			<xsd:element name="ProteinList" type="ProteinListType" minOccurs="0"/>
+			<xsd:element name="AssayList" type="AssayListType" minOccurs="1" maxOccurs="1"/>
+			<xsd:element name="StudyVariableList" type="StudyVariableListType" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="RatioList" type="RatioListType" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="ProteinGroupList" type="ProteinGroupListType" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="ProteinList" type="ProteinListType" minOccurs="0" maxOccurs="1"/>
 			<xsd:element name="PeptideConsensusList" type="PeptideConsensusListType" minOccurs="0"
 				maxOccurs="unbounded"/>
-			<xsd:element name="SmallMoleculeList" type="SmallMoleculeListType" maxOccurs="1"
-				minOccurs="0"/>
+			<xsd:element name="SmallMoleculeList" type="SmallMoleculeListType" minOccurs="0" maxOccurs="1"/>
 			<xsd:element name="FeatureList" minOccurs="0" maxOccurs="unbounded"
 				type="FeatureListType"/>
 		</xsd:sequence>
@@ -189,9 +187,10 @@ Distributed under the Creative Commons license http://creativecommons.org/licens
 			<xsd:documentation>The list of controlled vocabularies used in the file.</xsd:documentation>
 		</xsd:annotation>
 		<xsd:sequence>
-			<xsd:element name="Cv" type="CvType" maxOccurs="unbounded"/>
+			<xsd:element name="Cv" type="CvType" minOccurs="1" maxOccurs="unbounded"/>
 		</xsd:sequence>
 	</xsd:complexType>
+	
 	<xsd:complexType name="InputFilesType">
 		<xsd:annotation>
 			<xsd:documentation>All the raw files, identification files and databases used in the quantitation.</xsd:documentation>
@@ -204,10 +203,10 @@ Distributed under the Creative Commons license http://creativecommons.org/licens
 				maxOccurs="1"/>
 			<xsd:element name="SearchDatabase" type="SearchDatabaseType" minOccurs="0"
 				maxOccurs="unbounded"/>
-			<xsd:element name="SourceFile" type="SourceFileType" minOccurs="0" maxOccurs="unbounded"
-			/>
+			<xsd:element name="SourceFile" type="SourceFileType" minOccurs="0" maxOccurs="unbounded"/>
 		</xsd:sequence>
 	</xsd:complexType>
+	
 	<xsd:complexType name="SearchDatabaseType">
 		<xsd:annotation>
 			<xsd:documentation>A database used for searching mass spectra. Examples include a set of amino acid sequence entries, or annotated spectra libraries. </xsd:documentation>
@@ -215,7 +214,7 @@ Distributed under the Creative Commons license http://creativecommons.org/licens
 		<xsd:complexContent>
 			<xsd:extension base="ExternalDataType">
 				<xsd:sequence>
-					<xsd:element name="DatabaseName" type="ParamType">
+					<xsd:element name="DatabaseName" type="ParamType" minOccurs="1" maxOccurs="1">
 						<xsd:annotation>
 							<xsd:documentation>The database name may be given as a cvParam if it maps exactly to one of the release databases listed in the CV, otherwise a userParam should be used. </xsd:documentation>
 						</xsd:annotation>
@@ -310,18 +309,18 @@ Distributed under the Creative Commons license http://creativecommons.org/licens
 			<xsd:element name="AssayQuantLayer" type="QuantLayerType" minOccurs="0"
 				maxOccurs="unbounded">
 				<xsd:annotation>
-					<xsd:documentation>Quant layer for reporting data values about protein groups related to different assays i.e. the column index must refer to Assays defined in the file.  </xsd:documentation>
+					<xsd:documentation>Quant layer for reporting data values about protein groups related to different assays i.e. the column index MUST refer to Assays defined in the file.  </xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
 			<xsd:element name="StudyVariableQuantLayer" type="QuantLayerType" minOccurs="0"
 				maxOccurs="unbounded">
 				<xsd:annotation>
-					<xsd:documentation>Quant layer for reporting data values about protein groups related to different study variables i.e. the column index must refer to StudyVariables defined in the file. </xsd:documentation>
+					<xsd:documentation>Quant layer for reporting data values about protein groups related to different study variables i.e. the column index MUST refer to StudyVariables defined in the file. </xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
 			<xsd:element name="RatioQuantLayer" type="QuantLayerType" minOccurs="0" maxOccurs="1">
 				<xsd:annotation>
-					<xsd:documentation>Quant layer for reporting data values about protein groups related to different ratios i.e. the column index must refer to Ratio elements defined in the file.</xsd:documentation>
+					<xsd:documentation>Quant layer for reporting data values about protein groups related to different ratios i.e. the column index MUST refer to Ratio elements defined in the file.</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
 			<xsd:group ref="ParamGroup" minOccurs="0" maxOccurs="unbounded">
@@ -351,18 +350,18 @@ Distributed under the Creative Commons license http://creativecommons.org/licens
 			<xsd:element name="AssayQuantLayer" type="QuantLayerType" minOccurs="0"
 				maxOccurs="unbounded">
 				<xsd:annotation>
-					<xsd:documentation>Quant layer for reporting data values about proteins related to different assays i.e. the column index must refer to Assays defined in the file.  </xsd:documentation>
+					<xsd:documentation>Quant layer for reporting data values about proteins related to different assays i.e. the column index MUST refer to Assays defined in the file.  </xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
 			<xsd:element name="StudyVariableQuantLayer" type="QuantLayerType" minOccurs="0"
 				maxOccurs="unbounded">
 				<xsd:annotation>
-					<xsd:documentation>Quant layer for reporting data values about proteins related to different study variables i.e. the column index must refer to StudyVariables defined in the file. </xsd:documentation>
+					<xsd:documentation>Quant layer for reporting data values about proteins related to different study variables i.e. the column index MUST refer to StudyVariables defined in the file. </xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
 			<xsd:element name="RatioQuantLayer" type="QuantLayerType" minOccurs="0" maxOccurs="1">
 				<xsd:annotation>
-					<xsd:documentation>Quant layer for reporting data values about proteins related to different ratios i.e. the column index must refer to Ratio elements defined in the file.</xsd:documentation>
+					<xsd:documentation>Quant layer for reporting data values about proteins related to different ratios i.e. the column index MUST refer to Ratio elements defined in the file.</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
 			<xsd:group ref="ParamGroup" minOccurs="0" maxOccurs="unbounded">
@@ -388,11 +387,7 @@ Distributed under the Creative Commons license http://creativecommons.org/licens
 					<xsd:documentation>Reference for the identification evidence for peptides from the referenced external file and unique identifier e.g. a link to an mzIdentML file and ID for the ProteinAmbiguityGroup.</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
-			<xsd:element name="Protein_refs" type="xsd:IDREFS" minOccurs="1" maxOccurs="1">
-				<xsd:annotation>
-					<xsd:documentation>The proteins contributing to this protein group on which quantitative values are based. </xsd:documentation>
-				</xsd:annotation>
-			</xsd:element>
+			<xsd:element name="ProteinRef" type="ProteinRefType" minOccurs="1" maxOccurs="unbounded"/>
 			<xsd:group ref="ParamGroup" minOccurs="0" maxOccurs="unbounded">
 				<xsd:annotation>
 					<xsd:documentation>Additional parameters or values about this protein group.</xsd:documentation>
@@ -407,6 +402,23 @@ Distributed under the Creative Commons license http://creativecommons.org/licens
 		<xsd:attribute name="searchDatabase_ref" type="xsd:IDREF" use="required">
 			<xsd:annotation>
 				<xsd:documentation>The search database from which this protein group was identified</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+	</xsd:complexType>
+	<xsd:complexType name="ProteinRefType">
+		<xsd:annotation>
+			<xsd:documentation>A reference to one of the Proteins contained within this group, along with CV terms describing the role it plays within the group, such as representative or anchor protein, same set or sub-set.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:group ref="ParamGroup" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Additional parameters or values about this protein, including its role within the group, such as representative or anchor protein, same set or sub-set.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:group>
+		</xsd:sequence>
+		<xsd:attribute name="protein_ref" type="xsd:IDREF" use="required">
+			<xsd:annotation>
+				<xsd:documentation>Reference to one of the proteins within the ProteinList.</xsd:documentation>
 			</xsd:annotation>
 		</xsd:attribute>
 	</xsd:complexType>
@@ -593,7 +605,7 @@ Distributed under the Creative Commons license http://creativecommons.org/licens
 	</xsd:complexType>
 	<xsd:complexType name="PeptideConsensusType">
 		<xsd:annotation>
-			<xsd:documentation>An element representing a peptide in different assay that may or may not have been identified. If it has been identified, the sequence and modification(s) SHOULD be reported. Within the parent list, it is allowed for there to be multiple instances of the same peptide sequence, for example capturing different charge states or different modifications, if they are differentially quantified. If peptides with different modifications or charge states are aggregated, they should be represented by a single PeptideConsensus element.  </xsd:documentation>
+			<xsd:documentation>An element representing a peptide in different assay that may or may not have been identified. If it has been identified, the sequence and modification(s) SHOULD be reported. Within the parent list, it is allowed for there to be multiple instances of the same peptide sequence, for example capturing different charge states or different modifications, if they are differentially quantified. If peptides with different charge states are aggregated, they should be represented by a single PeptideConsensus element.  </xsd:documentation>
 		</xsd:annotation>
 		<xsd:sequence>
 			<xsd:element name="PeptideSequence" type="sequence" minOccurs="0" maxOccurs="1">
@@ -725,7 +737,7 @@ Distributed under the Creative Commons license http://creativecommons.org/licens
 			</xsd:element>
 			<xsd:element name="ColumnIndex" type="xsd:IDREFS" maxOccurs="1" minOccurs="1">
 				<xsd:annotation>
-					<xsd:documentation>Space separated unique identifiers for each column of data, must refer to an object in the file i.e. StudyVariable, Assay or Ratio, depending on the context where the QuantLayer resides.</xsd:documentation>
+					<xsd:documentation>Space separated unique identifiers for each column of data, MUST refer to an object in the file i.e. StudyVariable, Assay or Ratio, depending on the context where the QuantLayer resides.</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
 			<xsd:element name="DataMatrix" type="DataMatrixType" minOccurs="1" maxOccurs="1">
@@ -780,7 +792,7 @@ Distributed under the Creative Commons license http://creativecommons.org/licens
 		<xsd:sequence>
 			<xsd:element name="DataType" type="cvParamRefType" maxOccurs="1" minOccurs="1">
 				<xsd:annotation>
-					<xsd:documentation>Type of data in the column e.g. cvParam = "Intensity|RawAbundance|NormalisedAbundance"</xsd:documentation>
+					<xsd:documentation>Type of data in the column e.g. cvParam = "Intensity|RawAbundance|NormalisedAbundance".</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
 		</xsd:sequence>
@@ -824,7 +836,7 @@ Distributed under the Creative Commons license http://creativecommons.org/licens
 			</xsd:group>
 			<xsd:element name="Assay_refs" type="xsd:IDREFS" minOccurs="1" maxOccurs="1">
 				<xsd:annotation>
-					<xsd:documentation>Reference to the assay that is part of this study variable</xsd:documentation>
+					<xsd:documentation>Reference to the assays that are contained within this study variable.</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
 		</xsd:sequence>
@@ -906,7 +918,7 @@ Distributed under the Creative Commons license http://creativecommons.org/licens
 	</xsd:complexType>
 	<xsd:complexType name="RawFileType">
 		<xsd:annotation>
-			<xsd:documentation>A raw mass spectrometry output file that has been analysed e.g. in mzML format. The same raw file can be referenced in multiple assays, for example if it contains multiple samples differentially labelled or tagged. Note, the name raw file does not necessarily imply that the file has not been processed, since in some quant methods, processed peak list formats such as MGF or dta can be used, which could be referenced here.</xsd:documentation>
+			<xsd:documentation>A raw mass spectrometry output file that has been analysed e.g. in mzML format. The same raw file can be referenced in multiple assays, for example if it contains multiple samples differentially labelled or tagged. Note, the name raw file does not necessarily imply that the file has not been processed, since in some quant methods, processed peak list formats such as MGF or DTA can be used, which could be referenced here.</xsd:documentation>
 		</xsd:annotation>
 		<xsd:complexContent>
 			<xsd:extension base="ExternalDataType">
@@ -1304,7 +1316,7 @@ Distributed under the Creative Commons license http://creativecommons.org/licens
 		</xsd:attribute>
 		<xsd:attribute name="unitCvRef" type="xsd:string">
 			<xsd:annotation>
-				<xsd:documentation>If a unit term is referenced, this attribute must refer to the CV 'id' attribute defined in the cvList in this file. </xsd:documentation>
+				<xsd:documentation>If a unit term is referenced, this attribute MUST refer to the CV 'id' attribute defined in the cvList in this file. </xsd:documentation>
 			</xsd:annotation>
 		</xsd:attribute>
 	</xsd:complexType>
@@ -1387,7 +1399,7 @@ Distributed under the Creative Commons license http://creativecommons.org/licens
 					<xsd:element name="ContactRole" type="ContactRoleType" minOccurs="0"
 						maxOccurs="1">
 						<xsd:annotation>
-							<xsd:documentation>The Contact that provided the document instance.</xsd:documentation>
+							<xsd:documentation>The role of the Contact that provided the document instance.</xsd:documentation>
 						</xsd:annotation>
 					</xsd:element>
 				</xsd:sequence>

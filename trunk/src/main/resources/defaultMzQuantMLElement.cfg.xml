@@ -441,6 +441,16 @@ Configurations for various properties of model classes.
     
     <configurations>
         <autoRefResolving>false</autoRefResolving>
+        <clazz>uk.ac.liv.jmzqml.model.mzqml.ProteinRef</clazz>
+        <idMapped>false</idMapped>
+        <indexed>true</indexed>
+        <refResolverClass>uk.ac.liv.jmzqml.xml.jaxb.resolver.ProteinRefRefResolver</refResolverClass>
+        <tagName>ProteinRef</tagName>
+        <xpath>/MzQuantML/ProteinGroupList/ProteinGroup/ProteinRef</xpath>
+    </configurations>  
+    
+    <configurations>
+        <autoRefResolving>false</autoRefResolving>
         <clazz>uk.ac.liv.jmzqml.model.mzqml.ProteinList</clazz>
         <idMapped>false</idMapped>
         <indexed>true</indexed>
