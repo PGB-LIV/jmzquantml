@@ -4,7 +4,7 @@
 =                jmzquantmL - Java API for MzQuantML                  =
 =                                                                     =
 =                                                                     =
-=                                       jmzquantml  1.0.0-rc3-1.0.3   =
+=                                       jmzquantml  1.0.0-rc3-1.0.4   =
 =                                 (c) University of Liverpool  2012   =
 =                              http://code.google.com/p/jmzquantml/   =
 =                                                                     =
@@ -61,10 +61,13 @@ How to use in maven
 
 Changelog
 
-  - Current version 1.0.0-rc3-1.0.3
-  - Previous version 1.0.0-rc3-1.0.2
+  - Current version 1.0.0-rc3-1.0.4
+  - Previous version 1.0.0-rc3-1.0.3
 
-jmzquantml version 1.0.0-rc3-1.0.3 -- (22, Novermber 2012)
+jmzquantml version 1.0.0-rc3-1.0.4 -- (28, November 2012)
+  - adapt to latest schema change which introduces <ProteinRef> element under         <ProteinGroup>
+
+jmzquantml version 1.0.0-rc3-1.0.3 -- (22, November 2012)
   - adapt to latest schema changes:
     - the root mzQuantML element now has a mandatory id and an optional name
     - pre order Person before Organization in AuditCollection
