@@ -172,9 +172,9 @@
             </jxb:property>
         </jxb:bindings>-->
 		
-		<jxb:bindings node="//xsd:complexType[@name='EvidenceRefType']">
-		    <jxb:class name="EvidenceRef"/>
-		</jxb:bindings>
+        <jxb:bindings node="//xsd:complexType[@name='EvidenceRefType']">
+            <jxb:class name="EvidenceRef"/>
+        </jxb:bindings>
 				
         <jxb:bindings node="//xsd:complexType[@name='ExternalDataType']">
             <jxb:class name="ExternalData"/>
@@ -363,6 +363,10 @@
 				
         <jxb:bindings node="//xsd:complexType[@name='ProteinListType']">
             <jxb:class name="ProteinList"/>
+        </jxb:bindings>
+        
+        <jxb:bindings node="//xsd:complexType[@name='ProteinRefType']">
+            <jxb:class name="ProteinRef"/>
         </jxb:bindings>
 
         <jxb:bindings node="//xsd:complexType[@name='ProteinType']">
