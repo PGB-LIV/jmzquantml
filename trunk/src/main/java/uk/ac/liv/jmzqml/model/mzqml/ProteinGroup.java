@@ -11,7 +11,6 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlElements;
 import javax.xml.bind.annotation.XmlID;
 import javax.xml.bind.annotation.XmlIDREF;
-import javax.xml.bind.annotation.XmlList;
 import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
 import javax.xml.bind.annotation.adapters.CollapsedStringAdapter;
@@ -34,7 +33,7 @@ import uk.ac.liv.jmzqml.model.utils.FacadeList;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
  *         &lt;element name="IdentificationRef" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc3}IdentificationRefType" maxOccurs="unbounded" minOccurs="0"/>
- *         &lt;element name="Protein_refs" type="{http://www.w3.org/2001/XMLSchema}IDREFS"/>
+ *         &lt;element name="ProteinRef" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc3}ProteinRefType" maxOccurs="unbounded"/>
  *         &lt;group ref="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc3}ParamGroup" maxOccurs="unbounded" minOccurs="0"/>
  *       &lt;/sequence>
  *       &lt;attribute name="id" use="required" type="{http://www.w3.org/2001/XMLSchema}ID" />
@@ -49,7 +48,7 @@ import uk.ac.liv.jmzqml.model.utils.FacadeList;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "ProteinGroupType", propOrder = {
     "identificationRef",
-    "proteinRefs",
+    "proteinRef",
     "paramGroup"
 })
 public class ProteinGroup
@@ -59,11 +58,8 @@ public class ProteinGroup
     private final static long serialVersionUID = 100L;
     @XmlElement(name = "IdentificationRef")
     protected List<IdentificationRef> identificationRef;
-    @XmlList
-    @XmlElement(name = "Protein_refs", required = true)
-    @XmlIDREF
-    @XmlSchemaType(name = "IDREFS")
-    protected List<Object> proteinRefs;
+    @XmlElement(name = "ProteinRef", required = true)
+    protected List<ProteinRef> proteinRef;
     @XmlElements({
         @XmlElement(name = "cvParam", type = CvParam.class),
         @XmlElement(name = "userParam", type = UserParam.class)
@@ -109,32 +105,32 @@ public class ProteinGroup
     }
 
     /**
-     * Gets the value of the proteinRefs property.
+     * Gets the value of the proteinRef property.
      * 
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the proteinRefs property.
+     * This is why there is not a <CODE>set</CODE> method for the proteinRef property.
      * 
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
-     *    getProteinRefs().add(newItem);
+     *    getProteinRef().add(newItem);
      * </pre>
      * 
      * 
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link Object }
+     * {@link ProteinRef }
      * 
      * 
      */
-    public List<Object> getProteinRefs() {
-        if (proteinRefs == null) {
-            proteinRefs = new ArrayList<Object>();
+    public List<ProteinRef> getProteinRef() {
+        if (proteinRef == null) {
+            proteinRef = new ArrayList<ProteinRef>();
         }
-        return this.proteinRefs;
+        return this.proteinRef;
     }
 
     /**
