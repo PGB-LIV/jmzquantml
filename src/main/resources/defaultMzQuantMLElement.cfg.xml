@@ -507,6 +507,13 @@ Configurations for various properties of model classes.
 
     <configurations>
         <autoRefResolving>false</autoRefResolving>
+        <clazz>uk.ac.liv.jmzqml.model.mzqml.RatioQuantLayer</clazz>
+        <idMapped>false</idMapped>
+        <indexed>false</indexed>
+    </configurations>
+
+    <configurations>
+        <autoRefResolving>false</autoRefResolving>
         <clazz>uk.ac.liv.jmzqml.model.mzqml.RawFile</clazz>
         <idMapped>false</idMapped>
         <indexed>true</indexed>

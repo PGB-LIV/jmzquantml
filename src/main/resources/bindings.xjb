@@ -411,6 +411,10 @@
         <jxb:bindings node="//xsd:complexType[@name='RatioListType']">
             <jxb:class name="RatioList"/>
         </jxb:bindings>
+        
+        <jxb:bindings node="//xsd:complexType[@name='RatioQuantLayerType']">
+            <jxb:class name="RatioQuantLayer"/>
+        </jxb:bindings>
 
         <jxb:bindings node="//xsd:complexType[@name='RatioType']">
             <jxb:class name="Ratio"/>
@@ -545,10 +549,10 @@
             </jxb:property>
 		</jxb:bindings>
 		
-		<jxb:bindings node="//xsd:complexType[@name='Type']">
-			<jxb:class name=""/>
-		</jxb:bindings>
-		-->
+      		<jxb:bindings node="//xsd:complexType[@name='Type']">
+                     			<jxb:class name=""/>
+      		</jxb:bindings>
+      		-->
 		
     </jxb:bindings>
 </jxb:bindings>
