@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata modelVersion="1.1.0">
+  <groupId>uk.ac.liv</groupId>
+  <artifactId>jmzquantml</artifactId>
+  <version>1.0.0-rc3-1.0.5-SNAPSHOT</version>
+  <versioning>
+    <snapshot>
+      <timestamp>20121129.232708</timestamp>
+      <buildNumber>1</buildNumber>
+    </snapshot>
+    <lastUpdated>20121129232708</lastUpdated>
+    <snapshotVersions>
+      <snapshotVersion>
+        <extension>jar</extension>
+        <value>1.0.0-rc3-1.0.5-20121129.232708-1</value>
+        <updated>20121129232708</updated>
+      </snapshotVersion>
+      <snapshotVersion>
+        <extension>pom</extension>
+        <value>1.0.0-rc3-1.0.5-20121129.232708-1</value>
+        <updated>20121129232708</updated>
+      </snapshotVersion>
+    </snapshotVersions>
+  </versioning>
+</metadata>
