@@ -35,7 +35,7 @@ import uk.ac.liv.jmzqml.model.utils.FacadeList;
  *         &lt;element name="GlobalQuantLayer" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc3}GlobalQuantLayerType" maxOccurs="unbounded" minOccurs="0"/>
  *         &lt;element name="AssayQuantLayer" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc3}QuantLayerType" maxOccurs="unbounded" minOccurs="0"/>
  *         &lt;element name="StudyVariableQuantLayer" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc3}QuantLayerType" maxOccurs="unbounded" minOccurs="0"/>
- *         &lt;element name="RatioQuantLayer" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc3}QuantLayerType" minOccurs="0"/>
+ *         &lt;element name="RatioQuantLayer" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc3}RatioQuantLayerType" minOccurs="0"/>
  *         &lt;group ref="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc3}ParamGroup" maxOccurs="unbounded" minOccurs="0"/>
  *       &lt;/sequence>
  *       &lt;attribute name="id" use="required" type="{http://www.w3.org/2001/XMLSchema}ID" />
@@ -70,7 +70,7 @@ public class PeptideConsensusList
     @XmlElement(name = "StudyVariableQuantLayer")
     protected List<QuantLayer> studyVariableQuantLayer;
     @XmlElement(name = "RatioQuantLayer")
-    protected QuantLayer ratioQuantLayer;
+    protected RatioQuantLayer ratioQuantLayer;
     @XmlElements({
         @XmlElement(name = "cvParam", type = CvParam.class),
         @XmlElement(name = "userParam", type = UserParam.class)
@@ -205,10 +205,10 @@ public class PeptideConsensusList
      * 
      * @return
      *     possible object is
-     *     {@link QuantLayer }
+     *     {@link RatioQuantLayer }
      *     
      */
-    public QuantLayer getRatioQuantLayer() {
+    public RatioQuantLayer getRatioQuantLayer() {
         return ratioQuantLayer;
     }
 
@@ -217,10 +217,10 @@ public class PeptideConsensusList
      * 
      * @param value
      *     allowed object is
-     *     {@link QuantLayer }
+     *     {@link RatioQuantLayer }
      *     
      */
-    public void setRatioQuantLayer(QuantLayer value) {
+    public void setRatioQuantLayer(RatioQuantLayer value) {
         this.ratioQuantLayer = value;
     }
 
