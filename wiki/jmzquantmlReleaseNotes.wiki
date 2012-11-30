@@ -3,16 +3,26 @@
 
 *_Changelog_*
 
-  * Current version 1.0.0-rc3-1.0.4
-  * Previous version 1.0.0-rc3-1.0.3
+  * Current version 1.0.0-rc3-1.0.5
+  * Previous version 1.0.0-rc3-1.0.4.1
 
 ----
-*jmzquantml version 1.0.0-rc3-1.0.4 -- (28, November 2012)
+*jmzquantml version 1.0.0-rc3-1.0.5 -- (30, November 2012)*
+  * adapted to latest schema changes:
+    ** added a new `<RatioQuantLayer>` with the DataType element
+    ** added a new optional rawFile_ref to `<Feature>`  
+  
+----
+*jmzquantml version 1.0.0-rc3-1.0.4.1 -- (29, November 2012)*
+  * fixed the bug of wrong `<ProteinGroup>` class
+
+----
+*jmzquantml version 1.0.0-rc3-1.0.4 -- (28, November 2012)*
  
   * adapt to latest schema change which introduces `<ProteinRef>` element under `<ProteinGroup>`
 
 ----
-*jmzquantml version 1.0.0-rc3-1.0.3 -- (22, November 2012)
+*jmzquantml version 1.0.0-rc3-1.0.3 -- (22, November 2012)*
 
   * adapt to latest schema changes:
     ** the root mzQuantML element now has a mandatory id and an optional name
@@ -20,23 +30,23 @@
     ** add complete definitions to elements
 
 ----
-*jmzquantml version 1.0.0-rc3-1.0.2 -- (8, November 2012)
+*jmzquantml version 1.0.0-rc3-1.0.2 -- (8, November 2012)*
 
   * be able to unmarshal `<ParamList>` and `<ParamGroup>`
 
 ----
-*jmzquantml version 1.0.0-rc3-1.0.1 -- (2, November 2012)
+*jmzquantml version 1.0.0-rc3-1.0.1 -- (2, November 2012)*
 
   * fix the bug of wrong namespace in marshall function
 
 ----
-*jmzquantml version 1.0.0-rc3-1.0.0 -- (1, November 2012)
+*jmzquantml version 1.0.0-rc3-1.0.0 -- (1, November 2012)*
 
   * update this (README.txt) document
   * this version comply to mzQuantML_1_0_0-rc3.xsd (31, October 2012)
 
 ----
-*jmzquantml version 1.0.0-rc2-1.0.1 -- (23, October 2012)
+*jmzquantml version 1.0.0-rc2-1.0.1 -- (23, October 2012)*
 
   * update README.txt
   * change the model according to schema change
@@ -46,7 +56,7 @@
     ** http://code.google.com/p/mzquantml/source/detail?r=243
 
 ----
-*jmzquantml version 1.0.0-rc2-1.0.0 -- (4, July 2012)
+*jmzquantml version 1.0.0-rc2-1.0.0 -- (4, July 2012)*
 
   * move to Maven 3.0.4
   * add README.txt, LICENCE.txt
@@ -55,7 +65,7 @@
   * change element classes name by removing 'Type' suffixes
 
 ----
-*jmzquantml Version 1.0.0-rc2 - (7, June 2012)
+*jmzquantml Version 1.0.0-rc2 - (7, June 2012)*
 
   * comply to mQuantML_1_0_0-rc2.xsd (7, June 2012)
   * provide basic marshaller and unmarshaller classes
