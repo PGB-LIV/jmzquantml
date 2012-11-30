@@ -36,7 +36,7 @@ import uk.ac.liv.jmzqml.model.utils.FacadeList;
  *         &lt;element name="FeatureQuantLayer" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc3}GlobalQuantLayerType" maxOccurs="unbounded" minOccurs="0"/>
  *         &lt;element name="MS2AssayQuantLayer" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc3}QuantLayerType" maxOccurs="unbounded" minOccurs="0"/>
  *         &lt;element name="MS2StudyVariableQuantLayer" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc3}QuantLayerType" maxOccurs="unbounded" minOccurs="0"/>
- *         &lt;element name="MS2RatioQuantLayer" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc3}QuantLayerType" minOccurs="0"/>
+ *         &lt;element name="MS2RatioQuantLayer" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc3}RatioQuantLayerType" minOccurs="0"/>
  *         &lt;group ref="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc3}ParamGroup" maxOccurs="unbounded" minOccurs="0"/>
  *       &lt;/sequence>
  *       &lt;attribute name="rawFilesGroup_ref" use="required" type="{http://www.w3.org/2001/XMLSchema}IDREF" />
@@ -71,7 +71,7 @@ public class FeatureList
     @XmlElement(name = "MS2StudyVariableQuantLayer")
     protected List<QuantLayer> ms2StudyVariableQuantLayer;
     @XmlElement(name = "MS2RatioQuantLayer")
-    protected QuantLayer ms2RatioQuantLayer;
+    protected RatioQuantLayer ms2RatioQuantLayer;
     @XmlElements({
         @XmlElement(name = "cvParam", type = CvParam.class),
         @XmlElement(name = "userParam", type = UserParam.class)
@@ -208,10 +208,10 @@ public class FeatureList
      * 
      * @return
      *     possible object is
-     *     {@link QuantLayer }
+     *     {@link RatioQuantLayer }
      *     
      */
-    public QuantLayer getMS2RatioQuantLayer() {
+    public RatioQuantLayer getMS2RatioQuantLayer() {
         return ms2RatioQuantLayer;
     }
 
@@ -220,10 +220,10 @@ public class FeatureList
      * 
      * @param value
      *     allowed object is
-     *     {@link QuantLayer }
+     *     {@link RatioQuantLayer }
      *     
      */
-    public void setMS2RatioQuantLayer(QuantLayer value) {
+    public void setMS2RatioQuantLayer(RatioQuantLayer value) {
         this.ms2RatioQuantLayer = value;
     }
 

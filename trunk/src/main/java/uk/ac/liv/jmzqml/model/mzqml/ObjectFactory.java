@@ -130,6 +130,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link ProteinRef }
+     * 
+     */
+    public ProteinRef createProteinRef() {
+        return new ProteinRef();
+    }
+
+    /**
      * Create an instance of {@link StudyVariable }
      * 
      */
@@ -351,6 +359,14 @@ public class ObjectFactory {
      */
     public ModParam createModParam() {
         return new ModParam();
+    }
+
+    /**
+     * Create an instance of {@link RatioQuantLayer }
+     * 
+     */
+    public RatioQuantLayer createRatioQuantLayer() {
+        return new RatioQuantLayer();
     }
 
     /**

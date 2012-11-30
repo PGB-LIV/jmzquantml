@@ -10,6 +10,7 @@ import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlElements;
 import javax.xml.bind.annotation.XmlID;
+import javax.xml.bind.annotation.XmlIDREF;
 import javax.xml.bind.annotation.XmlList;
 import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
@@ -41,6 +42,7 @@ import uk.ac.liv.jmzqml.model.utils.FacadeList;
  *       &lt;attribute name="charge" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc3}integerOrNullType" />
  *       &lt;attribute name="chromatogram_refs" type="{http://www.w3.org/2001/XMLSchema}string" />
  *       &lt;attribute name="spectrum_refs" type="{http://www.w3.org/2001/XMLSchema}string" />
+ *       &lt;attribute name="rawFile_ref" type="{http://www.w3.org/2001/XMLSchema}IDREF" />
  *     &lt;/restriction>
  *   &lt;/complexContent>
  * &lt;/complexType>
@@ -81,6 +83,10 @@ public class Feature
     protected String chromatogramRefs;
     @XmlAttribute(name = "spectrum_refs")
     protected String spectrumRefs;
+    @XmlAttribute(name = "rawFile_ref")
+    @XmlIDREF
+    @XmlSchemaType(name = "IDREF")
+    protected Object rawFileRef;
 
     /**
      * Gets the value of the massTrace property.
@@ -277,10 +283,34 @@ public class Feature
         this.spectrumRefs = value;
     }
 
+    /**
+     * Gets the value of the rawFileRef property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link Object }
+     *     
+     */
+    public Object getRawFileRef() {
+        return rawFileRef;
+    }
+
+    /**
+     * Sets the value of the rawFileRef property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link Object }
+     *     
+     */
+    public void setRawFileRef(Object value) {
+        this.rawFileRef = value;
+    }
+
     @Override
     public List<CvParam> getCvParam() {
         return new FacadeList<CvParam>(this.getParamGroup(), CvParam.class);
-}
+    }
 
     @Override
     public List<UserParam> getUserParam() {

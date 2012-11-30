@@ -496,6 +496,15 @@ public enum MzQuantMLElement {
     getCfg().get(uk.ac.liv.jmzqml.model.mzqml.RatioList.class.getName()).isAutoRefResolving(),
     getCfg().get(uk.ac.liv.jmzqml.model.mzqml.RatioList.class.getName()).getRefResolverClass()),
     //
+    RatioQuantLayer(getCfg().get(uk.ac.liv.jmzqml.model.mzqml.RatioQuantLayer.class.getName()).getTagName(),
+    getCfg().get(uk.ac.liv.jmzqml.model.mzqml.RatioQuantLayer.class.getName()).isIndexed(),
+    getCfg().get(uk.ac.liv.jmzqml.model.mzqml.RatioQuantLayer.class.getName()).getXpath(),
+    getCfg().get(uk.ac.liv.jmzqml.model.mzqml.RatioQuantLayer.class.getName()).isCached(),
+    getCfg().get(uk.ac.liv.jmzqml.model.mzqml.RatioQuantLayer.class.getName()).isIdMapped(),
+    getCfg().get(uk.ac.liv.jmzqml.model.mzqml.RatioQuantLayer.class.getName()).getClazz(),
+    getCfg().get(uk.ac.liv.jmzqml.model.mzqml.RatioQuantLayer.class.getName()).isAutoRefResolving(),
+    getCfg().get(uk.ac.liv.jmzqml.model.mzqml.RatioQuantLayer.class.getName()).getRefResolverClass()),
+    //
     Ratio(getCfg().get(uk.ac.liv.jmzqml.model.mzqml.Ratio.class.getName()).getTagName(),
     getCfg().get(uk.ac.liv.jmzqml.model.mzqml.Ratio.class.getName()).isIndexed(),
     getCfg().get(uk.ac.liv.jmzqml.model.mzqml.Ratio.class.getName()).getXpath(),
