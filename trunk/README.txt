@@ -4,7 +4,7 @@
 =                jmzquantmL - Java API for MzQuantML                  =
 =                                                                     =
 =                                                                     =
-=                                       jmzquantml  1.0.0-rc3-1.0.4   =
+=                                       jmzquantml  1.0.0-rc3-1.0.5   =
 =                                 (c) University of Liverpool  2012   =
 =                              http://code.google.com/p/jmzquantml/   =
 =                                                                     =
@@ -61,24 +61,31 @@ How to use in maven
 
 Changelog
 
-  - Current version 1.0.0-rc3-1.0.4
-  - Previous version 1.0.0-rc3-1.0.3
+  - Current version 1.0.0-rc3-1.0.5
+  - Previous version 1.0.0-rc3-1.0.4.1
 
+jmzquantml version 1.0.0-rc3-1.0.5 -- (30, November 2012)
+  - adapted to latest schema changes:
+    - added a new <RatioQuantLayer> with the DataType element
+    - added a new optional rawFile_ref to <Feature>  
+  
+jmzquantml version 1.0.0-rc3-1.0.4.1 -- (29, November 2012)
+  - fixed the bug of wrong <ProteinGroup> class
+  
 jmzquantml version 1.0.0-rc3-1.0.4 -- (28, November 2012)
-  - adapt to latest schema change which introduces <ProteinRef> element under         <ProteinGroup>
+  - adapted to latest schema change which introduces <ProteinRef> element under <ProteinGroup>
 
 jmzquantml version 1.0.0-rc3-1.0.3 -- (22, November 2012)
-  - adapt to latest schema changes:
+  - adapted to latest schema changes:
     - the root mzQuantML element now has a mandatory id and an optional name
     - pre order Person before Organization in AuditCollection
     - add complete definitions to elements
-
 
 jmzquantml version 1.0.0-rc3-1.0.2 -- (8, November 2012)
   - be able to unmarshal ParamList and ParamGroup   
    
 jmzquantml version 1.0.0-rc3-1.0.1 -- (2, November 2012)
-  - fix the bug of wrong namespace in marshall function
+  - fixed the bug of wrong namespace in marshall function
 
 jmzquantml version 1.0.0-rc3-1.0.0 -- (1, November 2012)
   - update this (README.txt) document
@@ -101,7 +108,6 @@ jmzquantml version 1.0.0-rc2-1.0.0 -- (4, July 2012)
     customization to JAXB bindings
   - change package name to "uk.ac.liv.jmzqml.model.mzqml"
   - change element classes name by removing 'Type' suffixes
-
 
 jmzquantml version 1.0.0-rc2 -- (7, June 2012)
 
