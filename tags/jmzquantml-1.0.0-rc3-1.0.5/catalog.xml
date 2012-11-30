@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
+    <system systemId="file:/D:/Users/Da/Documents/NetBeansProjects/maven/jmzquantml/src/main/resources/mzQuantML_1_0_0-rc2.xsd" uri="src/main/resources/jaxb/bindings/mzQuantML_1_0_0-rc2.xsd"/>
+</catalog>
