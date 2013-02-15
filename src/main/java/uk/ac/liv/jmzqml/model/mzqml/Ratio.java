@@ -27,9 +27,9 @@ import uk.ac.liv.jmzqml.model.MzQuantMLObject;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="RatioCalculation" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc3}ParamListType" minOccurs="0"/>
- *         &lt;element name="NumeratorDataType" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc3}cvParamRefType"/>
- *         &lt;element name="DenominatorDataType" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc3}cvParamRefType"/>
+ *         &lt;element name="RatioCalculation" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0}ParamListType" minOccurs="0"/>
+ *         &lt;element name="NumeratorDataType" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0}cvParamRefType"/>
+ *         &lt;element name="DenominatorDataType" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0}cvParamRefType"/>
  *       &lt;/sequence>
  *       &lt;attribute name="numerator_ref" use="required" type="{http://www.w3.org/2001/XMLSchema}IDREF" />
  *       &lt;attribute name="denominator_ref" use="required" type="{http://www.w3.org/2001/XMLSchema}IDREF" />

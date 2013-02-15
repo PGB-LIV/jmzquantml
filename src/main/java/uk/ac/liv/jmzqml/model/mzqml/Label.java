@@ -23,7 +23,7 @@ import uk.ac.liv.jmzqml.model.MzQuantMLObject;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="Modification" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc3}ModParamType" maxOccurs="unbounded"/>
+ *         &lt;element name="Modification" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0}ModParamType" maxOccurs="unbounded"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>

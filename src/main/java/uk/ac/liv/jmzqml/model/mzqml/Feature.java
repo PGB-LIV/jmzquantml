@@ -22,7 +22,7 @@ import uk.ac.liv.jmzqml.model.utils.FacadeList;
 
 
 /**
- * A region on an MS1 mass spectrum, defined by the RT, MZ and optionally a mass trace. Quantitative values about features can be added in the associated QuantLayers.
+ * A region on a (potentially) two-dimensional map of MS1 scans, defined by the retention time, mass over charge and optionally a mass trace. Quantitative values about features can be added in the associated QuantLayers. For techniques that analyse data from single scans e.g. MS2 tagging approaches, a Feature corresponds with the mz of the parent ions only.
  * 
  * <p>Java class for FeatureType complex type.
  * 
@@ -33,13 +33,13 @@ import uk.ac.liv.jmzqml.model.utils.FacadeList;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="MassTrace" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc3}listOfDoubles" minOccurs="0"/>
- *         &lt;group ref="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc3}ParamGroup" maxOccurs="unbounded" minOccurs="0"/>
+ *         &lt;element name="MassTrace" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0}listOfDoubles" minOccurs="0"/>
+ *         &lt;group ref="{http://psidev.info/psi/pi/mzQuantML/1.0.0}ParamGroup" maxOccurs="unbounded" minOccurs="0"/>
  *       &lt;/sequence>
  *       &lt;attribute name="id" use="required" type="{http://www.w3.org/2001/XMLSchema}ID" />
- *       &lt;attribute name="rt" use="required" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc3}doubleOrNullType" />
+ *       &lt;attribute name="rt" use="required" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0}doubleOrNullType" />
  *       &lt;attribute name="mz" use="required" type="{http://www.w3.org/2001/XMLSchema}double" />
- *       &lt;attribute name="charge" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc3}integerOrNullType" />
+ *       &lt;attribute name="charge" use="required" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0}integerOrNullType" />
  *       &lt;attribute name="chromatogram_refs" type="{http://www.w3.org/2001/XMLSchema}string" />
  *       &lt;attribute name="spectrum_refs" type="{http://www.w3.org/2001/XMLSchema}string" />
  *       &lt;attribute name="rawFile_ref" type="{http://www.w3.org/2001/XMLSchema}IDREF" />
@@ -77,7 +77,7 @@ public class Feature
     protected String rt;
     @XmlAttribute(name = "mz", required = true)
     protected double mz;
-    @XmlAttribute(name = "charge")
+    @XmlAttribute(name = "charge", required = true)
     protected String charge;
     @XmlAttribute(name = "chromatogram_refs")
     protected String chromatogramRefs;
@@ -310,7 +310,7 @@ public class Feature
     @Override
     public List<CvParam> getCvParam() {
         return new FacadeList<CvParam>(this.getParamGroup(), CvParam.class);
-    }
+}
 
     @Override
     public List<UserParam> getUserParam() {

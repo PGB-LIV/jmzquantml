@@ -24,7 +24,7 @@ import uk.ac.liv.jmzqml.model.MzQuantMLObject;
  * <pre>
  * &lt;complexType name="RowType">
  *   &lt;simpleContent>
- *     &lt;extension base="&lt;http://psidev.info/psi/pi/mzQuantML/1.0.0-rc3>listOfDoublesOrNulls">
+ *     &lt;extension base="&lt;http://psidev.info/psi/pi/mzQuantML/1.0.0>listOfDoublesOrNulls">
  *       &lt;attribute name="object_ref" use="required" type="{http://www.w3.org/2001/XMLSchema}IDREF" />
  *     &lt;/extension>
  *   &lt;/simpleContent>

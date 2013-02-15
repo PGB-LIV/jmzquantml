@@ -31,8 +31,8 @@ import uk.ac.liv.jmzqml.model.utils.FacadeList;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="RawFile" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc3}RawFileType" maxOccurs="unbounded"/>
- *         &lt;group ref="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc3}ParamGroup" maxOccurs="unbounded" minOccurs="0"/>
+ *         &lt;element name="RawFile" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0}RawFileType" maxOccurs="unbounded"/>
+ *         &lt;group ref="{http://psidev.info/psi/pi/mzQuantML/1.0.0}ParamGroup" maxOccurs="unbounded" minOccurs="0"/>
  *       &lt;/sequence>
  *       &lt;attribute name="id" use="required" type="{http://www.w3.org/2001/XMLSchema}ID" />
  *     &lt;/restriction>

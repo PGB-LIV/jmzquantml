@@ -18,7 +18,7 @@ import javax.xml.bind.annotation.XmlType;
  * <pre>
  * &lt;complexType name="BibliographicReferenceType">
  *   &lt;complexContent>
- *     &lt;extension base="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc3}IdentifiableType">
+ *     &lt;extension base="{http://psidev.info/psi/pi/mzQuantML/1.0.0}IdentifiableType">
  *       &lt;attribute name="authors" type="{http://www.w3.org/2001/XMLSchema}string" />
  *       &lt;attribute name="publication" type="{http://www.w3.org/2001/XMLSchema}string" />
  *       &lt;attribute name="publisher" type="{http://www.w3.org/2001/XMLSchema}string" />
