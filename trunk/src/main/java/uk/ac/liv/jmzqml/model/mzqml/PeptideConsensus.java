@@ -21,7 +21,7 @@ import uk.ac.liv.jmzqml.model.utils.FacadeList;
 
 
 /**
- * An element representing a peptide in different assay that may or may not have been identified. If it has been identified, the sequence and modification(s) SHOULD be reported. Within the parent list, it is allowed for there to be multiple instances of the same peptide sequence, for example capturing different charge states or different modifications, if they are differentially quantified. If peptides with different charge states are aggregated, they should be represented by a single PeptideConsensus element.  
+ * An element representing a peptide in different assays that may or may not have been identified. If it has been identified, the sequence and modification(s) SHOULD be reported. Within the parent list, it is allowed for there to be multiple instances of the same peptide sequence, for example capturing different charge states or different modifications, if they are differentially quantified. If peptides with different charge states are aggregated, they should be represented by a single PeptideConsensus element.  
  * 
  * <p>Java class for PeptideConsensusType complex type.
  * 
@@ -32,13 +32,13 @@ import uk.ac.liv.jmzqml.model.utils.FacadeList;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="PeptideSequence" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc3}sequence" minOccurs="0"/>
- *         &lt;element name="Modification" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc3}ModificationType" maxOccurs="unbounded" minOccurs="0"/>
- *         &lt;element name="EvidenceRef" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc3}EvidenceRefType" maxOccurs="unbounded"/>
- *         &lt;group ref="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc3}ParamGroup" maxOccurs="unbounded" minOccurs="0"/>
+ *         &lt;element name="PeptideSequence" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0}sequence" minOccurs="0"/>
+ *         &lt;element name="Modification" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0}ModificationType" maxOccurs="unbounded" minOccurs="0"/>
+ *         &lt;element name="EvidenceRef" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0}EvidenceRefType" maxOccurs="unbounded"/>
+ *         &lt;group ref="{http://psidev.info/psi/pi/mzQuantML/1.0.0}ParamGroup" maxOccurs="unbounded" minOccurs="0"/>
  *       &lt;/sequence>
  *       &lt;attribute name="id" use="required" type="{http://www.w3.org/2001/XMLSchema}ID" />
- *       &lt;attribute name="charge" use="required" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc3}listOfIntegers" />
+ *       &lt;attribute name="charge" use="required" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0}listOfIntegers" />
  *       &lt;attribute name="searchDatabase_ref" type="{http://www.w3.org/2001/XMLSchema}IDREF" />
  *     &lt;/restriction>
  *   &lt;/complexContent>

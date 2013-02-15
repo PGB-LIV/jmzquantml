@@ -21,9 +21,9 @@ import javax.xml.bind.annotation.XmlType;
  * <pre>
  * &lt;complexType name="PersonType">
  *   &lt;complexContent>
- *     &lt;extension base="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc3}AbstractContactType">
+ *     &lt;extension base="{http://psidev.info/psi/pi/mzQuantML/1.0.0}AbstractContactType">
  *       &lt;sequence>
- *         &lt;element name="Affiliation" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc3}AffiliationType" maxOccurs="unbounded" minOccurs="0"/>
+ *         &lt;element name="Affiliation" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0}AffiliationType" maxOccurs="unbounded" minOccurs="0"/>
  *       &lt;/sequence>
  *       &lt;attribute name="lastName" type="{http://www.w3.org/2001/XMLSchema}string" />
  *       &lt;attribute name="firstName" type="{http://www.w3.org/2001/XMLSchema}string" />

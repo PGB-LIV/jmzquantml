@@ -26,9 +26,9 @@ import uk.ac.liv.jmzqml.model.utils.FacadeList;
  * <pre>
  * &lt;complexType name="IdentificationFileType">
  *   &lt;complexContent>
- *     &lt;extension base="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc3}ExternalDataType">
+ *     &lt;extension base="{http://psidev.info/psi/pi/mzQuantML/1.0.0}ExternalDataType">
  *       &lt;sequence>
- *         &lt;group ref="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc3}ParamGroup" maxOccurs="unbounded" minOccurs="0"/>
+ *         &lt;group ref="{http://psidev.info/psi/pi/mzQuantML/1.0.0}ParamGroup" maxOccurs="unbounded" minOccurs="0"/>
  *       &lt;/sequence>
  *       &lt;attribute name="searchDatabase_ref" type="{http://www.w3.org/2001/XMLSchema}IDREF" />
  *     &lt;/extension>

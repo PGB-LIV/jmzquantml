@@ -15,7 +15,7 @@ import javax.xml.bind.annotation.*;
  * <pre>
  * &lt;complexType name="CVParamType">
  *   &lt;complexContent>
- *     &lt;extension base="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc3}AbstractParamType">
+ *     &lt;extension base="{http://psidev.info/psi/pi/mzQuantML/1.0.0}AbstractParamType">
  *       &lt;attribute name="cvRef" use="required" type="{http://www.w3.org/2001/XMLSchema}IDREF" />
  *       &lt;attribute name="accession" use="required" type="{http://www.w3.org/2001/XMLSchema}string" />
  *     &lt;/extension>

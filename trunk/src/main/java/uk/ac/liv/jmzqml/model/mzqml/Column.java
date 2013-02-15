@@ -24,7 +24,7 @@ import uk.ac.liv.jmzqml.model.MzQuantMLObject;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="DataType" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc3}cvParamRefType"/>
+ *         &lt;element name="DataType" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0}cvParamRefType"/>
  *       &lt;/sequence>
  *       &lt;attribute name="index" use="required" type="{http://www.w3.org/2001/XMLSchema}nonNegativeInteger" />
  *     &lt;/restriction>

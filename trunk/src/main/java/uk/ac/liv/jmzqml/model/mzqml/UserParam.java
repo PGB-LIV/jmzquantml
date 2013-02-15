@@ -18,7 +18,7 @@ import javax.xml.bind.annotation.XmlType;
  * <pre>
  * &lt;complexType name="UserParamType">
  *   &lt;complexContent>
- *     &lt;extension base="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc3}AbstractParamType">
+ *     &lt;extension base="{http://psidev.info/psi/pi/mzQuantML/1.0.0}AbstractParamType">
  *       &lt;attribute name="type" type="{http://www.w3.org/2001/XMLSchema}string" />
  *     &lt;/extension>
  *   &lt;/complexContent>

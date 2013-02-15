@@ -23,11 +23,11 @@ import uk.ac.liv.jmzqml.model.MzQuantMLObject;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="RawFilesGroup" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc3}RawFilesGroupType" maxOccurs="unbounded" minOccurs="0"/>
- *         &lt;element name="MethodFiles" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc3}MethodFilesType" minOccurs="0"/>
- *         &lt;element name="IdentificationFiles" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc3}IdentificationFilesType" minOccurs="0"/>
- *         &lt;element name="SearchDatabase" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc3}SearchDatabaseType" maxOccurs="unbounded" minOccurs="0"/>
- *         &lt;element name="SourceFile" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc3}SourceFileType" maxOccurs="unbounded" minOccurs="0"/>
+ *         &lt;element name="RawFilesGroup" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0}RawFilesGroupType" maxOccurs="unbounded" minOccurs="0"/>
+ *         &lt;element name="MethodFiles" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0}MethodFilesType" minOccurs="0"/>
+ *         &lt;element name="IdentificationFiles" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0}IdentificationFilesType" minOccurs="0"/>
+ *         &lt;element name="SearchDatabase" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0}SearchDatabaseType" maxOccurs="unbounded" minOccurs="0"/>
+ *         &lt;element name="SourceFile" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0}SourceFileType" maxOccurs="unbounded" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>

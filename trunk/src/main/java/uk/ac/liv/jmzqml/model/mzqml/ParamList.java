@@ -24,7 +24,7 @@ import uk.ac.liv.jmzqml.model.utils.FacadeList;
  * &lt;complexType name="ParamListType">
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;group ref="{http://psidev.info/psi/pi/mzQuantML/1.0.0-rc3}ParamGroup" maxOccurs="unbounded"/>
+ *       &lt;group ref="{http://psidev.info/psi/pi/mzQuantML/1.0.0}ParamGroup" maxOccurs="unbounded"/>
  *     &lt;/restriction>
  *   &lt;/complexContent>
  * &lt;/complexType>
@@ -78,7 +78,7 @@ public class ParamList
     }
 
     /**
-     * Gets the enzyme name cvparams
+     * Gets the cvparams
      *
      * @return possible object is
      *         {@link uk.ac.ebi.jmzidml.model.utils.FacadeList }
@@ -88,7 +88,7 @@ public class ParamList
 }
 
     /**
-     * Gets the enzymename userparams
+     * Gets the userparams
      *
      * @return possible object is
      *         {@link FacadeList }
