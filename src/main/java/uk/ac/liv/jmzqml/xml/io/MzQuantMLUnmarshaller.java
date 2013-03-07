@@ -1,9 +1,11 @@
+
 /**
  * JAXB-based Marshaller for a mzQuantML file.
  */
 package uk.ac.liv.jmzqml.xml.io;
 
 import java.io.*;
+import java.net.URL;
 import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -22,6 +24,7 @@ import uk.ac.liv.jmzqml.model.MzQuantMLObject;
 import uk.ac.liv.jmzqml.model.mzqml.MzQuantML;
 import uk.ac.liv.jmzqml.xml.jaxb.unmarshaller.UnmarshallerFactory;
 import uk.ac.liv.jmzqml.xml.jaxb.unmarshaller.filters.MzQuantMLNamespaceFilter;
+import uk.ac.liv.jmzqml.xml.xxindex.FileUtils;
 import uk.ac.liv.jmzqml.xml.xxindex.MzQuantMLIndexer;
 import uk.ac.liv.jmzqml.xml.xxindex.MzQuantMLIndexerFactory;
 //import uk.ac.liv.jmzquantml.xml.xxindex.MzQuantMLIndexer;
@@ -64,7 +67,8 @@ public class MzQuantMLUnmarshaller {
         this.cache = null;
         try {
             this.fr = new FileReader(fullFileName);
-        } catch (IOException ioex) {
+        }
+        catch (IOException ioex) {
             ioex.printStackTrace(System.err);
         }
 
@@ -73,7 +77,8 @@ public class MzQuantMLUnmarshaller {
             this.unmarsh = context.createUnmarshaller();
             this.unmarsh.setEventHandler(new DefaultValidationEventHandler());
             //this.unmarsh.setValidating(true);
-        } catch (JAXBException jaxbex) {
+        }
+        catch (JAXBException jaxbex) {
             jaxbex.printStackTrace(System.err);
         }
     }
@@ -90,7 +95,8 @@ public class MzQuantMLUnmarshaller {
         this.cache = null;
         try {
             this.fr = new FileReader(fullFileName);
-        } catch (IOException ioex) {
+        }
+        catch (IOException ioex) {
             ioex.printStackTrace(System.err);
 
 
@@ -122,23 +128,28 @@ public class MzQuantMLUnmarshaller {
                         }
                         return true;
                     }
+
                 };
                 this.unmarsh.setEventHandler(veh);
 
-            } catch (JAXBException jaxbex) {
+            }
+            catch (JAXBException jaxbex) {
                 jaxbex.printStackTrace();
-            } catch (SAXException ex) {
+            }
+            catch (SAXException ex) {
                 System.out.println("Unable to validate due to follow error.");
                 ex.printStackTrace();
             }
-        } else {
+        }
+        else {
             try {
                 JAXBContext context = JAXBContext.newInstance(new Class[]{MzQuantML.class
                         });
                 this.unmarsh = context.createUnmarshaller();
                 this.unmarsh.setEventHandler(new DefaultValidationEventHandler());
                 //this.unmarsh.setValidating(true);
-            } catch (JAXBException jaxbex) {
+            }
+            catch (JAXBException jaxbex) {
                 jaxbex.printStackTrace(System.err);
             }
         }
@@ -147,6 +158,10 @@ public class MzQuantMLUnmarshaller {
     /*
      * Constructor
      */
+    public MzQuantMLUnmarshaller(URL mzQuantMLFileURL) {
+        this(FileUtils.getFileFromURL(mzQuantMLFileURL));
+    }
+
     public MzQuantMLUnmarshaller(File mzQuantMLFile) {
         this(MzQuantMLIndexerFactory.getInstance().buildIndex(mzQuantMLFile));
     }
@@ -169,9 +184,11 @@ public class MzQuantMLUnmarshaller {
                 mzQuantML = (MzQuantML) this.unmarsh.unmarshal(this.fr);
                 this.fr.close();
             }
-        } catch (JAXBException jaxbex) {
+        }
+        catch (JAXBException jaxbex) {
             jaxbex.printStackTrace(System.err);
-        } catch (IOException ioex) {
+        }
+        catch (IOException ioex) {
             ioex.printStackTrace(System.err);
         }
 
@@ -220,7 +237,7 @@ public class MzQuantMLUnmarshaller {
      * @param clazz the Class representing the XML element.
      *
      * @return A map of all the found name-value attribute pairs or null if no
-     * element with the specified id was found.
+     *         element with the specified id was found.
      */
     public Map<String, String> getElementAttributes(String id, Class clazz) {
         Map<String, String> attributes = new HashMap<String, String>();
@@ -239,7 +256,8 @@ public class MzQuantMLUnmarshaller {
                 String value = match.group(2);
                 // stick the found attributes in the map
                 attributes.put(name, value);
-            } else {
+            }
+            else {
                 // not a name - value pair, something is wrong!
                 System.out.println("Unexpected number of groups for XML attribute: " + match.groupCount() + " in tag: " + tag);
             }
@@ -252,12 +270,13 @@ public class MzQuantMLUnmarshaller {
      * @param xpath the xpath defining the XML element.
      *
      * @return the number of XML elements matching the xpath or -1 if no
-     * elements were found for the specified xpath.
+     *         elements were found for the specified xpath.
      */
     public int getObjectCountForXpath(String xpath) {
         if (xpath != null) {
             return index.getCount(xpath);
-        } else {
+        }
+        else {
             return -1;
         }
     }
@@ -268,7 +287,7 @@ public class MzQuantMLUnmarshaller {
      *
      * @see #unmarshal(uk.ac.liv.jmzqml.MzQuantMLElement)
      * @param clazz the type of Object to sub-class. It has to be a sub-class of
-     * MzQuantMLObject.
+     *              MzQuantMLObject.
      *
      * @return a object of the specified class
      */
@@ -292,10 +311,10 @@ public class MzQuantMLUnmarshaller {
      *
      * @see #unmarshalCollectionFromXpath(uk.ac.liv.jmzqml.MzQuantMLElement)
      * @param element The MzQuantMLElement defining the type of element to
-     * unmarshal.
+     *                unmarshal.
      *
      * @return A MzQuantMLObject according to the type defined by the
-     * MzQuantMLElement.
+     *         MzQuantMLElement.
      */
     public <T extends MzQuantMLObject> T unmarshal(MzQuantMLElement element) {
         // Class and xpath of the element to unmarshal
@@ -334,9 +353,11 @@ public class MzQuantMLUnmarshaller {
      * @param element the element for which to get the IDs.
      *
      * @return a Set of all IDs of the specified element.
+     *
      * @throws ConfigurationException
      */
-    public Set<String> getIDsForElement(MzQuantMLElement element) throws ConfigurationException {
+    public Set<String> getIDsForElement(MzQuantMLElement element)
+            throws ConfigurationException {
         return index.getIDsForElement(element);
     }
 
@@ -352,7 +373,8 @@ public class MzQuantMLUnmarshaller {
         T retval = null;
         if (xpath != null) {
             retval = retrieveFromXML(clazz, xpath);
-        } else {
+        }
+        else {
             logger.info("No xpath or index entry for class " + clazz + "! Can not unmarshal!");
         }
         return retval;
@@ -374,7 +396,8 @@ public class MzQuantMLUnmarshaller {
                 String xmlSt = xpathIter.next();
                 retval = generateObject(cls, xmlSt);
             }
-        } catch (JAXBException e) {
+        }
+        catch (JAXBException e) {
             logger.error("MzQuantMLUnmarshaller unmarshal error: ", e);
             throw new IllegalStateException("Could not unmarshal object at xpath: " + xpath);
         }
@@ -382,7 +405,8 @@ public class MzQuantMLUnmarshaller {
     }
 
     private <T extends MzQuantMLObject> T generateObject(Class<T> cls,
-                                                         String xmlSt) throws JAXBException {
+                                                         String xmlSt)
+            throws JAXBException {
         T retval;
         if (logger.isDebugEnabled()) {
             logger.trace("XML to unmarshal: " + xmlSt);
@@ -404,4 +428,5 @@ public class MzQuantMLUnmarshaller {
 
         return retval;
     }
+
 }

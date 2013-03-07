@@ -46,33 +46,33 @@
                 <artifactId>maven-jaxb2-plugin</artifactId>
                 <version>0.8.2</version>
                 <!--/* TODO uncomment this to allow xjc genearate new JAXB classes*/
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>generate</goal>
-                        </goals>
-                        <configuration>
-                            <extension>true</extension>
-                            <schemaDirectory>src/main/resources</schemaDirectory>
-                            <schemaIncludes>
-                                <include>mzQuantML_1_0_0.xsd</include>
-                            </schemaIncludes>
-                            <bindingDirectory>src/main/resources</bindingDirectory>
-                            <bindingIncludes>
-                                <include>bindings.xjb</include>
-                            </bindingIncludes>
-                            <cleanPackageDirectories>false</cleanPackageDirectories>
-                            <generateDirectory>src/main/java</generateDirectory>
-                            <removeOldOutput>false</removeOldOutput>
-                            <forceRegenerate>true</forceRegenerate>
-                            <verbose>true</verbose>
-                            <args>
-                                <arg>-no-header</arg>
-                            </args>
-                        </configuration>
-                    </execution>
-                </executions>   
-            -->
+                    <executions>
+                        <execution>
+                            <goals>
+                                <goal>generate</goal>
+                            </goals>
+                            <configuration>
+                                <extension>true</extension>
+                                <schemaDirectory>src/main/resources</schemaDirectory>
+                                <schemaIncludes>
+                                    <include>mzQuantML_1_0_0.xsd</include>
+                                </schemaIncludes>
+                                <bindingDirectory>src/main/resources</bindingDirectory>
+                                <bindingIncludes>
+                                    <include>bindings.xjb</include>
+                                </bindingIncludes>
+                                <cleanPackageDirectories>false</cleanPackageDirectories>
+                                <generateDirectory>src/main/java</generateDirectory>
+                                <removeOldOutput>false</removeOldOutput>
+                                <forceRegenerate>true</forceRegenerate>
+                                <verbose>true</verbose>
+                                <args>
+                                    <arg>-no-header</arg>
+                                </args>
+                            </configuration>
+                        </execution>
+                    </executions>   
+                -->
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -94,15 +94,15 @@
     </properties>
     <dependencies>
         <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>4.10</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
             <groupId>log4j</groupId>
             <artifactId>log4j</artifactId>
             <version>1.2.16</version>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.5</version>
+            <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>psidev.psi.tools</groupId>
