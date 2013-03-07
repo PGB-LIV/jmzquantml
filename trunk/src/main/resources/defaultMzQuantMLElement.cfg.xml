@@ -84,7 +84,7 @@ Configurations for various properties of model classes.
     <configurations>
         <autoRefResolving>false</autoRefResolving>
         <clazz>uk.ac.liv.jmzqml.model.mzqml.AuditCollection</clazz>
-        <idMapped>true</idMapped>
+        <idMapped>false</idMapped>
         <indexed>true</indexed>
         <tagName>AuditCollection</tagName>
         <xpath>/MzQuantML/AuditCollection</xpath>
@@ -132,7 +132,7 @@ Configurations for various properties of model classes.
         <idMapped>true</idMapped>
         <indexed>true</indexed>
         <tagName>Cv</tagName>
-        <xpath>/MzQuangML/CvList/Cv</xpath>
+        <xpath>/MzQuantML/CvList/Cv</xpath>
     </configurations>		
 	
     <configurations>
@@ -228,7 +228,7 @@ Configurations for various properties of model classes.
     <configurations>
         <autoRefResolving>false</autoRefResolving>
         <clazz>uk.ac.liv.jmzqml.model.mzqml.Feature</clazz>
-        <idMapped>true</idMapped>
+        <idMapped>false</idMapped>
         <indexed>true</indexed>
         <refResolverClass>uk.ac.liv.jmzqml.xml.jaxb.resolver.FeatureRefResolver</refResolverClass>
         <tagName>Feature</tagName>
@@ -344,7 +344,7 @@ Configurations for various properties of model classes.
     <configurations>
         <autoRefResolving>false</autoRefResolving>
         <clazz>uk.ac.liv.jmzqml.model.mzqml.MzQuantML</clazz>
-        <idMapped>false</idMapped>
+        <idMapped>true</idMapped>
         <indexed>true</indexed>
         <tagName>MzQuantML</tagName>
         <xpath>/MzQuantML</xpath>
