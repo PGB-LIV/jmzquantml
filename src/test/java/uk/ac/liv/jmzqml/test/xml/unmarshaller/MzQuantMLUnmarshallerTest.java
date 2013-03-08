@@ -21,8 +21,13 @@
 package uk.ac.liv.jmzqml.test.xml.unmarshaller;
 
 import java.net.URL;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
+import javax.naming.ConfigurationException;
 import static org.junit.Assert.assertNotNull;
 import org.junit.Test;
 import uk.ac.liv.jmzqml.MzQuantMLElement;
@@ -117,6 +122,27 @@ public class MzQuantMLUnmarshallerTest {
         assertNotNull(assayList);
         List<Assay> assays = assayList.getAssay();
         assertNotNull(assays);
+    }
+
+    @Test
+    public void testAssay()
+            throws ConfigurationException {
+        int assayNumber = unmarshaller.getObjectCountForXpath(MzQuantMLElement.Assay.getXpath());
+        assertEquals(12, assayNumber);
+        Set<String> assayIDs = unmarshaller.getIDsForElement(MzQuantMLElement.Assay);
+        Set<String> realAssayIDs = new HashSet(Arrays.asList(new String[]{"ass_0", "ass_1", "ass_2", "ass_3", "ass_4", "ass_5", "ass_6", "ass_7", "ass_8", "ass_9", "ass_10", "ass_11"}));
+        assertEquals(realAssayIDs, assayIDs);
+        
+        Iterator<Assay> assays = unmarshaller.unmarshalCollectionFromXpath(MzQuantMLElement.Assay);
+        assertNotNull(assays);
+        
+    }
+
+    @Test
+    public void testStudyVariableList()
+            throws Exception {
+        StudyVariableList studyVList = unmarshaller.unmarshal(MzQuantMLElement.StudyVariableList);
+        assertNotNull(studyVList);
     }
 
 }

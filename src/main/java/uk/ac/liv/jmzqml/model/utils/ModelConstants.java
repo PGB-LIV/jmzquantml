@@ -35,8 +35,8 @@ import uk.ac.liv.jmzqml.model.mzqml.MzQuantML;
 public class ModelConstants {
 
     public static final String PACKAGE = MzQuantML.class.getPackage().getName();
-    public static final String MZQML_NS = "http://psidev.info/psi/pi/mzQuantML/1.0.0-rc2";
-    public static final String MZQML_VERSION = "1.0.0-rc2";
+    public static final String MZQML_NS = "http://psidev.info/psi/pi/mzQuantML/1.0.0";
+    public static final String MZQML_VERSION = "1.0.0";
     //Todo: public static final String MZQML_SCHEMA = ""
     private static Map<Class, QName> modelQNames = new HashMap<Class, QName>();
 
