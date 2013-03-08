@@ -74,7 +74,7 @@ Configurations for various properties of model classes.
     <configurations>
         <autoRefResolving>false</autoRefResolving>
         <clazz>uk.ac.liv.jmzqml.model.mzqml.Assay</clazz>
-        <idMapped>false</idMapped>
+        <idMapped>true</idMapped>
         <indexed>true</indexed>
         <refResolverClass>uk.ac.liv.jmzqnl.xml.jaxb.resolver.AssayRefResolver</refResolverClass>
         <tagName>Assay</tagName>
