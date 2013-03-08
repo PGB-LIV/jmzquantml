@@ -132,10 +132,10 @@ public class MzQuantMLUnmarshallerTest {
         Set<String> assayIDs = unmarshaller.getIDsForElement(MzQuantMLElement.Assay);
         Set<String> realAssayIDs = new HashSet(Arrays.asList(new String[]{"ass_0", "ass_1", "ass_2", "ass_3", "ass_4", "ass_5", "ass_6", "ass_7", "ass_8", "ass_9", "ass_10", "ass_11"}));
         assertEquals(realAssayIDs, assayIDs);
-        
+
         Iterator<Assay> assays = unmarshaller.unmarshalCollectionFromXpath(MzQuantMLElement.Assay);
         assertNotNull(assays);
-        
+
     }
 
     @Test
@@ -143,6 +143,12 @@ public class MzQuantMLUnmarshallerTest {
             throws Exception {
         StudyVariableList studyVList = unmarshaller.unmarshal(MzQuantMLElement.StudyVariableList);
         assertNotNull(studyVList);
+    }
+
+    @Test
+    public void testAnalysisSummary() {
+        AnalysisSummary analysisSummary = unmarshaller.unmarshal(MzQuantMLElement.AnalysisSummary);
+        assertNotNull(analysisSummary);
     }
 
 }
