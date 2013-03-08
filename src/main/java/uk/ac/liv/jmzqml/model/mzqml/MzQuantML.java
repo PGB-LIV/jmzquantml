@@ -91,7 +91,7 @@ public class MzQuantML
     @XmlElement(name = "AuditCollection")
     protected AuditCollection auditCollection;
     @XmlElement(name = "AnalysisSummary", required = true)
-    protected ParamList analysisSummary;
+    protected AnalysisSummary analysisSummary;
     @XmlElement(name = "InputFiles", required = true)
     protected InputFiles inputFiles;
     @XmlElement(name = "SoftwareList", required = true)
@@ -210,7 +210,7 @@ public class MzQuantML
      *     {@link ParamList }
      *     
      */
-    public ParamList getAnalysisSummary() {
+    public AnalysisSummary getAnalysisSummary() {
         return analysisSummary;
     }
 
@@ -222,7 +222,7 @@ public class MzQuantML
      *     {@link ParamList }
      *     
      */
-    public void setAnalysisSummary(ParamList value) {
+    public void setAnalysisSummary(AnalysisSummary value) {
         this.analysisSummary = value;
     }
 

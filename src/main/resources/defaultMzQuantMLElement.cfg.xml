@@ -60,7 +60,7 @@ Configurations for various properties of model classes.
         <indexed>true</indexed>
         <tagName>AnalysisSummary</tagName>
         <xpath>/MzQuantML/AnalysisSummary</xpath>
-    </configurations>    
+    </configurations>   
     
     <configurations>
         <autoRefResolving>false</autoRefResolving>
