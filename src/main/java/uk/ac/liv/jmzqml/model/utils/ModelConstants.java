@@ -17,6 +17,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package uk.ac.liv.jmzqml.model.utils;
 
 import java.util.Collections;
@@ -37,7 +38,7 @@ public class ModelConstants {
     public static final String PACKAGE = MzQuantML.class.getPackage().getName();
     public static final String MZQML_NS = "http://psidev.info/psi/pi/mzQuantML/1.0.0";
     public static final String MZQML_VERSION = "1.0.0";
-    //Todo: public static final String MZQML_SCHEMA = ""
+    public static final String MZQML_SCHEMA = "http://psidev.info/psi/pi/mzQuantML/mzQuantML_1_0_0.xsd";
     private static Map<Class, QName> modelQNames = new HashMap<Class, QName>();
 
     static {
@@ -57,7 +58,8 @@ public class ModelConstants {
     public static QName getQNameForClass(Class cls) {
         if (isRegisteredClass(cls)) {
             return modelQNames.get(cls);
-        } else {
+        }
+        else {
             throw new IllegalStateException("No QName registered for class: " + cls);
         }
     }
@@ -65,7 +67,8 @@ public class ModelConstants {
     public static String getElementNameForClass(Class cls) {
         if (isRegisteredClass(cls)) {
             return modelQNames.get(cls).getLocalPart();
-        } else {
+        }
+        else {
             throw new IllegalStateException("No Element Name registered for class: " + cls);
         }
     }
@@ -78,4 +81,5 @@ public class ModelConstants {
         }
         return null;
     }
+
 }

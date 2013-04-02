@@ -39,51 +39,95 @@ public class ObjectClassListener extends Marshaller.Listener {
         log.debug("Handling " + source.getClass() + " in beforeMarshal.");
         if (source instanceof ParamList) {
             List<AbstractParam> paramList = ((ParamList) source).getParamGroup();
-            if (paramList.size() == 0) {
+            if (paramList.isEmpty()) {
                 throw new IllegalArgumentException("ParamList contains an empty list of AbstractParam.");
             }
         }
         else if (source instanceof RawFilesGroup) {
             List<RawFile> rawFileList = ((RawFilesGroup) source).getRawFile();
-            if (rawFileList.size() == 0) {
+            if (rawFileList.isEmpty()) {
                 throw new IllegalArgumentException("RawFilesGroup contains an empty list of RawFile.");
+            }
+        }
+        else if (source instanceof AnalysisSummary) {
+            List<AbstractParam> paramList = ((AnalysisSummary) source).getParamGroup();
+            if (paramList.isEmpty()) {
+                throw new IllegalArgumentException("AnalysisSummary contains an empty list of AbstractParam.");
             }
         }
         else if (source instanceof SoftwareList) {
             List<Software> softwareList = ((SoftwareList) source).getSoftware();
-            if (softwareList.size() == 0) {
+            if (softwareList.isEmpty()) {
                 throw new IllegalArgumentException("SoftwareList contains an empty list of Software.");
             }
         }
         else if (source instanceof CvList) {
             List<Cv> cvList = ((CvList) source).getCv();
-            if (cvList.size() == 0) {
+            if (cvList.isEmpty()) {
                 throw new IllegalArgumentException("CvList contains an empty list of Cv.");
             }
         }
         else if (source instanceof AuditCollection) {
             List<Organization> orgList = ((AuditCollection) source).getOrganization();
             List<Person> perList = ((AuditCollection) source).getPerson();
-            if (orgList.size() == 0) {
-                throw new IllegalArgumentException("AuditCollection contains an empty list of Organization.");
+            if (orgList.isEmpty() && perList.isEmpty()) {
+                throw new IllegalArgumentException("AuditCollection contains an empty list of AbstractContact.");
             }
-            if (perList.size() == 0) {
-                throw new IllegalArgumentException("AuditCollection contains an empty list of Person.");
+        }
+        else if (source instanceof DataProcessingList) {
+            List<DataProcessing> dataProcessingList = ((DataProcessingList) source).getDataProcessing();
+            if (dataProcessingList.isEmpty()) {
+                throw new IllegalArgumentException("DataProcessingList contains an empty list of DataProcessing");
             }
         }
         else if (source instanceof AssayList) {
             List<Assay> assayList = ((AssayList) source).getAssay();
-            if (assayList.size() == 0) {
+            if (assayList.isEmpty()) {
                 throw new IllegalArgumentException("AssayList contains an empty list of Assay.");
             }
         }
         else if (source instanceof StudyVariableList) {
             List<StudyVariable> studyvariableList = ((StudyVariableList) source).getStudyVariable();
-            if (studyvariableList.size() == 0) {
+            if (studyvariableList.isEmpty()) {
                 throw new IllegalArgumentException("StudyVariableList contains an empty list of StudyVariable.");
             }
         }
-
+        else if (source instanceof RatioList) {
+            List<Ratio> ratioList = ((RatioList) source).getRatio();
+            if (ratioList.isEmpty()) {
+                throw new IllegalArgumentException("RatioList contains an empty list of Ratio.");
+            }
+        }
+        else if (source instanceof ProteinGroupList) {
+            List<ProteinGroup> proteinGroupList = ((ProteinGroupList) source).getProteinGroup();
+            if (proteinGroupList.isEmpty()) {
+                throw new IllegalArgumentException("ProteinGroupList contains an empty list of ProteinGroup.");
+            }
+        }
+        else if (source instanceof ProteinList) {
+            List<Protein> proteinList = ((ProteinList) source).getProtein();
+            if (proteinList.isEmpty()) {
+                throw new IllegalArgumentException("ProteinList contains an empty list of Protein.");
+            }
+        }
+        else if (source instanceof PeptideConsensusList) {
+            List<PeptideConsensus> peptideConsensusList = ((PeptideConsensusList) source).getPeptideConsensus();
+            if (peptideConsensusList.isEmpty()) {
+                throw new IllegalArgumentException("PeptideConsensusList contains an empty list of PeptideConsensus.");
+            }
+        }
+        else if (source instanceof SmallMoleculeList) {
+            List<SmallMolecule> smallMoleculeList = ((SmallMoleculeList) source).getSmallMolecule();
+            if (smallMoleculeList.isEmpty()) {
+                throw new IllegalArgumentException("SmallMoleculeList contains an empty list of SmallMolecule.");
+            }
+        }
+        else if (source instanceof FeatureList) {
+            List<Feature> featureList = ((FeatureList) source).getFeature();
+            if (featureList.isEmpty()) {
+                throw new IllegalArgumentException("FeatureList contains an empty list of Feature.");
+            }
+        }
 
         // Handle the cases were we have ParamGroups, CvParams, UserParams, etc...
 //        if (source instanceof ParamAlternative) {

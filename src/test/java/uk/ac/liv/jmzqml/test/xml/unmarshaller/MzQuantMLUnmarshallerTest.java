@@ -28,13 +28,11 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import javax.naming.ConfigurationException;
-import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.*;
 import org.junit.Test;
 import uk.ac.liv.jmzqml.MzQuantMLElement;
-import uk.ac.liv.jmzqml.xml.io.MzQuantMLUnmarshaller;
-
-import static org.junit.Assert.*;
 import uk.ac.liv.jmzqml.model.mzqml.*;
+import uk.ac.liv.jmzqml.xml.io.MzQuantMLUnmarshaller;
 
 /**
  *
