@@ -1,4 +1,3 @@
-
 /**
  * JAXB-based Marshaller for a mzQuantML file.
  */
@@ -11,15 +10,14 @@ import java.io.Writer;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.logging.Level;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBElement;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
-import javax.xml.bind.PropertyException;
 import javax.xml.namespace.QName;
 import org.apache.log4j.Logger;
 import uk.ac.liv.jmzqml.model.MzQuantMLObject;
+import uk.ac.liv.jmzqml.model.mzqml.BibliographicReference;
 import uk.ac.liv.jmzqml.model.mzqml.MzQuantML;
 import uk.ac.liv.jmzqml.model.utils.ModelConstants;
 import uk.ac.liv.jmzqml.xml.Constants;
@@ -55,8 +53,7 @@ public class MzQuantMLMarshaller {
     public MzQuantMLMarshaller(String fullFileName) {
         try {
             this.fw = new FileWriter(fullFileName);
-        }
-        catch (IOException ioex) {
+        } catch (IOException ioex) {
             ioex.printStackTrace(System.err);
         }
 
@@ -68,8 +65,7 @@ public class MzQuantMLMarshaller {
             this.marsh.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
             this.marsh.setProperty(Marshaller.JAXB_FRAGMENT, true);
             this.marsh.setProperty(Marshaller.JAXB_SCHEMA_LOCATION, MZQUANTML_SCHEMA_LOCATION);
-        }
-        catch (JAXBException jaxbex) {
+        } catch (JAXBException jaxbex) {
             jaxbex.printStackTrace(System.err);
         }
     }
@@ -90,11 +86,9 @@ public class MzQuantMLMarshaller {
                 this.fw.flush();
                 this.fw.close();
             }
-        }
-        catch (JAXBException jaxbex) {
+        } catch (JAXBException jaxbex) {
             jaxbex.printStackTrace(System.err);
-        }
-        catch (IOException ioex) {
+        } catch (IOException ioex) {
             ioex.printStackTrace(System.err);
         }
     }
@@ -119,8 +113,7 @@ public class MzQuantMLMarshaller {
                 if (logger.isDebugEnabled()) {
                     logger.debug("Object '" + object.getClass().getName() + "' will be treated as root element.");
                 }
-            }
-            else {
+            } else {
                 if (logger.isDebugEnabled()) {
                     logger.debug("Object '" + object.getClass().getName() + "' will be treated as fragment.");
                 }
@@ -130,8 +123,7 @@ public class MzQuantMLMarshaller {
             JAXBElement jaxbElement = new JAXBElement(aQName, object.getClass(), object);
 
             marshaller.marshal(jaxbElement, out);
-        }
-        catch (JAXBException ex) {
+        } catch (JAXBException ex) {
             logger.error("MzQuantMLMarshaller.marshall", ex);
             throw new IllegalStateException("Error while marshalling object: " + object.toString());
         }
@@ -168,14 +160,18 @@ public class MzQuantMLMarshaller {
         return "</MzQuantML>";
     }
 
-    public String createAuditCollectionStartTag() {
-        return "<AuditCollection>";
-    }
-
-    public String createAuditCollectionClosingTag() {
-        return "</AuditCollection>";
-    }
-
+    /**
+     * mzQuantML element start and closing tags in alphabetical order
+     *
+     * @param AnalysisSummary
+     * @param AuditCollection
+     * @param CvList
+     * @param DataProcessingList
+     * @param InputFiles
+     * @param RatioList
+     * @param SoftwareList
+     * @param StudyVariableList
+     */
     public String createAnalysisSummaryStartTag() {
         return "<AnalysisSummary>";
     }
@@ -184,4 +180,343 @@ public class MzQuantMLMarshaller {
         return "</AnalysisSummary>";
     }
 
+    public String createAuditCollectionStartTag() {
+        return "<AuditCollection>";
+    }
+
+    public String createAuditCollectionClosingTag() {
+        return "</AuditCollection>";
+    }
+
+    public String createCvListStartTag() {
+        return "<CvList>";
+    }
+
+    public String createCvListClosingTag() {
+        return "</CvList>";
+    }
+
+    public String createDataProcessingListStartTag() {
+        return "<DataProcessingList>";
+    }
+
+    public String createDataProcessingListClosingTag() {
+        return "</DataProcessingList>";
+    }
+
+    public String createInputFilesStartTag() {
+        return "<InputFiles>";
+    }
+
+    public String createInputFilesClosingTag() {
+        return "</InputFiles>";
+    }
+
+    public String createRatioListStartTag() {
+        return "<RatioList>";
+    }
+
+    public String createRatioListClosingTag() {
+        return "</RatioList>";
+    }
+
+    public String createSoftwareListStartTag() {
+        return "<SoftwareList>";
+    }
+
+    public String createSoftwareListClosingTag() {
+        return "</SoftwareList>";
+    }
+
+    public String createStudyVariableListStartTag() {
+        return "<StudyVariableList>";
+    }
+
+    public String createStudyVariableListClosingTag() {
+        return "</StudyVariableList>";
+    }
+
+    /**
+     * mzQuantML element (with 'id') start and closing tags
+     */
+    public String createAssayListStartTag(String id) {
+        if (id == null) {
+            throw new IllegalArgumentException("The 'id' attribute must not be null!");
+        }
+
+        //required attribute: 'id'
+        StringBuffer sb = new StringBuffer();
+
+        // tag opening plus id attribute
+        sb.append("<AssayList id=\"").append(id).append("\">");
+
+        // finally close the tag
+        sb.append(" >");
+
+        return sb.toString();
+    }
+
+    public String createAssayListClosingTag() {
+        return "</AssayList>";
+    }
+
+    public String createBibliographicReferenceTag(String id,
+            String name,
+            String authors,
+            String publication,
+            String publisher,
+            String editor,
+            Integer year,
+            String volume,
+            String issue,
+            String pages,
+            String title,
+            String doi) {
+
+        if (id == null) {
+            throw new IllegalArgumentException("The 'id' attribute must not be null!");
+        }
+        StringBuffer sb = new StringBuffer();
+
+        // tag opening plus id attribute
+        sb.append("<BibliographicReference id=\"").append(id).append("\"");
+
+        // the attributes, if provided
+        if (name != null && !name.isEmpty()) {
+            sb.append(" name=\"").append(name).append("\"");
+        }
+
+        if (authors != null && !authors.isEmpty()) {
+            sb.append(" authors=\"").append(authors).append("\"");
+        }
+
+        if (publication != null && !publication.isEmpty()) {
+            sb.append(" publication=\"").append(publication).append("\"");
+        }
+
+        if (publisher != null && !publisher.isEmpty()) {
+            sb.append(" publisher=\"").append(publisher).append("\"");
+        }
+
+        if (editor != null && !editor.isEmpty()) {
+            sb.append(" editor=\"").append(editor).append("\"");
+        }
+
+        if (year != null) {
+            sb.append(" year=\"").append(year).append("\"");
+        }
+
+        if (volume != null && !volume.isEmpty()) {
+            sb.append(" volume=\"").append(volume).append("\"");
+        }
+
+        if (issue != null && !issue.isEmpty()) {
+            sb.append(" issue=\"").append(issue).append("\"");
+        }
+
+        if (pages != null && !pages.isEmpty()) {
+            sb.append(" pages=\"").append(pages).append("\"");
+        }
+
+        if (title != null && !title.isEmpty()) {
+            sb.append(" title=\"").append(title).append("\"");
+        }
+
+        if (doi != null && !doi.isEmpty()) {
+            sb.append(" doi=\"").append(doi).append("\"");
+        }
+
+        // finally close the tag
+        sb.append("/>");
+
+        return sb.toString();
+    }
+
+    public String createFeatureListStartTag(String id, String rawFilesGroupRef) {
+        if (id == null) {
+            throw new IllegalArgumentException("The 'id' attribute must not be null!");
+        }
+
+        if (rawFilesGroupRef == null) {
+            throw new IllegalArgumentException("The 'rawFilesGroup_ref' must not be null!");
+        }
+
+        //required attribute: 'id', 'rawFilesGroup_ref'
+        StringBuffer sb = new StringBuffer();
+
+        // tag opening plus id attribute
+        sb.append("<FeatureList id=\"").append(id).append("\">");
+
+        // rawFilesGroup_ref attribute
+        sb.append(" rawFilesGroup_ref=\"").append(rawFilesGroupRef).append("\"");
+
+        // finally close the tag
+        sb.append(" >");
+
+        return sb.toString();
+    }
+
+    public String createFeatureListClosingTag() {
+        return "</FeatureList>";
+    }
+
+    public String createPeptideConsensusListStartTag(String id, Boolean finalResult) {
+        if (id == null) {
+            throw new IllegalArgumentException("The 'id' attribute must not be null!");
+        }
+
+        if (finalResult == null) {
+            throw new IllegalArgumentException("The 'finalResult' must not be null!");
+        }
+
+        //required attribute: 'id', 'rawFilesGroup_ref'
+        StringBuffer sb = new StringBuffer();
+
+        // tag opening plus id attribute
+        sb.append("<PeptideConsensusList id=\"").append(id).append("\">");
+
+        // rawFilesGroup_ref attribute
+        sb.append(" finalResult=\"").append(finalResult.toString()).append("\"");
+
+        // finally close the tag
+        sb.append(" >");
+
+        return sb.toString();
+    }
+
+    public String createPeptideConsensusListClosingTag() {
+        return "</PeptideConsensusList>";
+    }
+
+    public String createProteinGroupListStartTag(String id) {
+        if (id == null) {
+            throw new IllegalArgumentException("The 'id' attribute must not be null!");
+        }
+
+        //required attribute: 'id'
+        StringBuffer sb = new StringBuffer();
+
+        // tag opening plus id attribute
+        sb.append("<ProteinGroupList id=\"").append(id).append("\">");
+
+        // finally close the tag
+        sb.append(" >");
+
+        return sb.toString();
+    }
+
+    public String createProteinGroupListClosingTag() {
+        return "</ProteinGroupList>";
+    }
+
+    public String createProteinListStartTag(String id) {
+        if (id == null) {
+            throw new IllegalArgumentException("The 'id' attribute must not be null!");
+        }
+
+        //required attribute: 'id'
+        StringBuffer sb = new StringBuffer();
+
+        // tag opening plus id attribute
+        sb.append("<ProteinList id=\"").append(id).append("\">");
+
+        // finally close the tag
+        sb.append(" >");
+
+        return sb.toString();
+    }
+
+    public String createProteinListClosingTag() {
+        return "</ProteinList>";
+    }
+
+    public String createSmallMoleculeListStartTag(String id) {
+        if (id == null) {
+            throw new IllegalArgumentException("The 'id' attribute must not be null!");
+        }
+
+        //required attribute: 'id'
+        StringBuffer sb = new StringBuffer();
+
+        // tag opening plus id attribute
+        sb.append("<SmallMoleculeList id=\"").append(id).append("\">");
+
+        // finally close the tag
+        sb.append(" >");
+
+        return sb.toString();
+    }
+
+    public String createSmallMoleculeListClosingTag() {
+        return "</SmallMoleculeList>";
+    }
+
+    /**
+     * mzQuantML element object
+     */
+    public BibliographicReference createBibliographicReference(String id,
+            String name,
+            String authors,
+            String publication,
+            String publisher,
+            String editor,
+            Integer year,
+            String volume,
+            String issue,
+            String pages,
+            String title,
+            String doi) {
+
+        BibliographicReference br = new BibliographicReference();
+        if (id == null) {
+            throw new IllegalArgumentException("The 'id' attribute must not be null!");
+        }
+
+        br.setId(id);
+
+        if (name != null && !name.isEmpty()) {
+            br.setName(name);
+        }
+
+        if (authors != null && !authors.isEmpty()) {
+            br.setAuthors(authors);
+        }
+
+        if (publication != null && !publication.isEmpty()) {
+            br.setPublication(publication);
+        }
+
+        if (publisher != null && !publisher.isEmpty()) {
+            br.setPublisher(publisher);
+        }
+
+        if (editor != null && !editor.isEmpty()) {
+            br.setEditor(editor);
+        }
+
+        if (year != null) {
+            br.setYear(year);
+        }
+
+        if (volume != null && !volume.isEmpty()) {
+            br.setVolume(volume);
+        }
+
+        if (issue != null && !issue.isEmpty()) {
+            br.setId(issue);
+        }
+
+        if (pages != null && !pages.isEmpty()) {
+            br.setPages(pages);
+        }
+
+        if (title != null && !title.isEmpty()) {
+            br.setTitle(title);
+        }
+
+        if (doi != null && !doi.isEmpty()) {
+            br.setDoi(doi);
+        }
+        return br;
+    }
 }
