@@ -1,3 +1,4 @@
+
 /**
  * JAXB-based Marshaller for a mzQuantML file.
  */
@@ -17,8 +18,7 @@ import javax.xml.bind.Marshaller;
 import javax.xml.namespace.QName;
 import org.apache.log4j.Logger;
 import uk.ac.liv.jmzqml.model.MzQuantMLObject;
-import uk.ac.liv.jmzqml.model.mzqml.BibliographicReference;
-import uk.ac.liv.jmzqml.model.mzqml.MzQuantML;
+import uk.ac.liv.jmzqml.model.mzqml.*;
 import uk.ac.liv.jmzqml.model.utils.ModelConstants;
 import uk.ac.liv.jmzqml.xml.Constants;
 import uk.ac.liv.jmzqml.xml.jaxb.marshaller.MarshallerFactory;
@@ -53,7 +53,8 @@ public class MzQuantMLMarshaller {
     public MzQuantMLMarshaller(String fullFileName) {
         try {
             this.fw = new FileWriter(fullFileName);
-        } catch (IOException ioex) {
+        }
+        catch (IOException ioex) {
             ioex.printStackTrace(System.err);
         }
 
@@ -65,7 +66,8 @@ public class MzQuantMLMarshaller {
             this.marsh.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
             this.marsh.setProperty(Marshaller.JAXB_FRAGMENT, true);
             this.marsh.setProperty(Marshaller.JAXB_SCHEMA_LOCATION, MZQUANTML_SCHEMA_LOCATION);
-        } catch (JAXBException jaxbex) {
+        }
+        catch (JAXBException jaxbex) {
             jaxbex.printStackTrace(System.err);
         }
     }
@@ -86,13 +88,22 @@ public class MzQuantMLMarshaller {
                 this.fw.flush();
                 this.fw.close();
             }
-        } catch (JAXBException jaxbex) {
+        }
+        catch (JAXBException jaxbex) {
             jaxbex.printStackTrace(System.err);
-        } catch (IOException ioex) {
+        }
+        catch (IOException ioex) {
             ioex.printStackTrace(System.err);
         }
     }
 
+    /**
+     *
+     * @param <T>    extends MzQuantMLObject
+     * @param object
+     *
+     * @return the mzQuantML string of the object
+     */
     public <T extends MzQuantMLObject> String marshall(T object) {
         StringWriter sw = new StringWriter();
         this.marshall(object, sw);
@@ -113,7 +124,8 @@ public class MzQuantMLMarshaller {
                 if (logger.isDebugEnabled()) {
                     logger.debug("Object '" + object.getClass().getName() + "' will be treated as root element.");
                 }
-            } else {
+            }
+            else {
                 if (logger.isDebugEnabled()) {
                     logger.debug("Object '" + object.getClass().getName() + "' will be treated as fragment.");
                 }
@@ -123,7 +135,8 @@ public class MzQuantMLMarshaller {
             JAXBElement jaxbElement = new JAXBElement(aQName, object.getClass(), object);
 
             marshaller.marshal(jaxbElement, out);
-        } catch (JAXBException ex) {
+        }
+        catch (JAXBException ex) {
             logger.error("MzQuantMLMarshaller.marshall", ex);
             throw new IllegalStateException("Error while marshalling object: " + object.toString());
         }
@@ -260,18 +273,35 @@ public class MzQuantMLMarshaller {
         return "</AssayList>";
     }
 
+    /**
+     *
+     * @param id          required -- An identifier is an unambiguous string that is unique within the scope (i.e. a document, a set of related documents, or a repository) of its use.
+     * @param name        optional -- The potentially ambiguous common identifier, such as a human-readable name for the instance.
+     * @param authors     optional -- The names of the authors of the reference.
+     * @param publication optional -- The name of the journal, book etc.
+     * @param publisher   optional -- The publisher of the publication.
+     * @param editor      optional -- The editor(s) of the reference.
+     * @param year        optional -- The year of publication.
+     * @param volume      optional -- The volume name or number.
+     * @param issue       optional -- The issue name or number.
+     * @param pages       optional -- The page numbers.
+     * @param title       optional -- The title of the BibliographicReference.
+     * @param doi         optional -- The DOI of the referenced publication.
+     *
+     * @return the BibliographicReference String tag, representing bibliographic references.
+     */
     public String createBibliographicReferenceTag(String id,
-            String name,
-            String authors,
-            String publication,
-            String publisher,
-            String editor,
-            Integer year,
-            String volume,
-            String issue,
-            String pages,
-            String title,
-            String doi) {
+                                                  String name,
+                                                  String authors,
+                                                  String publication,
+                                                  String publisher,
+                                                  String editor,
+                                                  Integer year,
+                                                  String volume,
+                                                  String issue,
+                                                  String pages,
+                                                  String title,
+                                                  String doi) {
 
         if (id == null) {
             throw new IllegalArgumentException("The 'id' attribute must not be null!");
@@ -338,7 +368,7 @@ public class MzQuantMLMarshaller {
         }
 
         if (rawFilesGroupRef == null) {
-            throw new IllegalArgumentException("The 'rawFilesGroup_ref' must not be null!");
+            throw new IllegalArgumentException("The 'rawFilesGroup_ref' attribute must not be null!");
         }
 
         //required attribute: 'id', 'rawFilesGroup_ref'
@@ -360,13 +390,14 @@ public class MzQuantMLMarshaller {
         return "</FeatureList>";
     }
 
-    public String createPeptideConsensusListStartTag(String id, Boolean finalResult) {
+    public String createPeptideConsensusListStartTag(String id,
+                                                     Boolean finalResult) {
         if (id == null) {
             throw new IllegalArgumentException("The 'id' attribute must not be null!");
         }
 
         if (finalResult == null) {
-            throw new IllegalArgumentException("The 'finalResult' must not be null!");
+            throw new IllegalArgumentException("The 'finalResult' attribute must not be null!");
         }
 
         //required attribute: 'id', 'rawFilesGroup_ref'
@@ -451,21 +482,38 @@ public class MzQuantMLMarshaller {
         return "</SmallMoleculeList>";
     }
 
+    ///// ///// ///// ///// /////
+    // mzQuantML element object
+    ///// ///// ///// ///// /////
     /**
-     * mzQuantML element object
+     *
+     * @param id          required -- An identifier is an unambiguous string that is unique within the scope (i.e. a document, a set of related documents, or a repository) of its use.
+     * @param name        optional -- The potentially ambiguous common identifier, such as a human-readable name for the instance.
+     * @param authors     optional -- The names of the authors of the reference.
+     * @param publication optional -- The name of the journal, book etc.
+     * @param publisher   optional -- The publisher of the publication.
+     * @param editor      optional -- The editor(s) of the reference.
+     * @param year        optional -- The year of publication.
+     * @param volume      optional -- The volume name or number.
+     * @param issue       optional -- The issue name or number.
+     * @param pages       optional -- The page numbers.
+     * @param title       optional -- The title of the BibliographicReference.
+     * @param doi         optional -- The DOI of the referenced publication.
+     *
+     * @return the BibliographicReference object, representing bibliographic references.
      */
     public BibliographicReference createBibliographicReference(String id,
-            String name,
-            String authors,
-            String publication,
-            String publisher,
-            String editor,
-            Integer year,
-            String volume,
-            String issue,
-            String pages,
-            String title,
-            String doi) {
+                                                               String name,
+                                                               String authors,
+                                                               String publication,
+                                                               String publisher,
+                                                               String editor,
+                                                               Integer year,
+                                                               String volume,
+                                                               String issue,
+                                                               String pages,
+                                                               String title,
+                                                               String doi) {
 
         BibliographicReference br = new BibliographicReference();
         if (id == null) {
@@ -477,46 +525,161 @@ public class MzQuantMLMarshaller {
         if (name != null && !name.isEmpty()) {
             br.setName(name);
         }
-
         if (authors != null && !authors.isEmpty()) {
             br.setAuthors(authors);
         }
-
         if (publication != null && !publication.isEmpty()) {
             br.setPublication(publication);
         }
-
         if (publisher != null && !publisher.isEmpty()) {
             br.setPublisher(publisher);
         }
-
         if (editor != null && !editor.isEmpty()) {
             br.setEditor(editor);
         }
-
         if (year != null) {
             br.setYear(year);
         }
-
         if (volume != null && !volume.isEmpty()) {
             br.setVolume(volume);
         }
-
         if (issue != null && !issue.isEmpty()) {
             br.setId(issue);
         }
-
         if (pages != null && !pages.isEmpty()) {
             br.setPages(pages);
         }
-
         if (title != null && !title.isEmpty()) {
             br.setTitle(title);
         }
-
         if (doi != null && !doi.isEmpty()) {
             br.setDoi(doi);
         }
         return br;
     }
+
+    /**
+     *
+     * @param id       required -- The unique identifier of this cv within the document to be referenced by cvParam elements.
+     * @param fullName required -- The full name of the CV.
+     * @param uri      required -- The URI of the source CV.
+     * @param version  optional -- The version of the CV.
+     *
+     * @return the Cv object, a source controlled vocabulary from which cvParams will be obtained.
+     */
+    public Cv createCv(String id,
+                       String fullName,
+                       String uri,
+                       String version) {
+        Cv cv = new Cv();
+        if (id == null) {
+            throw new IllegalArgumentException("The 'id' attribute must not be null!");
+        }
+
+        cv.setId(id);
+
+        if (fullName != null && !fullName.isEmpty()) {
+            cv.setFullName(fullName);
+        }
+        if (version != null && !version.isEmpty()) {
+            cv.setVersion(version);
+        }
+        if (uri != null && !uri.isEmpty()) {
+            cv.setUri(uri);
+        }
+        return cv;
+    }
+
+    /**
+     *
+     * @param name          required -- The name of the parameter.
+     * @param cvRef         required -- A reference to the cv element from which this term originates.
+     * @param accession     required -- The accession or ID number of this CV term in the source CV.
+     * @param value         optional -- The user-entered value of the parameter.
+     * @param unitAccession optional -- An accession number identifying the unit within the OBO foundry Unit CV.
+     * @param unitName      optional -- The name of the unit.
+     * @param unitCvRef     optional -- If a unit term is referenced, this attribute MUST refer to the CV 'id' attribute defined in the cvList in this file.
+     *
+     * @return the CvParam object, a single entry from an ontology or a controlled vocabulary.
+     */
+    public CvParam createCvParam(String name,
+                                 String cvRef,
+                                 String accession,
+                                 String value,
+                                 String unitAccession,
+                                 String unitName,
+                                 String unitCvRef) {
+        CvParam cp = new CvParam();
+
+        if (name == null) {
+            throw new IllegalArgumentException("The 'name' attribute must not be null!");
+        }
+
+        if (cvRef == null || cvRef.isEmpty()) {
+            throw new IllegalArgumentException("The 'cvRef' attribute must not be null or empty!");
+        }
+
+        cp.setName(name);
+
+        Cv cv = createCv(cvRef, "", "", "");
+        cp.setCvRef(cv);
+
+        if (accession != null && !accession.isEmpty()) {
+            cp.setAccession(accession);
+        }
+        if (value != null && !value.isEmpty()) {
+            cp.setValue(value);
+        }
+        if (unitAccession != null && !unitAccession.isEmpty()) {
+            cp.setUnitAccession(unitAccession);
+        }
+        if (unitName != null && !unitName.isEmpty()) {
+            cp.setUnitName(unitName);
+        }
+        if (unitCvRef != null && !unitCvRef.isEmpty()) {
+            cp.setUnitCvRef(unitCvRef);
+        }
+
+        return cp;
+    }
+
+    /**
+     *
+     * @param name          required -- The name of the parameter.
+     * @param cvRef         required -- A reference to the cv element from which this term originates.
+     * @param accession     required -- The accession or ID number of this CV term in the source CV.
+     * @param value         optional -- The user-entered value of the parameter.
+     * @param unitAccession optional -- An accession number identifying the unit within the OBO foundry Unit CV.
+     * @param unitName      optional -- The name of the unit.
+     * @param unitCvRef     optional -- If a unit term is referenced, this attribute MUST refer to the CV 'id' attribute defined in the cvList in this file.
+     *
+     * @return the CvParam object, a single entry from an ontology or a controlled vocabulary.
+     */
+    public CvParam createCvParam(String name,
+                                 Cv cvRef,
+                                 String accession,
+                                 String value,
+                                 String unitAccession,
+                                 String unitName,
+                                 String unitCvRef) {
+
+        String id = cvRef.getId();
+        return this.createCvParam(name, id, accession, value, unitAccession, unitName, unitCvRef);
+    }
+
+    /**
+     * required attributes only
+     *
+     * @param name      required -- The name of the parameter.
+     * @param cvRef     required -- A reference to the cv element from which this term originates.
+     * @param accession required -- The accession or ID number of this CV term in the source CV.
+     *
+     * @return the CvParam object, a single entry from an ontology or a controlled vocabulary.
+     */
+    public CvParam createCvParam(String name,
+                                 String cvRef,
+                                 String accession) {
+        return createCvParam(name, cvRef, accession, "", "", "", "");
+    }
+
 }
