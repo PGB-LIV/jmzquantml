@@ -621,7 +621,7 @@ public class MzQuantMLMarshaller {
 
         cp.setName(name);
 
-        Cv cv = createCv(cvRef, "", "", "");
+        Cv cv = createCv(cvRef, null, null, null);
         cp.setCvRef(cv);
 
         if (accession != null && !accession.isEmpty()) {
@@ -679,7 +679,23 @@ public class MzQuantMLMarshaller {
     public CvParam createCvParam(String name,
                                  String cvRef,
                                  String accession) {
-        return createCvParam(name, cvRef, accession, "", "", "", "");
+        return createCvParam(name, cvRef, accession, null, null, null, null);
+    }
+
+    /**
+     * required attributes only
+     *
+     * @param name      required -- The name of the parameter.
+     * @param cvRef     required -- A reference to the cv element from which this term originates.
+     * @param accession required -- The accession or ID number of this CV term in the source CV.
+     *
+     * @return the CvParam object, a single entry from an ontology or a controlled vocabulary.
+     */
+    public CvParam createCvParam(String name,
+                                 Cv cvRef,
+                                 String accession) {
+        return createCvParam(name, cvRef, accession, null, null, null, null);
+
     }
 
 }

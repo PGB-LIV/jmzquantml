@@ -119,10 +119,12 @@ public class MzQuantMLMarshallerTest {
             SoftwareList swList = unmarshaller.unmarshal(MzQuantMLElement.SoftwareList.getXpath());
             swCount = swList.getSoftware().size();
             m.marshall(swList, writer);
+            writer.write("\n");
 
             DataProcessingList dpList = unmarshaller.unmarshal(MzQuantMLElement.DataProcessingList.getXpath());
             dpCount = dpList.getDataProcessing().size();
             m.marshall(dpList, writer);
+            writer.write("\n");
 
             Iterator<BibliographicReference> bibliRefIter = unmarshaller.unmarshalCollectionFromXpath(MzQuantMLElement.BibliographicReference);
             while (bibliRefIter.hasNext()) {
@@ -205,6 +207,22 @@ public class MzQuantMLMarshallerTest {
         MzQuantMLUnmarshaller unmarshaller = new MzQuantMLUnmarshaller(xmlFileURL);
         assertNotNull(unmarshaller);
         MzQuantMLMarshaller m = new MzQuantMLMarshaller();
+        AuditCollection ac = unmarshaller.unmarshal(MzQuantMLElement.AuditCollection);
+        ac.getOrganization().clear();
+        ac.getPerson().clear();
+        m.marshall(ac);
+    }
+    
+    @Test(expected= IllegalArgumentException.class)
+    public void testMarshallEmptyCvList() throws Exception{
+        URL xmlFileURL = MzQuantMLMarshallerTest.class.getClassLoader().getResource("CPTAC-Progenesis-small-example.mzq");
+        assertNotNull(xmlFileURL);
+        MzQuantMLUnmarshaller unmarshaller = new MzQuantMLUnmarshaller(xmlFileURL);
+        assertNotNull(unmarshaller);
+        MzQuantMLMarshaller m = new MzQuantMLMarshaller();
+        CvList cvList = unmarshaller.unmarshal(MzQuantMLElement.CvList.getXpath());
+        cvList.getCv().clear();
+        m.marshall(cvList);
     }
 
 }
