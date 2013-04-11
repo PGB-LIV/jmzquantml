@@ -4,14 +4,13 @@ package uk.ac.liv.jmzqml.model.mzqml;
 import java.io.Serializable;
 import javax.xml.bind.annotation.*;
 
-
 /**
  * A single entry from an ontology or a controlled vocabulary.
- * 
+ *
  * <p>Java class for CVParamType complex type.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ *
  * <pre>
  * &lt;complexType name="CVParamType">
  *   &lt;complexContent>
@@ -22,15 +21,14 @@ import javax.xml.bind.annotation.*;
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "CVParamType")
 public class CvParam
-    extends AbstractParam
-    implements Serializable
-{
+        extends AbstractParam
+        implements Serializable {
 
     private final static long serialVersionUID = 100L;
     @XmlAttribute(name = "cvRef", required = true)
@@ -53,11 +51,11 @@ public class CvParam
 
     /**
      * Gets the value of the cvRef property.
-     * 
+     *
      * @return
-     *     possible object is
-     *     {@link Object }
-     *     
+     *         possible object is
+     *         {@link Object }
+     *
      */
     public Object getCvRef() {
         return cvRef;
@@ -65,11 +63,11 @@ public class CvParam
 
     /**
      * Sets the value of the cvRef property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link Object }
-     *     
+     *              allowed object is
+     *              {@link Object }
+     *
      */
     public void setCvRef(Object value) {
         this.cvRef = value;
@@ -77,11 +75,11 @@ public class CvParam
 
     /**
      * Gets the value of the accession property.
-     * 
+     *
      * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *         possible object is
+     *         {@link String }
+     *
      */
     public String getAccession() {
         return accession;
@@ -89,11 +87,11 @@ public class CvParam
 
     /**
      * Sets the value of the accession property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *              allowed object is
+     *              {@link String }
+     *
      */
     public void setAccession(String value) {
         this.accession = value;

@@ -7,15 +7,15 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlIDREF;
 import javax.xml.bind.annotation.XmlSchemaType;
+import javax.xml.bind.annotation.XmlTransient;
 import javax.xml.bind.annotation.XmlType;
 import uk.ac.liv.jmzqml.model.MzQuantMLObject;
 
-
 /**
  * <p>Java class for AffiliationType complex type.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ *
  * <pre>
  * &lt;complexType name="AffiliationType">
  *   &lt;complexContent>
@@ -25,28 +25,29 @@ import uk.ac.liv.jmzqml.model.MzQuantMLObject;
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "AffiliationType")
 public class Affiliation
-    implements Serializable, MzQuantMLObject
-{
+        implements Serializable, MzQuantMLObject {
 
     private final static long serialVersionUID = 100L;
     @XmlAttribute(name = "organization_ref", required = true)
     @XmlIDREF
     @XmlSchemaType(name = "IDREF")
     protected Object organizationRef;
+    @XmlTransient
+    protected Organization organization;
 
     /**
      * Gets the value of the organizationRef property.
-     * 
+     *
      * @return
-     *     possible object is
-     *     {@link Object }
-     *     
+     *         possible object is
+     *         {@link Object }
+     *
      */
     public Object getOrganizationRef() {
         return organizationRef;
@@ -54,14 +55,42 @@ public class Affiliation
 
     /**
      * Sets the value of the organizationRef property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link Object }
-     *     
+     *              allowed object is
+     *              {@link Object }
+     *
      */
     public void setOrganizationRef(Object value) {
         this.organizationRef = value;
+    }
+
+    /**
+     * Get the Organization for this Affiliation
+     *
+     * @return organization
+     */
+    public Organization getOrganization() {
+        return organization;
+    }
+
+    /**
+     * Set the Organization for this Affiliation. Update the organizationRef property also.
+     *
+     * @param organization
+     */
+    public void setOrganization(Organization organization) {
+        if (organization == null) {
+            this.organizationRef = null;
+        }
+        else {
+            String refId = organization.getId();
+            if (refId == null) {
+                throw new IllegalArgumentException("Referenced object does not have an identifier.");
+            }
+            this.organizationRef = organization;
+        }
+        this.organization = organization;
     }
 
 }

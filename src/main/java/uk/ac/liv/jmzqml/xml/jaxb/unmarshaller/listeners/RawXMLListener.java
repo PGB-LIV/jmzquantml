@@ -17,12 +17,24 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package uk.ac.liv.jmzqml.xml.jaxb.unmarshaller.listeners;
 
 import java.lang.reflect.Constructor;
+import java.lang.reflect.Method;
 import javax.xml.bind.Unmarshaller;
 import org.apache.log4j.Logger;
 import uk.ac.liv.jmzqml.MzQuantMLElement;
+import uk.ac.liv.jmzqml.ParamListMappings;
+import uk.ac.liv.jmzqml.ParamMappings;
+import uk.ac.liv.jmzqml.model.ParamCapable;
+import uk.ac.liv.jmzqml.model.ParamGroupCapable;
+import uk.ac.liv.jmzqml.model.ParamListCapable;
+import uk.ac.liv.jmzqml.model.mzqml.CvParam;
+import uk.ac.liv.jmzqml.model.mzqml.Param;
+import uk.ac.liv.jmzqml.model.mzqml.ParamList;
+import uk.ac.liv.jmzqml.model.mzqml.UserParam;
+import uk.ac.liv.jmzqml.model.utils.ParamUpdater;
 import uk.ac.liv.jmzqml.xml.io.MzQuantMLObjectCache;
 import uk.ac.liv.jmzqml.xml.jaxb.resolver.AbstractReferenceResolver;
 import uk.ac.liv.jmzqml.xml.xxindex.MzQuantMLIndexer;
@@ -52,7 +64,7 @@ public class RawXMLListener extends Unmarshaller.Listener {
         MzQuantMLElement element = MzQuantMLElement.getType(target.getClass());
 
         // splitting of Param into CvParam/UserParam and sub-classing
-        //Todo: paramHandling(target, element);
+        paramHandling(target, element);
 
         // now perform the automatic reference resolving, if configured to do so
         referenceResolving(target, parent, element);
@@ -69,10 +81,85 @@ public class RawXMLListener extends Unmarshaller.Listener {
                 Constructor con = cls.getDeclaredConstructor(MzQuantMLIndexer.class, MzQuantMLObjectCache.class);
                 AbstractReferenceResolver resolver = (AbstractReferenceResolver) con.newInstance(index, cache);
                 resolver.afterUnmarshal(target, parent);
-            } catch (Exception e) {
+            }
+            catch (Exception e) {
                 logger.error("Error trying to instantiate reference resolver: " + cls.getName(), e);
                 throw new IllegalStateException("Could not instantiate reference resolver: " + cls.getName());
             }
         }
     }
+
+    @SuppressWarnings("unchecked")
+    private void paramHandling(Object target, MzQuantMLElement ele) {
+        try {
+            if (target instanceof ParamCapable) {
+                ParamMappings mapping = ParamMappings.getType(target.getClass());
+                String className = mapping.getClassName();
+                Method method = target.getClass().getMethod("get" + className);
+                Param param = (Param) method.invoke(target);
+                if (param != null) {
+                    /**
+                     * Use the retrieved class name to determine the correct subclasses of CvParam and UserParam to use.
+                     */
+                    if (param.getCvParam() != null) {
+                        Class clazz = Class.forName("uk.ac.liv.jmzqml.model.mzqml.params." + className + "CvParam");
+                        CvParam cvParam = ParamUpdater.updateCvParamSubclass(param.getCvParam(), clazz);
+                        param.setParamGroup(cvParam);
+                    }
+                    else if (param.getUserParam() != null) {
+                        Class clazz = Class.forName("uk.ac.liv.jmzqml.model.mzqml.params." + className + "UserParam");
+                        UserParam userParam = ParamUpdater.updateUserParamSubclass(param.getUserParam(), clazz);
+                        param.setParamGroup(userParam);
+                    }
+                }
+            }
+
+            // now we check what kind of object we are dealing with
+            // NOTE: the order of the if statements is IMPORTANT!
+            // (every AbstractParamGroup is a CvParamCapable, but not vice versa)
+            if (target instanceof ParamListCapable) {
+                ParamListMappings mappings = ParamListMappings.getType(target.getClass());
+                String[] classNames = mappings.getClassNames();
+                for (String className : classNames) {
+                    /**
+                     * Use the retrieved class name to dynamically call the appropriate get method in the class implementing
+                     * ParamListCapable
+                     */
+                    Method method = target.getClass().getMethod("get" + className);
+                    ParamList paramList = (ParamList) method.invoke(target);
+                    if (paramList != null) {
+                        /**
+                         * Use the retrieved class name to determine the correct subclasses of CvParam and UserParam to use.
+                         */
+                        Class clazz = Class.forName("uk.ac.liv.jmzqml.model.mzqml.params." + className + "CvParam");
+                        ParamUpdater.updateCvParamSubclassesList(paramList.getCvParam(), clazz);
+                        clazz = Class.forName("uk.ac.liv.jmzqml.model.mzqml.params." + className + "UserParam");
+                        ParamUpdater.updateUserParamSubclassesList(paramList.getUserParam(), clazz);
+                    }
+                }
+            }
+            else if (target instanceof ParamGroupCapable) {
+                // in this case we not only have to subclass the params, but also to split them up
+                ParamGroupCapable apg = (ParamGroupCapable) target;
+                // first we are going to split the List<Param> in a List<CvParam> and a List<UserParam>
+                //    apg.splitParamList();
+                // then we are going to subclass the params
+
+                if (ele.getCvParamClass() == null) {
+                    throw new IllegalStateException("Subclass of AbstractParamGroup does not have CvParam subclass! " + target.getClass());
+                }
+                ParamUpdater.updateCvParamSubclassesList(apg.getCvParam(), ele.getCvParamClass());
+                if (ele.getUserParamClass() == null) {
+                    throw new IllegalStateException("Subclass of AbstractParamGroup does not have UserParam subclass! " + target.getClass());
+                }
+                ParamUpdater.updateUserParamSubclassesList(apg.getUserParam(), ele.getUserParamClass());
+
+            }
+        }
+        catch (Exception e) {
+            logger.error("Exception during post unmarshall processing! ", e);
+            throw new IllegalStateException("Error during post unmarshall processing!", e);
+        }
+    }
+
 }
