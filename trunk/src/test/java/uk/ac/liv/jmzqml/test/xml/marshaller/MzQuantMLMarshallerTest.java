@@ -94,7 +94,7 @@ public class MzQuantMLMarshallerTest {
             // XML header
             writer.write(m.createXmlHeader() + "\n");
             // mzQuantML start tag
-            writer.write(m.createMzQuantMLStartTag("12345") + "\n");
+            writer.write(m.createMzQuantMLStartTag("Free12345") + "\n");
 
             CvList cvList = unmarshaller.unmarshal(MzQuantMLElement.CvList.getXpath());
             cvCount = cvList.getCv().size();
@@ -176,7 +176,7 @@ public class MzQuantMLMarshallerTest {
         /**
          * Do some shallow testing. Confirm correct number of child elements returned for each tested element.
          */
-        assertTrue(mzq.getId().equals("12345"));
+        assertTrue(mzq.getId().equals("Free12345"));
         assertTrue(cvCount >= 0);
         assertTrue(mzq.getCvList().getCv().size() == cvCount);
         assertTrue(personCount >= 0);

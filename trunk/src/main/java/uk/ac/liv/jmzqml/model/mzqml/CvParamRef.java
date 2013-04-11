@@ -5,17 +5,17 @@ import java.io.Serializable;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlTransient;
 import javax.xml.bind.annotation.XmlType;
 import uk.ac.liv.jmzqml.model.MzQuantMLObject;
 
-
 /**
  * Helper complexType to include one cvParam as a sub-element
- * 
+ *
  * <p>Java class for cvParamRefType complex type.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ *
  * <pre>
  * &lt;complexType name="cvParamRefType">
  *   &lt;complexContent>
@@ -27,16 +27,15 @@ import uk.ac.liv.jmzqml.model.MzQuantMLObject;
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "cvParamRefType", propOrder = {
     "cvParam"
 })
 public class CvParamRef
-    implements Serializable, MzQuantMLObject
-{
+        implements Serializable, MzQuantMLObject {
 
     private final static long serialVersionUID = 100L;
     @XmlElement(required = true)
@@ -44,11 +43,11 @@ public class CvParamRef
 
     /**
      * Gets the value of the cvParam property.
-     * 
+     *
      * @return
-     *     possible object is
-     *     {@link CvParam }
-     *     
+     *         possible object is
+     *         {@link CvParam }
+     *
      */
     public CvParam getCvParam() {
         return cvParam;
@@ -56,11 +55,11 @@ public class CvParamRef
 
     /**
      * Sets the value of the cvParam property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link CvParam }
-     *     
+     *              allowed object is
+     *              {@link CvParam }
+     *
      */
     public void setCvParam(CvParam value) {
         this.cvParam = value;
