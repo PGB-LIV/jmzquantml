@@ -31,31 +31,30 @@ import uk.ac.liv.jmzqml.model.mzqml.Software;
  */
 public enum ParamMappings {
 
-    SearchDatabase                 ("DatabaseName" , SearchDatabase.class),
-    Software                       ("SoftwareName", Software.class);
-    
+    SearchDatabase("DatabaseName", SearchDatabase.class);
     private Class clazz;
     private String className;
 
-    private ParamMappings(String className, Class clazz){
+    private ParamMappings(String className, Class clazz) {
         this.className = className;
         this.clazz = clazz;
     }
 
-    public String getClassName(){
+    public String getClassName() {
         return className;
     }
 
-    public Class getClazz(){
+    public Class getClazz() {
         return this.clazz;
     }
 
-    public static ParamMappings getType(Class clazz){
+    public static ParamMappings getType(Class clazz) {
         for (ParamMappings type : ParamMappings.values()) {
             if (type.getClazz() == clazz) {
                 return type;
             }
         }
         return null;
-    }    
+    }
+
 }

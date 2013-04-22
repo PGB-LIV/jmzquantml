@@ -20,6 +20,7 @@
 
 package uk.ac.liv.jmzqml;
 
+import uk.ac.liv.jmzqml.model.mzqml.MzQuantML;
 import uk.ac.liv.jmzqml.model.mzqml.Ratio;
 
 /**
@@ -30,7 +31,8 @@ import uk.ac.liv.jmzqml.model.mzqml.Ratio;
  */
 public enum ParamListMappings {
 
-    Ratio(new String[]{"RatioCalculation"}, Ratio.class);
+    Ratio(new String[]{"RatioCalculation"}, Ratio.class),
+    MzQuantML(new String[]{"AnalysisSummary"}, MzQuantML.class);
     private Class clazz;
     private String[] classNames;
 
