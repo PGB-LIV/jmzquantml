@@ -27,6 +27,8 @@ import org.apache.log4j.Logger;
 import uk.ac.liv.jmzqml.MzQuantMLElement;
 import uk.ac.liv.jmzqml.ParamListMappings;
 import uk.ac.liv.jmzqml.ParamMappings;
+import uk.ac.liv.jmzqml.model.CvParamCapable;
+import uk.ac.liv.jmzqml.model.CvParamListCapable;
 import uk.ac.liv.jmzqml.model.ParamCapable;
 import uk.ac.liv.jmzqml.model.ParamGroupCapable;
 import uk.ac.liv.jmzqml.model.ParamListCapable;
@@ -142,7 +144,7 @@ public class RawXMLListener extends Unmarshaller.Listener {
                 // in this case we not only have to subclass the params, but also to split them up
                 ParamGroupCapable apg = (ParamGroupCapable) target;
                 // first we are going to split the List<Param> in a List<CvParam> and a List<UserParam>
-                //    apg.splitParamList();
+                // apg.splitParamList();
                 // then we are going to subclass the params
 
                 if (ele.getCvParamClass() == null) {
@@ -153,7 +155,28 @@ public class RawXMLListener extends Unmarshaller.Listener {
                     throw new IllegalStateException("Subclass of AbstractParamGroup does not have UserParam subclass! " + target.getClass());
                 }
                 ParamUpdater.updateUserParamSubclassesList(apg.getUserParam(), ele.getUserParamClass());
-
+            }
+            else if (target instanceof CvParamCapable) {
+                // no need to split up params, but we need to subclass them
+                CvParamCapable cpc = (CvParamCapable) target;
+                if (ele.getCvParamClass() == null) {
+                    throw new IllegalStateException("Subcalss of  AbstactParamGroup does not have CvParam subclass! " + target.getClass());
+                }
+                CvParam param = cpc.getCvParam();
+                cpc.setCvParam(ParamUpdater.updateCvParamSubclass(param, ele.<CvParam>getCvParamClass()));
+            }
+            else if (target instanceof CvParamListCapable) {
+                CvParamListCapable cpc = (CvParamListCapable) target;
+                if (ele.getCvParamClass() == null) {
+                    throw new IllegalStateException("Subclass of AbstractParamGroup does not have CvParam subclass! " + target.getClass());
+                }
+                ParamUpdater.updateCvParamSubclassesList(cpc.getCvParam(), ele.getCvParamClass());
+            }
+            else {
+                // no need to split or subclass params
+                if (ele.getCvParamClass() != null || ele.getUserParamClass() != null) {
+                    throw new IllegalStateException("Element with param subclasses has not been handled! " + target.getClass());
+                }
             }
         }
         catch (Exception e) {

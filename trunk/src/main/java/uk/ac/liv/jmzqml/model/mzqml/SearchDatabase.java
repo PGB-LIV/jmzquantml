@@ -12,6 +12,7 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+import uk.ac.liv.jmzqml.model.ParamCapable;
 import uk.ac.liv.jmzqml.xml.jaxb.adapter.CalendarAdapter;
 
 
@@ -47,7 +48,7 @@ import uk.ac.liv.jmzqml.xml.jaxb.adapter.CalendarAdapter;
 })
 public class SearchDatabase
     extends ExternalData
-    implements Serializable
+    implements Serializable, ParamCapable
 {
 
     private final static long serialVersionUID = 100L;
