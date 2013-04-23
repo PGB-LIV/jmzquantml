@@ -16,6 +16,7 @@ import javax.xml.bind.annotation.XmlType;
 import javax.xml.bind.annotation.adapters.CollapsedStringAdapter;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import uk.ac.liv.jmzqml.model.MzQuantMLObject;
+import uk.ac.liv.jmzqml.model.ParamListCapable;
 import uk.ac.liv.jmzqml.xml.jaxb.adapter.CalendarAdapter;
 
 
@@ -80,7 +81,7 @@ import uk.ac.liv.jmzqml.xml.jaxb.adapter.CalendarAdapter;
 })
 @XmlRootElement(name="MzQuantML")
 public class MzQuantML
-    implements Serializable, MzQuantMLObject
+    implements Serializable, MzQuantMLObject, ParamListCapable
 {
 
     private final static long serialVersionUID = 100L;

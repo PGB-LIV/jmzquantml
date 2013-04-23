@@ -9,6 +9,7 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
+import uk.ac.liv.jmzqml.model.CvParamListCapable;
 import uk.ac.liv.jmzqml.model.MzQuantMLObject;
 
 
@@ -40,7 +41,7 @@ import uk.ac.liv.jmzqml.model.MzQuantMLObject;
     "cvParam"
 })
 public class SmallMolModification
-    implements Serializable, MzQuantMLObject
+    implements Serializable, MzQuantMLObject, CvParamListCapable
 {
 
     private final static long serialVersionUID = 100L;

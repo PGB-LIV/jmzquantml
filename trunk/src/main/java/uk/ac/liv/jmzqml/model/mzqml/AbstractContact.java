@@ -10,6 +10,7 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlElements;
 import javax.xml.bind.annotation.XmlSeeAlso;
 import javax.xml.bind.annotation.XmlType;
+import uk.ac.liv.jmzqml.model.ParamGroupCapable;
 
 
 /**
@@ -43,7 +44,7 @@ import javax.xml.bind.annotation.XmlType;
 })
 public abstract class AbstractContact
     extends Identifiable
-    implements Serializable
+    implements Serializable, ParamGroupCapable
 {
 
     private final static long serialVersionUID = 100L;

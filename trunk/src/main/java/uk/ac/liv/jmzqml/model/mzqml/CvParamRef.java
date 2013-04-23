@@ -7,6 +7,7 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlTransient;
 import javax.xml.bind.annotation.XmlType;
+import uk.ac.liv.jmzqml.model.CvParamCapable;
 import uk.ac.liv.jmzqml.model.MzQuantMLObject;
 
 /**
@@ -35,7 +36,7 @@ import uk.ac.liv.jmzqml.model.MzQuantMLObject;
     "cvParam"
 })
 public class CvParamRef
-        implements Serializable, MzQuantMLObject {
+        implements Serializable, MzQuantMLObject, CvParamCapable {
 
     private final static long serialVersionUID = 100L;
     @XmlElement(required = true)

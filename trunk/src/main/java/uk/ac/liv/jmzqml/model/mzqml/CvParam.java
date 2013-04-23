@@ -46,8 +46,8 @@ public class CvParam
 
     public void setCv(Cv cv) {
         this.cv = cv;
-        this.cvRef = cv;
-    }
+            this.cvRef = cv;
+        }
 
     /**
      * Gets the value of the cvRef property.

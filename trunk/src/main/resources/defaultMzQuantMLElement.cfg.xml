@@ -58,6 +58,8 @@ Configurations for various properties of model classes.
         <clazz>uk.ac.liv.jmzqml.model.mzqml.AnalysisSummary</clazz>
         <idMapped>false</idMapped>
         <indexed>true</indexed>
+        <cvParamClass>uk.ac.liv.jmzqml.model.mzqml.params.AnalysisSummaryCvParam</cvParamClass>
+        <userParamClass>uk.ac.liv.jmzqml.model.mzqml.params.AnalysisSummaryUserParam</userParamClass>
         <tagName>AnalysisSummary</tagName>
         <xpath>/MzQuantML/AnalysisSummary</xpath>
     </configurations>   
@@ -76,6 +78,8 @@ Configurations for various properties of model classes.
         <clazz>uk.ac.liv.jmzqml.model.mzqml.Assay</clazz>
         <idMapped>true</idMapped>
         <indexed>true</indexed>
+        <cvParamClass>uk.ac.liv.jmzqml.model.mzqml.params.AssayCvParam</cvParamClass>
+        <userParamClass>uk.ac.liv.jmzqml.model.mzqml.params.AssayUserParam</userParamClass>
         <refResolverClass>uk.ac.liv.jmzqnl.xml.jaxb.resolver.AssayRefResolver</refResolverClass>
         <tagName>Assay</tagName>
         <xpath>/MzQuantML/AssayList/Assay</xpath>
@@ -149,6 +153,7 @@ Configurations for various properties of model classes.
         <clazz>uk.ac.liv.jmzqml.model.mzqml.CvParamRef</clazz>
         <idMapped>false</idMapped>
         <indexed>false</indexed>
+        <cvParamClass>uk.ac.liv.jmzqml.model.mzqml.params.CvParamRefCvParam</cvParamClass>
         <tagName>CvParamRef</tagName>
     </configurations>	
 	
@@ -220,6 +225,8 @@ Configurations for various properties of model classes.
         <clazz>uk.ac.liv.jmzqml.model.mzqml.FeatureList</clazz>
         <idMapped>false</idMapped>
         <indexed>true</indexed>
+        <cvParamClass>uk.ac.liv.jmzqml.model.mzqml.params.FeatureListCvParam</cvParamClass>
+        <userParamClass>uk.ac.liv.jmzqml.model.mzqml.params.FeatureListUserParam</userParamClass>
         <refResolverClass>uk.ac.liv.jmzqml.xml.jaxb.resolver.FeatureListRefResolver</refResolverClass>
         <tagName>FeatureList</tagName>
         <xpath>/MzQuantML/FeatureList</xpath>
@@ -230,6 +237,8 @@ Configurations for various properties of model classes.
         <clazz>uk.ac.liv.jmzqml.model.mzqml.Feature</clazz>
         <idMapped>false</idMapped>
         <indexed>true</indexed>
+        <cvParamClass>uk.ac.liv.jmzqml.model.mzqml.params.FeatureCvParam</cvParamClass>
+        <userParamClass>uk.ac.liv.jmzqml.model.mzqml.params.FeatureUserParam</userParamClass>
         <refResolverClass>uk.ac.liv.jmzqml.xml.jaxb.resolver.FeatureRefResolver</refResolverClass>
         <tagName>Feature</tagName>
         <xpath>/MzQuantML/FeatureList/Feature</xpath>
@@ -240,6 +249,7 @@ Configurations for various properties of model classes.
         <clazz>uk.ac.liv.jmzqml.model.mzqml.FileFormat</clazz>
         <idMapped>false</idMapped>
         <indexed>false</indexed>
+        <cvParamClass>uk.ac.liv.jmzqml.model.mzqml.params.FileFormatCvParam</cvParamClass>
         <tagName>FileFormat</tagName>
     </configurations>	
 
@@ -262,6 +272,8 @@ Configurations for various properties of model classes.
         <clazz>uk.ac.liv.jmzqml.model.mzqml.IdentificationFile</clazz>
         <idMapped>true</idMapped>
         <indexed>true</indexed>
+        <cvParamClass>uk.ac.liv.jmzqml.model.mzqml.params.IdentificationFileCvParam</cvParamClass>
+        <userParamClass>uk.ac.liv.jmzqml.model.mzqml.params.IdentificationFileUserParam</userParamClass>
         <refResolverClass>uk.ac.liv.jmzqml.xml.jaxb.resolver.IdentificationFileRefResolver</refResolverClass>
         <tagName>IdentificationFile</tagName>
         <xpath>/MzQuantML/InputFiles/IdentificationFiles/IdentificationFile</xpath>
@@ -327,6 +339,7 @@ Configurations for various properties of model classes.
         <clazz>uk.ac.liv.jmzqml.model.mzqml.ModParam</clazz>
         <idMapped>false</idMapped>
         <indexed>true</indexed>
+        <cvParamClass>uk.ac.liv.jmzqml.model.mzqml.params.ModParamCvParam</cvParamClass>
         <tagName>ModParam</tagName>
         <xpath>/MzQuantML/AssayList/Assay/Label/Modification</xpath>
     </configurations>
@@ -336,6 +349,7 @@ Configurations for various properties of model classes.
         <clazz>uk.ac.liv.jmzqml.model.mzqml.Modification</clazz>
         <idMapped>false</idMapped>
         <indexed>true</indexed>
+        <cvParamClass>uk.ac.liv.jmzqml.model.mzqml.params.ModificationCvParam</cvParamClass>
         <refResolverClass>uk.ac.liv.jmzqml.xml.jaxb.resolver.ModificationRefResolver</refResolverClass>
         <tagName>Modification</tagName>
         <xpath>/MzQuantML/PeptidenConsensusList/PeptideConsensus/Modification</xpath>
@@ -388,6 +402,8 @@ Configurations for various properties of model classes.
         <clazz>uk.ac.liv.jmzqml.model.mzqml.PeptideConsensusList</clazz>
         <idMapped>false</idMapped>
         <indexed>true</indexed>
+        <cvParamClass>uk.ac.liv.jmzqml.model.mzqml.params.PeptideConsensusListCvParam</cvParamClass>
+        <userParamClass>uk.ac.liv.jmzqml.model.mzqml.params.PeptideConsensusListUserParam</userParamClass>
         <tagName>PeptideConsensusList</tagName>
         <xpath>/MzQuantML/PeptideConsensusList</xpath>
     </configurations>    
@@ -397,6 +413,8 @@ Configurations for various properties of model classes.
         <clazz>uk.ac.liv.jmzqml.model.mzqml.PeptideConsensus</clazz>
         <idMapped>true</idMapped>
         <indexed>true</indexed>
+        <cvParamClass>uk.ac.liv.jmzqml.model.mzqml.params.PeptideConsensusCvParam</cvParamClass>
+        <userParamClass>uk.ac.liv.jmzqml.model.mzqml.params.PeptideConsensusUserParam</userParamClass>
         <refResolverClass>uk.ac.liv.jmzqml.xml.jaxb.resolver.PeptideConsensusRefResolver</refResolverClass>
         <tagName>PeptideConsensus</tagName>
         <xpath>/MzQuantML/PeptideConsensusList/PeptideConsensus</xpath>
@@ -425,6 +443,8 @@ Configurations for various properties of model classes.
         <clazz>uk.ac.liv.jmzqml.model.mzqml.ProteinGroupList</clazz>
         <idMapped>false</idMapped>
         <indexed>true</indexed>
+        <cvParamClass>uk.ac.liv.jmzqml.model.mzqml.params.ProteinGroupListCvParam</cvParamClass>
+        <userParamClass>uk.ac.liv.jmzqml.model.mzqml.params.ProteinGroupListUserParam</userParamClass>
         <tagName>ProteinGroupList</tagName>
         <xpath>/MzQuantML/ProteinGroupList</xpath>
     </configurations>
@@ -434,6 +454,8 @@ Configurations for various properties of model classes.
         <clazz>uk.ac.liv.jmzqml.model.mzqml.ProteinGroup</clazz>
         <idMapped>true</idMapped>
         <indexed>true</indexed>
+        <cvParamClass>uk.ac.liv.jmzqml.model.mzqml.params.ProteinGroupCvParam</cvParamClass>
+        <userParamClass>uk.ac.liv.jmzqml.model.mzqml.params.ProteinGroupUserParam</userParamClass>
         <refResolverClass>uk.ac.liv.jmzqml.xml.jaxb.resolver.ProteinGroupRefResolver</refResolverClass>
         <tagName>ProteinGroup</tagName>
         <xpath>/MzQuantML/ProteinGroupList/ProteinGroup</xpath>
@@ -444,6 +466,8 @@ Configurations for various properties of model classes.
         <clazz>uk.ac.liv.jmzqml.model.mzqml.ProteinRef</clazz>
         <idMapped>false</idMapped>
         <indexed>true</indexed>
+        <cvParamClass>uk.ac.liv.jmzqml.model.mzqml.params.ProteinRefCvParam</cvParamClass>
+        <userParamClass>uk.ac.liv.jmzqml.model.mzqml.params.ProteinRefUserParam</userParamClass>
         <refResolverClass>uk.ac.liv.jmzqml.xml.jaxb.resolver.ProteinRefRefResolver</refResolverClass>
         <tagName>ProteinRef</tagName>
         <xpath>/MzQuantML/ProteinGroupList/ProteinGroup/ProteinRef</xpath>
@@ -454,6 +478,8 @@ Configurations for various properties of model classes.
         <clazz>uk.ac.liv.jmzqml.model.mzqml.ProteinList</clazz>
         <idMapped>false</idMapped>
         <indexed>true</indexed>
+        <cvParamClass>uk.ac.liv.jmzqml.model.mzqml.params.ProteinListCvParam</cvParamClass>
+        <userParamClass>uk.ac.liv.jmzqml.model.mzqml.params.ProteinListUserParam</userParamClass>
         <tagName>ProteinList</tagName>
         <xpath>/MzQuantML/ProteinList</xpath>
     </configurations>    
@@ -463,6 +489,8 @@ Configurations for various properties of model classes.
         <clazz>uk.ac.liv.jmzqml.model.mzqml.Protein</clazz>
         <idMapped>true</idMapped>
         <indexed>true</indexed>
+        <cvParamClass>uk.ac.liv.jmzqml.model.mzqml.params.ProteinCvParam</cvParamClass>
+        <userParamClass>uk.ac.liv.jmzqml.model.mzqml.params.ProteinUserParam</userParamClass>
         <refResolverClass>uk.ac.liv.jmzqml.xml.jaxb.resolver.ProteinRefResolver</refResolverClass>
         <tagName>Protein</tagName>
         <xpath>/MzQuantML/ProteinList/Protein</xpath>
@@ -517,6 +545,8 @@ Configurations for various properties of model classes.
         <clazz>uk.ac.liv.jmzqml.model.mzqml.RawFile</clazz>
         <idMapped>false</idMapped>
         <indexed>true</indexed>
+        <cvParamClass>uk.ac.liv.jmzqml.model.mzqml.params.RawFileCvParam</cvParamClass>
+        <userParamClass>uk.ac.liv.jmzqml.model.mzqml.params.RawFileUserParam</userParamClass>
         <refResolverClass>uk.ac.liv.jmzqml.xml.jaxb.resolver.RawFileRefResolver</refResolverClass>
         <tagName>RawFile</tagName>
         <xpath>/MzQuantML/InputFiles/RawFilesGroup/RawFile</xpath>
@@ -527,6 +557,8 @@ Configurations for various properties of model classes.
         <clazz>uk.ac.liv.jmzqml.model.mzqml.RawFilesGroup</clazz>
         <idMapped>false</idMapped>
         <indexed>true</indexed>
+        <cvParamClass>uk.ac.liv.jmzqml.model.mzqml.params.RawFilesGroupCvParam</cvParamClass>
+        <userParamClass>uk.ac.liv.jmzqml.model.mzqml.params.RawFilesGroupUserParam</userParamClass>
         <tagName>RawFilesGroup</tagName>
         <xpath>/MzQuantML/InputFiles/RawFilesGroup</xpath>
     </configurations>  
@@ -536,6 +568,7 @@ Configurations for various properties of model classes.
         <clazz>uk.ac.liv.jmzqml.model.mzqml.Role</clazz>
         <idMapped>false</idMapped>
         <indexed>true</indexed>
+        <cvParamClass>uk.ac.liv.jmzqml.model.mzqml.params.RoleCvParam</cvParamClass>
         <tagName>Role</tagName>
         <xpath>/MzQuantML/Provider/ContactRole/Role</xpath>
     </configurations>
@@ -554,6 +587,7 @@ Configurations for various properties of model classes.
         <clazz>uk.ac.liv.jmzqml.model.mzqml.SearchDatabase</clazz>
         <idMapped>true</idMapped>
         <indexed>true</indexed>
+        <cvParamClass>uk.ac.liv.jmzqml.model.mzqml.params.SearchDatabaseCvParam</cvParamClass>
         <tagName>SearchDatabase</tagName>
         <xpath>/MzQuantML/InputFiles/SearchDatabase</xpath>
     </configurations>
@@ -563,6 +597,8 @@ Configurations for various properties of model classes.
         <clazz>uk.ac.liv.jmzqml.model.mzqml.SmallMoleculeList</clazz>
         <idMapped>false</idMapped>
         <indexed>true</indexed>
+        <cvParamClass>uk.ac.liv.jmzqml.model.mzqml.params.SmallMoleculeListCvParam</cvParamClass>
+        <userParamClass>uk.ac.liv.jmzqml.model.mzqml.params.SmallMoleculeListUserParam</userParamClass>
         <tagName>SmallMoleculeList</tagName>
         <xpath>/MzQuantML/SmallMoleculeList</xpath>
     </configurations>  
@@ -572,6 +608,8 @@ Configurations for various properties of model classes.
         <clazz>uk.ac.liv.jmzqml.model.mzqml.SmallMolecule</clazz>
         <idMapped>true</idMapped>
         <indexed>true</indexed>
+        <cvParamClass>uk.ac.liv.jmzqml.model.mzqml.params.SmallMoleculeCvParam</cvParamClass>
+        <userParamClass>uk.ac.liv.jmzqml.model.mzqml.params.SmallMoleculeUserParam</userParamClass>
         <refResolverClass>uk.ac.liv.jmzqml.xml.jaxb.resolver.SmallMoleculeRefResolver</refResolverClass>
         <tagName>SmallMolecule</tagName>
         <xpath>/MzQuantML/SmallMoleculeList/SmallMolecule</xpath>
@@ -583,6 +621,7 @@ Configurations for various properties of model classes.
         <clazz>uk.ac.liv.jmzqml.model.mzqml.SmallMolModification</clazz>
         <idMapped>false</idMapped>
         <indexed>true</indexed>
+        <cvParamClass>uk.ac.liv.jmzqml.model.mzqml.params.SmallMolModificationCvParam</cvParamClass>
         <tagName>SmallMolModification</tagName>
         <xpath>/MzQuantML/SmallMoleculeList/SmallMolecule/SmallMolModification</xpath>
     </configurations>      
@@ -601,6 +640,8 @@ Configurations for various properties of model classes.
         <clazz>uk.ac.liv.jmzqml.model.mzqml.Software</clazz>
         <idMapped>true</idMapped>
         <indexed>true</indexed>
+        <cvParamClass>uk.ac.liv.jmzqml.model.mzqml.params.SoftwareCvParam</cvParamClass>
+        <userParamClass>uk.ac.liv.jmzqml.model.mzqml.params.SoftwareUserParam</userParamClass>
         <tagName>Softwaer</tagName>
         <xpath>/MzQuantML/SoftwareList/Software</xpath>
     </configurations>  
@@ -628,6 +669,8 @@ Configurations for various properties of model classes.
         <clazz>uk.ac.liv.jmzqml.model.mzqml.StudyVariable</clazz>
         <idMapped>true</idMapped>
         <indexed>true</indexed>
+        <cvParamClass>uk.ac.liv.jmzqml.model.mzqml.params.StudyVariableCvParam</cvParamClass>
+        <userParamClass>uk.ac.liv.jmzqml.model.mzqml.params.StudyVariableUserParam</userParamClass>
         <refResolverClass>uk.ac.liv.jmzqml.xml.jaxb.resolver.StudyVariableRefResolver</refResolverClass>
         <tagName>StudyVariable</tagName>
         <xpath>/MzQuantML/StudyVariableList/StudyVariable</xpath>
