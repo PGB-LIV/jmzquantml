@@ -9,6 +9,13 @@
         <Cv id="PSI-MS" uri="http://psidev.cvs.sourceforge.net/viewvc/*checkout*/psidev/psi/psi-ms/mzML/controlledVocabulary/psi-ms.obo" version="2.25.0" fullName="Proteomics Standards Initiative Mass Spectrometry Vocabularies"/>
         <Cv id="UNIMOD" uri="http://www.unimod.org/obo/unimod.obo" fullName="Unimod"/>
     </CvList>
+    <Provider id="PROVIDER">
+        <ContactRole contact_ref="PERS_DQ">
+            <Role>
+                <cvParam accession="MS:1001271" name="researcher" cvRef="PSI-MS"/>
+            </Role>
+        </ContactRole>
+    </Provider>
     <AuditCollection>
         <Person firstName="Da" lastName="Qi" id="PERS_DQ">
             <Affiliation organization_ref="ORG_UOL"/>

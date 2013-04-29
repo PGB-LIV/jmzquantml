@@ -17,6 +17,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package uk.ac.liv.jmzqml.model.utils;
 
 /**
@@ -33,6 +34,8 @@ public class MzQuantMLElementConfig {
     private boolean cached;
     private boolean idMapped;
     private Class clazz;
+    private Class cvParamClass;
+    private Class userParamClass;
     private boolean autoRefResolving;
     private Class refResolverClass;
 
@@ -76,6 +79,22 @@ public class MzQuantMLElementConfig {
         this.clazz = clazz;
     }
 
+    public Class getCvParamClass() {
+        return cvParamClass;
+    }
+
+    public void setCvParamClass(Class cvParamClass) {
+        this.cvParamClass = cvParamClass;
+    }
+
+    public Class getUserParamClass() {
+        return userParamClass;
+    }
+
+    public void setUserParamClass(Class userParamClass) {
+        this.userParamClass = userParamClass;
+    }
+
     public boolean isAutoRefResolving() {
         return autoRefResolving;
     }
@@ -99,4 +118,5 @@ public class MzQuantMLElementConfig {
     public void setTagName(String tagName) {
         this.tagName = tagName;
     }
+
 }

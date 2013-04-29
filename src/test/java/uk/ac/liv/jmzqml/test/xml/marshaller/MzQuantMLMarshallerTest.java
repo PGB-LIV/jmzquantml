@@ -101,6 +101,11 @@ public class MzQuantMLMarshallerTest {
             m.marshall(cvList, writer);
             writer.write("\n");
 
+            Provider provider = unmarshaller.unmarshal(MzQuantMLElement.Provider.getXpath());
+            Object ref = provider.getContactRole().getContactRef();
+            m.marshall(provider, writer);
+            writer.write("\n");
+
             AuditCollection auditCollection = unmarshaller.unmarshal(MzQuantMLElement.AuditCollection.getXpath());
             personCount = auditCollection.getPerson().size();
             orgCount = auditCollection.getOrganization().size();
@@ -212,9 +217,10 @@ public class MzQuantMLMarshallerTest {
         ac.getPerson().clear();
         m.marshall(ac);
     }
-    
-    @Test(expected= IllegalArgumentException.class)
-    public void testMarshallEmptyCvList() throws Exception{
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testMarshallEmptyCvList()
+            throws Exception {
         URL xmlFileURL = MzQuantMLMarshallerTest.class.getClassLoader().getResource("CPTAC-Progenesis-small-example.mzq");
         assertNotNull(xmlFileURL);
         MzQuantMLUnmarshaller unmarshaller = new MzQuantMLUnmarshaller(xmlFileURL);
