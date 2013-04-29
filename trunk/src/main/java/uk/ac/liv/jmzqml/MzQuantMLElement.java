@@ -48,6 +48,8 @@ public enum MzQuantMLElement {
                     getCfg().get(uk.ac.liv.jmzqml.model.mzqml.AbstractContact.class.getName()).isCached(),
                     getCfg().get(uk.ac.liv.jmzqml.model.mzqml.AbstractContact.class.getName()).isIdMapped(),
                     getCfg().get(uk.ac.liv.jmzqml.model.mzqml.AbstractContact.class.getName()).getClazz(),
+                    getCfg().get(uk.ac.liv.jmzqml.model.mzqml.AbstractContact.class.getName()).getCvParamClass(),
+                    getCfg().get(uk.ac.liv.jmzqml.model.mzqml.AbstractContact.class.getName()).getUserParamClass(),
                     getCfg().get(uk.ac.liv.jmzqml.model.mzqml.AbstractContact.class.getName()).isAutoRefResolving(),
                     getCfg().get(uk.ac.liv.jmzqml.model.mzqml.AbstractContact.class.getName()).getRefResolverClass()),
     //Todo
@@ -57,6 +59,8 @@ public enum MzQuantMLElement {
                   getCfg().get(uk.ac.liv.jmzqml.model.mzqml.AbstractParam.class.getName()).isCached(),
                   getCfg().get(uk.ac.liv.jmzqml.model.mzqml.AbstractParam.class.getName()).isIdMapped(),
                   getCfg().get(uk.ac.liv.jmzqml.model.mzqml.AbstractParam.class.getName()).getClazz(),
+                  getCfg().get(uk.ac.liv.jmzqml.model.mzqml.AbstractParam.class.getName()).getCvParamClass(),
+                  getCfg().get(uk.ac.liv.jmzqml.model.mzqml.AbstractParam.class.getName()).getUserParamClass(),
                   getCfg().get(uk.ac.liv.jmzqml.model.mzqml.AbstractParam.class.getName()).isAutoRefResolving(),
                   getCfg().get(uk.ac.liv.jmzqml.model.mzqml.AbstractParam.class.getName()).getRefResolverClass()),
     //
@@ -66,6 +70,8 @@ public enum MzQuantMLElement {
                 getCfg().get(uk.ac.liv.jmzqml.model.mzqml.Affiliation.class.getName()).isCached(),
                 getCfg().get(uk.ac.liv.jmzqml.model.mzqml.Affiliation.class.getName()).isIdMapped(),
                 getCfg().get(uk.ac.liv.jmzqml.model.mzqml.Affiliation.class.getName()).getClazz(),
+                getCfg().get(uk.ac.liv.jmzqml.model.mzqml.Affiliation.class.getName()).getCvParamClass(),
+                getCfg().get(uk.ac.liv.jmzqml.model.mzqml.Affiliation.class.getName()).getUserParamClass(),
                 getCfg().get(uk.ac.liv.jmzqml.model.mzqml.Affiliation.class.getName()).isAutoRefResolving(),
                 getCfg().get(uk.ac.liv.jmzqml.model.mzqml.Affiliation.class.getName()).getRefResolverClass()),
     //
@@ -75,6 +81,8 @@ public enum MzQuantMLElement {
                     getCfg().get(uk.ac.liv.jmzqml.model.mzqml.AnalysisSummary.class.getName()).isCached(),
                     getCfg().get(uk.ac.liv.jmzqml.model.mzqml.AnalysisSummary.class.getName()).isIdMapped(),
                     getCfg().get(uk.ac.liv.jmzqml.model.mzqml.AnalysisSummary.class.getName()).getClazz(),
+                    getCfg().get(uk.ac.liv.jmzqml.model.mzqml.AnalysisSummary.class.getName()).getCvParamClass(),
+                    getCfg().get(uk.ac.liv.jmzqml.model.mzqml.AnalysisSummary.class.getName()).getUserParamClass(),
                     getCfg().get(uk.ac.liv.jmzqml.model.mzqml.AnalysisSummary.class.getName()).isAutoRefResolving(),
                     getCfg().get(uk.ac.liv.jmzqml.model.mzqml.AnalysisSummary.class.getName()).getRefResolverClass()),
     //
@@ -84,6 +92,8 @@ public enum MzQuantMLElement {
               getCfg().get(uk.ac.liv.jmzqml.model.mzqml.AssayList.class.getName()).isCached(),
               getCfg().get(uk.ac.liv.jmzqml.model.mzqml.AssayList.class.getName()).isIdMapped(),
               getCfg().get(uk.ac.liv.jmzqml.model.mzqml.AssayList.class.getName()).getClazz(),
+              getCfg().get(uk.ac.liv.jmzqml.model.mzqml.AssayList.class.getName()).getCvParamClass(),
+              getCfg().get(uk.ac.liv.jmzqml.model.mzqml.AssayList.class.getName()).getUserParamClass(),
               getCfg().get(uk.ac.liv.jmzqml.model.mzqml.AssayList.class.getName()).isAutoRefResolving(),
               getCfg().get(uk.ac.liv.jmzqml.model.mzqml.AssayList.class.getName()).getRefResolverClass()),
     //
@@ -93,6 +103,8 @@ public enum MzQuantMLElement {
           getCfg().get(uk.ac.liv.jmzqml.model.mzqml.Assay.class.getName()).isCached(),
           getCfg().get(uk.ac.liv.jmzqml.model.mzqml.Assay.class.getName()).isIdMapped(),
           getCfg().get(uk.ac.liv.jmzqml.model.mzqml.Assay.class.getName()).getClazz(),
+          getCfg().get(uk.ac.liv.jmzqml.model.mzqml.Assay.class.getName()).getCvParamClass(),
+          getCfg().get(uk.ac.liv.jmzqml.model.mzqml.Assay.class.getName()).getUserParamClass(),
           getCfg().get(uk.ac.liv.jmzqml.model.mzqml.Assay.class.getName()).isAutoRefResolving(),
           getCfg().get(uk.ac.liv.jmzqml.model.mzqml.Assay.class.getName()).getRefResolverClass()),
     //
@@ -102,6 +114,8 @@ public enum MzQuantMLElement {
                     getCfg().get(uk.ac.liv.jmzqml.model.mzqml.AuditCollection.class.getName()).isCached(),
                     getCfg().get(uk.ac.liv.jmzqml.model.mzqml.AuditCollection.class.getName()).isIdMapped(),
                     getCfg().get(uk.ac.liv.jmzqml.model.mzqml.AuditCollection.class.getName()).getClazz(),
+                    getCfg().get(uk.ac.liv.jmzqml.model.mzqml.AuditCollection.class.getName()).getCvParamClass(),
+                    getCfg().get(uk.ac.liv.jmzqml.model.mzqml.AuditCollection.class.getName()).getUserParamClass(),
                     getCfg().get(uk.ac.liv.jmzqml.model.mzqml.AuditCollection.class.getName()).isAutoRefResolving(),
                     getCfg().get(uk.ac.liv.jmzqml.model.mzqml.AuditCollection.class.getName()).getRefResolverClass()),
     //
@@ -111,6 +125,8 @@ public enum MzQuantMLElement {
                            getCfg().get(uk.ac.liv.jmzqml.model.mzqml.BibliographicReference.class.getName()).isCached(),
                            getCfg().get(uk.ac.liv.jmzqml.model.mzqml.BibliographicReference.class.getName()).isIdMapped(),
                            getCfg().get(uk.ac.liv.jmzqml.model.mzqml.BibliographicReference.class.getName()).getClazz(),
+                           getCfg().get(uk.ac.liv.jmzqml.model.mzqml.BibliographicReference.class.getName()).getCvParamClass(),
+                           getCfg().get(uk.ac.liv.jmzqml.model.mzqml.BibliographicReference.class.getName()).getUserParamClass(),
                            getCfg().get(uk.ac.liv.jmzqml.model.mzqml.BibliographicReference.class.getName()).isAutoRefResolving(),
                            getCfg().get(uk.ac.liv.jmzqml.model.mzqml.BibliographicReference.class.getName()).getRefResolverClass()),
     //
@@ -120,6 +136,8 @@ public enum MzQuantMLElement {
                      getCfg().get(uk.ac.liv.jmzqml.model.mzqml.ColumnDefinition.class.getName()).isCached(),
                      getCfg().get(uk.ac.liv.jmzqml.model.mzqml.ColumnDefinition.class.getName()).isIdMapped(),
                      getCfg().get(uk.ac.liv.jmzqml.model.mzqml.ColumnDefinition.class.getName()).getClazz(),
+                     getCfg().get(uk.ac.liv.jmzqml.model.mzqml.ColumnDefinition.class.getName()).getCvParamClass(),
+                     getCfg().get(uk.ac.liv.jmzqml.model.mzqml.ColumnDefinition.class.getName()).getUserParamClass(),
                      getCfg().get(uk.ac.liv.jmzqml.model.mzqml.ColumnDefinition.class.getName()).isAutoRefResolving(),
                      getCfg().get(uk.ac.liv.jmzqml.model.mzqml.ColumnDefinition.class.getName()).getRefResolverClass()),
     //
@@ -129,6 +147,8 @@ public enum MzQuantMLElement {
            getCfg().get(uk.ac.liv.jmzqml.model.mzqml.Column.class.getName()).isCached(),
            getCfg().get(uk.ac.liv.jmzqml.model.mzqml.Column.class.getName()).isIdMapped(),
            getCfg().get(uk.ac.liv.jmzqml.model.mzqml.Column.class.getName()).getClazz(),
+           getCfg().get(uk.ac.liv.jmzqml.model.mzqml.Column.class.getName()).getCvParamClass(),
+           getCfg().get(uk.ac.liv.jmzqml.model.mzqml.Column.class.getName()).getUserParamClass(),
            getCfg().get(uk.ac.liv.jmzqml.model.mzqml.Column.class.getName()).isAutoRefResolving(),
            getCfg().get(uk.ac.liv.jmzqml.model.mzqml.Column.class.getName()).getRefResolverClass()),
     //
@@ -138,6 +158,8 @@ public enum MzQuantMLElement {
                 getCfg().get(uk.ac.liv.jmzqml.model.mzqml.ContactRole.class.getName()).isCached(),
                 getCfg().get(uk.ac.liv.jmzqml.model.mzqml.ContactRole.class.getName()).isIdMapped(),
                 getCfg().get(uk.ac.liv.jmzqml.model.mzqml.ContactRole.class.getName()).getClazz(),
+                getCfg().get(uk.ac.liv.jmzqml.model.mzqml.ContactRole.class.getName()).getCvParamClass(),
+                getCfg().get(uk.ac.liv.jmzqml.model.mzqml.ContactRole.class.getName()).getUserParamClass(),
                 getCfg().get(uk.ac.liv.jmzqml.model.mzqml.ContactRole.class.getName()).isAutoRefResolving(),
                 getCfg().get(uk.ac.liv.jmzqml.model.mzqml.ContactRole.class.getName()).getRefResolverClass()),
     //
@@ -147,6 +169,8 @@ public enum MzQuantMLElement {
        getCfg().get(uk.ac.liv.jmzqml.model.mzqml.Cv.class.getName()).isCached(),
        getCfg().get(uk.ac.liv.jmzqml.model.mzqml.Cv.class.getName()).isIdMapped(),
        getCfg().get(uk.ac.liv.jmzqml.model.mzqml.Cv.class.getName()).getClazz(),
+       getCfg().get(uk.ac.liv.jmzqml.model.mzqml.Cv.class.getName()).getCvParamClass(),
+       getCfg().get(uk.ac.liv.jmzqml.model.mzqml.Cv.class.getName()).getUserParamClass(),
        getCfg().get(uk.ac.liv.jmzqml.model.mzqml.Cv.class.getName()).isAutoRefResolving(),
        getCfg().get(uk.ac.liv.jmzqml.model.mzqml.Cv.class.getName()).getRefResolverClass()),
     //
@@ -156,6 +180,8 @@ public enum MzQuantMLElement {
            getCfg().get(uk.ac.liv.jmzqml.model.mzqml.CvList.class.getName()).isCached(),
            getCfg().get(uk.ac.liv.jmzqml.model.mzqml.CvList.class.getName()).isIdMapped(),
            getCfg().get(uk.ac.liv.jmzqml.model.mzqml.CvList.class.getName()).getClazz(),
+           getCfg().get(uk.ac.liv.jmzqml.model.mzqml.CvList.class.getName()).getCvParamClass(),
+           getCfg().get(uk.ac.liv.jmzqml.model.mzqml.CvList.class.getName()).getUserParamClass(),
            getCfg().get(uk.ac.liv.jmzqml.model.mzqml.CvList.class.getName()).isAutoRefResolving(),
            getCfg().get(uk.ac.liv.jmzqml.model.mzqml.CvList.class.getName()).getRefResolverClass()),
     //
@@ -165,6 +191,8 @@ public enum MzQuantMLElement {
                getCfg().get(uk.ac.liv.jmzqml.model.mzqml.CvParamRef.class.getName()).isCached(),
                getCfg().get(uk.ac.liv.jmzqml.model.mzqml.CvParamRef.class.getName()).isIdMapped(),
                getCfg().get(uk.ac.liv.jmzqml.model.mzqml.CvParamRef.class.getName()).getClazz(),
+               getCfg().get(uk.ac.liv.jmzqml.model.mzqml.CvParamRef.class.getName()).getCvParamClass(),
+               getCfg().get(uk.ac.liv.jmzqml.model.mzqml.CvParamRef.class.getName()).getUserParamClass(),
                getCfg().get(uk.ac.liv.jmzqml.model.mzqml.CvParamRef.class.getName()).isAutoRefResolving(),
                getCfg().get(uk.ac.liv.jmzqml.model.mzqml.CvParamRef.class.getName()).getRefResolverClass()),
     //
@@ -174,6 +202,8 @@ public enum MzQuantMLElement {
             getCfg().get(uk.ac.liv.jmzqml.model.mzqml.CvParam.class.getName()).isCached(),
             getCfg().get(uk.ac.liv.jmzqml.model.mzqml.CvParam.class.getName()).isIdMapped(),
             getCfg().get(uk.ac.liv.jmzqml.model.mzqml.CvParam.class.getName()).getClazz(),
+            getCfg().get(uk.ac.liv.jmzqml.model.mzqml.CvParam.class.getName()).getCvParamClass(),
+            getCfg().get(uk.ac.liv.jmzqml.model.mzqml.CvParam.class.getName()).getUserParamClass(),
             getCfg().get(uk.ac.liv.jmzqml.model.mzqml.CvParam.class.getName()).isAutoRefResolving(),
             getCfg().get(uk.ac.liv.jmzqml.model.mzqml.CvParam.class.getName()).getRefResolverClass()),
     //
@@ -183,6 +213,8 @@ public enum MzQuantMLElement {
                         getCfg().get(uk.ac.liv.jmzqml.model.mzqml.DBIdentificationRef.class.getName()).isCached(),
                         getCfg().get(uk.ac.liv.jmzqml.model.mzqml.DBIdentificationRef.class.getName()).isIdMapped(),
                         getCfg().get(uk.ac.liv.jmzqml.model.mzqml.DBIdentificationRef.class.getName()).getClazz(),
+                        getCfg().get(uk.ac.liv.jmzqml.model.mzqml.DBIdentificationRef.class.getName()).getCvParamClass(),
+                        getCfg().get(uk.ac.liv.jmzqml.model.mzqml.DBIdentificationRef.class.getName()).getUserParamClass(),
                         getCfg().get(uk.ac.liv.jmzqml.model.mzqml.DBIdentificationRef.class.getName()).isAutoRefResolving(),
                         getCfg().get(uk.ac.liv.jmzqml.model.mzqml.DBIdentificationRef.class.getName()).getRefResolverClass()),
     //
@@ -192,6 +224,8 @@ public enum MzQuantMLElement {
                getCfg().get(uk.ac.liv.jmzqml.model.mzqml.DataMatrix.class.getName()).isCached(),
                getCfg().get(uk.ac.liv.jmzqml.model.mzqml.DataMatrix.class.getName()).isIdMapped(),
                getCfg().get(uk.ac.liv.jmzqml.model.mzqml.DataMatrix.class.getName()).getClazz(),
+               getCfg().get(uk.ac.liv.jmzqml.model.mzqml.DataMatrix.class.getName()).getCvParamClass(),
+               getCfg().get(uk.ac.liv.jmzqml.model.mzqml.DataMatrix.class.getName()).getUserParamClass(),
                getCfg().get(uk.ac.liv.jmzqml.model.mzqml.DataMatrix.class.getName()).isAutoRefResolving(),
                getCfg().get(uk.ac.liv.jmzqml.model.mzqml.DataMatrix.class.getName()).getRefResolverClass()),
     //
@@ -201,6 +235,8 @@ public enum MzQuantMLElement {
                        getCfg().get(uk.ac.liv.jmzqml.model.mzqml.DataProcessingList.class.getName()).isCached(),
                        getCfg().get(uk.ac.liv.jmzqml.model.mzqml.DataProcessingList.class.getName()).isIdMapped(),
                        getCfg().get(uk.ac.liv.jmzqml.model.mzqml.DataProcessingList.class.getName()).getClazz(),
+                       getCfg().get(uk.ac.liv.jmzqml.model.mzqml.DataProcessingList.class.getName()).getCvParamClass(),
+                       getCfg().get(uk.ac.liv.jmzqml.model.mzqml.DataProcessingList.class.getName()).getUserParamClass(),
                        getCfg().get(uk.ac.liv.jmzqml.model.mzqml.DataProcessingList.class.getName()).isAutoRefResolving(),
                        getCfg().get(uk.ac.liv.jmzqml.model.mzqml.DataProcessingList.class.getName()).getRefResolverClass()),
     //
@@ -210,6 +246,8 @@ public enum MzQuantMLElement {
                    getCfg().get(uk.ac.liv.jmzqml.model.mzqml.DataProcessing.class.getName()).isCached(),
                    getCfg().get(uk.ac.liv.jmzqml.model.mzqml.DataProcessing.class.getName()).isIdMapped(),
                    getCfg().get(uk.ac.liv.jmzqml.model.mzqml.DataProcessing.class.getName()).getClazz(),
+                   getCfg().get(uk.ac.liv.jmzqml.model.mzqml.DataProcessing.class.getName()).getCvParamClass(),
+                   getCfg().get(uk.ac.liv.jmzqml.model.mzqml.DataProcessing.class.getName()).getUserParamClass(),
                    getCfg().get(uk.ac.liv.jmzqml.model.mzqml.DataProcessing.class.getName()).isAutoRefResolving(),
                    getCfg().get(uk.ac.liv.jmzqml.model.mzqml.DataProcessing.class.getName()).getRefResolverClass()),
     //
@@ -219,6 +257,8 @@ public enum MzQuantMLElement {
                 getCfg().get(uk.ac.liv.jmzqml.model.mzqml.EvidenceRef.class.getName()).isCached(),
                 getCfg().get(uk.ac.liv.jmzqml.model.mzqml.EvidenceRef.class.getName()).isIdMapped(),
                 getCfg().get(uk.ac.liv.jmzqml.model.mzqml.EvidenceRef.class.getName()).getClazz(),
+                getCfg().get(uk.ac.liv.jmzqml.model.mzqml.EvidenceRef.class.getName()).getCvParamClass(),
+                getCfg().get(uk.ac.liv.jmzqml.model.mzqml.EvidenceRef.class.getName()).getUserParamClass(),
                 getCfg().get(uk.ac.liv.jmzqml.model.mzqml.EvidenceRef.class.getName()).isAutoRefResolving(),
                 getCfg().get(uk.ac.liv.jmzqml.model.mzqml.EvidenceRef.class.getName()).getRefResolverClass()),
     //
@@ -228,6 +268,8 @@ public enum MzQuantMLElement {
                  getCfg().get(uk.ac.liv.jmzqml.model.mzqml.ExternalData.class.getName()).isCached(),
                  getCfg().get(uk.ac.liv.jmzqml.model.mzqml.ExternalData.class.getName()).isIdMapped(),
                  getCfg().get(uk.ac.liv.jmzqml.model.mzqml.ExternalData.class.getName()).getClazz(),
+                 getCfg().get(uk.ac.liv.jmzqml.model.mzqml.ExternalData.class.getName()).getCvParamClass(),
+                 getCfg().get(uk.ac.liv.jmzqml.model.mzqml.ExternalData.class.getName()).getUserParamClass(),
                  getCfg().get(uk.ac.liv.jmzqml.model.mzqml.ExternalData.class.getName()).isAutoRefResolving(),
                  getCfg().get(uk.ac.liv.jmzqml.model.mzqml.ExternalData.class.getName()).getRefResolverClass()),
     //
@@ -237,6 +279,8 @@ public enum MzQuantMLElement {
                 getCfg().get(uk.ac.liv.jmzqml.model.mzqml.FeatureList.class.getName()).isCached(),
                 getCfg().get(uk.ac.liv.jmzqml.model.mzqml.FeatureList.class.getName()).isIdMapped(),
                 getCfg().get(uk.ac.liv.jmzqml.model.mzqml.FeatureList.class.getName()).getClazz(),
+                getCfg().get(uk.ac.liv.jmzqml.model.mzqml.FeatureList.class.getName()).getCvParamClass(),
+                getCfg().get(uk.ac.liv.jmzqml.model.mzqml.FeatureList.class.getName()).getUserParamClass(),
                 getCfg().get(uk.ac.liv.jmzqml.model.mzqml.FeatureList.class.getName()).isAutoRefResolving(),
                 getCfg().get(uk.ac.liv.jmzqml.model.mzqml.FeatureList.class.getName()).getRefResolverClass()),
     //
@@ -246,6 +290,8 @@ public enum MzQuantMLElement {
             getCfg().get(uk.ac.liv.jmzqml.model.mzqml.Feature.class.getName()).isCached(),
             getCfg().get(uk.ac.liv.jmzqml.model.mzqml.Feature.class.getName()).isIdMapped(),
             getCfg().get(uk.ac.liv.jmzqml.model.mzqml.Feature.class.getName()).getClazz(),
+            getCfg().get(uk.ac.liv.jmzqml.model.mzqml.Feature.class.getName()).getCvParamClass(),
+            getCfg().get(uk.ac.liv.jmzqml.model.mzqml.Feature.class.getName()).getUserParamClass(),
             getCfg().get(uk.ac.liv.jmzqml.model.mzqml.Feature.class.getName()).isAutoRefResolving(),
             getCfg().get(uk.ac.liv.jmzqml.model.mzqml.Feature.class.getName()).getRefResolverClass()),
     //
@@ -255,6 +301,8 @@ public enum MzQuantMLElement {
                getCfg().get(uk.ac.liv.jmzqml.model.mzqml.FileFormat.class.getName()).isCached(),
                getCfg().get(uk.ac.liv.jmzqml.model.mzqml.FileFormat.class.getName()).isIdMapped(),
                getCfg().get(uk.ac.liv.jmzqml.model.mzqml.FileFormat.class.getName()).getClazz(),
+               getCfg().get(uk.ac.liv.jmzqml.model.mzqml.FileFormat.class.getName()).getCvParamClass(),
+               getCfg().get(uk.ac.liv.jmzqml.model.mzqml.FileFormat.class.getName()).getUserParamClass(),
                getCfg().get(uk.ac.liv.jmzqml.model.mzqml.FileFormat.class.getName()).isAutoRefResolving(),
                getCfg().get(uk.ac.liv.jmzqml.model.mzqml.FileFormat.class.getName()).getRefResolverClass()),
     //
@@ -264,6 +312,8 @@ public enum MzQuantMLElement {
                      getCfg().get(uk.ac.liv.jmzqml.model.mzqml.GlobalQuantLayer.class.getName()).isCached(),
                      getCfg().get(uk.ac.liv.jmzqml.model.mzqml.GlobalQuantLayer.class.getName()).isIdMapped(),
                      getCfg().get(uk.ac.liv.jmzqml.model.mzqml.GlobalQuantLayer.class.getName()).getClazz(),
+                     getCfg().get(uk.ac.liv.jmzqml.model.mzqml.GlobalQuantLayer.class.getName()).getCvParamClass(),
+                     getCfg().get(uk.ac.liv.jmzqml.model.mzqml.GlobalQuantLayer.class.getName()).getUserParamClass(),
                      getCfg().get(uk.ac.liv.jmzqml.model.mzqml.GlobalQuantLayer.class.getName()).isAutoRefResolving(),
                      getCfg().get(uk.ac.liv.jmzqml.model.mzqml.GlobalQuantLayer.class.getName()).getRefResolverClass()),
     //
@@ -273,6 +323,8 @@ public enum MzQuantMLElement {
                  getCfg().get(uk.ac.liv.jmzqml.model.mzqml.Identifiable.class.getName()).isCached(),
                  getCfg().get(uk.ac.liv.jmzqml.model.mzqml.Identifiable.class.getName()).isIdMapped(),
                  getCfg().get(uk.ac.liv.jmzqml.model.mzqml.Identifiable.class.getName()).getClazz(),
+                 getCfg().get(uk.ac.liv.jmzqml.model.mzqml.Identifiable.class.getName()).getCvParamClass(),
+                 getCfg().get(uk.ac.liv.jmzqml.model.mzqml.Identifiable.class.getName()).getUserParamClass(),
                  getCfg().get(uk.ac.liv.jmzqml.model.mzqml.Identifiable.class.getName()).isAutoRefResolving(),
                  getCfg().get(uk.ac.liv.jmzqml.model.mzqml.Identifiable.class.getName()).getRefResolverClass()),
     //
@@ -282,6 +334,8 @@ public enum MzQuantMLElement {
                        getCfg().get(uk.ac.liv.jmzqml.model.mzqml.IdentificationFile.class.getName()).isCached(),
                        getCfg().get(uk.ac.liv.jmzqml.model.mzqml.IdentificationFile.class.getName()).isIdMapped(),
                        getCfg().get(uk.ac.liv.jmzqml.model.mzqml.IdentificationFile.class.getName()).getClazz(),
+                       getCfg().get(uk.ac.liv.jmzqml.model.mzqml.IdentificationFile.class.getName()).getCvParamClass(),
+                       getCfg().get(uk.ac.liv.jmzqml.model.mzqml.IdentificationFile.class.getName()).getUserParamClass(),
                        getCfg().get(uk.ac.liv.jmzqml.model.mzqml.IdentificationFile.class.getName()).isAutoRefResolving(),
                        getCfg().get(uk.ac.liv.jmzqml.model.mzqml.IdentificationFile.class.getName()).getRefResolverClass()),
     //
@@ -291,6 +345,8 @@ public enum MzQuantMLElement {
                         getCfg().get(uk.ac.liv.jmzqml.model.mzqml.IdentificationFiles.class.getName()).isCached(),
                         getCfg().get(uk.ac.liv.jmzqml.model.mzqml.IdentificationFiles.class.getName()).isIdMapped(),
                         getCfg().get(uk.ac.liv.jmzqml.model.mzqml.IdentificationFiles.class.getName()).getClazz(),
+                        getCfg().get(uk.ac.liv.jmzqml.model.mzqml.IdentificationFiles.class.getName()).getCvParamClass(),
+                        getCfg().get(uk.ac.liv.jmzqml.model.mzqml.IdentificationFiles.class.getName()).getUserParamClass(),
                         getCfg().get(uk.ac.liv.jmzqml.model.mzqml.IdentificationFiles.class.getName()).isAutoRefResolving(),
                         getCfg().get(uk.ac.liv.jmzqml.model.mzqml.IdentificationFiles.class.getName()).getRefResolverClass()),
     //
@@ -300,6 +356,8 @@ public enum MzQuantMLElement {
                       getCfg().get(uk.ac.liv.jmzqml.model.mzqml.IdentificationRef.class.getName()).isCached(),
                       getCfg().get(uk.ac.liv.jmzqml.model.mzqml.IdentificationRef.class.getName()).isIdMapped(),
                       getCfg().get(uk.ac.liv.jmzqml.model.mzqml.IdentificationRef.class.getName()).getClazz(),
+                      getCfg().get(uk.ac.liv.jmzqml.model.mzqml.IdentificationRef.class.getName()).getCvParamClass(),
+                      getCfg().get(uk.ac.liv.jmzqml.model.mzqml.IdentificationRef.class.getName()).getUserParamClass(),
                       getCfg().get(uk.ac.liv.jmzqml.model.mzqml.IdentificationRef.class.getName()).isAutoRefResolving(),
                       getCfg().get(uk.ac.liv.jmzqml.model.mzqml.IdentificationRef.class.getName()).getRefResolverClass()),
     //
@@ -309,6 +367,8 @@ public enum MzQuantMLElement {
                getCfg().get(uk.ac.liv.jmzqml.model.mzqml.InputFiles.class.getName()).isCached(),
                getCfg().get(uk.ac.liv.jmzqml.model.mzqml.InputFiles.class.getName()).isIdMapped(),
                getCfg().get(uk.ac.liv.jmzqml.model.mzqml.InputFiles.class.getName()).getClazz(),
+               getCfg().get(uk.ac.liv.jmzqml.model.mzqml.InputFiles.class.getName()).getCvParamClass(),
+               getCfg().get(uk.ac.liv.jmzqml.model.mzqml.InputFiles.class.getName()).getUserParamClass(),
                getCfg().get(uk.ac.liv.jmzqml.model.mzqml.InputFiles.class.getName()).isAutoRefResolving(),
                getCfg().get(uk.ac.liv.jmzqml.model.mzqml.InputFiles.class.getName()).getRefResolverClass()),
     //
@@ -318,6 +378,8 @@ public enum MzQuantMLElement {
           getCfg().get(uk.ac.liv.jmzqml.model.mzqml.Label.class.getName()).isCached(),
           getCfg().get(uk.ac.liv.jmzqml.model.mzqml.Label.class.getName()).isIdMapped(),
           getCfg().get(uk.ac.liv.jmzqml.model.mzqml.Label.class.getName()).getClazz(),
+          getCfg().get(uk.ac.liv.jmzqml.model.mzqml.Label.class.getName()).getCvParamClass(),
+          getCfg().get(uk.ac.liv.jmzqml.model.mzqml.Label.class.getName()).getUserParamClass(),
           getCfg().get(uk.ac.liv.jmzqml.model.mzqml.Label.class.getName()).isAutoRefResolving(),
           getCfg().get(uk.ac.liv.jmzqml.model.mzqml.Label.class.getName()).getRefResolverClass()),
     //
@@ -327,6 +389,8 @@ public enum MzQuantMLElement {
                 getCfg().get(uk.ac.liv.jmzqml.model.mzqml.MethodFiles.class.getName()).isCached(),
                 getCfg().get(uk.ac.liv.jmzqml.model.mzqml.MethodFiles.class.getName()).isIdMapped(),
                 getCfg().get(uk.ac.liv.jmzqml.model.mzqml.MethodFiles.class.getName()).getClazz(),
+                getCfg().get(uk.ac.liv.jmzqml.model.mzqml.MethodFiles.class.getName()).getCvParamClass(),
+                getCfg().get(uk.ac.liv.jmzqml.model.mzqml.MethodFiles.class.getName()).getUserParamClass(),
                 getCfg().get(uk.ac.liv.jmzqml.model.mzqml.MethodFiles.class.getName()).isAutoRefResolving(),
                 getCfg().get(uk.ac.liv.jmzqml.model.mzqml.MethodFiles.class.getName()).getRefResolverClass()),
     //
@@ -336,6 +400,8 @@ public enum MzQuantMLElement {
                getCfg().get(uk.ac.liv.jmzqml.model.mzqml.MethodFile.class.getName()).isCached(),
                getCfg().get(uk.ac.liv.jmzqml.model.mzqml.MethodFile.class.getName()).isIdMapped(),
                getCfg().get(uk.ac.liv.jmzqml.model.mzqml.MethodFile.class.getName()).getClazz(),
+               getCfg().get(uk.ac.liv.jmzqml.model.mzqml.MethodFile.class.getName()).getCvParamClass(),
+               getCfg().get(uk.ac.liv.jmzqml.model.mzqml.MethodFile.class.getName()).getUserParamClass(),
                getCfg().get(uk.ac.liv.jmzqml.model.mzqml.MethodFile.class.getName()).isAutoRefResolving(),
                getCfg().get(uk.ac.liv.jmzqml.model.mzqml.MethodFile.class.getName()).getRefResolverClass()),
     //
@@ -345,6 +411,8 @@ public enum MzQuantMLElement {
              getCfg().get(uk.ac.liv.jmzqml.model.mzqml.ModParam.class.getName()).isCached(),
              getCfg().get(uk.ac.liv.jmzqml.model.mzqml.ModParam.class.getName()).isIdMapped(),
              getCfg().get(uk.ac.liv.jmzqml.model.mzqml.ModParam.class.getName()).getClazz(),
+             getCfg().get(uk.ac.liv.jmzqml.model.mzqml.ModParam.class.getName()).getCvParamClass(),
+             getCfg().get(uk.ac.liv.jmzqml.model.mzqml.ModParam.class.getName()).getUserParamClass(),
              getCfg().get(uk.ac.liv.jmzqml.model.mzqml.ModParam.class.getName()).isAutoRefResolving(),
              getCfg().get(uk.ac.liv.jmzqml.model.mzqml.ModParam.class.getName()).getRefResolverClass()),
     //
@@ -354,6 +422,8 @@ public enum MzQuantMLElement {
                  getCfg().get(uk.ac.liv.jmzqml.model.mzqml.Modification.class.getName()).isCached(),
                  getCfg().get(uk.ac.liv.jmzqml.model.mzqml.Modification.class.getName()).isIdMapped(),
                  getCfg().get(uk.ac.liv.jmzqml.model.mzqml.Modification.class.getName()).getClazz(),
+                 getCfg().get(uk.ac.liv.jmzqml.model.mzqml.Modification.class.getName()).getCvParamClass(),
+                 getCfg().get(uk.ac.liv.jmzqml.model.mzqml.Modification.class.getName()).getUserParamClass(),
                  getCfg().get(uk.ac.liv.jmzqml.model.mzqml.Modification.class.getName()).isAutoRefResolving(),
                  getCfg().get(uk.ac.liv.jmzqml.model.mzqml.Modification.class.getName()).getRefResolverClass()),
     //
@@ -363,6 +433,8 @@ public enum MzQuantMLElement {
               getCfg().get(uk.ac.liv.jmzqml.model.mzqml.MzQuantML.class.getName()).isCached(),
               getCfg().get(uk.ac.liv.jmzqml.model.mzqml.MzQuantML.class.getName()).isIdMapped(),
               getCfg().get(uk.ac.liv.jmzqml.model.mzqml.MzQuantML.class.getName()).getClazz(),
+              getCfg().get(uk.ac.liv.jmzqml.model.mzqml.MzQuantML.class.getName()).getCvParamClass(),
+              getCfg().get(uk.ac.liv.jmzqml.model.mzqml.MzQuantML.class.getName()).getUserParamClass(),
               getCfg().get(uk.ac.liv.jmzqml.model.mzqml.MzQuantML.class.getName()).isAutoRefResolving(),
               getCfg().get(uk.ac.liv.jmzqml.model.mzqml.MzQuantML.class.getName()).getRefResolverClass()),
     //
@@ -372,6 +444,8 @@ public enum MzQuantMLElement {
                  getCfg().get(uk.ac.liv.jmzqml.model.mzqml.Organization.class.getName()).isCached(),
                  getCfg().get(uk.ac.liv.jmzqml.model.mzqml.Organization.class.getName()).isIdMapped(),
                  getCfg().get(uk.ac.liv.jmzqml.model.mzqml.Organization.class.getName()).getClazz(),
+                 getCfg().get(uk.ac.liv.jmzqml.model.mzqml.Organization.class.getName()).getCvParamClass(),
+                 getCfg().get(uk.ac.liv.jmzqml.model.mzqml.Organization.class.getName()).getUserParamClass(),
                  getCfg().get(uk.ac.liv.jmzqml.model.mzqml.Organization.class.getName()).isAutoRefResolving(),
                  getCfg().get(uk.ac.liv.jmzqml.model.mzqml.Organization.class.getName()).getRefResolverClass()),
     //
@@ -381,6 +455,8 @@ public enum MzQuantMLElement {
               getCfg().get(uk.ac.liv.jmzqml.model.mzqml.ParamList.class.getName()).isCached(),
               getCfg().get(uk.ac.liv.jmzqml.model.mzqml.ParamList.class.getName()).isIdMapped(),
               getCfg().get(uk.ac.liv.jmzqml.model.mzqml.ParamList.class.getName()).getClazz(),
+              getCfg().get(uk.ac.liv.jmzqml.model.mzqml.ParamList.class.getName()).getCvParamClass(),
+              getCfg().get(uk.ac.liv.jmzqml.model.mzqml.ParamList.class.getName()).getUserParamClass(),
               getCfg().get(uk.ac.liv.jmzqml.model.mzqml.ParamList.class.getName()).isAutoRefResolving(),
               getCfg().get(uk.ac.liv.jmzqml.model.mzqml.ParamList.class.getName()).getRefResolverClass()),
     //
@@ -390,6 +466,8 @@ public enum MzQuantMLElement {
           getCfg().get(uk.ac.liv.jmzqml.model.mzqml.Param.class.getName()).isCached(),
           getCfg().get(uk.ac.liv.jmzqml.model.mzqml.Param.class.getName()).isIdMapped(),
           getCfg().get(uk.ac.liv.jmzqml.model.mzqml.Param.class.getName()).getClazz(),
+          getCfg().get(uk.ac.liv.jmzqml.model.mzqml.Param.class.getName()).getCvParamClass(),
+          getCfg().get(uk.ac.liv.jmzqml.model.mzqml.Param.class.getName()).getUserParamClass(),
           getCfg().get(uk.ac.liv.jmzqml.model.mzqml.Param.class.getName()).isAutoRefResolving(),
           getCfg().get(uk.ac.liv.jmzqml.model.mzqml.Param.class.getName()).getRefResolverClass()),
     //
@@ -399,6 +477,8 @@ public enum MzQuantMLElement {
                        getCfg().get(uk.ac.liv.jmzqml.model.mzqml.ParentOrganization.class.getName()).isCached(),
                        getCfg().get(uk.ac.liv.jmzqml.model.mzqml.ParentOrganization.class.getName()).isIdMapped(),
                        getCfg().get(uk.ac.liv.jmzqml.model.mzqml.ParentOrganization.class.getName()).getClazz(),
+                       getCfg().get(uk.ac.liv.jmzqml.model.mzqml.ParentOrganization.class.getName()).getCvParamClass(),
+                       getCfg().get(uk.ac.liv.jmzqml.model.mzqml.ParentOrganization.class.getName()).getUserParamClass(),
                        getCfg().get(uk.ac.liv.jmzqml.model.mzqml.ParentOrganization.class.getName()).isAutoRefResolving(),
                        getCfg().get(uk.ac.liv.jmzqml.model.mzqml.ParentOrganization.class.getName()).getRefResolverClass()),
     //
@@ -408,6 +488,8 @@ public enum MzQuantMLElement {
                          getCfg().get(uk.ac.liv.jmzqml.model.mzqml.PeptideConsensusList.class.getName()).isCached(),
                          getCfg().get(uk.ac.liv.jmzqml.model.mzqml.PeptideConsensusList.class.getName()).isIdMapped(),
                          getCfg().get(uk.ac.liv.jmzqml.model.mzqml.PeptideConsensusList.class.getName()).getClazz(),
+                         getCfg().get(uk.ac.liv.jmzqml.model.mzqml.PeptideConsensusList.class.getName()).getCvParamClass(),
+                         getCfg().get(uk.ac.liv.jmzqml.model.mzqml.PeptideConsensusList.class.getName()).getUserParamClass(),
                          getCfg().get(uk.ac.liv.jmzqml.model.mzqml.PeptideConsensusList.class.getName()).isAutoRefResolving(),
                          getCfg().get(uk.ac.liv.jmzqml.model.mzqml.PeptideConsensusList.class.getName()).getRefResolverClass()),
     //
@@ -417,6 +499,8 @@ public enum MzQuantMLElement {
                      getCfg().get(uk.ac.liv.jmzqml.model.mzqml.PeptideConsensus.class.getName()).isCached(),
                      getCfg().get(uk.ac.liv.jmzqml.model.mzqml.PeptideConsensus.class.getName()).isIdMapped(),
                      getCfg().get(uk.ac.liv.jmzqml.model.mzqml.PeptideConsensus.class.getName()).getClazz(),
+                     getCfg().get(uk.ac.liv.jmzqml.model.mzqml.PeptideConsensus.class.getName()).getCvParamClass(),
+                     getCfg().get(uk.ac.liv.jmzqml.model.mzqml.PeptideConsensus.class.getName()).getUserParamClass(),
                      getCfg().get(uk.ac.liv.jmzqml.model.mzqml.PeptideConsensus.class.getName()).isAutoRefResolving(),
                      getCfg().get(uk.ac.liv.jmzqml.model.mzqml.PeptideConsensus.class.getName()).getRefResolverClass()),
     //
@@ -426,6 +510,8 @@ public enum MzQuantMLElement {
            getCfg().get(uk.ac.liv.jmzqml.model.mzqml.Person.class.getName()).isCached(),
            getCfg().get(uk.ac.liv.jmzqml.model.mzqml.Person.class.getName()).isIdMapped(),
            getCfg().get(uk.ac.liv.jmzqml.model.mzqml.Person.class.getName()).getClazz(),
+           getCfg().get(uk.ac.liv.jmzqml.model.mzqml.Person.class.getName()).getCvParamClass(),
+           getCfg().get(uk.ac.liv.jmzqml.model.mzqml.Person.class.getName()).getUserParamClass(),
            getCfg().get(uk.ac.liv.jmzqml.model.mzqml.Person.class.getName()).isAutoRefResolving(),
            getCfg().get(uk.ac.liv.jmzqml.model.mzqml.Person.class.getName()).getRefResolverClass()),
     //
@@ -435,6 +521,8 @@ public enum MzQuantMLElement {
                      getCfg().get(uk.ac.liv.jmzqml.model.mzqml.ProcessingMethod.class.getName()).isCached(),
                      getCfg().get(uk.ac.liv.jmzqml.model.mzqml.ProcessingMethod.class.getName()).isIdMapped(),
                      getCfg().get(uk.ac.liv.jmzqml.model.mzqml.ProcessingMethod.class.getName()).getClazz(),
+                     getCfg().get(uk.ac.liv.jmzqml.model.mzqml.ProcessingMethod.class.getName()).getCvParamClass(),
+                     getCfg().get(uk.ac.liv.jmzqml.model.mzqml.ProcessingMethod.class.getName()).getUserParamClass(),
                      getCfg().get(uk.ac.liv.jmzqml.model.mzqml.ProcessingMethod.class.getName()).isAutoRefResolving(),
                      getCfg().get(uk.ac.liv.jmzqml.model.mzqml.ProcessingMethod.class.getName()).getRefResolverClass()),
     //
@@ -444,6 +532,8 @@ public enum MzQuantMLElement {
                      getCfg().get(uk.ac.liv.jmzqml.model.mzqml.ProteinGroupList.class.getName()).isCached(),
                      getCfg().get(uk.ac.liv.jmzqml.model.mzqml.ProteinGroupList.class.getName()).isIdMapped(),
                      getCfg().get(uk.ac.liv.jmzqml.model.mzqml.ProteinGroupList.class.getName()).getClazz(),
+                     getCfg().get(uk.ac.liv.jmzqml.model.mzqml.ProteinGroupList.class.getName()).getCvParamClass(),
+                     getCfg().get(uk.ac.liv.jmzqml.model.mzqml.ProteinGroupList.class.getName()).getUserParamClass(),
                      getCfg().get(uk.ac.liv.jmzqml.model.mzqml.ProteinGroupList.class.getName()).isAutoRefResolving(),
                      getCfg().get(uk.ac.liv.jmzqml.model.mzqml.ProteinGroupList.class.getName()).getRefResolverClass()),
     //
@@ -453,6 +543,8 @@ public enum MzQuantMLElement {
                  getCfg().get(uk.ac.liv.jmzqml.model.mzqml.ProteinGroup.class.getName()).isCached(),
                  getCfg().get(uk.ac.liv.jmzqml.model.mzqml.ProteinGroup.class.getName()).isIdMapped(),
                  getCfg().get(uk.ac.liv.jmzqml.model.mzqml.ProteinGroup.class.getName()).getClazz(),
+                 getCfg().get(uk.ac.liv.jmzqml.model.mzqml.ProteinGroup.class.getName()).getCvParamClass(),
+                 getCfg().get(uk.ac.liv.jmzqml.model.mzqml.ProteinGroup.class.getName()).getUserParamClass(),
                  getCfg().get(uk.ac.liv.jmzqml.model.mzqml.ProteinGroup.class.getName()).isAutoRefResolving(),
                  getCfg().get(uk.ac.liv.jmzqml.model.mzqml.ProteinGroup.class.getName()).getRefResolverClass()),
     //
@@ -462,6 +554,8 @@ public enum MzQuantMLElement {
                 getCfg().get(uk.ac.liv.jmzqml.model.mzqml.ProteinList.class.getName()).isCached(),
                 getCfg().get(uk.ac.liv.jmzqml.model.mzqml.ProteinList.class.getName()).isIdMapped(),
                 getCfg().get(uk.ac.liv.jmzqml.model.mzqml.ProteinList.class.getName()).getClazz(),
+                getCfg().get(uk.ac.liv.jmzqml.model.mzqml.ProteinList.class.getName()).getCvParamClass(),
+                getCfg().get(uk.ac.liv.jmzqml.model.mzqml.ProteinList.class.getName()).getUserParamClass(),
                 getCfg().get(uk.ac.liv.jmzqml.model.mzqml.ProteinList.class.getName()).isAutoRefResolving(),
                 getCfg().get(uk.ac.liv.jmzqml.model.mzqml.ProteinList.class.getName()).getRefResolverClass()),
     //Todo
@@ -471,6 +565,8 @@ public enum MzQuantMLElement {
                getCfg().get(uk.ac.liv.jmzqml.model.mzqml.ProteinRef.class.getName()).isCached(),
                getCfg().get(uk.ac.liv.jmzqml.model.mzqml.ProteinRef.class.getName()).isIdMapped(),
                getCfg().get(uk.ac.liv.jmzqml.model.mzqml.ProteinRef.class.getName()).getClazz(),
+               getCfg().get(uk.ac.liv.jmzqml.model.mzqml.ProteinRef.class.getName()).getCvParamClass(),
+               getCfg().get(uk.ac.liv.jmzqml.model.mzqml.ProteinRef.class.getName()).getUserParamClass(),
                getCfg().get(uk.ac.liv.jmzqml.model.mzqml.ProteinRef.class.getName()).isAutoRefResolving(),
                getCfg().get(uk.ac.liv.jmzqml.model.mzqml.ProteinRef.class.getName()).getRefResolverClass()),
     //Todo
@@ -480,6 +576,8 @@ public enum MzQuantMLElement {
             getCfg().get(uk.ac.liv.jmzqml.model.mzqml.Protein.class.getName()).isCached(),
             getCfg().get(uk.ac.liv.jmzqml.model.mzqml.Protein.class.getName()).isIdMapped(),
             getCfg().get(uk.ac.liv.jmzqml.model.mzqml.Protein.class.getName()).getClazz(),
+            getCfg().get(uk.ac.liv.jmzqml.model.mzqml.Protein.class.getName()).getCvParamClass(),
+            getCfg().get(uk.ac.liv.jmzqml.model.mzqml.Protein.class.getName()).getUserParamClass(),
             getCfg().get(uk.ac.liv.jmzqml.model.mzqml.Protein.class.getName()).isAutoRefResolving(),
             getCfg().get(uk.ac.liv.jmzqml.model.mzqml.Protein.class.getName()).getRefResolverClass()),
     //
@@ -489,6 +587,8 @@ public enum MzQuantMLElement {
              getCfg().get(uk.ac.liv.jmzqml.model.mzqml.Provider.class.getName()).isCached(),
              getCfg().get(uk.ac.liv.jmzqml.model.mzqml.Provider.class.getName()).isIdMapped(),
              getCfg().get(uk.ac.liv.jmzqml.model.mzqml.Provider.class.getName()).getClazz(),
+             getCfg().get(uk.ac.liv.jmzqml.model.mzqml.Provider.class.getName()).getCvParamClass(),
+             getCfg().get(uk.ac.liv.jmzqml.model.mzqml.Provider.class.getName()).getUserParamClass(),
              getCfg().get(uk.ac.liv.jmzqml.model.mzqml.Provider.class.getName()).isAutoRefResolving(),
              getCfg().get(uk.ac.liv.jmzqml.model.mzqml.Provider.class.getName()).getRefResolverClass()),
     //
@@ -498,6 +598,8 @@ public enum MzQuantMLElement {
                getCfg().get(uk.ac.liv.jmzqml.model.mzqml.QuantLayer.class.getName()).isCached(),
                getCfg().get(uk.ac.liv.jmzqml.model.mzqml.QuantLayer.class.getName()).isIdMapped(),
                getCfg().get(uk.ac.liv.jmzqml.model.mzqml.QuantLayer.class.getName()).getClazz(),
+               getCfg().get(uk.ac.liv.jmzqml.model.mzqml.QuantLayer.class.getName()).getCvParamClass(),
+               getCfg().get(uk.ac.liv.jmzqml.model.mzqml.QuantLayer.class.getName()).getUserParamClass(),
                getCfg().get(uk.ac.liv.jmzqml.model.mzqml.QuantLayer.class.getName()).isAutoRefResolving(),
                getCfg().get(uk.ac.liv.jmzqml.model.mzqml.QuantLayer.class.getName()).getRefResolverClass()),
     //
@@ -507,6 +609,8 @@ public enum MzQuantMLElement {
               getCfg().get(uk.ac.liv.jmzqml.model.mzqml.RatioList.class.getName()).isCached(),
               getCfg().get(uk.ac.liv.jmzqml.model.mzqml.RatioList.class.getName()).isIdMapped(),
               getCfg().get(uk.ac.liv.jmzqml.model.mzqml.RatioList.class.getName()).getClazz(),
+              getCfg().get(uk.ac.liv.jmzqml.model.mzqml.RatioList.class.getName()).getCvParamClass(),
+              getCfg().get(uk.ac.liv.jmzqml.model.mzqml.RatioList.class.getName()).getUserParamClass(),
               getCfg().get(uk.ac.liv.jmzqml.model.mzqml.RatioList.class.getName()).isAutoRefResolving(),
               getCfg().get(uk.ac.liv.jmzqml.model.mzqml.RatioList.class.getName()).getRefResolverClass()),
     //
@@ -516,6 +620,8 @@ public enum MzQuantMLElement {
                     getCfg().get(uk.ac.liv.jmzqml.model.mzqml.RatioQuantLayer.class.getName()).isCached(),
                     getCfg().get(uk.ac.liv.jmzqml.model.mzqml.RatioQuantLayer.class.getName()).isIdMapped(),
                     getCfg().get(uk.ac.liv.jmzqml.model.mzqml.RatioQuantLayer.class.getName()).getClazz(),
+                    getCfg().get(uk.ac.liv.jmzqml.model.mzqml.RatioQuantLayer.class.getName()).getCvParamClass(),
+                    getCfg().get(uk.ac.liv.jmzqml.model.mzqml.RatioQuantLayer.class.getName()).getUserParamClass(),
                     getCfg().get(uk.ac.liv.jmzqml.model.mzqml.RatioQuantLayer.class.getName()).isAutoRefResolving(),
                     getCfg().get(uk.ac.liv.jmzqml.model.mzqml.RatioQuantLayer.class.getName()).getRefResolverClass()),
     //
@@ -525,6 +631,8 @@ public enum MzQuantMLElement {
           getCfg().get(uk.ac.liv.jmzqml.model.mzqml.Ratio.class.getName()).isCached(),
           getCfg().get(uk.ac.liv.jmzqml.model.mzqml.Ratio.class.getName()).isIdMapped(),
           getCfg().get(uk.ac.liv.jmzqml.model.mzqml.Ratio.class.getName()).getClazz(),
+          getCfg().get(uk.ac.liv.jmzqml.model.mzqml.Ratio.class.getName()).getCvParamClass(),
+          getCfg().get(uk.ac.liv.jmzqml.model.mzqml.Ratio.class.getName()).getUserParamClass(),
           getCfg().get(uk.ac.liv.jmzqml.model.mzqml.Ratio.class.getName()).isAutoRefResolving(),
           getCfg().get(uk.ac.liv.jmzqml.model.mzqml.Ratio.class.getName()).getRefResolverClass()),
     //
@@ -534,6 +642,8 @@ public enum MzQuantMLElement {
             getCfg().get(uk.ac.liv.jmzqml.model.mzqml.RawFile.class.getName()).isCached(),
             getCfg().get(uk.ac.liv.jmzqml.model.mzqml.RawFile.class.getName()).isIdMapped(),
             getCfg().get(uk.ac.liv.jmzqml.model.mzqml.RawFile.class.getName()).getClazz(),
+            getCfg().get(uk.ac.liv.jmzqml.model.mzqml.RawFile.class.getName()).getCvParamClass(),
+            getCfg().get(uk.ac.liv.jmzqml.model.mzqml.RawFile.class.getName()).getUserParamClass(),
             getCfg().get(uk.ac.liv.jmzqml.model.mzqml.RawFile.class.getName()).isAutoRefResolving(),
             getCfg().get(uk.ac.liv.jmzqml.model.mzqml.RawFile.class.getName()).getRefResolverClass()),
     //
@@ -543,6 +653,8 @@ public enum MzQuantMLElement {
                   getCfg().get(uk.ac.liv.jmzqml.model.mzqml.RawFilesGroup.class.getName()).isCached(),
                   getCfg().get(uk.ac.liv.jmzqml.model.mzqml.RawFilesGroup.class.getName()).isIdMapped(),
                   getCfg().get(uk.ac.liv.jmzqml.model.mzqml.RawFilesGroup.class.getName()).getClazz(),
+                  getCfg().get(uk.ac.liv.jmzqml.model.mzqml.RawFilesGroup.class.getName()).getCvParamClass(),
+                  getCfg().get(uk.ac.liv.jmzqml.model.mzqml.RawFilesGroup.class.getName()).getUserParamClass(),
                   getCfg().get(uk.ac.liv.jmzqml.model.mzqml.RawFilesGroup.class.getName()).isAutoRefResolving(),
                   getCfg().get(uk.ac.liv.jmzqml.model.mzqml.RawFilesGroup.class.getName()).getRefResolverClass()),
     //
@@ -552,6 +664,8 @@ public enum MzQuantMLElement {
          getCfg().get(uk.ac.liv.jmzqml.model.mzqml.Role.class.getName()).isCached(),
          getCfg().get(uk.ac.liv.jmzqml.model.mzqml.Role.class.getName()).isIdMapped(),
          getCfg().get(uk.ac.liv.jmzqml.model.mzqml.Role.class.getName()).getClazz(),
+         getCfg().get(uk.ac.liv.jmzqml.model.mzqml.Role.class.getName()).getCvParamClass(),
+         getCfg().get(uk.ac.liv.jmzqml.model.mzqml.Role.class.getName()).getUserParamClass(),
          getCfg().get(uk.ac.liv.jmzqml.model.mzqml.Role.class.getName()).isAutoRefResolving(),
          getCfg().get(uk.ac.liv.jmzqml.model.mzqml.Role.class.getName()).getRefResolverClass()),
     //
@@ -561,6 +675,8 @@ public enum MzQuantMLElement {
         getCfg().get(uk.ac.liv.jmzqml.model.mzqml.Row.class.getName()).isCached(),
         getCfg().get(uk.ac.liv.jmzqml.model.mzqml.Row.class.getName()).isIdMapped(),
         getCfg().get(uk.ac.liv.jmzqml.model.mzqml.Row.class.getName()).getClazz(),
+        getCfg().get(uk.ac.liv.jmzqml.model.mzqml.Row.class.getName()).getCvParamClass(),
+        getCfg().get(uk.ac.liv.jmzqml.model.mzqml.Row.class.getName()).getUserParamClass(),
         getCfg().get(uk.ac.liv.jmzqml.model.mzqml.Row.class.getName()).isAutoRefResolving(),
         getCfg().get(uk.ac.liv.jmzqml.model.mzqml.Row.class.getName()).getRefResolverClass()),
     //
@@ -570,6 +686,8 @@ public enum MzQuantMLElement {
                    getCfg().get(uk.ac.liv.jmzqml.model.mzqml.SearchDatabase.class.getName()).isCached(),
                    getCfg().get(uk.ac.liv.jmzqml.model.mzqml.SearchDatabase.class.getName()).isIdMapped(),
                    getCfg().get(uk.ac.liv.jmzqml.model.mzqml.SearchDatabase.class.getName()).getClazz(),
+                   getCfg().get(uk.ac.liv.jmzqml.model.mzqml.SearchDatabase.class.getName()).getCvParamClass(),
+                   getCfg().get(uk.ac.liv.jmzqml.model.mzqml.SearchDatabase.class.getName()).getUserParamClass(),
                    getCfg().get(uk.ac.liv.jmzqml.model.mzqml.SearchDatabase.class.getName()).isAutoRefResolving(),
                    getCfg().get(uk.ac.liv.jmzqml.model.mzqml.SearchDatabase.class.getName()).getRefResolverClass()),
     //
@@ -579,6 +697,8 @@ public enum MzQuantMLElement {
                       getCfg().get(uk.ac.liv.jmzqml.model.mzqml.SmallMoleculeList.class.getName()).isCached(),
                       getCfg().get(uk.ac.liv.jmzqml.model.mzqml.SmallMoleculeList.class.getName()).isIdMapped(),
                       getCfg().get(uk.ac.liv.jmzqml.model.mzqml.SmallMoleculeList.class.getName()).getClazz(),
+                      getCfg().get(uk.ac.liv.jmzqml.model.mzqml.SmallMoleculeList.class.getName()).getCvParamClass(),
+                      getCfg().get(uk.ac.liv.jmzqml.model.mzqml.SmallMoleculeList.class.getName()).getUserParamClass(),
                       getCfg().get(uk.ac.liv.jmzqml.model.mzqml.SmallMoleculeList.class.getName()).isAutoRefResolving(),
                       getCfg().get(uk.ac.liv.jmzqml.model.mzqml.SmallMoleculeList.class.getName()).getRefResolverClass()),
     //
@@ -588,6 +708,8 @@ public enum MzQuantMLElement {
                   getCfg().get(uk.ac.liv.jmzqml.model.mzqml.SmallMolecule.class.getName()).isCached(),
                   getCfg().get(uk.ac.liv.jmzqml.model.mzqml.SmallMolecule.class.getName()).isIdMapped(),
                   getCfg().get(uk.ac.liv.jmzqml.model.mzqml.SmallMolecule.class.getName()).getClazz(),
+                  getCfg().get(uk.ac.liv.jmzqml.model.mzqml.SmallMolecule.class.getName()).getCvParamClass(),
+                  getCfg().get(uk.ac.liv.jmzqml.model.mzqml.SmallMolecule.class.getName()).getUserParamClass(),
                   getCfg().get(uk.ac.liv.jmzqml.model.mzqml.SmallMolecule.class.getName()).isAutoRefResolving(),
                   getCfg().get(uk.ac.liv.jmzqml.model.mzqml.SmallMolecule.class.getName()).getRefResolverClass()),
     //
@@ -597,6 +719,8 @@ public enum MzQuantMLElement {
                          getCfg().get(uk.ac.liv.jmzqml.model.mzqml.SmallMolModification.class.getName()).isCached(),
                          getCfg().get(uk.ac.liv.jmzqml.model.mzqml.SmallMolModification.class.getName()).isIdMapped(),
                          getCfg().get(uk.ac.liv.jmzqml.model.mzqml.SmallMolModification.class.getName()).getClazz(),
+                         getCfg().get(uk.ac.liv.jmzqml.model.mzqml.SmallMolModification.class.getName()).getCvParamClass(),
+                         getCfg().get(uk.ac.liv.jmzqml.model.mzqml.SmallMolModification.class.getName()).getUserParamClass(),
                          getCfg().get(uk.ac.liv.jmzqml.model.mzqml.SmallMolModification.class.getName()).isAutoRefResolving(),
                          getCfg().get(uk.ac.liv.jmzqml.model.mzqml.SmallMolModification.class.getName()).getRefResolverClass()),
     //
@@ -606,6 +730,8 @@ public enum MzQuantMLElement {
                  getCfg().get(uk.ac.liv.jmzqml.model.mzqml.SoftwareList.class.getName()).isCached(),
                  getCfg().get(uk.ac.liv.jmzqml.model.mzqml.SoftwareList.class.getName()).isIdMapped(),
                  getCfg().get(uk.ac.liv.jmzqml.model.mzqml.SoftwareList.class.getName()).getClazz(),
+                 getCfg().get(uk.ac.liv.jmzqml.model.mzqml.SoftwareList.class.getName()).getCvParamClass(),
+                 getCfg().get(uk.ac.liv.jmzqml.model.mzqml.SoftwareList.class.getName()).getUserParamClass(),
                  getCfg().get(uk.ac.liv.jmzqml.model.mzqml.SoftwareList.class.getName()).isAutoRefResolving(),
                  getCfg().get(uk.ac.liv.jmzqml.model.mzqml.SoftwareList.class.getName()).getRefResolverClass()),
     //
@@ -615,6 +741,8 @@ public enum MzQuantMLElement {
              getCfg().get(uk.ac.liv.jmzqml.model.mzqml.Software.class.getName()).isCached(),
              getCfg().get(uk.ac.liv.jmzqml.model.mzqml.Software.class.getName()).isIdMapped(),
              getCfg().get(uk.ac.liv.jmzqml.model.mzqml.Software.class.getName()).getClazz(),
+             getCfg().get(uk.ac.liv.jmzqml.model.mzqml.Software.class.getName()).getCvParamClass(),
+             getCfg().get(uk.ac.liv.jmzqml.model.mzqml.Software.class.getName()).getUserParamClass(),
              getCfg().get(uk.ac.liv.jmzqml.model.mzqml.Software.class.getName()).isAutoRefResolving(),
              getCfg().get(uk.ac.liv.jmzqml.model.mzqml.Software.class.getName()).getRefResolverClass()),
     //
@@ -624,6 +752,8 @@ public enum MzQuantMLElement {
                getCfg().get(uk.ac.liv.jmzqml.model.mzqml.SourceFile.class.getName()).isCached(),
                getCfg().get(uk.ac.liv.jmzqml.model.mzqml.SourceFile.class.getName()).isIdMapped(),
                getCfg().get(uk.ac.liv.jmzqml.model.mzqml.SourceFile.class.getName()).getClazz(),
+               getCfg().get(uk.ac.liv.jmzqml.model.mzqml.SourceFile.class.getName()).getCvParamClass(),
+               getCfg().get(uk.ac.liv.jmzqml.model.mzqml.SourceFile.class.getName()).getUserParamClass(),
                getCfg().get(uk.ac.liv.jmzqml.model.mzqml.SourceFile.class.getName()).isAutoRefResolving(),
                getCfg().get(uk.ac.liv.jmzqml.model.mzqml.SourceFile.class.getName()).getRefResolverClass()),
     //
@@ -633,6 +763,8 @@ public enum MzQuantMLElement {
                       getCfg().get(uk.ac.liv.jmzqml.model.mzqml.StudyVariableList.class.getName()).isCached(),
                       getCfg().get(uk.ac.liv.jmzqml.model.mzqml.StudyVariableList.class.getName()).isIdMapped(),
                       getCfg().get(uk.ac.liv.jmzqml.model.mzqml.StudyVariableList.class.getName()).getClazz(),
+                      getCfg().get(uk.ac.liv.jmzqml.model.mzqml.StudyVariableList.class.getName()).getCvParamClass(),
+                      getCfg().get(uk.ac.liv.jmzqml.model.mzqml.StudyVariableList.class.getName()).getUserParamClass(),
                       getCfg().get(uk.ac.liv.jmzqml.model.mzqml.StudyVariableList.class.getName()).isAutoRefResolving(),
                       getCfg().get(uk.ac.liv.jmzqml.model.mzqml.StudyVariableList.class.getName()).getRefResolverClass()),
     //
@@ -642,6 +774,8 @@ public enum MzQuantMLElement {
                   getCfg().get(uk.ac.liv.jmzqml.model.mzqml.StudyVariable.class.getName()).isCached(),
                   getCfg().get(uk.ac.liv.jmzqml.model.mzqml.StudyVariable.class.getName()).isIdMapped(),
                   getCfg().get(uk.ac.liv.jmzqml.model.mzqml.StudyVariable.class.getName()).getClazz(),
+                  getCfg().get(uk.ac.liv.jmzqml.model.mzqml.StudyVariable.class.getName()).getCvParamClass(),
+                  getCfg().get(uk.ac.liv.jmzqml.model.mzqml.StudyVariable.class.getName()).getUserParamClass(),
                   getCfg().get(uk.ac.liv.jmzqml.model.mzqml.StudyVariable.class.getName()).isAutoRefResolving(),
                   getCfg().get(uk.ac.liv.jmzqml.model.mzqml.StudyVariable.class.getName()).getRefResolverClass()),
     //
@@ -651,6 +785,8 @@ public enum MzQuantMLElement {
               getCfg().get(uk.ac.liv.jmzqml.model.mzqml.UserParam.class.getName()).isCached(),
               getCfg().get(uk.ac.liv.jmzqml.model.mzqml.UserParam.class.getName()).isIdMapped(),
               getCfg().get(uk.ac.liv.jmzqml.model.mzqml.UserParam.class.getName()).getClazz(),
+              getCfg().get(uk.ac.liv.jmzqml.model.mzqml.UserParam.class.getName()).getCvParamClass(),
+              getCfg().get(uk.ac.liv.jmzqml.model.mzqml.UserParam.class.getName()).getUserParamClass(),
               getCfg().get(uk.ac.liv.jmzqml.model.mzqml.UserParam.class.getName()).isAutoRefResolving(),
               getCfg().get(uk.ac.liv.jmzqml.model.mzqml.UserParam.class.getName()).getRefResolverClass());
     //
@@ -681,6 +817,8 @@ public enum MzQuantMLElement {
                                                          boolean cached,
                                                          boolean idMapped,
                                                          Class<T> clazz,
+                                                         Class cvParamClass,
+                                                         Class userParamClass,
                                                          boolean autoRefResolving,
                                                          Class refResolverClass) {
         this.tagName = tagName;

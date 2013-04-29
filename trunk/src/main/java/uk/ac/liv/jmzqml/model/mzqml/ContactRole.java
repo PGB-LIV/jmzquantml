@@ -8,19 +8,19 @@ import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlIDREF;
 import javax.xml.bind.annotation.XmlSchemaType;
+import javax.xml.bind.annotation.XmlTransient;
 import javax.xml.bind.annotation.XmlType;
 import uk.ac.liv.jmzqml.model.MzQuantMLObject;
 
-
 /**
  * The role that a Contact plays in an organization or with respect to the associating class. A Contact may have several Roles within scope, and as such,
- * 				associations to ContactRole allow the use of a Contact in a certain manner. Examples
- * 				might include a provider, or a data analyst. 
- * 
+ * associations to ContactRole allow the use of a Contact in a certain manner. Examples
+ * might include a provider, or a data analyst.
+ *
  * <p>Java class for ContactRoleType complex type.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ *
  * <pre>
  * &lt;complexType name="ContactRoleType">
  *   &lt;complexContent>
@@ -33,16 +33,15 @@ import uk.ac.liv.jmzqml.model.MzQuantMLObject;
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "ContactRoleType", propOrder = {
     "role"
 })
 public class ContactRole
-    implements Serializable, MzQuantMLObject
-{
+        implements Serializable, MzQuantMLObject {
 
     private final static long serialVersionUID = 100L;
     @XmlElement(name = "Role", required = true)
@@ -51,14 +50,34 @@ public class ContactRole
     @XmlIDREF
     @XmlSchemaType(name = "IDREF")
     protected Object contactRef;
+    @XmlTransient
+    protected AbstractContact contact;
+
+    public Person getPerson() {
+        if (contact != null && contact instanceof Person) {
+            return (Person) contact;
+        }
+        else {
+            return null;
+        }
+    }
+
+    public Organization getOrganization() {
+        if (contact != null && contact instanceof Organization) {
+            return (Organization) contact;
+        }
+        else {
+            return null;
+        }
+    }
 
     /**
      * Gets the value of the role property.
-     * 
+     *
      * @return
-     *     possible object is
-     *     {@link Role }
-     *     
+     *         possible object is
+     *         {@link Role }
+     *
      */
     public Role getRole() {
         return role;
@@ -66,11 +85,11 @@ public class ContactRole
 
     /**
      * Sets the value of the role property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link Role }
-     *     
+     *              allowed object is
+     *              {@link Role }
+     *
      */
     public void setRole(Role value) {
         this.role = value;
@@ -78,26 +97,36 @@ public class ContactRole
 
     /**
      * Gets the value of the contactRef property.
-     * 
+     *
      * @return
-     *     possible object is
-     *     {@link Object }
-     *     
+     *         possible object is
+     *         {@link Object }
+     *
      */
     public Object getContactRef() {
-        return contactRef;
+        return contact;
     }
 
     /**
      * Sets the value of the contactRef property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link Object }
-     *     
+     *              allowed object is
+     *              {@link Object }
+     *
      */
     public void setContactRef(Object value) {
         this.contactRef = value;
+    }
+
+    public void setContact(AbstractContact contact) {
+        if (contact == null) {
+            this.contactRef = null;
+        }
+        else {
+            this.contactRef = contact;
+        }
+        this.contact = contact;
     }
 
 }
