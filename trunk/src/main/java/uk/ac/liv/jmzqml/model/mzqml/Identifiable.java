@@ -13,14 +13,13 @@ import javax.xml.bind.annotation.adapters.CollapsedStringAdapter;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import uk.ac.liv.jmzqml.model.MzQuantMLObject;
 
-
 /**
- * Other classes in the model can be specified as sub-classes, inheriting from Identifiable. Identifiable gives classes a unique identifier within the scope and a name that need not be unique. 
- * 
+ * Other classes in the model can be specified as sub-classes, inheriting from Identifiable. Identifiable gives classes a unique identifier within the scope and a name that need not be unique.
+ *
  * <p>Java class for IdentifiableType complex type.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ *
  * <pre>
  * &lt;complexType name="IdentifiableType">
  *   &lt;complexContent>
@@ -31,20 +30,20 @@ import uk.ac.liv.jmzqml.model.MzQuantMLObject;
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "IdentifiableType")
 @XmlSeeAlso({
-    BibliographicReference.class,
+    AbstractContact.class, 
+    BibliographicReference.class, 
     ExternalData.class,
-    AbstractContact.class,
+    MzQuantML.class,
     Provider.class
 })
 public abstract class Identifiable
-    implements Serializable, MzQuantMLObject
-{
+        implements Serializable, MzQuantMLObject {
 
     private final static long serialVersionUID = 100L;
     @XmlAttribute(name = "id", required = true)
@@ -57,11 +56,11 @@ public abstract class Identifiable
 
     /**
      * Gets the value of the id property.
-     * 
+     *
      * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *         possible object is
+     *         {@link String }
+     *
      */
     public String getId() {
         return id;
@@ -69,11 +68,11 @@ public abstract class Identifiable
 
     /**
      * Sets the value of the id property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *              allowed object is
+     *              {@link String }
+     *
      */
     public void setId(String value) {
         this.id = value;
@@ -81,11 +80,11 @@ public abstract class Identifiable
 
     /**
      * Gets the value of the name property.
-     * 
+     *
      * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *         possible object is
+     *         {@link String }
+     *
      */
     public String getName() {
         return name;
@@ -93,11 +92,11 @@ public abstract class Identifiable
 
     /**
      * Sets the value of the name property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *              allowed object is
+     *              {@link String }
+     *
      */
     public void setName(String value) {
         this.name = value;
