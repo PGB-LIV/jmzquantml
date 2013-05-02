@@ -9,25 +9,20 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlElements;
-import javax.xml.bind.annotation.XmlID;
-import javax.xml.bind.annotation.XmlIDREF;
 import javax.xml.bind.annotation.XmlList;
-import javax.xml.bind.annotation.XmlSchemaType;
+import javax.xml.bind.annotation.XmlTransient;
 import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.CollapsedStringAdapter;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import uk.ac.liv.jmzqml.model.MzQuantMLObject;
 import uk.ac.liv.jmzqml.model.ParamGroupCapable;
 import uk.ac.liv.jmzqml.model.utils.FacadeList;
 
-
 /**
  * A region on a (potentially) two-dimensional map of MS1 scans, defined by the retention time, mass over charge and optionally a mass trace. Quantitative values about features can be added in the associated QuantLayers. For techniques that analyse data from single scans e.g. MS2 tagging approaches, a Feature corresponds with the mz of the parent ions only.
- * 
+ *
  * <p>Java class for FeatureType complex type.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ *
  * <pre>
  * &lt;complexType name="FeatureType">
  *   &lt;complexContent>
@@ -36,19 +31,19 @@ import uk.ac.liv.jmzqml.model.utils.FacadeList;
  *         &lt;element name="MassTrace" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0}listOfDoubles" minOccurs="0"/>
  *         &lt;group ref="{http://psidev.info/psi/pi/mzQuantML/1.0.0}ParamGroup" maxOccurs="unbounded" minOccurs="0"/>
  *       &lt;/sequence>
- *       &lt;attribute name="id" use="required" type="{http://www.w3.org/2001/XMLSchema}ID" />
+ *       &lt;attribute name="id" use="required" type="{http://www.w3.org/2001/XMLSchema}string" />
  *       &lt;attribute name="rt" use="required" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0}doubleOrNullType" />
  *       &lt;attribute name="mz" use="required" type="{http://www.w3.org/2001/XMLSchema}double" />
  *       &lt;attribute name="charge" use="required" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0}integerOrNullType" />
  *       &lt;attribute name="chromatogram_refs" type="{http://www.w3.org/2001/XMLSchema}string" />
  *       &lt;attribute name="spectrum_refs" type="{http://www.w3.org/2001/XMLSchema}string" />
- *       &lt;attribute name="rawFile_ref" type="{http://www.w3.org/2001/XMLSchema}IDREF" />
+ *       &lt;attribute name="rawFile_ref" type="{http://www.w3.org/2001/XMLSchema}string" />
  *     &lt;/restriction>
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "FeatureType", propOrder = {
@@ -56,8 +51,8 @@ import uk.ac.liv.jmzqml.model.utils.FacadeList;
     "paramGroup"
 })
 public class Feature
-    implements Serializable, MzQuantMLObject, ParamGroupCapable
-{
+        extends IdOnly
+        implements Serializable, MzQuantMLObject, ParamGroupCapable {
 
     private final static long serialVersionUID = 100L;
     @XmlList
@@ -68,11 +63,6 @@ public class Feature
         @XmlElement(name = "userParam", type = UserParam.class)
     })
     protected List<AbstractParam> paramGroup;
-    @XmlAttribute(name = "id", required = true)
-    @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
-    @XmlID
-    @XmlSchemaType(name = "ID")
-    protected String id;
     @XmlAttribute(name = "rt", required = true)
     protected String rt;
     @XmlAttribute(name = "mz", required = true)
@@ -84,31 +74,50 @@ public class Feature
     @XmlAttribute(name = "spectrum_refs")
     protected String spectrumRefs;
     @XmlAttribute(name = "rawFile_ref")
-    @XmlIDREF
-    @XmlSchemaType(name = "IDREF")
-    protected Object rawFileRef;
+    protected String rawFileRef;
+    @XmlTransient
+    protected RawFile rawFile;
+
+    public RawFile getRawFile() {
+        return rawFile;
+    }
+
+    public void setRawFile(RawFile rawFile) {
+        if (rawFile == null) {
+            this.rawFileRef = null;
+        }
+        else {
+            String refId = rawFile.getId();
+            if (refId == null) {
+                throw new IllegalArgumentException("Referenced object does not have an identifier.");
+            }
+            this.rawFileRef = refId;
+        }
+        this.rawFile = rawFile;
+    }
 
     /**
      * Gets the value of the massTrace property.
-     * 
+     *
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the massTrace property.
-     * 
+     * This is why there is not a
+     * <CODE>set</CODE> method for the massTrace property.
+     *
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getMassTrace().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link Double }
-     * 
-     * 
+     *
+     *
      */
     public List<Double> getMassTrace() {
         if (massTrace == null) {
@@ -119,26 +128,27 @@ public class Feature
 
     /**
      * Additional parameters or values about this feature.Gets the value of the paramGroup property.
-     * 
+     *
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the paramGroup property.
-     * 
+     * This is why there is not a
+     * <CODE>set</CODE> method for the paramGroup property.
+     *
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getParamGroup().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link CvParam }
      * {@link UserParam }
-     * 
-     * 
+     *
+     *
      */
     public List<AbstractParam> getParamGroup() {
         if (paramGroup == null) {
@@ -148,36 +158,12 @@ public class Feature
     }
 
     /**
-     * Gets the value of the id property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getId() {
-        return id;
-    }
-
-    /**
-     * Sets the value of the id property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setId(String value) {
-        this.id = value;
-    }
-
-    /**
      * Gets the value of the rt property.
-     * 
+     *
      * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *         possible object is
+     *         {@link String }
+     *
      */
     public String getRt() {
         return rt;
@@ -185,11 +171,11 @@ public class Feature
 
     /**
      * Sets the value of the rt property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *              allowed object is
+     *              {@link String }
+     *
      */
     public void setRt(String value) {
         this.rt = value;
@@ -197,7 +183,7 @@ public class Feature
 
     /**
      * Gets the value of the mz property.
-     * 
+     *
      */
     public double getMz() {
         return mz;
@@ -205,7 +191,7 @@ public class Feature
 
     /**
      * Sets the value of the mz property.
-     * 
+     *
      */
     public void setMz(double value) {
         this.mz = value;
@@ -213,11 +199,11 @@ public class Feature
 
     /**
      * Gets the value of the charge property.
-     * 
+     *
      * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *         possible object is
+     *         {@link String }
+     *
      */
     public String getCharge() {
         return charge;
@@ -225,11 +211,11 @@ public class Feature
 
     /**
      * Sets the value of the charge property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *              allowed object is
+     *              {@link String }
+     *
      */
     public void setCharge(String value) {
         this.charge = value;
@@ -237,11 +223,11 @@ public class Feature
 
     /**
      * Gets the value of the chromatogramRefs property.
-     * 
+     *
      * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *         possible object is
+     *         {@link String }
+     *
      */
     public String getChromatogramRefs() {
         return chromatogramRefs;
@@ -249,11 +235,11 @@ public class Feature
 
     /**
      * Sets the value of the chromatogramRefs property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *              allowed object is
+     *              {@link String }
+     *
      */
     public void setChromatogramRefs(String value) {
         this.chromatogramRefs = value;
@@ -261,11 +247,11 @@ public class Feature
 
     /**
      * Gets the value of the spectrumRefs property.
-     * 
+     *
      * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *         possible object is
+     *         {@link String }
+     *
      */
     public String getSpectrumRefs() {
         return spectrumRefs;
@@ -273,11 +259,11 @@ public class Feature
 
     /**
      * Sets the value of the spectrumRefs property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *              allowed object is
+     *              {@link String }
+     *
      */
     public void setSpectrumRefs(String value) {
         this.spectrumRefs = value;
@@ -285,32 +271,20 @@ public class Feature
 
     /**
      * Gets the value of the rawFileRef property.
-     * 
+     *
      * @return
-     *     possible object is
-     *     {@link Object }
-     *     
+     *         possible object is
+     *         {@link String }
+     *
      */
-    public Object getRawFileRef() {
+    public String getRawFileRef() {
         return rawFileRef;
-    }
-
-    /**
-     * Sets the value of the rawFileRef property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Object }
-     *     
-     */
-    public void setRawFileRef(Object value) {
-        this.rawFileRef = value;
     }
 
     @Override
     public List<CvParam> getCvParam() {
         return new FacadeList<CvParam>(this.getParamGroup(), CvParam.class);
-}
+    }
 
     @Override
     public List<UserParam> getUserParam() {

@@ -9,23 +9,18 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlElements;
-import javax.xml.bind.annotation.XmlID;
-import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.CollapsedStringAdapter;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import uk.ac.liv.jmzqml.model.MzQuantMLObject;
 import uk.ac.liv.jmzqml.model.ParamGroupCapable;
 import uk.ac.liv.jmzqml.model.utils.FacadeList;
 
-
 /**
  * The list of all groups of proteins with conflicting evidence for which quantitation values are being reported along with quantitative values about those protein groups. If quantitation is done on individual proteins only, ProteinGroupsList should not be included.
- * 
+ *
  * <p>Java class for ProteinGroupListType complex type.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ *
  * <pre>
  * &lt;complexType name="ProteinGroupListType">
  *   &lt;complexContent>
@@ -38,13 +33,13 @@ import uk.ac.liv.jmzqml.model.utils.FacadeList;
  *         &lt;element name="RatioQuantLayer" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0}RatioQuantLayerType" minOccurs="0"/>
  *         &lt;group ref="{http://psidev.info/psi/pi/mzQuantML/1.0.0}ParamGroup" maxOccurs="unbounded" minOccurs="0"/>
  *       &lt;/sequence>
- *       &lt;attribute name="id" use="required" type="{http://www.w3.org/2001/XMLSchema}ID" />
+ *       &lt;attribute name="id" use="required" type="{http://www.w3.org/2001/XMLSchema}string" />
  *     &lt;/restriction>
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "ProteinGroupListType", propOrder = {
@@ -56,8 +51,8 @@ import uk.ac.liv.jmzqml.model.utils.FacadeList;
     "paramGroup"
 })
 public class ProteinGroupList
-    implements Serializable, MzQuantMLObject, ParamGroupCapable
-{
+        extends IdOnly
+        implements Serializable, MzQuantMLObject, ParamGroupCapable {
 
     private final static long serialVersionUID = 100L;
     @XmlElement(name = "ProteinGroup", required = true)
@@ -75,33 +70,30 @@ public class ProteinGroupList
         @XmlElement(name = "userParam", type = UserParam.class)
     })
     protected List<AbstractParam> paramGroup;
-    @XmlAttribute(name = "id", required = true)
-    @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
-    @XmlID
-    @XmlSchemaType(name = "ID")
-    protected String id;
+
 
     /**
      * Gets the value of the proteinGroup property.
-     * 
+     *
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the proteinGroup property.
-     * 
+     * This is why there is not a
+     * <CODE>set</CODE> method for the proteinGroup property.
+     *
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getProteinGroup().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link ProteinGroup }
-     * 
-     * 
+     *
+     *
      */
     public List<ProteinGroup> getProteinGroup() {
         if (proteinGroup == null) {
@@ -112,25 +104,26 @@ public class ProteinGroupList
 
     /**
      * Gets the value of the globalQuantLayer property.
-     * 
+     *
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the globalQuantLayer property.
-     * 
+     * This is why there is not a
+     * <CODE>set</CODE> method for the globalQuantLayer property.
+     *
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getGlobalQuantLayer().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link GlobalQuantLayer }
-     * 
-     * 
+     *
+     *
      */
     public List<GlobalQuantLayer> getGlobalQuantLayer() {
         if (globalQuantLayer == null) {
@@ -141,25 +134,26 @@ public class ProteinGroupList
 
     /**
      * Gets the value of the assayQuantLayer property.
-     * 
+     *
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the assayQuantLayer property.
-     * 
+     * This is why there is not a
+     * <CODE>set</CODE> method for the assayQuantLayer property.
+     *
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getAssayQuantLayer().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link QuantLayer }
-     * 
-     * 
+     *
+     *
      */
     public List<QuantLayer> getAssayQuantLayer() {
         if (assayQuantLayer == null) {
@@ -170,25 +164,26 @@ public class ProteinGroupList
 
     /**
      * Gets the value of the studyVariableQuantLayer property.
-     * 
+     *
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the studyVariableQuantLayer property.
-     * 
+     * This is why there is not a
+     * <CODE>set</CODE> method for the studyVariableQuantLayer property.
+     *
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getStudyVariableQuantLayer().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link QuantLayer }
-     * 
-     * 
+     *
+     *
      */
     public List<QuantLayer> getStudyVariableQuantLayer() {
         if (studyVariableQuantLayer == null) {
@@ -199,11 +194,11 @@ public class ProteinGroupList
 
     /**
      * Gets the value of the ratioQuantLayer property.
-     * 
+     *
      * @return
-     *     possible object is
-     *     {@link RatioQuantLayer }
-     *     
+     *         possible object is
+     *         {@link RatioQuantLayer }
+     *
      */
     public RatioQuantLayer getRatioQuantLayer() {
         return ratioQuantLayer;
@@ -211,11 +206,11 @@ public class ProteinGroupList
 
     /**
      * Sets the value of the ratioQuantLayer property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link RatioQuantLayer }
-     *     
+     *              allowed object is
+     *              {@link RatioQuantLayer }
+     *
      */
     public void setRatioQuantLayer(RatioQuantLayer value) {
         this.ratioQuantLayer = value;
@@ -223,26 +218,27 @@ public class ProteinGroupList
 
     /**
      * CV terms for the entire list.Gets the value of the paramGroup property.
-     * 
+     *
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the paramGroup property.
-     * 
+     * This is why there is not a
+     * <CODE>set</CODE> method for the paramGroup property.
+     *
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getParamGroup().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link CvParam }
      * {@link UserParam }
-     * 
-     * 
+     *
+     *
      */
     public List<AbstractParam> getParamGroup() {
         if (paramGroup == null) {
@@ -251,34 +247,10 @@ public class ProteinGroupList
         return this.paramGroup;
     }
 
-    /**
-     * Gets the value of the id property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getId() {
-        return id;
-    }
-
-    /**
-     * Sets the value of the id property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setId(String value) {
-        this.id = value;
-    }
-
     @Override
     public List<CvParam> getCvParam() {
         return new FacadeList<CvParam>(this.getParamGroup(), CvParam.class);
-}
+    }
 
     @Override
     public List<UserParam> getUserParam() {

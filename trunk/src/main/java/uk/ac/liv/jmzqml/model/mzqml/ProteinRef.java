@@ -9,21 +9,19 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlElements;
-import javax.xml.bind.annotation.XmlIDREF;
-import javax.xml.bind.annotation.XmlSchemaType;
+import javax.xml.bind.annotation.XmlTransient;
 import javax.xml.bind.annotation.XmlType;
 import uk.ac.liv.jmzqml.model.MzQuantMLObject;
 import uk.ac.liv.jmzqml.model.ParamGroupCapable;
 import uk.ac.liv.jmzqml.model.utils.FacadeList;
 
-
 /**
  * A reference to one of the Proteins contained within this group, along with CV terms describing the role it plays within the group, such as representative or anchor protein, same set or sub-set.
- * 
+ *
  * <p>Java class for ProteinRefType complex type.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ *
  * <pre>
  * &lt;complexType name="ProteinRefType">
  *   &lt;complexContent>
@@ -31,21 +29,20 @@ import uk.ac.liv.jmzqml.model.utils.FacadeList;
  *       &lt;sequence>
  *         &lt;group ref="{http://psidev.info/psi/pi/mzQuantML/1.0.0}ParamGroup" maxOccurs="unbounded" minOccurs="0"/>
  *       &lt;/sequence>
- *       &lt;attribute name="protein_ref" use="required" type="{http://www.w3.org/2001/XMLSchema}IDREF" />
+ *       &lt;attribute name="protein_ref" use="required" type="{http://www.w3.org/2001/XMLSchema}string" />
  *     &lt;/restriction>
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "ProteinRefType", propOrder = {
     "paramGroup"
 })
 public class ProteinRef
-    implements Serializable, MzQuantMLObject, ParamGroupCapable
-{
+        implements Serializable, MzQuantMLObject, ParamGroupCapable {
 
     private final static long serialVersionUID = 100L;
     @XmlElements({
@@ -54,32 +51,51 @@ public class ProteinRef
     })
     protected List<AbstractParam> paramGroup;
     @XmlAttribute(name = "protein_ref", required = true)
-    @XmlIDREF
-    @XmlSchemaType(name = "IDREF")
-    protected Object proteinRef;
+    protected String proteinRef;
+    @XmlTransient
+    protected Protein protein;
+
+    public Protein getProtein() {
+        return protein;
+    }
+
+    public void setProtein(Protein protein) {
+        if (protein == null) {
+            this.proteinRef = null;
+        }
+        else {
+            String refId = protein.getId();
+            if (refId == null) {
+                throw new IllegalArgumentException("Referenced object does not have an identifier.");
+            }
+            this.proteinRef = refId;
+        }
+        this.protein = protein;
+    }
 
     /**
      * Additional parameters or values about this protein, including its role within the group, such as representative or anchor protein, same set or sub-set.Gets the value of the paramGroup property.
-     * 
+     *
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the paramGroup property.
-     * 
+     * This is why there is not a
+     * <CODE>set</CODE> method for the paramGroup property.
+     *
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getParamGroup().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link CvParam }
      * {@link UserParam }
-     * 
-     * 
+     *
+     *
      */
     public List<AbstractParam> getParamGroup() {
         if (paramGroup == null) {
@@ -90,32 +106,20 @@ public class ProteinRef
 
     /**
      * Gets the value of the proteinRef property.
-     * 
+     *
      * @return
-     *     possible object is
-     *     {@link Object }
-     *     
+     *         possible object is
+     *         {@link String }
+     *
      */
-    public Object getProteinRef() {
+    public String getProteinRef() {
         return proteinRef;
-    }
-
-    /**
-     * Sets the value of the proteinRef property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Object }
-     *     
-     */
-    public void setProteinRef(Object value) {
-        this.proteinRef = value;
     }
 
     @Override
     public List<CvParam> getCvParam() {
         return new FacadeList<CvParam>(this.getParamGroup(), CvParam.class);
-}
+    }
 
     @Override
     public List<UserParam> getUserParam() {

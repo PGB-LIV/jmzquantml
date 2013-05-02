@@ -9,24 +9,19 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlElements;
-import javax.xml.bind.annotation.XmlID;
-import javax.xml.bind.annotation.XmlIDREF;
-import javax.xml.bind.annotation.XmlSchemaType;
+import javax.xml.bind.annotation.XmlTransient;
 import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.CollapsedStringAdapter;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import uk.ac.liv.jmzqml.model.MzQuantMLObject;
 import uk.ac.liv.jmzqml.model.ParamGroupCapable;
 import uk.ac.liv.jmzqml.model.utils.FacadeList;
 
-
 /**
  * All the features identified on a single raw file or raw file group.
- * 
+ *
  * <p>Java class for FeatureListType complex type.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ *
  * <pre>
  * &lt;complexType name="FeatureListType">
  *   &lt;complexContent>
@@ -39,14 +34,14 @@ import uk.ac.liv.jmzqml.model.utils.FacadeList;
  *         &lt;element name="MS2RatioQuantLayer" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0}RatioQuantLayerType" minOccurs="0"/>
  *         &lt;group ref="{http://psidev.info/psi/pi/mzQuantML/1.0.0}ParamGroup" maxOccurs="unbounded" minOccurs="0"/>
  *       &lt;/sequence>
- *       &lt;attribute name="rawFilesGroup_ref" use="required" type="{http://www.w3.org/2001/XMLSchema}IDREF" />
- *       &lt;attribute name="id" use="required" type="{http://www.w3.org/2001/XMLSchema}ID" />
+ *       &lt;attribute name="rawFilesGroup_ref" use="required" type="{http://www.w3.org/2001/XMLSchema}string" />
+ *       &lt;attribute name="id" use="required" type="{http://www.w3.org/2001/XMLSchema}string" />
  *     &lt;/restriction>
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "FeatureListType", propOrder = {
@@ -58,8 +53,8 @@ import uk.ac.liv.jmzqml.model.utils.FacadeList;
     "paramGroup"
 })
 public class FeatureList
-    implements Serializable, MzQuantMLObject, ParamGroupCapable
-{
+        extends IdOnly
+        implements Serializable, MzQuantMLObject, ParamGroupCapable {
 
     private final static long serialVersionUID = 100L;
     @XmlElement(name = "Feature", required = true)
@@ -78,36 +73,50 @@ public class FeatureList
     })
     protected List<AbstractParam> paramGroup;
     @XmlAttribute(name = "rawFilesGroup_ref", required = true)
-    @XmlIDREF
-    @XmlSchemaType(name = "IDREF")
-    protected Object rawFilesGroupRef;
-    @XmlAttribute(name = "id", required = true)
-    @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
-    @XmlID
-    @XmlSchemaType(name = "ID")
-    protected String id;
+    protected String rawFilesGroupRef;
+    @XmlTransient
+    protected RawFilesGroup rawFilesGroup;
+
+    public RawFilesGroup getRawFilesGroup() {
+        return rawFilesGroup;
+    }
+
+    public void setRawFilesGroup(RawFilesGroup rawFilesGroup) {
+        if (rawFilesGroup == null) {
+            this.rawFilesGroupRef = null;
+        }
+        else {
+            String refId = rawFilesGroup.getId();
+            if (refId == null) {
+                throw new IllegalArgumentException("Referenced object does not have an identifier.");
+            }
+            this.rawFilesGroupRef = refId;
+        }
+        this.rawFilesGroup = rawFilesGroup;
+    }
 
     /**
      * Gets the value of the feature property.
-     * 
+     *
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the feature property.
-     * 
+     * This is why there is not a
+     * <CODE>set</CODE> method for the feature property.
+     *
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getFeature().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link Feature }
-     * 
-     * 
+     *
+     *
      */
     public List<Feature> getFeature() {
         if (feature == null) {
@@ -118,25 +127,26 @@ public class FeatureList
 
     /**
      * Gets the value of the featureQuantLayer property.
-     * 
+     *
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the featureQuantLayer property.
-     * 
+     * This is why there is not a
+     * <CODE>set</CODE> method for the featureQuantLayer property.
+     *
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getFeatureQuantLayer().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link GlobalQuantLayer }
-     * 
-     * 
+     *
+     *
      */
     public List<GlobalQuantLayer> getFeatureQuantLayer() {
         if (featureQuantLayer == null) {
@@ -147,25 +157,26 @@ public class FeatureList
 
     /**
      * Gets the value of the ms2AssayQuantLayer property.
-     * 
+     *
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the ms2AssayQuantLayer property.
-     * 
+     * This is why there is not a
+     * <CODE>set</CODE> method for the ms2AssayQuantLayer property.
+     *
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getMS2AssayQuantLayer().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link QuantLayer }
-     * 
-     * 
+     *
+     *
      */
     public List<QuantLayer> getMS2AssayQuantLayer() {
         if (ms2AssayQuantLayer == null) {
@@ -176,25 +187,26 @@ public class FeatureList
 
     /**
      * Gets the value of the ms2StudyVariableQuantLayer property.
-     * 
+     *
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the ms2StudyVariableQuantLayer property.
-     * 
+     * This is why there is not a
+     * <CODE>set</CODE> method for the ms2StudyVariableQuantLayer property.
+     *
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getMS2StudyVariableQuantLayer().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link QuantLayer }
-     * 
-     * 
+     *
+     *
      */
     public List<QuantLayer> getMS2StudyVariableQuantLayer() {
         if (ms2StudyVariableQuantLayer == null) {
@@ -205,11 +217,11 @@ public class FeatureList
 
     /**
      * Gets the value of the ms2RatioQuantLayer property.
-     * 
+     *
      * @return
-     *     possible object is
-     *     {@link RatioQuantLayer }
-     *     
+     *         possible object is
+     *         {@link RatioQuantLayer }
+     *
      */
     public RatioQuantLayer getMS2RatioQuantLayer() {
         return ms2RatioQuantLayer;
@@ -217,11 +229,11 @@ public class FeatureList
 
     /**
      * Sets the value of the ms2RatioQuantLayer property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link RatioQuantLayer }
-     *     
+     *              allowed object is
+     *              {@link RatioQuantLayer }
+     *
      */
     public void setMS2RatioQuantLayer(RatioQuantLayer value) {
         this.ms2RatioQuantLayer = value;
@@ -229,26 +241,27 @@ public class FeatureList
 
     /**
      * CV terms for the FeatureList, such as the MassTrace encoding scheme.Gets the value of the paramGroup property.
-     * 
+     *
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the paramGroup property.
-     * 
+     * This is why there is not a
+     * <CODE>set</CODE> method for the paramGroup property.
+     *
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getParamGroup().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link CvParam }
      * {@link UserParam }
-     * 
-     * 
+     *
+     *
      */
     public List<AbstractParam> getParamGroup() {
         if (paramGroup == null) {
@@ -259,56 +272,32 @@ public class FeatureList
 
     /**
      * Gets the value of the rawFilesGroupRef property.
-     * 
+     *
      * @return
-     *     possible object is
-     *     {@link Object }
-     *     
+     *         possible object is
+     *         {@link String }
+     *
      */
-    public Object getRawFilesGroupRef() {
+    public String getRawFilesGroupRef() {
         return rawFilesGroupRef;
     }
 
     /**
      * Sets the value of the rawFilesGroupRef property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link Object }
-     *     
+     *              allowed object is
+     *              {@link String }
+     *
      */
-    public void setRawFilesGroupRef(Object value) {
+    public void setRawFilesGroupRef(String value) {
         this.rawFilesGroupRef = value;
-    }
-
-    /**
-     * Gets the value of the id property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getId() {
-        return id;
-    }
-
-    /**
-     * Sets the value of the id property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setId(String value) {
-        this.id = value;
     }
 
     @Override
     public List<CvParam> getCvParam() {
         return new FacadeList<CvParam>(this.getParamGroup(), CvParam.class);
-}
+    }
 
     @Override
     public List<UserParam> getUserParam() {
