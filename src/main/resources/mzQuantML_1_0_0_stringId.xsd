@@ -440,7 +440,8 @@ Distributed under the Creative Commons license http://creativecommons.org/licens
 					<xsd:documentation>Reference for the identification evidence for peptides from the referenced external file and unique identifier e.g. a link to an mzIdentML file and ID for the ProteinDetectionHypothesis.</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
-			<xsd:element name="PeptideConsensus_refs" type="xsd:IDREFS" minOccurs="0" maxOccurs="1">
+			<xsd:element name="PeptideConsensus_refs" type="listOfStrings" minOccurs="0"
+				maxOccurs="1">
 				<xsd:annotation>
 					<xsd:documentation>The peptides on which the quantitative protein values in the QuantLayer(s) are based. Note this should not be used to report all peptides that can support the protein identification, only quantitation.</xsd:documentation>
 				</xsd:annotation>
@@ -486,7 +487,7 @@ Distributed under the Creative Commons license http://creativecommons.org/licens
 		<xsd:annotation>
 			<xsd:documentation>Evidence associated with the PeptideConsensus, including mandatory associations to features and optional references to identifications that have been assigned to the feature.</xsd:documentation>
 		</xsd:annotation>
-		<xsd:attribute name="assay_refs" type="xsd:IDREFS" use="required">
+		<xsd:attribute name="assay_refs" type="listOfStrings" use="required">
 			<xsd:annotation>
 				<xsd:documentation>A reference to the Assay to which the referenced Feature belongs (e.g. in label-free analyses) or has been assigned (e.g. in label-based analyses). Multiple values MUST only be given for MS2-tag approaches where the same feature quantifies multiple assays.</xsd:documentation>
 			</xsd:annotation>
@@ -661,7 +662,7 @@ Distributed under the Creative Commons license http://creativecommons.org/licens
 					<xsd:documentation>External database references for the small molecule identification.</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
-			<xsd:element name="Feature_refs" type="xsd:IDREFS" minOccurs="0" maxOccurs="1">
+			<xsd:element name="Feature_refs" type="listOfStrings" minOccurs="0" maxOccurs="1">
 				<xsd:annotation>
 					<xsd:documentation>Optional references to features on which quantification values about the SmallMolecule in the QuantLayer were based.</xsd:documentation>
 				</xsd:annotation>
@@ -744,7 +745,7 @@ Distributed under the Creative Commons license http://creativecommons.org/licens
 					<xsd:documentation>Type of data in the quant layer e.g. cvParam = "Intensity|RawAbundance|NormalisedAbundance|PeptideCount|ConfidenceScore|Anova|MaxFoldChange|...."</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
-			<xsd:element name="ColumnIndex" type="xsd:IDREFS" maxOccurs="1" minOccurs="1">
+			<xsd:element name="ColumnIndex" type="listOfStrings" maxOccurs="1" minOccurs="1">
 				<xsd:annotation>
 					<xsd:documentation>Space separated unique identifiers for each column of data, MUST refer to an object in the file i.e. StudyVariable or Assay, depending on the context where the QuantLayer resides.</xsd:documentation>
 				</xsd:annotation>
@@ -767,7 +768,7 @@ Distributed under the Creative Commons license http://creativecommons.org/licens
 			<xsd:documentation>A collection of data relating to the objects within the parent list type (e.g. PeptideConsensus, Protein or ProteinGroup)</xsd:documentation>
 		</xsd:annotation>
 		<xsd:sequence>
-			<xsd:element name="ColumnIndex" type="xsd:IDREFS" maxOccurs="1" minOccurs="1">
+			<xsd:element name="ColumnIndex" type="listOfStrings" maxOccurs="1" minOccurs="1">
 				<xsd:annotation>
 					<xsd:documentation>Space separated unique identifiers for each column of data, MUST refer to an object in the file i.e. Ratio elements.</xsd:documentation>
 				</xsd:annotation>
@@ -866,7 +867,7 @@ Distributed under the Creative Commons license http://creativecommons.org/licens
 					<xsd:documentation>The type of StudyVariable e.g. Phenotypic, biological replicate, technical replicate, time points etc. and references to all the assays that are part of this study variable.</xsd:documentation>
 				</xsd:annotation>
 			</xsd:group>
-			<xsd:element name="Assay_refs" type="xsd:IDREFS" minOccurs="1" maxOccurs="1">
+			<xsd:element name="Assay_refs" type="listOfStrings" minOccurs="1" maxOccurs="1">
 				<xsd:annotation>
 					<xsd:documentation>Reference to the assays that are contained within this study variable.</xsd:documentation>
 				</xsd:annotation>
@@ -902,7 +903,7 @@ Distributed under the Creative Commons license http://creativecommons.org/licens
 		</xsd:annotation>
 		<xsd:sequence>
 			<xsd:element name="Label" type="LabelType" minOccurs="1"/>
-			<xsd:element name="IdentificationFile_refs" type="xsd:IDREFS" minOccurs="0"
+			<xsd:element name="IdentificationFile_refs" type="listOfStrings" minOccurs="0"
 				maxOccurs="1">
 				<xsd:annotation>
 					<xsd:documentation>One or more identification files used within this assay.</xsd:documentation>
@@ -1199,12 +1200,12 @@ Distributed under the Creative Commons license http://creativecommons.org/licens
 			<xsd:documentation>Description of the way in which a particular software package was used to analyse data and for example produce different quant layers or lists in the file.</xsd:documentation>
 		</xsd:annotation>
 		<xsd:sequence>
-			<xsd:element name="InputObject_refs" minOccurs="0" maxOccurs="1" type="xsd:IDREFS">
+			<xsd:element name="InputObject_refs" minOccurs="0" maxOccurs="1" type="listOfStrings">
 				<xsd:annotation>
 					<xsd:documentation>References to raw file groups, FeatureList, PeptideConsensusList, ProteinList or ProteinGroupList or QuantLayers that were inputs to the data processing step.</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
-			<xsd:element name="OutputObject_refs" minOccurs="0" maxOccurs="1" type="xsd:IDREFS">
+			<xsd:element name="OutputObject_refs" minOccurs="0" maxOccurs="1" type="listOfStrings">
 				<xsd:annotation>
 					<xsd:documentation>References to raw file groups, FeatureList, PeptideConsensusList, ProteinList or ProteinGroupList or QuantLayers that were the outputs of the data processing step.</xsd:documentation>
 				</xsd:annotation>

@@ -17,6 +17,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package uk.ac.liv.jmzqml.xml.xxindex;
 
 import java.io.File;
@@ -33,6 +34,7 @@ import psidev.psi.tools.xxindex.index.IndexElement;
 import psidev.psi.tools.xxindex.index.XpathIndex;
 import uk.ac.liv.jmzqml.MzQuantMLElement;
 import uk.ac.liv.jmzqml.model.MzQuantMLObject;
+import uk.ac.liv.jmzqml.model.mzqml.IdOnly;
 import uk.ac.liv.jmzqml.model.mzqml.Identifiable;
 import uk.ac.liv.jmzqml.xml.Constants;
 
@@ -113,7 +115,8 @@ public class MzQuantMLIndexerFactory {
                 // extract the MzQuantML attributes from the MzQuantML start tag
                 mzQuantMLAttributeXMLString = extractMzQuantMLStartTag(xmlFile);
 
-            } catch (IOException e) {
+            }
+            catch (IOException e) {
                 logger.error("MzQuantMLIndexerFactory$MzQuantMLIndexerImpl.MzQuantMLIndexterImpl", e);
                 throw new IllegalStateException("Could not generate MzQuantML index for file: " + xmlFile);
             }
@@ -131,7 +134,8 @@ public class MzQuantMLIndexerFactory {
         public Iterator<String> getXmlStringIterator(String xpathExpression) {
             if (index.containsXpath(xpathExpression)) {
                 return xpathAccess.getXmlSnippetIterator(xpathExpression);
-            } else {
+            }
+            else {
                 return null;
             }
         }
@@ -141,7 +145,7 @@ public class MzQuantMLIndexerFactory {
          * @param xpathExpression the xpath defining the XML element.
          *
          * @return the number of XML elements matching the xpath or -1 if no
-         * elements were found for the specified xpath.
+         *         elements were found for the specified xpath.
          */
         @Override
         public int getCount(String xpathExpression) {
@@ -193,11 +197,13 @@ public class MzQuantMLIndexerFactory {
                 if (element != null) {
                     try {
                         tag = xpathAccess.getStartTag(element);
-                    } catch (IOException e) {
+                    }
+                    catch (IOException e) {
                         //ToDo: proper handling
                         e.printStackTrace();
                     }
-                } else {
+                }
+                else {
                     // ToDo: what if the element exists, but its id was not cached?
                     // ToDo: throw an exception?
                 }
@@ -215,10 +221,12 @@ public class MzQuantMLIndexerFactory {
         }
 
         @Override
-        public Set<String> getIDsForElement(MzQuantMLElement element) throws ConfigurationException {
+        public Set<String> getIDsForElement(MzQuantMLElement element)
+                throws ConfigurationException {
             if (element.isIdMapped()) {
                 return idMapCache.get(element.<MzQuantMLObject>getClazz()).keySet();
-            } else {
+            }
+            else {
                 throw new ConfigurationException("API not configured to support ID mapping for element: " + element.getTagName());
             }
         }
@@ -249,20 +257,24 @@ public class MzQuantMLIndexerFactory {
                     long limitedStop = byteRange.getStart() + maxChars;
                     if (maxChars > 0 && byteRange.getStop() > limitedStop) {
                         stop = limitedStop;
-                    } else {
+                    }
+                    else {
                         stop = byteRange.getStop();
                     }
                     return xmlExtractor.readString(byteRange.getStart(), stop, xmlFile);
-                } else {
+                }
+                else {
                     throw new IllegalStateException("Attempting to read NULL ByteRange");
                 }
-            } catch (IOException e) {
+            }
+            catch (IOException e) {
                 logger.error("MzQuantMLIndexerFactory$MzQuantMLIndexerImpl.readXML", e);
                 throw new IllegalStateException("Could not extraxt XML from file: " + xmlFile);
             }
         }
 
-        private String extractMzQuantMLStartTag(File xmlFile) throws IOException {
+        private String extractMzQuantMLStartTag(File xmlFile)
+                throws IOException {
             // get start position of the mzIdentML element
             List<IndexElement> ie = index.getElements("/MzQuantML");
             // there is only one root
@@ -288,11 +300,13 @@ public class MzQuantMLIndexerFactory {
          *
          * TODO: finish the comments
          */
-        private void initIdMaps() throws IOException {
+        private void initIdMaps()
+                throws IOException {
             for (MzQuantMLElement element : MzQuantMLElement.values()) {
                 // only for elements were an ID map is needed and a xpath is given            
                 if (element.isIdMapped() && element.isIndexed()) {
-                    if (element.getClazz().isAssignableFrom(Identifiable.class)) {
+                    if (element.getClazz().isAssignableFrom(Identifiable.class)
+                            || element.getClazz().isAssignableFrom(IdOnly.class)) {
                         logger.warn("Element for class " + element.getClass() + " may not contain an 'id' attribute, but was selected for id mapping!");
                     }
                     logger.debug("Initiating ID map for " + element.getClazz().getName());
@@ -309,14 +323,16 @@ public class MzQuantMLIndexerFactory {
         }
 
         private void initIdMapCache(Map<String, IndexElement> idMap,
-                                    String xpath) throws IOException {
+                                    String xpath)
+                throws IOException {
             List<IndexElement> ranges = index.getElements(xpath);
             for (IndexElement byteRange : ranges) {
                 String xml = xpathAccess.getStartTag(byteRange);
                 String id = getIdFromRawXML(xml);
                 if (id != null) {
                     idMap.put(id, byteRange);
-                } else {
+                }
+                else {
                     throw new IllegalStateException("Error initializing ID cache: No id attribute found for element " + xml);
                 }
             }
@@ -328,9 +344,12 @@ public class MzQuantMLIndexerFactory {
             // ToDo: more checks: if no id found or more than one match, ...
             if (match.find()) {
                 return match.group(1).intern();
-            } else {
+            }
+            else {
                 throw new IllegalStateException("Invalid ID in xml: " + xml);
             }
         }
+
     }
+
 }

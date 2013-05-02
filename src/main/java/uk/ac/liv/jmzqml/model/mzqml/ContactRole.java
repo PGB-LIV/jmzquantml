@@ -6,8 +6,6 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlIDREF;
-import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlTransient;
 import javax.xml.bind.annotation.XmlType;
 import uk.ac.liv.jmzqml.model.MzQuantMLObject;
@@ -28,7 +26,7 @@ import uk.ac.liv.jmzqml.model.MzQuantMLObject;
  *       &lt;sequence>
  *         &lt;element name="Role" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0}RoleType"/>
  *       &lt;/sequence>
- *       &lt;attribute name="contact_ref" use="required" type="{http://www.w3.org/2001/XMLSchema}IDREF" />
+ *       &lt;attribute name="contact_ref" use="required" type="{http://www.w3.org/2001/XMLSchema}string" />
  *     &lt;/restriction>
  *   &lt;/complexContent>
  * &lt;/complexType>
@@ -47,9 +45,7 @@ public class ContactRole
     @XmlElement(name = "Role", required = true)
     protected Role role;
     @XmlAttribute(name = "contact_ref", required = true)
-    @XmlIDREF
-    @XmlSchemaType(name = "IDREF")
-    protected Object contactRef;
+    protected String contactRef;
     @XmlTransient
     protected AbstractContact contact;
 
@@ -100,31 +96,32 @@ public class ContactRole
      *
      * @return
      *         possible object is
-     *         {@link Object }
+     *         {@link String }
      *
      */
-    public Object getContactRef() {
+    public String getContactRef() {
+        return contactRef;
+    }
+
+    public AbstractContact getContact() {
         return contact;
     }
 
     /**
-     * Sets the value of the contactRef property.
+     * Set contact. contactRef is also updated.
      *
-     * @param value
-     *              allowed object is
-     *              {@link Object }
-     *
+     * @param contact
      */
-    public void setContactRef(Object value) {
-        this.contactRef = value;
-    }
-
     public void setContact(AbstractContact contact) {
         if (contact == null) {
             this.contactRef = null;
         }
         else {
-            this.contactRef = contact;
+            String refId = contact.getId();
+            if (refId == null) {
+                throw new IllegalArgumentException("Referenced object does not have an identifier.");
+            }
+            this.contactRef = refId;
         }
         this.contact = contact;
     }

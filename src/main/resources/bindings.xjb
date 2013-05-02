@@ -13,7 +13,7 @@
 	
     <!-- ####              mzQuantML bindings              ####-->
     
-    <jxb:bindings schemaLocation="mzQuantML_1_0_0.xsd" node="/xsd:schema">
+    <jxb:bindings schemaLocation="mzQuantML_1_0_0_stringId.xsd" node="/xsd:schema">
         
         <jxb:schemaBindings>
             <jxb:package name = "uk.ac.liv.jmzqml.model.mzqml"/>

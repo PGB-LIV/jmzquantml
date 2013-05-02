@@ -55,7 +55,7 @@
                                 <extension>true</extension>
                                 <schemaDirectory>src/main/resources</schemaDirectory>
                                 <schemaIncludes>
-                                    <include>mzQuantML_1_0_0.xsd</include>
+                                    <include>mzQuantML_1_0_0_stringId.xsd</include>
                                 </schemaIncludes>
                                 <bindingDirectory>src/main/resources</bindingDirectory>
                                 <bindingIncludes>

@@ -11,18 +11,17 @@ import uk.ac.liv.jmzqml.model.MzQuantMLObject;
 
 
 /**
- * Other classes in the model can be specified as sub-classes, inheriting from Identifiable. Identifiable gives classes a unique identifier within the scope and a name that need not be unique. 
+ * Other classes in the model can be specified as sub-classes, inheriting from IdOnly. IdOnly gives classes a unique identifier within the scope. 
  * 
- * <p>Java class for IdentifiableType complex type.
+ * <p>Java class for IdOnlyType complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="IdentifiableType">
+ * &lt;complexType name="IdOnlyType">
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;attribute name="id" use="required" type="{http://www.w3.org/2001/XMLSchema}string" />
- *       &lt;attribute name="name" type="{http://www.w3.org/2001/XMLSchema}string" />
  *     &lt;/restriction>
  *   &lt;/complexContent>
  * &lt;/complexType>
@@ -31,23 +30,37 @@ import uk.ac.liv.jmzqml.model.MzQuantMLObject;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "IdentifiableType")
+@XmlType(name = "IdOnlyType")
 @XmlSeeAlso({
-    MzQuantML.class,
-    BibliographicReference.class,
-    ExternalData.class,
-    AbstractContact.class,
-    Provider.class
+    ProteinGroupList.class,
+    ProteinList.class,
+    ProteinGroup.class,
+    Protein.class,
+    PeptideConsensusList.class,
+    SmallMoleculeList.class,
+    PeptideConsensus.class,
+    SmallMolecule.class,
+    QuantLayer.class,
+    RatioQuantLayer.class,
+    GlobalQuantLayer.class,
+    Software.class,
+    DataProcessing.class,
+    Feature.class,
+    FeatureList.class,
+    Ratio.class,
+    RawFilesGroup.class,
+    Assay.class,
+    AssayList.class,
+    StudyVariable.class,
+    Cv.class
 })
-public abstract class Identifiable
+public abstract class IdOnly
     implements Serializable, MzQuantMLObject
 {
 
     private final static long serialVersionUID = 100L;
     @XmlAttribute(name = "id", required = true)
     protected String id;
-    @XmlAttribute(name = "name")
-    protected String name;
 
     /**
      * Gets the value of the id property.
@@ -71,30 +84,6 @@ public abstract class Identifiable
      */
     public void setId(String value) {
         this.id = value;
-    }
-
-    /**
-     * Gets the value of the name property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getName() {
-        return name;
-    }
-
-    /**
-     * Sets the value of the name property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setName(String value) {
-        this.name = value;
     }
 
 }

@@ -51,6 +51,7 @@ public class FileFormat
      *     {@link CvParam }
      *     
      */
+    @Override
     public CvParam getCvParam() {
         return cvParam;
     }
@@ -63,6 +64,7 @@ public class FileFormat
      *     {@link CvParam }
      *     
      */
+    @Override
     public void setCvParam(CvParam value) {
         this.cvParam = value;
     }

@@ -9,24 +9,19 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlElements;
-import javax.xml.bind.annotation.XmlID;
-import javax.xml.bind.annotation.XmlIDREF;
-import javax.xml.bind.annotation.XmlSchemaType;
+import javax.xml.bind.annotation.XmlTransient;
 import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.CollapsedStringAdapter;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import uk.ac.liv.jmzqml.model.MzQuantMLObject;
 import uk.ac.liv.jmzqml.model.ParamGroupCapable;
 import uk.ac.liv.jmzqml.model.utils.FacadeList;
 
-
 /**
  * A grouping of quantified proteins based on ambiguous assignment of peptide evidence to protein identification. The semantics of elements within the group, such as a leading protein or those sharing equal evidence can be reported using cvParams.
- * 
+ *
  * <p>Java class for ProteinGroupType complex type.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ *
  * <pre>
  * &lt;complexType name="ProteinGroupType">
  *   &lt;complexContent>
@@ -36,14 +31,14 @@ import uk.ac.liv.jmzqml.model.utils.FacadeList;
  *         &lt;element name="ProteinRef" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0}ProteinRefType" maxOccurs="unbounded"/>
  *         &lt;group ref="{http://psidev.info/psi/pi/mzQuantML/1.0.0}ParamGroup" maxOccurs="unbounded" minOccurs="0"/>
  *       &lt;/sequence>
- *       &lt;attribute name="id" use="required" type="{http://www.w3.org/2001/XMLSchema}ID" />
- *       &lt;attribute name="searchDatabase_ref" use="required" type="{http://www.w3.org/2001/XMLSchema}IDREF" />
+ *       &lt;attribute name="id" use="required" type="{http://www.w3.org/2001/XMLSchema}string" />
+ *       &lt;attribute name="searchDatabase_ref" use="required" type="{http://www.w3.org/2001/XMLSchema}string" />
  *     &lt;/restriction>
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "ProteinGroupType", propOrder = {
@@ -52,8 +47,8 @@ import uk.ac.liv.jmzqml.model.utils.FacadeList;
     "paramGroup"
 })
 public class ProteinGroup
-    implements Serializable, MzQuantMLObject, ParamGroupCapable
-{
+        extends IdOnly
+        implements Serializable, MzQuantMLObject, ParamGroupCapable {
 
     private final static long serialVersionUID = 100L;
     @XmlElement(name = "IdentificationRef")
@@ -65,37 +60,51 @@ public class ProteinGroup
         @XmlElement(name = "userParam", type = UserParam.class)
     })
     protected List<AbstractParam> paramGroup;
-    @XmlAttribute(name = "id", required = true)
-    @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
-    @XmlID
-    @XmlSchemaType(name = "ID")
-    protected String id;
     @XmlAttribute(name = "searchDatabase_ref", required = true)
-    @XmlIDREF
-    @XmlSchemaType(name = "IDREF")
-    protected Object searchDatabaseRef;
+    protected String searchDatabaseRef;
+    @XmlTransient
+    protected SearchDatabase searchDatabase;
+
+    public SearchDatabase getSearchDatabase() {
+        return searchDatabase;
+    }
+
+    public void setSearchDatabase(SearchDatabase searchDatabase) {
+        if (searchDatabase == null) {
+            this.searchDatabaseRef = null;
+        }
+        else {
+            String refId = searchDatabase.getId();
+            if (refId == null) {
+                throw new IllegalArgumentException("Referenced object does not have an identifier.");
+            }
+            this.searchDatabaseRef = refId;
+        }
+        this.searchDatabase = searchDatabase;
+    }
 
     /**
      * Gets the value of the identificationRef property.
-     * 
+     *
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the identificationRef property.
-     * 
+     * This is why there is not a
+     * <CODE>set</CODE> method for the identificationRef property.
+     *
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getIdentificationRef().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link IdentificationRef }
-     * 
-     * 
+     *
+     *
      */
     public List<IdentificationRef> getIdentificationRef() {
         if (identificationRef == null) {
@@ -106,25 +115,26 @@ public class ProteinGroup
 
     /**
      * Gets the value of the proteinRef property.
-     * 
+     *
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the proteinRef property.
-     * 
+     * This is why there is not a
+     * <CODE>set</CODE> method for the proteinRef property.
+     *
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getProteinRef().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link ProteinRef }
-     * 
-     * 
+     *
+     *
      */
     public List<ProteinRef> getProteinRef() {
         if (proteinRef == null) {
@@ -135,26 +145,27 @@ public class ProteinGroup
 
     /**
      * Additional parameters or values about this protein group.Gets the value of the paramGroup property.
-     * 
+     *
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the paramGroup property.
-     * 
+     * This is why there is not a
+     * <CODE>set</CODE> method for the paramGroup property.
+     *
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getParamGroup().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link CvParam }
      * {@link UserParam }
-     * 
-     * 
+     *
+     *
      */
     public List<AbstractParam> getParamGroup() {
         if (paramGroup == null) {
@@ -164,57 +175,21 @@ public class ProteinGroup
     }
 
     /**
-     * Gets the value of the id property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getId() {
-        return id;
-    }
-
-    /**
-     * Sets the value of the id property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setId(String value) {
-        this.id = value;
-    }
-
-    /**
      * Gets the value of the searchDatabaseRef property.
-     * 
+     *
      * @return
-     *     possible object is
-     *     {@link Object }
-     *     
+     *         possible object is
+     *         {@link String }
+     *
      */
-    public Object getSearchDatabaseRef() {
+    public String getSearchDatabaseRef() {
         return searchDatabaseRef;
-    }
-
-    /**
-     * Sets the value of the searchDatabaseRef property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Object }
-     *     
-     */
-    public void setSearchDatabaseRef(Object value) {
-        this.searchDatabaseRef = value;
     }
 
     @Override
     public List<CvParam> getCvParam() {
         return new FacadeList<CvParam>(this.getParamGroup(), CvParam.class);
-}
+    }
 
     @Override
     public List<UserParam> getUserParam() {

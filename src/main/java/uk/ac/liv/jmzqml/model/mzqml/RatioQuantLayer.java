@@ -8,38 +8,33 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlID;
-import javax.xml.bind.annotation.XmlIDREF;
 import javax.xml.bind.annotation.XmlList;
-import javax.xml.bind.annotation.XmlSchemaType;
+import javax.xml.bind.annotation.XmlTransient;
 import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.CollapsedStringAdapter;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import uk.ac.liv.jmzqml.model.MzQuantMLObject;
-
 
 /**
  * A collection of data relating to the objects within the parent list type (e.g. PeptideConsensus, Protein or ProteinGroup)
- * 
+ *
  * <p>Java class for RatioQuantLayerType complex type.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ *
  * <pre>
  * &lt;complexType name="RatioQuantLayerType">
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="ColumnIndex" type="{http://www.w3.org/2001/XMLSchema}IDREFS"/>
+ *         &lt;element name="ColumnIndex" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0}listOfStrings"/>
  *         &lt;element name="DataMatrix" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0}DataMatrixType"/>
  *       &lt;/sequence>
- *       &lt;attribute name="id" use="required" type="{http://www.w3.org/2001/XMLSchema}ID" />
+ *       &lt;attribute name="id" use="required" type="{http://www.w3.org/2001/XMLSchema}string" />
  *     &lt;/restriction>
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "RatioQuantLayerType", propOrder = {
@@ -47,59 +42,75 @@ import uk.ac.liv.jmzqml.model.MzQuantMLObject;
     "dataMatrix"
 })
 public class RatioQuantLayer
-    implements Serializable, MzQuantMLObject
-{
+        extends IdOnly
+        implements Serializable, MzQuantMLObject {
 
     private final static long serialVersionUID = 100L;
     @XmlList
     @XmlElement(name = "ColumnIndex", required = true)
-    @XmlIDREF
-    @XmlSchemaType(name = "IDREFS")
-    protected List<Object> columnIndex;
+    protected List<String> columnIndex;
     @XmlElement(name = "DataMatrix", required = true)
     protected DataMatrix dataMatrix;
-    @XmlAttribute(name = "id", required = true)
-    @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
-    @XmlID
-    @XmlSchemaType(name = "ID")
-    protected String id;
+    @XmlTransient
+    protected List<IdOnly> columns;
+
+    public List<IdOnly> getColumns() {
+        return columns;
+    }
+
+    public void setColumnIndex(List<IdOnly> columns) {
+        if (columns == null) {
+            this.columnIndex = null;
+        }
+        else {
+            for (IdOnly column : columns) {
+                String refId = column.getId();
+                if (refId == null) {
+                    throw new IllegalArgumentException("Referenced object does not have an identifier.");
+                }
+                this.columnIndex.add(refId);
+            }
+            this.columns = columns;
+        }
+    }
 
     /**
      * Gets the value of the columnIndex property.
-     * 
+     *
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the columnIndex property.
-     * 
+     * This is why there is not a
+     * <CODE>set</CODE> method for the columnIndex property.
+     *
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getColumnIndex().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link Object }
-     * 
-     * 
+     * {@link String }
+     *
+     *
      */
-    public List<Object> getColumnIndex() {
+    public List<String> getColumnIndex() {
         if (columnIndex == null) {
-            columnIndex = new ArrayList<Object>();
+            columnIndex = new ArrayList<String>();
         }
         return this.columnIndex;
     }
 
     /**
      * Gets the value of the dataMatrix property.
-     * 
+     *
      * @return
-     *     possible object is
-     *     {@link DataMatrix }
-     *     
+     *         possible object is
+     *         {@link DataMatrix }
+     *
      */
     public DataMatrix getDataMatrix() {
         return dataMatrix;
@@ -107,38 +118,14 @@ public class RatioQuantLayer
 
     /**
      * Sets the value of the dataMatrix property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link DataMatrix }
-     *     
+     *              allowed object is
+     *              {@link DataMatrix }
+     *
      */
     public void setDataMatrix(DataMatrix value) {
         this.dataMatrix = value;
-    }
-
-    /**
-     * Gets the value of the id property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getId() {
-        return id;
-    }
-
-    /**
-     * Sets the value of the id property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setId(String value) {
-        this.id = value;
     }
 
 }

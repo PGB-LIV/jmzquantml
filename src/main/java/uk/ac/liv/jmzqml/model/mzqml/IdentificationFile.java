@@ -9,8 +9,7 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlElements;
-import javax.xml.bind.annotation.XmlIDREF;
-import javax.xml.bind.annotation.XmlSchemaType;
+import javax.xml.bind.annotation.XmlTransient;
 import javax.xml.bind.annotation.XmlType;
 import uk.ac.liv.jmzqml.model.ParamGroupCapable;
 import uk.ac.liv.jmzqml.model.utils.FacadeList;
@@ -30,7 +29,7 @@ import uk.ac.liv.jmzqml.model.utils.FacadeList;
  *       &lt;sequence>
  *         &lt;group ref="{http://psidev.info/psi/pi/mzQuantML/1.0.0}ParamGroup" maxOccurs="unbounded" minOccurs="0"/>
  *       &lt;/sequence>
- *       &lt;attribute name="searchDatabase_ref" type="{http://www.w3.org/2001/XMLSchema}IDREF" />
+ *       &lt;attribute name="searchDatabase_ref" type="{http://www.w3.org/2001/XMLSchema}string" />
  *     &lt;/extension>
  *   &lt;/complexContent>
  * &lt;/complexType>
@@ -54,10 +53,28 @@ public class IdentificationFile
     })
     protected List<AbstractParam> paramGroup;
     @XmlAttribute(name = "searchDatabase_ref")
-    @XmlIDREF
-    @XmlSchemaType(name = "IDREF")
-    protected Object searchDatabaseRef;
+    protected String searchDatabaseRef;
+    @XmlTransient
+    protected SearchDatabase searchDatabase;
 
+    public SearchDatabase getSearchDatabase(){
+        return searchDatabase;
+    }
+    
+    public void setSearchDatabase(SearchDatabase searchDatabase){
+        if (searchDatabase == null){
+            this.searchDatabaseRef = null;
+        }
+        else {
+            String refId = searchDatabase.getId();
+            if (refId == null){
+                throw new IllegalArgumentException("Referenced object does not have an identifier.");
+            }
+            this.searchDatabaseRef = refId;
+        }
+        this.searchDatabase = searchDatabase;
+    }
+    
     /**
      * Optional CV or user params for IdentificationFile.Gets the value of the paramGroup property.
      * 
@@ -93,24 +110,13 @@ public class IdentificationFile
      * 
      * @return
      *     possible object is
-     *     {@link Object }
+     *     {@link String }
      *     
      */
-    public Object getSearchDatabaseRef() {
+    public String getSearchDatabaseRef() {
         return searchDatabaseRef;
     }
 
-    /**
-     * Sets the value of the searchDatabaseRef property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Object }
-     *     
-     */
-    public void setSearchDatabaseRef(Object value) {
-        this.searchDatabaseRef = value;
-    }
 
     @Override
     public List<CvParam> getCvParam() {

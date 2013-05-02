@@ -64,7 +64,7 @@ public class MzQuantMLMarshaller {
 
             this.marsh.setProperty(Marshaller.JAXB_ENCODING, ENCODING);
             this.marsh.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
-            this.marsh.setProperty(Marshaller.JAXB_FRAGMENT, true);
+            //this.marsh.setProperty(Marshaller.JAXB_FRAGMENT, true);
             this.marsh.setProperty(Marshaller.JAXB_SCHEMA_LOCATION, MZQUANTML_SCHEMA_LOCATION);
         }
         catch (JAXBException jaxbex) {
@@ -83,6 +83,7 @@ public class MzQuantMLMarshaller {
     public void marshall(MzQuantML mzQuantML) {
         try {
             if (this.fw != null) {
+                //TODO: setProperty
                 JAXBElement<MzQuantML> jaxbElement = new JAXBElement<MzQuantML>(new QName(MZQUANTML_NS, MZQUANTML), MzQuantML.class, mzQuantML);
                 this.marsh.marshal(jaxbElement, this.fw);
                 this.fw.flush();
@@ -622,7 +623,7 @@ public class MzQuantMLMarshaller {
         cp.setName(name);
 
         Cv cv = createCv(cvRef, null, null, null);
-        cp.setCvRef(cv);
+        cp.setCv(cv);
 
         if (accession != null && !accession.isEmpty()) {
             cp.setAccession(accession);

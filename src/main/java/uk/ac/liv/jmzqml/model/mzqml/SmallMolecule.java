@@ -9,25 +9,20 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlElements;
-import javax.xml.bind.annotation.XmlID;
-import javax.xml.bind.annotation.XmlIDREF;
 import javax.xml.bind.annotation.XmlList;
-import javax.xml.bind.annotation.XmlSchemaType;
+import javax.xml.bind.annotation.XmlTransient;
 import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.CollapsedStringAdapter;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import uk.ac.liv.jmzqml.model.MzQuantMLObject;
 import uk.ac.liv.jmzqml.model.ParamGroupCapable;
 import uk.ac.liv.jmzqml.model.utils.FacadeList;
 
-
 /**
  * An element to represent a unique identifier of a small molecule for which quantitative values are reported.
- * 
+ *
  * <p>Java class for SmallMoleculeType complex type.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ *
  * <pre>
  * &lt;complexType name="SmallMoleculeType">
  *   &lt;complexContent>
@@ -35,16 +30,16 @@ import uk.ac.liv.jmzqml.model.utils.FacadeList;
  *       &lt;sequence>
  *         &lt;element name="Modification" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0}SmallMolModificationType" maxOccurs="unbounded" minOccurs="0"/>
  *         &lt;element name="DBIdentificationRef" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0}DBIdentificationRefType" maxOccurs="unbounded" minOccurs="0"/>
- *         &lt;element name="Feature_refs" type="{http://www.w3.org/2001/XMLSchema}IDREFS" minOccurs="0"/>
+ *         &lt;element name="Feature_refs" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0}listOfStrings" minOccurs="0"/>
  *         &lt;group ref="{http://psidev.info/psi/pi/mzQuantML/1.0.0}ParamGroup" maxOccurs="unbounded" minOccurs="0"/>
  *       &lt;/sequence>
- *       &lt;attribute name="id" use="required" type="{http://www.w3.org/2001/XMLSchema}ID" />
+ *       &lt;attribute name="id" use="required" type="{http://www.w3.org/2001/XMLSchema}string" />
  *     &lt;/restriction>
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "SmallMoleculeType", propOrder = {
@@ -54,8 +49,8 @@ import uk.ac.liv.jmzqml.model.utils.FacadeList;
     "paramGroup"
 })
 public class SmallMolecule
-    implements Serializable, MzQuantMLObject, ParamGroupCapable
-{
+        extends IdOnly
+        implements Serializable, MzQuantMLObject, ParamGroupCapable {
 
     private final static long serialVersionUID = 100L;
     @XmlElement(name = "Modification")
@@ -64,41 +59,57 @@ public class SmallMolecule
     protected List<DBIdentificationRef> dbIdentificationRef;
     @XmlList
     @XmlElement(name = "Feature_refs")
-    @XmlIDREF
-    @XmlSchemaType(name = "IDREFS")
-    protected List<Object> featureRefs;
+    protected List<String> featureRefs;
     @XmlElements({
         @XmlElement(name = "cvParam", type = CvParam.class),
         @XmlElement(name = "userParam", type = UserParam.class)
     })
     protected List<AbstractParam> paramGroup;
-    @XmlAttribute(name = "id", required = true)
-    @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
-    @XmlID
-    @XmlSchemaType(name = "ID")
-    protected String id;
+    @XmlTransient
+    protected List<Feature> features;
+
+    public List<Feature> getFeatures() {
+        return features;
+    }
+
+    public void setFeatures(List<Feature> features) {
+        if (features == null) {
+            this.featureRefs = null;
+        }
+        else {
+            for (Feature feature : features) {
+                String refId = feature.getId();
+                if (refId == null) {
+                    throw new IllegalArgumentException("Referenced object does not have an identifier.");
+                }
+                this.featureRefs.add(refId);
+            }
+        }
+        this.features = features;
+    }
 
     /**
      * Gets the value of the modification property.
-     * 
+     *
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the modification property.
-     * 
+     * This is why there is not a
+     * <CODE>set</CODE> method for the modification property.
+     *
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getModification().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link SmallMolModification }
-     * 
-     * 
+     *
+     *
      */
     public List<SmallMolModification> getModification() {
         if (modification == null) {
@@ -109,25 +120,26 @@ public class SmallMolecule
 
     /**
      * Gets the value of the dbIdentificationRef property.
-     * 
+     *
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the dbIdentificationRef property.
-     * 
+     * This is why there is not a
+     * <CODE>set</CODE> method for the dbIdentificationRef property.
+     *
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getDBIdentificationRef().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link DBIdentificationRef }
-     * 
-     * 
+     *
+     *
      */
     public List<DBIdentificationRef> getDBIdentificationRef() {
         if (dbIdentificationRef == null) {
@@ -138,55 +150,57 @@ public class SmallMolecule
 
     /**
      * Gets the value of the featureRefs property.
-     * 
+     *
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the featureRefs property.
-     * 
+     * This is why there is not a
+     * <CODE>set</CODE> method for the featureRefs property.
+     *
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getFeatureRefs().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link Object }
-     * 
-     * 
+     * {@link String }
+     *
+     *
      */
-    public List<Object> getFeatureRefs() {
+    public List<String> getFeatureRefs() {
         if (featureRefs == null) {
-            featureRefs = new ArrayList<Object>();
+            featureRefs = new ArrayList<String>();
         }
         return this.featureRefs;
     }
 
     /**
      * Additional parameters or values about this small molecule.Gets the value of the paramGroup property.
-     * 
+     *
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the paramGroup property.
-     * 
+     * This is why there is not a
+     * <CODE>set</CODE> method for the paramGroup property.
+     *
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getParamGroup().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link CvParam }
      * {@link UserParam }
-     * 
-     * 
+     *
+     *
      */
     public List<AbstractParam> getParamGroup() {
         if (paramGroup == null) {
@@ -195,34 +209,10 @@ public class SmallMolecule
         return this.paramGroup;
     }
 
-    /**
-     * Gets the value of the id property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getId() {
-        return id;
-    }
-
-    /**
-     * Sets the value of the id property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setId(String value) {
-        this.id = value;
-    }
-
     @Override
     public List<CvParam> getCvParam() {
         return new FacadeList<CvParam>(this.getParamGroup(), CvParam.class);
-}
+    }
 
     @Override
     public List<UserParam> getUserParam() {
