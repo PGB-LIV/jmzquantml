@@ -81,7 +81,7 @@ public class ParamList
      * Gets the cvparams
      *
      * @return possible object is
-     *         {@link uk.ac.ebi.jmzidml.model.utils.FacadeList }
+     *         {@link uk.ac.liv.jmzqml.model.utils.FacadeList }
      */
     public List<CvParam> getCvParam() {
         return new FacadeList<CvParam>(this.getParamGroup(), CvParam.class);

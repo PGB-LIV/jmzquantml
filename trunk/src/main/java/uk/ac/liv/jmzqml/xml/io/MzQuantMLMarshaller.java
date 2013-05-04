@@ -638,7 +638,8 @@ public class MzQuantMLMarshaller {
             cp.setUnitName(unitName);
         }
         if (unitCvRef != null && !unitCvRef.isEmpty()) {
-            cp.setUnitCvRef(unitCvRef);
+            Cv unitCv = createCv(unitCvRef, null, null, null);
+            cp.setUnitCv(unitCv);
         }
 
         return cp;

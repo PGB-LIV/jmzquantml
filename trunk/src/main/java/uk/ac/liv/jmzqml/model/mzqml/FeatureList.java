@@ -282,17 +282,17 @@ public class FeatureList
         return rawFilesGroupRef;
     }
 
-    /**
-     * Sets the value of the rawFilesGroupRef property.
-     *
-     * @param value
-     *              allowed object is
-     *              {@link String }
-     *
-     */
-    public void setRawFilesGroupRef(String value) {
-        this.rawFilesGroupRef = value;
-    }
+//    /**
+//     * Sets the value of the rawFilesGroupRef property.
+//     *
+//     * @param value
+//     *              allowed object is
+//     *              {@link String }
+//     *
+//     */
+//    public void setRawFilesGroupRef(String value) {
+//        this.rawFilesGroupRef = value;
+//    }
 
     @Override
     public List<CvParam> getCvParam() {

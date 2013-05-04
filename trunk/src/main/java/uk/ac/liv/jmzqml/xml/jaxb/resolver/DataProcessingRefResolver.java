@@ -1,7 +1,7 @@
 /*
- * Date: 29-Apr-2013
+ * Date: 02-May-2013
  * Author: Da Qi
- * File: uk.ac.liv.jmzqml.xml.jaxb.resolver.ContactRoleRefResolver.java
+ * File: uk.ac.liv.jmzqml.xml.jaxb.resolver.DataProcessingRefResolver.java
  *
  * jmzquantml is Copyright 2013 University of Liverpool.
  *
@@ -21,8 +21,8 @@
 package uk.ac.liv.jmzqml.xml.jaxb.resolver;
 
 import uk.ac.liv.jmzqml.MzQuantMLElement;
-import uk.ac.liv.jmzqml.model.mzqml.AbstractContact;
-import uk.ac.liv.jmzqml.model.mzqml.ContactRole;
+import uk.ac.liv.jmzqml.model.mzqml.DataProcessing;
+import uk.ac.liv.jmzqml.model.mzqml.Software;
 import uk.ac.liv.jmzqml.xml.io.MzQuantMLObjectCache;
 import uk.ac.liv.jmzqml.xml.xxindex.MzQuantMLIndexer;
 
@@ -30,36 +30,28 @@ import uk.ac.liv.jmzqml.xml.xxindex.MzQuantMLIndexer;
  *
  * @author Da Qi
  * @institute University of Liverpool
- * @time 29-Apr-2013 14:11:27
+ * @time 02-May-2013 16:35:30
  */
-public class ContactRoleRefResolver extends AbstractReferenceResolver<ContactRole> {
+public class DataProcessingRefResolver extends AbstractReferenceResolver<DataProcessing> {
 
-    public ContactRoleRefResolver(MzQuantMLIndexer index,
-                                  MzQuantMLObjectCache cache) {
+    public DataProcessingRefResolver(MzQuantMLIndexer index,
+                                     MzQuantMLObjectCache cache) {
         super(index, cache);
     }
 
     @Override
-    public void updateObject(ContactRole object) {
-
-        String ref = object.getContactRef();
+    public void updateObject(DataProcessing object) {
+        String ref = object.getSoftwareRef();
         if (ref != null) {
-            AbstractContact refObject = this.unmarshal(ref, AbstractContact.class);
-            object.setContact(refObject);
+            Software refObject = this.unmarshal(ref, Software.class);
+            object.setSoftware(refObject);
         }
     }
 
-    /**
-     * Method to perform the afterUnmarshal operation if the resolver
-     * applies to the specified object.
-     *
-     * @param target the object to modify after unmarshalling.
-     * @param parent object referencing the target. Null if target is root element.
-     */
     @Override
     public void afterUnmarshal(Object target, Object parent) {
-        if (ContactRole.class.isInstance(target) && MzQuantMLElement.ContactRole.isAutoRefResolving()) {
-            updateObject((ContactRole) target);
+        if (DataProcessing.class.isInstance(target) && MzQuantMLElement.DataProcessing.isAutoRefResolving()) {
+            updateObject((DataProcessing) target);
         }
     }
 

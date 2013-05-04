@@ -44,7 +44,7 @@ import uk.ac.liv.jmzqml.model.utils.FacadeList;
     "paramGroup"
 })
 public class ProcessingMethod
-    implements Serializable, MzQuantMLObject, ParamGroupCapable
+    implements Serializable, MzQuantMLObject
 {
 
     private final static long serialVersionUID = 100L;
@@ -111,12 +111,12 @@ public class ProcessingMethod
         this.order = value;
     }
 
-    @Override
+
     public List<CvParam> getCvParam() {
         return new FacadeList<CvParam>(this.getParamGroup(), CvParam.class);
 }
 
-    @Override
+
     public List<UserParam> getUserParam() {
         return new FacadeList<UserParam>(this.getParamGroup(), UserParam.class);
     }

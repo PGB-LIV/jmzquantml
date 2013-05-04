@@ -21,7 +21,11 @@ import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 import uk.ac.liv.jmzqml.MzQuantMLElement;
 import uk.ac.liv.jmzqml.model.MzQuantMLObject;
+import uk.ac.liv.jmzqml.model.mzqml.AnalysisSummary;
+import uk.ac.liv.jmzqml.model.mzqml.CvParam;
 import uk.ac.liv.jmzqml.model.mzqml.MzQuantML;
+import uk.ac.liv.jmzqml.model.mzqml.ParamList;
+import uk.ac.liv.jmzqml.model.mzqml.UserParam;
 import uk.ac.liv.jmzqml.xml.jaxb.unmarshaller.UnmarshallerFactory;
 import uk.ac.liv.jmzqml.xml.jaxb.unmarshaller.filters.MzQuantMLNamespaceFilter;
 import uk.ac.liv.jmzqml.xml.xxindex.FileUtils;
@@ -361,6 +365,16 @@ public class MzQuantMLUnmarshaller {
         return index.getIDsForElement(element);
     }
 
+    public <T extends MzQuantMLObject> T unmarshal(Class<T> clazz, String id)
+            throws JAXBException {
+        if (!index.isIDmapped(id, clazz)) {
+            throw new IllegalArgumentException("No entry found for ID: " + id + " and Class: " + clazz
+                    + ". Make sure the element you are looking for has an ID attribute and is id-mapped!");
+        }
+        String xmlSt = index.getXmlString(id, clazz);
+        return generateObject(clazz, xmlSt);
+    }
+
     public ArrayList<String> getExceptionalMessages() {
         return exMsgs;
     }
@@ -412,6 +426,25 @@ public class MzQuantMLUnmarshaller {
             logger.trace("XML to unmarshal: " + xmlSt);
         }
 
+//        if (cls.equals(MzQuantMLElement.AnalysisSummary.getClazz())) {
+//            cls = MzQuantMLElement.ParamList.getClazz();
+//        }
+        if (cls.equals(MzQuantMLElement.AnalysisSummary.getClazz())) {
+            StringReader sr = new StringReader(xmlSt);
+            MzQuantMLNamespaceFilter xmlFilter = new MzQuantMLNamespaceFilter();
+            Unmarshaller unmarshaller = UnmarshallerFactory.getInstance().initializeUnmarshaller(index, null, xmlFilter);
+            JAXBElement<ParamList> holder = unmarshaller.unmarshal(new SAXSource(xmlFilter, new InputSource(new StringReader(xmlSt))), ParamList.class);
+            ParamList pl = holder.getValue();
+            AnalysisSummary as = new AnalysisSummary();
+            for (CvParam cp: pl.getCvParam()){
+                as.getCvParam().add(cp);
+            }
+            for (UserParam up: pl.getUserParam()){
+                as.getUserParam().add(up);
+            }
+            return (T) as;    
+        }
+        else {
         // Create a filter to intercept events -- and patch the missing namespace
         MzQuantMLNamespaceFilter xmlFilter = new MzQuantMLNamespaceFilter();
 
@@ -427,6 +460,7 @@ public class MzQuantMLUnmarshaller {
         }
 
         return retval;
+    }
     }
 
 }

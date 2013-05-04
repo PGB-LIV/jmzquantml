@@ -12,6 +12,7 @@ import javax.xml.bind.annotation.XmlElements;
 import javax.xml.bind.annotation.XmlIDREF;
 import javax.xml.bind.annotation.XmlList;
 import javax.xml.bind.annotation.XmlSchemaType;
+import javax.xml.bind.annotation.XmlTransient;
 import javax.xml.bind.annotation.XmlType;
 import uk.ac.liv.jmzqml.model.MzQuantMLObject;
 import uk.ac.liv.jmzqml.model.ParamGroupCapable;
@@ -70,6 +71,26 @@ public class Assay
     protected String name;
     @XmlAttribute(name = "rawFilesGroup_ref")
     protected String rawFilesGroupRef;
+    @XmlTransient
+    protected RawFilesGroup rawFilesGroup;
+
+    public RawFilesGroup getRawFilesGroup() {
+        return rawFilesGroup;
+    }
+
+    public void setRawFilesGroup(RawFilesGroup rawFilesGroup) {
+        if (rawFilesGroup == null) {
+            this.rawFilesGroupRef = null;
+        }
+        else {
+            String refId = rawFilesGroup.getId();
+            if (refId == null) {
+                throw new IllegalArgumentException("Referenced object does not have an identifier.");
+            }
+            this.rawFilesGroupRef = refId;
+        }
+        this.rawFilesGroup = rawFilesGroup;
+    }
 
     /**
      * Gets the value of the label property.
@@ -190,18 +211,6 @@ public class Assay
      */
     public String getRawFilesGroupRef() {
         return rawFilesGroupRef;
-    }
-
-    /**
-     * Sets the value of the rawFilesGroupRef property.
-     *
-     * @param value
-     *              allowed object is
-     *              {@link String }
-     *
-     */
-    public void setRawFilesGroupRef(String value) {
-        this.rawFilesGroupRef = value;
     }
 
     @Override

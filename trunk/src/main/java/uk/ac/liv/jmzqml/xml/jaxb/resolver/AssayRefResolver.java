@@ -1,7 +1,7 @@
 /*
- * Date: 29-Apr-2013
+ * Date: 02-May-2013
  * Author: Da Qi
- * File: uk.ac.liv.jmzqml.xml.jaxb.resolver.ContactRoleRefResolver.java
+ * File: uk.ac.liv.jmzqml.xml.jaxb.resolver.AssayRefResolver.java
  *
  * jmzquantml is Copyright 2013 University of Liverpool.
  *
@@ -21,8 +21,9 @@
 package uk.ac.liv.jmzqml.xml.jaxb.resolver;
 
 import uk.ac.liv.jmzqml.MzQuantMLElement;
-import uk.ac.liv.jmzqml.model.mzqml.AbstractContact;
-import uk.ac.liv.jmzqml.model.mzqml.ContactRole;
+import uk.ac.liv.jmzqml.model.mzqml.Assay;
+import uk.ac.liv.jmzqml.model.mzqml.IdentificationFile;
+import uk.ac.liv.jmzqml.model.mzqml.RawFilesGroup;
 import uk.ac.liv.jmzqml.xml.io.MzQuantMLObjectCache;
 import uk.ac.liv.jmzqml.xml.xxindex.MzQuantMLIndexer;
 
@@ -30,23 +31,24 @@ import uk.ac.liv.jmzqml.xml.xxindex.MzQuantMLIndexer;
  *
  * @author Da Qi
  * @institute University of Liverpool
- * @time 29-Apr-2013 14:11:27
+ * @time 02-May-2013 17:25:21
  */
-public class ContactRoleRefResolver extends AbstractReferenceResolver<ContactRole> {
+public class AssayRefResolver extends AbstractReferenceResolver<Assay> {
 
-    public ContactRoleRefResolver(MzQuantMLIndexer index,
-                                  MzQuantMLObjectCache cache) {
+    public AssayRefResolver(MzQuantMLIndexer index, MzQuantMLObjectCache cache) {
         super(index, cache);
     }
 
     @Override
-    public void updateObject(ContactRole object) {
+    public void updateObject(Assay object) {
 
-        String ref = object.getContactRef();
+        String ref = object.getRawFilesGroupRef();
         if (ref != null) {
-            AbstractContact refObject = this.unmarshal(ref, AbstractContact.class);
-            object.setContact(refObject);
+            RawFilesGroup refObject = this.unmarshal(ref, RawFilesGroup.class);
+            object.setRawFilesGroup(refObject);
         }
+        
+        //TODO: need support IdentificationFile_refs
     }
 
     /**
@@ -58,9 +60,9 @@ public class ContactRoleRefResolver extends AbstractReferenceResolver<ContactRol
      */
     @Override
     public void afterUnmarshal(Object target, Object parent) {
-        if (ContactRole.class.isInstance(target) && MzQuantMLElement.ContactRole.isAutoRefResolving()) {
-            updateObject((ContactRole) target);
-        }
+        if (Assay.class.isInstance(target) && MzQuantMLElement.Assay.isAutoRefResolving()) {
+            updateObject((Assay) target);
+        } // else, not business of this resolver
     }
 
 }

@@ -232,17 +232,17 @@ extends IdOnly
         return softwareRef;
     }
 
-    /**
-     * Sets the value of the softwareRef property.
-     *
-     * @param value
-     *              allowed object is
-     *              {@link String }
-     *
-     */
-    public void setSoftwareRef(String value) {
-        this.softwareRef = value;
-    }
+//    /**
+//     * Sets the value of the softwareRef property.
+//     *
+//     * @param value
+//     *              allowed object is
+//     *              {@link String }
+//     *
+//     */
+//    public void setSoftwareRef(String value) {
+//        this.softwareRef = value;
+//    }
 
     /**
      * Gets the value of the order property.

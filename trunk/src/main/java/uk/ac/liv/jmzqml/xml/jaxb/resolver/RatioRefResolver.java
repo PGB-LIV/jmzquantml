@@ -1,7 +1,7 @@
 /*
- * Date: 29-Apr-2013
+ * Date: 02-May-2013
  * Author: Da Qi
- * File: uk.ac.liv.jmzqml.xml.jaxb.resolver.ContactRoleRefResolver.java
+ * File: uk.ac.liv.jmzqml.xml.jaxb.resolver.RatioRefResolver.java
  *
  * jmzquantml is Copyright 2013 University of Liverpool.
  *
@@ -21,8 +21,7 @@
 package uk.ac.liv.jmzqml.xml.jaxb.resolver;
 
 import uk.ac.liv.jmzqml.MzQuantMLElement;
-import uk.ac.liv.jmzqml.model.mzqml.AbstractContact;
-import uk.ac.liv.jmzqml.model.mzqml.ContactRole;
+import uk.ac.liv.jmzqml.model.mzqml.Ratio;
 import uk.ac.liv.jmzqml.xml.io.MzQuantMLObjectCache;
 import uk.ac.liv.jmzqml.xml.xxindex.MzQuantMLIndexer;
 
@@ -30,23 +29,18 @@ import uk.ac.liv.jmzqml.xml.xxindex.MzQuantMLIndexer;
  *
  * @author Da Qi
  * @institute University of Liverpool
- * @time 29-Apr-2013 14:11:27
+ * @time 02-May-2013 17:09:51
  */
-public class ContactRoleRefResolver extends AbstractReferenceResolver<ContactRole> {
+public class RatioRefResolver extends AbstractReferenceResolver<Ratio> {
 
-    public ContactRoleRefResolver(MzQuantMLIndexer index,
-                                  MzQuantMLObjectCache cache) {
+    public RatioRefResolver(MzQuantMLIndexer index, MzQuantMLObjectCache cache) {
         super(index, cache);
     }
 
     @Override
-    public void updateObject(ContactRole object) {
-
-        String ref = object.getContactRef();
-        if (ref != null) {
-            AbstractContact refObject = this.unmarshal(ref, AbstractContact.class);
-            object.setContact(refObject);
-        }
+    public void updateObject(Ratio object) {
+        //TODO: the unmarshaler have to detect which Class of the ref (e.g. Assay or StudyVariable)
+        throw new UnsupportedOperationException("Not supported yet.");
     }
 
     /**
@@ -58,9 +52,9 @@ public class ContactRoleRefResolver extends AbstractReferenceResolver<ContactRol
      */
     @Override
     public void afterUnmarshal(Object target, Object parent) {
-        if (ContactRole.class.isInstance(target) && MzQuantMLElement.ContactRole.isAutoRefResolving()) {
-            updateObject((ContactRole) target);
-        }
+        if (Ratio.class.isInstance(target) && MzQuantMLElement.Ratio.isAutoRefResolving()) {
+            updateObject((Ratio) target);
+        } // else, not business of this resolver
     }
 
 }

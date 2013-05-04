@@ -97,7 +97,7 @@ public class Provider
      *         {@link String }
      *
      */
-    public String getAnalysisSoftwareRef() {
+    public String getSoftwareRef() {
         return analysisSoftwareRef;
     }
 

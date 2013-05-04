@@ -1,7 +1,7 @@
 /*
- * Date: 29-Apr-2013
+ * Date: 02-May-2013
  * Author: Da Qi
- * File: uk.ac.liv.jmzqml.xml.jaxb.resolver.ContactRoleRefResolver.java
+ * File: uk.ac.liv.jmzqml.xml.jaxb.resolver.FeatureListRefResolver.java
  *
  * jmzquantml is Copyright 2013 University of Liverpool.
  *
@@ -21,8 +21,8 @@
 package uk.ac.liv.jmzqml.xml.jaxb.resolver;
 
 import uk.ac.liv.jmzqml.MzQuantMLElement;
-import uk.ac.liv.jmzqml.model.mzqml.AbstractContact;
-import uk.ac.liv.jmzqml.model.mzqml.ContactRole;
+import uk.ac.liv.jmzqml.model.mzqml.FeatureList;
+import uk.ac.liv.jmzqml.model.mzqml.RawFilesGroup;
 import uk.ac.liv.jmzqml.xml.io.MzQuantMLObjectCache;
 import uk.ac.liv.jmzqml.xml.xxindex.MzQuantMLIndexer;
 
@@ -30,22 +30,22 @@ import uk.ac.liv.jmzqml.xml.xxindex.MzQuantMLIndexer;
  *
  * @author Da Qi
  * @institute University of Liverpool
- * @time 29-Apr-2013 14:11:27
+ * @time 02-May-2013 17:05:41
  */
-public class ContactRoleRefResolver extends AbstractReferenceResolver<ContactRole> {
+public class FeatureListRefResolver extends AbstractReferenceResolver<FeatureList> {
 
-    public ContactRoleRefResolver(MzQuantMLIndexer index,
+    public FeatureListRefResolver(MzQuantMLIndexer index,
                                   MzQuantMLObjectCache cache) {
         super(index, cache);
     }
 
     @Override
-    public void updateObject(ContactRole object) {
+    public void updateObject(FeatureList object) {
 
-        String ref = object.getContactRef();
+        String ref = object.getRawFilesGroupRef();
         if (ref != null) {
-            AbstractContact refObject = this.unmarshal(ref, AbstractContact.class);
-            object.setContact(refObject);
+            RawFilesGroup refObject = this.unmarshal(ref, RawFilesGroup.class);
+            object.setRawFilesGroup(refObject);
         }
     }
 
@@ -58,9 +58,9 @@ public class ContactRoleRefResolver extends AbstractReferenceResolver<ContactRol
      */
     @Override
     public void afterUnmarshal(Object target, Object parent) {
-        if (ContactRole.class.isInstance(target) && MzQuantMLElement.ContactRole.isAutoRefResolving()) {
-            updateObject((ContactRole) target);
-        }
+        if (FeatureList.class.isInstance(target) && MzQuantMLElement.FeatureList.isAutoRefResolving()) {
+            updateObject((FeatureList) target);
+        } // else, not business of this resolver
     }
 
 }

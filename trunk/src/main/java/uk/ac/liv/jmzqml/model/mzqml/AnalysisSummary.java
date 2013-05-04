@@ -12,7 +12,6 @@ import javax.xml.bind.annotation.XmlType;
 import uk.ac.liv.jmzqml.model.MzQuantMLObject;
 import uk.ac.liv.jmzqml.model.utils.FacadeList;
 
-
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "AnalysisSummaryType", propOrder = {
     "paramGroup"
@@ -30,26 +29,27 @@ public class AnalysisSummary
 
     /**
      * Gets the value of the paramGroup property.
-     * 
+     *
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the paramGroup property.
-     * 
+     * This is why there is not a
+     * <CODE>set</CODE> method for the paramGroup property.
+     *
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getParamGroup().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link CvParam }
      * {@link UserParam }
-     * 
-     * 
+     *
+     *
      */
     public List<AbstractParam> getParamGroup() {
         if (paramGroup == null) {
@@ -62,11 +62,11 @@ public class AnalysisSummary
      * Gets the cvparams
      *
      * @return possible object is
-     *         {@link uk.ac.ebi.jmzidml.model.utils.FacadeList }
+     *         {@link uk.ac.liv.jmzqml.model.utils.FacadeList }
      */
     public List<CvParam> getCvParam() {
         return new FacadeList<CvParam>(this.getParamGroup(), CvParam.class);
-}
+    }
 
     /**
      * Gets the userparams
@@ -77,5 +77,5 @@ public class AnalysisSummary
     public List<UserParam> getUserParam() {
         return new FacadeList<UserParam>(this.getParamGroup(), UserParam.class);
     }
-    
+
 }

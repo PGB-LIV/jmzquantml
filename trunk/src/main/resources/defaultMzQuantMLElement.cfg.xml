@@ -58,8 +58,6 @@ Configurations for various properties of model classes.
         <clazz>uk.ac.liv.jmzqml.model.mzqml.AnalysisSummary</clazz>
         <idMapped>false</idMapped>
         <indexed>true</indexed>
-        <cvParamClass>uk.ac.liv.jmzqml.model.mzqml.params.AnalysisSummaryCvParam</cvParamClass>
-        <userParamClass>uk.ac.liv.jmzqml.model.mzqml.params.AnalysisSummaryUserParam</userParamClass>
         <tagName>AnalysisSummary</tagName>
         <xpath>/MzQuantML/AnalysisSummary</xpath>
     </configurations>   
@@ -223,7 +221,7 @@ Configurations for various properties of model classes.
     <configurations>
         <autoRefResolving>false</autoRefResolving>
         <clazz>uk.ac.liv.jmzqml.model.mzqml.FeatureList</clazz>
-        <idMapped>false</idMapped>
+        <idMapped>true</idMapped>
         <indexed>true</indexed>
         <cvParamClass>uk.ac.liv.jmzqml.model.mzqml.params.FeatureListCvParam</cvParamClass>
         <userParamClass>uk.ac.liv.jmzqml.model.mzqml.params.FeatureListUserParam</userParamClass>
@@ -235,7 +233,7 @@ Configurations for various properties of model classes.
     <configurations>
         <autoRefResolving>false</autoRefResolving>
         <clazz>uk.ac.liv.jmzqml.model.mzqml.Feature</clazz>
-        <idMapped>false</idMapped>
+        <idMapped>true</idMapped>
         <indexed>true</indexed>
         <cvParamClass>uk.ac.liv.jmzqml.model.mzqml.params.FeatureCvParam</cvParamClass>
         <userParamClass>uk.ac.liv.jmzqml.model.mzqml.params.FeatureUserParam</userParamClass>
@@ -367,7 +365,9 @@ Configurations for various properties of model classes.
     <configurations>
         <autoRefResolving>false</autoRefResolving>
         <clazz>uk.ac.liv.jmzqml.model.mzqml.Organization</clazz>
-        <idMapped>false</idMapped>
+        <cvParamClass>uk.ac.liv.jmzqml.model.mzqml.params.OrganizationCvParam</cvParamClass>
+        <userParamClass>uk.ac.liv.jmzqml.model.mzqml.params.OrganizationUserParam</userParamClass>        
+        <idMapped>true</idMapped>
         <indexed>true</indexed>
         <tagName>Organization</tagName>
         <xpath>/MzQuantML/AuditCollection/Organization</xpath>
@@ -379,7 +379,7 @@ Configurations for various properties of model classes.
         <idMapped>false</idMapped>
         <indexed>false</indexed>
     </configurations>
-    
+
     <configurations>
         <autoRefResolving>false</autoRefResolving>
         <clazz>uk.ac.liv.jmzqml.model.mzqml.Param</clazz>
@@ -391,8 +391,8 @@ Configurations for various properties of model classes.
         <autoRefResolving>false</autoRefResolving>
         <clazz>uk.ac.liv.jmzqml.model.mzqml.ParentOrganization</clazz>
         <idMapped>false</idMapped>
-        <indexed>true</indexed>
-        <refResolverClass>uk.ac.liv.jmzqml.xml.jaxb.ParentOrganizationRefResolver</refResolverClass>
+        <indexed>false</indexed>
+        <refResolverClass>uk.ac.liv.jmzqml.xml.jaxb.resolver.ParentOrganizationRefResolver</refResolverClass>
         <tagName>ParentOrganization</tagName>
         <xpath>/MzQuantML/AudiCollection/Organization/ParentOrganization</xpath>
     </configurations>
@@ -400,7 +400,7 @@ Configurations for various properties of model classes.
     <configurations>
         <autoRefResolving>false</autoRefResolving>
         <clazz>uk.ac.liv.jmzqml.model.mzqml.PeptideConsensusList</clazz>
-        <idMapped>false</idMapped>
+        <idMapped>true</idMapped>
         <indexed>true</indexed>
         <cvParamClass>uk.ac.liv.jmzqml.model.mzqml.params.PeptideConsensusListCvParam</cvParamClass>
         <userParamClass>uk.ac.liv.jmzqml.model.mzqml.params.PeptideConsensusListUserParam</userParamClass>
@@ -423,6 +423,8 @@ Configurations for various properties of model classes.
     <configurations>
         <autoRefResolving>false</autoRefResolving>
         <clazz>uk.ac.liv.jmzqml.model.mzqml.Person</clazz>
+        <cvParamClass>uk.ac.liv.jmzqml.model.mzqml.params.PersonCvParam</cvParamClass>
+        <userParamClass>uk.ac.liv.jmzqml.model.mzqml.params.PersonUserParam</userParamClass>
         <idMapped>true</idMapped>
         <indexed>true</indexed>
         <tagName>Person</tagName>
@@ -476,7 +478,7 @@ Configurations for various properties of model classes.
     <configurations>
         <autoRefResolving>false</autoRefResolving>
         <clazz>uk.ac.liv.jmzqml.model.mzqml.ProteinList</clazz>
-        <idMapped>false</idMapped>
+        <idMapped>true</idMapped>
         <indexed>true</indexed>
         <cvParamClass>uk.ac.liv.jmzqml.model.mzqml.params.ProteinListCvParam</cvParamClass>
         <userParamClass>uk.ac.liv.jmzqml.model.mzqml.params.ProteinListUserParam</userParamClass>
@@ -681,7 +683,6 @@ Configurations for various properties of model classes.
         <clazz>uk.ac.liv.jmzqml.model.mzqml.UserParam</clazz>
         <idMapped>false</idMapped>
         <indexed>false</indexed>
-        <refResolverClass>uk.ac.liv.jmzqml.xml.jaxb.resolver.UserParamRefResolver</refResolverClass>
         <tagName>userParam</tagName>
     </configurations>  
 

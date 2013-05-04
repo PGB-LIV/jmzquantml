@@ -23,7 +23,12 @@
         <Person firstName="Andy" lastName="Jones" id="PERS_ARJ">
             <Affiliation organization_ref="ORG_UOL"/>
         </Person>
-        <Organization name="University of Liverpool" id="ORG_UOL"/>
+        <Organization name="University of Liverpool" id="ORG_UOL">
+            <cvParam accession="MS:1000589" name="contact email" cvRef="PSI-MS" value="support@liv.ac.uk"/>
+            <cvParam accession="MS:1000587" name="contact address" cvRef="PSI-MS" value="Crown Street, Liverpool, L69 7ZB, UK"/>
+            <userParam name="contact phone" value="+44 (0)20 7486 1050"/>
+            <userParam name="contact fax" value="+44 (0)20 7224 1344"/>
+        </Organization>
     </AuditCollection>
     <AnalysisSummary>
         <cvParam accession="MS:1001834" cvRef="PSI-MS" name="LC-MS label-free quantitation analysis"/>
