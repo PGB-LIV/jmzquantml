@@ -72,25 +72,6 @@ public class RawXMLListener extends Unmarshaller.Listener {
         referenceResolving(target, parent, element);
     }
 
-    private void referenceResolving(Object target, Object parent,
-                                    MzQuantMLElement element) {
-        if (element.isAutoRefResolving()) {
-            Class cls = element.getRefResolverClass();
-            if (cls == null) {
-                throw new IllegalStateException("Can not auto-resolve references if no reference resolver was defined for class: " + element.getClazz());
-            }
-            try {
-                Constructor con = cls.getDeclaredConstructor(MzQuantMLIndexer.class, MzQuantMLObjectCache.class);
-                AbstractReferenceResolver resolver = (AbstractReferenceResolver) con.newInstance(index, cache);
-                resolver.afterUnmarshal(target, parent);
-            }
-            catch (Exception e) {
-                logger.error("Error trying to instantiate reference resolver: " + cls.getName(), e);
-                throw new IllegalStateException("Could not instantiate reference resolver: " + cls.getName());
-            }
-        }
-    }
-
     @SuppressWarnings("unchecked")
     private void paramHandling(Object target, MzQuantMLElement ele) {
         try {
@@ -106,12 +87,12 @@ public class RawXMLListener extends Unmarshaller.Listener {
                     if (param.getCvParam() != null) {
                         Class clazz = Class.forName("uk.ac.liv.jmzqml.model.mzqml.params." + className + "CvParam");
                         CvParam cvParam = ParamUpdater.updateCvParamSubclass(param.getCvParam(), clazz);
-                        param.setParamGroup(cvParam);
+                        param.setParam(cvParam);
                     }
                     else if (param.getUserParam() != null) {
                         Class clazz = Class.forName("uk.ac.liv.jmzqml.model.mzqml.params." + className + "UserParam");
                         UserParam userParam = ParamUpdater.updateUserParamSubclass(param.getUserParam(), clazz);
-                        param.setParamGroup(userParam);
+                        param.setParam(userParam);
                     }
                 }
             }
@@ -184,5 +165,24 @@ public class RawXMLListener extends Unmarshaller.Listener {
             throw new IllegalStateException("Error during post unmarshall processing!", e);
         }
     }
+    
+  private void referenceResolving(Object target, Object parent,
+                                    MzQuantMLElement element) {
+        if (element.isAutoRefResolving()) {
+            Class cls = element.getRefResolverClass();
+            if (cls == null) {
+                throw new IllegalStateException("Can not auto-resolve references if no reference resolver was defined for class: " + element.getClazz());
+            }
+            try {
+                Constructor con = cls.getDeclaredConstructor(MzQuantMLIndexer.class, MzQuantMLObjectCache.class);
+                AbstractReferenceResolver resolver = (AbstractReferenceResolver) con.newInstance(index, cache);
+                resolver.afterUnmarshal(target, parent);
+            }
+            catch (Exception e) {
+                logger.error("Error trying to instantiate reference resolver: " + cls.getName(), e);
+                throw new IllegalStateException("Could not instantiate reference resolver: " + cls.getName());
+            }
+        }
+    }    
 
 }

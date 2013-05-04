@@ -28,6 +28,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import javax.naming.ConfigurationException;
+import javax.xml.bind.JAXBException;
 import static org.junit.Assert.*;
 import org.junit.Test;
 import uk.ac.liv.jmzqml.MzQuantMLElement;
@@ -108,14 +109,23 @@ public class MzQuantMLUnmarshallerTest {
 
     @Test
     public void testAuditCollection()
-            throws Exception {
+            throws JAXBException {
         AuditCollection ac = unmarshaller.unmarshal(MzQuantMLElement.AuditCollection);
         assertNotNull(ac);
+        Organization org = unmarshaller.unmarshal(Organization.class, "ORG_UOL");
+        List<CvParam> cvParams = org.getCvParam();
+        List<UserParam> userParams = org.getUserParam();
+        assertTrue(cvParams.size() == 2);
+        assertTrue(userParams.size() == 2);
+        CvParam cvParam = cvParams.get(0);
+        assertTrue(cvParam.getAccession().equals("MS:1000589"));
+        UserParam userParam = userParams.get(0);
+        assertTrue(userParam.getValue().equals("+44 (0)20 7486 1050"));
     }
 
     @Test
     public void testAssayList()
-            throws Exception {
+            throws JAXBException {
         AssayList assayList = unmarshaller.unmarshal(MzQuantMLElement.AssayList);
         assertNotNull(assayList);
         List<Assay> assays = assayList.getAssay();

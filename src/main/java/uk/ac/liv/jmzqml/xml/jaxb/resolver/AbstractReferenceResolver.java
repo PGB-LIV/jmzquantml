@@ -130,4 +130,6 @@ public abstract class AbstractReferenceResolver<T extends MzQuantMLObject>
         return retVal;
     }
 
+    public abstract void updateObject(T object);
+
 }

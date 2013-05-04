@@ -14,7 +14,6 @@ import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import uk.ac.liv.jmzqml.model.MzQuantMLObject;
-import uk.ac.liv.jmzqml.model.ParamListCapable;
 import uk.ac.liv.jmzqml.xml.jaxb.adapter.CalendarAdapter;
 
 
@@ -79,7 +78,7 @@ import uk.ac.liv.jmzqml.xml.jaxb.adapter.CalendarAdapter;
 })
 @XmlRootElement(name = "MzQuantML")
 public class MzQuantML extends Identifiable
-        implements Serializable, MzQuantMLObject, ParamListCapable {
+        implements Serializable, MzQuantMLObject{
 
     private final static long serialVersionUID = 100L;
     @XmlElement(name = "CvList", required = true)

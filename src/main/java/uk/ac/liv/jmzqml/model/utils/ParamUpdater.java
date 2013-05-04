@@ -86,7 +86,7 @@ public class ParamUpdater {
             }
 
             if (input.getUnitCv() != null) {
-                newParam.setUniCv(input.getUnitCv());
+                newParam.setUnitCv(input.getUnitCv());
             }
             else if (input.getUnitCvRef() != null) {
                 // no unitCv object reference! might only be a reference string (not auto-resolving)

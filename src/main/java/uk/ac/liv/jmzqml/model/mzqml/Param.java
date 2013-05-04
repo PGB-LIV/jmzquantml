@@ -53,7 +53,7 @@ public class Param
      *     {@link UserParam }
      *     
      */
-    public void setParamGroup(AbstractParam value) {
+    public void setParam(AbstractParam value) {
         this.paramGroup = value;
     }
 

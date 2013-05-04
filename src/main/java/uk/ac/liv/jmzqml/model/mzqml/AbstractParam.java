@@ -164,23 +164,12 @@ public abstract class AbstractParam implements Serializable, MzQuantMLObject {
         return unitCvRef;
     }
 
-    /**
-     * Sets the value of the unitCvRef property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setUnitCvRef(String value) {
-        this.unitCvRef = value;
-    }
 
     public Cv getUnitCv() {
         return unitCv;
 }
 
-    public void setUniCv(Cv unitCv) {
+    public void setUnitCv(Cv unitCv) {
         if (unitCv == null) {
             this.unitCvRef = null;
         }
