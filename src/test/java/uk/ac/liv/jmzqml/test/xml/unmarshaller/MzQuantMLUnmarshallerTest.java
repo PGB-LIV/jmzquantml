@@ -42,18 +42,18 @@ import uk.ac.liv.jmzqml.xml.io.MzQuantMLUnmarshaller;
  * @time 10-Jul-2012 11:37:50
  */
 public class MzQuantMLUnmarshallerTest {
-
+    
     private static MzQuantMLUnmarshaller unmarshaller;
-
+    
     static {
         String fileName = "CPTAC-Progenesis-small-example.mzq";
         URL xmlFileURL = MzQuantMLUnmarshallerTest.class.getClassLoader().getResource(fileName);
         assertNotNull(xmlFileURL);
-
+        
         unmarshaller = new MzQuantMLUnmarshaller(xmlFileURL);
         assertNotNull(unmarshaller);
     }
-
+    
     @Test
     public void testAttributeRetrieval()
             throws Exception {
@@ -61,32 +61,32 @@ public class MzQuantMLUnmarshallerTest {
         // Number of software
         int total = unmarshaller.getObjectCountForXpath(MzQuantMLElement.Software.getXpath());
         assertEquals(1, total);
-
+        
         Software software = unmarshaller.unmarshal(MzQuantMLElement.Software);
         assertNotNull(software);
         String id = "Progenesis";
         Map<String, String> attributes = unmarshaller.getElementAttributes(id, MzQuantMLElement.Software.getClazz());
         assertNotNull(attributes);
         assertEquals(id, attributes.get("id"));
-
+        
         assertEquals(2, attributes.keySet().size());
         assertEquals("2.3", attributes.get("version"));
 
         // test cv 
         Cv cv = unmarshaller.unmarshal(MzQuantMLElement.Cv);
         assertNotNull(cv);
-
+        
         id = "PSI-MS";
         attributes = unmarshaller.getElementAttributes(id, MzQuantMLElement.Cv.getClazz());
         assertNotNull(attributes);
         assertEquals(id, attributes.get("id"));
-
+        
         assertEquals(4, attributes.keySet().size());
         assertEquals("Proteomics Standards Initiative Mass Spectrometry Vocabularies", attributes.get("fullName"));
         assertEquals("http://psidev.cvs.sourceforge.net/viewvc/*checkout*/psidev/psi/psi-ms/mzML/controlledVocabulary/psi-ms.obo", attributes.get("uri"));
         assertEquals("2.25.0", attributes.get("version"));
     }
-
+    
     @Test
     public void testRootAttributeRetrieval()
             throws Exception {
@@ -94,7 +94,7 @@ public class MzQuantMLUnmarshallerTest {
         assertEquals("Progenesis-Label-Free-26112012", unmarshaller.getMzQuantMLId());
         assertEquals("1.0.0", unmarshaller.getMzQuantMLVersion());
         assertNull(unmarshaller.getMzQuantMLName());
-
+        
         String id = "Progenesis-Label-Free-26112012";
         Map<String, String> attributes = unmarshaller.getElementAttributes(id, MzQuantMLElement.MzQuantML.getClazz());
         assertNotNull(attributes);
@@ -106,7 +106,7 @@ public class MzQuantMLUnmarshallerTest {
         assertEquals("1.0.0", attributes.get("version"));
         assertEquals(id, attributes.get("id"));
     }
-
+    
     @Test
     public void testAuditCollection()
             throws JAXBException {
@@ -122,7 +122,7 @@ public class MzQuantMLUnmarshallerTest {
         UserParam userParam = userParams.get(0);
         assertTrue(userParam.getValue().equals("+44 (0)20 7486 1050"));
     }
-
+    
     @Test
     public void testAssayList()
             throws JAXBException {
@@ -131,7 +131,7 @@ public class MzQuantMLUnmarshallerTest {
         List<Assay> assays = assayList.getAssay();
         assertNotNull(assays);
     }
-
+    
     @Test
     public void testAssay()
             throws ConfigurationException {
@@ -140,23 +140,94 @@ public class MzQuantMLUnmarshallerTest {
         Set<String> assayIDs = unmarshaller.getIDsForElement(MzQuantMLElement.Assay);
         Set<String> realAssayIDs = new HashSet(Arrays.asList(new String[]{"ass_0", "ass_1", "ass_2", "ass_3", "ass_4", "ass_5", "ass_6", "ass_7", "ass_8", "ass_9", "ass_10", "ass_11"}));
         assertEquals(realAssayIDs, assayIDs);
-
+        
         Iterator<Assay> assays = unmarshaller.unmarshalCollectionFromXpath(MzQuantMLElement.Assay);
         assertNotNull(assays);
-
+        
+        AssayList assayList = unmarshaller.unmarshal(MzQuantMLElement.AssayList);
+        assertNotNull(assayList);
+        
+        Assay assay = unmarshaller.unmarshal(MzQuantMLElement.Assay);
+        assertTrue(assay.getId().equals("ass_0"));
+        Label label = assay.getLabel();
+        assertNotNull(label);
+        ModParam mod = label.getModification().get(0);
+        assertNotNull(mod);
+        assertTrue("unlabeled sample".equals(mod.getCvParam().getName()));
+        assertTrue(mod.getCvParam().getAccession().equals("MS:1002038"));
+        assertTrue(mod.getCvParam().getCvRef().equals("PSI-MS"));
     }
-
+    
     @Test
     public void testStudyVariableList()
             throws Exception {
         StudyVariableList studyVList = unmarshaller.unmarshal(MzQuantMLElement.StudyVariableList);
         assertNotNull(studyVList);
+        StudyVariable studyV = studyVList.getStudyVariable().get(0);
+        assertNotNull(studyV);
+        assertTrue(studyV.getId().equals("SV_D"));
+        List<Assay> assays = studyV.getAssays();
+        assertNotNull(assays);
+        Assay assay = (Assay) unmarshaller.unmarshal(MzQuantMLElement.Assay.getClazz(), "ass_7");
+        assertTrue(assays.get(1).getName().equals(assay.getName()));
     }
-
+    
     @Test
     public void testAnalysisSummary() {
         AnalysisSummary analysisSummary = unmarshaller.unmarshal(MzQuantMLElement.AnalysisSummary);
         assertNotNull(analysisSummary);
+        CvParam cp = analysisSummary.getCvParam().get(1);
+        assertTrue(cp.getAccession().equals("MS:1002019"));
+        assertTrue(cp.getCvRef().equals("PSI-MS"));
+        assertTrue(cp.getValue().equals("false"));
+        assertTrue(cp.getName().equals("label-free raw feature quantitation"));
     }
-
+    
+    @Test
+    public void testRawFilesGroup()
+            throws JAXBException {
+        int rfgCount = unmarshaller.getObjectCountForXpath(MzQuantMLElement.RawFilesGroup.getXpath());
+        assertTrue(rfgCount == 12);
+        Iterator<RawFilesGroup> rfgIter = unmarshaller.unmarshalCollectionFromXpath(MzQuantMLElement.RawFilesGroup);
+        assertNotNull(rfgIter);
+        
+        RawFilesGroup rfg = (RawFilesGroup) unmarshaller.unmarshal(MzQuantMLElement.RawFilesGroup.getClazz(), "rg_6");
+        assertNotNull(rfg);
+        
+        RawFile rawFile = rfg.getRawFile().get(0);
+        String location = rawFile.getLocation();
+        assertTrue(location.equals("../msmsdata/mam_042408o_CPTAC_study6_6D004.raw"));
+        String name = rawFile.getName();
+        assertTrue(name.equals("mam_042408o_CPTAC_study6_6D004.raw"));
+        
+        RawFile rawF = (RawFile) unmarshaller.unmarshal(MzQuantMLElement.RawFile.getClazz(), "raw_6");
+        assertTrue(rawF.getLocation().equals("../msmsdata/mam_042408o_CPTAC_study6_6D004.raw"));
+        assertTrue(rawF.getName().equals("mam_042408o_CPTAC_study6_6D004.raw"));
+    }
+    
+    @Test
+    public void testProteinList()
+            throws JAXBException {
+        ProteinList protList = unmarshaller.unmarshal(uk.ac.liv.jmzqml.model.mzqml.ProteinList.class);
+        assertNotNull(protList);
+        String id = protList.getId();
+        assertTrue(id.equals("ProtList1"));
+        List<Protein> proteins = protList.getProtein();
+        assertNotNull(proteins);
+        Protein prot = unmarshaller.unmarshal(Protein.class, "prot_3");
+        assertNotNull(prot);
+        SearchDatabase searchDB = prot.getSearchDatabase();
+        assertNotNull(searchDB);
+        assertTrue(searchDB.getLocation().equals("sgd_orfs_plus_ups_prots.fasta"));
+        assertTrue(searchDB.getId().equals("SD1"));
+        assertNull(searchDB.getDatabaseName().getCvParam());
+        UserParam up = searchDB.getDatabaseName().getUserParam();
+        assertNotNull(up);
+        assertTrue(up.getName().equals("sgd_orfs_plus_ups_prots.fasta"));
+    }
+    
+    @Test
+    public void testPeptideConsensusList() {
+    }
+    
 }

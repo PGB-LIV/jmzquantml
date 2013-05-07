@@ -487,7 +487,7 @@ Configurations for various properties of model classes.
     </configurations>    
 
     <configurations>
-        <autoRefResolving>false</autoRefResolving>
+        <autoRefResolving>true</autoRefResolving>
         <clazz>uk.ac.liv.jmzqml.model.mzqml.Protein</clazz>
         <idMapped>true</idMapped>
         <indexed>true</indexed>
@@ -545,7 +545,7 @@ Configurations for various properties of model classes.
     <configurations>
         <autoRefResolving>false</autoRefResolving>
         <clazz>uk.ac.liv.jmzqml.model.mzqml.RawFile</clazz>
-        <idMapped>false</idMapped>
+        <idMapped>true</idMapped>
         <indexed>true</indexed>
         <cvParamClass>uk.ac.liv.jmzqml.model.mzqml.params.RawFileCvParam</cvParamClass>
         <userParamClass>uk.ac.liv.jmzqml.model.mzqml.params.RawFileUserParam</userParamClass>
@@ -557,7 +557,7 @@ Configurations for various properties of model classes.
     <configurations>
         <autoRefResolving>false</autoRefResolving>
         <clazz>uk.ac.liv.jmzqml.model.mzqml.RawFilesGroup</clazz>
-        <idMapped>false</idMapped>
+        <idMapped>true</idMapped>
         <indexed>true</indexed>
         <cvParamClass>uk.ac.liv.jmzqml.model.mzqml.params.RawFilesGroupCvParam</cvParamClass>
         <userParamClass>uk.ac.liv.jmzqml.model.mzqml.params.RawFilesGroupUserParam</userParamClass>
@@ -667,7 +667,7 @@ Configurations for various properties of model classes.
     </configurations>   
 
     <configurations>
-        <autoRefResolving>false</autoRefResolving>
+        <autoRefResolving>true</autoRefResolving>
         <clazz>uk.ac.liv.jmzqml.model.mzqml.StudyVariable</clazz>
         <idMapped>true</idMapped>
         <indexed>true</indexed>

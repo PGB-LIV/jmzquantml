@@ -31,8 +31,6 @@ import uk.ac.liv.jmzqml.xml.jaxb.unmarshaller.filters.MzQuantMLNamespaceFilter;
 import uk.ac.liv.jmzqml.xml.xxindex.FileUtils;
 import uk.ac.liv.jmzqml.xml.xxindex.MzQuantMLIndexer;
 import uk.ac.liv.jmzqml.xml.xxindex.MzQuantMLIndexerFactory;
-//import uk.ac.liv.jmzquantml.xml.xxindex.MzQuantMLIndexer;
-//import uk.ac.liv.jmzquantml.xml.xxindex.MzQuantMLIndexerFactory;
 
 /**
  * Class for reading in whole mzQuantML objects.

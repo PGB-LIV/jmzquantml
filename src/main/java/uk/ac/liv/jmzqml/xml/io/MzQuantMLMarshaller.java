@@ -37,8 +37,10 @@ public class MzQuantMLMarshaller {
     private static final String ENCODING = "UTF-8";
     private static final String MZQUANTML = "MzQuantML";
     private static final String MZQUANTML_NS = "http://psidev.info/psi/pi/mzQuantML/1.0.0";
-    private static final String MZQUANTML_REL_PATH = " ../../../schema/mzQuantML_1_0_0.xsd";
-    private static final String MZQUANTML_SCHEMA_LOCATION = MZQUANTML_NS + MZQUANTML_REL_PATH;
+    //private static final String MZQUANTML_REL_PATH = " ../../../schema/mzQuantML_1_0_0.xsd";
+    //private static final String MZQUANTML_SCHEMA_LOCATION = MZQUANTML_NS + MZQUANTML_REL_PATH;
+    private static final String MZQUANTML_SCHEMA_LOCATION = "http://www.psidev.info/files/mzQuantML_1_0_0.xsd";
+    private static final String MZQUANTML_VERSION = "1.0";
     /**
      * Members.
      */
@@ -84,6 +86,10 @@ public class MzQuantMLMarshaller {
         try {
             if (this.fw != null) {
                 //TODO: setProperty
+                if (mzQuantML.getVersion().isEmpty()) {
+                    mzQuantML.setVersion(MZQUANTML_VERSION);
+                }
+
                 JAXBElement<MzQuantML> jaxbElement = new JAXBElement<MzQuantML>(new QName(MZQUANTML_NS, MZQUANTML), MzQuantML.class, mzQuantML);
                 this.marsh.marshal(jaxbElement, this.fw);
                 this.fw.flush();
@@ -148,7 +154,8 @@ public class MzQuantMLMarshaller {
     // helper methods to 'stitch' together large XML elements
     ///// ///// ///// ///// ///// /////
     public String createXmlHeader() {
-        String encoding = System.getProperty("file.encoding");
+        //String encoding = System.getProperty("file.encoding", "UTF-8");
+        String encoding = "UTF-8";
         return "<?xml verion=\"1.0\" encoding=\"" + encoding + "\"?>";
     }
 
