@@ -4,7 +4,7 @@
 =                jmzquantmL - Java API for MzQuantML                  =
 =                                                                     =
 =                                                                     =
-=                                           jmzquantml  1.0.0-1.0.0   =
+=                                           jmzquantml  1.0.0-1.0.1   =
 =                                 (c) University of Liverpool  2013   =
 =                              http://code.google.com/p/jmzquantml/   =
 =                                                                     =
@@ -28,7 +28,7 @@ How to use in maven
   <dependency>
      <groupId>uk.ac.liv</groupId>
      <artifactId>jmzquantml</artifactId>
-     <version>1.0.0-1.0.0</version>
+     <version>1.0.0-1.0.1</version>
   </dependency>
 
   Second, add wagon-svn extension (current version 1.12) in <build> tag:
@@ -61,8 +61,13 @@ How to use in maven
 
 Changelog
 
-  - Current version 1.0.0-1.0.0
-  - Previous version 1.0.0-rc3-1.0.5
+  - Current version 1.0.0-1.0.1
+  - Previous version 1.0.0-1.0.0
+
+jmzquantml version 1.0.0-1.0.1 -- (7, May 2013)
+  - added various unmarshallng and marshalling functions 
+  - added reference resolvers
+
 
 jmzquantml version 1.0.0-1.0.0 -- (15, February 2013)
   - adapted to mzQuantML version 1.0
