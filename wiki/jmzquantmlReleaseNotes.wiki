@@ -3,13 +3,19 @@
 
 *_Changelog_*
 
-  * Current version 1.0.0-1.0.0
-  * Previous version 1.0.0-rc3-1.0.5
+  * Current version 1.0.0-1.0.1
+  * Previous version 1.0.0-1.0.0
+
+----
+*jmzquantml version 1.0.0-1.0.1 -- (7, May 2013)*
+  * added various unmarshallng and marshalling functions 
+  * added reference resolvers
 
 ----
 *jmzquantml version 1.0.0-1.0.0 -- (15, February 2013)*
   * adapted to mzQuantML version 1.0
 
+----
 *jmzquantml version 1.0.0-rc3-1.0.5 -- (30, November 2012)*
   * adapted to latest schema changes:
     ** added a new `<RatioQuantLayer>` with the DataType element
