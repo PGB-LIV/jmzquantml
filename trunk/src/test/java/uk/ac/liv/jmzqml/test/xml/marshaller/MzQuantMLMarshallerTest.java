@@ -25,7 +25,6 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URL;
 import java.util.Iterator;
-import java.util.List;
 import static org.junit.Assert.*;
 import org.junit.Test;
 import uk.ac.liv.jmzqml.MzQuantMLElement;
@@ -189,8 +188,8 @@ public class MzQuantMLMarshallerTest {
         assertTrue(mzq.getAuditCollection().getPerson().size() == personCount);
         assertTrue(orgCount >= 0);
         assertTrue(mzq.getAuditCollection().getOrganization().size() == orgCount);
-//        assertTrue(analSumCount > 0);
-//        assertTrue(mzq.getAnalysisSummary().getParamGroup().size() == analSumCount);
+        assertTrue(analSumCount > 0);
+        assertTrue(mzq.getAnalysisSummary().getParamGroup().size() == analSumCount);
         assertTrue(swCount >= 0);
         assertTrue(mzq.getSoftwareList().getSoftware().size() == swCount);
         assertTrue(dpCount >= 0);
