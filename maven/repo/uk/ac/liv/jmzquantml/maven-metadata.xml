@@ -3,7 +3,7 @@
   <groupId>uk.ac.liv</groupId>
   <artifactId>jmzquantml</artifactId>
   <versioning>
-    <release>1.0.0-1.0.0</release>
+    <release>1.0.0-1.0.1</release>
     <versions>
       <version>1.0.0-rc2-1.0.0</version>
       <version>1.0.0-rc2-1.0.1</version>
@@ -15,7 +15,8 @@
       <version>1.0.0-rc3-1.0.4.1</version>
       <version>1.0.0-rc3-1.0.5</version>
       <version>1.0.0-1.0.0</version>
+      <version>1.0.0-1.0.1</version>
     </versions>
-    <lastUpdated>20130215175056</lastUpdated>
+    <lastUpdated>20130507131748</lastUpdated>
   </versioning>
 </metadata>
