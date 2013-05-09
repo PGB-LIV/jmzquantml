@@ -24,7 +24,6 @@ import java.util.ArrayList;
 import java.util.List;
 import uk.ac.liv.jmzqml.MzQuantMLElement;
 import uk.ac.liv.jmzqml.model.mzqml.Assay;
-import uk.ac.liv.jmzqml.model.mzqml.SearchDatabase;
 import uk.ac.liv.jmzqml.model.mzqml.StudyVariable;
 import uk.ac.liv.jmzqml.xml.io.MzQuantMLObjectCache;
 import uk.ac.liv.jmzqml.xml.xxindex.MzQuantMLIndexer;

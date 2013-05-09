@@ -64,6 +64,9 @@ public class StudyVariable
     protected List<Assay> assays;
 
     public List<Assay> getAssays() {
+        if (assays == null) {
+            assays = new ArrayList<Assay>();
+        }
         return assays;
     }
 

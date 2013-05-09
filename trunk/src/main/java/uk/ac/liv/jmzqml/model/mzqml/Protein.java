@@ -73,6 +73,9 @@ public class Protein
     protected SearchDatabase searchDatabase;
 
     public List<PeptideConsensus> getPeptideConsensuses() {
+        if (peptideConsensuses == null) {
+            peptideConsensuses = new ArrayList<PeptideConsensus>();
+        }
         return peptideConsensuses;
     }
 

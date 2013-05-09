@@ -69,6 +69,9 @@ public class SmallMolecule
     protected List<Feature> features;
 
     public List<Feature> getFeatures() {
+        if (features == null) {
+            features = new ArrayList<Feature>();
+        }
         return features;
     }
 
