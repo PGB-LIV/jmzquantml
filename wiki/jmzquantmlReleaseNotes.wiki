@@ -3,8 +3,13 @@
 
 *_Changelog_*
 
-  * Current version 1.0.0-1.0.1
-  * Previous version 1.0.0-1.0.0
+  * Current version 1.0.0-1.0.2
+  * Previous version 1.0.0-1.0.1
+
+
+----
+*jmzquantml version 1.0.0-1.0.2 -- (9, May 2013)*
+  * fixed the bugs of getting null list from some element classes
 
 ----
 *jmzquantml version 1.0.0-1.0.1 -- (7, May 2013)*
