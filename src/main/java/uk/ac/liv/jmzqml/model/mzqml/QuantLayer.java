@@ -59,6 +59,9 @@ public class QuantLayer
     protected List<IdOnly> columns;
 
     public List<IdOnly> getColumns() {
+        if (columns == null) {
+            columns = new ArrayList<IdOnly>();
+        }
         return columns;
     }
 
@@ -155,4 +158,5 @@ public class QuantLayer
     public void setDataMatrix(DataMatrix value) {
         this.dataMatrix = value;
     }
+
 }

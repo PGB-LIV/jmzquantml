@@ -55,6 +55,9 @@ public class RatioQuantLayer
     protected List<IdOnly> columns;
 
     public List<IdOnly> getColumns() {
+        if (columns == null) {
+            columns = new ArrayList<IdOnly>();
+        }
         return columns;
     }
 

@@ -55,6 +55,9 @@ public class EvidenceRef
     protected Feature feature;
 
     public List<Assay> getAssays() {
+        if (assays == null) {
+            assays = new ArrayList<Assay>();
+        }
         return assays;
     }
 
@@ -182,7 +185,6 @@ public class EvidenceRef
         return identificationFileRef;
     }
 
-
     /**
      * Gets the value of the featureRef property.
      *
@@ -194,6 +196,5 @@ public class EvidenceRef
     public String getFeatureRef() {
         return featureRef;
     }
-
 
 }

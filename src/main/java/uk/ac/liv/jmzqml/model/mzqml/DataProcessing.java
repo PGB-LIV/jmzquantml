@@ -48,7 +48,7 @@ import uk.ac.liv.jmzqml.model.MzQuantMLObject;
     "processingMethod"
 })
 public class DataProcessing
-extends IdOnly
+        extends IdOnly
         implements Serializable, MzQuantMLObject {
 
     private final static long serialVersionUID = 100L;
@@ -73,6 +73,9 @@ extends IdOnly
     protected Software software;
 
     public List<IdOnly> getInputObjects() {
+        if (inputObjects == null) {
+            inputObjects = new ArrayList<IdOnly>();
+        }
         return inputObjects;
     }
 
@@ -93,6 +96,9 @@ extends IdOnly
     }
 
     public List<IdOnly> getOutputObjects() {
+        if (outputObjects == null) {
+            outputObjects = new ArrayList<IdOnly>();
+        }
         return outputObjects;
     }
 
@@ -243,7 +249,6 @@ extends IdOnly
 //    public void setSoftwareRef(String value) {
 //        this.softwareRef = value;
 //    }
-
     /**
      * Gets the value of the order property.
      *
