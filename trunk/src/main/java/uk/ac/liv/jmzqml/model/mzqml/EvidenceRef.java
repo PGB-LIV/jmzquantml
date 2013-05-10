@@ -73,8 +73,8 @@ public class EvidenceRef
                 }
                 this.assayRefs.add(refId);
             }
-            this.assays = assays;
         }
+        this.assays = assays;
     }
 
     public IdentificationFile getIdentificationFile() {
