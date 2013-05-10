@@ -20,7 +20,10 @@
 
 package uk.ac.liv.jmzqml.xml.jaxb.resolver;
 
+import java.util.ArrayList;
+import java.util.List;
 import uk.ac.liv.jmzqml.MzQuantMLElement;
+import uk.ac.liv.jmzqml.model.mzqml.Assay;
 import uk.ac.liv.jmzqml.model.mzqml.EvidenceRef;
 import uk.ac.liv.jmzqml.model.mzqml.Feature;
 import uk.ac.liv.jmzqml.model.mzqml.IdentificationFile;
@@ -35,7 +38,8 @@ import uk.ac.liv.jmzqml.xml.xxindex.MzQuantMLIndexer;
  */
 public class EvidenceRefRefResolver extends AbstractReferenceResolver<EvidenceRef> {
 
-    public EvidenceRefRefResolver(MzQuantMLIndexer index, MzQuantMLObjectCache cache) {
+    public EvidenceRefRefResolver(MzQuantMLIndexer index,
+                                  MzQuantMLObjectCache cache) {
         super(index, cache);
     }
 
@@ -47,12 +51,23 @@ public class EvidenceRefRefResolver extends AbstractReferenceResolver<EvidenceRe
             Feature refObject1 = this.unmarshal(ref1, Feature.class);
             object.setFeature(refObject1);
         }
-        
+
         //identificationFile_ref
         String ref2 = object.getIdentificationFileRef();
-        if(ref2!=null){
+        if (ref2 != null) {
             IdentificationFile refObject2 = this.unmarshal(ref2, IdentificationFile.class);
             object.setIdentificationFile(refObject2);
+        }
+
+        //assay_refs
+        List<String> refs3 = object.getAssayRefs();
+        if (refs3 != null) {
+            List<Assay> refObjects3 = new ArrayList<Assay>();
+            for (String ref3 : refs3) {
+                Assay refObject3 = this.unmarshal(ref3, Assay.class);
+                refObjects3.add(refObject3);
+            }
+            object.setAssays(refObjects3);
         }
     }
 
