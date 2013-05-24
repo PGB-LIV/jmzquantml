@@ -23,7 +23,6 @@ package uk.ac.liv.jmzqml.xml.jaxb.resolver;
 import java.util.ArrayList;
 import java.util.List;
 import uk.ac.liv.jmzqml.MzQuantMLElement;
-import uk.ac.liv.jmzqml.model.mzqml.IdOnly;
 import uk.ac.liv.jmzqml.model.mzqml.Ratio;
 import uk.ac.liv.jmzqml.model.mzqml.RatioQuantLayer;
 import uk.ac.liv.jmzqml.xml.io.MzQuantMLObjectCache;

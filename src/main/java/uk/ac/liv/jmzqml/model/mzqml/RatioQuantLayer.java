@@ -52,29 +52,29 @@ public class RatioQuantLayer
     @XmlElement(name = "DataMatrix", required = true)
     protected DataMatrix dataMatrix;
     @XmlTransient
-    protected List<IdOnly> columns;
+    protected List<Ratio> columns;
 
-    public List<IdOnly> getColumns() {
+    public List<Ratio> getColumns() {
         if (columns == null) {
-            columns = new ArrayList<IdOnly>();
+            columns = new ArrayList<Ratio>();
         }
         return columns;
     }
 
-    public void setColumnIndex(List<IdOnly> columns) {
+    public void setColumnIndex(List<Ratio> columns) {
         if (columns == null) {
             this.columnIndex = null;
         }
         else {
-            for (IdOnly column : columns) {
+            for (Ratio column : columns) {
                 String refId = column.getId();
                 if (refId == null) {
                     throw new IllegalArgumentException("Referenced object does not have an identifier.");
                 }
                 this.columnIndex.add(refId);
             }
-            this.columns = columns;
         }
+        this.columns = columns;
     }
 
     /**
