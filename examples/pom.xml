@@ -1,0 +1,64 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>uk.ac.liv</groupId>
+    <artifactId>jmzquantml-example</artifactId>
+    <version>1.0.0</version>
+    <packaging>jar</packaging>
+
+    <name>Example codes for jmzQuantML API</name>
+    <url>http://jmzquantml.googlecode.com/svn/examples</url>
+    
+    <developers>
+        <developer>
+            <name>Da Qi</name>
+            <id>ddq</id>
+            <email>d.qi@liverpool.ac.uk</email>
+            <organization>University of Liverpool, UK</organization>
+        </developer>
+    </developers>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>uk.ac.liv</groupId>
+            <artifactId>jmzquantml</artifactId>
+            <version>1.0.0-1.0.2</version>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>3.8.1</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+    <build>
+        <extensions>
+            <extension>
+                <groupId>org.jvnet.wagon-svn</groupId>
+                <artifactId>wagon-svn</artifactId>
+                <version>1.12</version>
+            </extension>
+        </extensions>
+    </build>
+    <pluginRepositories>
+        <pluginRepository>
+            <id>maven2-repository.dev.java.net</id>
+            <name>Java.net Repository for Maven</name>
+            <url>http://download.java.net/maven/2/</url>
+        </pluginRepository>
+    </pluginRepositories>
+    <repositories>
+        <repository>
+            <id>jmzquantml-maven-repo</id>
+            <name>Maven Repository for jmzquantml release</name>
+            <url>http://jmzquantml.googlecode.com/svn/maven/repo</url>
+        </repository>
+    </repositories>
+    <description>This example aims to illustrate the basic reading (unmarshal) and writing (marshal) functions of jmzQuantML API. 
+    </description>
+</project>
