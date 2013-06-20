@@ -1,46 +1,74 @@
 
 package uk.ac.liv.jmzquantmlexample;
 
+/**
+ *
+ * @author Da Qi
+ * @institute University of Liverpool
+ * @time 19-Jun-2013 12:32:41
+ */
 import java.io.File;
-import java.util.Iterator;
+import java.util.Arrays;
+import java.util.List;
 import uk.ac.liv.jmzqml.MzQuantMLElement;
-import uk.ac.liv.jmzqml.model.mzqml.AnalysisSummary;
-import uk.ac.liv.jmzqml.model.mzqml.AssayList;
-import uk.ac.liv.jmzqml.model.mzqml.AuditCollection;
-import uk.ac.liv.jmzqml.model.mzqml.BibliographicReference;
-import uk.ac.liv.jmzqml.model.mzqml.CvList;
-import uk.ac.liv.jmzqml.model.mzqml.DataProcessingList;
-import uk.ac.liv.jmzqml.model.mzqml.InputFiles;
-import uk.ac.liv.jmzqml.model.mzqml.MzQuantML;
-import uk.ac.liv.jmzqml.model.mzqml.PeptideConsensusList;
-import uk.ac.liv.jmzqml.model.mzqml.ProteinList;
-import uk.ac.liv.jmzqml.model.mzqml.SoftwareList;
-import uk.ac.liv.jmzqml.model.mzqml.StudyVariableList;
+import uk.ac.liv.jmzqml.model.mzqml.*;
+import uk.ac.liv.jmzqml.xml.io.MzQuantMLMarshaller;
 import uk.ac.liv.jmzqml.xml.io.MzQuantMLUnmarshaller;
 
 public class MzQuantMLModifier {
 
     public static void main(String[] args) {
+
         File mzqFile = new File("CPTAC-Progenesis-small-example.mzq");
+
+        // create an MzQuantMLUnmarsahller object
         MzQuantMLUnmarshaller um = new MzQuantMLUnmarshaller(mzqFile);
 
-        MzQuantML mzq = new MzQuantML();
+        // unmarshal the original MzQuantML object
+        MzQuantML mzq = um.unmarshal(MzQuantMLElement.MzQuantML);
 
-        String mzqId = um.getMzQuantMLId();
-        String mzqName = um.getMzQuantMLName();
-        String mzqVersion = um.getMzQuantMLVersion();
+        // accession of the protein whose normalised abundance will be modified
+        String protAcc = "YPR148C";
+        String protId = "";
 
-        CvList cvList = um.unmarshal(uk.ac.liv.jmzqml.model.mzqml.CvList.class);
-        AuditCollection ac = um.unmarshal(MzQuantMLElement.AuditCollection);
-        AnalysisSummary as = um.unmarshal("/MzQuantML/AnalysisSummary");
-        InputFiles inputFiles = um.unmarshal(MzQuantMLElement.InputFiles);
-        SoftwareList softList = um.unmarshal(MzQuantMLElement.SoftwareList);
-        DataProcessingList dpList = um.unmarshal(MzQuantMLElement.DataProcessingList);
-        Iterator<BibliographicReference> brIter = um.unmarshalCollectionFromXpath(MzQuantMLElement.BibliographicReference);
-        AssayList assayList = um.unmarshal(MzQuantMLElement.AssayList);
-        StudyVariableList svList = um.unmarshal(MzQuantMLElement.StudyVariableList);
-        ProteinList protList = um.unmarshal(MzQuantMLElement.ProteinList);
-        Iterator<PeptideConsensusList> pepConIter = um.unmarshalCollectionFromXpath(MzQuantMLElement.PeptideConsensusList); 
+        // populate these new abundance value to the specified protein in AssayQuantLayer
+        String[] newValueArray = {"14361.336", "5463.827", "9691.717", "15983.442", "6562.106", "6711.486", "11038.94", "10559.844",
+            "4985.336", "11644.993", "10002.761", "8683.371"};
+        List<String> newValueList = Arrays.asList(newValueArray);
+
+        // unmarshal the <ProteinList>
+        ProteinList proteinList = um.unmarshal(MzQuantMLElement.ProteinList);
+
+        // find the protein ID based on accession
+        List<Protein> proteins = proteinList.getProtein();
+        for (Protein protein : proteins) {
+            if (protein.getAccession().equals(protAcc)) {
+                protId = protein.getId();
+                break;
+            }
+        }
+
+        // get the correct <AssayQuantLayer>
+        List<QuantLayer> assayQuantLayers = proteinList.getAssayQuantLayer();
+        QuantLayer assayQuantLayer = assayQuantLayers.get(0);
+
+        // get the <DataMatrix> from <AssayQuantLayer>
+        DataMatrix dm = assayQuantLayer.getDataMatrix();
+        List<Row> rows = dm.getRow();
+        for (Row row : rows) {
+            if (row.getObjectRef().equals(protId)) {
+                // replace the old data with new data
+                row.getValue().clear();
+                row.getValue().addAll(newValueList);
+            }
+        }
+
+        // set the ProteinList to MzQuantML
+        mzq.setProteinList(proteinList);
+
+        // output the modified mzQuantML file
+        MzQuantMLMarshaller marshaller = new MzQuantMLMarshaller("modifiedMzQuantML.mzq");
+        marshaller.marshall(mzq);
     }
 
 }
