@@ -80,7 +80,9 @@ public class StudyVariable
                 if (refId == null) {
                     throw new IllegalArgumentException("Referenced object does not have an identifier.");
                 }
-                this.assayRefs.add(refId);
+                //TODO: with the below line, the Assay_refs in StudyVariable are duplicated, e.g. <Assay_refs>ass_3 ass_4 ass_5 ass_3 ass_4 ass_5<Assay_refs>
+                //TODO: Still no idea what exceptions will occur without the below line
+                //this.assayRefs.add(refId);
             }
         }
         this.assays = assays;
