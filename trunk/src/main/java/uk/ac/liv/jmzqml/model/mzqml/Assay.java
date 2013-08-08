@@ -9,9 +9,7 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlElements;
-import javax.xml.bind.annotation.XmlIDREF;
 import javax.xml.bind.annotation.XmlList;
-import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlTransient;
 import javax.xml.bind.annotation.XmlType;
 import uk.ac.liv.jmzqml.model.MzQuantMLObject;
@@ -59,9 +57,7 @@ public class Assay
     protected Label label;
     @XmlList
     @XmlElement(name = "IdentificationFile_refs")
-    @XmlIDREF
-    @XmlSchemaType(name = "IDREFS")
-    protected List<Object> identificationFileRefs;
+    protected List<String> identificationFileRefs;
     @XmlElements({
         @XmlElement(name = "cvParam", type = CvParam.class),
         @XmlElement(name = "userParam", type = UserParam.class)
@@ -73,6 +69,8 @@ public class Assay
     protected String rawFilesGroupRef;
     @XmlTransient
     protected RawFilesGroup rawFilesGroup;
+    @XmlTransient
+    protected List<IdentificationFile> identificationFiles;
 
     public RawFilesGroup getRawFilesGroup() {
         return rawFilesGroup;
@@ -90,6 +88,30 @@ public class Assay
             this.rawFilesGroupRef = refId;
         }
         this.rawFilesGroup = rawFilesGroup;
+    }
+
+    public List<IdentificationFile> getIdentificationFiles() {
+        if (identificationFiles == null) {
+            identificationFiles = new ArrayList<IdentificationFile>();
+        }
+        return identificationFiles;
+    }
+
+    public void setIdentificationFiles(
+            List<IdentificationFile> identificationFiles) {
+        if (identificationFiles == null) {
+            this.identificationFileRefs = null;
+        }
+        else {
+            for (IdentificationFile identificationFile : identificationFiles) {
+                String refId = identificationFile.getId();
+                if (refId == null) {
+                    throw new IllegalArgumentException("Referenced object does not have an identifier.");
+                }
+                this.identificationFileRefs.add(refId);
+            }
+        }
+        this.identificationFiles = identificationFiles;
     }
 
     /**
@@ -139,9 +161,9 @@ public class Assay
      *
      *
      */
-    public List<Object> getIdentificationFileRefs() {
+    public List<String> getIdentificationFileRefs() {
         if (identificationFileRefs == null) {
-            identificationFileRefs = new ArrayList<Object>();
+            identificationFileRefs = new ArrayList<String>();
         }
         return this.identificationFileRefs;
     }

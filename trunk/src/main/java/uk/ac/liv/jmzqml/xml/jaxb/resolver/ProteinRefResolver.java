@@ -20,7 +20,10 @@
 
 package uk.ac.liv.jmzqml.xml.jaxb.resolver;
 
+import java.util.ArrayList;
+import java.util.List;
 import uk.ac.liv.jmzqml.MzQuantMLElement;
+import uk.ac.liv.jmzqml.model.mzqml.PeptideConsensus;
 import uk.ac.liv.jmzqml.model.mzqml.Protein;
 import uk.ac.liv.jmzqml.model.mzqml.SearchDatabase;
 import uk.ac.liv.jmzqml.xml.io.MzQuantMLObjectCache;
@@ -40,10 +43,20 @@ public class ProteinRefResolver extends AbstractReferenceResolver<Protein> {
 
     @Override
     public void updateObject(Protein object) {
-        String ref = object.getSearchDatabaseRef();
-        if (ref != null) {
-            SearchDatabase refObject = this.unmarshal(ref, SearchDatabase.class);
-            object.setSearchDatabase(refObject);
+        String ref1 = object.getSearchDatabaseRef();
+        if (ref1 != null) {
+            SearchDatabase refObject1 = this.unmarshal(ref1, SearchDatabase.class);
+            object.setSearchDatabase(refObject1);
+        }
+
+        List<String> refs = object.getPeptideConsensusRefs();
+        List<PeptideConsensus> peptideConsensuses = object.getPeptideConsensuses();
+        if (refs != null) {
+            for (String ref2 : refs) {
+                PeptideConsensus refObject2 = this.unmarshal(ref2, PeptideConsensus.class);
+                peptideConsensuses.add(refObject2);
+            }
+            //object.setPeptideConsensuses(peptideConsensuses);
         }
     }
 

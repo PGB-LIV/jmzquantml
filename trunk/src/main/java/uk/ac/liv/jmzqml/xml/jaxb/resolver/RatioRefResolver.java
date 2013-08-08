@@ -41,6 +41,11 @@ public class RatioRefResolver extends AbstractReferenceResolver<Ratio> {
     public void updateObject(Ratio object) {
         //TODO: the unmarshaler have to detect which Class of the ref (e.g. Assay or StudyVariable)
         throw new UnsupportedOperationException("Not supported yet.");
+//        String ref1 = object.getDenominatorRef();
+//        if (ref1 != null){
+//            
+//        }
+        
     }
 
     /**
