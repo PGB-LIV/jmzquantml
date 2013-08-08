@@ -227,7 +227,18 @@ public class MzQuantMLUnmarshallerTest {
     }
 
     @Test
-    public void testPeptideConsensusList() {
+    public void testPeptideConsensusList()
+            throws JAXBException {
+        Iterator<PeptideConsensusList> pepConListIter = unmarshaller.unmarshalCollectionFromXpath(MzQuantMLElement.PeptideConsensusList);
+        assertNotNull(pepConListIter);
+        PeptideConsensusList pepConList1 = unmarshaller.unmarshal(uk.ac.liv.jmzqml.model.mzqml.PeptideConsensusList.class, "PepList1");
+        assertNotNull(pepConList1);
+        boolean finalResult = pepConList1.isFinalResult();
+        assertTrue(finalResult);
+        List<PeptideConsensus> peptideConsensuses = pepConList1.getPeptideConsensus();
+        assertNotNull(peptideConsensuses);
+        int peptideSize = peptideConsensuses.size();
+        assertEquals(44, peptideSize);
     }
 
     @Test

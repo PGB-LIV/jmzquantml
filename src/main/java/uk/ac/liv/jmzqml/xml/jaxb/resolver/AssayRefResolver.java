@@ -20,6 +20,8 @@
 
 package uk.ac.liv.jmzqml.xml.jaxb.resolver;
 
+import java.util.ArrayList;
+import java.util.List;
 import uk.ac.liv.jmzqml.MzQuantMLElement;
 import uk.ac.liv.jmzqml.model.mzqml.Assay;
 import uk.ac.liv.jmzqml.model.mzqml.IdentificationFile;
@@ -42,13 +44,21 @@ public class AssayRefResolver extends AbstractReferenceResolver<Assay> {
     @Override
     public void updateObject(Assay object) {
 
-        String ref = object.getRawFilesGroupRef();
-        if (ref != null) {
-            RawFilesGroup refObject = this.unmarshal(ref, RawFilesGroup.class);
-            object.setRawFilesGroup(refObject);
+        String ref1 = object.getRawFilesGroupRef();
+        if (ref1 != null) {
+            RawFilesGroup refObject1 = this.unmarshal(ref1, RawFilesGroup.class);
+            object.setRawFilesGroup(refObject1);
         }
-        
-        //TODO: need support IdentificationFile_refs
+
+        List<String> refs = object.getIdentificationFileRefs();
+        List<IdentificationFile> identificationFiles = object.getIdentificationFiles();
+        if (refs != null) {
+            for (String ref2 : refs) {
+                IdentificationFile refObject2 = this.unmarshal(ref2, IdentificationFile.class);
+                identificationFiles.add(refObject2);
+            }            
+            //object.setIdentificationFiles(identificationFiles);
+        }
     }
 
     /**
