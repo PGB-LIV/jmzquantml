@@ -33,10 +33,19 @@ import uk.ac.liv.jmzqml.xml.xxindex.MzQuantMLIndexer;
  */
 public class RatioRefResolver extends AbstractReferenceResolver<Ratio> {
 
+    /**
+     *
+     * @param index MzQuantMLIndexer
+     * @param cache MzQuantMLObjectCache
+     */
     public RatioRefResolver(MzQuantMLIndexer index, MzQuantMLObjectCache cache) {
         super(index, cache);
     }
 
+    /**
+     *
+     * @param object Ratio
+     */
     @Override
     public void updateObject(Ratio object) {
         //TODO: the unmarshaler have to detect which Class of the ref (e.g. Assay or StudyVariable)
@@ -45,7 +54,7 @@ public class RatioRefResolver extends AbstractReferenceResolver<Ratio> {
 //        if (ref1 != null){
 //            
 //        }
-        
+
     }
 
     /**

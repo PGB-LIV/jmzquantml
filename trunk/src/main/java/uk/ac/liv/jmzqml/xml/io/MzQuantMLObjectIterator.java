@@ -17,6 +17,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package uk.ac.liv.jmzqml.xml.io;
 
 import java.io.StringReader;
@@ -35,9 +36,14 @@ import uk.ac.liv.jmzqml.xml.xxindex.MzQuantMLIndexer;
 
 /**
  *
- * @author Da Qi @institute University of Liverpool @time 12-Sep-2012 16:20:59
+ * @param <T> extends {@link uk.ac.liv.jmzqml.model.MzQuantMLObject}.
+ *
+ * @author Da Qi
+ * @institute University of Liverpool
+ * @time 12-Sep-2012 16:20:59
  */
-public class MzQuantMLObjectIterator<T extends MzQuantMLObject> implements Iterator<T> {
+public class MzQuantMLObjectIterator<T extends MzQuantMLObject> implements
+        Iterator<T> {
 
     private static Logger logger = Logger.getLogger(MzQuantMLObjectIterator.class);
     private Iterator<String> innerXpathIterator;
@@ -46,7 +52,8 @@ public class MzQuantMLObjectIterator<T extends MzQuantMLObject> implements Itera
     private MzQuantMLIndexer index;
     private MzQuantMLObjectCache cache;
 
-    MzQuantMLObjectIterator(MzQuantMLElement element, MzQuantMLIndexer index, MzQuantMLObjectCache cache) {
+    MzQuantMLObjectIterator(MzQuantMLElement element, MzQuantMLIndexer index,
+                            MzQuantMLObjectCache cache) {
         innerXpathIterator = index.getXmlStringIterator(element.getXpath());
         this.xpath = element.getXpath();
         this.cls = element.getClazz();
@@ -83,7 +90,8 @@ public class MzQuantMLObjectIterator<T extends MzQuantMLObject> implements Itera
             if (logger.isDebugEnabled()) {
                 logger.debug("unmarshalled object = " + retval);
             }
-        } catch (JAXBException e) {
+        }
+        catch (JAXBException e) {
             logger.error("MzQuantMLObjectIterator.next", e);
             throw new IllegalStateException("Could not unmarshal object at xpath: " + xpath);
         }
@@ -94,4 +102,5 @@ public class MzQuantMLObjectIterator<T extends MzQuantMLObject> implements Itera
     public void remove() {
         throw new UnsupportedOperationException(MzQuantMLObjectIterator.class.getName() + " can't be used to remove object while iterating");
     }
+
 }

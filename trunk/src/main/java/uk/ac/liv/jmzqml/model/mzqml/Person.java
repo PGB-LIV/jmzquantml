@@ -10,14 +10,13 @@ import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
-
 /**
  * A person's name and contact details. Any additional information such as the address, contact email etc. should be supplied using CV parameters or user parameters.
- * 
+ *
  * <p>Java class for PersonType complex type.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ *
  * <pre>
  * &lt;complexType name="PersonType">
  *   &lt;complexContent>
@@ -32,17 +31,16 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "PersonType", propOrder = {
     "affiliation"
 })
 public class Person
-    extends AbstractContact
-    implements Serializable
-{
+        extends AbstractContact
+        implements Serializable {
 
     private final static long serialVersionUID = 100L;
     @XmlElement(name = "Affiliation")
@@ -56,25 +54,27 @@ public class Person
 
     /**
      * Gets the value of the affiliation property.
-     * 
+     *
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the affiliation property.
-     * 
+     * This is why there is not a
+     * <CODE>set</CODE> method for the affiliation property.
+     *
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getAffiliation().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link Affiliation }
-     * 
-     * 
+     *
+     *
+     * @return the value of the affiliation property.
      */
     public List<Affiliation> getAffiliation() {
         if (affiliation == null) {
@@ -85,11 +85,11 @@ public class Person
 
     /**
      * Gets the value of the lastName property.
-     * 
+     *
      * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *         possible object is
+     *         {@link String }
+     *
      */
     public String getLastName() {
         return lastName;
@@ -97,11 +97,11 @@ public class Person
 
     /**
      * Sets the value of the lastName property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *              allowed object is
+     *              {@link String }
+     *
      */
     public void setLastName(String value) {
         this.lastName = value;
@@ -109,11 +109,11 @@ public class Person
 
     /**
      * Gets the value of the firstName property.
-     * 
+     *
      * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *         possible object is
+     *         {@link String }
+     *
      */
     public String getFirstName() {
         return firstName;
@@ -121,11 +121,11 @@ public class Person
 
     /**
      * Sets the value of the firstName property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *              allowed object is
+     *              {@link String }
+     *
      */
     public void setFirstName(String value) {
         this.firstName = value;
@@ -133,11 +133,11 @@ public class Person
 
     /**
      * Gets the value of the midInitials property.
-     * 
+     *
      * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *         possible object is
+     *         {@link String }
+     *
      */
     public String getMidInitials() {
         return midInitials;
@@ -145,11 +145,11 @@ public class Person
 
     /**
      * Sets the value of the midInitials property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *              allowed object is
+     *              {@link String }
+     *
      */
     public void setMidInitials(String value) {
         this.midInitials = value;

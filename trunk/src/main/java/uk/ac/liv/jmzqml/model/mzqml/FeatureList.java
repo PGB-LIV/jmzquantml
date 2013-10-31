@@ -77,10 +77,20 @@ public class FeatureList
     @XmlTransient
     protected RawFilesGroup rawFilesGroup;
 
+    /**
+     * Gets the RawFilesGroup of the FeatureList.
+     *
+     * @return the RawFilesGroup of the FeatureList.
+     */
     public RawFilesGroup getRawFilesGroup() {
         return rawFilesGroup;
     }
 
+    /**
+     * Sets the RawFilesGroup to the FeatureList.
+     *
+     * @param rawFilesGroup a RawFilesGroup.
+     */
     public void setRawFilesGroup(RawFilesGroup rawFilesGroup) {
         if (rawFilesGroup == null) {
             this.rawFilesGroupRef = null;
@@ -117,6 +127,7 @@ public class FeatureList
      * {@link Feature }
      *
      *
+     * @return the value of the feature property.
      */
     public List<Feature> getFeature() {
         if (feature == null) {
@@ -147,6 +158,7 @@ public class FeatureList
      * {@link GlobalQuantLayer }
      *
      *
+     * @return the value of the featureQuantLayer property.
      */
     public List<GlobalQuantLayer> getFeatureQuantLayer() {
         if (featureQuantLayer == null) {
@@ -177,6 +189,7 @@ public class FeatureList
      * {@link QuantLayer }
      *
      *
+     * @return the value of the ms2AssayQuantLayer property.
      */
     public List<QuantLayer> getMS2AssayQuantLayer() {
         if (ms2AssayQuantLayer == null) {
@@ -207,6 +220,7 @@ public class FeatureList
      * {@link QuantLayer }
      *
      *
+     * @return the value of the ms2StudyVariableQuantLayer property.
      */
     public List<QuantLayer> getMS2StudyVariableQuantLayer() {
         if (ms2StudyVariableQuantLayer == null) {
@@ -262,6 +276,7 @@ public class FeatureList
      * {@link UserParam }
      *
      *
+     * @return the value of the paramGroup property.
      */
     public List<AbstractParam> getParamGroup() {
         if (paramGroup == null) {
@@ -282,23 +297,23 @@ public class FeatureList
         return rawFilesGroupRef;
     }
 
-//    /**
-//     * Sets the value of the rawFilesGroupRef property.
-//     *
-//     * @param value
-//     *              allowed object is
-//     *              {@link String }
-//     *
-//     */
-//    public void setRawFilesGroupRef(String value) {
-//        this.rawFilesGroupRef = value;
-//    }
-
+    /**
+     * Gets the cvParams
+     *
+     * @return possible object is
+     *         {@link uk.ac.liv.jmzqml.model.utils.FacadeList }
+     */
     @Override
     public List<CvParam> getCvParam() {
         return new FacadeList<CvParam>(this.getParamGroup(), CvParam.class);
     }
 
+    /**
+     * Gets the userParams
+     *
+     * @return possible object is
+     *         {@link uk.ac.liv.jmzqml.model.utils.FacadeList }
+     */
     @Override
     public List<UserParam> getUserParam() {
         return new FacadeList<UserParam>(this.getParamGroup(), UserParam.class);

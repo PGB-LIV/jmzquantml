@@ -53,10 +53,20 @@ public class RawFile
     @XmlTransient
     protected MethodFile methodFile;
 
+    /**
+     * Gets the value of methodFile of RawFile.
+     *
+     * @return the value of methodFile of RawFile.
+     */
     public MethodFile getMethodFile() {
         return methodFile;
     }
 
+    /**
+     * Sets the value of methodFile to RawFile.
+     *
+     * @param methodFile the value of methodFile.
+     */
     public void setMethodFile(MethodFile methodFile) {
         if (methodFile == null) {
             this.methodFileRef = null;
@@ -94,6 +104,7 @@ public class RawFile
      * {@link UserParam }
      *
      *
+     * @return the value of the paramGroup property.
      */
     public List<AbstractParam> getParamGroup() {
         if (paramGroup == null) {
@@ -114,11 +125,23 @@ public class RawFile
         return methodFileRef;
     }
 
+    /**
+     * Gets the cvParams
+     *
+     * @return possible object is
+     *         {@link uk.ac.liv.jmzqml.model.utils.FacadeList }
+     */
     @Override
     public List<CvParam> getCvParam() {
         return new FacadeList<CvParam>(this.getParamGroup(), CvParam.class);
     }
 
+    /**
+     * Gets the userParams
+     *
+     * @return possible object is
+     *         {@link uk.ac.liv.jmzqml.model.utils.FacadeList }
+     */
     @Override
     public List<UserParam> getUserParam() {
         return new FacadeList<UserParam>(this.getParamGroup(), UserParam.class);

@@ -10,14 +10,13 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 import uk.ac.liv.jmzqml.model.MzQuantMLObject;
 
-
 /**
  * A matrix of data stored in rows and columns, as defined in the parent QuantLayer.
- * 
+ *
  * <p>Java class for DataMatrixType complex type.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ *
  * <pre>
  * &lt;complexType name="DataMatrixType">
  *   &lt;complexContent>
@@ -29,16 +28,15 @@ import uk.ac.liv.jmzqml.model.MzQuantMLObject;
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "DataMatrixType", propOrder = {
     "row"
 })
 public class DataMatrix
-    implements Serializable, MzQuantMLObject
-{
+        implements Serializable, MzQuantMLObject {
 
     private final static long serialVersionUID = 100L;
     @XmlElement(name = "Row", required = true)
@@ -46,25 +44,27 @@ public class DataMatrix
 
     /**
      * Gets the value of the row property.
-     * 
+     *
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the row property.
-     * 
+     * This is why there is not a
+     * <CODE>set</CODE> method for the row property.
+     *
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getRow().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link Row }
-     * 
-     * 
+     *
+     *
+     * @return the value of the row property.
      */
     public List<Row> getRow() {
         if (row == null) {

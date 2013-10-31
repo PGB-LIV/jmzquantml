@@ -78,10 +78,20 @@ public class Feature
     @XmlTransient
     protected RawFile rawFile;
 
+    /**
+     * Gets the RawFile of the Feature.
+     *
+     * @return the RawFile of the Feature.
+     */
     public RawFile getRawFile() {
         return rawFile;
     }
 
+    /**
+     * Sets the RawFile to the Feature.
+     *
+     * @param rawFile a RawFile.
+     */
     public void setRawFile(RawFile rawFile) {
         if (rawFile == null) {
             this.rawFileRef = null;
@@ -118,6 +128,7 @@ public class Feature
      * {@link Double }
      *
      *
+     * @return the value of the massTrace property.
      */
     public List<Double> getMassTrace() {
         if (massTrace == null) {
@@ -149,6 +160,7 @@ public class Feature
      * {@link UserParam }
      *
      *
+     * @return the value of the paramGroup property.
      */
     public List<AbstractParam> getParamGroup() {
         if (paramGroup == null) {
@@ -184,6 +196,7 @@ public class Feature
     /**
      * Gets the value of the mz property.
      *
+     * @return the value of the mz property.
      */
     public double getMz() {
         return mz;
@@ -192,6 +205,7 @@ public class Feature
     /**
      * Sets the value of the mz property.
      *
+     * @param value the value of the mz property.
      */
     public void setMz(double value) {
         this.mz = value;
@@ -281,11 +295,23 @@ public class Feature
         return rawFileRef;
     }
 
+    /**
+     * Gets the cvParams
+     *
+     * @return possible object is
+     *         {@link uk.ac.liv.jmzqml.model.utils.FacadeList }
+     */
     @Override
     public List<CvParam> getCvParam() {
         return new FacadeList<CvParam>(this.getParamGroup(), CvParam.class);
     }
 
+    /**
+     * Gets the userParams
+     *
+     * @return possible object is
+     *         {@link uk.ac.liv.jmzqml.model.utils.FacadeList }
+     */
     @Override
     public List<UserParam> getUserParam() {
         return new FacadeList<UserParam>(this.getParamGroup(), UserParam.class);

@@ -52,11 +52,20 @@ public class ExternalData
 {
 
     private final static long serialVersionUID = 100L;
+    /**
+     *
+     */
     @XmlElement(name = "ExternalFormatDocumentation")
     @XmlSchemaType(name = "anyURI")
     protected String externalFormatDocumentation;
+    /**
+     *
+     */
     @XmlElement(name = "FileFormat")
     protected FileFormat fileFormat;
+    /**
+     *
+     */
     @XmlAttribute(name = "location", required = true)
     @XmlSchemaType(name = "anyURI")
     protected String location;

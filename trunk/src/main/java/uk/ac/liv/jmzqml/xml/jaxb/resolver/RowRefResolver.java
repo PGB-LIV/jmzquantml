@@ -37,15 +37,24 @@ import uk.ac.liv.jmzqml.xml.xxindex.MzQuantMLIndexer;
  */
 public class RowRefResolver extends AbstractReferenceResolver<Row> {
 
+    /**
+     *
+     * @param index MzQuantMLIndexer
+     * @param cache MzQuantMLObjectCache
+     */
     public RowRefResolver(MzQuantMLIndexer index, MzQuantMLObjectCache cache) {
         super(index, cache);
     }
 
+    /**
+     *
+     * @param object Row
+     */
     @Override
     public void updateObject(Row object) {
         // add objects for the refID                      
         String ref = object.getObjectRef();
-        if (ref != null) {            
+        if (ref != null) {
             ProteinGroup pgObject = this.unmarshal(ref, ProteinGroup.class);
             Protein protObject = this.unmarshal(ref, Protein.class);
             PeptideConsensus pepObject = this.unmarshal(ref, PeptideConsensus.class);

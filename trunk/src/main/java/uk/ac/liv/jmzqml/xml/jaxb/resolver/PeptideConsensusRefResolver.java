@@ -34,10 +34,20 @@ import uk.ac.liv.jmzqml.xml.xxindex.MzQuantMLIndexer;
  */
 public class PeptideConsensusRefResolver extends AbstractReferenceResolver<PeptideConsensus> {
 
-    public PeptideConsensusRefResolver(MzQuantMLIndexer index, MzQuantMLObjectCache cache) {
+    /**
+     *
+     * @param index MzQuantMLIndexer
+     * @param cache MzQuantMLObjectCache
+     */
+    public PeptideConsensusRefResolver(MzQuantMLIndexer index,
+                                       MzQuantMLObjectCache cache) {
         super(index, cache);
     }
 
+    /**
+     *
+     * @param object PeptideConsensus
+     */
     @Override
     public void updateObject(PeptideConsensus object) {
         String ref = object.getSearchDatabaseRef();
@@ -47,6 +57,13 @@ public class PeptideConsensusRefResolver extends AbstractReferenceResolver<Pepti
         }
     }
 
+    /**
+     * Method to perform the afterUnmarshal operation if the resolver
+     * applies to the specified object.
+     *
+     * @param target the object to modify after unmarshalling.
+     * @param parent object referencing the target. Null if target is root element.
+     */
     @Override
     public void afterUnmarshal(Object target, Object parent) {
         if (PeptideConsensus.class.isInstance(target) && MzQuantMLElement.PeptideConsensus.isAutoRefResolving()) {

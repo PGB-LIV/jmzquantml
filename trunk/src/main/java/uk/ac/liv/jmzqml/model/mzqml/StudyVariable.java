@@ -63,6 +63,11 @@ public class StudyVariable
     @XmlTransient
     protected List<Assay> assays;
 
+    /**
+     * Get the list of assay of the StudyVariable.
+     *
+     * @return the list of assay of the StudyVariable.
+     */
     public List<Assay> getAssays() {
         if (assays == null) {
             assays = new ArrayList<Assay>();
@@ -70,6 +75,11 @@ public class StudyVariable
         return assays;
     }
 
+    /**
+     * Set the list of assay to the StudyVariable
+     *
+     * @param assays a list of assay.
+     */
     public void setAssays(List<Assay> assays) {
         if (assays == null) {
             this.assayRefs = null;
@@ -109,6 +119,7 @@ public class StudyVariable
      * {@link UserParam }
      *
      *
+     * @return the value of the paramGroup property.
      */
     public List<AbstractParam> getParamGroup() {
         if (paramGroup == null) {
@@ -139,6 +150,7 @@ public class StudyVariable
      * {@link String }
      *
      *
+     * @return the value of the assayRefs property.
      */
     public List<String> getAssayRefs() {
         if (assayRefs == null) {
@@ -171,11 +183,23 @@ public class StudyVariable
         this.name = value;
     }
 
+    /**
+     * Gets the cvParams
+     *
+     * @return possible object is
+     *         {@link uk.ac.liv.jmzqml.model.utils.FacadeList }
+     */
     @Override
     public List<CvParam> getCvParam() {
         return new FacadeList<CvParam>(this.getParamGroup(), CvParam.class);
     }
 
+    /**
+     * Gets the userParams
+     *
+     * @return possible object is
+     *         {@link uk.ac.liv.jmzqml.model.utils.FacadeList }
+     */
     @Override
     public List<UserParam> getUserParam() {
         return new FacadeList<UserParam>(this.getParamGroup(), UserParam.class);

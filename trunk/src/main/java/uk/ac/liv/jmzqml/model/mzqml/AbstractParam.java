@@ -43,16 +43,34 @@ import uk.ac.liv.jmzqml.model.MzQuantMLObject;
 public abstract class AbstractParam implements Serializable, MzQuantMLObject {
 
     private final static long serialVersionUID = 100L;
+    /**
+     *
+     */
     @XmlAttribute(name = "name", required = true)
     protected String name;
+    /**
+     *
+     */
     @XmlAttribute(name = "value")
     protected String value;
+    /**
+     *
+     */
     @XmlAttribute(name = "unitAccession")
     protected String unitAccession;
+    /**
+     *
+     */
     @XmlAttribute(name = "unitName")
     protected String unitName;
+    /**
+     *
+     */
     @XmlAttribute(name = "unitCvRef")
     protected String unitCvRef;
+    /**
+     *
+     */
     @XmlTransient
     protected Cv unitCv;
 
@@ -165,10 +183,18 @@ public abstract class AbstractParam implements Serializable, MzQuantMLObject {
     }
 
 
+    /**
+     *
+     * @return
+     */
     public Cv getUnitCv() {
         return unitCv;
 }
 
+    /**
+     *
+     * @param unitCv
+     */
     public void setUnitCv(Cv unitCv) {
         if (unitCv == null) {
             this.unitCvRef = null;

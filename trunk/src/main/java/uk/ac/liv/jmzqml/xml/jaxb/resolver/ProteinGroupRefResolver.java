@@ -34,10 +34,20 @@ import uk.ac.liv.jmzqml.xml.xxindex.MzQuantMLIndexer;
  */
 public class ProteinGroupRefResolver extends AbstractReferenceResolver<ProteinGroup> {
 
-    public ProteinGroupRefResolver(MzQuantMLIndexer index, MzQuantMLObjectCache cache) {
+    /**
+     *
+     * @param index MzQuantMLIndexer
+     * @param cache MzQuantMLObjectCache
+     */
+    public ProteinGroupRefResolver(MzQuantMLIndexer index,
+                                   MzQuantMLObjectCache cache) {
         super(index, cache);
     }
 
+    /**
+     *
+     * @param object ProteinGroup
+     */
     @Override
     public void updateObject(ProteinGroup object) {
         String ref = object.getSearchDatabaseRef();
@@ -47,6 +57,13 @@ public class ProteinGroupRefResolver extends AbstractReferenceResolver<ProteinGr
         }
     }
 
+    /**
+     * Method to perform the afterUnmarshal operation if the resolver
+     * applies to the specified object.
+     *
+     * @param target the object to modify after unmarshalling.
+     * @param parent object referencing the target. Null if target is root element.
+     */
     @Override
     public void afterUnmarshal(Object target, Object parent) {
         if (ProteinGroup.class.isInstance(target) && MzQuantMLElement.ProteinGroup.isAutoRefResolving()) {

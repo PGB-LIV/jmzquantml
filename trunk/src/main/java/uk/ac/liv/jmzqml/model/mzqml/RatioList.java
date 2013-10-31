@@ -10,14 +10,13 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 import uk.ac.liv.jmzqml.model.MzQuantMLObject;
 
-
 /**
  * The definition of ratios of study variables or assays, referenced elsewhere in the document.
- * 
+ *
  * <p>Java class for RatioListType complex type.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ *
  * <pre>
  * &lt;complexType name="RatioListType">
  *   &lt;complexContent>
@@ -29,16 +28,15 @@ import uk.ac.liv.jmzqml.model.MzQuantMLObject;
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "RatioListType", propOrder = {
     "ratio"
 })
 public class RatioList
-    implements Serializable, MzQuantMLObject
-{
+        implements Serializable, MzQuantMLObject {
 
     private final static long serialVersionUID = 100L;
     @XmlElement(name = "Ratio", required = true)
@@ -46,25 +44,27 @@ public class RatioList
 
     /**
      * Gets the value of the ratio property.
-     * 
+     *
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the ratio property.
-     * 
+     * This is why there is not a
+     * <CODE>set</CODE> method for the ratio property.
+     *
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getRatio().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link Ratio }
-     * 
-     * 
+     *
+     *
+     * @return the value of the ratio property.
      */
     public List<Ratio> getRatio() {
         if (ratio == null) {

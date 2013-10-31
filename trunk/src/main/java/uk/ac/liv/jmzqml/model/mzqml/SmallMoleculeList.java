@@ -93,6 +93,7 @@ public class SmallMoleculeList
      * {@link SmallMolecule }
      *
      *
+     * @return the value of the smallMolecule property.
      */
     public List<SmallMolecule> getSmallMolecule() {
         if (smallMolecule == null) {
@@ -123,6 +124,7 @@ public class SmallMoleculeList
      * {@link GlobalQuantLayer }
      *
      *
+     * @return the value of the globalQuantLayer property.
      */
     public List<GlobalQuantLayer> getGlobalQuantLayer() {
         if (globalQuantLayer == null) {
@@ -153,6 +155,7 @@ public class SmallMoleculeList
      * {@link QuantLayer }
      *
      *
+     * @return the value of the assayQuantLayer property.
      */
     public List<QuantLayer> getAssayQuantLayer() {
         if (assayQuantLayer == null) {
@@ -183,6 +186,7 @@ public class SmallMoleculeList
      * {@link QuantLayer }
      *
      *
+     * @return the value of the studyVariableQuantLayer property.
      */
     public List<QuantLayer> getStudyVariableQuantLayer() {
         if (studyVariableQuantLayer == null) {
@@ -238,6 +242,7 @@ public class SmallMoleculeList
      * {@link UserParam }
      *
      *
+     * @return the value of the paramGroup property.
      */
     public List<AbstractParam> getParamGroup() {
         if (paramGroup == null) {
@@ -246,11 +251,23 @@ public class SmallMoleculeList
         return this.paramGroup;
     }
 
+    /**
+     * Gets the cvParams
+     *
+     * @return possible object is
+     *         {@link uk.ac.liv.jmzqml.model.utils.FacadeList }
+     */
     @Override
     public List<CvParam> getCvParam() {
         return new FacadeList<CvParam>(this.getParamGroup(), CvParam.class);
     }
 
+    /**
+     * Gets the userParams
+     *
+     * @return possible object is
+     *         {@link uk.ac.liv.jmzqml.model.utils.FacadeList }
+     */
     @Override
     public List<UserParam> getUserParam() {
         return new FacadeList<UserParam>(this.getParamGroup(), UserParam.class);

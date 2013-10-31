@@ -34,15 +34,25 @@ import uk.ac.liv.jmzqml.xml.xxindex.MzQuantMLIndexer;
  * @institute University of Liverpool
  * @time 14-May-2013 23:09:04
  */
-public class RatioQuantLayerRefResolver extends AbstractReferenceResolver<RatioQuantLayer>{
-    
-    public RatioQuantLayerRefResolver(MzQuantMLIndexer index, MzQuantMLObjectCache cache) {
+public class RatioQuantLayerRefResolver extends AbstractReferenceResolver<RatioQuantLayer> {
+
+    /**
+     *
+     * @param index MzQuantMLIndexer
+     * @param cache MzQuantMLObjectCache
+     */
+    public RatioQuantLayerRefResolver(MzQuantMLIndexer index,
+                                      MzQuantMLObjectCache cache) {
         super(index, cache);
     }
-    
+
+    /**
+     *
+     * @param object RatioQuantLayer
+     */
     @Override
     public void updateObject(RatioQuantLayer object) {
-        
+
         //ColumnIndex
         List<String> refs1 = object.getColumnIndex();
         if (refs1 != null) {
@@ -55,6 +65,13 @@ public class RatioQuantLayerRefResolver extends AbstractReferenceResolver<RatioQ
         }
     }
 
+    /**
+     * Method to perform the afterUnmarshal operation if the resolver
+     * applies to the specified object.
+     *
+     * @param target the object to modify after unmarshalling.
+     * @param parent object referencing the target. Null if target is root element.
+     */
     @Override
     public void afterUnmarshal(Object target, Object parent) {
         if (RatioQuantLayer.class.isInstance(target) && MzQuantMLElement.RatioQuantLayer.isAutoRefResolving()) {

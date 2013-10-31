@@ -17,6 +17,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package uk.ac.liv.jmzqml.xml.jaxb.unmarshaller;
 
 import javax.xml.bind.JAXBContext;
@@ -47,6 +48,11 @@ public class UnmarshallerFactory {
     private static UnmarshallerFactory instance = new UnmarshallerFactory();
     private static JAXBContext jc = null;
 
+    /**
+     * A static method to construct an object of UnmarshallerFactory.
+     *
+     * @return an instance of UnmarshallerFactory.
+     */
     public static UnmarshallerFactory getInstance() {
         return instance;
     }
@@ -54,6 +60,15 @@ public class UnmarshallerFactory {
     private UnmarshallerFactory() {
     }
 
+    /**
+     * Initialise the Unmarshaller with pre-defined settings.
+     *
+     * @param index     MzQuantMLIndexer
+     * @param cache     MzQuantMLObjectCache
+     * @param xmlFilter MzQuantMLNamespcaceFilter
+     *
+     * @return an instance of {@link javax.xml.bind.Unmarshaller} with initial configurations.
+     */
     public Unmarshaller initializeUnmarshaller(MzQuantMLIndexer index,
                                                MzQuantMLObjectCache cache,
                                                MzQuantMLNamespaceFilter xmlFilter) {
@@ -111,15 +126,19 @@ public class UnmarshallerFactory {
 
             return unmarshaller;
 
-        } catch (JAXBException e) {
+        }
+        catch (JAXBException e) {
             logger.error("UnmarshallerFactory.initializeUnmarshaller", e);
             throw new IllegalStateException("Could not initialize unmarshaller");
-        } catch (SAXException e) {
+        }
+        catch (SAXException e) {
             logger.error("UnmarshallerFactory.initializeUnmarshaller", e);
             throw new IllegalStateException("Could not initialize unmarshaller");
-        } catch (ParserConfigurationException e) {
+        }
+        catch (ParserConfigurationException e) {
             logger.error("UnmarshallerFactory.initializeUnmarshaller", e);
             throw new IllegalStateException("Could not initialize unmarshaller");
         }
     }
+
 }

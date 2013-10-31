@@ -10,14 +10,13 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 import uk.ac.liv.jmzqml.model.MzQuantMLObject;
 
-
 /**
- * A specification of labels or tags used to define the assay within the raw file, such as heavy labelling or iTRAQ tag mass. The Label and Modification is mandatory so a specific term is provided under Modification for unlabeled sample for label-free and, for example, so-called light samples in a labelling experiment. 
- * 
+ * A specification of labels or tags used to define the assay within the raw file, such as heavy labelling or iTRAQ tag mass. The Label and Modification is mandatory so a specific term is provided under Modification for unlabeled sample for label-free and, for example, so-called light samples in a labelling experiment.
+ *
  * <p>Java class for LabelType complex type.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ *
  * <pre>
  * &lt;complexType name="LabelType">
  *   &lt;complexContent>
@@ -29,16 +28,15 @@ import uk.ac.liv.jmzqml.model.MzQuantMLObject;
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "LabelType", propOrder = {
     "modification"
 })
 public class Label
-    implements Serializable, MzQuantMLObject
-{
+        implements Serializable, MzQuantMLObject {
 
     private final static long serialVersionUID = 100L;
     @XmlElement(name = "Modification", required = true)
@@ -46,25 +44,27 @@ public class Label
 
     /**
      * Gets the value of the modification property.
-     * 
+     *
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the modification property.
-     * 
+     * This is why there is not a
+     * <CODE>set</CODE> method for the modification property.
+     *
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getModification().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link ModParam }
-     * 
-     * 
+     *
+     *
+     * @return the value of the modification property.
      */
     public List<ModParam> getModification() {
         if (modification == null) {

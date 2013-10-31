@@ -17,6 +17,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package uk.ac.liv.jmzqml.model.utils;
 
 import java.util.List;
@@ -33,11 +34,22 @@ public class MzQuantMLElementProperties {
 
     private List<MzQuantMLElementConfig> configurations;
 
+    /**
+     * Get list of MzQuantMLElementConfig.
+     *
+     * @return a list of MzQuantMLElementConfig.
+     */
     public List<MzQuantMLElementConfig> getConfigurations() {
         return configurations;
     }
 
+    /**
+     * Set the list of MzQuantMLElementConfig.
+     *
+     * @param configurations list of MzQuantMLElementConfig.
+     */
     public void setConfigurations(List<MzQuantMLElementConfig> configurations) {
         this.configurations = configurations;
     }
+
 }

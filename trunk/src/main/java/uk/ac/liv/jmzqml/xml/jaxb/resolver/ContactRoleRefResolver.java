@@ -34,11 +34,20 @@ import uk.ac.liv.jmzqml.xml.xxindex.MzQuantMLIndexer;
  */
 public class ContactRoleRefResolver extends AbstractReferenceResolver<ContactRole> {
 
+    /**
+     *
+     * @param index MzQuantMLIndexer
+     * @param cache MzQuantMLObjectCache
+     */
     public ContactRoleRefResolver(MzQuantMLIndexer index,
                                   MzQuantMLObjectCache cache) {
         super(index, cache);
     }
 
+    /**
+     *
+     * @param object ContactRole
+     */
     @Override
     public void updateObject(ContactRole object) {
 

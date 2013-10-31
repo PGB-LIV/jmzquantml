@@ -34,11 +34,20 @@ import uk.ac.liv.jmzqml.xml.xxindex.MzQuantMLIndexer;
  */
 public class IdentificationFileRefResolver extends AbstractReferenceResolver<IdentificationFile> {
 
+    /**
+     *
+     * @param index MzQuantMLIndexer
+     * @param cache MzQuantMLObjectCache
+     */
     public IdentificationFileRefResolver(MzQuantMLIndexer index,
                                          MzQuantMLObjectCache cache) {
         super(index, cache);
     }
 
+    /**
+     *
+     * @param object IdentificationFile
+     */
     @Override
     public void updateObject(IdentificationFile object) {
 

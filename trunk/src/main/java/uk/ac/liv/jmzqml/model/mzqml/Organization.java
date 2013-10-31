@@ -39,6 +39,9 @@ public class Organization
 {
 
     private final static long serialVersionUID = 100L;
+    /**
+     *
+     */
     @XmlElement(name = "ParentOrganization")
     protected ParentOrganization parentOrganization;
 

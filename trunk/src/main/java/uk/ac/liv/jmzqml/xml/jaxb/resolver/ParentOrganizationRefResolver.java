@@ -1,3 +1,4 @@
+
 package uk.ac.liv.jmzqml.xml.jaxb.resolver;
 
 import uk.ac.liv.jmzqml.MzQuantMLElement;
@@ -7,15 +8,24 @@ import uk.ac.liv.jmzqml.xml.io.MzQuantMLObjectCache;
 import uk.ac.liv.jmzqml.xml.xxindex.MzQuantMLIndexer;
 
 /**
- * @author rwang
- * @author florian
+ *
  */
 public class ParentOrganizationRefResolver extends AbstractReferenceResolver<ParentOrganization> {
 
-    public ParentOrganizationRefResolver(MzQuantMLIndexer index, MzQuantMLObjectCache cache) {
+    /**
+     *
+     * @param index MzQuantMLIndexer
+     * @param cache MzQuantMLObjectCache
+     */
+    public ParentOrganizationRefResolver(MzQuantMLIndexer index,
+                                         MzQuantMLObjectCache cache) {
         super(index, cache);
     }
 
+    /**
+     *
+     * @param object ParentOrganization
+     */
     @Override
     public void updateObject(ParentOrganization object) {
         // add objects for the refID
@@ -39,4 +49,5 @@ public class ParentOrganizationRefResolver extends AbstractReferenceResolver<Par
             updateObject((ParentOrganization) target);
         } // else, not business of this resolver
     }
+
 }

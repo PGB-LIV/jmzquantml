@@ -39,6 +39,8 @@ import uk.ac.liv.jmzqml.xml.xxindex.MzQuantMLIndexer;
 
 /**
  *
+ * @param <T> extends {@link uk.ac.liv.jmzqml.model.MzQuantMLObject}.
+ *
  * @author Da Qi
  * @institute University of Liverpool
  * @time 21-Jun-2012 23:35:15
@@ -50,12 +52,29 @@ public abstract class AbstractReferenceResolver<T extends MzQuantMLObject>
     private MzQuantMLIndexer index = null;
     private MzQuantMLObjectCache cache = null;
 
+    /**
+     * Constructor of AbstractReferenceResolver
+     *
+     * @param index MzQuantMLIndexer
+     * @param cache MzQuantMLObjectCache
+     *
+     */
     protected AbstractReferenceResolver(MzQuantMLIndexer index,
                                         MzQuantMLObjectCache cache) {
         this.index = index;
         this.cache = cache;
     }
 
+    /**
+     * Unmarshal one object for the specified class according to the reference id. Note: The class has to
+     * refer to MzQuantMLObject elements.
+     *
+     * @param <R>   extends {@link uk.ac.liv.jmzqml.model.MzQuantMLObject}.
+     * @param refId the reference id of the object.
+     * @param cls   the type of class of the object.
+     *
+     * @return an object of the specified class.
+     */
     public <R extends MzQuantMLObject> R unmarshal(String refId, Class<R> cls) {
         R retVal;
 
@@ -130,6 +149,11 @@ public abstract class AbstractReferenceResolver<T extends MzQuantMLObject>
         return retVal;
     }
 
+    /**
+     * Update the target object.
+     *
+     * @param object the object to modify after unmarshalling.
+     */
     public abstract void updateObject(T object);
 
 }

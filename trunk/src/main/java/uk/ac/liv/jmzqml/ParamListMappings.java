@@ -31,7 +31,13 @@ import uk.ac.liv.jmzqml.model.mzqml.Ratio;
  */
 public enum ParamListMappings {
 
+    /**
+     * Ratio member
+     */
     Ratio(new String[]{"RatioCalculation"}, Ratio.class),
+    /**
+     * MzQuantML member
+     */
     MzQuantML(new String[]{"AnalysisSummary"}, MzQuantML.class);
     private Class clazz;
     private String[] classNames;
@@ -41,14 +47,31 @@ public enum ParamListMappings {
         this.clazz = clazz;
     }
 
+    /**
+     * Gets the value of classNames property.
+     *
+     * @return a string array of classNames.
+     */
     public String[] getClassNames() {
         return classNames;
     }
 
+    /**
+     * Gets the value of clazz property.
+     *
+     * @return the value of clazz property.
+     */
     public Class getClazz() {
         return this.clazz;
     }
 
+    /**
+     * Gets a member of ParamListMappings according to the value of clazz property.
+     *
+     * @param clazz the value of clazz property.
+     *
+     * @return a member of ParamListMappings.
+     */
     public static ParamListMappings getType(Class clazz) {
         for (ParamListMappings type : ParamListMappings.values()) {
             if (type.getClazz() == clazz) {

@@ -72,6 +72,11 @@ public class DataProcessing
     @XmlTransient
     protected Software software;
 
+    /**
+     * Gets the list of input objects of the DataProcessing.
+     *
+     * @return the list of input objects of the DataProcessing.
+     */
     public List<IdOnly> getInputObjects() {
         if (inputObjects == null) {
             inputObjects = new ArrayList<IdOnly>();
@@ -79,6 +84,11 @@ public class DataProcessing
         return inputObjects;
     }
 
+    /**
+     * Sets the list of input objects to the DataProcessing.
+     *
+     * @param inputObjects a list of input objects.
+     */
     public void setInputObjects(List<IdOnly> inputObjects) {
         if (inputObjects == null) {
             this.inputObjectRefs = null;
@@ -95,6 +105,11 @@ public class DataProcessing
         this.inputObjects = inputObjects;
     }
 
+    /**
+     * Gets the list of output objects of the DataProcessing.
+     *
+     * @return the list of output objects of the DataProcessing.
+     */
     public List<IdOnly> getOutputObjects() {
         if (outputObjects == null) {
             outputObjects = new ArrayList<IdOnly>();
@@ -102,6 +117,11 @@ public class DataProcessing
         return outputObjects;
     }
 
+    /**
+     * Sets the list of output objects to the DataProcessing.
+     *
+     * @param outputObjects a list of output objects.
+     */
     public void setOutputObjects(List<IdOnly> outputObjects) {
         if (outputObjects == null) {
             this.outputObjectRefs = null;
@@ -118,10 +138,20 @@ public class DataProcessing
         this.outputObjects = outputObjects;
     }
 
+    /**
+     * Gets the Software of the DataProcessing.
+     *
+     * @return the Software of the DataProcessing.
+     */
     public Software getSoftware() {
         return software;
     }
 
+    /**
+     * Sets the Software to the DataProcessing.
+     *
+     * @param software a Software.
+     */
     public void setSoftware(Software software) {
         if (software == null) {
             this.softwareRef = null;
@@ -158,6 +188,7 @@ public class DataProcessing
      * {@link String }
      *
      *
+     * @return the value of the inputObjectRefs property.
      */
     public List<String> getInputObjectRefs() {
         if (inputObjectRefs == null) {
@@ -188,6 +219,7 @@ public class DataProcessing
      * {@link String }
      *
      *
+     * @return the value of the outputObjectRefs property.
      */
     public List<String> getOutputObjectRefs() {
         if (outputObjectRefs == null) {
@@ -218,6 +250,7 @@ public class DataProcessing
      * {@link ProcessingMethod }
      *
      *
+     * @return the value of the processingMethod property.
      */
     public List<ProcessingMethod> getProcessingMethod() {
         if (processingMethod == null) {
@@ -238,17 +271,6 @@ public class DataProcessing
         return softwareRef;
     }
 
-//    /**
-//     * Sets the value of the softwareRef property.
-//     *
-//     * @param value
-//     *              allowed object is
-//     *              {@link String }
-//     *
-//     */
-//    public void setSoftwareRef(String value) {
-//        this.softwareRef = value;
-//    }
     /**
      * Gets the value of the order property.
      *

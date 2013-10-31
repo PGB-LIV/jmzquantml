@@ -1,20 +1,25 @@
-/*
-* Date: 26/5/2010
-* Adopted by - Ritesh
-*
-*/
 
 package uk.ac.liv.jmzqml.xml.xxindex;
 
-import org.apache.log4j.Logger;
-
 import java.io.*;
 import java.net.URL;
+import org.apache.log4j.Logger;
 
+/**
+ *
+ * @author Da Qi
+ */
 public class FileUtils {
 
     private static Logger logger = Logger.getLogger(FileUtils.class);
 
+    /**
+     * A method to get File from URL
+     *
+     * @param url a URL
+     *
+     * @return a File object
+     */
     public static File getFileFromURL(URL url) {
 
         File tempFile;
@@ -45,9 +50,11 @@ public class FileUtils {
             logger.debug(url + " written to local file " + tempFile.getAbsolutePath());
 
 
-        } catch (IOException e) {
+        }
+        catch (IOException e) {
             throw new IllegalStateException("Could not create local file for URL: " + url, e);
-        } finally {
+        }
+        finally {
             try {
                 if (in != null) {
                     in.close();
@@ -55,8 +62,11 @@ public class FileUtils {
                 if (out != null) {
                     out.close();
                 }
-            } catch (IOException e) {
-                /* ignore */
+            }
+            catch (IOException e) {
+                /*
+                 * ignore
+                 */
             }
 
         }

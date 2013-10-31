@@ -6,7 +6,6 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlElements;
 import javax.xml.bind.annotation.XmlType;
@@ -71,7 +70,6 @@ public class ProteinGroupList
     })
     protected List<AbstractParam> paramGroup;
 
-
     /**
      * Gets the value of the proteinGroup property.
      *
@@ -94,6 +92,7 @@ public class ProteinGroupList
      * {@link ProteinGroup }
      *
      *
+     * @return the value of the proteinGroup property.
      */
     public List<ProteinGroup> getProteinGroup() {
         if (proteinGroup == null) {
@@ -124,6 +123,7 @@ public class ProteinGroupList
      * {@link GlobalQuantLayer }
      *
      *
+     * @return the value of the globalQuantLayer property.
      */
     public List<GlobalQuantLayer> getGlobalQuantLayer() {
         if (globalQuantLayer == null) {
@@ -154,6 +154,7 @@ public class ProteinGroupList
      * {@link QuantLayer }
      *
      *
+     * @return the value of the assayQuantLayer property.
      */
     public List<QuantLayer> getAssayQuantLayer() {
         if (assayQuantLayer == null) {
@@ -184,6 +185,7 @@ public class ProteinGroupList
      * {@link QuantLayer }
      *
      *
+     * @return the value of studyVariableQuantLayer property.
      */
     public List<QuantLayer> getStudyVariableQuantLayer() {
         if (studyVariableQuantLayer == null) {
@@ -239,6 +241,7 @@ public class ProteinGroupList
      * {@link UserParam }
      *
      *
+     * @return the value of the paramGroup property.
      */
     public List<AbstractParam> getParamGroup() {
         if (paramGroup == null) {
@@ -247,11 +250,23 @@ public class ProteinGroupList
         return this.paramGroup;
     }
 
+    /**
+     * Gets the cvParams
+     *
+     * @return possible object is
+     *         {@link uk.ac.liv.jmzqml.model.utils.FacadeList }
+     */
     @Override
     public List<CvParam> getCvParam() {
         return new FacadeList<CvParam>(this.getParamGroup(), CvParam.class);
     }
 
+    /**
+     * Gets the userParams
+     *
+     * @return possible object is
+     *         {@link uk.ac.liv.jmzqml.model.utils.FacadeList }
+     */
     @Override
     public List<UserParam> getUserParam() {
         return new FacadeList<UserParam>(this.getParamGroup(), UserParam.class);

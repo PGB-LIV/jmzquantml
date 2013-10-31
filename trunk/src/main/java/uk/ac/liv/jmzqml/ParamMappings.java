@@ -21,7 +21,6 @@
 package uk.ac.liv.jmzqml;
 
 import uk.ac.liv.jmzqml.model.mzqml.SearchDatabase;
-import uk.ac.liv.jmzqml.model.mzqml.Software;
 
 /**
  *
@@ -31,6 +30,9 @@ import uk.ac.liv.jmzqml.model.mzqml.Software;
  */
 public enum ParamMappings {
 
+    /**
+     * SearchDatabase member
+     */
     SearchDatabase("DatabaseName", SearchDatabase.class);
     private Class clazz;
     private String className;
@@ -40,14 +42,31 @@ public enum ParamMappings {
         this.clazz = clazz;
     }
 
+    /**
+     * Gets the value of className property.
+     *
+     * @return the value of className property.
+     */
     public String getClassName() {
         return className;
     }
 
+    /**
+     * Gets the value of clazz property.
+     *
+     * @return the value of clazz property.
+     */
     public Class getClazz() {
         return this.clazz;
     }
 
+    /**
+     * Gets a member of ParamMappings according to the value of clazz property.
+     *
+     * @param clazz the value of clazz property.
+     *
+     * @return a member of ParamMappings.
+     */
     public static ParamMappings getType(Class clazz) {
         for (ParamMappings type : ParamMappings.values()) {
             if (type.getClazz() == clazz) {

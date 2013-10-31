@@ -1,3 +1,4 @@
+
 package uk.ac.liv.jmzqml.xml.jaxb.resolver;
 
 import uk.ac.liv.jmzqml.MzQuantMLElement;
@@ -7,16 +8,23 @@ import uk.ac.liv.jmzqml.xml.io.MzQuantMLObjectCache;
 import uk.ac.liv.jmzqml.xml.xxindex.MzQuantMLIndexer;
 
 /**
- * @author Florian Reisinger
- *         Date: 16-Nov-2010
- * @since 1.0
+ *
  */
 public class CvParamRefResolver extends AbstractReferenceResolver<CvParam> {
 
+    /**
+     *
+     * @param index MzQuantMLIndexer
+     * @param cache MzQuantMLObjectCache
+     */
     public CvParamRefResolver(MzQuantMLIndexer index, MzQuantMLObjectCache cache) {
         super(index, cache);
     }
 
+    /**
+     *
+     * @param object CvParam
+     */
     @Override
     public void updateObject(CvParam object) {
         // add objects for the refID

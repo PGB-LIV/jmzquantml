@@ -14,14 +14,13 @@ import javax.xml.bind.annotation.XmlType;
 import uk.ac.liv.jmzqml.model.ParamGroupCapable;
 import uk.ac.liv.jmzqml.model.utils.FacadeList;
 
-
 /**
  * A single identification file associated with this analysis.
- * 
+ *
  * <p>Java class for IdentificationFileType complex type.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ *
  * <pre>
  * &lt;complexType name="IdentificationFileType">
  *   &lt;complexContent>
@@ -34,17 +33,16 @@ import uk.ac.liv.jmzqml.model.utils.FacadeList;
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "IdentificationFileType", propOrder = {
     "paramGroup"
 })
 public class IdentificationFile
-    extends ExternalData
-    implements Serializable, ParamGroupCapable
-{
+        extends ExternalData
+        implements Serializable, ParamGroupCapable {
 
     private final static long serialVersionUID = 100L;
     @XmlElements({
@@ -57,46 +55,58 @@ public class IdentificationFile
     @XmlTransient
     protected SearchDatabase searchDatabase;
 
-    public SearchDatabase getSearchDatabase(){
+    /**
+     * Gets the value of the searchDatabase of the identificationFile.
+     *
+     * @return the value of the searchDatabase of the identificationFile.
+     */
+    public SearchDatabase getSearchDatabase() {
         return searchDatabase;
     }
-    
-    public void setSearchDatabase(SearchDatabase searchDatabase){
-        if (searchDatabase == null){
+
+    /**
+     * Sets the value of the searchDatabase of the identificationFile.
+     *
+     * @param searchDatabase the value of the searchDatabase of the identificationFile.
+     */
+    public void setSearchDatabase(SearchDatabase searchDatabase) {
+        if (searchDatabase == null) {
             this.searchDatabaseRef = null;
         }
         else {
             String refId = searchDatabase.getId();
-            if (refId == null){
+            if (refId == null) {
                 throw new IllegalArgumentException("Referenced object does not have an identifier.");
             }
             this.searchDatabaseRef = refId;
         }
         this.searchDatabase = searchDatabase;
     }
-    
+
     /**
      * Optional CV or user params for IdentificationFile.Gets the value of the paramGroup property.
-     * 
+     *
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the paramGroup property.
-     * 
+     * This is why there is not a
+     * <CODE>set</CODE> method for the paramGroup property.
+     *
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getParamGroup().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link CvParam }
      * {@link UserParam }
-     * 
-     * 
+     *
+     *
+     * @return the value of the paramGroup property.
      */
     public List<AbstractParam> getParamGroup() {
         if (paramGroup == null) {
@@ -107,22 +117,33 @@ public class IdentificationFile
 
     /**
      * Gets the value of the searchDatabaseRef property.
-     * 
+     *
      * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *         possible object is
+     *         {@link String }
+     *
      */
     public String getSearchDatabaseRef() {
         return searchDatabaseRef;
     }
 
-
+    /**
+     * Gets the cvParams
+     *
+     * @return possible object is
+     *         {@link uk.ac.liv.jmzqml.model.utils.FacadeList }
+     */
     @Override
     public List<CvParam> getCvParam() {
         return new FacadeList<CvParam>(this.getParamGroup(), CvParam.class);
-}
+    }
 
+    /**
+     * Gets the userParams
+     *
+     * @return possible object is
+     *         {@link uk.ac.liv.jmzqml.model.utils.FacadeList }
+     */
     @Override
     public List<UserParam> getUserParam() {
         return new FacadeList<UserParam>(this.getParamGroup(), UserParam.class);

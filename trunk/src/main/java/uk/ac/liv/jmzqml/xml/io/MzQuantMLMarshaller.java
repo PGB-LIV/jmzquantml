@@ -120,7 +120,7 @@ public class MzQuantMLMarshaller {
     }
 
     /**
-     * Marhalling of an {@link uk.ac.liv.jmzqml.model.MzQuantMLObject}.
+     * Marshalling of an {@link uk.ac.liv.jmzqml.model.MzQuantMLObject}.
      * <p>
      * An {@link uk.ac.liv.jmzqml.model.MzQuantMLObject} will be marshalled to an mzQuantML string.
      *
@@ -138,7 +138,7 @@ public class MzQuantMLMarshaller {
     /**
      * An {@link uk.ac.liv.jmzqml.model.MzQuantMLObject} is marshalled to a specific writer.
      *
-     * @param <T>    extneds {@link uk.ac.liv.jmzqml.model.MzQuantMLObject}
+     * @param <T>    extends {@link uk.ac.liv.jmzqml.model.MzQuantMLObject}
      * @param object a subclass of {@link uk.ac.liv.jmzqml.model.MzQuantMLObject}
      * @param out    the writer to which the {@code object} is written.
      */

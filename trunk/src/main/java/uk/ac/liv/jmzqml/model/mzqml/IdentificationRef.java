@@ -44,10 +44,20 @@ public class IdentificationRef
     @XmlTransient
     protected IdentificationFile identificationFile;
 
+    /**
+     * Gets the IdentificationFile of IdentificationRef.
+     *
+     * @return the IdentificationFile of IdentificationRef.
+     */
     public IdentificationFile getIdentificationFile() {
         return identificationFile;
     }
 
+    /**
+     * Sets the IdentificationFile to IdentificationRef.
+     *
+     * @param identificationFile an IdentificationFile.
+     */
     public void setIdentificationFile(IdentificationFile identificationFile) {
         if (identificationFile == null) {
             this.identificationFileRef = null;
@@ -84,6 +94,7 @@ public class IdentificationRef
      * {@link String }
      *
      *
+     * @return the value of the idRefs property.
      */
     public List<String> getIdRefs() {
         if (idRefs == null) {

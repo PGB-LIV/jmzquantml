@@ -1,3 +1,4 @@
+
 package uk.ac.liv.jmzqml.xml.jaxb.resolver;
 
 import uk.ac.liv.jmzqml.MzQuantMLElement;
@@ -7,16 +8,24 @@ import uk.ac.liv.jmzqml.xml.io.MzQuantMLObjectCache;
 import uk.ac.liv.jmzqml.xml.xxindex.MzQuantMLIndexer;
 
 /**
- * @author Florian Reisinger
- *         Date: 15-Nov-2010
- * @since 1.0
+ *
  */
 public class ProviderRefResolver extends AbstractReferenceResolver<Provider> {
 
-    public ProviderRefResolver(MzQuantMLIndexer index, MzQuantMLObjectCache cache) {
+    /**
+     *
+     * @param index MzQuantMLIndexer
+     * @param cache MzQuantMLObjectCache
+     */
+    public ProviderRefResolver(MzQuantMLIndexer index,
+                               MzQuantMLObjectCache cache) {
         super(index, cache);
     }
 
+    /**
+     *
+     * @param object Provider
+     */
     @Override
     public void updateObject(Provider object) {
         // add objects for the refID
@@ -40,4 +49,5 @@ public class ProviderRefResolver extends AbstractReferenceResolver<Provider> {
             updateObject((Provider) target);
         } // else, not business of this resolver
     }
+
 }

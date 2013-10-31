@@ -65,10 +65,20 @@ public class ProteinGroup
     @XmlTransient
     protected SearchDatabase searchDatabase;
 
+    /**
+     * Gets the SearchDatabase of the ProteinGroup.
+     *
+     * @return the SearchDatabase of the ProteinGroup.
+     */
     public SearchDatabase getSearchDatabase() {
         return searchDatabase;
     }
 
+    /**
+     * Sets the SearchDatabase to the ProteinGroup.
+     *
+     * @param searchDatabase a SearchDatabase.
+     */
     public void setSearchDatabase(SearchDatabase searchDatabase) {
         if (searchDatabase == null) {
             this.searchDatabaseRef = null;
@@ -105,6 +115,7 @@ public class ProteinGroup
      * {@link IdentificationRef }
      *
      *
+     * @return the value of the identificationRef property.
      */
     public List<IdentificationRef> getIdentificationRef() {
         if (identificationRef == null) {
@@ -135,6 +146,7 @@ public class ProteinGroup
      * {@link ProteinRef }
      *
      *
+     * @return the value of the proteinRef property.
      */
     public List<ProteinRef> getProteinRef() {
         if (proteinRef == null) {
@@ -166,6 +178,7 @@ public class ProteinGroup
      * {@link UserParam }
      *
      *
+     * @return the value of the paramGroup property.
      */
     public List<AbstractParam> getParamGroup() {
         if (paramGroup == null) {
@@ -186,11 +199,23 @@ public class ProteinGroup
         return searchDatabaseRef;
     }
 
+    /**
+     * Gets the cvParams
+     *
+     * @return possible object is
+     *         {@link uk.ac.liv.jmzqml.model.utils.FacadeList }
+     */
     @Override
     public List<CvParam> getCvParam() {
         return new FacadeList<CvParam>(this.getParamGroup(), CvParam.class);
     }
 
+    /**
+     * Gets the userParams
+     *
+     * @return possible object is
+     *         {@link uk.ac.liv.jmzqml.model.utils.FacadeList }
+     */
     @Override
     public List<UserParam> getUserParam() {
         return new FacadeList<UserParam>(this.getParamGroup(), UserParam.class);

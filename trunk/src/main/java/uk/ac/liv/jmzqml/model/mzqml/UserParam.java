@@ -35,6 +35,9 @@ public class UserParam
 {
 
     private final static long serialVersionUID = 100L;
+    /**
+     *
+     */
     @XmlAttribute(name = "type")
     protected String type;
 

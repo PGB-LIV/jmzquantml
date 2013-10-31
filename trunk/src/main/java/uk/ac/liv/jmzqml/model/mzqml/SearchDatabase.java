@@ -53,15 +53,30 @@ public class SearchDatabase
 {
 
     private final static long serialVersionUID = 100L;
+    /**
+     *
+     */
     @XmlElement(name = "DatabaseName", required = true)
     protected Param databaseName;
+    /**
+     *
+     */
     protected List<CvParam> cvParam;
+    /**
+     *
+     */
     @XmlAttribute(name = "version")
     protected String version;
+    /**
+     *
+     */
     @XmlAttribute(name = "releaseDate")
     @XmlJavaTypeAdapter(CalendarAdapter.class)
     @XmlSchemaType(name = "dateTime")
     protected Calendar releaseDate;
+    /**
+     *
+     */
     @XmlAttribute(name = "numDatabaseEntries")
     protected Long numDatabaseEntries;
 

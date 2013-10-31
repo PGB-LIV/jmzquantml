@@ -38,6 +38,9 @@ public class Param
 {
 
     private final static long serialVersionUID = 100L;
+    /**
+     *
+     */
     @XmlElements({
         @XmlElement(name = "cvParam", type = CvParam.class),
         @XmlElement(name = "userParam", type = UserParam.class)
@@ -57,6 +60,10 @@ public class Param
         this.paramGroup = value;
     }
 
+    /**
+     *
+     * @return
+     */
     public CvParam getCvParam() {
         if (paramGroup instanceof CvParam) {
             return (CvParam) paramGroup;
@@ -65,6 +72,10 @@ public class Param
 }
     }
 
+    /**
+     *
+     * @return
+     */
     public UserParam getUserParam() {
         if (paramGroup instanceof UserParam) {
             return (UserParam) paramGroup;

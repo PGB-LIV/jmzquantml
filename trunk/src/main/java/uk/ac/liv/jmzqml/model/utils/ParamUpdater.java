@@ -46,6 +46,18 @@ public class ParamUpdater {
         unitRefField.set(newParam, input.getUnitCvRef());
     }
 
+    /**
+     * A method to populate the property values of a CvParam to specified sub-class of CvParam.
+     *
+     * @param <T>             extends {@link uk.ac.liv.jmzqml.model.mzqml.CvParam}.
+     * @param input           the instance of {@link uk.ac.liv.jmzqml.model.mzqml.CvParam}.
+     * @param cvParamSubClass the class type of the sub-class of {@link uk.ac.liv.jmzqml.model.mzqml.CvParam}.
+     *
+     * @return a CvParam with the same property values of input.
+     *
+     * @throws IllegalAccessException
+     * @throws InstantiationException
+     */
     public static <T extends CvParam> T updateCvParamSubclass(CvParam input,
                                                               Class<T> cvParamSubClass)
             throws IllegalAccessException, InstantiationException {
@@ -70,8 +82,6 @@ public class ParamUpdater {
                     Field cvRefField = cls.getDeclaredField("cvRef");
                     cvRefField.setAccessible(true);
                     cvRefField.set(newParam, input.getCvRef());
-
-
                 }
                 catch (Exception e) {
                     throw new InstantiationError("Unable to create new instance of CvParam subclass due to problem updating cvRef.");
@@ -124,6 +134,17 @@ public class ParamUpdater {
         return null;
     }
 
+    /**
+     * A method to populate the property values of a list of CvParam to specified sub-class of CvParam.
+     *
+     * @param <T>             extends {@link uk.ac.liv.jmzqml.model.mzqml.CvParam}.
+     * @param inputs          the list of {@link uk.ac.liv.jmzqml.model.mzqml.CvParam}.
+     * @param cvParamSubClass the class type of the sub-class of {@link uk.ac.liv.jmzqml.model.mzqml.CvParam}.
+     *
+     *
+     * @throws IllegalAccessException
+     * @throws InstantiationException
+     */
     public static <T extends CvParam> void updateCvParamSubclassesList(
             List<CvParam> inputs, Class<T> cvParamSubClass)
             throws InstantiationException, IllegalAccessException {
@@ -143,6 +164,18 @@ public class ParamUpdater {
         }
     }
 
+    /**
+     * A method to populate the property values of a UserParam to specified sub-class of UserParam.
+     *
+     * @param <T>               extends {@link uk.ac.liv.jmzqml.model.mzqml.UserParam}.
+     * @param input             the instance of {@link uk.ac.liv.jmzqml.model.mzqml.UserParam}.
+     * @param userParamSubClass the class type of the sub-class of {@link uk.ac.liv.jmzqml.model.mzqml.UserParam}.
+     *
+     * @return a UserParam with the same property values of input.
+     *
+     * @throws IllegalAccessException
+     * @throws InstantiationException
+     */
     public static <T extends UserParam> T updateUserParamSubclass(
             UserParam input, Class<T> userParamSubClass)
             throws InstantiationException, IllegalAccessException {
@@ -166,6 +199,17 @@ public class ParamUpdater {
         return null;
     }
 
+    /**
+     * A method to populate the property values of a list of UserParam to specified sub-class of UserParam.
+     *
+     * @param <T>               extends {@link uk.ac.liv.jmzqml.model.mzqml.UserParam}.
+     * @param inputs            the list of {@link uk.ac.liv.jmzqml.model.mzqml.UserParam}.
+     * @param userParamSubClass the class type of the sub-class of {@link uk.ac.liv.jmzqml.model.mzqml.UserParam}.
+     *
+     *
+     * @throws IllegalAccessException
+     * @throws InstantiationException
+     */
     public static <T extends UserParam> void updateUserParamSubclassesList(
             List<UserParam> inputs, Class<T> userParamSubClass)
             throws InstantiationException, IllegalAccessException {

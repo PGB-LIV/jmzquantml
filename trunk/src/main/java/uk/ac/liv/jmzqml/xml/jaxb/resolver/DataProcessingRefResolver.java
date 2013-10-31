@@ -34,11 +34,20 @@ import uk.ac.liv.jmzqml.xml.xxindex.MzQuantMLIndexer;
  */
 public class DataProcessingRefResolver extends AbstractReferenceResolver<DataProcessing> {
 
+    /**
+     *
+     * @param index MzQuantMLIndexer
+     * @param cache MzQuantMLObjectCache
+     */
     public DataProcessingRefResolver(MzQuantMLIndexer index,
                                      MzQuantMLObjectCache cache) {
         super(index, cache);
     }
 
+    /**
+     *
+     * @param object DataProcessing
+     */
     @Override
     public void updateObject(DataProcessing object) {
         String ref = object.getSoftwareRef();
@@ -48,6 +57,13 @@ public class DataProcessingRefResolver extends AbstractReferenceResolver<DataPro
         }
     }
 
+    /**
+     * Method to perform the afterUnmarshal operation if the resolver
+     * applies to the specified object.
+     *
+     * @param target the object to modify after unmarshalling.
+     * @param parent object referencing the target. Null if target is root element.
+     */
     @Override
     public void afterUnmarshal(Object target, Object parent) {
         if (DataProcessing.class.isInstance(target) && MzQuantMLElement.DataProcessing.isAutoRefResolving()) {

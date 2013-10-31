@@ -20,7 +20,6 @@
 
 package uk.ac.liv.jmzqml.xml.jaxb.resolver;
 
-import java.util.ArrayList;
 import java.util.List;
 import uk.ac.liv.jmzqml.MzQuantMLElement;
 import uk.ac.liv.jmzqml.model.mzqml.Assay;
@@ -36,11 +35,20 @@ import uk.ac.liv.jmzqml.xml.xxindex.MzQuantMLIndexer;
  */
 public class StudyVariableRefResolver extends AbstractReferenceResolver<StudyVariable> {
 
+    /**
+     *
+     * @param index MzQuantMLIndexer
+     * @param cache MzQuantMLObjectCache
+     */
     public StudyVariableRefResolver(MzQuantMLIndexer index,
                                     MzQuantMLObjectCache cache) {
         super(index, cache);
     }
 
+    /**
+     *
+     * @param object StudyVariable
+     */
     @Override
     public void updateObject(StudyVariable object) {
         List<String> refs = object.getAssayRefs();
@@ -54,6 +62,13 @@ public class StudyVariableRefResolver extends AbstractReferenceResolver<StudyVar
         }
     }
 
+    /**
+     * Method to perform the afterUnmarshal operation if the resolver
+     * applies to the specified object.
+     *
+     * @param target the object to modify after unmarshalling.
+     * @param parent object referencing the target. Null if target is root element.
+     */
     @Override
     public void afterUnmarshal(Object target, Object parent) {
         if (StudyVariable.class.isInstance(target) && MzQuantMLElement.StudyVariable.isAutoRefResolving()) {

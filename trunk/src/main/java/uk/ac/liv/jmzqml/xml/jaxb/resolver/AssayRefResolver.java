@@ -20,7 +20,6 @@
 
 package uk.ac.liv.jmzqml.xml.jaxb.resolver;
 
-import java.util.ArrayList;
 import java.util.List;
 import uk.ac.liv.jmzqml.MzQuantMLElement;
 import uk.ac.liv.jmzqml.model.mzqml.Assay;
@@ -37,10 +36,19 @@ import uk.ac.liv.jmzqml.xml.xxindex.MzQuantMLIndexer;
  */
 public class AssayRefResolver extends AbstractReferenceResolver<Assay> {
 
+    /**
+     *
+     * @param index MzQuantMLIndexer
+     * @param cache MzQuantMLObjectCache
+     */
     public AssayRefResolver(MzQuantMLIndexer index, MzQuantMLObjectCache cache) {
         super(index, cache);
     }
 
+    /**
+     *
+     * @param object Assay
+     */
     @Override
     public void updateObject(Assay object) {
 
@@ -56,7 +64,7 @@ public class AssayRefResolver extends AbstractReferenceResolver<Assay> {
             for (String ref2 : refs) {
                 IdentificationFile refObject2 = this.unmarshal(ref2, IdentificationFile.class);
                 identificationFiles.add(refObject2);
-            }            
+            }
             //object.setIdentificationFiles(identificationFiles);
         }
     }

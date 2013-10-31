@@ -96,6 +96,7 @@ public class PeptideConsensusList
      * {@link PeptideConsensus }
      *
      *
+     * @return the value of the peptideConsensus property.
      */
     public List<PeptideConsensus> getPeptideConsensus() {
         if (peptideConsensus == null) {
@@ -126,6 +127,7 @@ public class PeptideConsensusList
      * {@link GlobalQuantLayer }
      *
      *
+     * @return the value of the globalQuantLayer property.
      */
     public List<GlobalQuantLayer> getGlobalQuantLayer() {
         if (globalQuantLayer == null) {
@@ -156,6 +158,7 @@ public class PeptideConsensusList
      * {@link QuantLayer }
      *
      *
+     * @return the value of the assayQuantLayer property.
      */
     public List<QuantLayer> getAssayQuantLayer() {
         if (assayQuantLayer == null) {
@@ -186,6 +189,7 @@ public class PeptideConsensusList
      * {@link QuantLayer }
      *
      *
+     * @return the value of the studyVariableQuantLayer property.
      */
     public List<QuantLayer> getStudyVariableQuantLayer() {
         if (studyVariableQuantLayer == null) {
@@ -241,6 +245,7 @@ public class PeptideConsensusList
      * {@link UserParam }
      *
      *
+     * @return the value of the paramGroup property.
      */
     public List<AbstractParam> getParamGroup() {
         if (paramGroup == null) {
@@ -252,6 +257,7 @@ public class PeptideConsensusList
     /**
      * Gets the value of the finalResult property.
      *
+     * @return the value of the finalResult property.
      */
     public boolean isFinalResult() {
         return finalResult;
@@ -260,16 +266,29 @@ public class PeptideConsensusList
     /**
      * Sets the value of the finalResult property.
      *
+     * @param value
      */
     public void setFinalResult(boolean value) {
         this.finalResult = value;
     }
 
+    /**
+     * Gets the cvParams
+     *
+     * @return possible object is
+     *         {@link uk.ac.liv.jmzqml.model.utils.FacadeList }
+     */
     @Override
     public List<CvParam> getCvParam() {
         return new FacadeList<CvParam>(this.getParamGroup(), CvParam.class);
     }
 
+    /**
+     * Gets the userParams
+     *
+     * @return possible object is
+     *         {@link uk.ac.liv.jmzqml.model.utils.FacadeList }
+     */
     @Override
     public List<UserParam> getUserParam() {
         return new FacadeList<UserParam>(this.getParamGroup(), UserParam.class);
