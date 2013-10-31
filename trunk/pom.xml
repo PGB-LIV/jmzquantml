@@ -4,7 +4,7 @@
 
     <groupId>uk.ac.liv</groupId>
     <artifactId>jmzquantml</artifactId>
-    <version>1.0.0-1.0.3</version>
+    <version>1.0.0-1.0.4-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <name>jmzquantml</name>
@@ -19,7 +19,7 @@
         </developer>
     </developers>
     <scm>
-        <developerConnection>scm:svn:https://jmzquantml.googlecode.com/svn/tags/jmzquantml-1.0.0-1.0.3</developerConnection>
+        <developerConnection>scm:svn:https://jmzquantml.googlecode.com/svn/trunk</developerConnection>
     </scm>
     
     <!-- Properties -->
