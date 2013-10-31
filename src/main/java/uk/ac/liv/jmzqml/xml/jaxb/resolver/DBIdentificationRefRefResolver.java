@@ -34,10 +34,20 @@ import uk.ac.liv.jmzqml.xml.xxindex.MzQuantMLIndexer;
  */
 public class DBIdentificationRefRefResolver extends AbstractReferenceResolver<DBIdentificationRef> {
 
-    public DBIdentificationRefRefResolver(MzQuantMLIndexer index, MzQuantMLObjectCache cache) {
+    /**
+     *
+     * @param index MzQuantMLIndexer
+     * @param cache MzQuantMLObjectCache
+     */
+    public DBIdentificationRefRefResolver(MzQuantMLIndexer index,
+                                          MzQuantMLObjectCache cache) {
         super(index, cache);
     }
 
+    /**
+     *
+     * @param object DBIdentificationRef
+     */
     @Override
     public void updateObject(DBIdentificationRef object) {
         String ref = object.getSearchDatabaseRef();
@@ -47,6 +57,13 @@ public class DBIdentificationRefRefResolver extends AbstractReferenceResolver<DB
         }
     }
 
+    /**
+     * Method to perform the afterUnmarshal operation if the resolver
+     * applies to the specified object.
+     *
+     * @param target the object to modify after unmarshalling.
+     * @param parent object referencing the target. Null if target is root element.
+     */
     @Override
     public void afterUnmarshal(Object target, Object parent) {
         if (DBIdentificationRef.class.isInstance(target) && MzQuantMLElement.DBIdentificationRef.isAutoRefResolving()) {

@@ -29,9 +29,19 @@ import uk.ac.liv.jmzqml.model.mzqml.CvParam;
  * @time 09-Apr-2013 16:33:48
  */
 public interface CvParamCapable {
-    
+
+    /**
+     * Gets a CvParam object.
+     *
+     * @return a CvParam object.
+     */
     public CvParam getCvParam();
-    
-    public void setCvParam (CvParam param);
+
+    /**
+     * Sets a CvParam object.
+     *
+     * @param param a CvParam object.
+     */
+    public void setCvParam(CvParam param);
 
 }

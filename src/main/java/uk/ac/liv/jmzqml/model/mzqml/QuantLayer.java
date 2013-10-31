@@ -58,6 +58,11 @@ public class QuantLayer
     @XmlTransient
     protected List<IdOnly> columns;
 
+    /**
+     * Gets the list of column of the QuantLayer.
+     *
+     * @return the list of column of the QuantLayer.
+     */
     public List<IdOnly> getColumns() {
         if (columns == null) {
             columns = new ArrayList<IdOnly>();
@@ -65,6 +70,11 @@ public class QuantLayer
         return columns;
     }
 
+    /**
+     * Sets the list of column to the QuantLayer.
+     *
+     * @param columns a list of column.
+     */
     public void setColumnIndex(List<IdOnly> columns) {
         if (columns == null) {
             this.columnIndex = null;
@@ -127,6 +137,7 @@ public class QuantLayer
      * {@link String }
      *
      *
+     * @return the value of the columnIndex property.
      */
     public List<String> getColumnIndex() {
         if (columnIndex == null) {

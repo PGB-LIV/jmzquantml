@@ -53,11 +53,23 @@ public class RawXMLListener extends Unmarshaller.Listener {
     private final MzQuantMLIndexer index;
     private final MzQuantMLObjectCache cache;
 
+    /**
+     *
+     * @param index MzQuantMLIndexer
+     * @param cache MzQuantMLObjectCache
+     */
     public RawXMLListener(MzQuantMLIndexer index, MzQuantMLObjectCache cache) {
         this.index = index;
         this.cache = cache;
     }
 
+    /**
+     * Method to perform the afterUnmarshal operation if the resolver
+     * applies to the specified object.
+     *
+     * @param target the object to modify after unmarshalling.
+     * @param parent object referencing the target. Null if target is root element.
+     */
     @Override
     public void afterUnmarshal(Object target, Object parent) {
 
@@ -165,8 +177,8 @@ public class RawXMLListener extends Unmarshaller.Listener {
             throw new IllegalStateException("Error during post unmarshall processing!", e);
         }
     }
-    
-  private void referenceResolving(Object target, Object parent,
+
+    private void referenceResolving(Object target, Object parent,
                                     MzQuantMLElement element) {
         if (element.isAutoRefResolving()) {
             Class cls = element.getRefResolverClass();
@@ -183,6 +195,6 @@ public class RawXMLListener extends Unmarshaller.Listener {
                 throw new IllegalStateException("Could not instantiate reference resolver: " + cls.getName());
             }
         }
-    }    
+    }
 
 }

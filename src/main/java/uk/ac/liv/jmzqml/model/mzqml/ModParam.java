@@ -12,14 +12,13 @@ import javax.xml.bind.annotation.XmlType;
 import uk.ac.liv.jmzqml.model.CvParamCapable;
 import uk.ac.liv.jmzqml.model.MzQuantMLObject;
 
-
 /**
  * The modification searched for or used to define the label or tag for quantification. It SHOULD be sourced from UniMod, PSI-MS or PSI-MOD.
- * 
+ *
  * <p>Java class for ModParamType complex type.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ *
  * <pre>
  * &lt;complexType name="ModParamType">
  *   &lt;complexContent>
@@ -33,16 +32,15 @@ import uk.ac.liv.jmzqml.model.MzQuantMLObject;
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "ModParamType", propOrder = {
     "cvParam"
 })
 public class ModParam
-    implements Serializable, MzQuantMLObject, CvParamCapable
-{
+        implements Serializable, MzQuantMLObject, CvParamCapable {
 
     private final static long serialVersionUID = 100L;
     @XmlElement(required = true)
@@ -54,35 +52,37 @@ public class ModParam
 
     /**
      * Gets the value of the cvParam property.
-     * 
+     *
      * @return
-     *     possible object is
-     *     {@link CvParam }
-     *     
+     *         possible object is
+     *         {@link CvParam }
+     *
      */
+    @Override
     public CvParam getCvParam() {
         return cvParam;
     }
 
     /**
      * Sets the value of the cvParam property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link CvParam }
-     *     
+     *              allowed object is
+     *              {@link CvParam }
+     *
      */
+    @Override
     public void setCvParam(CvParam value) {
         this.cvParam = value;
     }
 
     /**
      * Gets the value of the massDelta property.
-     * 
+     *
      * @return
-     *     possible object is
-     *     {@link Float }
-     *     
+     *         possible object is
+     *         {@link Float }
+     *
      */
     public Float getMassDelta() {
         return massDelta;
@@ -90,11 +90,11 @@ public class ModParam
 
     /**
      * Sets the value of the massDelta property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link Float }
-     *     
+     *              allowed object is
+     *              {@link Float }
+     *
      */
     public void setMassDelta(Float value) {
         this.massDelta = value;
@@ -102,25 +102,27 @@ public class ModParam
 
     /**
      * Gets the value of the residues property.
-     * 
+     *
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the residues property.
-     * 
+     * This is why there is not a
+     * <CODE>set</CODE> method for the residues property.
+     *
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getResidues().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link String }
-     * 
-     * 
+     *
+     *
+     * @return the value of the residues property.
      */
     public List<String> getResidues() {
         if (residues == null) {

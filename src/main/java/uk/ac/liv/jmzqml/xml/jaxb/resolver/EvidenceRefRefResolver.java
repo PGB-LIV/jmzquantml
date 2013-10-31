@@ -38,11 +38,20 @@ import uk.ac.liv.jmzqml.xml.xxindex.MzQuantMLIndexer;
  */
 public class EvidenceRefRefResolver extends AbstractReferenceResolver<EvidenceRef> {
 
+    /**
+     *
+     * @param index MzQuantMLIndexer
+     * @param cache MzQuantMLObjectCache
+     */
     public EvidenceRefRefResolver(MzQuantMLIndexer index,
                                   MzQuantMLObjectCache cache) {
         super(index, cache);
     }
 
+    /**
+     *
+     * @param object EvidenceRef
+     */
     @Override
     public void updateObject(EvidenceRef object) {
         //feature_ref
@@ -71,6 +80,13 @@ public class EvidenceRefRefResolver extends AbstractReferenceResolver<EvidenceRe
         }
     }
 
+    /**
+     * Method to perform the afterUnmarshal operation if the resolver
+     * applies to the specified object.
+     *
+     * @param target the object to modify after unmarshalling.
+     * @param parent object referencing the target. Null if target is root element.
+     */
     @Override
     public void afterUnmarshal(Object target, Object parent) {
         if (EvidenceRef.class.isInstance(target) && MzQuantMLElement.EvidenceRef.isAutoRefResolving()) {

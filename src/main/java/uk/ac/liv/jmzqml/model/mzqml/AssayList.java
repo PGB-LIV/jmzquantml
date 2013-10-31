@@ -6,7 +6,6 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 import uk.ac.liv.jmzqml.model.MzQuantMLObject;
@@ -67,6 +66,7 @@ public class AssayList
      * {@link Assay }
      *
      *
+     * @return the value of the assay property.
      */
     public List<Assay> getAssay() {
         if (assay == null) {

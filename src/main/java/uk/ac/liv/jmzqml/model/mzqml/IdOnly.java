@@ -59,6 +59,9 @@ public abstract class IdOnly
 {
 
     private final static long serialVersionUID = 100L;
+    /**
+     *
+     */
     @XmlAttribute(name = "id", required = true)
     protected String id;
 

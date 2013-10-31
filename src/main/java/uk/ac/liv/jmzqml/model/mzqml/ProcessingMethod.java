@@ -16,14 +16,13 @@ import uk.ac.liv.jmzqml.model.MzQuantMLObject;
 import uk.ac.liv.jmzqml.model.ParamGroupCapable;
 import uk.ac.liv.jmzqml.model.utils.FacadeList;
 
-
 /**
  * Description of one step within the data processing pipeline.
- * 
+ *
  * <p>Java class for ProcessingMethodType complex type.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ *
  * <pre>
  * &lt;complexType name="ProcessingMethodType">
  *   &lt;complexContent>
@@ -36,16 +35,15 @@ import uk.ac.liv.jmzqml.model.utils.FacadeList;
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "ProcessingMethodType", propOrder = {
     "paramGroup"
 })
 public class ProcessingMethod
-    implements Serializable, MzQuantMLObject
-{
+        implements Serializable, MzQuantMLObject {
 
     private final static long serialVersionUID = 100L;
     @XmlElements({
@@ -59,26 +57,28 @@ public class ProcessingMethod
 
     /**
      * Parameters used in the processing method.Gets the value of the paramGroup property.
-     * 
+     *
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the paramGroup property.
-     * 
+     * This is why there is not a
+     * <CODE>set</CODE> method for the paramGroup property.
+     *
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getParamGroup().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link CvParam }
      * {@link UserParam }
-     * 
-     * 
+     *
+     *
+     * @return the value of the paramGroup property.
      */
     public List<AbstractParam> getParamGroup() {
         if (paramGroup == null) {
@@ -89,11 +89,11 @@ public class ProcessingMethod
 
     /**
      * Gets the value of the order property.
-     * 
+     *
      * @return
-     *     possible object is
-     *     {@link BigInteger }
-     *     
+     *         possible object is
+     *         {@link BigInteger }
+     *
      */
     public BigInteger getOrder() {
         return order;
@@ -101,22 +101,32 @@ public class ProcessingMethod
 
     /**
      * Sets the value of the order property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link BigInteger }
-     *     
+     *              allowed object is
+     *              {@link BigInteger }
+     *
      */
     public void setOrder(BigInteger value) {
         this.order = value;
     }
 
-
+    /**
+     * Gets the cvParams
+     *
+     * @return possible object is
+     *         {@link uk.ac.liv.jmzqml.model.utils.FacadeList }
+     */
     public List<CvParam> getCvParam() {
         return new FacadeList<CvParam>(this.getParamGroup(), CvParam.class);
-}
+    }
 
-
+    /**
+     * Gets the userParams
+     *
+     * @return possible object is
+     *         {@link uk.ac.liv.jmzqml.model.utils.FacadeList }
+     */
     public List<UserParam> getUserParam() {
         return new FacadeList<UserParam>(this.getParamGroup(), UserParam.class);
     }

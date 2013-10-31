@@ -17,6 +17,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package uk.ac.liv.jmzqml.model;
 
 import java.util.List;
@@ -31,8 +32,17 @@ import uk.ac.liv.jmzqml.model.mzqml.UserParam;
  */
 public interface ParamGroupCapable extends CvParamListCapable {
 
+    /**
+     *
+     * @return A List of CvParam objects.
+     */
     @Override
     public List<CvParam> getCvParam();
 
+    /**
+     *
+     * @return A List of UserParam objects.
+     */
     public List<UserParam> getUserParam();
+
 }

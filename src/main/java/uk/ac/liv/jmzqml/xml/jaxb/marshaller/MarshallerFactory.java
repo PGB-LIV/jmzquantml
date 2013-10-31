@@ -40,6 +40,11 @@ public class MarshallerFactory {
     private static MarshallerFactory instance = new MarshallerFactory();
     private static JAXBContext jc = null;
 
+    /**
+     * A static method to construct an object of MarshallerFactory.
+     * 
+     * @return an instance of MarshallerFactory.
+     */
     public static MarshallerFactory getInstance() {
         return instance;
     }
@@ -47,6 +52,11 @@ public class MarshallerFactory {
     private MarshallerFactory() {
     }
 
+    /**
+     * Initialise the Marshaller with pre-defined settings.
+     * 
+     * @return an instance of {@link javax.xml.bind.Marshaller} with initial configurations.
+     */
     public Marshaller initializeMarshaller() {
         logger.debug("Initializing Marshaller for mzQuantML.");
         try {

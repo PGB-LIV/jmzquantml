@@ -72,10 +72,20 @@ public class Assay
     @XmlTransient
     protected List<IdentificationFile> identificationFiles;
 
+    /**
+     * Gets the RawFileGroup of the Assay.
+     *
+     * @return the RawFileGroup of the Assay.
+     */
     public RawFilesGroup getRawFilesGroup() {
         return rawFilesGroup;
     }
 
+    /**
+     * Sets the RawFileGroup to the Assay.
+     *
+     * @param rawFilesGroup a RawFileGroup.
+     */
     public void setRawFilesGroup(RawFilesGroup rawFilesGroup) {
         if (rawFilesGroup == null) {
             this.rawFilesGroupRef = null;
@@ -90,6 +100,11 @@ public class Assay
         this.rawFilesGroup = rawFilesGroup;
     }
 
+    /**
+     * Gets the list of IdentificationFile of the Assay.
+     *
+     * @return the list of IdentificationFile of the Assay.
+     */
     public List<IdentificationFile> getIdentificationFiles() {
         if (identificationFiles == null) {
             identificationFiles = new ArrayList<IdentificationFile>();
@@ -97,6 +112,11 @@ public class Assay
         return identificationFiles;
     }
 
+    /**
+     * Sets the list of IdentificationFile to the Assay.
+     *
+     * @param identificationFiles a list of IdentificationFile.
+     */
     public void setIdentificationFiles(
             List<IdentificationFile> identificationFiles) {
         if (identificationFiles == null) {
@@ -160,6 +180,7 @@ public class Assay
      * {@link Object }
      *
      *
+     * @return the value of the identificationFileRefs property.
      */
     public List<String> getIdentificationFileRefs() {
         if (identificationFileRefs == null) {
@@ -191,6 +212,7 @@ public class Assay
      * {@link UserParam }
      *
      *
+     * @return the value of the paramGroup property.
      */
     public List<AbstractParam> getParamGroup() {
         if (paramGroup == null) {
@@ -235,11 +257,23 @@ public class Assay
         return rawFilesGroupRef;
     }
 
+    /**
+     * Gets the cvParams
+     *
+     * @return possible object is
+     *         {@link uk.ac.liv.jmzqml.model.utils.FacadeList }
+     */
     @Override
     public List<CvParam> getCvParam() {
         return new FacadeList<CvParam>(this.getParamGroup(), CvParam.class);
     }
 
+    /**
+     * Gets the userParams
+     *
+     * @return possible object is
+     *         {@link uk.ac.liv.jmzqml.model.utils.FacadeList }
+     */
     @Override
     public List<UserParam> getUserParam() {
         return new FacadeList<UserParam>(this.getParamGroup(), UserParam.class);

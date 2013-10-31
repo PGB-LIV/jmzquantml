@@ -43,8 +43,14 @@ public class Column
 {
 
     private final static long serialVersionUID = 100L;
+    /**
+     *
+     */
     @XmlElement(name = "DataType", required = true)
     protected CvParamRef dataType;
+    /**
+     *
+     */
     @XmlAttribute(name = "index", required = true)
     @XmlSchemaType(name = "nonNegativeInteger")
     protected BigInteger index;

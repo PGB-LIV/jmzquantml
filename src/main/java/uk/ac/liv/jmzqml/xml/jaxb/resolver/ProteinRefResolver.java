@@ -36,10 +36,19 @@ import uk.ac.liv.jmzqml.xml.xxindex.MzQuantMLIndexer;
  */
 public class ProteinRefResolver extends AbstractReferenceResolver<Protein> {
 
+    /**
+     *
+     * @param index MzQuantMLIndexer
+     * @param cache MzQuantMLObjectCache
+     */
     public ProteinRefResolver(MzQuantMLIndexer index, MzQuantMLObjectCache cache) {
         super(index, cache);
     }
 
+    /**
+     *
+     * @param object Protein
+     */
     @Override
     public void updateObject(Protein object) {
         String ref1 = object.getSearchDatabaseRef();
@@ -59,6 +68,13 @@ public class ProteinRefResolver extends AbstractReferenceResolver<Protein> {
         }
     }
 
+    /**
+     * Method to perform the afterUnmarshal operation if the resolver
+     * applies to the specified object.
+     *
+     * @param target the object to modify after unmarshalling.
+     * @param parent object referencing the target. Null if target is root element.
+     */
     @Override
     public void afterUnmarshal(Object target, Object parent) {
         if (Protein.class.isInstance(target) && MzQuantMLElement.Protein.isAutoRefResolving()) {

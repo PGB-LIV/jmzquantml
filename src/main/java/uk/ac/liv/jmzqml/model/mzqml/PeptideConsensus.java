@@ -72,10 +72,20 @@ public class PeptideConsensus
     @XmlTransient
     protected SearchDatabase searchDatabase;
 
+    /**
+     * Gets the SearchDatabase of the PeptideConsensus.
+     *
+     * @return the SearchDatabase of the PeptideConsensus.
+     */
     public SearchDatabase getSearchDatabase() {
         return searchDatabase;
     }
 
+    /**
+     * Sets the SearchDatabase to the PeptideConsensus.
+     *
+     * @param searchDatabase a SearchDatabase.
+     */
     public void setSearchDatabase(SearchDatabase searchDatabase) {
         if (searchDatabase == null) {
             this.searchDatabaseRef = null;
@@ -136,6 +146,7 @@ public class PeptideConsensus
      * {@link Modification }
      *
      *
+     * @return the value of the modification property.
      */
     public List<Modification> getModification() {
         if (modification == null) {
@@ -166,6 +177,7 @@ public class PeptideConsensus
      * {@link EvidenceRef }
      *
      *
+     * @return the value of the evidenceRef property.
      */
     public List<EvidenceRef> getEvidenceRef() {
         if (evidenceRef == null) {
@@ -197,6 +209,7 @@ public class PeptideConsensus
      * {@link UserParam }
      *
      *
+     * @return the value of the paramGroup property.
      */
     public List<AbstractParam> getParamGroup() {
         if (paramGroup == null) {
@@ -227,6 +240,7 @@ public class PeptideConsensus
      * {@link String }
      *
      *
+     * @return the value of the charge property.
      */
     public List<String> getCharge() {
         if (charge == null) {
@@ -247,11 +261,23 @@ public class PeptideConsensus
         return searchDatabaseRef;
     }
 
+    /**
+     * Gets the cvParams
+     *
+     * @return possible object is
+     *         {@link uk.ac.liv.jmzqml.model.utils.FacadeList }
+     */
     @Override
     public List<CvParam> getCvParam() {
         return new FacadeList<CvParam>(this.getParamGroup(), CvParam.class);
     }
 
+    /**
+     * Gets the userParams
+     *
+     * @return possible object is
+     *         {@link uk.ac.liv.jmzqml.model.utils.FacadeList }
+     */
     @Override
     public List<UserParam> getUserParam() {
         return new FacadeList<UserParam>(this.getParamGroup(), UserParam.class);

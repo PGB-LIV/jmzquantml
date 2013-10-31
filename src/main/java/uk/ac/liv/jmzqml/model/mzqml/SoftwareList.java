@@ -10,14 +10,13 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 import uk.ac.liv.jmzqml.model.MzQuantMLObject;
 
-
 /**
  * List and descriptions of software used to acquire and/or process the data in this file.
- * 
+ *
  * <p>Java class for SoftwareListType complex type.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ *
  * <pre>
  * &lt;complexType name="SoftwareListType">
  *   &lt;complexContent>
@@ -29,16 +28,15 @@ import uk.ac.liv.jmzqml.model.MzQuantMLObject;
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "SoftwareListType", propOrder = {
     "software"
 })
 public class SoftwareList
-    implements Serializable, MzQuantMLObject
-{
+        implements Serializable, MzQuantMLObject {
 
     private final static long serialVersionUID = 100L;
     @XmlElement(name = "Software", required = true)
@@ -46,25 +44,27 @@ public class SoftwareList
 
     /**
      * Gets the value of the software property.
-     * 
+     *
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the software property.
-     * 
+     * This is why there is not a
+     * <CODE>set</CODE> method for the software property.
+     *
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getSoftware().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link Software }
-     * 
-     * 
+     *
+     *
+     * @return the value of the software property.
      */
     public List<Software> getSoftware() {
         if (software == null) {

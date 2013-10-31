@@ -38,10 +38,19 @@ public class Cv
         implements Serializable, MzQuantMLObject {
 
     private final static long serialVersionUID = 100L;
+    /**
+     *
+     */
     @XmlAttribute(name = "fullName", required = true)
     protected String fullName;
+    /**
+     *
+     */
     @XmlAttribute(name = "version")
     protected String version;
+    /**
+     *
+     */
     @XmlAttribute(name = "uri", required = true)
     @XmlSchemaType(name = "anyURI")
     protected String uri;

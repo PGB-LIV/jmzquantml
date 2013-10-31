@@ -33,26 +33,39 @@ import uk.ac.liv.jmzqml.model.utils.ModelConstants;
  * @institute University of Liverpool
  * @time 25-Jul-2012 16:34:15
  */
-public class MzQuantMLNamespaceFilter extends XMLFilterImpl{
-    
+public class MzQuantMLNamespaceFilter extends XMLFilterImpl {
+
     private static final Logger logger = Logger.getLogger(MzQuantMLNamespaceFilter.class);
-    
-    public MzQuantMLNamespaceFilter(){
+
+    /**
+     * Constructor of MzQuantMLNamespaceFilter
+     */
+    public MzQuantMLNamespaceFilter() {
         logger.debug("MzQuantMLNamespaceFilter created. Remember to call setParent(XMLReader)");
     }
-    
-    public MzQuantMLNamespaceFilter(XMLReader reader){
+
+    /**
+     * Constructor of MzQuantMLNamespaceFilter
+     *
+     * @param reader XMLReader
+     */
+    public MzQuantMLNamespaceFilter(XMLReader reader) {
         super(reader);
     }
 
     @Override
-    public void startElement(String uri, String localName, String qName, Attributes atts) throws SAXException{
+    public void startElement(String uri, String localName, String qName,
+                             Attributes atts)
+            throws SAXException {
         // the elements are defined by a qualified schema, but we rip them out of context with the xxindex
         // so the namespace information is lost and we have to add it again here manually       
-        logger.trace("Chaning namespace. uri: "+ uri + " \tlocalname: " + localName + "\tqName: " + qName + " \tatts: "+ atts);
-        if (uri.length()==0){
+        logger.trace("Chaning namespace. uri: " + uri + " \tlocalname: " + localName + "\tqName: " + qName + " \tatts: " + atts);
+        if (uri.length() == 0) {
             super.startElement(ModelConstants.MZQML_NS, localName, qName, atts);
         }
-        else super.startElement(uri, localName, qName, atts);
+        else {
+            super.startElement(uri, localName, qName, atts);
+        }
     }
+
 }

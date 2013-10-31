@@ -44,24 +44,54 @@ public class BibliographicReference
 {
 
     private final static long serialVersionUID = 100L;
+    /**
+     *
+     */
     @XmlAttribute(name = "authors")
     protected String authors;
+    /**
+     *
+     */
     @XmlAttribute(name = "publication")
     protected String publication;
+    /**
+     *
+     */
     @XmlAttribute(name = "publisher")
     protected String publisher;
+    /**
+     *
+     */
     @XmlAttribute(name = "editor")
     protected String editor;
+    /**
+     *
+     */
     @XmlAttribute(name = "year")
     protected Integer year;
+    /**
+     *
+     */
     @XmlAttribute(name = "volume")
     protected String volume;
+    /**
+     *
+     */
     @XmlAttribute(name = "issue")
     protected String issue;
+    /**
+     *
+     */
     @XmlAttribute(name = "pages")
     protected String pages;
+    /**
+     *
+     */
     @XmlAttribute(name = "title")
     protected String title;
+    /**
+     *
+     */
     @XmlAttribute(name = "doi")
     protected String doi;
 

@@ -35,9 +35,21 @@ import uk.ac.liv.jmzqml.model.mzqml.MzQuantML;
  */
 public class ModelConstants {
 
+    /**
+     * The package name of {@link uk.ac.liv.jmzqml.model.mzqml.MzQuantML}.
+     */
     public static final String PACKAGE = MzQuantML.class.getPackage().getName();
+    /**
+     * The name space of the mzQuantML schema.
+     */
     public static final String MZQML_NS = "http://psidev.info/psi/pi/mzQuantML/1.0.0";
+    /**
+     * The version of the mzQuantML schema.
+     */
     public static final String MZQML_VERSION = "1.0.0";
+    /**
+     * The location of the mzQuantML schema.
+     */
     public static final String MZQML_SCHEMA = "http://psidev.info/psi/pi/mzQuantML/mzQuantML_1_0_0.xsd";
     private static Map<Class, QName> modelQNames = new HashMap<Class, QName>();
 
@@ -51,10 +63,24 @@ public class ModelConstants {
         modelQNames = Collections.unmodifiableMap(modelQNames);
     }
 
+    /**
+     * This method detects if a given class is registered as a class of mzQuantML model.
+     *
+     * @param cls a Class parameter.
+     *
+     * @return true if the class is registered as a class of mzQuantmL model.
+     */
     public static boolean isRegisteredClass(Class cls) {
         return modelQNames.containsKey(cls);
     }
 
+    /**
+     * A method to retrieve the QName of a specified mzQuantML model.
+     *
+     * @param cls a specified Class parameter.
+     *
+     * @return the QName of matching Class.
+     */
     public static QName getQNameForClass(Class cls) {
         if (isRegisteredClass(cls)) {
             return modelQNames.get(cls);
@@ -64,6 +90,13 @@ public class ModelConstants {
         }
     }
 
+    /**
+     * A method to retrieve the element name of a specified mzQuantML model.
+     *
+     * @param cls a specified Class parameter.
+     *
+     * @return the string element name of matching Class.
+     */
     public static String getElementNameForClass(Class cls) {
         if (isRegisteredClass(cls)) {
             return modelQNames.get(cls).getLocalPart();
@@ -73,6 +106,13 @@ public class ModelConstants {
         }
     }
 
+    /**
+     * A method to retrieve the Class of a given element name.
+     *
+     * @param name string element name.
+     *
+     * @return the Class of matching element name.
+     */
     public static Class getClassForElementName(String name) {
         for (Map.Entry<Class, QName> entry : modelQNames.entrySet()) {
             if (entry.getValue().getLocalPart().equals(name)) {

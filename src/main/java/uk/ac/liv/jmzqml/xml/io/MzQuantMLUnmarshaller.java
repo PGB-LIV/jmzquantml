@@ -33,7 +33,8 @@ import uk.ac.liv.jmzqml.xml.xxindex.MzQuantMLIndexer;
 import uk.ac.liv.jmzqml.xml.xxindex.MzQuantMLIndexerFactory;
 
 /**
- * Class for reading in whole mzQuantML objects.
+ * Class for unmarshalling an mzQuantML file.
+ * <p>
  *
  * @author Gerhard Mayer, MPC, Ruhr-University of Bochum
  */
@@ -58,9 +59,15 @@ public class MzQuantMLUnmarshaller {
     //private final MzQuantMLIndexer index;
 
     /**
-     * Constructor
+     * Constructor of the MzQuantMLUnmarshaller from the file name string.
+     * <p>
+     * The constructor doesn't use xxindex when take file name string as its parameter.
+     * <b>ONLY</b> unmarshall() method can be used by the MzQuantMLUnmarsahller object created by this constructor.
+     * No other methods in this class should be used for this constructor.
+     * The unmarshall() will unmarshall the entire mzQuantML file to an {@link uk.ac.liv.jmzqml.model.mzqml.MzQuantML} object.
+     * It is <b>NOT</b> recommended to use string parameter to create an unmarshaller for large mzQuantML files.
      *
-     * @param fullFileName
+     * @param fullFileName the full name string of the file to be unmarshalled.
      */
     public MzQuantMLUnmarshaller(String fullFileName) {
 
@@ -89,6 +96,15 @@ public class MzQuantMLUnmarshaller {
      * @param fullFileName, schemaValidating, schemaFn
      */
 
+    /**
+     * A deprecated method.
+     *
+     * @param fullFileName
+     * @param schemaValidating
+     * @param schemaFile
+     *
+     * @deprecated
+     */
     public MzQuantMLUnmarshaller(String fullFileName, boolean schemaValidating,
                                  File schemaFile) {
 
@@ -160,14 +176,29 @@ public class MzQuantMLUnmarshaller {
     /*
      * Constructor
      */
+    /**
+     * The Constructor of mzQuantMLUnmarshaller from URL.
+     *
+     * @param mzQuantMLFileURL a mzQuantML file URL.
+     */
     public MzQuantMLUnmarshaller(URL mzQuantMLFileURL) {
         this(FileUtils.getFileFromURL(mzQuantMLFileURL));
     }
 
+    /**
+     * The Constructor of mzQuantMLUnmarshaller from a mzQuantML File.
+     *
+     * @param mzQuantMLFile a mzQuantML File.
+     */
     public MzQuantMLUnmarshaller(File mzQuantMLFile) {
         this(MzQuantMLIndexerFactory.getInstance().buildIndex(mzQuantMLFile));
     }
 
+    /**
+     * The Constructor of mzQuantMLUnmarshaller from {@link uk.ac.liv.jmzqml.xml.xxindex.MzQuantMLIndexer}.
+     *
+     * @param indexer an {@link uk.ac.liv.jmzqml.xml.xxindex.MzQuantMLIndexer} object.
+     */
     public MzQuantMLUnmarshaller(MzQuantMLIndexer indexer) {
         this.index = indexer;
         this.cache = null;
@@ -175,8 +206,11 @@ public class MzQuantMLUnmarshaller {
 
     /**
      * Unmarshalling of a whole MzQuantML object.
+     * <p>
+     * The method can <b>ONLY</b> be used for the {@link uk.ac.liv.jmzqml.xml.io.mzQuantMLUnmarshaller} object created by {@code MzQuantMLUnmarshaller(String fullFileName)} constructor.
+     * If the unmarshaller object is created by other constructor, <b>DO NOT</b> use this method.
      *
-     * @return MzQuantMLType
+     * @return MzQuantMLType a mzQuantML object from the entire mzQuantML file.
      */
     public MzQuantML unmarshall() {
         MzQuantML mzQuantML = null;
@@ -201,6 +235,11 @@ public class MzQuantMLUnmarshaller {
     /*
      * public methods
      */
+    /**
+     * Get mzQuantML schema version of the file.
+     *
+     * @return a version String.
+     */
     public String getMzQuantMLVersion() {
         if (mzqVersion == null) {
             Matcher match = VERSION_PATTERN.matcher(index.getMzQuantMLAttributeXMLString());
@@ -211,6 +250,11 @@ public class MzQuantMLUnmarshaller {
         return mzqVersion;
     }
 
+    /**
+     * Get the value of the 'id' attribute of the mzQuantML file.
+     *
+     * @return an ID String.
+     */
     public String getMzQuantMLId() {
         if (mzqID == null) {
             Matcher match = ID_PATTERN.matcher(index.getMzQuantMLAttributeXMLString());
@@ -221,6 +265,11 @@ public class MzQuantMLUnmarshaller {
         return mzqID;
     }
 
+    /**
+     * Get the value of the 'name' attribute of the file.
+     *
+     * @return a name String.
+     */
     public String getMzQuantMLName() {
         if (mzqName == null) {
             Matcher match = NAME_PATTERN.matcher(index.getMzQuantMLAttributeXMLString());
@@ -269,6 +318,8 @@ public class MzQuantMLUnmarshaller {
     }
 
     /**
+     * Method to get the count of specific object/element by the xpath.
+     *
      * @param xpath the xpath defining the XML element.
      *
      * @return the number of XML elements matching the xpath or -1 if no
@@ -287,35 +338,50 @@ public class MzQuantMLUnmarshaller {
      * Unmarshal one object for the specified class. Note: The class has to
      * refer to MzQuantMLObject elements.
      *
+     * @param <T>   extends {@link uk.ac.liv.jmzqml.model.MzQuantMLObject}.
+     *
      * @see #unmarshal(uk.ac.liv.jmzqml.MzQuantMLElement)
      * @param clazz the type of Object to sub-class. It has to be a sub-class of
      *              MzQuantMLObject.
      *
-     * @return a object of the specified class
+     * @return an object of the specified class.
      */
     public <T extends MzQuantMLObject> T unmarshal(Class<T> clazz) {
         String xpath = MzQuantMLElement.getType(clazz).getXpath();
         return doUnmarshal(clazz, xpath);
     }
 
+    /**
+     * Unmarshal one object for the specified class. Note: The class has to
+     * refer to MzQuantMLObject elements.
+     *
+     * @param <T>   extends {@link uk.ac.liv.jmzqml.model.MzQuantMLObject}.
+     *
+     * @see #unmarshal(uk.ac.liv.jmzqml.MzQuantMLElement)
+     * @param xpath the xpath of the Object to be unmarshalled.
+     *
+     * @return an object of the specified class.
+     */
     public <T extends MzQuantMLObject> T unmarshal(String xpath) {
         Class<T> clazz = MzQuantMLElement.getType(xpath).getClazz();
         return doUnmarshal(clazz, xpath);
     }
 
     /**
-     * Unmarshals one element of the type defined by the MzQuantMLElement. Note:
+     * Unmarshal one element of the type defined by the {@link uk.ac.liv.jmzqml.MzQuantMLElement}. Note:
      * In case there are more than one element for the specified
      * MzQuantMLElement, only one found will be returned. This is usually the
      * first such element, but no order is guaranteed! Use appropriate methods
      * to check that there is only one such element or to deal with a collection
      * of elements.
      *
+     * @param <T>     extends {@link uk.ac.liv.jmzqml.model.MzQuantMLObject}.
+     *
      * @see #unmarshalCollectionFromXpath(uk.ac.liv.jmzqml.MzQuantMLElement)
      * @param element The MzQuantMLElement defining the type of element to
      *                unmarshal.
      *
-     * @return A MzQuantMLObject according to the type defined by the
+     * @return an MzQuantMLObject according to the type defined by the
      *         MzQuantMLElement.
      */
     public <T extends MzQuantMLObject> T unmarshal(MzQuantMLElement element) {
@@ -327,6 +393,14 @@ public class MzQuantMLUnmarshaller {
         return doUnmarshal(clazz, xpath);
     }
 
+    /**
+     * Unmarshal a collection of elements of the type defined by the {@link uk.ac.liv.jmzqml.MzQuantMLElement}.
+     *
+     * @param <T>     extends {@link uk.ac.liv.jmzqml.model.MzQuantMLObject}.
+     * @param element The MzQuantMLElement defining the type of elements to unmarshal.
+     *
+     * @return an Iterator of MzQuantMLObject according to the type defined by the MzQuantMLElement.
+     */
     public <T extends MzQuantMLObject> Iterator<T> unmarshalCollectionFromXpath(
             MzQuantMLElement element) {
         // caching deactivated
@@ -363,6 +437,21 @@ public class MzQuantMLUnmarshaller {
         return index.getIDsForElement(element);
     }
 
+    /**
+     * Unmarshal one object for the specified class according to the value of id attribute. Note: The class has to
+     * refer to MzQuantMLObject elements.
+     *
+     * @param <T>   extends {@link uk.ac.liv.jmzqml.model.MzQuantMLObject}.
+     *
+     * @see #unmarshal(uk.ac.liv.jmzqml.MzQuantMLElement)
+     * @param clazz the type of Object to sub-class. It has to be a sub-class of
+     *              MzQuantMLObject.
+     * @param id    the id of the MzQuantMLObject
+     *
+     * @return an object of the specified class by defined id.
+     *
+     * @throws JAXBException
+     */
     public <T extends MzQuantMLObject> T unmarshal(Class<T> clazz, String id)
             throws JAXBException {
         if (!index.isIDmapped(id, clazz)) {
@@ -373,6 +462,10 @@ public class MzQuantMLUnmarshaller {
         return generateObject(clazz, xmlSt);
     }
 
+    /**
+     * @deprecated
+     * @return
+     */
     public ArrayList<String> getExceptionalMessages() {
         return exMsgs;
     }
@@ -434,31 +527,31 @@ public class MzQuantMLUnmarshaller {
             JAXBElement<ParamList> holder = unmarshaller.unmarshal(new SAXSource(xmlFilter, new InputSource(new StringReader(xmlSt))), ParamList.class);
             ParamList pl = holder.getValue();
             AnalysisSummary as = new AnalysisSummary();
-            for (CvParam cp: pl.getCvParam()){
+            for (CvParam cp : pl.getCvParam()) {
                 as.getCvParam().add(cp);
             }
-            for (UserParam up: pl.getUserParam()){
+            for (UserParam up : pl.getUserParam()) {
                 as.getUserParam().add(up);
             }
-            return (T) as;    
+            return (T) as;
         }
         else {
-        // Create a filter to intercept events -- and patch the missing namespace
-        MzQuantMLNamespaceFilter xmlFilter = new MzQuantMLNamespaceFilter();
+            // Create a filter to intercept events -- and patch the missing namespace
+            MzQuantMLNamespaceFilter xmlFilter = new MzQuantMLNamespaceFilter();
 
-        //initializeUnmarshaller will assign the proper reader to the xmlFilter
-        //Todo: add cache
-        Unmarshaller unmarshaller = UnmarshallerFactory.getInstance().initializeUnmarshaller(index, null, xmlFilter);
-        //unmarshall the desired object
-        JAXBElement<T> holder = unmarshaller.unmarshal(new SAXSource(xmlFilter, new InputSource(new StringReader(xmlSt))), cls);
-        retval = holder.getValue();
+            //initializeUnmarshaller will assign the proper reader to the xmlFilter
+            //Todo: add cache
+            Unmarshaller unmarshaller = UnmarshallerFactory.getInstance().initializeUnmarshaller(index, null, xmlFilter);
+            //unmarshall the desired object
+            JAXBElement<T> holder = unmarshaller.unmarshal(new SAXSource(xmlFilter, new InputSource(new StringReader(xmlSt))), cls);
+            retval = holder.getValue();
 
-        if (logger.isDebugEnabled()) {
-            logger.debug("unmarshalled object = " + retval);
+            if (logger.isDebugEnabled()) {
+                logger.debug("unmarshalled object = " + retval);
+            }
+
+            return retval;
         }
-
-        return retval;
-    }
     }
 
 }

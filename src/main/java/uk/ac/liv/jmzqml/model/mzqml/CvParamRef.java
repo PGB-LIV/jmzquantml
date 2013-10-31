@@ -40,6 +40,9 @@ public class CvParamRef
 {
 
     private final static long serialVersionUID = 100L;
+    /**
+     *
+     */
     @XmlElement(required = true)
     protected CvParam cvParam;
 

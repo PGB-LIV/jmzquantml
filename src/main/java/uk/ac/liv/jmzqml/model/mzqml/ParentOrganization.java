@@ -34,15 +34,29 @@ public class ParentOrganization
         implements Serializable, MzQuantMLObject {
 
     private final static long serialVersionUID = 100L;
+    /**
+     *
+     */
     @XmlAttribute(name = "organization_ref", required = true)
     protected String organizationRef;
+    /**
+     *
+     */
     @XmlTransient
     protected Organization organization;
 
+    /**
+     *
+     * @return
+     */
     public Organization getOrganization() {
         return organization;
     }
 
+    /**
+     *
+     * @param organization
+     */
     public void setOrganization(Organization organization) {
         if (organization == null) {
             this.organizationRef = null;

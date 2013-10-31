@@ -53,14 +53,34 @@ public class MzQuantMLIndexerFactory {
     private MzQuantMLIndexerFactory() {
     }
 
+    /**
+     * A static method to construct an object of MzQuantMLIndexerFactory.
+     *
+     * @return an instance of MzQuantMLIndexerFactory.
+     */
     public static MzQuantMLIndexerFactory getInstance() {
         return instance;
     }
 
+    /**
+     * Build an MzQuantMLIndexer from the mzQuantML file.
+     *
+     * @param xmlFile the mzQuantML file.
+     *
+     * @return an object of MzQuantMLIndexer.
+     */
     public MzQuantMLIndexer buildIndex(File xmlFile) {
         return buildIndex(xmlFile, Constants.XML_INDEXED_XPATHS);
     }
 
+    /**
+     * Build an MzQuantMLIndexer from the mzQuantML file based on specified set of xpath.
+     *
+     * @param xmlFile the mzQuantML file.
+     * @param xpaths  a set of xpath
+     *
+     * @return an object of MzQuantMLIndexer.
+     */
     public MzQuantMLIndexer buildIndex(File xmlFile, Set<String> xpaths) {
         return new MzQuantMLIndexerImpl(xmlFile, xpaths);
     }

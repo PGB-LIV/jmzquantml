@@ -34,10 +34,19 @@ import uk.ac.liv.jmzqml.xml.xxindex.MzQuantMLIndexer;
  */
 public class RawFileRefResolver extends AbstractReferenceResolver<RawFile> {
 
+    /**
+     *
+     * @param index MzQuantMLIndexer
+     * @param cache MzQuantMLObjectCache
+     */
     public RawFileRefResolver(MzQuantMLIndexer index, MzQuantMLObjectCache cache) {
         super(index, cache);
     }
 
+    /**
+     *
+     * @param object RawFile
+     */
     @Override
     public void updateObject(RawFile object) {
 

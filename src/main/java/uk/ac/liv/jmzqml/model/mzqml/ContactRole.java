@@ -42,13 +42,26 @@ public class ContactRole
         implements Serializable, MzQuantMLObject {
 
     private final static long serialVersionUID = 100L;
+    /**
+     *
+     */
     @XmlElement(name = "Role", required = true)
     protected Role role;
+    /**
+     *
+     */
     @XmlAttribute(name = "contact_ref", required = true)
     protected String contactRef;
+    /**
+     *
+     */
     @XmlTransient
     protected AbstractContact contact;
 
+    /**
+     *
+     * @return
+     */
     public Person getPerson() {
         if (contact != null && contact instanceof Person) {
             return (Person) contact;
@@ -58,6 +71,10 @@ public class ContactRole
         }
     }
 
+    /**
+     *
+     * @return
+     */
     public Organization getOrganization() {
         if (contact != null && contact instanceof Organization) {
             return (Organization) contact;
@@ -103,6 +120,10 @@ public class ContactRole
         return contactRef;
     }
 
+    /**
+     *
+     * @return
+     */
     public AbstractContact getContact() {
         return contact;
     }

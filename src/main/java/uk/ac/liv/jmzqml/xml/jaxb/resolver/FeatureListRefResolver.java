@@ -34,11 +34,20 @@ import uk.ac.liv.jmzqml.xml.xxindex.MzQuantMLIndexer;
  */
 public class FeatureListRefResolver extends AbstractReferenceResolver<FeatureList> {
 
+    /**
+     *
+     * @param index MzQuantMLIndexer
+     * @param cache MzQuantMLObjectCache
+     */
     public FeatureListRefResolver(MzQuantMLIndexer index,
                                   MzQuantMLObjectCache cache) {
         super(index, cache);
     }
 
+    /**
+     *
+     * @param object FeatureList
+     */
     @Override
     public void updateObject(FeatureList object) {
 

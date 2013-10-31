@@ -55,10 +55,20 @@ public class ProteinRef
     @XmlTransient
     protected Protein protein;
 
+    /**
+     * Gets the Protein of the ProteinRef.
+     *
+     * @return the Protein of the ProteinRef.
+     */
     public Protein getProtein() {
         return protein;
     }
 
+    /**
+     * Sets the Protein to the ProteinRef.
+     *
+     * @param protein a Protein.
+     */
     public void setProtein(Protein protein) {
         if (protein == null) {
             this.proteinRef = null;
@@ -96,6 +106,7 @@ public class ProteinRef
      * {@link UserParam }
      *
      *
+     * @return the value of the paramGroup property.
      */
     public List<AbstractParam> getParamGroup() {
         if (paramGroup == null) {
@@ -116,11 +127,23 @@ public class ProteinRef
         return proteinRef;
     }
 
+    /**
+     * Gets the cvParams
+     *
+     * @return possible object is
+     *         {@link uk.ac.liv.jmzqml.model.utils.FacadeList }
+     */
     @Override
     public List<CvParam> getCvParam() {
         return new FacadeList<CvParam>(this.getParamGroup(), CvParam.class);
     }
 
+    /**
+     * Gets the userParams
+     *
+     * @return possible object is
+     *         {@link uk.ac.liv.jmzqml.model.utils.FacadeList }
+     */
     @Override
     public List<UserParam> getUserParam() {
         return new FacadeList<UserParam>(this.getParamGroup(), UserParam.class);

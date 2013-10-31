@@ -42,8 +42,14 @@ public class GlobalQuantLayer
         implements Serializable, MzQuantMLObject {
 
     private final static long serialVersionUID = 100L;
+    /**
+     *
+     */
     @XmlElement(name = "ColumnDefinition", required = true)
     protected ColumnDefinition columnDefinition;
+    /**
+     *
+     */
     @XmlElement(name = "DataMatrix", required = true)
     protected DataMatrix dataMatrix;
 

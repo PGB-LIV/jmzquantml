@@ -44,8 +44,14 @@ public abstract class Identifiable
 {
 
     private final static long serialVersionUID = 100L;
+    /**
+     *
+     */
     @XmlAttribute(name = "id", required = true)
     protected String id;
+    /**
+     *
+     */
     @XmlAttribute(name = "name")
     protected String name;
 

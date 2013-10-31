@@ -33,18 +33,35 @@ public class CvParam
 {
 
     private final static long serialVersionUID = 100L;
+    /**
+     *
+     */
     @XmlAttribute(name = "cvRef", required = true)
     protected String cvRef;
+    /**
+     *
+     */
     @XmlAttribute(name = "accession", required = true)
     protected String accession;
     
+    /**
+     *
+     */
     @XmlTransient
     protected Cv cv;
 
+    /**
+     *
+     * @return
+     */
     public Cv getCv() {
         return cv;
     }
 
+    /**
+     *
+     * @param cv
+     */
     public void setCv(Cv cv) {
           if (cv == null) {
               this.cvRef = null;

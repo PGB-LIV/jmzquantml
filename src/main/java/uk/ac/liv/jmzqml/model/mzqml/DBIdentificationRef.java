@@ -35,19 +35,39 @@ public class DBIdentificationRef
         implements Serializable, MzQuantMLObject {
 
     private final static long serialVersionUID = 100L;
+    /**
+     *
+     */
     @XmlAttribute(name = "id_ref", required = true)
     protected String idRef;
+    /**
+     *
+     */
     @XmlAttribute(name = "searchDatabase_ref", required = true)
     protected String searchDatabaseRef;
+    /**
+     *
+     */
     @XmlTransient
     protected ExternalData id;
+    /**
+     *
+     */
     @XmlTransient
     protected SearchDatabase searchDatabase;
 
+    /**
+     *
+     * @return
+     */
     public ExternalData getId() {
         return id;
     }
 
+    /**
+     *
+     * @param id
+     */
     public void setId(ExternalData id) {
         if (id == null) {
             this.idRef = null;
@@ -62,10 +82,18 @@ public class DBIdentificationRef
         this.id = id;
     }
 
+    /**
+     *
+     * @return
+     */
     public SearchDatabase getSearchDatabase(){
         return searchDatabase;
     }
     
+    /**
+     *
+     * @param searchDatabase
+     */
     public void setSearchDatabase(SearchDatabase searchDatabase){
         if (searchDatabase == null){
             this.searchDatabaseRef = null;

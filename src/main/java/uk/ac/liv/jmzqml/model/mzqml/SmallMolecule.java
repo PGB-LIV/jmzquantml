@@ -6,7 +6,6 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlElements;
 import javax.xml.bind.annotation.XmlList;
@@ -68,6 +67,11 @@ public class SmallMolecule
     @XmlTransient
     protected List<Feature> features;
 
+    /**
+     * Gets the list of features of the SmallMolecule element.
+     *
+     * @return a list of features of the SmallMolecule element.
+     */
     public List<Feature> getFeatures() {
         if (features == null) {
             features = new ArrayList<Feature>();
@@ -75,6 +79,11 @@ public class SmallMolecule
         return features;
     }
 
+    /**
+     * Gets the list of features of the SmallMolecule element.
+     *
+     * @param features a list of features of the SmallMolecule element.
+     */
     public void setFeatures(List<Feature> features) {
         if (features == null) {
             this.featureRefs = null;
@@ -113,6 +122,7 @@ public class SmallMolecule
      * {@link SmallMolModification }
      *
      *
+     * @return the value of the modification property.
      */
     public List<SmallMolModification> getModification() {
         if (modification == null) {
@@ -143,6 +153,7 @@ public class SmallMolecule
      * {@link DBIdentificationRef }
      *
      *
+     * @return the value of the dbIdentificationRef property.
      */
     public List<DBIdentificationRef> getDBIdentificationRef() {
         if (dbIdentificationRef == null) {
@@ -173,6 +184,7 @@ public class SmallMolecule
      * {@link String }
      *
      *
+     * @return the value of the featureRefs property.
      */
     public List<String> getFeatureRefs() {
         if (featureRefs == null) {
@@ -204,6 +216,7 @@ public class SmallMolecule
      * {@link UserParam }
      *
      *
+     * @return the value of the paramGroup property.
      */
     public List<AbstractParam> getParamGroup() {
         if (paramGroup == null) {
@@ -212,11 +225,23 @@ public class SmallMolecule
         return this.paramGroup;
     }
 
+    /**
+     * Gets the cvParams
+     *
+     * @return possible object is
+     *         {@link uk.ac.liv.jmzqml.model.utils.FacadeList }
+     */
     @Override
     public List<CvParam> getCvParam() {
         return new FacadeList<CvParam>(this.getParamGroup(), CvParam.class);
     }
 
+    /**
+     * Gets the userParams
+     *
+     * @return possible object is
+     *         {@link uk.ac.liv.jmzqml.model.utils.FacadeList }
+     */
     @Override
     public List<UserParam> getUserParam() {
         return new FacadeList<UserParam>(this.getParamGroup(), UserParam.class);

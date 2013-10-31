@@ -46,10 +46,26 @@ public class Row
     @XmlTransient
     protected IdOnly object;
 
+    /**
+     * Gets the object of the Row.
+     *
+     * @return the object of the Row.
+     */
     public IdOnly getObject() {
         return object;
     }
 
+    /**
+     * Sets the object to the Row.
+     *
+     * @param object possible object is
+     *               {@link uk.ac.liv.jmzqml.model.mzqml.Protein},
+     * {@link uk.ac.liv.jmzqml.model.mzqml.PeptideConsensus},
+     * {@link uk.ac.liv.jmzqml.model.mzqml.ProteinGroup},
+     * {@link uk.ac.liv.jmzqml.model.mzqml.SmallMolecule},
+     * {@link uk.ac.liv.jmzqml.model.mzqml.Feature}.
+     *
+     */
     public void setObject(IdOnly object) {
         if (object == null) {
             this.objectRef = null;
@@ -86,6 +102,7 @@ public class Row
      * {@link String }
      *
      *
+     * @return the value of the value property.
      */
     public List<String> getValue() {
         if (value == null) {

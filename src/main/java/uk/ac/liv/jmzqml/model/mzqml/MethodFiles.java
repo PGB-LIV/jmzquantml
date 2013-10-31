@@ -10,14 +10,13 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 import uk.ac.liv.jmzqml.model.MzQuantMLObject;
 
-
 /**
  * All methods files associated with this quantitation analysis to be referenced elsewhere, for example used to describe TraML files used in SRM analysis.
- * 
+ *
  * <p>Java class for MethodFilesType complex type.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ *
  * <pre>
  * &lt;complexType name="MethodFilesType">
  *   &lt;complexContent>
@@ -29,16 +28,15 @@ import uk.ac.liv.jmzqml.model.MzQuantMLObject;
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "MethodFilesType", propOrder = {
     "methodFile"
 })
 public class MethodFiles
-    implements Serializable, MzQuantMLObject
-{
+        implements Serializable, MzQuantMLObject {
 
     private final static long serialVersionUID = 100L;
     @XmlElement(name = "MethodFile", required = true)
@@ -46,25 +44,27 @@ public class MethodFiles
 
     /**
      * Gets the value of the methodFile property.
-     * 
+     *
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the methodFile property.
-     * 
+     * This is why there is not a
+     * <CODE>set</CODE> method for the methodFile property.
+     *
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getMethodFile().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link MethodFile }
-     * 
-     * 
+     *
+     *
+     * @return the value of the methodFile property.
      */
     public List<MethodFile> getMethodFile() {
         if (methodFile == null) {

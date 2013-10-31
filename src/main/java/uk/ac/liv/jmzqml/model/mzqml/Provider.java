@@ -40,17 +40,34 @@ public class Provider
         implements Serializable {
 
     private final static long serialVersionUID = 100L;
+    /**
+     *
+     */
     @XmlElement(name = "ContactRole")
     protected ContactRole contactRole;
+    /**
+     *
+     */
     @XmlAttribute(name = "analysisSoftware_ref")
     protected String analysisSoftwareRef;
+    /**
+     *
+     */
     @XmlTransient
     protected Software software;
 
+    /**
+     *
+     * @return
+     */
     public Software getSoftware() {
         return software;
     }
 
+    /**
+     *
+     * @param software
+     */
     public void setSoftware(Software software) {
         if (software == null) {
             this.analysisSoftwareRef = null;

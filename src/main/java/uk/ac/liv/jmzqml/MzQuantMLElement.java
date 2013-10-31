@@ -43,7 +43,7 @@ import uk.ac.liv.jmzqml.xml.jaxb.resolver.AbstractReferenceResolver;
  */
 public enum MzQuantMLElement {
 
-    /*
+    /**
      * Order is important - SetupMzQuantMLElement must appear first so that initialisation of cfgMap happens before it is used in
      * remaining constructors.
      */

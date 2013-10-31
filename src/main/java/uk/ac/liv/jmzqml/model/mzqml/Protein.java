@@ -72,6 +72,11 @@ public class Protein
     @XmlTransient
     protected SearchDatabase searchDatabase;
 
+    /**
+     * Gets the list of PeptideConsensus of the Protein.
+     *
+     * @return the list of PeptideConsensus of the Protein.
+     */
     public List<PeptideConsensus> getPeptideConsensuses() {
         if (peptideConsensuses == null) {
             peptideConsensuses = new ArrayList<PeptideConsensus>();
@@ -79,6 +84,11 @@ public class Protein
         return peptideConsensuses;
     }
 
+    /**
+     * Sets the list of PeptideConsensus to the Protein.
+     *
+     * @param peptideConsensuses a list of PeptideConsensus.
+     */
     public void setPeptideConsensuses(List<PeptideConsensus> peptideConsensuses) {
         if (peptideConsensuses == null) {
             this.peptideConsensusRefs = null;
@@ -95,10 +105,20 @@ public class Protein
         }
     }
 
+    /**
+     * Gets the searchDatabase of the Protein.
+     *
+     * @return the searchDatabase of the Protein.
+     */
     public SearchDatabase getSearchDatabase() {
         return searchDatabase;
     }
 
+    /**
+     * Sets the searchDatabase to the Protein.
+     *
+     * @param searchDatabase a searchDatabase.
+     */
     public void setSearchDatabase(SearchDatabase searchDatabase) {
         if (searchDatabase == null) {
             this.searchDatabaseRef = null;
@@ -135,6 +155,7 @@ public class Protein
      * {@link IdentificationRef }
      *
      *
+     * @return the value of the identificationRef property.
      */
     public List<IdentificationRef> getIdentificationRef() {
         if (identificationRef == null) {
@@ -165,6 +186,7 @@ public class Protein
      * {@link String }
      *
      *
+     * @return the value of the peptideConsensusRefs property.
      */
     public List<String> getPeptideConsensusRefs() {
         if (peptideConsensusRefs == null) {
@@ -196,6 +218,7 @@ public class Protein
      * {@link UserParam }
      *
      *
+     * @return the value of the paramGroup property.
      */
     public List<AbstractParam> getParamGroup() {
         if (paramGroup == null) {
@@ -240,11 +263,23 @@ public class Protein
         return searchDatabaseRef;
     }
 
+    /**
+     * Gets the cvParams
+     *
+     * @return possible object is
+     *         {@link uk.ac.liv.jmzqml.model.utils.FacadeList }
+     */
     @Override
     public List<CvParam> getCvParam() {
         return new FacadeList<CvParam>(this.getParamGroup(), CvParam.class);
     }
 
+    /**
+     * Gets the userParams
+     *
+     * @return possible object is
+     *         {@link uk.ac.liv.jmzqml.model.utils.FacadeList }
+     */
     @Override
     public List<UserParam> getUserParam() {
         return new FacadeList<UserParam>(this.getParamGroup(), UserParam.class);

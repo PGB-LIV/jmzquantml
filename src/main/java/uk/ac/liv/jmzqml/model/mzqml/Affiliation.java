@@ -34,9 +34,15 @@ public class Affiliation
 {
 
     private final static long serialVersionUID = 100L;
+    /**
+     *
+     */
     @XmlAttribute(name = "organization_ref", required = true)
     protected String organizationRef;
     
+    /**
+     *
+     */
     @XmlTransient
     protected Organization organization;
 

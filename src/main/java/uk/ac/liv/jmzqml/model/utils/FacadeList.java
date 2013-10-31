@@ -1,3 +1,4 @@
+
 package uk.ac.liv.jmzqml.model.utils;
 
 import java.util.*;
@@ -18,16 +19,26 @@ import java.util.*;
  * Likewise, if get(3) (3 is the index) is called the 3rd instance of CvParam will be returned. Note, this CvParam might
  * not be the third element in the originallist.
  * <p/>
- * <p/>
+ * <
+ * p/>
  * TODO Implement CvParam and UserParam's toString, equals, hashcode. With equals objects are normally considered equals if contents match.
  * TODO Check iterator working with foreach
  * TODO check the checkIndex(), maybe not the best implementation
  * TODO finish all the add methods with checking the null input values
+ *
+ * @param <T> extends Object
  */
 public class FacadeList<T> extends AbstractCollection<T> implements List<T> {
+
     private List originalList;
     private Class<T> clazz;
 
+    /**
+     * Constructor of FacadeList.
+     *
+     * @param originalList the original list.
+     * @param clazz        the class type of the object.
+     */
     public FacadeList(List originalList, Class<T> clazz) {
         if (originalList == null || clazz == null) {
             throw new IllegalArgumentException("Error: Neither original input list nor sublist class can be NULL");
@@ -40,6 +51,7 @@ public class FacadeList<T> extends AbstractCollection<T> implements List<T> {
         // set to private
     }
 
+    @Override
     public boolean add(T t) {
         checkArgument(t);
         return originalList.add(t);
@@ -50,8 +62,10 @@ public class FacadeList<T> extends AbstractCollection<T> implements List<T> {
      * The index here is the index of the specified element int the original list
      *
      * @param index list index
-     * @return T   element has been removed
+     *
+     * @return T element has been removed
      */
+    @Override
     public T remove(int index) {
         T elementAtIndex = this.getAtIndex(index);
         this.originalList.remove(elementAtIndex);
@@ -62,8 +76,10 @@ public class FacadeList<T> extends AbstractCollection<T> implements List<T> {
      * Get an element from the original list at index.
      *
      * @param index list index
+     *
      * @return T element to get
      */
+    @Override
     public T get(int index) {
         return this.getAtIndex(index);
     }
@@ -73,8 +89,10 @@ public class FacadeList<T> extends AbstractCollection<T> implements List<T> {
      *
      * @param index   index of the sublist
      * @param element new element
-     * @return T    old element in the position
+     *
+     * @return T old element in the position
      */
+    @Override
     public T set(int index, T element) {
         this.checkArgument(element);
         this.checkIndex(index);
@@ -84,7 +102,7 @@ public class FacadeList<T> extends AbstractCollection<T> implements List<T> {
     /**
      * Get the size of the sublist
      *
-     * @return int  size of the sublist
+     * @return int size of the sublist
      */
     public int size() {
         int cnt = 0;
@@ -122,7 +140,8 @@ public class FacadeList<T> extends AbstractCollection<T> implements List<T> {
      * Check whether the sublist contains the element
      *
      * @param o input object
-     * @return boolean     true means sublist contains the input object
+     *
+     * @return boolean true means sublist contains the input object
      */
     public boolean contains(Object o) {
         checkArgument(o);
@@ -142,6 +161,7 @@ public class FacadeList<T> extends AbstractCollection<T> implements List<T> {
      * Get the index of sublist using a given object
      *
      * @param o input object
+     *
      * @return int index of the object
      */
     public int indexOf(Object o) {
@@ -162,6 +182,7 @@ public class FacadeList<T> extends AbstractCollection<T> implements List<T> {
      * Get the last index of sublist using a given object
      *
      * @param o input object
+     *
      * @return int index of the object
      */
     public int lastIndexOf(Object o) {
@@ -198,7 +219,8 @@ public class FacadeList<T> extends AbstractCollection<T> implements List<T> {
      *
      * @param fromIndex low endpoint (inclusive) of the sublist
      * @param toIndex   high endpoint (exclusive) of the sublist
-     * @return  List<T> unmodifiable sublist
+     *
+     * @return List<T> unmodifiable sublist
      */
     public List<T> subList(int fromIndex, int toIndex) {
         checkIndex(fromIndex);
@@ -217,10 +239,11 @@ public class FacadeList<T> extends AbstractCollection<T> implements List<T> {
         int cnt = 0;
         int diff = toIndex - fromIndex;
         ListIterator<T> listIter = this.listIterator(fromIndex);
-        while(listIter.hasNext()) {
+        while (listIter.hasNext()) {
             if (cnt < diff) {
                 result.add(listIter.next());
-            } else {
+            }
+            else {
                 break;
             }
             cnt++;
@@ -228,7 +251,6 @@ public class FacadeList<T> extends AbstractCollection<T> implements List<T> {
 
         return Collections.unmodifiableList(result);
     }
-
 
     public Object[] toArray() {
         Object[] arr = new Object[this.size()];
@@ -240,20 +262,20 @@ public class FacadeList<T> extends AbstractCollection<T> implements List<T> {
         return arr;
     }
 
-
     public <T> T[] toArray(T[] a) {
-      int size = this.size();
-      if (a.length < size)
-            // Make a new array of a's runtime type, but my contents:
+        int size = this.size();
+        if (a.length < size) // Make a new array of a's runtime type, but my contents:
+        {
             return (T[]) Arrays.copyOf(this.toArray(), size, a.getClass());
+        }
 
         System.arraycopy(this.toArray(), 0, a, 0, size);
-        if (a.length > size)
+        if (a.length > size) {
             a[size] = null;
+        }
         return a;
 
     }
-
 
     /**
      * Add a new element to the sublist
@@ -268,19 +290,17 @@ public class FacadeList<T> extends AbstractCollection<T> implements List<T> {
         this.addAtIndex(index, element);
     }
 
-
     /**
      * Remove an object from the sublist
      *
      * @param o object to be removed
-     * @return  boolean true a object has been found and removed
+     *
+     * @return boolean true a object has been found and removed
      */
     public boolean remove(Object o) {
         checkArgument(o);
         return this.originalList.remove(o);
     }
-
-
 
     public boolean addAll(int index, Collection<? extends T> c) {
         checkIndex(index);
@@ -300,7 +320,8 @@ public class FacadeList<T> extends AbstractCollection<T> implements List<T> {
         for (Object t : c) {
             if (t == null) {
                 throw new NullPointerException("Input collection has one or more NULL elements");
-            } else if (!clazz.isInstance(t)) {
+            }
+            else if (!clazz.isInstance(t)) {
                 throw new ClassCastException("Input collection has mismatching element types, expected: "
                         + clazz.getName() + " found: " + t.getClass().getName());
             }
@@ -312,23 +333,23 @@ public class FacadeList<T> extends AbstractCollection<T> implements List<T> {
         this.checkArgumentsInCollection(c);
         return super.removeAll(c);
     }
-/*
-    public boolean removeAll(Collection<? extends T> c){
-        this.checkArgumentsInCollection(c);
-        return false;
-    }
-  */
+    /*
+     * public boolean removeAll(Collection<? extends T> c){
+     * this.checkArgumentsInCollection(c);
+     * return false;
+     * }
+     */
+
     @Override
     public boolean retainAll(Collection<?> c) {
         this.checkArgumentsInCollection(c);
         return super.retainAll(c);
     }
 
-
     /**
      * This method is overridden to print out the list in concatenated string format
      *
-     * @return String  list string
+     * @return String list string
      */
     @Override
     public String toString() {
@@ -361,19 +382,19 @@ public class FacadeList<T> extends AbstractCollection<T> implements List<T> {
 
     @Override
     public boolean equals(Object comparedToListObject) {
-        if((comparedToListObject instanceof FacadeList) == false){
+        if ((comparedToListObject instanceof FacadeList) == false) {
             return false;
         }
         FacadeList<T> comparedToList = (FacadeList) comparedToListObject;
-        if(comparedToList.size() != this.size()){
+        if (comparedToList.size() != this.size()) {
             return false;
         }
         Iterator<T> thisIt = this.iterator();
         Iterator<T> comparedToListIt = comparedToList.iterator();
-        while(thisIt.hasNext()){
+        while (thisIt.hasNext()) {
             T thisT = thisIt.next();
             T comparedToT = comparedToListIt.next();
-            if(!thisT.equals(comparedToT)){
+            if (!thisT.equals(comparedToT)) {
                 return false;
             }
         }
@@ -422,6 +443,7 @@ public class FacadeList<T> extends AbstractCollection<T> implements List<T> {
      *
      * @param index
      * @param newElement
+     *
      * @return
      */
     private T setAtIndex(int index, T newElement) {
@@ -439,6 +461,7 @@ public class FacadeList<T> extends AbstractCollection<T> implements List<T> {
      *
      * @param index
      * @param newElement
+     *
      * @return
      */
     private void addAtIndex(int index, T newElement) {
@@ -454,6 +477,7 @@ public class FacadeList<T> extends AbstractCollection<T> implements List<T> {
      * Get the index from the original list
      *
      * @param index index for the sublist
+     *
      * @return int index for the original list
      */
     private int getOriginalIndex(int index) {
@@ -473,24 +497,23 @@ public class FacadeList<T> extends AbstractCollection<T> implements List<T> {
         return originalListIndex;
     }
 
-
     private void checkIndex(int index) {
         this.checkIndex(index, null);
     }
 
     private void checkIndex(int index, String errMsg) {
-        if (index < 0  || index >= this.size()) {
+        if (index < 0 || index >= this.size()) {
             throw new IndexOutOfBoundsException(errMsg == null ? ("Input sublist index does not exist: " + index) : errMsg);
         }
     }
 
     private class SublistIterator implements Iterator<T> {
+
         private List superList;
         /**
          * Next position in the super list
          */
         //private int nextPosition;
-
         /**
          * Current position keeps track of the superlist index of the last instance returned by next()
          * or -1 if next() has not been called
@@ -503,9 +526,8 @@ public class FacadeList<T> extends AbstractCollection<T> implements List<T> {
             this.superList = superList;
         }
 
-
         public boolean hasNext() {
-           // check whether this is a next element in the super collection
+            // check whether this is a next element in the super collection
             if ((currPosition + 1) <= (superList.size() - 1)) {
                 // starting from the current position, loop through the super collection
                 for (int i = (currPosition + 1); i < superList.size(); i++) {
@@ -544,9 +566,11 @@ public class FacadeList<T> extends AbstractCollection<T> implements List<T> {
             this.nextHasBeenCalled = false;
 
         }
+
     }
 
     private class SubListListIterator implements ListIterator<T> {
+
         private List superList;
         /**
          * Current position keeps track of the superlist index of the last instance returned by next()
@@ -609,7 +633,8 @@ public class FacadeList<T> extends AbstractCollection<T> implements List<T> {
                     throw new IndexOutOfBoundsException("Index out of the bound of the sublist: " + startIndex);
                 }
                 currPosition = startSuperPosition - 1;
-            } else {
+            }
+            else {
                 startSuperPosition = 0;
             }
 
@@ -711,7 +736,8 @@ public class FacadeList<T> extends AbstractCollection<T> implements List<T> {
             if (currPosition >= startSuperPosition) {
                 this.superList.remove(this.currPosition);
                 this.currPosition--;
-            } else {
+            }
+            else {
                 this.superList.remove(startSuperPosition);
             }
         }
@@ -720,10 +746,12 @@ public class FacadeList<T> extends AbstractCollection<T> implements List<T> {
             if (this.nextOrPreviousHasBeenCalled && !this.addOrRemoveCalled) {
                 if (currPosition >= startSuperPosition) {
                     this.superList.set(this.currPosition, t);
-                } else {
+                }
+                else {
                     this.superList.set(startSuperPosition, t);
                 }
-            } else {
+            }
+            else {
                 throw new IllegalStateException();
             }
         }
@@ -732,5 +760,7 @@ public class FacadeList<T> extends AbstractCollection<T> implements List<T> {
             this.addOrRemoveCalled = true;
             this.superList.add(currPosition + 1, t);
         }
+
     }
+
 }

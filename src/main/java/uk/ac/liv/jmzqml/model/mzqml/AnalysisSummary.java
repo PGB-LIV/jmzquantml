@@ -12,13 +12,16 @@ import javax.xml.bind.annotation.XmlType;
 import uk.ac.liv.jmzqml.model.MzQuantMLObject;
 import uk.ac.liv.jmzqml.model.utils.FacadeList;
 
+/**
+ *
+ * @author Da Qi
+ */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "AnalysisSummaryType", propOrder = {
     "paramGroup"
 })
 public class AnalysisSummary
-    implements Serializable, MzQuantMLObject
-{
+        implements Serializable, MzQuantMLObject {
 
     private final static long serialVersionUID = 100L;
     @XmlElements({
@@ -50,6 +53,7 @@ public class AnalysisSummary
      * {@link UserParam }
      *
      *
+     * @return the value of the paramGroup property.
      */
     public List<AbstractParam> getParamGroup() {
         if (paramGroup == null) {
@@ -59,7 +63,7 @@ public class AnalysisSummary
     }
 
     /**
-     * Gets the cvparams
+     * Gets the cvParams
      *
      * @return possible object is
      *         {@link uk.ac.liv.jmzqml.model.utils.FacadeList }
@@ -69,10 +73,10 @@ public class AnalysisSummary
     }
 
     /**
-     * Gets the userparams
+     * Gets the userParams
      *
      * @return possible object is
-     *         {@link FacadeList }
+     *         {@link uk.ac.liv.jmzqml.model.utils.FacadeList }
      */
     public List<UserParam> getUserParam() {
         return new FacadeList<UserParam>(this.getParamGroup(), UserParam.class);

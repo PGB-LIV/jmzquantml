@@ -54,6 +54,11 @@ public class EvidenceRef
     @XmlTransient
     protected Feature feature;
 
+    /**
+     * Gets the list of assay of the EvidenceRef.
+     *
+     * @return the list of assay of the EvidenceRef.
+     */
     public List<Assay> getAssays() {
         if (assays == null) {
             assays = new ArrayList<Assay>();
@@ -61,6 +66,11 @@ public class EvidenceRef
         return assays;
     }
 
+    /**
+     * Sets the list of assay to the EvidenceRef.
+     *
+     * @param assays a list of assay.
+     */
     public void setAssays(List<Assay> assays) {
         if (assays == null) {
             this.assayRefs = null;
@@ -77,10 +87,20 @@ public class EvidenceRef
         this.assays = assays;
     }
 
+    /**
+     * Gets the IdentificationFile of EvidenceRef.
+     *
+     * @return the IdentificationFile of EvidenceRef.
+     */
     public IdentificationFile getIdentificationFile() {
         return identificationFile;
     }
 
+    /**
+     * Sets the IdentificationFile to EvidenceRef.
+     *
+     * @param identificationFile an IdentificationFile.
+     */
     public void setIdentificationFile(IdentificationFile identificationFile) {
         if (identificationFile == null) {
             this.identificationFileRef = null;
@@ -95,10 +115,20 @@ public class EvidenceRef
         this.identificationFile = identificationFile;
     }
 
+    /**
+     * Gets the Feature of EvidenceRef.
+     *
+     * @return the Feature of EvidenceRef.
+     */
     public Feature getFeature() {
         return feature;
     }
 
+    /**
+     * Sets the Feature to EvidenceRef.
+     *
+     * @param feature a Feature.
+     */
     public void setFeature(Feature feature) {
         if (feature == null) {
             this.featureRef = null;
@@ -135,6 +165,7 @@ public class EvidenceRef
      * {@link String }
      *
      *
+     * @return the value of the assayRefs property.
      */
     public List<String> getAssayRefs() {
         if (assayRefs == null) {
@@ -165,6 +196,7 @@ public class EvidenceRef
      * {@link String }
      *
      *
+     * @return the value of the idRefs property.
      */
     public List<String> getIdRefs() {
         if (idRefs == null) {

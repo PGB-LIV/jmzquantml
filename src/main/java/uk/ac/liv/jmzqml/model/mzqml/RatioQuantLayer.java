@@ -54,6 +54,11 @@ public class RatioQuantLayer
     @XmlTransient
     protected List<Ratio> columns;
 
+    /**
+     * Gets list of column of the RatioQuantLayer.
+     *
+     * @return list of column of the RatioQuatnLayer.
+     */
     public List<Ratio> getColumns() {
         if (columns == null) {
             columns = new ArrayList<Ratio>();
@@ -61,6 +66,11 @@ public class RatioQuantLayer
         return columns;
     }
 
+    /**
+     * Sets the list of column to the RatioQuantLayer.
+     *
+     * @param columns a list of column.
+     */
     public void setColumnIndex(List<Ratio> columns) {
         if (columns == null) {
             this.columnIndex = null;
@@ -99,6 +109,7 @@ public class RatioQuantLayer
      * {@link String }
      *
      *
+     * @return the value of the columnIndex property.
      */
     public List<String> getColumnIndex() {
         if (columnIndex == null) {

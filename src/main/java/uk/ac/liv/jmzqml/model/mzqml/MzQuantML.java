@@ -16,14 +16,13 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import uk.ac.liv.jmzqml.model.MzQuantMLObject;
 import uk.ac.liv.jmzqml.xml.jaxb.adapter.CalendarAdapter;
 
-
 /**
  * Root element of the instance document.
- * 
+ *
  * <p>Java class for MzQuantMLType complex type.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ *
  * <pre>
  * &lt;complexType name="MzQuantMLType">
  *   &lt;complexContent>
@@ -54,8 +53,8 @@ import uk.ac.liv.jmzqml.xml.jaxb.adapter.CalendarAdapter;
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "MzQuantMLType", propOrder = {
@@ -78,7 +77,7 @@ import uk.ac.liv.jmzqml.xml.jaxb.adapter.CalendarAdapter;
 })
 @XmlRootElement(name = "MzQuantML")
 public class MzQuantML extends Identifiable
-        implements Serializable, MzQuantMLObject{
+        implements Serializable, MzQuantMLObject {
 
     private final static long serialVersionUID = 100L;
     @XmlElement(name = "CvList", required = true)
@@ -122,11 +121,11 @@ public class MzQuantML extends Identifiable
 
     /**
      * Gets the value of the cvList property.
-     * 
+     *
      * @return
-     *     possible object is
-     *     {@link CvList }
-     *     
+     *         possible object is
+     *         {@link CvList }
+     *
      */
     public CvList getCvList() {
         return cvList;
@@ -134,11 +133,11 @@ public class MzQuantML extends Identifiable
 
     /**
      * Sets the value of the cvList property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link CvList }
-     *     
+     *              allowed object is
+     *              {@link CvList }
+     *
      */
     public void setCvList(CvList value) {
         this.cvList = value;
@@ -146,11 +145,11 @@ public class MzQuantML extends Identifiable
 
     /**
      * Gets the value of the provider property.
-     * 
+     *
      * @return
-     *     possible object is
-     *     {@link Provider }
-     *     
+     *         possible object is
+     *         {@link Provider }
+     *
      */
     public Provider getProvider() {
         return provider;
@@ -158,11 +157,11 @@ public class MzQuantML extends Identifiable
 
     /**
      * Sets the value of the provider property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link Provider }
-     *     
+     *              allowed object is
+     *              {@link Provider }
+     *
      */
     public void setProvider(Provider value) {
         this.provider = value;
@@ -170,11 +169,11 @@ public class MzQuantML extends Identifiable
 
     /**
      * Gets the value of the auditCollection property.
-     * 
+     *
      * @return
-     *     possible object is
-     *     {@link AuditCollection }
-     *     
+     *         possible object is
+     *         {@link AuditCollection }
+     *
      */
     public AuditCollection getAuditCollection() {
         return auditCollection;
@@ -182,11 +181,11 @@ public class MzQuantML extends Identifiable
 
     /**
      * Sets the value of the auditCollection property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link AuditCollection }
-     *     
+     *              allowed object is
+     *              {@link AuditCollection }
+     *
      */
     public void setAuditCollection(AuditCollection value) {
         this.auditCollection = value;
@@ -194,11 +193,11 @@ public class MzQuantML extends Identifiable
 
     /**
      * Gets the value of the analysisSummary property.
-     * 
+     *
      * @return
-     *     possible object is
-     *     {@link ParamList }
-     *     
+     *         possible object is
+     *         {@link ParamList }
+     *
      */
     public AnalysisSummary getAnalysisSummary() {
         return analysisSummary;
@@ -206,11 +205,11 @@ public class MzQuantML extends Identifiable
 
     /**
      * Sets the value of the analysisSummary property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link ParamList }
-     *     
+     *              allowed object is
+     *              {@link ParamList }
+     *
      */
     public void setAnalysisSummary(AnalysisSummary value) {
         this.analysisSummary = value;
@@ -218,11 +217,11 @@ public class MzQuantML extends Identifiable
 
     /**
      * Gets the value of the inputFiles property.
-     * 
+     *
      * @return
-     *     possible object is
-     *     {@link InputFiles }
-     *     
+     *         possible object is
+     *         {@link InputFiles }
+     *
      */
     public InputFiles getInputFiles() {
         return inputFiles;
@@ -230,11 +229,11 @@ public class MzQuantML extends Identifiable
 
     /**
      * Sets the value of the inputFiles property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link InputFiles }
-     *     
+     *              allowed object is
+     *              {@link InputFiles }
+     *
      */
     public void setInputFiles(InputFiles value) {
         this.inputFiles = value;
@@ -242,11 +241,11 @@ public class MzQuantML extends Identifiable
 
     /**
      * Gets the value of the softwareList property.
-     * 
+     *
      * @return
-     *     possible object is
-     *     {@link SoftwareList }
-     *     
+     *         possible object is
+     *         {@link SoftwareList }
+     *
      */
     public SoftwareList getSoftwareList() {
         return softwareList;
@@ -254,11 +253,11 @@ public class MzQuantML extends Identifiable
 
     /**
      * Sets the value of the softwareList property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link SoftwareList }
-     *     
+     *              allowed object is
+     *              {@link SoftwareList }
+     *
      */
     public void setSoftwareList(SoftwareList value) {
         this.softwareList = value;
@@ -266,11 +265,11 @@ public class MzQuantML extends Identifiable
 
     /**
      * Gets the value of the dataProcessingList property.
-     * 
+     *
      * @return
-     *     possible object is
-     *     {@link DataProcessingList }
-     *     
+     *         possible object is
+     *         {@link DataProcessingList }
+     *
      */
     public DataProcessingList getDataProcessingList() {
         return dataProcessingList;
@@ -278,11 +277,11 @@ public class MzQuantML extends Identifiable
 
     /**
      * Sets the value of the dataProcessingList property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link DataProcessingList }
-     *     
+     *              allowed object is
+     *              {@link DataProcessingList }
+     *
      */
     public void setDataProcessingList(DataProcessingList value) {
         this.dataProcessingList = value;
@@ -290,25 +289,27 @@ public class MzQuantML extends Identifiable
 
     /**
      * Gets the value of the bibliographicReference property.
-     * 
+     *
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the bibliographicReference property.
-     * 
+     * This is why there is not a
+     * <CODE>set</CODE> method for the bibliographicReference property.
+     *
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getBibliographicReference().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link BibliographicReference }
-     * 
-     * 
+     *
+     *
+     * @return the value of the bibliographicReference property.
      */
     public List<BibliographicReference> getBibliographicReference() {
         if (bibliographicReference == null) {
@@ -319,11 +320,11 @@ public class MzQuantML extends Identifiable
 
     /**
      * Gets the value of the assayList property.
-     * 
+     *
      * @return
-     *     possible object is
-     *     {@link AssayList }
-     *     
+     *         possible object is
+     *         {@link AssayList }
+     *
      */
     public AssayList getAssayList() {
         return assayList;
@@ -331,11 +332,11 @@ public class MzQuantML extends Identifiable
 
     /**
      * Sets the value of the assayList property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link AssayList }
-     *     
+     *              allowed object is
+     *              {@link AssayList }
+     *
      */
     public void setAssayList(AssayList value) {
         this.assayList = value;
@@ -343,11 +344,11 @@ public class MzQuantML extends Identifiable
 
     /**
      * Gets the value of the studyVariableList property.
-     * 
+     *
      * @return
-     *     possible object is
-     *     {@link StudyVariableList }
-     *     
+     *         possible object is
+     *         {@link StudyVariableList }
+     *
      */
     public StudyVariableList getStudyVariableList() {
         return studyVariableList;
@@ -355,11 +356,11 @@ public class MzQuantML extends Identifiable
 
     /**
      * Sets the value of the studyVariableList property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link StudyVariableList }
-     *     
+     *              allowed object is
+     *              {@link StudyVariableList }
+     *
      */
     public void setStudyVariableList(StudyVariableList value) {
         this.studyVariableList = value;
@@ -367,11 +368,11 @@ public class MzQuantML extends Identifiable
 
     /**
      * Gets the value of the ratioList property.
-     * 
+     *
      * @return
-     *     possible object is
-     *     {@link RatioList }
-     *     
+     *         possible object is
+     *         {@link RatioList }
+     *
      */
     public RatioList getRatioList() {
         return ratioList;
@@ -379,11 +380,11 @@ public class MzQuantML extends Identifiable
 
     /**
      * Sets the value of the ratioList property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link RatioList }
-     *     
+     *              allowed object is
+     *              {@link RatioList }
+     *
      */
     public void setRatioList(RatioList value) {
         this.ratioList = value;
@@ -391,11 +392,11 @@ public class MzQuantML extends Identifiable
 
     /**
      * Gets the value of the proteinGroupList property.
-     * 
+     *
      * @return
-     *     possible object is
-     *     {@link ProteinGroupList }
-     *     
+     *         possible object is
+     *         {@link ProteinGroupList }
+     *
      */
     public ProteinGroupList getProteinGroupList() {
         return proteinGroupList;
@@ -403,11 +404,11 @@ public class MzQuantML extends Identifiable
 
     /**
      * Sets the value of the proteinGroupList property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link ProteinGroupList }
-     *     
+     *              allowed object is
+     *              {@link ProteinGroupList }
+     *
      */
     public void setProteinGroupList(ProteinGroupList value) {
         this.proteinGroupList = value;
@@ -415,11 +416,11 @@ public class MzQuantML extends Identifiable
 
     /**
      * Gets the value of the proteinList property.
-     * 
+     *
      * @return
-     *     possible object is
-     *     {@link ProteinList }
-     *     
+     *         possible object is
+     *         {@link ProteinList }
+     *
      */
     public ProteinList getProteinList() {
         return proteinList;
@@ -427,11 +428,11 @@ public class MzQuantML extends Identifiable
 
     /**
      * Sets the value of the proteinList property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link ProteinList }
-     *     
+     *              allowed object is
+     *              {@link ProteinList }
+     *
      */
     public void setProteinList(ProteinList value) {
         this.proteinList = value;
@@ -439,25 +440,27 @@ public class MzQuantML extends Identifiable
 
     /**
      * Gets the value of the peptideConsensusList property.
-     * 
+     *
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the peptideConsensusList property.
-     * 
+     * This is why there is not a
+     * <CODE>set</CODE> method for the peptideConsensusList property.
+     *
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getPeptideConsensusList().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link PeptideConsensusList }
-     * 
-     * 
+     *
+     *
+     * @return the value of the peptideConsensusList property.
      */
     public List<PeptideConsensusList> getPeptideConsensusList() {
         if (peptideConsensusList == null) {
@@ -468,11 +471,11 @@ public class MzQuantML extends Identifiable
 
     /**
      * Gets the value of the smallMoleculeList property.
-     * 
+     *
      * @return
-     *     possible object is
-     *     {@link SmallMoleculeList }
-     *     
+     *         possible object is
+     *         {@link SmallMoleculeList }
+     *
      */
     public SmallMoleculeList getSmallMoleculeList() {
         return smallMoleculeList;
@@ -480,11 +483,11 @@ public class MzQuantML extends Identifiable
 
     /**
      * Sets the value of the smallMoleculeList property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link SmallMoleculeList }
-     *     
+     *              allowed object is
+     *              {@link SmallMoleculeList }
+     *
      */
     public void setSmallMoleculeList(SmallMoleculeList value) {
         this.smallMoleculeList = value;
@@ -492,25 +495,27 @@ public class MzQuantML extends Identifiable
 
     /**
      * Gets the value of the featureList property.
-     * 
+     *
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the featureList property.
-     * 
+     * This is why there is not a
+     * <CODE>set</CODE> method for the featureList property.
+     *
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getFeatureList().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link FeatureList }
-     * 
-     * 
+     *
+     *
+     * @return the value of the featureList property.
      */
     public List<FeatureList> getFeatureList() {
         if (featureList == null) {
@@ -521,11 +526,11 @@ public class MzQuantML extends Identifiable
 
     /**
      * Gets the value of the creationDate property.
-     * 
+     *
      * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *         possible object is
+     *         {@link String }
+     *
      */
     public Calendar getCreationDate() {
         return creationDate;
@@ -533,11 +538,11 @@ public class MzQuantML extends Identifiable
 
     /**
      * Sets the value of the creationDate property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *              allowed object is
+     *              {@link String }
+     *
      */
     public void setCreationDate(Calendar value) {
         this.creationDate = value;
@@ -545,11 +550,11 @@ public class MzQuantML extends Identifiable
 
     /**
      * Gets the value of the version property.
-     * 
+     *
      * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *         possible object is
+     *         {@link String }
+     *
      */
     public String getVersion() {
         return version;
@@ -557,13 +562,14 @@ public class MzQuantML extends Identifiable
 
     /**
      * Sets the value of the version property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *              allowed object is
+     *              {@link String }
+     *
      */
     public void setVersion(String value) {
         this.version = value;
     }
+
 }

@@ -45,10 +45,19 @@ public class SmallMolModification
 {
 
     private final static long serialVersionUID = 100L;
+    /**
+     *
+     */
     @XmlElement(required = true)
     protected List<CvParam> cvParam;
+    /**
+     *
+     */
     @XmlAttribute(name = "avgMassDelta")
     protected Double avgMassDelta;
+    /**
+     *
+     */
     @XmlAttribute(name = "monoisotopicMassDelta")
     protected Double monoisotopicMassDelta;
 

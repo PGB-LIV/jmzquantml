@@ -10,14 +10,13 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 import uk.ac.liv.jmzqml.model.MzQuantMLObject;
 
-
 /**
  * All identification files associated with this quantitation analysis to be referenced elsewhere.
- * 
+ *
  * <p>Java class for IdentificationFilesType complex type.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ *
  * <pre>
  * &lt;complexType name="IdentificationFilesType">
  *   &lt;complexContent>
@@ -29,16 +28,15 @@ import uk.ac.liv.jmzqml.model.MzQuantMLObject;
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "IdentificationFilesType", propOrder = {
     "identificationFile"
 })
 public class IdentificationFiles
-    implements Serializable, MzQuantMLObject
-{
+        implements Serializable, MzQuantMLObject {
 
     private final static long serialVersionUID = 100L;
     @XmlElement(name = "IdentificationFile", required = true)
@@ -46,25 +44,27 @@ public class IdentificationFiles
 
     /**
      * Gets the value of the identificationFile property.
-     * 
+     *
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the identificationFile property.
-     * 
+     * This is why there is not a
+     * <CODE>set</CODE> method for the identificationFile property.
+     *
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getIdentificationFile().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link IdentificationFile }
-     * 
-     * 
+     *
+     *
+     * @return the value of the identificationFile property.
      */
     public List<IdentificationFile> getIdentificationFile() {
         if (identificationFile == null) {

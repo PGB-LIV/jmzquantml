@@ -49,27 +49,59 @@ extends IdOnly
         implements Serializable, MzQuantMLObject, ParamListCapable {
 
     private final static long serialVersionUID = 100L;
+    /**
+     *
+     */
     @XmlElement(name = "RatioCalculation")
     protected ParamList ratioCalculation;
+    /**
+     *
+     */
     @XmlElement(name = "NumeratorDataType", required = true)
     protected CvParamRef numeratorDataType;
+    /**
+     *
+     */
     @XmlElement(name = "DenominatorDataType", required = true)
     protected CvParamRef denominatorDataType;
+    /**
+     *
+     */
     @XmlAttribute(name = "numerator_ref", required = true)
     protected String numeratorRef;
+    /**
+     *
+     */
     @XmlAttribute(name = "denominator_ref", required = true)
     protected String denominatorRef;
+    /**
+     *
+     */
     @XmlAttribute(name = "name")
     protected String name;
+    /**
+     *
+     */
     @XmlTransient
     protected IdOnly numerator;
+    /**
+     *
+     */
     @XmlTransient
     protected IdOnly denominator;
 
+    /**
+     *
+     * @return
+     */
     public IdOnly getNumerator() {
         return numerator;
     }
 
+    /**
+     *
+     * @param numerator
+     */
     public void setNumerator(IdOnly numerator) {
         if (numerator == null) {
             this.numeratorRef = null;
@@ -84,10 +116,18 @@ extends IdOnly
         this.numerator = numerator;
     }
 
+    /**
+     *
+     * @return
+     */
     public IdOnly getDenominator() {
         return denominator;
     }
 
+    /**
+     *
+     * @param denominator
+     */
     public void setDenominator(IdOnly denominator) {
         if (denominator == null) {
             this.denominatorRef = null;
