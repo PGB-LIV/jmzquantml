@@ -28,7 +28,7 @@ How to use in maven
   <dependency>
      <groupId>uk.ac.liv</groupId>
      <artifactId>jmzquantml</artifactId>
-     <version>1.0.0-1.0.2</version>
+     <version>1.0.0-1.0.3</version>
   </dependency>
 
   Second, add wagon-svn extension (current version 1.12) in <build> tag:
@@ -61,9 +61,14 @@ How to use in maven
 
 Changelog
 
-  - Current version 1.0.0-1.0.2
-  - Previous version 1.0.0-1.0.1
-
+  - Current version 1.0.0-1.0.3
+  - Previous version 1.0.0-1.0.2
+  
+jmzquantml version 1.0.0-1.0.3 -- (31, October 2013)
+  - added detailed documentations
+  - resolved assay_refs in EvidenceRef
+  - fixed potential bug of duplicating Assay_refs in StudyVariableRefResolver, ProteinRefResolver and AssayRefResolver
+  
 jmzquantml version 1.0.0-1.0.2 -- (9, May 2013)
   - fixed the bugs of getting null list from some element classes
   
