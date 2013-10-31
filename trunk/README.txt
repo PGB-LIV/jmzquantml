@@ -4,7 +4,7 @@
 =                jmzquantmL - Java API for MzQuantML                  =
 =                                                                     =
 =                                                                     =
-=                                           jmzquantml  1.0.0-1.0.1   =
+=                                           jmzquantml  1.0.0-1.0.3   =
 =                                 (c) University of Liverpool  2013   =
 =                              http://code.google.com/p/jmzquantml/   =
 =                                                                     =
@@ -65,7 +65,7 @@ Changelog
   - Previous version 1.0.0-1.0.2
   
 jmzquantml version 1.0.0-1.0.3 -- (31, October 2013)
-  - added detailed documentations
+  - added java documentations
   - resolved assay_refs in EvidenceRef
   - fixed potential bug of duplicating Assay_refs in StudyVariableRefResolver, ProteinRefResolver and AssayRefResolver
   
