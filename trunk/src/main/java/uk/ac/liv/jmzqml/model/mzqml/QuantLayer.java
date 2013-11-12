@@ -6,7 +6,6 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlList;
 import javax.xml.bind.annotation.XmlTransient;
@@ -43,7 +42,7 @@ import uk.ac.liv.jmzqml.model.MzQuantMLObject;
     "columnIndex",
     "dataMatrix"
 })
-public class QuantLayer
+public class QuantLayer<T extends IdOnly>
         extends IdOnly
         implements Serializable, MzQuantMLObject {
 
@@ -56,16 +55,16 @@ public class QuantLayer
     @XmlElement(name = "DataMatrix", required = true)
     protected DataMatrix dataMatrix;
     @XmlTransient
-    protected List<IdOnly> columns;
+    protected List<T> columns;
 
     /**
      * Gets the list of column of the QuantLayer.
      *
      * @return the list of column of the QuantLayer.
      */
-    public List<IdOnly> getColumns() {
+    public List<T> getColumns() {
         if (columns == null) {
-            columns = new ArrayList<IdOnly>();
+            columns = new ArrayList<T>();
         }
         return columns;
     }
@@ -75,12 +74,12 @@ public class QuantLayer
      *
      * @param columns a list of column.
      */
-    public void setColumnIndex(List<IdOnly> columns) {
+    public void setColumnIndex(List<T> columns) {
         if (columns == null) {
             this.columnIndex = null;
         }
         else {
-            for (IdOnly column : columns) {
+            for (T column : columns) {
                 String refId = column.getId();
                 if (refId == null) {
                     throw new IllegalArgumentException("Referenced object does not have an identifier.");
