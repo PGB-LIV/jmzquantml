@@ -116,8 +116,6 @@ public class MzQuantMLUnmarshaller {
         }
         catch (IOException ioex) {
             ioex.printStackTrace(System.err);
-
-
         }
 
         if (schemaValidating) {

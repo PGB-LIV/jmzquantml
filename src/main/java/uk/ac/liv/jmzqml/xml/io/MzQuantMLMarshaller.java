@@ -186,7 +186,7 @@ public class MzQuantMLMarshaller {
     public String createXmlHeader() {
         //String encoding = System.getProperty("file.encoding", "UTF-8");
         String encoding = "UTF-8";
-        return "<?xml verion=\"1.0\" encoding=\"" + encoding + "\"?>";
+        return "<?xml version=\"1.0\" encoding=\"" + encoding + "\"?>";
     }
 
     /**

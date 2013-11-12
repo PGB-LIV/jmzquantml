@@ -118,7 +118,13 @@ public class MzQuantMLIndexerFactory {
 
                 // create xml element extractor
                 xmlExtractor = new SimpleXmlElementExtractor();
-                xmlExtractor.setEncoding(xmlExtractor.detectFileEncoding(xmlFile.toURI().toURL()));
+                if (xmlExtractor.detectFileEncoding(xmlFile.toURI().toURL()) != null) {
+                    xmlExtractor.setEncoding(xmlExtractor.detectFileEncoding(xmlFile.toURI().toURL()));
+                }
+                // if XML header doesn't exit, the mzQuantML file should still be valid 
+//                else {
+//                    throw new IllegalStateException("The mzQuantML file doesn't contain encoding information in the header!");
+//                }
 
                 // create index
                 index = xpathAccess.getIndex();
