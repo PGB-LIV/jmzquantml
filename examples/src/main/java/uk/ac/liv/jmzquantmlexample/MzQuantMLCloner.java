@@ -12,6 +12,8 @@ import uk.ac.liv.jmzqml.xml.io.MzQuantMLUnmarshaller;
 
 /**
  *
+ * An example of using the API to make a clone file from CPTAC-Progenesis-small-example.mzq.
+ *
  * @author Da Qi
  * @institute University of Liverpool
  * @time 20-Jun-2013 14:48:18
@@ -46,7 +48,7 @@ public class MzQuantMLCloner {
         MzQuantMLMarshaller m = new MzQuantMLMarshaller();
         FileWriter writer = null;
         try {
-            writer = new FileWriter("modifiedMzQuantML.mzq");
+            writer = new FileWriter("clonedMzQuantML.mzq");
             // XML header
             writer.write(m.createXmlHeader() + "\n");
             // mzQuantML start tag

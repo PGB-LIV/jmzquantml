@@ -2,7 +2,7 @@
 package uk.ac.liv.jmzquantmlexample;
 
 /**
- *
+ * An example class showing how to use jmzQuantML to modify an existing mzQuantML file
  * @author Da Qi
  * @institute University of Liverpool
  * @time 19-Jun-2013 12:32:41
