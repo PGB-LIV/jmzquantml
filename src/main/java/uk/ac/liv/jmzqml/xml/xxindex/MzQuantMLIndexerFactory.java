@@ -333,7 +333,7 @@ public class MzQuantMLIndexerFactory {
                 if (element.isIdMapped() && element.isIndexed()) {
                     if (element.getClazz().isAssignableFrom(Identifiable.class)
                             || element.getClazz().isAssignableFrom(IdOnly.class)) {
-                        logger.warn("Element for class " + element.getClass() + " may not contain an 'id' attribute, but was selected for id mapping!");
+                        logger.warn("Element for class " + element.getClazz() + " may not contain an 'id' attribute, but was selected for id mapping!");
                     }
                     logger.debug("Initiating ID map for " + element.getClazz().getName());
 
