@@ -205,6 +205,10 @@ public class EvidenceRef
         return this.idRefs;
     }
 
+    public void setIdRefs(List<String> idRefs) {
+        this.idRefs = idRefs;
+    }
+
     /**
      * Gets the value of the identificationFileRef property.
      *

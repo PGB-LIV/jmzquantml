@@ -44,6 +44,7 @@ import uk.ac.liv.jmzqml.xml.io.MzQuantMLUnmarshaller;
 public class MzQuantMLUnmarshallerTest {
 
     private static MzQuantMLUnmarshaller unmarshaller;
+    private static MzQuantMLUnmarshaller noidUM;
 
     static {
         String fileName = "CPTAC-Progenesis-small-example.mzq";
@@ -52,6 +53,14 @@ public class MzQuantMLUnmarshallerTest {
 
         unmarshaller = new MzQuantMLUnmarshaller(xmlFileURL);
         assertNotNull(unmarshaller);
+    }
+
+    @Test(expected = IllegalStateException.class)
+    public void testNoIDUnmarshaller() {
+        String noidFile = "NoRefIdTest.mzq";
+        URL noidFileURL = MzQuantMLUnmarshallerTest.class.getClassLoader().getResource(noidFile);
+        assertNotNull(noidFileURL);
+        noidUM = new MzQuantMLUnmarshaller(noidFileURL);
     }
 
     @Test
