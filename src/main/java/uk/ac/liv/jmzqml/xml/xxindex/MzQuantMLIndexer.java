@@ -8,9 +8,12 @@ package uk.ac.liv.jmzqml.xml.xxindex;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
+
 import javax.naming.ConfigurationException;
+
 import psidev.psi.tools.xxindex.index.IndexElement;
 import uk.ac.liv.jmzqml.MzQuantMLElement;
+import uk.ac.liv.jmzqml.model.MzQuantMLObject;
 
 /**
  *
@@ -46,7 +49,7 @@ public interface MzQuantMLIndexer {
      *
      * @return the XML String representation of the requested element.
      */
-    public String getXmlString(String ID, Class clazz);
+    public String getXmlString(String ID, Class<? extends MzQuantMLObject> clazz);
 
     /**
      * A method to retrieve the list of {@link psidev.psi.tools.xxindex.index.IndexElement} matching the xpath.
@@ -72,7 +75,7 @@ public interface MzQuantMLIndexer {
      * @return the compete start tag for the XML element with the specified
      *         attributes.
      */
-    public String getStartTag(String id, Class clazz);
+    public String getStartTag(String id, Class<? extends MzQuantMLObject> clazz);
 
     /**
      * Get the attribute XML string of the mzQuantML file.
@@ -88,7 +91,7 @@ public interface MzQuantMLIndexer {
      *
      * @return true if the element being ID mapped. See configuration of elements (MzQuantMLElement).
      */
-    public boolean isIDmapped(String id, Class clazz);
+    public boolean isIDmapped(String id, Class<? extends MzQuantMLObject> clazz);
 
     /**
      * Is dependent on the element being indexed and ID mapped.

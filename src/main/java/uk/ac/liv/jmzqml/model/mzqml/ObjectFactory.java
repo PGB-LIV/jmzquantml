@@ -379,8 +379,8 @@ public class ObjectFactory {
      *
      * @return an instance of {@link QuantLayer }
      */
-    public QuantLayer createQuantLayer() {
-        return new QuantLayer();
+    public QuantLayer<IdOnly> createQuantLayer() {
+        return new QuantLayer<IdOnly>();
     }
 
     /**

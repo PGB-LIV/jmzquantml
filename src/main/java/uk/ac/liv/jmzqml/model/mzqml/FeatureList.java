@@ -4,6 +4,7 @@ package uk.ac.liv.jmzqml.model.mzqml;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
@@ -11,6 +12,7 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlElements;
 import javax.xml.bind.annotation.XmlTransient;
 import javax.xml.bind.annotation.XmlType;
+
 import uk.ac.liv.jmzqml.model.MzQuantMLObject;
 import uk.ac.liv.jmzqml.model.ParamGroupCapable;
 import uk.ac.liv.jmzqml.model.utils.FacadeList;
@@ -62,9 +64,9 @@ public class FeatureList
     @XmlElement(name = "FeatureQuantLayer")
     protected List<GlobalQuantLayer> featureQuantLayer;
     @XmlElement(name = "MS2AssayQuantLayer")
-    protected List<QuantLayer> ms2AssayQuantLayer;
+    protected List<QuantLayer<IdOnly>> ms2AssayQuantLayer;
     @XmlElement(name = "MS2StudyVariableQuantLayer")
-    protected List<QuantLayer> ms2StudyVariableQuantLayer;
+    protected List<QuantLayer<IdOnly>> ms2StudyVariableQuantLayer;
     @XmlElement(name = "MS2RatioQuantLayer")
     protected RatioQuantLayer ms2RatioQuantLayer;
     @XmlElements({
@@ -191,11 +193,11 @@ public class FeatureList
      *
      * @return the value of the ms2AssayQuantLayer property.
      */
-    public List<QuantLayer> getMS2AssayQuantLayer() {
+    public List<QuantLayer<IdOnly>> getMS2AssayQuantLayer() {
         if (ms2AssayQuantLayer == null) {
-            ms2AssayQuantLayer = new ArrayList<QuantLayer>();
+            ms2AssayQuantLayer = new ArrayList<QuantLayer<IdOnly>>();
         }
-        return this.ms2AssayQuantLayer;
+        return ms2AssayQuantLayer;
     }
 
     /**
@@ -222,11 +224,11 @@ public class FeatureList
      *
      * @return the value of the ms2StudyVariableQuantLayer property.
      */
-    public List<QuantLayer> getMS2StudyVariableQuantLayer() {
+    public List<QuantLayer<IdOnly>> getMS2StudyVariableQuantLayer() {
         if (ms2StudyVariableQuantLayer == null) {
-            ms2StudyVariableQuantLayer = new ArrayList<QuantLayer>();
+            ms2StudyVariableQuantLayer = new ArrayList<QuantLayer<IdOnly>>();
         }
-        return this.ms2StudyVariableQuantLayer;
+        return ms2StudyVariableQuantLayer;
     }
 
     /**

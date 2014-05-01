@@ -27,7 +27,7 @@ import uk.ac.liv.jmzqml.xml.jaxb.marshaller.MarshallerFactory;
  * Class for marshalling an mzQuantML file.
  * <p>
  * An mzQuantML file can be marshalled in two different ways. 
- * One way is to marsharl the whole mzQuantML object into a file; 
+ * One way is to marshal the whole mzQuantML object into a file; 
  * the other way is to use helper methods to stitch together large XML elements.
  *
  * @author Gerhard Mayer, MPC, Ruhr-University of Bochum

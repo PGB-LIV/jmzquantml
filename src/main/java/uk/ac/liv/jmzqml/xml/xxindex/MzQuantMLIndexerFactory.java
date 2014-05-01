@@ -93,8 +93,8 @@ public class MzQuantMLIndexerFactory {
         private XpathIndex index = null;
         private String mzQuantMLAttributeXMLString = null;
         // a unified cache of all the id maps
-        private Map<Class, Map<String, IndexElement>> idMapCache =
-                new HashMap<Class, Map<String, IndexElement>>();
+        private Map<Class<MzQuantMLObject>, Map<String, IndexElement>> idMapCache =
+                new HashMap<Class<MzQuantMLObject>, Map<String, IndexElement>>();
 
         /*
          * Constructor
@@ -196,7 +196,7 @@ public class MzQuantMLIndexerFactory {
         }
 
         @Override
-        public String getXmlString(String ID, Class clazz) {
+        public String getXmlString(String ID, Class<? extends MzQuantMLObject> clazz) {
             logger.debug("Getting cached ID: " + ID + " from cache: " + clazz);
 
             Map<String, IndexElement> idMap = idMapCache.get(clazz);
@@ -213,7 +213,7 @@ public class MzQuantMLIndexerFactory {
         }
 
         @Override
-        public String getStartTag(String id, Class clazz) {
+        public String getStartTag(String id, Class<? extends MzQuantMLObject> clazz) {
             logger.debug("Getting start tag of element with id: " + id + " for class: " + clazz);
             String tag = null;
 
@@ -225,20 +225,20 @@ public class MzQuantMLIndexerFactory {
                         tag = xpathAccess.getStartTag(element);
                     }
                     catch (IOException e) {
-                        //ToDo: proper handling
+                        //TODO: proper handling
                         e.printStackTrace();
                     }
                 }
                 else {
-                    // ToDo: what if the element exists, but its id was not cached?
-                    // ToDo: throw an exception?
+                    // TODO: what if the element exists, but its id was not cached?
+                    // TODO: throw an exception?
                 }
             }
             return tag;
         }
 
         @Override
-        public boolean isIDmapped(String id, Class clazz) {
+        public boolean isIDmapped(String id, Class<? extends MzQuantMLObject> clazz) {
             if (clazz == null) {
                 return false;
             }

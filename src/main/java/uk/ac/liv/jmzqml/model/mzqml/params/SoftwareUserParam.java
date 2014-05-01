@@ -29,5 +29,6 @@ import uk.ac.liv.jmzqml.model.mzqml.UserParam;
  * @time 23-Apr-2013 15:35:22
  */
 public class SoftwareUserParam extends UserParam {
+	private static final long serialVersionUID = 1L;
 
 }

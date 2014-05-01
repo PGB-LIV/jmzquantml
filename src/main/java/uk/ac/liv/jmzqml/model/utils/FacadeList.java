@@ -2,6 +2,10 @@
 package uk.ac.liv.jmzqml.model.utils;
 
 import java.util.*;
+import java.util.function.Consumer;
+import java.util.function.Predicate;
+import java.util.function.UnaryOperator;
+import java.util.stream.Stream;
 
 /**
  * Created by IntelliJ IDEA.
@@ -30,7 +34,7 @@ import java.util.*;
  */
 public class FacadeList<T> extends AbstractCollection<T> implements List<T> {
 
-    private List originalList;
+    private List<T> originalList;
     private Class<T> clazz;
 
     /**
@@ -425,12 +429,12 @@ public class FacadeList<T> extends AbstractCollection<T> implements List<T> {
     private T getAtIndex(int index) {
         this.checkIndex(index);
         int cnt = 0;
-        Iterator it = originalList.iterator();
+        Iterator<T> it = originalList.iterator();
         while (it.hasNext()) {
-            Object o = it.next();
+            T o = it.next();
             if (clazz.isInstance(o)) {
                 if (index == cnt) {
-                    return (T) o;
+                    return o;
                 }
                 cnt++;
             }
@@ -447,7 +451,6 @@ public class FacadeList<T> extends AbstractCollection<T> implements List<T> {
      * @return
      */
     private T setAtIndex(int index, T newElement) {
-        int cnt = 0;
         int originalListIndex = this.getOriginalIndex(index);
 
         // check index and throw an exception
@@ -509,7 +512,7 @@ public class FacadeList<T> extends AbstractCollection<T> implements List<T> {
 
     private class SublistIterator implements Iterator<T> {
 
-        private List superList;
+        private List<T> superList;
         /**
          * Next position in the super list
          */
@@ -522,7 +525,7 @@ public class FacadeList<T> extends AbstractCollection<T> implements List<T> {
         private int currPosition = -1;
         private boolean nextHasBeenCalled = false;
 
-        public SublistIterator(List superList) {
+        public SublistIterator(List<T> superList) {
             this.superList = superList;
         }
 
@@ -567,11 +570,21 @@ public class FacadeList<T> extends AbstractCollection<T> implements List<T> {
 
         }
 
+
+        /**
+         * Not yet supported - Java 8 method
+         */
+		@Override
+		public void forEachRemaining(Consumer<? super T> action) {
+			// TODO Auto-generated method stub
+			
+		}
+
     }
 
     private class SubListListIterator implements ListIterator<T> {
 
-        private List superList;
+        private List<T> superList;
         /**
          * Current position keeps track of the superlist index of the last instance returned by next()
          * or -1 if next() has not been called
@@ -591,11 +604,11 @@ public class FacadeList<T> extends AbstractCollection<T> implements List<T> {
         private boolean nextOrPreviousHasBeenCalled = false;
         private boolean addOrRemoveCalled;
 
-        private SubListListIterator(List superList) {
+        private SubListListIterator(List<T> superList) {
             this(superList, 0);
         }
 
-        public SubListListIterator(List superList, int startIndex) {
+        public SubListListIterator(List<T> superList, int startIndex) {
             if (superList == null) {
                 throw new NullPointerException("Input super list cannot be null");
             }
@@ -761,6 +774,81 @@ public class FacadeList<T> extends AbstractCollection<T> implements List<T> {
             this.superList.add(currPosition + 1, t);
         }
 
+		@Override
+		public void forEachRemaining(Consumer<? super T> action) {
+			// TODO Auto-generated method stub
+			
+		}
+
     }
+
+    /**
+     * Not yet supported - Java 8 method
+     */
+	@Override
+	public boolean removeIf(Predicate<? super T> filter) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+
+    /**
+     * Not yet supported - Java 8 method
+     */
+	@Override
+	public Stream<T> stream() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+    /**
+     * Not yet supported - Java 8 method
+     */
+	@Override
+	public Stream<T> parallelStream() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+    /**
+     * Not yet supported - Java 8 method
+     */
+	@Override
+	public void forEach(Consumer<? super T> action) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+    /**
+     * Not yet supported - Java 8 method
+     */
+	@Override
+	public void replaceAll(UnaryOperator<T> operator) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+    /**
+     * Not yet supported - Java 8 method
+     */
+	@Override
+	public void sort(Comparator<? super T> c) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+    /**
+     * Not yet supported - Java 8 method
+     */
+	@Override
+	public Spliterator<T> spliterator() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 }

@@ -78,7 +78,7 @@ public class ParamUpdater {
                  * Use reflection to set the value.
                  */
                 try {
-                    Class cls = input.getClass();
+                    Class<? extends CvParam> cls = input.getClass();
                     Field cvRefField = cls.getDeclaredField("cvRef");
                     cvRefField.setAccessible(true);
                     cvRefField.set(newParam, input.getCvRef());

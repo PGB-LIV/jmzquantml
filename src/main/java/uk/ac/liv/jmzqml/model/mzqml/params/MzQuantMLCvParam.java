@@ -29,5 +29,6 @@ import uk.ac.liv.jmzqml.model.mzqml.CvParam;
  * @time 02-May-2013 23:08:41
  */
 public class MzQuantMLCvParam extends CvParam{
+	private static final long serialVersionUID = 1L;
 
 }

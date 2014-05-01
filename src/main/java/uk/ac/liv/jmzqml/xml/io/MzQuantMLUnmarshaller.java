@@ -288,15 +288,15 @@ public class MzQuantMLUnmarshaller {
      * @return A map of all the found name-value attribute pairs or null if no
      *         element with the specified id was found.
      */
-    public Map<String, String> getElementAttributes(String id, Class clazz) {
+    public Map<String, String> getElementAttributes(String id, Class<? extends MzQuantMLObject> clazz) {
         Map<String, String> attributes = new HashMap<String, String>();
-        // retrieve the start tag of the correspoinding XML element
+        // retrieve the start tag of the corresponding XML element
         String tag = index.getStartTag(id, clazz);
         if (tag == null) {
             return null;
         }
 
-        // parse the tage for attributes
+        // parse the tag for attributes
         Matcher match = XML_ATT_PATTERN.matcher(tag);
         while (match.find()) {
             if (match.groupCount() == 2) {
@@ -519,7 +519,6 @@ public class MzQuantMLUnmarshaller {
 //            cls = MzQuantMLElement.ParamList.getClazz();
 //        }
         if (cls.equals(MzQuantMLElement.AnalysisSummary.getClazz())) {
-            StringReader sr = new StringReader(xmlSt);
             MzQuantMLNamespaceFilter xmlFilter = new MzQuantMLNamespaceFilter();
             Unmarshaller unmarshaller = UnmarshallerFactory.getInstance().initializeUnmarshaller(index, null, xmlFilter);
             JAXBElement<ParamList> holder = unmarshaller.unmarshal(new SAXSource(xmlFilter, new InputSource(new StringReader(xmlSt))), ParamList.class);
@@ -538,7 +537,7 @@ public class MzQuantMLUnmarshaller {
             MzQuantMLNamespaceFilter xmlFilter = new MzQuantMLNamespaceFilter();
 
             //initializeUnmarshaller will assign the proper reader to the xmlFilter
-            //Todo: add cache
+            //TODO: add cache
             Unmarshaller unmarshaller = UnmarshallerFactory.getInstance().initializeUnmarshaller(index, null, xmlFilter);
             //unmarshall the desired object
             JAXBElement<T> holder = unmarshaller.unmarshal(new SAXSource(xmlFilter, new InputSource(new StringReader(xmlSt))), cls);
