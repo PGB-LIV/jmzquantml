@@ -4,12 +4,14 @@ package uk.ac.liv.jmzqml.model.mzqml;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlElements;
 import javax.xml.bind.annotation.XmlType;
+
 import uk.ac.liv.jmzqml.model.MzQuantMLObject;
 import uk.ac.liv.jmzqml.model.ParamGroupCapable;
 import uk.ac.liv.jmzqml.model.utils.FacadeList;
@@ -61,9 +63,9 @@ public class PeptideConsensusList
     @XmlElement(name = "GlobalQuantLayer")
     protected List<GlobalQuantLayer> globalQuantLayer;
     @XmlElement(name = "AssayQuantLayer")
-    protected List<QuantLayer> assayQuantLayer;
+    protected List<QuantLayer<IdOnly>> assayQuantLayer;
     @XmlElement(name = "StudyVariableQuantLayer")
-    protected List<QuantLayer> studyVariableQuantLayer;
+    protected List<QuantLayer<IdOnly>> studyVariableQuantLayer;
     @XmlElement(name = "RatioQuantLayer")
     protected RatioQuantLayer ratioQuantLayer;
     @XmlElements({
@@ -160,11 +162,11 @@ public class PeptideConsensusList
      *
      * @return the value of the assayQuantLayer property.
      */
-    public List<QuantLayer> getAssayQuantLayer() {
+    public List<QuantLayer<IdOnly>> getAssayQuantLayer() {
         if (assayQuantLayer == null) {
-            assayQuantLayer = new ArrayList<QuantLayer>();
+            assayQuantLayer = new ArrayList<QuantLayer<IdOnly>>();
         }
-        return this.assayQuantLayer;
+        return assayQuantLayer;
     }
 
     /**
@@ -191,11 +193,11 @@ public class PeptideConsensusList
      *
      * @return the value of the studyVariableQuantLayer property.
      */
-    public List<QuantLayer> getStudyVariableQuantLayer() {
+    public List<QuantLayer<IdOnly>> getStudyVariableQuantLayer() {
         if (studyVariableQuantLayer == null) {
-            studyVariableQuantLayer = new ArrayList<QuantLayer>();
+            studyVariableQuantLayer = new ArrayList<QuantLayer<IdOnly>>();
         }
-        return this.studyVariableQuantLayer;
+        return studyVariableQuantLayer;
     }
 
     /**

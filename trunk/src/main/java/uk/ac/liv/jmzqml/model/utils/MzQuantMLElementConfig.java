@@ -78,7 +78,7 @@ public class MzQuantMLElementConfig {
     /**
      * Get the boolean value of cached attribute.
      *
-     * @return the value of cached attibute.
+     * @return the value of cached attribute.
      */
     public boolean isCached() {
         return cached;

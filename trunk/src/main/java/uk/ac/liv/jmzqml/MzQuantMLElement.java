@@ -1208,7 +1208,7 @@ public enum MzQuantMLElement {
      *
      * @return a subclass of {@link uk.ac.liv.jmzqml.xml.jaxb.resolver.AbstractReferenceResolver}.
      */
-    public <R extends AbstractReferenceResolver> Class<R> getRefResolverClass() {
+    public <R extends AbstractReferenceResolver<?>> Class<R> getRefResolverClass() {
         return refResolverClass;
     }
 

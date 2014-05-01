@@ -57,7 +57,7 @@ public enum ParamMappings {
      * @return the value of clazz property.
      */
     public Class getClazz() {
-        return this.clazz;
+        return clazz;
     }
 
     /**

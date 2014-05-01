@@ -22,8 +22,11 @@ package uk.ac.liv.jmzqml.xml.jaxb.unmarshaller.listeners;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Method;
+
 import javax.xml.bind.Unmarshaller;
+
 import org.apache.log4j.Logger;
+
 import uk.ac.liv.jmzqml.MzQuantMLElement;
 import uk.ac.liv.jmzqml.ParamListMappings;
 import uk.ac.liv.jmzqml.ParamMappings;
@@ -97,13 +100,13 @@ public class RawXMLListener extends Unmarshaller.Listener {
                      * Use the retrieved class name to determine the correct subclasses of CvParam and UserParam to use.
                      */
                     if (param.getCvParam() != null) {
-                        Class clazz = Class.forName("uk.ac.liv.jmzqml.model.mzqml.params." + className + "CvParam");
-                        CvParam cvParam = ParamUpdater.updateCvParamSubclass(param.getCvParam(), clazz);
+                        Class<? extends CvParam> cvParamClass = (Class<? extends CvParam>) Class.forName("uk.ac.liv.jmzqml.model.mzqml.params." + className + "CvParam");
+                        CvParam cvParam = ParamUpdater.updateCvParamSubclass(param.getCvParam(), cvParamClass);
                         param.setParam(cvParam);
                     }
                     else if (param.getUserParam() != null) {
-                        Class clazz = Class.forName("uk.ac.liv.jmzqml.model.mzqml.params." + className + "UserParam");
-                        UserParam userParam = ParamUpdater.updateUserParamSubclass(param.getUserParam(), clazz);
+                        Class<? extends UserParam> userParamClass = (Class<? extends UserParam>) Class.forName("uk.ac.liv.jmzqml.model.mzqml.params." + className + "UserParam");
+                        UserParam userParam = ParamUpdater.updateUserParamSubclass(param.getUserParam(), userParamClass);
                         param.setParam(userParam);
                     }
                 }
@@ -126,10 +129,10 @@ public class RawXMLListener extends Unmarshaller.Listener {
                         /**
                          * Use the retrieved class name to determine the correct subclasses of CvParam and UserParam to use.
                          */
-                        Class clazz = Class.forName("uk.ac.liv.jmzqml.model.mzqml.params." + className + "CvParam");
-                        ParamUpdater.updateCvParamSubclassesList(paramList.getCvParam(), clazz);
-                        clazz = Class.forName("uk.ac.liv.jmzqml.model.mzqml.params." + className + "UserParam");
-                        ParamUpdater.updateUserParamSubclassesList(paramList.getUserParam(), clazz);
+                        Class<? extends CvParam> cvParamClass = (Class<? extends CvParam>) Class.forName("uk.ac.liv.jmzqml.model.mzqml.params." + className + "CvParam");
+                        ParamUpdater.updateCvParamSubclassesList(paramList.getCvParam(), cvParamClass);
+                        Class<? extends UserParam> userParamClass = (Class<? extends UserParam>) Class.forName("uk.ac.liv.jmzqml.model.mzqml.params." + className + "UserParam");
+                        ParamUpdater.updateUserParamSubclassesList(paramList.getUserParam(), userParamClass);
                     }
                 }
             }
@@ -181,13 +184,13 @@ public class RawXMLListener extends Unmarshaller.Listener {
     private void referenceResolving(Object target, Object parent,
                                     MzQuantMLElement element) {
         if (element.isAutoRefResolving()) {
-            Class cls = element.getRefResolverClass();
+            Class<AbstractReferenceResolver<?>> cls = element.getRefResolverClass();
             if (cls == null) {
                 throw new IllegalStateException("Can not auto-resolve references if no reference resolver was defined for class: " + element.getClazz());
             }
             try {
-                Constructor con = cls.getDeclaredConstructor(MzQuantMLIndexer.class, MzQuantMLObjectCache.class);
-                AbstractReferenceResolver resolver = (AbstractReferenceResolver) con.newInstance(index, cache);
+                Constructor<AbstractReferenceResolver<?>> con = cls.getDeclaredConstructor(MzQuantMLIndexer.class, MzQuantMLObjectCache.class);
+                AbstractReferenceResolver<?> resolver = (AbstractReferenceResolver<?>) con.newInstance(index, cache);
                 resolver.afterUnmarshal(target, parent);
             }
             catch (Exception e) {

@@ -23,8 +23,12 @@ package uk.ac.liv.jmzqml.model.utils;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Map.Entry;
+
 import javax.xml.namespace.QName;
+
 import uk.ac.liv.jmzqml.MzQuantMLElement;
+import uk.ac.liv.jmzqml.model.MzQuantMLObject;
 import uk.ac.liv.jmzqml.model.mzqml.MzQuantML;
 
 /**
@@ -51,7 +55,7 @@ public class ModelConstants {
      * The location of the mzQuantML schema.
      */
     public static final String MZQML_SCHEMA = "http://psidev.info/psi/pi/mzQuantML/mzQuantML_1_0_0.xsd";
-    private static Map<Class, QName> modelQNames = new HashMap<Class, QName>();
+    private static Map<Class<MzQuantMLObject>, QName> modelQNames = new HashMap<Class<MzQuantMLObject>, QName>();
 
     static {
         for (MzQuantMLElement element : MzQuantMLElement.values()) {
@@ -70,7 +74,7 @@ public class ModelConstants {
      *
      * @return true if the class is registered as a class of mzQuantmL model.
      */
-    public static boolean isRegisteredClass(Class cls) {
+    public static boolean isRegisteredClass(Class<? extends MzQuantMLObject> cls) {
         return modelQNames.containsKey(cls);
     }
 
@@ -81,7 +85,7 @@ public class ModelConstants {
      *
      * @return the QName of matching Class.
      */
-    public static QName getQNameForClass(Class cls) {
+    public static QName getQNameForClass(Class<? extends MzQuantMLObject> cls) {
         if (isRegisteredClass(cls)) {
             return modelQNames.get(cls);
         }
@@ -97,7 +101,7 @@ public class ModelConstants {
      *
      * @return the string element name of matching Class.
      */
-    public static String getElementNameForClass(Class cls) {
+    public static String getElementNameForClass(Class<MzQuantMLObject> cls) {
         if (isRegisteredClass(cls)) {
             return modelQNames.get(cls).getLocalPart();
         }
@@ -113,8 +117,8 @@ public class ModelConstants {
      *
      * @return the Class of matching element name.
      */
-    public static Class getClassForElementName(String name) {
-        for (Map.Entry<Class, QName> entry : modelQNames.entrySet()) {
+    public static Class<MzQuantMLObject> getClassForElementName(String name) {
+        for (Entry<Class<MzQuantMLObject>, QName> entry : modelQNames.entrySet()) {
             if (entry.getValue().getLocalPart().equals(name)) {
                 return entry.getKey();
             }

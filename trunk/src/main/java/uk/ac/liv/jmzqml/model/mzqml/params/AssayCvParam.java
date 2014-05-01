@@ -29,5 +29,6 @@ import uk.ac.liv.jmzqml.model.mzqml.CvParam;
  * @time 23-Apr-2013 15:10:49
  */
 public class AssayCvParam extends CvParam{
+	private static final long serialVersionUID = 1L;
 
 }

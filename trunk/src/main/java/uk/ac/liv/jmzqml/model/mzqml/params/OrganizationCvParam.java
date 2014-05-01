@@ -29,5 +29,6 @@ import uk.ac.liv.jmzqml.model.mzqml.CvParam;
  * @time 02-May-2013 17:48:56
  */
 public class OrganizationCvParam extends CvParam{
+	private static final long serialVersionUID = 1L;
 
 }
