@@ -34,10 +34,10 @@ public enum ParamMappings {
      * SearchDatabase member
      */
     SearchDatabase("DatabaseName", SearchDatabase.class);
-    private Class clazz;
+    private Class<?> clazz;
     private String className;
 
-    private ParamMappings(String className, Class clazz) {
+    private ParamMappings(String className, Class<?> clazz) {
         this.className = className;
         this.clazz = clazz;
     }
@@ -56,7 +56,7 @@ public enum ParamMappings {
      *
      * @return the value of clazz property.
      */
-    public Class getClazz() {
+    public Class<?> getClazz() {
         return clazz;
     }
 
@@ -67,7 +67,7 @@ public enum ParamMappings {
      *
      * @return a member of ParamMappings.
      */
-    public static ParamMappings getType(Class clazz) {
+    public static ParamMappings getType(Class<?> clazz) {
         for (ParamMappings type : ParamMappings.values()) {
             if (type.getClazz() == clazz) {
                 return type;

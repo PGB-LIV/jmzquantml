@@ -33,11 +33,11 @@ public class MzQuantMLElementConfig {
     private String xpath;
     private boolean cached;
     private boolean idMapped;
-    private Class clazz;
-    private Class cvParamClass;
-    private Class userParamClass;
+    private Class<?> clazz;
+    private Class<?> cvParamClass;
+    private Class<?> userParamClass;
     private boolean autoRefResolving;
-    private Class refResolverClass;
+    private Class<?> refResolverClass;
 
     /**
      * Get the boolean value of indexed attribute.
@@ -125,7 +125,7 @@ public class MzQuantMLElementConfig {
      *
      * @param clazz the value of clazz attribute.
      */
-    public void setClazz(Class clazz) {
+    public void setClazz(Class<?> clazz) {
         this.clazz = clazz;
     }
 
@@ -134,7 +134,7 @@ public class MzQuantMLElementConfig {
      *
      * @return the value of cvParamClass attribute.
      */
-    public Class getCvParamClass() {
+    public Class<?> getCvParamClass() {
         return cvParamClass;
     }
 
@@ -143,7 +143,7 @@ public class MzQuantMLElementConfig {
      *
      * @param cvParamClass the value of cvParamClass attribute.
      */
-    public void setCvParamClass(Class cvParamClass) {
+    public void setCvParamClass(Class<?> cvParamClass) {
         this.cvParamClass = cvParamClass;
     }
 
@@ -152,7 +152,7 @@ public class MzQuantMLElementConfig {
      *
      * @return the value of userParamClass attribute.
      */
-    public Class getUserParamClass() {
+    public Class<?> getUserParamClass() {
         return userParamClass;
     }
 
@@ -161,7 +161,7 @@ public class MzQuantMLElementConfig {
      *
      * @param userParamClass the value of userParamClass attribute.
      */
-    public void setUserParamClass(Class userParamClass) {
+    public void setUserParamClass(Class<?> userParamClass) {
         this.userParamClass = userParamClass;
     }
 
@@ -188,7 +188,7 @@ public class MzQuantMLElementConfig {
      *
      * @return the value of refResolverClass attribute.
      */
-    public Class getRefResolverClass() {
+    public Class<?> getRefResolverClass() {
         return refResolverClass;
     }
 
@@ -197,7 +197,7 @@ public class MzQuantMLElementConfig {
      *
      * @param refResolverClass the value of refResolverClass attribute.
      */
-    public void setRefResolverClass(Class refResolverClass) {
+    public void setRefResolverClass(Class<?> refResolverClass) {
         this.refResolverClass = refResolverClass;
     }
 
