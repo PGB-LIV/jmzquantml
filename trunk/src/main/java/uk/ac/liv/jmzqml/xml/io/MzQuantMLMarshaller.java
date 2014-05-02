@@ -142,6 +142,7 @@ public class MzQuantMLMarshaller {
      * @param object a subclass of {@link uk.ac.liv.jmzqml.model.MzQuantMLObject}
      * @param out    the writer to which the {@code object} is written.
      */
+    @SuppressWarnings("unchecked")
     public <T extends MzQuantMLObject> void marshall(T object, Writer out) {
 
         if (object == null) {
@@ -163,7 +164,7 @@ public class MzQuantMLMarshaller {
             }
 
             QName aQName = ModelConstants.getQNameForClass(object.getClass());
-            JAXBElement<T> jaxbElement = new JAXBElement(aQName, object.getClass(), object);
+            JAXBElement jaxbElement = new JAXBElement(aQName, object.getClass(), object);
 
             marshaller.marshal(jaxbElement, out);
         }

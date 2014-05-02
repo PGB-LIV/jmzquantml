@@ -39,10 +39,10 @@ public enum ParamListMappings {
      * MzQuantML member
      */
     MzQuantML(new String[]{"AnalysisSummary"}, MzQuantML.class);
-    private Class<?> clazz;
+    private Class clazz;
     private String[] classNames;
 
-    private ParamListMappings(String[] classNames, Class<?> clazz) {
+    private ParamListMappings(String[] classNames, Class clazz) {
         this.classNames = classNames;
         this.clazz = clazz;
     }
@@ -61,7 +61,7 @@ public enum ParamListMappings {
      *
      * @return the value of clazz property.
      */
-    public Class<?> getClazz() {
+    public Class getClazz() {
         return this.clazz;
     }
 
@@ -72,7 +72,7 @@ public enum ParamListMappings {
      *
      * @return a member of ParamListMappings.
      */
-    public static ParamListMappings getType(Class<?> clazz) {
+    public static ParamListMappings getType(Class clazz) {
         for (ParamListMappings type : ParamListMappings.values()) {
             if (type.getClazz() == clazz) {
                 return type;
