@@ -4,7 +4,7 @@
 
     <groupId>uk.ac.liv</groupId>
     <artifactId>jmzquantml</artifactId>
-    <version>1.0.0-1.0.4-SNAPSHOT</version>
+    <version>1.0.0-1.0.4-alpha-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <name>jmzquantml</name>
