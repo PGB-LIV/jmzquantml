@@ -2,10 +2,6 @@
 package uk.ac.liv.jmzqml.model.utils;
 
 import java.util.*;
-import java.util.function.Consumer;
-import java.util.function.Predicate;
-import java.util.function.UnaryOperator;
-import java.util.stream.Stream;
 
 /**
  * Created by IntelliJ IDEA.
@@ -570,16 +566,6 @@ public class FacadeList<T> extends AbstractCollection<T> implements List<T> {
 
         }
 
-
-        /**
-         * Not yet supported - Java 8 method
-         */
-		@Override
-		public void forEachRemaining(Consumer<? super T> action) {
-			// TODO Auto-generated method stub
-			
-		}
-
     }
 
     private class SubListListIterator implements ListIterator<T> {
@@ -774,81 +760,6 @@ public class FacadeList<T> extends AbstractCollection<T> implements List<T> {
             this.superList.add(currPosition + 1, t);
         }
 
-		@Override
-		public void forEachRemaining(Consumer<? super T> action) {
-			// TODO Auto-generated method stub
-			
-		}
-
     }
-
-    /**
-     * Not yet supported - Java 8 method
-     */
-	@Override
-	public boolean removeIf(Predicate<? super T> filter) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-
-    /**
-     * Not yet supported - Java 8 method
-     */
-	@Override
-	public Stream<T> stream() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-
-    /**
-     * Not yet supported - Java 8 method
-     */
-	@Override
-	public Stream<T> parallelStream() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-
-    /**
-     * Not yet supported - Java 8 method
-     */
-	@Override
-	public void forEach(Consumer<? super T> action) {
-		// TODO Auto-generated method stub
-		
-	}
-
-
-    /**
-     * Not yet supported - Java 8 method
-     */
-	@Override
-	public void replaceAll(UnaryOperator<T> operator) {
-		// TODO Auto-generated method stub
-		
-	}
-
-
-    /**
-     * Not yet supported - Java 8 method
-     */
-	@Override
-	public void sort(Comparator<? super T> c) {
-		// TODO Auto-generated method stub
-		
-	}
-
-
-    /**
-     * Not yet supported - Java 8 method
-     */
-	@Override
-	public Spliterator<T> spliterator() {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 }
