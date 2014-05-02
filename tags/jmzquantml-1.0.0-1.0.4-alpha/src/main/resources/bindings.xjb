@@ -1,0 +1,558 @@
+
+<jxb:bindings version="2.1"
+              xmlns:jxb = "http://java.sun.com/xml/ns/jaxb"
+              xmlns:xsd = "http://www.w3.org/2001/XMLSchema"
+              xmlns:xjc = "http://java.sun.com/xml/ns/jaxb/xjc"
+              xmlns:psi-mzq="http://psidev.info/psi/pi/mzQuantML/1.0.0">
+    <jxb:globalBindings choiceContentProperty = "true">
+        <jxb:serializable uid="100"/>
+        <xjc:superInterface name= "uk.ac.liv.jmzqml.model.MzQuantMLObject"/>
+        <xjc:javaType name = "java.util.Calendar" xmlType="xsd:dateTime"
+                      adapter="uk.ac.liv.jmzqml.xml.jaxb.adapter.CalendarAdapter"/>
+    </jxb:globalBindings>
+	
+    <!-- ####              mzQuantML bindings              ####-->
+    
+    <jxb:bindings schemaLocation="mzQuantML_1_0_0_stringId.xsd" node="/xsd:schema">
+        
+        <jxb:schemaBindings>
+            <jxb:package name = "uk.ac.liv.jmzqml.model.mzqml"/>
+        </jxb:schemaBindings>
+		
+        <jxb:bindings node="//xsd:complexType[@name='AbstractContactType']">
+            <jxb:class name="AbstractContact"/>
+        </jxb:bindings>
+        
+        <jxb:bindings node="//xsd:complexType[@name='AbstractParamType']">
+            <jxb:class name="AbstractParam"/>
+        </jxb:bindings>
+		
+<!--        <jxb:bindings node="//xsd:complexType[@name='AbstractParamType']/xsd:attribute[@name='unitCvRef']">
+            <jxb:property name="Cv">
+                <jxb:baseType>
+                    <xjc:javaType name="Cv"
+                                  adapter="uk.ac.liv.jmzqml.xml.jaxb.adapters.CvAdapter"/>
+                </jxb:baseType>
+            </jxb:property>
+        </jxb:bindings>-->
+				
+        <jxb:bindings node="//xsd:complexType[@name='AffiliationType']">
+            <jxb:class name="Affiliation"/>
+        </jxb:bindings>		
+		
+<!--        <jxb:bindings node="//xsd:complexType[@name='AffiliationType']/xsd:attribute[@name='organization_ref']">
+            <jxb:property name="Organization">
+                <jxb:baseType>
+                    <xjc:javaType name="Organization"
+                                  adapter="uk.ac.liv.jmzqml.xml.jaxb.adapters.OrganizationAdapter"/>
+                </jxb:baseType>
+            </jxb:property>
+        </jxb:bindings>-->
+						
+        <jxb:bindings node="//xsd:complexType[@name='AssayListType']">
+            <jxb:class name="AssayList"/>
+        </jxb:bindings>
+		
+        <jxb:bindings node="//xsd:complexType[@name='AssayType']">
+            <jxb:class name="Assay"/>
+        </jxb:bindings>		
+				
+<!--        <jxb:bindings node="//xsd:complexType[@name='AssayType']/xsd:attribute[@name='IdentificationFile_refs']">
+            <jxb:property name="IdentificationFile">
+                <jxb:baseType>
+                    <xjc:javaType name="IdentificationFile"
+                                  adapter="uk.ac.liv.jmzqml.xml.jaxb.adapters.IdentificationFileAdapter"/>
+                </jxb:baseType>
+            </jxb:property>
+        </jxb:bindings>	-->		
+				
+<!--        <jxb:bindings node="//xsd:complexType[@name='AssayType']/xsd:attribute[@name='rawFilesGroup_ref']">
+            <jxb:property name="RawFilesGroup">
+                <jxb:baseType>
+                    <xjc:javaType name="RawFilesGroup"
+                                  adapter="uk.ac.liv.jmzqml.xml.jaxb.adapters.RawFilesGroupAdapter"/>
+                </jxb:baseType>
+            </jxb:property>
+        </jxb:bindings>	-->
+		
+        <jxb:bindings node="//xsd:complexType[@name='AuditCollectionType']">
+            <jxb:class name="AuditCollection"/>
+        </jxb:bindings>		
+				
+        <jxb:bindings node="//xsd:complexType[@name='BibliographicReferenceType']">
+            <jxb:class name="BibliographicReference"/>
+        </jxb:bindings>				
+		
+        <jxb:bindings node="//xsd:complexType[@name='ColumnDefinitionType']">
+            <jxb:class name="ColumnDefinition"/>
+        </jxb:bindings>
+		
+        <jxb:bindings node="//xsd:complexType[@name='ColumnType']">
+            <jxb:class name="Column"/>
+        </jxb:bindings>
+		
+        <jxb:bindings node="//xsd:complexType[@name='ContactRoleType']">
+            <jxb:class name="ContactRole"/>
+        </jxb:bindings>
+		
+<!--        <jxb:bindings node="//xsd:complexType[@name='ContactRoleType']/xsd:attribute[@name='contact_ref']">
+            <jxb:property name="ContactRole">
+                <jxb:baseType>
+                    <xjc:javaType name="ContactRole"
+                                  adapter="uk.ac.liv.jmzqml.xml.jaxb.adapters.ContactRoleAdapter"/>
+                </jxb:baseType>
+            </jxb:property>
+        </jxb:bindings>-->
+						        
+        <jxb:bindings node="//xsd:complexType[@name='CvListType']">
+            <jxb:class name="CvList"/>
+        </jxb:bindings>
+				
+        <jxb:bindings node="//xsd:complexType[@name='cvParamRefType']">
+            <jxb:class name="CvParamRef"/>
+        </jxb:bindings>
+		
+        <jxb:bindings node="//xsd:complexType[@name='CVParamType']">
+            <jxb:class name="CvParam"/>
+        </jxb:bindings>
+		
+<!--        <jxb:bindings node="//xsd:complexType[@name='CVParamType']/xsd:attribute[@name='cvRef']">
+            <jxb:property name="Cv">
+                <jxb:baseType>
+                    <xjc:javaType name="Cv"
+                                  adapter="uk.ac.liv.jmzqml.xml.jaxb.adapters.CvAdapter"/>
+                </jxb:baseType>
+            </jxb:property>
+        </jxb:bindings>-->
+		
+        <jxb:bindings node="//xsd:complexType[@name='CvType']">
+            <jxb:class name="Cv"/>
+        </jxb:bindings>
+		
+        <jxb:bindings node="//xsd:complexType[@name='DBIdentificationRefType']">
+            <jxb:class name="DBIdentificationRef"/>
+        </jxb:bindings>
+		
+<!--        <jxb:bindings node="//xsd:complexType[@name='DBIdentificationRefType']/xsd:attribute[@name='id_ref']">
+            <jxb:property name="ExternalData">
+                <jxb:baseType>
+                    <xjc:javaType name="ExternalData"
+                                  adapter="uk.ac.liv.jmzqml.xml.jaxb.adapters.ExternalDataAdapter"/>
+                </jxb:baseType>
+            </jxb:property>
+        </jxb:bindings>-->
+		
+<!--        <jxb:bindings node="//xsd:complexType[@name='DBIdentificationRefType']/xsd:attribute[@name='searchDatabase_ref']">
+            <jxb:property name="SearchDatabase">
+                <jxb:baseType>
+                    <xjc:javaType name="SearchDatabase"
+                                  adapter="uk.ac.liv.jmzqml.xml.jaxb.adapters.SearchDatabaseAdapter"/>
+                </jxb:baseType>
+            </jxb:property>
+        </jxb:bindings>-->
+		
+        <jxb:bindings node="//xsd:complexType[@name='DataMatrixType']">
+            <jxb:class name="DataMatrix"/>
+        </jxb:bindings>
+		
+        <jxb:bindings node="//xsd:complexType[@name='DataProcessingListType']">
+            <jxb:class name="DataProcessingList"/>
+        </jxb:bindings>
+		
+        <jxb:bindings node="//xsd:complexType[@name='DataProcessingType']">
+            <jxb:class name="DataProcessing"/>
+        </jxb:bindings>
+		
+<!--        <jxb:bindings node="//xsd:complexType[@name='DataProcessingType']/xsd:attribute[@name='software_ref']">
+            <jxb:property name="Software">
+                <jxb:baseType>
+                    <xjc:javaType name="Software"
+                                  adapter="uk.ac.liv.jmzqml.xml.jaxb.adapters.SoftwareAdapter"/>
+                </jxb:baseType>
+            </jxb:property>
+        </jxb:bindings>-->
+		
+        <jxb:bindings node="//xsd:complexType[@name='EvidenceRefType']">
+            <jxb:class name="EvidenceRef"/>
+        </jxb:bindings>
+				
+        <jxb:bindings node="//xsd:complexType[@name='ExternalDataType']">
+            <jxb:class name="ExternalData"/>
+        </jxb:bindings>
+
+        <jxb:bindings node="//xsd:complexType[@name='FeatureListType']">
+            <jxb:class name="FeatureList"/>
+        </jxb:bindings>
+				
+<!--        <jxb:bindings node="//xsd:complexType[@name='FeatureListType']/xsd:attribute[@name='rawFilesGroup_ref']">
+            <jxb:property name="RawFilesGroup">
+                <jxb:baseType>
+                    <xjc:javaType name="RawFilesGroup"
+                                  adapter="uk.ac.liv.jmzqml.xml.jaxb.adapters.RawFilesGroupAdapter"/>
+                </jxb:baseType>
+            </jxb:property>
+        </jxb:bindings>-->
+			
+        <jxb:bindings node="//xsd:complexType[@name='FeatureType']">
+            <jxb:class name="Feature"/>
+        </jxb:bindings>
+
+        <jxb:bindings node="//xsd:complexType[@name='FileFormatType']">
+            <jxb:class name="FileFormat"/>
+        </jxb:bindings>
+		
+        <jxb:bindings node="//xsd:complexType[@name='GlobalQuantLayerType']">
+            <jxb:class name="GlobalQuantLayer"/>
+        </jxb:bindings>
+
+        <jxb:bindings node="//xsd:complexType[@name='IdentifiableType']">
+            <jxb:class name="Identifiable"/>
+        </jxb:bindings>
+				
+        <jxb:bindings node="//xsd:complexType[@name='IdentificationFileType']">
+            <jxb:class name="IdentificationFile"/>
+        </jxb:bindings>
+		
+<!--        <jxb:bindings node="//xsd:complexType[@name='IdentificationFileType']/xsd:attribute[@name='searchDatabase_ref']">
+            <jxb:property name="SearchDatabase">
+                <jxb:baseType>
+                    <xjc:javaType name="SearchDatabase"
+                                  adapter="uk.ac.liv.jmzqml.xml.jaxb.adapters.SearchDatabaseAdapter"/>
+                </jxb:baseType>
+            </jxb:property>
+        </jxb:bindings>-->
+					
+        <jxb:bindings node="//xsd:complexType[@name='IdentificationFilesType']">
+            <jxb:class name="IdentificationFiles"/>
+        </jxb:bindings>
+				
+        <jxb:bindings node="//xsd:complexType[@name='IdentificationRefType']">
+            <jxb:class name="IdentificationRef"/>
+        </jxb:bindings>
+		
+<!--        <jxb:bindings node="//xsd:complexType[@name='IdentificationRefType']/xsd:attribute[@name='id_ref']">
+            <jxb:property name="ExternalData">
+                <jxb:baseType>
+                    <xjc:javaType name="ExternalData"
+                                  adapter="uk.ac.liv.jmzqml.xml.jaxb.adapters.ExternalDataAdapter"/>
+                </jxb:baseType>
+            </jxb:property>
+        </jxb:bindings>-->
+		
+<!--        <jxb:bindings node="//xsd:complexType[@name='IdentificationRefType']/xsd:attribute[@name='identificationFile_ref']">
+            <jxb:property name="IdentificationFile">
+                <jxb:baseType>
+                    <xjc:javaType name="IdentificationFile"
+                                  adapter="uk.ac.liv.jmzqml.xml.jaxb.adapters.IdentificationFileAdapter"/>
+                </jxb:baseType>
+            </jxb:property>
+        </jxb:bindings>-->
+
+        <jxb:bindings node="//xsd:complexType[@name='InputFilesType']">
+            <jxb:class name="InputFiles"/>
+        </jxb:bindings>
+		
+        <jxb:bindings node="//xsd:complexType[@name='LabelType']">
+            <jxb:class name="Label"/>
+        </jxb:bindings>
+	
+        <jxb:bindings node="//xsd:complexType[@name='MethodFilesType']">
+            <jxb:class name="MethodFiles"/>
+        </jxb:bindings>
+		
+        <jxb:bindings node="//xsd:complexType[@name='MethodFileType']">
+            <jxb:class name="MethodFile"/>
+        </jxb:bindings>
+
+        <jxb:bindings node="//xsd:complexType[@name='ModParamType']">
+            <jxb:class name="ModParam"/>
+        </jxb:bindings>
+		
+        <jxb:bindings node="//xsd:complexType[@name='ModificationType']">
+            <jxb:class name="Modification"/>
+        </jxb:bindings>
+		
+<!--        <jxb:bindings node="//xsd:complexType[@name='ModificationType']/xsd:attribute[@name='Feature_refs']">
+            <jxb:property name="Feature">
+                <jxb:baseType>
+                    <xjc:javaType name="Feature"
+                                  adapter="uk.ac.liv.jmzqml.xml.jaxb.adapters.FeatureAdapter"/>
+                </jxb:baseType>
+            </jxb:property>
+        </jxb:bindings>-->
+														
+        <jxb:bindings node="//xsd:complexType[@name='MzQuantMLType']">
+            <jxb:class name="MzQuantML"/>
+        </jxb:bindings>
+		
+        <jxb:bindings node="//xsd:complexType[@name='OrganizationType']">
+            <jxb:class name="Organization"/>
+        </jxb:bindings>
+		
+        <jxb:bindings node="//xsd:complexType[@name='ParamListType']">
+            <jxb:class name="ParamList"/>
+        </jxb:bindings>
+		
+        <jxb:bindings node="//xsd:complexType[@name='ParamType']">
+            <jxb:class name="Param"/>
+        </jxb:bindings>
+
+        <jxb:bindings node="//xsd:complexType[@name='ParentOrganizationType']">
+            <jxb:class name="ParentOrganization"/>
+        </jxb:bindings>
+
+<!--        <jxb:bindings node="//xsd:complexType[@name='ParentOrganizationType']/xsd:attribute[@name='organization_ref']">
+            <jxb:property name="Organization">
+                <jxb:baseType>
+                    <xjc:javaType name="Organization"
+                                  adapter="uk.ac.liv.jmzqml.xml.jaxb.adapters.OrganizationAdapter"/>
+                </jxb:baseType>
+            </jxb:property>
+        </jxb:bindings>-->
+
+        <jxb:bindings node="//xsd:complexType[@name='PeptideConsensusListType']">
+            <jxb:class name="PeptideConsensusList"/>
+        </jxb:bindings>
+		
+        <jxb:bindings node="//xsd:complexType[@name='PeptideConsensusType']">
+            <jxb:class name="PeptideConsensus"/>
+        </jxb:bindings>
+
+<!--        <jxb:bindings node="//xsd:complexType[@name='PeptideConsensusType']/xsd:attribute[@name='searchDatabase_ref']">
+            <jxb:property name="SearchDatabase">
+                <jxb:baseType>
+                    <xjc:javaType name="SearchDatabase"
+                                  adapter="uk.ac.liv.jmzqml.xml.jaxb.adapters.SearchDatabaseAdapter"/>
+                </jxb:baseType>
+            </jxb:property>
+        </jxb:bindings>-->
+			
+        <jxb:bindings node="//xsd:complexType[@name='PersonType']">
+            <jxb:class name="Person"/>
+        </jxb:bindings>
+
+        <jxb:bindings node="//xsd:complexType[@name='ProcessingMethodType']">
+            <jxb:class name="ProcessingMethod"/>
+        </jxb:bindings>
+				
+        <jxb:bindings node="//xsd:complexType[@name='ProteinGroupListType']">
+            <jxb:class name="ProteinGroupList"/>
+        </jxb:bindings>
+		
+        <jxb:bindings node="//xsd:complexType[@name='ProteinGroupType']">
+            <jxb:class name="ProteinGroup"/>
+        </jxb:bindings>
+		
+<!--        <jxb:bindings node="//xsd:complexType[@name='ProteinGroupType']/xsd:attribute[@name='Protein_refs']">
+            <jxb:property name="Protein">
+                <jxb:baseType>
+                    <xjc:javaType name="Protein"
+                                  adapter="uk.ac.liv.jmzqml.xml.jaxb.adapters.ProteinAdapter"/>
+                </jxb:baseType>
+            </jxb:property>
+        </jxb:bindings>-->
+		
+<!--        <jxb:bindings node="//xsd:complexType[@name='ProteinGroupType']/xsd:attribute[@name='searchDatabase_ref']">
+            <jxb:property name="SearchDatabase">
+                <jxb:baseType>
+                    <xjc:javaType name="SearchDatabase"
+                                  adapter="uk.ac.liv.jmzqml.xml.jaxb.adapters.SearchDatabaseAdapter"/>
+                </jxb:baseType>
+            </jxb:property>
+        </jxb:bindings>-->
+				
+        <jxb:bindings node="//xsd:complexType[@name='ProteinListType']">
+            <jxb:class name="ProteinList"/>
+        </jxb:bindings>
+        
+        <jxb:bindings node="//xsd:complexType[@name='ProteinRefType']">
+            <jxb:class name="ProteinRef"/>
+        </jxb:bindings>
+
+        <jxb:bindings node="//xsd:complexType[@name='ProteinType']">
+            <jxb:class name="Protein"/>
+        </jxb:bindings>
+		
+<!--        <jxb:bindings node="//xsd:complexType[@name='ProteinType']/xsd:attribute[@name='PeptideConsensus_refs']">
+            <jxb:property name="PeptideConsensus">
+                <jxb:baseType>
+                    <xjc:javaType name="PeptideConsensus"
+                                  adapter="uk.ac.liv.jmzqml.xml.jaxb.adapters.PeptideConsensusAdapter"/>
+                </jxb:baseType>
+            </jxb:property>
+        </jxb:bindings>-->
+	
+<!--        <jxb:bindings node="//xsd:complexType[@name='ProteinType']/xsd:attribute[@name='searchDatabase_ref']">
+            <jxb:property name="SearchDatabase">
+                <jxb:baseType>
+                    <xjc:javaType name="SearchDatabase"
+                                  adapter="uk.ac.liv.jmzqml.xml.jaxb.adapters.SearchDatabaseAdapter"/>
+                </jxb:baseType>
+            </jxb:property>
+        </jxb:bindings>-->
+				
+        <jxb:bindings node="//xsd:complexType[@name='ProviderType']">
+            <jxb:class name="Provider"/>
+        </jxb:bindings>
+
+<!--        <jxb:bindings node="//xsd:complexType[@name='ProviderType']/xsd:attribute[@name='analysisSoftware_ref']">
+            <jxb:property name="Software">
+                <jxb:baseType>
+                    <xjc:javaType name="Software"
+                                  adapter="uk.ac.liv.jmzqml.xml.jaxb.adapters.SoftwareAdapter"/>
+                </jxb:baseType>
+            </jxb:property>
+        </jxb:bindings>-->
+		
+        <jxb:bindings node="//xsd:complexType[@name='QuantLayerType']">
+            <jxb:class name="QuantLayer"/>
+        </jxb:bindings>
+
+        <jxb:bindings node="//xsd:complexType[@name='RatioListType']">
+            <jxb:class name="RatioList"/>
+        </jxb:bindings>
+        
+        <jxb:bindings node="//xsd:complexType[@name='RatioQuantLayerType']">
+            <jxb:class name="RatioQuantLayer"/>
+        </jxb:bindings>
+
+        <jxb:bindings node="//xsd:complexType[@name='RatioType']">
+            <jxb:class name="Ratio"/>
+        </jxb:bindings>
+
+<!--        <jxb:bindings node="//xsd:complexType[@name='RatioType']/xsd:attribute[@name='numerator_ref']">
+            <jxb:property name="Assay">
+                <jxb:baseType>
+                    <xjc:javaType name="Assay"
+                                  adapter="uk.ac.liv.jmzqml.xml.jaxb.adapters.AssayAdapter"/>
+                </jxb:baseType>
+            </jxb:property>
+        </jxb:bindings>-->
+		
+<!--        <jxb:bindings node="//xsd:complexType[@name='RatioType']/xsd:attribute[@name='numerator_ref']">
+            <jxb:property name="StudyVariable">
+                <jxb:baseType>
+                    <xjc:javaType name="StudyVariable"
+                                  adapter="uk.ac.liv.jmzqml.xml.jaxb.adapters.StudyVariableAdapter"/>
+                </jxb:baseType>
+            </jxb:property>
+        </jxb:bindings>-->
+		
+<!--        <jxb:bindings node="//xsd:complexType[@name='RatioType']/xsd:attribute[@name='denominator_ref']">
+            <jxb:property name="Assay">
+                <jxb:baseType>
+                    <xjc:javaType name="Assay"
+                                  adapter="uk.ac.liv.jmzqml.xml.jaxb.adapters.AssayAdapter"/>
+                </jxb:baseType>
+            </jxb:property>
+        </jxb:bindings>-->
+		
+<!--        <jxb:bindings node="//xsd:complexType[@name='RatioType']/xsd:attribute[@name='denominator_ref']">
+            <jxb:property name="StudyVariable">
+                <jxb:baseType>
+                    <xjc:javaType name="StudyVariable"
+                                  adapter="uk.ac.liv.jmzqml.xml.jaxb.adapters.StudyVariableAdapter"/>
+                </jxb:baseType>
+            </jxb:property>
+        </jxb:bindings>-->
+		
+        <jxb:bindings node="//xsd:complexType[@name='RawFileType']">
+            <jxb:class name="RawFile"/>
+        </jxb:bindings>
+		
+<!--        <jxb:bindings node="//xsd:complexType[@name='RawFileType']/xsd:attribute[@name='methodFile_ref']">
+            <jxb:property name="MethodFile">
+                <jxb:baseType>
+                    <xjc:javaType name="MethodeFile"
+                                  adapter="uk.ac.liv.jmzqml.xml.jaxb.adapters.MethodFileAdapter"/>
+                </jxb:baseType>
+            </jxb:property>
+        </jxb:bindings>-->
+		
+        <jxb:bindings node="//xsd:complexType[@name='RawFilesGroupType']">
+            <jxb:class name="RawFilesGroup"/>
+        </jxb:bindings>
+
+        <jxb:bindings node="//xsd:complexType[@name='RoleType']">
+            <jxb:class name="Role"/>
+        </jxb:bindings>
+
+        <jxb:bindings node="//xsd:complexType[@name='RowType']">
+            <jxb:class name="Row"/>
+        </jxb:bindings>
+			
+        <jxb:bindings node="//xsd:complexType[@name='SearchDatabaseType']">
+            <jxb:class name="SearchDatabase"/>
+        </jxb:bindings>
+
+        <jxb:bindings node="//xsd:complexType[@name='SmallMoleculeListType']">
+            <jxb:class name="SmallMoleculeList"/>
+        </jxb:bindings>
+	
+        <jxb:bindings node="//xsd:complexType[@name='SmallMoleculeType']">
+            <jxb:class name="SmallMolecule"/>
+        </jxb:bindings>
+
+<!--        <jxb:bindings node="//xsd:complexType[@name='SmallMoleculeType']/xsd:attribute[@name='Feature_refs']">
+            <jxb:property name="Feature">
+                <jxb:baseType>
+                    <xjc:javaType name="Feature"
+                                  adapter="uk.ac.liv.jmzqml.xml.jaxb.adapters.FeatureAdapter"/>
+                </jxb:baseType>
+            </jxb:property>
+        </jxb:bindings>-->
+
+        <jxb:bindings node="//xsd:complexType[@name='SmallMolModificationType']">
+            <jxb:class name="SmallMolModification"/>
+        </jxb:bindings>
+
+        <jxb:bindings node="//xsd:complexType[@name='SoftwareListType']">
+            <jxb:class name="SoftwareList"/>
+        </jxb:bindings>
+		
+        <jxb:bindings node="//xsd:complexType[@name='SoftwareType']">
+            <jxb:class name="Software"/>
+        </jxb:bindings>
+			
+        <jxb:bindings node="//xsd:complexType[@name='SourceFileType']">
+            <jxb:class name="SourceFile"/>
+        </jxb:bindings>
+		
+        <jxb:bindings node="//xsd:complexType[@name='StudyVariableListType']">
+            <jxb:class name="StudyVariableList"/>
+        </jxb:bindings>
+
+        <jxb:bindings node="//xsd:complexType[@name='StudyVariableType']">
+            <jxb:class name="StudyVariable"/>
+        </jxb:bindings>
+
+<!--        <jxb:bindings node="//xsd:complexType[@name='StudyVariableType']/xsd:attribute[@name='Assay_refs']">
+            <jxb:property name="Assay">
+                <jxb:baseType>
+                    <xjc:javaType name="Assay"
+                                  adapter="uk.ac.liv.jmzqml.xml.jaxb.adapters.AssayAdapter"/>
+                </jxb:baseType>
+            </jxb:property>
+        </jxb:bindings>-->
+
+        <jxb:bindings node="//xsd:complexType[@name='UserParamType']">
+            <jxb:class name="UserParam"/>
+        </jxb:bindings>
+
+		<!--
+		<jxb:bindings node="//xsd:complexType[@name='Type']/xsd:attribute[@name='_ref']">
+			<jxb:property name="">
+                <jxb:baseType>
+                    <xjc:javaType name=""
+                                  adapter="uk.ac.liv.jmzqml.xml.jaxb.adapters.Adapter"/>
+                </jxb:baseType>
+            </jxb:property>
+		</jxb:bindings>
+		
+      		<jxb:bindings node="//xsd:complexType[@name='Type']">
+                     			<jxb:class name=""/>
+      		</jxb:bindings>
+      		-->
+		
+    </jxb:bindings>
+</jxb:bindings>
