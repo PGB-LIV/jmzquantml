@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MzQuantML xmlns="http://psidev.info/psi/pi/mzQuantML/1.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://psidev.info/psi/pi/mzQuantML/1.0.0 file:/C:/Work/PSI/mzQuantML/svn/schema/mzQuantML_1_0_0.xsd" version="" id="">
+    <CvList>
+        <Cv fullName="" uri="" id=""/>
+    </CvList>
+    <Provider id="">
+        <ContactRole contact_ref="">
+            <Role>
+                <cvParam cvRef="" accession="" name=""/>
+            </Role>
+        </ContactRole>
+    </Provider>
+    <AuditCollection>
+        <Person id="">
+            <Affiliation organization_ref=""/>
+        </Person>
+        <Organization id="">
+            <ParentOrganization organization_ref=""/>
+        </Organization>
+    </AuditCollection>
+    <AnalysisSummary></AnalysisSummary>
+    <InputFiles>
+        <RawFilesGroup id="">
+            <RawFile location="" id="">
+                <ExternalFormatDocumentation></ExternalFormatDocumentation>
+                <FileFormat>
+                    <cvParam cvRef="" accession="" name=""/>
+                </FileFormat>
+            </RawFile>
+        </RawFilesGroup>
+        <MethodFiles>
+            <MethodFile location="" id="">
+                <ExternalFormatDocumentation></ExternalFormatDocumentation>
+                <FileFormat>
+                    <cvParam cvRef="" accession="" name=""/>
+                </FileFormat>
+            </MethodFile>
+        </MethodFiles>
+        <IdentificationFiles>
+            <IdentificationFile location="" id="">
+                <ExternalFormatDocumentation></ExternalFormatDocumentation>
+                <FileFormat>
+                    <cvParam cvRef="" accession="" name=""/>
+                </FileFormat>
+            </IdentificationFile>
+        </IdentificationFiles>
+        <SearchDatabase location="" id="">
+            <ExternalFormatDocumentation></ExternalFormatDocumentation>
+            <FileFormat>
+                <cvParam cvRef="" accession="" name=""/>
+            </FileFormat>
+            <DatabaseName></DatabaseName>
+            <cvParam cvRef="" accession="" name=""/>
+        </SearchDatabase>
+        <SourceFile location="" id="">
+            <ExternalFormatDocumentation></ExternalFormatDocumentation>
+            <FileFormat>
+                <cvParam cvRef="" accession="" name=""/>
+            </FileFormat>
+        </SourceFile>
+    </InputFiles>
+    <SoftwareList>
+        <Software id="" version=""></Software>
+    </SoftwareList>
+    <DataProcessingList>
+        <DataProcessing id="" software_ref="" order="">
+            <InputObject_refs></InputObject_refs>
+            <OutputObject_refs></OutputObject_refs>
+            <ProcessingMethod order=""></ProcessingMethod>
+        </DataProcessing>
+    </DataProcessingList>
+    <BibliographicReference id=""/>
+    <AssayList id="">
+        <Assay id="">
+            <Label>
+                <Modification>
+                    <cvParam cvRef="" accession="" name=""/>
+                </Modification>
+            </Label>
+            <IdentificationFile_refs></IdentificationFile_refs>
+        </Assay>
+    </AssayList>
+    <StudyVariableList>
+        <StudyVariable id="">
+            <Assay_refs></Assay_refs>
+        </StudyVariable>
+    </StudyVariableList>
+    <RatioList>
+        <Ratio numerator_ref="" denominator_ref="" id="">
+            <RatioCalculation></RatioCalculation>
+            <NumeratorDataType>
+                <cvParam cvRef="" accession="" name=""/>
+            </NumeratorDataType>
+            <DenominatorDataType>
+                <cvParam cvRef="" accession="" name=""/>
+            </DenominatorDataType>
+        </Ratio>
+    </RatioList>
+    <ProteinGroupList id="ProteinGroupList1">
+        <ProteinGroup id="ProteinGroup1" searchDatabase_ref="">
+            <IdentificationRef id_refs="" identificationFile_ref=""/>
+            <ProteinRef protein_ref="prot_0">
+                <cvParam cvRef="PSI-MS" accession="MS:1001591" name="anchor protein"/>
+				<!-- Anchor protein is the group leader; either one with most peptides, or first alphabetically in same set case -->
+            </ProteinRef>
+            <ProteinRef protein_ref="prot_1">
+                <cvParam cvRef="PSI-MS" accession="MS:1001594" name="sequence same-set protein"/>
+				<!-- Flag same set proteins using this CV term -->
+            </ProteinRef>
+            <ProteinRef protein_ref="prot_2">
+                <cvParam cvRef="PSI-MS" accession="MS:1001596" name="sequence sub-set protein"/>
+				<!-- Flag sub-set proteins using this CV term -->
+            </ProteinRef>
+        </ProteinGroup>
+		
+			<!-- And so on... -->
+		
+        <AssayQuantLayer id="PGL_AQL2">
+            <DataType>
+                <cvParam accession="MS:1001893" cvRef="PSI-MS" name="Progenesis:protein raw abundance"/>
+            </DataType>
+            <ColumnIndex>ass_0 ass_1 ass_2 ass_3 ass_4 ass_5 ass_6 ass_7 ass_8 ass_9 ass_10 ass_11</ColumnIndex>
+            <DataMatrix>
+                <Row object_ref="ProteinGroup1">3900.385 4611.286 4622.563 3064.897 5116.417 5130.532 1843.965 7063.636 4208.854 3108.981 7309.327 5269.162</Row>
+                <Row object_ref="ProteinGroup2">1417.475 397.893 29.429 805.633 489.25 639.325 1027.555 1563.02 1662.559 2801.606 4185.834 1414.749</Row>
+                <Row object_ref="ProteinGroup3">20865.541 25002.786 33074.921 20819.753 31657.017 30053.124 12314.224 30520.391 18702.193 24834.324 39287.169 26202.681</Row>
+                <!-- ... and so on -->    
+            <DataMatrix>
+
+        </AssayQuantLayer>
+        <StudyVariableQuantLayer id="">
+            <DataType>
+                <cvParam cvRef="" accession="" name=""/>
+            </DataType>
+            <ColumnIndex></ColumnIndex>
+            <DataMatrix>
+                <Row object_ref=""></Row>
+            </DataMatrix>
+        </StudyVariableQuantLayer>
+        <RatioQuantLayer id="">
+            <ColumnIndex></ColumnIndex>
+            <DataMatrix>
+                <Row object_ref=""></Row>
+            </DataMatrix>
+        </RatioQuantLayer>
+    </ProteinGroupList>
+    <ProteinList id="">
+        <Protein id="" accession="" searchDatabase_ref="">
+            <IdentificationRef id_refs="" identificationFile_ref=""/>
+            <PeptideConsensus_refs></PeptideConsensus_refs>
+        </Protein>
+        
+    </ProteinList>
+    <PeptideConsensusList id="PCL1" finalResult="true">
+        <PeptideConsensus id="pep_GGGADVDWSSAR_2_10114" charge="2">
+            <PeptideSequence>GGGADVDWSSAR</PeptideSequence>
+            <!-- Leave PeptideConsensus objects untouched, except for adding userParams to every peptide -->
+            <userParam name="peptide type" value="unique"/>           
+        </PeptideConsensus>
+        <PeptideConsensus id="pep_LDPALGGGSSDR_2_8265" charge="2">
+            <PeptideSequence>LDPALGGGSSDR</PeptideSequence>
+            <!-- Leave PeptideConsensus objects untouched, except for adding userParams to every peptide -->
+            <userParam name="peptide type" value="common"/>           
+        </PeptideConsensus>
+        <PeptideConsensus id="pep_GSNFQGDGREDAPDLDWGAAR_3_12185" charge="3">
+            <PeptideSequence>GSNFQGDGREDAPDLDWGAAR</PeptideSequence>
+            <!-- Leave PeptideConsensus objects untouched, except for adding userParams to every peptide -->
+            <userParam name="peptide type" value="conflicted"/>           
+        </PeptideConsensus>
+
+        <GlobalQuantLayer id="">
+            <ColumnDefinition>
+                <Column index="">
+                    <DataType>
+                        <cvParam cvRef="" accession="" name=""/>
+                    </DataType>
+                </Column>
+            </ColumnDefinition>
+            <DataMatrix>
+                <Row object_ref=""></Row>
+            </DataMatrix>
+        </GlobalQuantLayer>
+        <AssayQuantLayer id="">
+            <DataType>
+                <cvParam cvRef="" accession="" name=""/>
+            </DataType>
+            <ColumnIndex></ColumnIndex>
+            <DataMatrix>
+                <Row object_ref=""></Row>
+            </DataMatrix>
+        </AssayQuantLayer>
+        <StudyVariableQuantLayer id="">
+            <DataType>
+                <cvParam cvRef="" accession="" name=""/>
+            </DataType>
+            <ColumnIndex></ColumnIndex>
+            <DataMatrix>
+                <Row object_ref=""></Row>
+            </DataMatrix>
+        </StudyVariableQuantLayer>
+        <RatioQuantLayer id="">
+            <ColumnIndex></ColumnIndex>
+            <DataMatrix>
+                <Row object_ref=""></Row>
+            </DataMatrix>
+        </RatioQuantLayer>
+    </PeptideConsensusList>
+    <SmallMoleculeList id="">
+        <SmallMolecule id="">
+            <Modification>
+                <cvParam cvRef="" accession="" name=""/>
+            </Modification>
+            <DBIdentificationRef id_ref="" searchDatabase_ref=""/>
+            <Feature_refs></Feature_refs>
+        </SmallMolecule>
+        <GlobalQuantLayer id="">
+            <ColumnDefinition>
+                <Column index="">
+                    <DataType>
+                        <cvParam cvRef="" accession="" name=""/>
+                    </DataType>
+                </Column>
+            </ColumnDefinition>
+            <DataMatrix>
+                <Row object_ref=""></Row>
+            </DataMatrix>
+        </GlobalQuantLayer>
+        <AssayQuantLayer id="">
+            <DataType>
+                <cvParam cvRef="" accession="" name=""/>
+            </DataType>
+            <ColumnIndex></ColumnIndex>
+            <DataMatrix>
+                <Row object_ref=""></Row>
+            </DataMatrix>
+        </AssayQuantLayer>
+        <StudyVariableQuantLayer id="">
+            <DataType>
+                <cvParam cvRef="" accession="" name=""/>
+            </DataType>
+            <ColumnIndex></ColumnIndex>
+            <DataMatrix>
+                <Row object_ref=""></Row>
+            </DataMatrix>
+        </StudyVariableQuantLayer>
+        <RatioQuantLayer id="">
+            <ColumnIndex></ColumnIndex>
+            <DataMatrix>
+                <Row object_ref=""></Row>
+            </DataMatrix>
+        </RatioQuantLayer>
+    </SmallMoleculeList>
+    <FeatureList rawFilesGroup_ref="" id="">
+        <Feature id="" rt="" mz="" charge="">
+            <MassTrace></MassTrace>
+        </Feature>
+        <FeatureQuantLayer id="">
+            <ColumnDefinition>
+                <Column index="">
+                    <DataType>
+                        <cvParam cvRef="" accession="" name=""/>
+                    </DataType>
+                </Column>
+            </ColumnDefinition>
+            <DataMatrix>
+                <Row object_ref=""></Row>
+            </DataMatrix>
+        </FeatureQuantLayer>
+        <MS2AssayQuantLayer id="">
+            <DataType>
+                <cvParam cvRef="" accession="" name=""/>
+            </DataType>
+            <ColumnIndex></ColumnIndex>
+            <DataMatrix>
+                <Row object_ref=""></Row>
+            </DataMatrix>
+        </MS2AssayQuantLayer>
+        <MS2StudyVariableQuantLayer id="">
+            <DataType>
+                <cvParam cvRef="" accession="" name=""/>
+            </DataType>
+            <ColumnIndex></ColumnIndex>
+            <DataMatrix>
+                <Row object_ref=""></Row>
+            </DataMatrix>
+        </MS2StudyVariableQuantLayer>
+        <MS2RatioQuantLayer id="">
+            <ColumnIndex></ColumnIndex>
+            <DataMatrix>
+                <Row object_ref=""></Row>
+            </DataMatrix>
+        </MS2RatioQuantLayer>
+    </FeatureList>
+</MzQuantML>
