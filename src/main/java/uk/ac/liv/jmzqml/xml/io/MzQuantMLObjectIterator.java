@@ -22,16 +22,12 @@ package uk.ac.liv.jmzqml.xml.io;
 
 import java.io.StringReader;
 import java.util.Iterator;
-import java.util.function.Consumer;
-
 import javax.xml.bind.JAXBElement;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Unmarshaller;
 import javax.xml.transform.sax.SAXSource;
-
 import org.apache.log4j.Logger;
 import org.xml.sax.InputSource;
-
 import uk.ac.liv.jmzqml.MzQuantMLElement;
 import uk.ac.liv.jmzqml.model.MzQuantMLObject;
 import uk.ac.liv.jmzqml.xml.jaxb.unmarshaller.UnmarshallerFactory;
@@ -105,15 +101,5 @@ public class MzQuantMLObjectIterator<T extends MzQuantMLObject> implements
     public void remove() {
         throw new UnsupportedOperationException(MzQuantMLObjectIterator.class.getName() + " can't be used to remove object while iterating");
     }
-
-
-    /**
-     * Not yet supported - Java 8 method
-     */
-	@Override
-	public void forEachRemaining(Consumer<? super T> action) {
-		// TODO Auto-generated method stub
-		
-	}
 
 }
