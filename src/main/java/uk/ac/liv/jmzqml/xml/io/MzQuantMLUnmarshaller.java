@@ -4,21 +4,35 @@
  */
 package uk.ac.liv.jmzqml.xml.io;
 
-import java.io.*;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.Reader;
+import java.io.StringReader;
 import java.net.URL;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
 import javax.naming.ConfigurationException;
+
 import static javax.xml.XMLConstants.W3C_XML_SCHEMA_NS_URI;
+
 import javax.xml.bind.*;
 import javax.xml.bind.helpers.DefaultValidationEventHandler;
 import javax.xml.transform.sax.SAXSource;
 import javax.xml.validation.Schema;
 import javax.xml.validation.SchemaFactory;
+
 import org.apache.log4j.Logger;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
+
 import uk.ac.liv.jmzqml.MzQuantMLElement;
 import uk.ac.liv.jmzqml.model.MzQuantMLObject;
 import uk.ac.liv.jmzqml.model.mzqml.AnalysisSummary;
@@ -55,7 +69,7 @@ public class MzQuantMLUnmarshaller {
     private static final Pattern XML_ATT_PATTERN = Pattern.compile("\\s+([A-Za-z:]+)\\s*=\\s*[\"']([^\"'>]+?)[\"']", Pattern.DOTALL);
     private Unmarshaller unmarsh = null;
     private Reader fr = null;
-    private ArrayList<String> exMsgs = new ArrayList<String>();
+    private List<String> exMsgs = new ArrayList<String>();
     //private final MzQuantMLIndexer index;
 
     /**
@@ -464,7 +478,7 @@ public class MzQuantMLUnmarshaller {
      * @deprecated
      * @return
      */
-    public ArrayList<String> getExceptionalMessages() {
+    public List<String> getExceptionalMessages() {
         return exMsgs;
     }
 
