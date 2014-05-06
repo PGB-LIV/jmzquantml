@@ -1,8 +1,15 @@
 
 package uk.ac.liv.jmzqml.xml.xxindex;
 
-import java.io.*;
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.net.URL;
+
 import org.apache.log4j.Logger;
 
 /**
@@ -39,7 +46,7 @@ public class FileUtils {
             InputStream is = url.openStream();
             in = new BufferedInputStream(is);
 
-            FileOutputStream fos = new FileOutputStream(tempFile);
+            OutputStream fos = new FileOutputStream(tempFile);
             out = new BufferedOutputStream(fos);
 
             byte[] b = new byte[1];
