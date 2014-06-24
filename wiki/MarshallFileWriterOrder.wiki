@@ -2,19 +2,19 @@
 
 The order of the mzQuantML elements should be in the files. Apart from the optional elements, the rest of elements must be present.
 
- # *CvList
+ # *!CvList*
  # Provider (Optional)
- # AuditCollection (Optional)
- # *AnalysisSummary
- # *InputFiles
- # *SoftwareList
- # *DataProcessingList
- # BibliographicReference (Optional)
- # *AssayList
- # StudyVariableList (Optional)
- # RatioList (Optional)
- # ProteinGroupList (Optional)
- # ProteinList (Optional)
- # PeptideConsensusList (Optional)
- # SmallMoleculeList (Optional)
- # FeatureList (Optional)
+ # !AuditCollection (Optional)
+ # *!AnalysisSummary*
+ # *!InputFiles*
+ # *!SoftwareList*
+ # *!DataProcessingList*
+ # !BibliographicReference (Optional)
+ # *!AssayList*
+ # !StudyVariableList (Optional)
+ # !RatioList (Optional)
+ # !ProteinGroupList (Optional)
+ # !ProteinList (Optional)
+ # !PeptideConsensusList (Optional)
+ # !SmallMoleculeList (Optional)
+ # !FeatureList (Optional)
