@@ -1,7 +1,7 @@
 /*
  * Date: 07-May-2013
  * Author: Da Qi
- * File: uk.ac.liv.jmzqml.xml.jaxb.resolver.EvidenceRefRefResolver.java
+ * File: uk.ac.liv.jmzqml.xml.jaxb.resolver.SmallMoleculeRefResolver.java
  *
  * jmzquantml is Copyright 2013 University of Liverpool.
  *
@@ -23,10 +23,9 @@ package uk.ac.liv.jmzqml.xml.jaxb.resolver;
 import java.util.List;
 import java.util.Set;
 import uk.ac.liv.jmzqml.MzQuantMLElement;
-import uk.ac.liv.jmzqml.model.mzqml.Assay;
-import uk.ac.liv.jmzqml.model.mzqml.EvidenceRef;
 import uk.ac.liv.jmzqml.model.mzqml.Feature;
-import uk.ac.liv.jmzqml.model.mzqml.IdentificationFile;
+import uk.ac.liv.jmzqml.model.mzqml.Protein;
+import uk.ac.liv.jmzqml.model.mzqml.SmallMolecule;
 import uk.ac.liv.jmzqml.xml.io.MzQuantMLObjectCache;
 import uk.ac.liv.jmzqml.xml.xxindex.MzQuantMLIndexer;
 
@@ -36,47 +35,32 @@ import uk.ac.liv.jmzqml.xml.xxindex.MzQuantMLIndexer;
  * @institute University of Liverpool
  * @time 07-May-2013 12:20:40
  */
-public class EvidenceRefRefResolver extends AbstractReferenceResolver<EvidenceRef> {
+public class SmallMoleculeRefResolver extends AbstractReferenceResolver<SmallMolecule> {
 
     /**
      *
      * @param index MzQuantMLIndexer
      * @param cache MzQuantMLObjectCache
      */
-    public EvidenceRefRefResolver(MzQuantMLIndexer index,
-                                  MzQuantMLObjectCache cache) {
+    public SmallMoleculeRefResolver(MzQuantMLIndexer index,
+                                    MzQuantMLObjectCache cache) {
         super(index, cache);
     }
 
     /**
      *
-     * @param object EvidenceRef
+     * @param object Protein
      */
     @Override
-    public void updateObject(EvidenceRef object) {
-        //feature_ref
-        String ref1 = object.getFeatureRef();
-        if (ref1 != null) {
-            Feature refObject1 = this.unmarshal(ref1, Feature.class);
-            object.setFeature(refObject1);
-        }
-
-        //identificationFile_ref
-        String ref2 = object.getIdentificationFileRef();
-        if (ref2 != null) {
-            IdentificationFile refObject2 = this.unmarshal(ref2, IdentificationFile.class);
-            object.setIdentificationFile(refObject2);
-        }
-
-        //assay_refs
-        Set<String> refs3 = object.getAssayRefs();
-        List<Assay> refObjects3 = object.getAssays();
-        if (refs3 != null) {
-            for (String ref3 : refs3) {
-                Assay refObject3 = this.unmarshal(ref3, Assay.class);
-                refObjects3.add(refObject3);
+    public void updateObject(SmallMolecule object) {
+        Set<String> refs = object.getFeatureRefs();
+        List<Feature> features = object.getFeatures();
+        if (refs != null) {
+            for (String ref1 : refs) {
+                Feature refObject = this.unmarshal(ref1, Feature.class);
+                features.add(refObject);
             }
-            object.setAssays(refObjects3);
+            object.setFeatures(features);
         }
     }
 
@@ -89,8 +73,8 @@ public class EvidenceRefRefResolver extends AbstractReferenceResolver<EvidenceRe
      */
     @Override
     public void afterUnmarshal(Object target, Object parent) {
-        if (EvidenceRef.class.isInstance(target) && MzQuantMLElement.EvidenceRef.isAutoRefResolving()) {
-            updateObject((EvidenceRef) target);
+        if (Protein.class.isInstance(target) && MzQuantMLElement.SmallMolecule.isAutoRefResolving()) {
+            updateObject((SmallMolecule) target);
         } // else, not business of this resolver
     }
 

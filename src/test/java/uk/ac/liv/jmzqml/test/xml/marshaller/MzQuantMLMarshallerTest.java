@@ -62,9 +62,7 @@ public class MzQuantMLMarshallerTest {
         MzQuantMLMarshaller m = new MzQuantMLMarshaller();
         assertNotNull(m);
 
-        FileWriter writer = null;
-        try {
-            writer = new FileWriter("output.xml");
+        try (FileWriter writer = new FileWriter("output.xml")) {
 
             /*
              * MzQuantML
@@ -91,9 +89,9 @@ public class MzQuantMLMarshallerTest {
             //            is not as nice as it would be when marshalling the whole structure at once.
 
             // XML header
-            writer.write(m.createXmlHeader() + "\n");
+            writer.write(MzQuantMLMarshaller.createXmlHeader() + "\n");
             // mzQuantML start tag
-            writer.write(m.createMzQuantMLStartTag("Free12345") + "\n");
+            writer.write(MzQuantMLMarshaller.createMzQuantMLStartTag("Free12345") + "\n");
 
             CvList cvList = unmarshaller.unmarshal(MzQuantMLElement.CvList.getXpath());
             cvCount = cvList.getCv().size();
@@ -167,12 +165,7 @@ public class MzQuantMLMarshallerTest {
                 writer.write("\n");
             }
 
-            writer.write(m.createMzQuantMLClosingTag());
-        }
-        finally {
-            if (writer != null) {
-                writer.close();
-            }
+            writer.write(MzQuantMLMarshaller.createMzQuantMLClosingTag());
         }
 
         File outputFile = new File("output.xml");

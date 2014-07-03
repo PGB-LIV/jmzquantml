@@ -21,7 +21,9 @@
 package uk.ac.liv.jmzqml.xml.jaxb.resolver;
 
 import uk.ac.liv.jmzqml.MzQuantMLElement;
+import uk.ac.liv.jmzqml.model.mzqml.Assay;
 import uk.ac.liv.jmzqml.model.mzqml.Ratio;
+import uk.ac.liv.jmzqml.model.mzqml.StudyVariable;
 import uk.ac.liv.jmzqml.xml.io.MzQuantMLObjectCache;
 import uk.ac.liv.jmzqml.xml.xxindex.MzQuantMLIndexer;
 
@@ -48,13 +50,40 @@ public class RatioRefResolver extends AbstractReferenceResolver<Ratio> {
      */
     @Override
     public void updateObject(Ratio object) {
-        //TODO: the unmarshaler have to detect which Class of the ref (e.g. Assay or StudyVariable)
-        throw new UnsupportedOperationException("Not supported yet.");
-//        String ref1 = object.getDenominatorRef();
-//        if (ref1 != null){
-//            
-//        }
 
+        String refDen = object.getDenominatorRef();
+        if (refDen != null) {
+            String assayXML = this.getIndexer().getXmlString(refDen, Assay.class);
+            String studyVariableXML = this.getIndexer().getXmlString(refDen, StudyVariable.class);
+            if (assayXML != null && studyVariableXML == null) {
+                Assay refObject = this.unmarshal(refDen, Assay.class);
+                object.setDenominator(refObject);
+            }
+            else if (assayXML == null && studyVariableXML != null) {
+                StudyVariable refObject = this.unmarshal(refDen, StudyVariable.class);
+                object.setDenominator(refObject);
+            }
+            else {
+                throw new IllegalStateException("Could not uniquely resolve Denominator reference " + refDen);
+            }
+        }
+
+        String refNum = object.getNumeratorRef();
+        if (refNum != null) {
+            String assayXML = this.getIndexer().getXmlString(refNum, Assay.class);
+            String studyVariableXML = this.getIndexer().getXmlString(refNum, StudyVariable.class);
+            if (assayXML != null && studyVariableXML == null) {
+                Assay refObject = this.unmarshal(refNum, Assay.class);
+                object.setNumerator(refObject);
+            }
+            else if (assayXML == null && studyVariableXML != null) {
+                StudyVariable refObject = this.unmarshal(refNum, StudyVariable.class);
+                object.setNumerator(refObject);
+            }
+            else {
+                throw new IllegalStateException("Could not uniquely resolve Numerator reference " + refNum);
+            }
+        }
     }
 
     /**

@@ -3,7 +3,9 @@ package uk.ac.liv.jmzqml.model.mzqml;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
@@ -57,7 +59,7 @@ public class Assay
     protected Label label;
     @XmlList
     @XmlElement(name = "IdentificationFile_refs")
-    protected List<String> identificationFileRefs;
+    protected Set<String> identificationFileRefs;
     @XmlElements({
         @XmlElement(name = "cvParam", type = CvParam.class),
         @XmlElement(name = "userParam", type = UserParam.class)
@@ -123,6 +125,7 @@ public class Assay
             this.identificationFileRefs = null;
         }
         else {
+            this.identificationFileRefs = new HashSet<>();
             for (IdentificationFile identificationFile : identificationFiles) {
                 String refId = identificationFile.getId();
                 if (refId == null) {
@@ -182,9 +185,9 @@ public class Assay
      *
      * @return the value of the identificationFileRefs property.
      */
-    public List<String> getIdentificationFileRefs() {
+    public Set<String> getIdentificationFileRefs() {
         if (identificationFileRefs == null) {
-            identificationFileRefs = new ArrayList<String>();
+            identificationFileRefs = new HashSet<>();
         }
         return this.identificationFileRefs;
     }

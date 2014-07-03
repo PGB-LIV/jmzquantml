@@ -3,7 +3,9 @@ package uk.ac.liv.jmzqml.model.mzqml;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
@@ -40,9 +42,9 @@ public class EvidenceRef
 
     private final static long serialVersionUID = 100L;
     @XmlAttribute(name = "assay_refs", required = true)
-    protected List<String> assayRefs;
+    protected Set<String> assayRefs;
     @XmlAttribute(name = "id_refs")
-    protected List<String> idRefs;
+    protected Set<String> idRefs;
     @XmlAttribute(name = "identificationFile_ref")
     protected String identificationFileRef;
     @XmlAttribute(name = "feature_ref", required = true)
@@ -76,6 +78,7 @@ public class EvidenceRef
             this.assayRefs = null;
         }
         else {
+            this.assayRefs = new HashSet<>();
             for (Assay assay : assays) {
                 String refId = assay.getId();
                 if (refId == null) {
@@ -167,9 +170,9 @@ public class EvidenceRef
      *
      * @return the value of the assayRefs property.
      */
-    public List<String> getAssayRefs() {
+    public Set<String> getAssayRefs() {
         if (assayRefs == null) {
-            assayRefs = new ArrayList<String>();
+            assayRefs = new HashSet<>();
         }
         return this.assayRefs;
     }
@@ -198,14 +201,14 @@ public class EvidenceRef
      *
      * @return the value of the idRefs property.
      */
-    public List<String> getIdRefs() {
+    public Set<String> getIdRefs() {
         if (idRefs == null) {
-            idRefs = new ArrayList<String>();
+            idRefs = new HashSet<>();
         }
         return this.idRefs;
     }
 
-    public void setIdRefs(List<String> idRefs) {
+    public void setIdRefs(Set<String> idRefs) {
         this.idRefs = idRefs;
     }
 

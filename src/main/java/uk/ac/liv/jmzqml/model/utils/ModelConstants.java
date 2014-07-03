@@ -50,11 +50,18 @@ public class ModelConstants {
     /**
      * The version of the mzQuantML schema.
      */
-    public static final String MZQML_VERSION = "1.0.0";
+    public static final String MZQML_VERSION = "1.0";
+    /**
+     * The file name of the mzQuantML schema.
+     */
+    //public static final String MZQML_SCHEMA = "http://psidev.info/psi/pi/mzQuantML/mzQuantML_1_0_0.xsd";
+    public static final String MZQML_SCHEMA = "http://www.psidev.info/sites/default/files/mzQuantML_1_0_0.xsd";
+
     /**
      * The location of the mzQuantML schema.
      */
-    public static final String MZQML_SCHEMA = "http://psidev.info/psi/pi/mzQuantML/mzQuantML_1_0_0.xsd";
+    public static final String MZQML_LOCATION = MZQML_NS + " " + MZQML_SCHEMA;
+
     private static Map<Class<MzQuantMLObject>, QName> modelQNames = new HashMap<Class<MzQuantMLObject>, QName>();
 
     static {

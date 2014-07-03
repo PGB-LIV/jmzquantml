@@ -3,7 +3,9 @@ package uk.ac.liv.jmzqml.model.mzqml;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
@@ -57,7 +59,7 @@ public class StudyVariable
     protected List<AbstractParam> paramGroup;
     @XmlList
     @XmlElement(name = "Assay_refs", required = true)
-    protected List<String> assayRefs;
+    protected Set<String> assayRefs;
     @XmlAttribute(name = "name")
     protected String name;
     @XmlTransient
@@ -85,6 +87,7 @@ public class StudyVariable
             this.assayRefs = null;
         }
         else {
+            this.assayRefs = new HashSet<>();
             for (Assay assay : assays) {
                 String refId = assay.getId();
                 if (refId == null) {
@@ -152,9 +155,9 @@ public class StudyVariable
      *
      * @return the value of the assayRefs property.
      */
-    public List<String> getAssayRefs() {
+    public Set<String> getAssayRefs() {
         if (assayRefs == null) {
-            assayRefs = new ArrayList<String>();
+            assayRefs = new HashSet<>();
         }
         return this.assayRefs;
     }

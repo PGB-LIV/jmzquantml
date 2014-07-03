@@ -149,6 +149,10 @@ public abstract class AbstractReferenceResolver<T extends MzQuantMLObject>
         return retVal;
     }
 
+    protected MzQuantMLIndexer getIndexer() {
+        return this.index;
+    }
+
     /**
      * Update the target object.
      *

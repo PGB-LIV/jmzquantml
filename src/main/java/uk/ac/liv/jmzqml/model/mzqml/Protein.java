@@ -3,7 +3,9 @@ package uk.ac.liv.jmzqml.model.mzqml;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
@@ -19,9 +21,11 @@ import uk.ac.liv.jmzqml.model.utils.FacadeList;
 /**
  * One protein that has been quantified in the file, including references to peptides on which the quantification is based.
  *
- * <p>Java class for ProteinType complex type.
+ * <p>
+ * Java class for ProteinType complex type.
  *
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>
+ * The following schema fragment specifies the expected content contained within this class.
  *
  * <pre>
  * &lt;complexType name="ProteinType">
@@ -57,7 +61,7 @@ public class Protein
     protected List<IdentificationRef> identificationRef;
     @XmlList
     @XmlElement(name = "PeptideConsensus_refs")
-    protected List<String> peptideConsensusRefs;
+    protected Set<String> peptideConsensusRefs;
     @XmlElements({
         @XmlElement(name = "cvParam", type = CvParam.class),
         @XmlElement(name = "userParam", type = UserParam.class)
@@ -94,6 +98,7 @@ public class Protein
             this.peptideConsensusRefs = null;
         }
         else {
+            this.peptideConsensusRefs = new HashSet<>();
             for (PeptideConsensus peptideConsensus : peptideConsensuses) {
                 String refId = peptideConsensus.getId();
                 if (refId == null) {
@@ -101,8 +106,8 @@ public class Protein
                 }
                 this.peptideConsensusRefs.add(refId);
             }
-            this.peptideConsensuses = peptideConsensuses;
         }
+        this.peptideConsensuses = peptideConsensuses;
     }
 
     /**
@@ -188,9 +193,9 @@ public class Protein
      *
      * @return the value of the peptideConsensusRefs property.
      */
-    public List<String> getPeptideConsensusRefs() {
+    public Set<String> getPeptideConsensusRefs() {
         if (peptideConsensusRefs == null) {
-            peptideConsensusRefs = new ArrayList<String>();
+            peptideConsensusRefs = new HashSet<>();
         }
         return this.peptideConsensusRefs;
     }
