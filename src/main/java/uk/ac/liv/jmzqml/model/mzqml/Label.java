@@ -68,7 +68,7 @@ public class Label
      */
     public List<ModParam> getModification() {
         if (modification == null) {
-            modification = new ArrayList<ModParam>();
+            modification = new ArrayList<>();
         }
         return this.modification;
     }

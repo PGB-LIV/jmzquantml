@@ -76,7 +76,7 @@ public class SmallMolecule
      */
     public List<Feature> getFeatures() {
         if (features == null) {
-            features = new ArrayList<Feature>();
+            features = new ArrayList<>();
         }
         return features;
     }
@@ -129,7 +129,7 @@ public class SmallMolecule
      */
     public List<SmallMolModification> getModification() {
         if (modification == null) {
-            modification = new ArrayList<SmallMolModification>();
+            modification = new ArrayList<>();
         }
         return this.modification;
     }
@@ -160,7 +160,7 @@ public class SmallMolecule
      */
     public List<DBIdentificationRef> getDBIdentificationRef() {
         if (dbIdentificationRef == null) {
-            dbIdentificationRef = new ArrayList<DBIdentificationRef>();
+            dbIdentificationRef = new ArrayList<>();
         }
         return this.dbIdentificationRef;
     }
@@ -223,7 +223,7 @@ public class SmallMolecule
      */
     public List<AbstractParam> getParamGroup() {
         if (paramGroup == null) {
-            paramGroup = new ArrayList<AbstractParam>();
+            paramGroup = new ArrayList<>();
         }
         return this.paramGroup;
     }
@@ -236,7 +236,7 @@ public class SmallMolecule
      */
     @Override
     public List<CvParam> getCvParam() {
-        return new FacadeList<CvParam>(this.getParamGroup(), CvParam.class);
+        return new FacadeList<>(this.getParamGroup(), CvParam.class);
     }
 
     /**
@@ -247,7 +247,7 @@ public class SmallMolecule
      */
     @Override
     public List<UserParam> getUserParam() {
-        return new FacadeList<UserParam>(this.getParamGroup(), UserParam.class);
+        return new FacadeList<>(this.getParamGroup(), UserParam.class);
     }
 
 }

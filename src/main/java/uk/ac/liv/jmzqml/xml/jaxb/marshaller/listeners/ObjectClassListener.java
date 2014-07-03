@@ -35,6 +35,7 @@ public class ObjectClassListener extends Marshaller.Listener {
 
     private static final Logger log = Logger.getLogger(ObjectClassListener.class);
 
+    @Override
     public void beforeMarshal(Object source) {
         log.debug("Handling " + source.getClass() + " in beforeMarshal.");
         if (source instanceof ParamList) {

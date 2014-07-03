@@ -83,13 +83,13 @@ public class ParamUpdater {
                     cvRefField.setAccessible(true);
                     cvRefField.set(newParam, input.getCvRef());
                 }
-                catch (Exception e) {
+                catch (IllegalAccessException | IllegalArgumentException | NoSuchFieldException | SecurityException e) {
                     throw new InstantiationError("Unable to create new instance of CvParam subclass due to problem updating cvRef.");
                 }
                 try {
                     ParamUpdater.updateAbstractParamProperties(input, newParam);
                 }
-                catch (Exception e) {
+                catch (IllegalAccessException | NoSuchFieldException e) {
                     throw new InstantiationError("Unable to create new instance of CvParam subclass due to problem updating superclass properties.");
 
                 }
@@ -109,13 +109,13 @@ public class ParamUpdater {
                     unitCvRefField.setAccessible(true);
                     unitCvRefField.set(newParam, input.getUnitCvRef());
                 }
-                catch (Exception e) {
+                catch (IllegalAccessException | IllegalArgumentException | NoSuchFieldException | SecurityException e) {
                     throw new InstantiationError("Unable to create new instance of CvParam subclass due to problem updating unitCvRef.");
                 }
                 try {
                     ParamUpdater.updateAbstractParamProperties(input, newParam);
                 }
-                catch (Exception e) {
+                catch (IllegalAccessException | NoSuchFieldException e) {
                     throw new InstantiationError("Unable to create new instance of CvParam subclass due to problem updating superclass properties.");
 
                 }
@@ -150,7 +150,7 @@ public class ParamUpdater {
             throws InstantiationException, IllegalAccessException {
         if (inputs != null && inputs.size() > 0) {
             // create tmp holder
-            List<T> newList = new ArrayList<T>();
+            List<T> newList = new ArrayList<>();
 
             // copy values to new SubClasses
             for (CvParam cvParam : inputs) {
@@ -185,7 +185,7 @@ public class ParamUpdater {
             try {
                 ParamUpdater.updateAbstractParamProperties(input, newParam);
             }
-            catch (Exception e) {
+            catch (IllegalAccessException | NoSuchFieldException e) {
                 throw new InstantiationException("Unable to create new instance of UserParam subclass due to problem updating superclass properties.");
             }
             // copy fields
@@ -215,7 +215,7 @@ public class ParamUpdater {
             throws InstantiationException, IllegalAccessException {
         if (inputs != null && inputs.size() > 0) {
             // create tmp holder
-            List<T> newList = new ArrayList<T>();
+            List<T> newList = new ArrayList<>();
 
             // copy values to new SubClasses
             for (UserParam userParam : inputs) {

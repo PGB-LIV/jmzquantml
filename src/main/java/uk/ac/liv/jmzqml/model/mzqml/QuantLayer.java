@@ -35,6 +35,7 @@ import uk.ac.liv.jmzqml.model.MzQuantMLObject;
  * </pre>
  *
  *
+ * @param <T>
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "QuantLayerType", propOrder = {
@@ -64,7 +65,7 @@ public class QuantLayer<T extends IdOnly>
      */
     public List<T> getColumns() {
         if (columns == null) {
-            columns = new ArrayList<T>();
+            columns = new ArrayList<>();
         }
         return columns;
     }
@@ -140,7 +141,7 @@ public class QuantLayer<T extends IdOnly>
      */
     public List<String> getColumnIndex() {
         if (columnIndex == null) {
-            columnIndex = new ArrayList<String>();
+            columnIndex = new ArrayList<>();
         }
         return this.columnIndex;
     }

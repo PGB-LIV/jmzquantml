@@ -68,7 +68,7 @@ public class SoftwareList
      */
     public List<Software> getSoftware() {
         if (software == null) {
-            software = new ArrayList<Software>();
+            software = new ArrayList<>();
         }
         return this.software;
     }

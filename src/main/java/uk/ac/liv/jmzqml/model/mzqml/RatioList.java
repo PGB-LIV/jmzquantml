@@ -68,7 +68,7 @@ public class RatioList
      */
     public List<Ratio> getRatio() {
         if (ratio == null) {
-            ratio = new ArrayList<Ratio>();
+            ratio = new ArrayList<>();
         }
         return this.ratio;
     }

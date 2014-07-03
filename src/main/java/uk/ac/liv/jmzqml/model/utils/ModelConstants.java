@@ -62,16 +62,17 @@ public class ModelConstants {
      */
     public static final String MZQML_LOCATION = MZQML_NS + " " + MZQML_SCHEMA;
 
-    private static Map<Class<MzQuantMLObject>, QName> modelQNames = new HashMap<Class<MzQuantMLObject>, QName>();
+    private static Map<Class<? extends MzQuantMLObject>, QName> modelQNames = new HashMap<>();
+    private static final Map<Class<? extends MzQuantMLObject>, QName> tempModelQNames = new HashMap<>();
 
     static {
         for (MzQuantMLElement element : MzQuantMLElement.values()) {
             if (element.getTagName() != null) {
-                modelQNames.put(element.getClazz(), new QName(MZQML_NS, element.getTagName()));
+                tempModelQNames.put(element.getClazz(), new QName(MZQML_NS, element.getTagName()));
             }
         }
         //now make set unmodifiable
-        modelQNames = Collections.unmodifiableMap(modelQNames);
+        modelQNames = Collections.unmodifiableMap(tempModelQNames);
     }
 
     /**
@@ -124,8 +125,9 @@ public class ModelConstants {
      *
      * @return the Class of matching element name.
      */
-    public static Class<MzQuantMLObject> getClassForElementName(String name) {
-        for (Entry<Class<MzQuantMLObject>, QName> entry : modelQNames.entrySet()) {
+    public static Class<? extends MzQuantMLObject> getClassForElementName(
+            String name) {
+        for (Entry<Class<? extends MzQuantMLObject>, QName> entry : modelQNames.entrySet()) {
             if (entry.getValue().getLocalPart().equals(name)) {
                 return entry.getKey();
             }

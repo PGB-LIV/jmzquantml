@@ -68,7 +68,7 @@ public class IdentificationFiles
      */
     public List<IdentificationFile> getIdentificationFile() {
         if (identificationFile == null) {
-            identificationFile = new ArrayList<IdentificationFile>();
+            identificationFile = new ArrayList<>();
         }
         return this.identificationFile;
     }

@@ -21,6 +21,7 @@
 package uk.ac.liv.jmzqml.xml.jaxb.unmarshaller.listeners;
 
 import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
 import javax.xml.bind.Unmarshaller;
@@ -175,7 +176,7 @@ public class RawXMLListener extends Unmarshaller.Listener {
                 }
             }
         }
-        catch (Exception e) {
+        catch (ClassNotFoundException | IllegalAccessException | IllegalArgumentException | IllegalStateException | InstantiationException | NoSuchMethodException | SecurityException | InvocationTargetException e) {
             logger.error("Exception during post unmarshall processing! ", e);
             throw new IllegalStateException("Error during post unmarshall processing!", e);
         }
@@ -193,7 +194,7 @@ public class RawXMLListener extends Unmarshaller.Listener {
                 AbstractReferenceResolver<?> resolver = (AbstractReferenceResolver<?>) con.newInstance(index, cache);
                 resolver.afterUnmarshal(target, parent);
             }
-            catch (Exception e) {
+            catch (IllegalAccessException | IllegalArgumentException | InstantiationException | NoSuchMethodException | SecurityException | InvocationTargetException e) {
                 logger.error("Error trying to instantiate reference resolver: " + cls.getName(), e);
                 throw new IllegalStateException("Could not instantiate reference resolver: " + cls.getName());
             }

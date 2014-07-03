@@ -68,7 +68,7 @@ public class DataProcessingList
      */
     public List<DataProcessing> getDataProcessing() {
         if (dataProcessing == null) {
-            dataProcessing = new ArrayList<DataProcessing>();
+            dataProcessing = new ArrayList<>();
         }
         return this.dataProcessing;
     }

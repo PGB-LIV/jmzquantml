@@ -68,7 +68,7 @@ public class MethodFiles
      */
     public List<MethodFile> getMethodFile() {
         if (methodFile == null) {
-            methodFile = new ArrayList<MethodFile>();
+            methodFile = new ArrayList<>();
         }
         return this.methodFile;
     }

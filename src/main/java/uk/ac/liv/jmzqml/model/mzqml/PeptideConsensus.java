@@ -150,7 +150,7 @@ public class PeptideConsensus
      */
     public List<Modification> getModification() {
         if (modification == null) {
-            modification = new ArrayList<Modification>();
+            modification = new ArrayList<>();
         }
         return this.modification;
     }
@@ -181,7 +181,7 @@ public class PeptideConsensus
      */
     public List<EvidenceRef> getEvidenceRef() {
         if (evidenceRef == null) {
-            evidenceRef = new ArrayList<EvidenceRef>();
+            evidenceRef = new ArrayList<>();
         }
         return this.evidenceRef;
     }
@@ -213,7 +213,7 @@ public class PeptideConsensus
      */
     public List<AbstractParam> getParamGroup() {
         if (paramGroup == null) {
-            paramGroup = new ArrayList<AbstractParam>();
+            paramGroup = new ArrayList<>();
         }
         return this.paramGroup;
     }
@@ -244,7 +244,7 @@ public class PeptideConsensus
      */
     public List<String> getCharge() {
         if (charge == null) {
-            charge = new ArrayList<String>();
+            charge = new ArrayList<>();
         }
         return this.charge;
     }
@@ -269,7 +269,7 @@ public class PeptideConsensus
      */
     @Override
     public List<CvParam> getCvParam() {
-        return new FacadeList<CvParam>(this.getParamGroup(), CvParam.class);
+        return new FacadeList<>(this.getParamGroup(), CvParam.class);
     }
 
     /**
@@ -280,7 +280,7 @@ public class PeptideConsensus
      */
     @Override
     public List<UserParam> getUserParam() {
-        return new FacadeList<UserParam>(this.getParamGroup(), UserParam.class);
+        return new FacadeList<>(this.getParamGroup(), UserParam.class);
     }
 
 }

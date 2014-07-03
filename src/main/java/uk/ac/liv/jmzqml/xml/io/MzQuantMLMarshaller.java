@@ -95,7 +95,7 @@ public class MzQuantMLMarshaller {
                     mzQuantML.setVersion(MZQUANTML_VERSION);
                 }
 
-                JAXBElement<MzQuantML> jaxbElement = new JAXBElement<MzQuantML>(new QName(ModelConstants.MZQML_NS, MZQUANTML), MzQuantML.class, mzQuantML);
+                JAXBElement<MzQuantML> jaxbElement = new JAXBElement<>(new QName(ModelConstants.MZQML_NS, MZQUANTML), MzQuantML.class, mzQuantML);
 
                 this.marsh.marshal(jaxbElement, this.fw);
                 this.fw.flush();

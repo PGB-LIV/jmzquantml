@@ -83,7 +83,7 @@ public class Protein
      */
     public List<PeptideConsensus> getPeptideConsensuses() {
         if (peptideConsensuses == null) {
-            peptideConsensuses = new ArrayList<PeptideConsensus>();
+            peptideConsensuses = new ArrayList<>();
         }
         return peptideConsensuses;
     }
@@ -164,7 +164,7 @@ public class Protein
      */
     public List<IdentificationRef> getIdentificationRef() {
         if (identificationRef == null) {
-            identificationRef = new ArrayList<IdentificationRef>();
+            identificationRef = new ArrayList<>();
         }
         return this.identificationRef;
     }
@@ -276,7 +276,7 @@ public class Protein
      */
     @Override
     public List<CvParam> getCvParam() {
-        return new FacadeList<CvParam>(this.getParamGroup(), CvParam.class);
+        return new FacadeList<>(this.getParamGroup(), CvParam.class);
     }
 
     /**
@@ -287,7 +287,7 @@ public class Protein
      */
     @Override
     public List<UserParam> getUserParam() {
-        return new FacadeList<UserParam>(this.getParamGroup(), UserParam.class);
+        return new FacadeList<>(this.getParamGroup(), UserParam.class);
     }
 
 }

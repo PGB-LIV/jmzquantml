@@ -245,7 +245,7 @@ public class FacadeList<T> extends AbstractCollection<T> implements List<T> {
             throw new IndexOutOfBoundsException("The end index should not be greater than the size of the list: " + toIndex);
         }
 
-        List<T> result = new ArrayList<T>();
+        List<T> result = new ArrayList<>();
         int cnt = 0;
         int diff = toIndex - fromIndex;
         ListIterator<T> listIter = this.listIterator(fromIndex);

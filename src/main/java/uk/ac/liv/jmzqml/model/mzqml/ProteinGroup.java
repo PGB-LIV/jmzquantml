@@ -119,7 +119,7 @@ public class ProteinGroup
      */
     public List<IdentificationRef> getIdentificationRef() {
         if (identificationRef == null) {
-            identificationRef = new ArrayList<IdentificationRef>();
+            identificationRef = new ArrayList<>();
         }
         return this.identificationRef;
     }
@@ -150,7 +150,7 @@ public class ProteinGroup
      */
     public List<ProteinRef> getProteinRef() {
         if (proteinRef == null) {
-            proteinRef = new ArrayList<ProteinRef>();
+            proteinRef = new ArrayList<>();
         }
         return this.proteinRef;
     }
@@ -182,7 +182,7 @@ public class ProteinGroup
      */
     public List<AbstractParam> getParamGroup() {
         if (paramGroup == null) {
-            paramGroup = new ArrayList<AbstractParam>();
+            paramGroup = new ArrayList<>();
         }
         return this.paramGroup;
     }
@@ -207,7 +207,7 @@ public class ProteinGroup
      */
     @Override
     public List<CvParam> getCvParam() {
-        return new FacadeList<CvParam>(this.getParamGroup(), CvParam.class);
+        return new FacadeList<>(this.getParamGroup(), CvParam.class);
     }
 
     /**
@@ -218,7 +218,7 @@ public class ProteinGroup
      */
     @Override
     public List<UserParam> getUserParam() {
-        return new FacadeList<UserParam>(this.getParamGroup(), UserParam.class);
+        return new FacadeList<>(this.getParamGroup(), UserParam.class);
     }
 
 }

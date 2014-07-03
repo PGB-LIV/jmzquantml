@@ -46,8 +46,8 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>2.5.1</version>
                 <configuration>
-                    <source>1.6</source>
-                    <target>1.6</target>
+                    <source>1.7</source>
+                    <target>1.7</target>
                     <debug>true</debug>
                 </configuration>
             </plugin>
@@ -146,7 +146,15 @@
                 <artifactId>wagon-svn</artifactId>
                 <version>1.12</version>
             </extension>
-        </extensions>
+        </extensions>        
+        <resources>
+            <resource>
+                <directory> src/main/resources/</directory>
+                <includes> 
+                    <include>defaultMzQuantMLElement.cfg.xml</include>
+                </includes>
+            </resource>
+        </resources>
     </build>
        
     <!-- Dependencies -->
@@ -167,8 +175,13 @@
             <artifactId>xxindex</artifactId>
             <version>0.11</version>
         </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.3.2</version>
+        </dependency>
     </dependencies>
-    
+       
     <!-- Repositories -->
     <repositories>
         <repository>
@@ -201,7 +214,7 @@
             <uniqueVersion>false</uniqueVersion>
         </snapshotRepository>
     </distributionManagement>
-    <description>jmzquantml is a JAVA API for reading and writing mzQuantML file which is designed for reording 
+    <description>jmzquantml is a JAVA API for reading and writing mzQuantML file which is designed for recording, exchanging 
         quantitative proteomic data and meta-data.
     </description>
 </project>

@@ -83,7 +83,7 @@ public class Modification
     @Override
     public List<CvParam> getCvParam() {
         if (cvParam == null) {
-            cvParam = new ArrayList<CvParam>();
+            cvParam = new ArrayList<>();
         }
         return this.cvParam;
     }
@@ -138,7 +138,7 @@ public class Modification
      */
     public List<String> getResidues() {
         if (residues == null) {
-            residues = new ArrayList<String>();
+            residues = new ArrayList<>();
         }
         return this.residues;
     }

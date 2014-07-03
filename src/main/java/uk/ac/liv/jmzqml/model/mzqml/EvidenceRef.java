@@ -63,7 +63,7 @@ public class EvidenceRef
      */
     public List<Assay> getAssays() {
         if (assays == null) {
-            assays = new ArrayList<Assay>();
+            assays = new ArrayList<>();
         }
         return assays;
     }
