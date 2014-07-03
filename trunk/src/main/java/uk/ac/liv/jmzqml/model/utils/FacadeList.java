@@ -4,6 +4,9 @@ package uk.ac.liv.jmzqml.model.utils;
 import java.util.*;
 
 /**
+ *
+ * This method is copied from mzIdentML originally
+ *
  * Created by IntelliJ IDEA.
  * User: rwang
  * Date: 26/01/11
@@ -17,11 +20,10 @@ import java.util.*;
  * a developer creates an instance of this class passing in 'CvParam.class' as clazz in the constructor.
  * If the size method is called the list be searched and only instances of CvParam are counted towards the size.
  * Likewise, if get(3) (3 is the index) is called the 3rd instance of CvParam will be returned. Note, this CvParam might
- * not be the third element in the originallist.
+ * not be the third element in the originalList.
  * <p/>
  * <
  * p/>
- * TODO Implement CvParam and UserParam's toString, equals, hashcode. With equals objects are normally considered equals if contents match.
  * TODO Check iterator working with foreach
  * TODO check the checkIndex(), maybe not the best implementation
  * TODO finish all the add methods with checking the null input values
@@ -104,6 +106,7 @@ public class FacadeList<T> extends AbstractCollection<T> implements List<T> {
      *
      * @return int size of the sublist
      */
+    @Override
     public int size() {
         int cnt = 0;
 
@@ -122,6 +125,7 @@ public class FacadeList<T> extends AbstractCollection<T> implements List<T> {
      *
      * @return boolean true means empty
      */
+    @Override
     public boolean isEmpty() {
         boolean em = false;
 
@@ -143,6 +147,7 @@ public class FacadeList<T> extends AbstractCollection<T> implements List<T> {
      *
      * @return boolean true means sublist contains the input object
      */
+    @Override
     public boolean contains(Object o) {
         checkArgument(o);
         return this.originalList.contains(o);
@@ -153,6 +158,7 @@ public class FacadeList<T> extends AbstractCollection<T> implements List<T> {
      *
      * @return Iterator<T> an iterator of the sublist
      */
+    @Override
     public Iterator<T> iterator() {
         return new SublistIterator(this.originalList);
     }
@@ -164,6 +170,7 @@ public class FacadeList<T> extends AbstractCollection<T> implements List<T> {
      *
      * @return int index of the object
      */
+    @Override
     public int indexOf(Object o) {
         checkArgument(o);
         int cnt = 0;
@@ -185,6 +192,7 @@ public class FacadeList<T> extends AbstractCollection<T> implements List<T> {
      *
      * @return int index of the object
      */
+    @Override
     public int lastIndexOf(Object o) {
         checkArgument(o);
 
@@ -203,10 +211,12 @@ public class FacadeList<T> extends AbstractCollection<T> implements List<T> {
         return pointer;
     }
 
+    @Override
     public ListIterator<T> listIterator() {
         return new SubListListIterator(originalList);
     }
 
+    @Override
     public ListIterator<T> listIterator(int index) {
         return new SubListListIterator(originalList, index);
     }
@@ -222,6 +232,7 @@ public class FacadeList<T> extends AbstractCollection<T> implements List<T> {
      *
      * @return List<T> unmodifiable sublist
      */
+    @Override
     public List<T> subList(int fromIndex, int toIndex) {
         checkIndex(fromIndex);
         checkIndex(toIndex - 1);
@@ -233,7 +244,6 @@ public class FacadeList<T> extends AbstractCollection<T> implements List<T> {
         if (toIndex > this.size()) {
             throw new IndexOutOfBoundsException("The end index should not be greater than the size of the list: " + toIndex);
         }
-
 
         List<T> result = new ArrayList<T>();
         int cnt = 0;
@@ -252,6 +262,7 @@ public class FacadeList<T> extends AbstractCollection<T> implements List<T> {
         return Collections.unmodifiableList(result);
     }
 
+    @Override
     public Object[] toArray() {
         Object[] arr = new Object[this.size()];
         int index = 0;
@@ -262,6 +273,7 @@ public class FacadeList<T> extends AbstractCollection<T> implements List<T> {
         return arr;
     }
 
+    @Override
     public <T> T[] toArray(T[] a) {
         int size = this.size();
         if (a.length < size) // Make a new array of a's runtime type, but my contents:
@@ -284,6 +296,7 @@ public class FacadeList<T> extends AbstractCollection<T> implements List<T> {
      * @param index   index of the sublist
      * @param element the new element
      */
+    @Override
     public void add(int index, T element) {
         this.checkArgument(element);
         this.checkIndex(index);
@@ -297,11 +310,13 @@ public class FacadeList<T> extends AbstractCollection<T> implements List<T> {
      *
      * @return boolean true a object has been found and removed
      */
+    @Override
     public boolean remove(Object o) {
         checkArgument(o);
         return this.originalList.remove(o);
     }
 
+    @Override
     public boolean addAll(int index, Collection<? extends T> c) {
         checkIndex(index);
         this.checkArgumentsInCollection(c);
@@ -451,7 +466,6 @@ public class FacadeList<T> extends AbstractCollection<T> implements List<T> {
 
         // check index and throw an exception
         //this.checkIndex(index, "Input sublist index doesn't exist " + index);
-
         return (T) this.originalList.set(originalListIndex, newElement);
     }
 
@@ -468,7 +482,6 @@ public class FacadeList<T> extends AbstractCollection<T> implements List<T> {
         int originalListIndex = this.getOriginalIndex(index);
 
         //this.checkIndex(originalListIndex, "Input sublist index doesn't exist" + index);
-
         this.originalList.add(originalListIndex, newElement);
     }
 
@@ -525,6 +538,7 @@ public class FacadeList<T> extends AbstractCollection<T> implements List<T> {
             this.superList = superList;
         }
 
+        @Override
         public boolean hasNext() {
             // check whether this is a next element in the super collection
             if ((currPosition + 1) <= (superList.size() - 1)) {
@@ -538,6 +552,7 @@ public class FacadeList<T> extends AbstractCollection<T> implements List<T> {
             return false;
         }
 
+        @Override
         public T next() {
             // check whether this is a next element in the super collection
             if ((currPosition + 1) <= (superList.size() - 1)) {
@@ -555,6 +570,7 @@ public class FacadeList<T> extends AbstractCollection<T> implements List<T> {
             throw new NoSuchElementException("Sublist does not contain any more elements.");
         }
 
+        @Override
         public void remove() {
             if (this.nextHasBeenCalled == false) {
                 throw new IllegalStateException("Next method for sublist iterator must be called at least once before remove can be called.");
@@ -599,7 +615,7 @@ public class FacadeList<T> extends AbstractCollection<T> implements List<T> {
                 throw new NullPointerException("Input super list cannot be null");
             }
 
-            if (startIndex < 0 || (superList.size() > 0 && startIndex >= superList.size()) || (superList.size() == 0 && startIndex > 0)) {
+            if (startIndex < 0 || (superList.size() > 0 && startIndex >= superList.size()) || (superList.isEmpty() && startIndex > 0)) {
                 throw new IndexOutOfBoundsException("Start index of the iterator cannot be less than zero or greater-equal than the size of the list");
             }
 
@@ -639,6 +655,7 @@ public class FacadeList<T> extends AbstractCollection<T> implements List<T> {
 
         }
 
+        @Override
         public boolean hasNext() {
             // check whether this is a next element in the super collection
             if ((currPosition + 1) <= (superList.size() - 1)) {
@@ -653,6 +670,7 @@ public class FacadeList<T> extends AbstractCollection<T> implements List<T> {
             return false;
         }
 
+        @Override
         public T next() {
             this.addOrRemoveCalled = false;
             // check whether this is a next element in the super collection
@@ -671,6 +689,7 @@ public class FacadeList<T> extends AbstractCollection<T> implements List<T> {
             throw new NoSuchElementException("Sublist does not contain any more elements.");
         }
 
+        @Override
         public boolean hasPrevious() {
             if (currPosition >= 0) {
                 nextOrPreviousHasBeenCalled = true;
@@ -684,6 +703,7 @@ public class FacadeList<T> extends AbstractCollection<T> implements List<T> {
             return false;
         }
 
+        @Override
         public T previous() {
             if (currPosition >= 0) {
                 for (int i = currPosition; i >= this.startSuperPosition; i--) {
@@ -698,6 +718,7 @@ public class FacadeList<T> extends AbstractCollection<T> implements List<T> {
             throw new NoSuchElementException("Failed to find a previous element");
         }
 
+        @Override
         public int nextIndex() {
             int cnt = 0;
             int nextIndex = -1;
@@ -713,6 +734,7 @@ public class FacadeList<T> extends AbstractCollection<T> implements List<T> {
             return nextIndex == -1 ? cnt : nextIndex;
         }
 
+        @Override
         public int previousIndex() {
             int previousIndex = -1;
 
@@ -726,6 +748,7 @@ public class FacadeList<T> extends AbstractCollection<T> implements List<T> {
             return previousIndex;
         }
 
+        @Override
         public void remove() {
             if (this.nextOrPreviousHasBeenCalled == false) {
                 throw new IllegalStateException("Next method for sublist iterator must be called at least once before remove can be called.");
@@ -741,6 +764,7 @@ public class FacadeList<T> extends AbstractCollection<T> implements List<T> {
             }
         }
 
+        @Override
         public void set(T t) {
             if (this.nextOrPreviousHasBeenCalled && !this.addOrRemoveCalled) {
                 if (currPosition >= startSuperPosition) {
@@ -755,6 +779,7 @@ public class FacadeList<T> extends AbstractCollection<T> implements List<T> {
             }
         }
 
+        @Override
         public void add(T t) {
             this.addOrRemoveCalled = true;
             this.superList.add(currPosition + 1, t);

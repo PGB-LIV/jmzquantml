@@ -2,8 +2,8 @@
 package uk.ac.liv.jmzqml.model.mzqml;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
@@ -38,7 +38,7 @@ public class IdentificationRef
 
     private final static long serialVersionUID = 100L;
     @XmlAttribute(name = "id_refs", required = true)
-    protected List<String> idRefs;
+    protected Set<String> idRefs;
     @XmlAttribute(name = "identificationFile_ref", required = true)
     protected String identificationFileRef;
     @XmlTransient
@@ -96,9 +96,9 @@ public class IdentificationRef
      *
      * @return the value of the idRefs property.
      */
-    public List<String> getIdRefs() {
+    public Set<String> getIdRefs() {
         if (idRefs == null) {
-            idRefs = new ArrayList<String>();
+            idRefs = new HashSet<>();
         }
         return this.idRefs;
     }

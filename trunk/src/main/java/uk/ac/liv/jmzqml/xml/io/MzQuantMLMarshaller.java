@@ -4,17 +4,11 @@
  */
 package uk.ac.liv.jmzqml.xml.io;
 
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.StringWriter;
-import java.io.Writer;
+import java.io.*;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import javax.xml.bind.JAXBContext;
-import javax.xml.bind.JAXBElement;
-import javax.xml.bind.JAXBException;
-import javax.xml.bind.Marshaller;
+import javax.xml.bind.*;
 import javax.xml.namespace.QName;
 import org.apache.log4j.Logger;
 import uk.ac.liv.jmzqml.model.MzQuantMLObject;
@@ -26,8 +20,8 @@ import uk.ac.liv.jmzqml.xml.jaxb.marshaller.MarshallerFactory;
 /**
  * Class for marshalling an mzQuantML file.
  * <p>
- * An mzQuantML file can be marshalled in two different ways. 
- * One way is to marshal the whole mzQuantML object into a file; 
+ * An mzQuantML file can be marshalled in two different ways.
+ * One way is to marshal the whole mzQuantML object into a file;
  * the other way is to use helper methods to stitch together large XML elements.
  *
  * @author Gerhard Mayer, MPC, Ruhr-University of Bochum
@@ -38,12 +32,8 @@ public class MzQuantMLMarshaller {
     /**
      * Constants.
      */
-    private static final String ENCODING = "UTF-8";
+    private static final String ENCODING = System.getProperty("file.encoding", "UTF-8");
     private static final String MZQUANTML = "MzQuantML";
-    private static final String MZQUANTML_NS = "http://psidev.info/psi/pi/mzQuantML/1.0.0";
-    //private static final String MZQUANTML_REL_PATH = " ../../../schema/mzQuantML_1_0_0.xsd";
-    //private static final String MZQUANTML_SCHEMA_LOCATION = MZQUANTML_NS + MZQUANTML_REL_PATH;
-    private static final String MZQUANTML_SCHEMA_LOCATION = "http://www.psidev.info/files/mzQuantML_1_0_0.xsd";
     private static final String MZQUANTML_VERSION = "1.0";
     /**
      * Members.
@@ -74,7 +64,7 @@ public class MzQuantMLMarshaller {
             this.marsh.setProperty(Marshaller.JAXB_ENCODING, ENCODING);
             this.marsh.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
             //this.marsh.setProperty(Marshaller.JAXB_FRAGMENT, true);
-            this.marsh.setProperty(Marshaller.JAXB_SCHEMA_LOCATION, MZQUANTML_SCHEMA_LOCATION);
+            this.marsh.setProperty(Marshaller.JAXB_SCHEMA_LOCATION, ModelConstants.MZQML_LOCATION);
         }
         catch (JAXBException jaxbex) {
             jaxbex.printStackTrace(System.err);
@@ -100,12 +90,13 @@ public class MzQuantMLMarshaller {
     public void marshall(MzQuantML mzQuantML) {
         try {
             if (this.fw != null) {
-                //TODO: setProperty
+
                 if (mzQuantML.getVersion().isEmpty()) {
                     mzQuantML.setVersion(MZQUANTML_VERSION);
                 }
 
-                JAXBElement<MzQuantML> jaxbElement = new JAXBElement<MzQuantML>(new QName(MZQUANTML_NS, MZQUANTML), MzQuantML.class, mzQuantML);
+                JAXBElement<MzQuantML> jaxbElement = new JAXBElement<MzQuantML>(new QName(ModelConstants.MZQML_NS, MZQUANTML), MzQuantML.class, mzQuantML);
+
                 this.marsh.marshal(jaxbElement, this.fw);
                 this.fw.flush();
                 this.fw.close();
@@ -183,10 +174,8 @@ public class MzQuantMLMarshaller {
      *
      * @return a string of an mzQuantML header.
      */
-    public String createXmlHeader() {
-        //String encoding = System.getProperty("file.encoding", "UTF-8");
-        String encoding = "UTF-8";
-        return "<?xml version=\"1.0\" encoding=\"" + encoding + "\"?>";
+    public static String createXmlHeader() {
+        return "<?xml version=\"1.0\" encoding=\"" + ENCODING + "\"?>";
     }
 
     /**
@@ -196,8 +185,8 @@ public class MzQuantMLMarshaller {
      *
      * @return a start tag of mzQuantML file.
      */
-    public String createMzQuantMLStartTag(String id) {
-        StringBuffer sb = new StringBuffer();
+    public static String createMzQuantMLStartTag(String id) {
+        StringBuilder sb = new StringBuilder();
 
         // tag opening plus id attribute
         sb.append("<MzQuantML id=\"").append(id).append("\"");
@@ -205,11 +194,11 @@ public class MzQuantMLMarshaller {
         sb.append(" version=\"").append(ModelConstants.MZQML_VERSION).append("\"");
         sb.append(" xmlns=\"").append(ModelConstants.MZQML_NS).append("\"");
         sb.append(" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"");
-        sb.append(" xsi:schemaLocation=\"").append(ModelConstants.MZQML_NS).append(" ").append(ModelConstants.MZQML_SCHEMA).append("\"");
+        sb.append(" xsi:schemaLocation=\"").append(ModelConstants.MZQML_LOCATION).append("\"");
         DateFormat dfm = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
         sb.append(" creationDate=\"").append(dfm.format(new Date())).append("\"");
         // finally close the tag
-        sb.append(" >");
+        sb.append(">");
 
         return sb.toString();
     }
@@ -219,7 +208,7 @@ public class MzQuantMLMarshaller {
      *
      * @return a closing tag of mzQuantML file.
      */
-    public String createMzQuantMLClosingTag() {
+    public static String createMzQuantMLClosingTag() {
         return "</MzQuantML>";
     }
 
@@ -231,7 +220,7 @@ public class MzQuantMLMarshaller {
      *
      * @return a start tag of {@link uk.ac.liv.jmzqml.model.mzqml.AnalysisSummary}.
      */
-    public String createAnalysisSummaryStartTag() {
+    public static String createAnalysisSummaryStartTag() {
         return "<AnalysisSummary>";
     }
 
@@ -240,7 +229,7 @@ public class MzQuantMLMarshaller {
      *
      * @return a closing tag of {@link uk.ac.liv.jmzqml.model.mzqml.AnalysisSummary}.
      */
-    public String createAnalysisSummaryClosingTag() {
+    public static String createAnalysisSummaryClosingTag() {
         return "</AnalysisSummary>";
     }
 
@@ -249,7 +238,7 @@ public class MzQuantMLMarshaller {
      *
      * @return a start tag of {@link uk.ac.liv.jmzqml.model.mzqml.AuditCollection}.
      */
-    public String createAuditCollectionStartTag() {
+    public static String createAuditCollectionStartTag() {
         return "<AuditCollection>";
     }
 
@@ -258,7 +247,7 @@ public class MzQuantMLMarshaller {
      *
      * @return a closing tag of {@link uk.ac.liv.jmzqml.model.mzqml.AuditCollection}.
      */
-    public String createAuditCollectionClosingTag() {
+    public static String createAuditCollectionClosingTag() {
         return "</AuditCollection>";
     }
 
@@ -267,7 +256,7 @@ public class MzQuantMLMarshaller {
      *
      * @return a start tag of {@link uk.ac.liv.jmzqml.model.mzqml.CvList}.
      */
-    public String createCvListStartTag() {
+    public static String createCvListStartTag() {
         return "<CvList>";
     }
 
@@ -276,7 +265,7 @@ public class MzQuantMLMarshaller {
      *
      * @return a closing tag of {@link uk.ac.liv.jmzqml.model.mzqml.CvList}.
      */
-    public String createCvListClosingTag() {
+    public static String createCvListClosingTag() {
         return "</CvList>";
     }
 
@@ -285,7 +274,7 @@ public class MzQuantMLMarshaller {
      *
      * @return a start tag of {@link uk.ac.liv.jmzqml.model.mzqml.DataProcessingList}.
      */
-    public String createDataProcessingListStartTag() {
+    public static String createDataProcessingListStartTag() {
         return "<DataProcessingList>";
     }
 
@@ -294,7 +283,7 @@ public class MzQuantMLMarshaller {
      *
      * @return a closing tag of {@link uk.ac.liv.jmzqml.model.mzqml.DataProcessingList}.
      */
-    public String createDataProcessingListClosingTag() {
+    public static String createDataProcessingListClosingTag() {
         return "</DataProcessingList>";
     }
 
@@ -303,7 +292,7 @@ public class MzQuantMLMarshaller {
      *
      * @return a start tag of {@link uk.ac.liv.jmzqml.model.mzqml.InputFiles}.
      */
-    public String createInputFilesStartTag() {
+    public static String createInputFilesStartTag() {
         return "<InputFiles>";
     }
 
@@ -312,7 +301,7 @@ public class MzQuantMLMarshaller {
      *
      * @return a closing tag of {@link uk.ac.liv.jmzqml.model.mzqml.InputFiles}.
      */
-    public String createInputFilesClosingTag() {
+    public static String createInputFilesClosingTag() {
         return "</InputFiles>";
     }
 
@@ -321,7 +310,7 @@ public class MzQuantMLMarshaller {
      *
      * @return a start tag of {@link uk.ac.liv.jmzqml.model.mzqml.RatioList}.
      */
-    public String createRatioListStartTag() {
+    public static String createRatioListStartTag() {
         return "<RatioList>";
     }
 
@@ -330,7 +319,7 @@ public class MzQuantMLMarshaller {
      *
      * @return a closing tag of {@link uk.ac.liv.jmzqml.model.mzqml.RatioList}.
      */
-    public String createRatioListClosingTag() {
+    public static String createRatioListClosingTag() {
         return "</RatioList>";
     }
 
@@ -339,7 +328,7 @@ public class MzQuantMLMarshaller {
      *
      * @return a start tag of {@link uk.ac.liv.jmzqml.model.mzqml.SoftwareList}.
      */
-    public String createSoftwareListStartTag() {
+    public static String createSoftwareListStartTag() {
         return "<SoftwareList>";
     }
 
@@ -348,7 +337,7 @@ public class MzQuantMLMarshaller {
      *
      * @return a closing tag of {@link uk.ac.liv.jmzqml.model.mzqml.SoftwareList}.
      */
-    public String createSoftwareListClosingTag() {
+    public static String createSoftwareListClosingTag() {
         return "</SoftwareList>";
     }
 
@@ -357,7 +346,7 @@ public class MzQuantMLMarshaller {
      *
      * @return a start tag of {@link uk.ac.liv.jmzqml.model.mzqml.StudyVariableList}.
      */
-    public String createStudyVariableListStartTag() {
+    public static String createStudyVariableListStartTag() {
         return "<StudyVariableList>";
     }
 
@@ -366,7 +355,7 @@ public class MzQuantMLMarshaller {
      *
      * @return a closing tag of {@link uk.ac.liv.jmzqml.model.mzqml.StudyVariableList}.
      */
-    public String createStudyVariableListClosingTag() {
+    public static String createStudyVariableListClosingTag() {
         return "</StudyVariableList>";
     }
 
@@ -382,19 +371,19 @@ public class MzQuantMLMarshaller {
      *
      * @return a start tag of {@link uk.ac.liv.jmzqml.model.mzqml.AssayList}.
      */
-    public String createAssayListStartTag(String id) {
+    public static String createAssayListStartTag(String id) {
         if (id == null) {
             throw new IllegalArgumentException("The 'id' attribute must not be null!");
         }
 
         //required attribute: 'id'
-        StringBuffer sb = new StringBuffer();
+        StringBuilder sb = new StringBuilder();
 
         // tag opening plus id attribute
-        sb.append("<AssayList id=\"").append(id).append("\">");
+        sb.append("<AssayList id=\"").append(id).append("\"");
 
         // finally close the tag
-        sb.append(" >");
+        sb.append(">");
 
         return sb.toString();
     }
@@ -404,7 +393,7 @@ public class MzQuantMLMarshaller {
      *
      * @return a closing tag of {@link uk.ac.liv.jmzqml.model.mzqml.AssayList}.
      */
-    public String createAssayListClosingTag() {
+    public static String createAssayListClosingTag() {
         return "</AssayList>";
     }
 
@@ -428,23 +417,23 @@ public class MzQuantMLMarshaller {
      *
      * @return a {@link uk.ac.liv.jmzqml.model.mzqml.BibliographicReference} string tag, representing bibliographic references.
      */
-    public String createBibliographicReferenceTag(String id,
-                                                  String name,
-                                                  String authors,
-                                                  String publication,
-                                                  String publisher,
-                                                  String editor,
-                                                  Integer year,
-                                                  String volume,
-                                                  String issue,
-                                                  String pages,
-                                                  String title,
-                                                  String doi) {
+    public static String createBibliographicReferenceTag(String id,
+                                                         String name,
+                                                         String authors,
+                                                         String publication,
+                                                         String publisher,
+                                                         String editor,
+                                                         Integer year,
+                                                         String volume,
+                                                         String issue,
+                                                         String pages,
+                                                         String title,
+                                                         String doi) {
 
         if (id == null) {
             throw new IllegalArgumentException("The 'id' attribute must not be null!");
         }
-        StringBuffer sb = new StringBuffer();
+        StringBuilder sb = new StringBuilder();
 
         // tag opening plus id attribute
         sb.append("<BibliographicReference id=\"").append(id).append("\"");
@@ -508,7 +497,8 @@ public class MzQuantMLMarshaller {
      *
      * @return a start tag of {@link uk.ac.liv.jmzqml.model.mzqml.FeatureList}.
      */
-    public String createFeatureListStartTag(String id, String rawFilesGroupRef) {
+    public static String createFeatureListStartTag(String id,
+                                                   String rawFilesGroupRef) {
         if (id == null) {
             throw new IllegalArgumentException("The 'id' attribute must not be null!");
         }
@@ -518,16 +508,16 @@ public class MzQuantMLMarshaller {
         }
 
         //required attribute: 'id', 'rawFilesGroup_ref'
-        StringBuffer sb = new StringBuffer();
+        StringBuilder sb = new StringBuilder();
 
         // tag opening plus id attribute
-        sb.append("<FeatureList id=\"").append(id).append("\">");
+        sb.append("<FeatureList id=\"").append(id).append("\"");
 
         // rawFilesGroup_ref attribute
         sb.append(" rawFilesGroup_ref=\"").append(rawFilesGroupRef).append("\"");
 
         // finally close the tag
-        sb.append(" >");
+        sb.append(">");
 
         return sb.toString();
     }
@@ -537,7 +527,7 @@ public class MzQuantMLMarshaller {
      *
      * @return a closing tag of {@link uk.ac.liv.jmzqml.model.mzqml.FeatureList}.
      */
-    public String createFeatureListClosingTag() {
+    public static String createFeatureListClosingTag() {
         return "</FeatureList>";
     }
 
@@ -549,8 +539,8 @@ public class MzQuantMLMarshaller {
      *
      * @return a start tag of {@link uk.ac.liv.jmzqml.model.mzqml.PeptideConsensusList}.
      */
-    public String createPeptideConsensusListStartTag(String id,
-                                                     Boolean finalResult) {
+    public static String createPeptideConsensusListStartTag(String id,
+                                                            Boolean finalResult) {
         if (id == null) {
             throw new IllegalArgumentException("The 'id' attribute must not be null!");
         }
@@ -560,10 +550,10 @@ public class MzQuantMLMarshaller {
         }
 
         //required attribute: 'id', 'rawFilesGroup_ref'
-        StringBuffer sb = new StringBuffer();
+        StringBuilder sb = new StringBuilder();
 
         // tag opening plus id attribute
-        sb.append("<PeptideConsensusList id=\"").append(id).append("\">");
+        sb.append("<PeptideConsensusList id=\"").append(id).append("\"");
 
         // rawFilesGroup_ref attribute
         sb.append(" finalResult=\"").append(finalResult.toString()).append("\"");
@@ -579,7 +569,7 @@ public class MzQuantMLMarshaller {
      *
      * @return a closing tag of {@link uk.ac.liv.jmzqml.model.mzqml.PeptideConsensusList}.
      */
-    public String createPeptideConsensusListClosingTag() {
+    public static String createPeptideConsensusListClosingTag() {
         return "</PeptideConsensusList>";
     }
 
@@ -590,16 +580,16 @@ public class MzQuantMLMarshaller {
      *
      * @return a start tag of {@link uk.ac.liv.jmzqml.model.mzqml.ProteinGroupList}.
      */
-    public String createProteinGroupListStartTag(String id) {
+    public static String createProteinGroupListStartTag(String id) {
         if (id == null) {
             throw new IllegalArgumentException("The 'id' attribute must not be null!");
         }
 
         //required attribute: 'id'
-        StringBuffer sb = new StringBuffer();
+        StringBuilder sb = new StringBuilder();
 
         // tag opening plus id attribute
-        sb.append("<ProteinGroupList id=\"").append(id).append("\">");
+        sb.append("<ProteinGroupList id=\"").append(id).append("\"");
 
         // finally close the tag
         sb.append(" >");
@@ -612,7 +602,7 @@ public class MzQuantMLMarshaller {
      *
      * @return a closing tag of {@link uk.ac.liv.jmzqml.model.mzqml.ProteinGroupList}.
      */
-    public String createProteinGroupListClosingTag() {
+    public static String createProteinGroupListClosingTag() {
         return "</ProteinGroupList>";
     }
 
@@ -623,16 +613,16 @@ public class MzQuantMLMarshaller {
      *
      * @return a start tag of {@link uk.ac.liv.jmzqml.model.mzqml.ProteinList}.
      */
-    public String createProteinListStartTag(String id) {
+    public static String createProteinListStartTag(String id) {
         if (id == null) {
             throw new IllegalArgumentException("The 'id' attribute must not be null!");
         }
 
         //required attribute: 'id'
-        StringBuffer sb = new StringBuffer();
+        StringBuilder sb = new StringBuilder();
 
         // tag opening plus id attribute
-        sb.append("<ProteinList id=\"").append(id).append("\">");
+        sb.append("<ProteinList id=\"").append(id).append("\"");
 
         // finally close the tag
         sb.append(" >");
@@ -645,7 +635,7 @@ public class MzQuantMLMarshaller {
      *
      * @return a closing tag of {@link uk.ac.liv.jmzqml.model.mzqml.ProteinList}.
      */
-    public String createProteinListClosingTag() {
+    public static String createProteinListClosingTag() {
         return "</ProteinList>";
     }
 
@@ -656,16 +646,16 @@ public class MzQuantMLMarshaller {
      *
      * @return a start tag of {@link uk.ac.liv.jmzqml.model.mzqml.SmallMoleculeList}.
      */
-    public String createSmallMoleculeListStartTag(String id) {
+    public static String createSmallMoleculeListStartTag(String id) {
         if (id == null) {
             throw new IllegalArgumentException("The 'id' attribute must not be null!");
         }
 
         //required attribute: 'id'
-        StringBuffer sb = new StringBuffer();
+        StringBuilder sb = new StringBuilder();
 
         // tag opening plus id attribute
-        sb.append("<SmallMoleculeList id=\"").append(id).append("\">");
+        sb.append("<SmallMoleculeList id=\"").append(id).append("\"");
 
         // finally close the tag
         sb.append(" >");
@@ -678,7 +668,7 @@ public class MzQuantMLMarshaller {
      *
      * @return a closing tag of {@link uk.ac.liv.jmzqml.model.mzqml.SmallMoleculeList}.
      */
-    public String createSmallMoleculeListClosingTag() {
+    public static String createSmallMoleculeListClosingTag() {
         return "</SmallMoleculeList>";
     }
 
@@ -705,18 +695,18 @@ public class MzQuantMLMarshaller {
      *
      * @return the {@link uk.ac.liv.jmzqml.model.mzqml.BibliographicReference} object, representing bibliographic references.
      */
-    public BibliographicReference createBibliographicReference(String id,
-                                                               String name,
-                                                               String authors,
-                                                               String publication,
-                                                               String publisher,
-                                                               String editor,
-                                                               Integer year,
-                                                               String volume,
-                                                               String issue,
-                                                               String pages,
-                                                               String title,
-                                                               String doi) {
+    public static BibliographicReference createBibliographicReference(String id,
+                                                                      String name,
+                                                                      String authors,
+                                                                      String publication,
+                                                                      String publisher,
+                                                                      String editor,
+                                                                      Integer year,
+                                                                      String volume,
+                                                                      String issue,
+                                                                      String pages,
+                                                                      String title,
+                                                                      String doi) {
 
         BibliographicReference br = new BibliographicReference();
         if (id == null) {
@@ -773,10 +763,10 @@ public class MzQuantMLMarshaller {
      *
      * @return the {@link uk.ac.liv.jmzqml.model.mzqml.Cv} object, a source controlled vocabulary from which cvParams will be obtained.
      */
-    public Cv createCv(String id,
-                       String fullName,
-                       String uri,
-                       String version) {
+    public static Cv createCv(String id,
+                              String fullName,
+                              String uri,
+                              String version) {
         Cv cv = new Cv();
         if (id == null) {
             throw new IllegalArgumentException("The 'id' attribute must not be null!");
@@ -811,13 +801,13 @@ public class MzQuantMLMarshaller {
      *
      * @return the {@link uk.ac.liv.jmzqml.model.mzqml.CvParam} object, a single entry from an ontology or a controlled vocabulary.
      */
-    public CvParam createCvParam(String name,
-                                 String cvRef,
-                                 String accession,
-                                 String value,
-                                 String unitAccession,
-                                 String unitName,
-                                 String unitCvRef) {
+    public static CvParam createCvParam(String name,
+                                        String cvRef,
+                                        String accession,
+                                        String value,
+                                        String unitAccession,
+                                        String unitName,
+                                        String unitCvRef) {
         CvParam cp = new CvParam();
 
         if (name == null) {
@@ -868,16 +858,16 @@ public class MzQuantMLMarshaller {
      *
      * @return the {@link uk.ac.liv.jmzqml.model.mzqml.CvParam} object, a single entry from an ontology or a controlled vocabulary.
      */
-    public CvParam createCvParam(String name,
-                                 Cv cvRef,
-                                 String accession,
-                                 String value,
-                                 String unitAccession,
-                                 String unitName,
-                                 String unitCvRef) {
+    public static CvParam createCvParam(String name,
+                                        Cv cvRef,
+                                        String accession,
+                                        String value,
+                                        String unitAccession,
+                                        String unitName,
+                                        String unitCvRef) {
 
         String id = cvRef.getId();
-        return this.createCvParam(name, id, accession, value, unitAccession, unitName, unitCvRef);
+        return createCvParam(name, id, accession, value, unitAccession, unitName, unitCvRef);
     }
 
     /**
@@ -891,9 +881,9 @@ public class MzQuantMLMarshaller {
      *
      * @return the {@link uk.ac.liv.jmzqml.model.mzqml.CvParam} object, a single entry from an ontology or a controlled vocabulary.
      */
-    public CvParam createCvParam(String name,
-                                 String cvRef,
-                                 String accession) {
+    public static CvParam createCvParam(String name,
+                                        String cvRef,
+                                        String accession) {
         return createCvParam(name, cvRef, accession, null, null, null, null);
     }
 
@@ -908,9 +898,9 @@ public class MzQuantMLMarshaller {
      *
      * @return the {@link uk.ac.liv.jmzqml.model.mzqml.CvParam} object, a single entry from an ontology or a controlled vocabulary.
      */
-    public CvParam createCvParam(String name,
-                                 Cv cvRef,
-                                 String accession) {
+    public static CvParam createCvParam(String name,
+                                        Cv cvRef,
+                                        String accession) {
         return createCvParam(name, cvRef, accession, null, null, null, null);
 
     }

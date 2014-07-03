@@ -1,7 +1,7 @@
 /*
  * Date: 07-May-2013
  * Author: Da Qi
- * File: uk.ac.liv.jmzqml.xml.jaxb.resolver.ProteinRefResolver.java
+ * File: uk.ac.liv.jmzqml.xml.jaxb.resolver.StudyVariableRefResolver.java
  *
  * jmzquantml is Copyright 2013 University of Liverpool.
  *
@@ -21,6 +21,7 @@
 package uk.ac.liv.jmzqml.xml.jaxb.resolver;
 
 import java.util.List;
+import java.util.Set;
 import uk.ac.liv.jmzqml.MzQuantMLElement;
 import uk.ac.liv.jmzqml.model.mzqml.Assay;
 import uk.ac.liv.jmzqml.model.mzqml.StudyVariable;
@@ -51,14 +52,14 @@ public class StudyVariableRefResolver extends AbstractReferenceResolver<StudyVar
      */
     @Override
     public void updateObject(StudyVariable object) {
-        List<String> refs = object.getAssayRefs();
+        Set<String> refs = object.getAssayRefs();
         List<Assay> assays = object.getAssays();
         if (refs != null) {
             for (String ref : refs) {
                 Assay refObject = this.unmarshal(ref, Assay.class);
                 assays.add(refObject);
             }
-            //object.setAssays(assays);
+            object.setAssays(assays);
         }
     }
 

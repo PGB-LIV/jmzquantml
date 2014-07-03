@@ -55,13 +55,13 @@ public class MzQuantMLUnmarshallerTest {
         assertNotNull(unmarshaller);
     }
 
-    @Test(expected = IllegalStateException.class)
-    public void testNoIDUnmarshaller() {
-        String noidFile = "NoRefIdTest.mzq";
-        URL noidFileURL = MzQuantMLUnmarshallerTest.class.getClassLoader().getResource(noidFile);
-        assertNotNull(noidFileURL);
-        noidUM = new MzQuantMLUnmarshaller(noidFileURL);
-    }
+//    @Test(expected = IllegalStateException.class)
+//    public void testNoIDUnmarshaller() {
+//        String noidFile = "NoRefIdTest.mzq";
+//        URL noidFileURL = MzQuantMLUnmarshallerTest.class.getClassLoader().getResource(noidFile);
+//        assertNotNull(noidFileURL);
+//        noidUM = new MzQuantMLUnmarshaller(noidFileURL);
+//    }
 
     @Test
     public void testAttributeRetrieval()

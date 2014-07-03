@@ -3,7 +3,9 @@ package uk.ac.liv.jmzqml.model.mzqml;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -58,7 +60,7 @@ public class SmallMolecule
     protected List<DBIdentificationRef> dbIdentificationRef;
     @XmlList
     @XmlElement(name = "Feature_refs")
-    protected List<String> featureRefs;
+    protected Set<String> featureRefs;
     @XmlElements({
         @XmlElement(name = "cvParam", type = CvParam.class),
         @XmlElement(name = "userParam", type = UserParam.class)
@@ -89,6 +91,7 @@ public class SmallMolecule
             this.featureRefs = null;
         }
         else {
+            this.featureRefs = new HashSet<>();
             for (Feature feature : features) {
                 String refId = feature.getId();
                 if (refId == null) {
@@ -186,9 +189,9 @@ public class SmallMolecule
      *
      * @return the value of the featureRefs property.
      */
-    public List<String> getFeatureRefs() {
+    public Set<String> getFeatureRefs() {
         if (featureRefs == null) {
-            featureRefs = new ArrayList<String>();
+            featureRefs = new HashSet<>();
         }
         return this.featureRefs;
     }

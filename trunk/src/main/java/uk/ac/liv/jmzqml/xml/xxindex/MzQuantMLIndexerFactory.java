@@ -100,8 +100,8 @@ public class MzQuantMLIndexerFactory {
         private XpathIndex index = null;
         private String mzQuantMLAttributeXMLString = null;
         // a unified cache of all the id maps
-        private Map<Class<MzQuantMLObject>, Map<String, IndexElement>> idMapCache =
-                new HashMap<Class<MzQuantMLObject>, Map<String, IndexElement>>();
+        private Map<Class<? extends MzQuantMLObject>, Map<String, IndexElement>> idMapCache =
+                new HashMap<>();
 
         /*
          * Constructor
@@ -232,12 +232,12 @@ public class MzQuantMLIndexerFactory {
                         tag = xpathAccess.getStartTag(element);
                     }
                     catch (IOException e) {
-                        //TODO: proper handling
+                        //TODO: proper handling. Missing start tag of the specific element
                         e.printStackTrace();
                     }
                 }
                 else {
-                    // TODO: what if the element exists, but its id was not cached?
+                    // TODO: what if the element exists, but its id was not indexed?
                     // TODO: throw an exception?
                 }
             }
@@ -331,7 +331,6 @@ public class MzQuantMLIndexerFactory {
         /**
          * Method to generate and populate ID maps for the XML elements that
          *
-         * TODO: finish the comments
          */
         private void initIdMaps()
                 throws IOException {
@@ -374,7 +373,7 @@ public class MzQuantMLIndexerFactory {
         private String getIdFromRawXML(String xml) {
             Matcher match = ID_PATTERN.matcher(xml);
 
-            // ToDo: more checks: if no id found or more than one match, ...
+            // TODO: more checks: if no id found or more than one match, ...
             if (match.find()) {
                 return match.group(1).intern();
             }
