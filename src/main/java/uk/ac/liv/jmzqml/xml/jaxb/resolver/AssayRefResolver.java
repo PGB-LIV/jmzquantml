@@ -21,7 +21,6 @@
 package uk.ac.liv.jmzqml.xml.jaxb.resolver;
 
 import java.util.List;
-import java.util.Set;
 import uk.ac.liv.jmzqml.MzQuantMLElement;
 import uk.ac.liv.jmzqml.model.mzqml.Assay;
 import uk.ac.liv.jmzqml.model.mzqml.IdentificationFile;
@@ -59,7 +58,7 @@ public class AssayRefResolver extends AbstractReferenceResolver<Assay> {
             object.setRawFilesGroup(refObject1);
         }
 
-        Set<String> refs = object.getIdentificationFileRefs();
+        List<String> refs = object.getIdentificationFileRefs();
         List<IdentificationFile> identificationFiles = object.getIdentificationFiles();
         if (refs != null) {
             for (String ref2 : refs) {

@@ -21,7 +21,6 @@
 package uk.ac.liv.jmzqml.xml.jaxb.resolver;
 
 import java.util.List;
-import java.util.Set;
 import uk.ac.liv.jmzqml.MzQuantMLElement;
 import uk.ac.liv.jmzqml.model.mzqml.PeptideConsensus;
 import uk.ac.liv.jmzqml.model.mzqml.Protein;
@@ -58,7 +57,7 @@ public class ProteinRefResolver extends AbstractReferenceResolver<Protein> {
             object.setSearchDatabase(refObject1);
         }
 
-        Set<String> refs = object.getPeptideConsensusRefs();
+        List<String> refs = object.getPeptideConsensusRefs();
         List<PeptideConsensus> peptideConsensuses = object.getPeptideConsensuses();
         if (refs != null) {
             for (String ref2 : refs) {

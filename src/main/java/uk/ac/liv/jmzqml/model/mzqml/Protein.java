@@ -3,9 +3,7 @@ package uk.ac.liv.jmzqml.model.mzqml;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
@@ -61,7 +59,7 @@ public class Protein
     protected List<IdentificationRef> identificationRef;
     @XmlList
     @XmlElement(name = "PeptideConsensus_refs")
-    protected Set<String> peptideConsensusRefs;
+    protected List<String> peptideConsensusRefs;
     @XmlElements({
         @XmlElement(name = "cvParam", type = CvParam.class),
         @XmlElement(name = "userParam", type = UserParam.class)
@@ -98,7 +96,7 @@ public class Protein
             this.peptideConsensusRefs = null;
         }
         else {
-            this.peptideConsensusRefs = new HashSet<>();
+            this.peptideConsensusRefs = new ArrayList<>();
             for (PeptideConsensus peptideConsensus : peptideConsensuses) {
                 String refId = peptideConsensus.getId();
                 if (refId == null) {
@@ -193,9 +191,9 @@ public class Protein
      *
      * @return the value of the peptideConsensusRefs property.
      */
-    public Set<String> getPeptideConsensusRefs() {
+    public List<String> getPeptideConsensusRefs() {
         if (peptideConsensusRefs == null) {
-            peptideConsensusRefs = new HashSet<>();
+            peptideConsensusRefs = new ArrayList<>();
         }
         return this.peptideConsensusRefs;
     }
@@ -227,7 +225,7 @@ public class Protein
      */
     public List<AbstractParam> getParamGroup() {
         if (paramGroup == null) {
-            paramGroup = new ArrayList<AbstractParam>();
+            paramGroup = new ArrayList<>();
         }
         return this.paramGroup;
     }

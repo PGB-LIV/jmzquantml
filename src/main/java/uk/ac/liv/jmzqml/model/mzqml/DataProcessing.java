@@ -4,9 +4,7 @@ package uk.ac.liv.jmzqml.model.mzqml;
 import java.io.Serializable;
 import java.math.BigInteger;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
@@ -56,10 +54,10 @@ public class DataProcessing
     private final static long serialVersionUID = 100L;
     @XmlList
     @XmlElement(name = "InputObject_refs")
-    protected Set<String> inputObjectRefs;
+    protected List<String> inputObjectRefs;
     @XmlList
     @XmlElement(name = "OutputObject_refs")
-    protected Set<String> outputObjectRefs;
+    protected List<String> outputObjectRefs;
     @XmlElement(name = "ProcessingMethod", required = true)
     protected List<ProcessingMethod> processingMethod;
     @XmlAttribute(name = "software_ref", required = true)
@@ -96,7 +94,7 @@ public class DataProcessing
             this.inputObjectRefs = null;
         }
         else {
-            this.inputObjectRefs = new HashSet<>();
+            this.inputObjectRefs = new ArrayList<>();
             for (IdOnly inObj : inputObjects) {
                 String refId = inObj.getId();
                 if (refId == null) {
@@ -115,7 +113,7 @@ public class DataProcessing
      */
     public List<IdOnly> getOutputObjects() {
         if (outputObjects == null) {
-            outputObjects = new ArrayList<IdOnly>();
+            outputObjects = new ArrayList<>();
         }
         return outputObjects;
     }
@@ -130,7 +128,7 @@ public class DataProcessing
             this.outputObjectRefs = null;
         }
         else {
-            this.outputObjectRefs = new HashSet<>();
+            this.outputObjectRefs = new ArrayList<>();
             for (IdOnly outObj : outputObjects) {
                 String refId = outObj.getId();
                 if (refId == null) {
@@ -194,9 +192,9 @@ public class DataProcessing
      *
      * @return the value of the inputObjectRefs property.
      */
-    public Set<String> getInputObjectRefs() {
+    public List<String> getInputObjectRefs() {
         if (inputObjectRefs == null) {
-            inputObjectRefs = new HashSet<>();
+            inputObjectRefs = new ArrayList<>();
         }
         return this.inputObjectRefs;
     }
@@ -225,9 +223,9 @@ public class DataProcessing
      *
      * @return the value of the outputObjectRefs property.
      */
-    public Set<String> getOutputObjectRefs() {
+    public List<String> getOutputObjectRefs() {
         if (outputObjectRefs == null) {
-            outputObjectRefs = new HashSet<>();
+            outputObjectRefs = new ArrayList<>();
         }
         return this.outputObjectRefs;
     }

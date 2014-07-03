@@ -21,7 +21,6 @@
 package uk.ac.liv.jmzqml.xml.jaxb.resolver;
 
 import java.util.List;
-import java.util.Set;
 import uk.ac.liv.jmzqml.MzQuantMLElement;
 import uk.ac.liv.jmzqml.model.mzqml.Assay;
 import uk.ac.liv.jmzqml.model.mzqml.StudyVariable;
@@ -52,7 +51,7 @@ public class StudyVariableRefResolver extends AbstractReferenceResolver<StudyVar
      */
     @Override
     public void updateObject(StudyVariable object) {
-        Set<String> refs = object.getAssayRefs();
+        List<String> refs = object.getAssayRefs();
         List<Assay> assays = object.getAssays();
         if (refs != null) {
             for (String ref : refs) {

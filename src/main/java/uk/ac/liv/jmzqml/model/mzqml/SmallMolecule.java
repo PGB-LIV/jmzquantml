@@ -3,9 +3,7 @@ package uk.ac.liv.jmzqml.model.mzqml;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -20,9 +18,11 @@ import uk.ac.liv.jmzqml.model.utils.FacadeList;
 /**
  * An element to represent a unique identifier of a small molecule for which quantitative values are reported.
  *
- * <p>Java class for SmallMoleculeType complex type.
+ * <p>
+ * Java class for SmallMoleculeType complex type.
  *
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>
+ * The following schema fragment specifies the expected content contained within this class.
  *
  * <pre>
  * &lt;complexType name="SmallMoleculeType">
@@ -60,7 +60,7 @@ public class SmallMolecule
     protected List<DBIdentificationRef> dbIdentificationRef;
     @XmlList
     @XmlElement(name = "Feature_refs")
-    protected Set<String> featureRefs;
+    protected List<String> featureRefs;
     @XmlElements({
         @XmlElement(name = "cvParam", type = CvParam.class),
         @XmlElement(name = "userParam", type = UserParam.class)
@@ -91,7 +91,7 @@ public class SmallMolecule
             this.featureRefs = null;
         }
         else {
-            this.featureRefs = new HashSet<>();
+            this.featureRefs = new ArrayList<>();
             for (Feature feature : features) {
                 String refId = feature.getId();
                 if (refId == null) {
@@ -189,9 +189,9 @@ public class SmallMolecule
      *
      * @return the value of the featureRefs property.
      */
-    public Set<String> getFeatureRefs() {
+    public List<String> getFeatureRefs() {
         if (featureRefs == null) {
-            featureRefs = new HashSet<>();
+            featureRefs = new ArrayList<>();
         }
         return this.featureRefs;
     }
