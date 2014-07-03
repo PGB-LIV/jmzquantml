@@ -60,7 +60,7 @@ public class RatioQuantLayer
      */
     public List<Ratio> getColumns() {
         if (columns == null) {
-            columns = new ArrayList<Ratio>();
+            columns = new ArrayList<>();
         }
         return columns;
     }
@@ -112,7 +112,7 @@ public class RatioQuantLayer
      */
     public List<String> getColumnIndex() {
         if (columnIndex == null) {
-            columnIndex = new ArrayList<String>();
+            columnIndex = new ArrayList<>();
         }
         return this.columnIndex;
     }

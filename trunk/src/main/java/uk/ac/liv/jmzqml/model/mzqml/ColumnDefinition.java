@@ -68,7 +68,7 @@ public class ColumnDefinition
      */
     public List<Column> getColumn() {
         if (column == null) {
-            column = new ArrayList<Column>();
+            column = new ArrayList<>();
         }
         return this.column;
     }

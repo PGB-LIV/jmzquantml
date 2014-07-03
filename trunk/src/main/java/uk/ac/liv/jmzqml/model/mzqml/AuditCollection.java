@@ -72,7 +72,7 @@ public class AuditCollection
      */
     public List<Person> getPerson() {
         if (person == null) {
-            person = new ArrayList<Person>();
+            person = new ArrayList<>();
         }
         return this.person;
     }
@@ -103,7 +103,7 @@ public class AuditCollection
      */
     public List<Organization> getOrganization() {
         if (organization == null) {
-            organization = new ArrayList<Organization>();
+            organization = new ArrayList<>();
         }
         return this.organization;
     }

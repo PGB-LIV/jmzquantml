@@ -68,7 +68,7 @@ public class StudyVariableList
      */
     public List<StudyVariable> getStudyVariable() {
         if (studyVariable == null) {
-            studyVariable = new ArrayList<StudyVariable>();
+            studyVariable = new ArrayList<>();
         }
         return this.studyVariable;
     }

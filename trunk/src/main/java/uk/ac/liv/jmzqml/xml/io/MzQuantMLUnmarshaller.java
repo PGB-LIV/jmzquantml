@@ -4,47 +4,21 @@
  */
 package uk.ac.liv.jmzqml.xml.io;
 
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
-import java.io.Reader;
-import java.io.StringReader;
+import java.io.*;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
+import java.util.*;
+import java.util.regex.*;
 import javax.naming.ConfigurationException;
-
-import static javax.xml.XMLConstants.W3C_XML_SCHEMA_NS_URI;
-
 import javax.xml.bind.*;
-import javax.xml.bind.helpers.DefaultValidationEventHandler;
 import javax.xml.transform.sax.SAXSource;
-import javax.xml.validation.Schema;
-import javax.xml.validation.SchemaFactory;
-
 import org.apache.log4j.Logger;
 import org.xml.sax.InputSource;
-import org.xml.sax.SAXException;
-
 import uk.ac.liv.jmzqml.MzQuantMLElement;
 import uk.ac.liv.jmzqml.model.MzQuantMLObject;
-import uk.ac.liv.jmzqml.model.mzqml.AnalysisSummary;
-import uk.ac.liv.jmzqml.model.mzqml.CvParam;
-import uk.ac.liv.jmzqml.model.mzqml.MzQuantML;
-import uk.ac.liv.jmzqml.model.mzqml.ParamList;
-import uk.ac.liv.jmzqml.model.mzqml.UserParam;
+import uk.ac.liv.jmzqml.model.mzqml.*;
 import uk.ac.liv.jmzqml.xml.jaxb.unmarshaller.UnmarshallerFactory;
 import uk.ac.liv.jmzqml.xml.jaxb.unmarshaller.filters.MzQuantMLNamespaceFilter;
-import uk.ac.liv.jmzqml.xml.xxindex.FileUtils;
-import uk.ac.liv.jmzqml.xml.xxindex.MzQuantMLIndexer;
-import uk.ac.liv.jmzqml.xml.xxindex.MzQuantMLIndexerFactory;
+import uk.ac.liv.jmzqml.xml.xxindex.*;
 
 /**
  * Class for unmarshalling an mzQuantML file.
@@ -67,123 +41,119 @@ public class MzQuantMLUnmarshaller {
     private static final Pattern VERSION_PATTERN = Pattern.compile("version\\s*=\\s*[\"']([^\"'>]*)?[\"']", Pattern.CASE_INSENSITIVE);
     private static final Pattern NAME_PATTERN = Pattern.compile("name\\s*=\\s*[\"']([^\"'>]*)?[\"']", Pattern.CASE_INSENSITIVE);
     private static final Pattern XML_ATT_PATTERN = Pattern.compile("\\s+([A-Za-z:]+)\\s*=\\s*[\"']([^\"'>]+?)[\"']", Pattern.DOTALL);
-    private Unmarshaller unmarsh = null;
-    private Reader fr = null;
-    private List<String> exMsgs = new ArrayList<String>();
-    //private final MzQuantMLIndexer index;
+//    private Unmarshaller unmarsh = null;
+//    private Reader fr = null;
+    private final List<String> exMsgs = new ArrayList<>();
 
-    /**
-     * Constructor of the MzQuantMLUnmarshaller from the file name string.
-     * <p>
-     * The constructor doesn't use xxindex when take file name string as its parameter.
-     * <b>ONLY</b> unmarshall() method can be used by the MzQuantMLUnmarsahller object created by this constructor.
-     * No other methods in this class should be used for this constructor.
-     * The unmarshall() will unmarshall the entire mzQuantML file to an {@link uk.ac.liv.jmzqml.model.mzqml.MzQuantML} object.
-     * It is <b>NOT</b> recommended to use string parameter to create an unmarshaller for large mzQuantML files.
-     *
-     * @param fullFileName the full name string of the file to be unmarshalled.
-     */
-    public MzQuantMLUnmarshaller(String fullFileName) {
-
-        //this(MzQuantMLIndexerFactory.getInstance().buildIndex(new File(fullFileName)));
-        this.index = null;
-        this.cache = null;
-        try {
-            this.fr = new FileReader(fullFileName);
-        }
-        catch (IOException ioex) {
-            ioex.printStackTrace(System.err);
-        }
-
-        try {
-            JAXBContext context = JAXBContext.newInstance(new Class[]{MzQuantML.class});
-            this.unmarsh = context.createUnmarshaller();
-            this.unmarsh.setEventHandler(new DefaultValidationEventHandler());
-            //this.unmarsh.setValidating(true);
-        }
-        catch (JAXBException jaxbex) {
-            jaxbex.printStackTrace(System.err);
-        }
-    }
-    /*
-     *
-     * @param fullFileName, schemaValidating, schemaFn
-     */
-
-    /**
-     * A deprecated method.
-     *
-     * @param fullFileName
-     * @param schemaValidating
-     * @param schemaFile
-     *
-     * @deprecated
-     */
-    public MzQuantMLUnmarshaller(String fullFileName, boolean schemaValidating,
-                                 File schemaFile) {
-
-        //this(MzQuantMLIndexerFactory.getInstance().buildIndex(new File(fullFileName)));
-        this.index = null;
-        this.cache = null;
-        try {
-            this.fr = new FileReader(fullFileName);
-        }
-        catch (IOException ioex) {
-            ioex.printStackTrace(System.err);
-        }
-
-        if (schemaValidating) {
-            try {
-                JAXBContext context = JAXBContext.newInstance(new Class[]{MzQuantML.class
-                        });
-                this.unmarsh = context.createUnmarshaller();
-
-                SchemaFactory sf = SchemaFactory.newInstance(W3C_XML_SCHEMA_NS_URI);
-                Schema schema = sf.newSchema(schemaFile);
-                this.unmarsh.setSchema(schema);
-
-                ValidationEventHandler veh = new ValidationEventHandler() {
-
-                    @Override
-                    public boolean handleEvent(ValidationEvent event) {
-                        //ignore warnings
-                        if (event.getSeverity() != ValidationEvent.WARNING) {
-                            ValidationEventLocator vel = event.getLocator();
-//                            System.out.println("Line:Col[" + vel.getLineNumber()
+//    /**
+//     * Constructor of the MzQuantMLUnmarshaller from the file name string.
+//     * <p>
+//     * The constructor doesn't use xxindex when take file name string as its parameter.
+//     * <b>ONLY</b> unmarshall() method can be used by the MzQuantMLUnmarsahller object created by this constructor.
+//     * No other methods in this class should be used for this constructor.
+//     * The unmarshall() will unmarshall the entire mzQuantML file to an {@link uk.ac.liv.jmzqml.model.mzqml.MzQuantML} object.
+//     * It is <b>NOT</b> recommended to use string parameter to create an unmarshaller for large mzQuantML files.
+//     *
+//     * @param fullFileName the full name string of the file to be unmarshalled.
+//     *    
+//     * @deprecated
+//     */
+//    public MzQuantMLUnmarshaller(String fullFileName) {
+//
+//        //this(MzQuantMLIndexerFactory.getInstance().buildIndex(new File(fullFileName)));
+//        this.index = null;
+//        this.cache = null;
+//        try {
+//            this.fr = new FileReader(fullFileName);
+//        }
+//        catch (IOException ioex) {
+//            ioex.printStackTrace(System.err);
+//        }
+//
+//        try {
+//            JAXBContext context = JAXBContext.newInstance(new Class[]{MzQuantML.class});
+//            this.unmarsh = context.createUnmarshaller();
+//            this.unmarsh.setEventHandler(new DefaultValidationEventHandler());
+//            //this.unmarsh.setValidating(true);
+//        }
+//        catch (JAXBException jaxbex) {
+//            jaxbex.printStackTrace(System.err);
+//        }
+//    }
+//    /**
+//     * A deprecated method.
+//     *
+//     * @param fullFileName
+//     * @param schemaValidating
+//     * @param schemaFile
+//     *
+//     * @deprecated
+//     */
+//    public MzQuantMLUnmarshaller(String fullFileName, boolean schemaValidating,
+//                                 File schemaFile) {
+//
+//        //this(MzQuantMLIndexerFactory.getInstance().buildIndex(new File(fullFileName)));
+//        this.index = null;
+//        this.cache = null;
+//        try {
+//            this.fr = new FileReader(fullFileName);
+//        }
+//        catch (IOException ioex) {
+//            ioex.printStackTrace(System.err);
+//        }
+//
+//        if (schemaValidating) {
+//            try {
+//                JAXBContext context = JAXBContext.newInstance(new Class[]{MzQuantML.class
+//                        });
+//                this.unmarsh = context.createUnmarshaller();
+//
+//                SchemaFactory sf = SchemaFactory.newInstance(W3C_XML_SCHEMA_NS_URI);
+//                Schema schema = sf.newSchema(schemaFile);
+//                this.unmarsh.setSchema(schema);
+//
+//                ValidationEventHandler veh = new ValidationEventHandler() {
+//
+//                    @Override
+//                    public boolean handleEvent(ValidationEvent event) {
+//                        //ignore warnings
+//                        if (event.getSeverity() != ValidationEvent.WARNING) {
+//                            ValidationEventLocator vel = event.getLocator();
+////                            System.out.println("Line:Col[" + vel.getLineNumber()
+////                                    + ":" + vel.getColumnNumber()
+////                                    + "]:" + event.getMessage());
+//                            exMsgs.add("Line:Col[" + vel.getLineNumber()
 //                                    + ":" + vel.getColumnNumber()
 //                                    + "]:" + event.getMessage());
-                            exMsgs.add("Line:Col[" + vel.getLineNumber()
-                                    + ":" + vel.getColumnNumber()
-                                    + "]:" + event.getMessage());
-                        }
-                        return true;
-                    }
-
-                };
-                this.unmarsh.setEventHandler(veh);
-
-            }
-            catch (JAXBException jaxbex) {
-                jaxbex.printStackTrace();
-            }
-            catch (SAXException ex) {
-                System.out.println("Unable to validate due to follow error.");
-                ex.printStackTrace();
-            }
-        }
-        else {
-            try {
-                JAXBContext context = JAXBContext.newInstance(new Class[]{MzQuantML.class
-                        });
-                this.unmarsh = context.createUnmarshaller();
-                this.unmarsh.setEventHandler(new DefaultValidationEventHandler());
-                //this.unmarsh.setValidating(true);
-            }
-            catch (JAXBException jaxbex) {
-                jaxbex.printStackTrace(System.err);
-            }
-        }
-    }
+//                        }
+//                        return true;
+//                    }
+//
+//                };
+//                this.unmarsh.setEventHandler(veh);
+//
+//            }
+//            catch (JAXBException jaxbex) {
+//                jaxbex.printStackTrace();
+//            }
+//            catch (SAXException ex) {
+//                System.out.println("Unable to validate due to follow error.");
+//                ex.printStackTrace();
+//            }
+//        }
+//        else {
+//            try {
+//                JAXBContext context = JAXBContext.newInstance(new Class[]{MzQuantML.class
+//                        });
+//                this.unmarsh = context.createUnmarshaller();
+//                this.unmarsh.setEventHandler(new DefaultValidationEventHandler());
+//                //this.unmarsh.setValidating(true);
+//            }
+//            catch (JAXBException jaxbex) {
+//                jaxbex.printStackTrace(System.err);
+//            }
+//        }
+//    }
 
     /*
      * Constructor
@@ -207,6 +177,15 @@ public class MzQuantMLUnmarshaller {
     }
 
     /**
+     * Constructor of the MzQuantMLUnmarshaller from the file name string.
+     * 
+     * @param mzQuantMLFileName the full name string of the file to be unmarshalled.
+     */
+    public MzQuantMLUnmarshaller(String mzQuantMLFileName) {
+        this(new File(mzQuantMLFileName));
+    }
+
+    /**
      * The Constructor of mzQuantMLUnmarshaller from {@link uk.ac.liv.jmzqml.xml.xxindex.MzQuantMLIndexer}.
      *
      * @param indexer an {@link uk.ac.liv.jmzqml.xml.xxindex.MzQuantMLIndexer} object.
@@ -216,32 +195,34 @@ public class MzQuantMLUnmarshaller {
         this.cache = null;
     }
 
-    /**
-     * Unmarshalling of a whole MzQuantML object.
-     * <p>
-     * The method can <b>ONLY</b> be used for the {@link uk.ac.liv.jmzqml.xml.io.mzQuantMLUnmarshaller} object created by {@code MzQuantMLUnmarshaller(String fullFileName)} constructor.
-     * If the unmarshaller object is created by other constructor, <b>DO NOT</b> use this method.
-     *
-     * @return MzQuantMLType a mzQuantML object from the entire mzQuantML file.
-     */
-    public MzQuantML unmarshall() {
-        MzQuantML mzQuantML = null;
-
-        try {
-            if (this.fr != null) {
-                mzQuantML = (MzQuantML) this.unmarsh.unmarshal(this.fr);
-                this.fr.close();
-            }
-        }
-        catch (JAXBException jaxbex) {
-            jaxbex.printStackTrace(System.err);
-        }
-        catch (IOException ioex) {
-            ioex.printStackTrace(System.err);
-        }
-
-        return mzQuantML;
-    }
+//    /**
+//     * Unmarshalling of a whole MzQuantML object.
+//     * <p>
+//     * The method can <b>ONLY</b> be used for the {@link uk.ac.liv.jmzqml.xml.io.mzQuantMLUnmarshaller} object created by {@code MzQuantMLUnmarshaller(String fullFileName)} constructor.
+//     * If the unmarshaller object is created by other constructor, <b>DO NOT</b> use this method.
+//     *
+//     * @return MzQuantMLType a mzQuantML object from the entire mzQuantML file.
+//     *    
+//     * @deprecated    
+//     */
+//    public MzQuantML unmarshall() {
+//        MzQuantML mzQuantML = null;
+//
+//        try {
+//            if (this.fr != null) {
+//                mzQuantML = (MzQuantML) this.unmarsh.unmarshal(this.fr);
+//                this.fr.close();
+//            }
+//        }
+//        catch (JAXBException jaxbex) {
+//            jaxbex.printStackTrace(System.err);
+//        }
+//        catch (IOException ioex) {
+//            ioex.printStackTrace(System.err);
+//        }
+//
+//        return mzQuantML;
+//    }
 
 
     /*
@@ -302,8 +283,9 @@ public class MzQuantMLUnmarshaller {
      * @return A map of all the found name-value attribute pairs or null if no
      *         element with the specified id was found.
      */
-    public Map<String, String> getElementAttributes(String id, Class<? extends MzQuantMLObject> clazz) {
-        Map<String, String> attributes = new HashMap<String, String>();
+    public Map<String, String> getElementAttributes(String id,
+                                                    Class<? extends MzQuantMLObject> clazz) {
+        Map<String, String> attributes = new HashMap<>();
         // retrieve the start tag of the corresponding XML element
         String tag = index.getStartTag(id, clazz);
         if (tag == null) {
@@ -430,7 +412,7 @@ public class MzQuantMLUnmarshaller {
 //        }
 
         // we have to iterate over the XML elements
-        return new MzQuantMLObjectIterator<T>(element, index, cache);
+        return new MzQuantMLObjectIterator<>(element, index, cache);
     }
 
     /**

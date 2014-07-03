@@ -133,7 +133,7 @@ public class FeatureList
      */
     public List<Feature> getFeature() {
         if (feature == null) {
-            feature = new ArrayList<Feature>();
+            feature = new ArrayList<>();
         }
         return this.feature;
     }
@@ -164,7 +164,7 @@ public class FeatureList
      */
     public List<GlobalQuantLayer> getFeatureQuantLayer() {
         if (featureQuantLayer == null) {
-            featureQuantLayer = new ArrayList<GlobalQuantLayer>();
+            featureQuantLayer = new ArrayList<>();
         }
         return this.featureQuantLayer;
     }
@@ -195,7 +195,7 @@ public class FeatureList
      */
     public List<QuantLayer<IdOnly>> getMS2AssayQuantLayer() {
         if (ms2AssayQuantLayer == null) {
-            ms2AssayQuantLayer = new ArrayList<QuantLayer<IdOnly>>();
+            ms2AssayQuantLayer = new ArrayList<>();
         }
         return ms2AssayQuantLayer;
     }
@@ -226,7 +226,7 @@ public class FeatureList
      */
     public List<QuantLayer<IdOnly>> getMS2StudyVariableQuantLayer() {
         if (ms2StudyVariableQuantLayer == null) {
-            ms2StudyVariableQuantLayer = new ArrayList<QuantLayer<IdOnly>>();
+            ms2StudyVariableQuantLayer = new ArrayList<>();
         }
         return ms2StudyVariableQuantLayer;
     }
@@ -282,7 +282,7 @@ public class FeatureList
      */
     public List<AbstractParam> getParamGroup() {
         if (paramGroup == null) {
-            paramGroup = new ArrayList<AbstractParam>();
+            paramGroup = new ArrayList<>();
         }
         return this.paramGroup;
     }
@@ -307,7 +307,7 @@ public class FeatureList
      */
     @Override
     public List<CvParam> getCvParam() {
-        return new FacadeList<CvParam>(this.getParamGroup(), CvParam.class);
+        return new FacadeList<>(this.getParamGroup(), CvParam.class);
     }
 
     /**
@@ -318,7 +318,7 @@ public class FeatureList
      */
     @Override
     public List<UserParam> getUserParam() {
-        return new FacadeList<UserParam>(this.getParamGroup(), UserParam.class);
+        return new FacadeList<>(this.getParamGroup(), UserParam.class);
     }
 
 }

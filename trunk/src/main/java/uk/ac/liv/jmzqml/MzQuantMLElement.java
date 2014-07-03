@@ -1249,7 +1249,7 @@ public enum MzQuantMLElement {
 
     private static Map<String, MzQuantMLElementConfig> getCfg() {
         if (cfgMap == null) {
-            cfgMap = new HashMap<String, MzQuantMLElementConfig>();
+            cfgMap = new HashMap<>();
         }
         return cfgMap;
     }
@@ -1282,13 +1282,13 @@ public enum MzQuantMLElement {
     }
 
     /**
-     * Returns a String contains details of the MzQuantMLElement constant. 
+     * Returns a String contains details of the MzQuantMLElement constant.
      * <p>
-     * For example, {@code AnalysisSummary.toString()} returns 
+     * For example, {@code AnalysisSummary.toString()} returns
      * "MzQuantMLElement{indexed=true, xpath='/MzQuantML/AnalysisSummary', cached=null, clazz=uk.ac.liv.jmzqml.model.mzqml.AnalysisSummary}".
-     * 
-     * @return a String contains details of the MzQuantMLElement constant. 
-     * 
+     *
+     * @return a String contains details of the MzQuantMLElement constant.
+     *
      *
      */
     @Override

@@ -510,7 +510,7 @@ Configurations for various properties of model classes.
         <autoRefResolving>false</autoRefResolving>
         <clazz>uk.ac.liv.jmzqml.model.mzqml.QuantLayer</clazz>
         <idMapped>false</idMapped>
-        <indexed>true</indexed>
+        <indexed>false</indexed>
         <refResolverClass>uk.ac.liv.jmzqml.xml.jaxb.resolver.QuantLayerRefResolver</refResolverClass>
     </configurations>
 
@@ -537,7 +537,7 @@ Configurations for various properties of model classes.
         <autoRefResolving>false</autoRefResolving>
         <clazz>uk.ac.liv.jmzqml.model.mzqml.RatioQuantLayer</clazz>
         <idMapped>false</idMapped>
-        <indexed>true</indexed>
+        <indexed>false</indexed>
         <refResoverClass>uk.ac.liv.jmzqml.xml.jaxb.resolver.RatioQuantLayerRefResolver</refResoverClass>
     </configurations>
 

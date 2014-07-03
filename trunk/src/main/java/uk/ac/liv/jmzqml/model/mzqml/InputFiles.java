@@ -84,7 +84,7 @@ public class InputFiles
      */
     public List<RawFilesGroup> getRawFilesGroup() {
         if (rawFilesGroup == null) {
-            rawFilesGroup = new ArrayList<RawFilesGroup>();
+            rawFilesGroup = new ArrayList<>();
         }
         return this.rawFilesGroup;
     }
@@ -163,7 +163,7 @@ public class InputFiles
      */
     public List<SearchDatabase> getSearchDatabase() {
         if (searchDatabase == null) {
-            searchDatabase = new ArrayList<SearchDatabase>();
+            searchDatabase = new ArrayList<>();
         }
         return this.searchDatabase;
     }
@@ -194,7 +194,7 @@ public class InputFiles
      */
     public List<SourceFile> getSourceFile() {
         if (sourceFile == null) {
-            sourceFile = new ArrayList<SourceFile>();
+            sourceFile = new ArrayList<>();
         }
         return this.sourceFile;
     }

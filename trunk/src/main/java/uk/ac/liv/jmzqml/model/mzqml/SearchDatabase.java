@@ -126,9 +126,10 @@ public class SearchDatabase
      * 
      * 
      */
+    @Override
     public List<CvParam> getCvParam() {
         if (cvParam == null) {
-            cvParam = new ArrayList<CvParam>();
+            cvParam = new ArrayList<>();
         }
         return this.cvParam;
     }

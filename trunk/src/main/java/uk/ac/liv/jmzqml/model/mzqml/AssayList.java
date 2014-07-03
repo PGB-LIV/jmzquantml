@@ -70,7 +70,7 @@ public class AssayList
      */
     public List<Assay> getAssay() {
         if (assay == null) {
-            assay = new ArrayList<Assay>();
+            assay = new ArrayList<>();
         }
         return this.assay;
     }

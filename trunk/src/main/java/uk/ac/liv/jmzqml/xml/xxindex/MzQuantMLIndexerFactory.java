@@ -213,7 +213,7 @@ public class MzQuantMLIndexerFactory {
             if (element != null) {
                 xmlSnippet = readXML(element);
                 if (logger.isTraceEnabled()) {
-                    logger.trace("Retrived xml for class " + clazz + " with ID" + ID + ": " + xmlSnippet);;
+                    logger.trace("Retrived xml for class " + clazz + " with ID" + ID + ": " + xmlSnippet);
                 }
             }
             return xmlSnippet;
@@ -346,7 +346,7 @@ public class MzQuantMLIndexerFactory {
 
                     Map<String, IndexElement> map = idMapCache.get(element.getClazz());
                     if (map == null) {
-                        map = new HashMap<String, IndexElement>();
+                        map = new HashMap<>();
                         idMapCache.put(element.getClazz(), map);
                     }
                     initIdMapCache(map, element.getXpath());

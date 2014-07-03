@@ -96,7 +96,7 @@ public class SmallMoleculeList
      */
     public List<SmallMolecule> getSmallMolecule() {
         if (smallMolecule == null) {
-            smallMolecule = new ArrayList<SmallMolecule>();
+            smallMolecule = new ArrayList<>();
         }
         return this.smallMolecule;
     }
@@ -127,7 +127,7 @@ public class SmallMoleculeList
      */
     public List<GlobalQuantLayer> getGlobalQuantLayer() {
         if (globalQuantLayer == null) {
-            globalQuantLayer = new ArrayList<GlobalQuantLayer>();
+            globalQuantLayer = new ArrayList<>();
         }
         return this.globalQuantLayer;
     }
@@ -158,7 +158,7 @@ public class SmallMoleculeList
      */
     public List<QuantLayer<IdOnly>> getAssayQuantLayer() {
         if (assayQuantLayer == null) {
-            assayQuantLayer = new ArrayList<QuantLayer<IdOnly>>();
+            assayQuantLayer = new ArrayList<>();
         }
         return assayQuantLayer;
     }
@@ -189,7 +189,7 @@ public class SmallMoleculeList
      */
     public List<QuantLayer<IdOnly>> getStudyVariableQuantLayer() {
         if (studyVariableQuantLayer == null) {
-            studyVariableQuantLayer = new ArrayList<QuantLayer<IdOnly>>();
+            studyVariableQuantLayer = new ArrayList<>();
         }
         return studyVariableQuantLayer;
     }
@@ -245,7 +245,7 @@ public class SmallMoleculeList
      */
     public List<AbstractParam> getParamGroup() {
         if (paramGroup == null) {
-            paramGroup = new ArrayList<AbstractParam>();
+            paramGroup = new ArrayList<>();
         }
         return this.paramGroup;
     }
@@ -258,7 +258,7 @@ public class SmallMoleculeList
      */
     @Override
     public List<CvParam> getCvParam() {
-        return new FacadeList<CvParam>(this.getParamGroup(), CvParam.class);
+        return new FacadeList<>(this.getParamGroup(), CvParam.class);
     }
 
     /**
@@ -269,7 +269,7 @@ public class SmallMoleculeList
      */
     @Override
     public List<UserParam> getUserParam() {
-        return new FacadeList<UserParam>(this.getParamGroup(), UserParam.class);
+        return new FacadeList<>(this.getParamGroup(), UserParam.class);
     }
 
 }

@@ -56,7 +56,7 @@ public class RatioQuantLayerRefResolver extends AbstractReferenceResolver<RatioQ
         //ColumnIndex
         List<String> refs1 = object.getColumnIndex();
         if (refs1 != null) {
-            List<Ratio> refObjects1 = new ArrayList<Ratio>();
+            List<Ratio> refObjects1 = new ArrayList<>();
             for (String ref1 : refs1) {
                 Ratio refObject1 = this.unmarshal(ref1, Ratio.class);
                 refObjects1.add(refObject1);

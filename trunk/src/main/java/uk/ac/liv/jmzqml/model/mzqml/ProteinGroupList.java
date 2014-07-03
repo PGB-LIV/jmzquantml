@@ -4,13 +4,11 @@ package uk.ac.liv.jmzqml.model.mzqml;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlElements;
 import javax.xml.bind.annotation.XmlType;
-
 import uk.ac.liv.jmzqml.model.MzQuantMLObject;
 import uk.ac.liv.jmzqml.model.ParamGroupCapable;
 import uk.ac.liv.jmzqml.model.utils.FacadeList;
@@ -98,7 +96,7 @@ public class ProteinGroupList
      */
     public List<ProteinGroup> getProteinGroup() {
         if (proteinGroup == null) {
-            proteinGroup = new ArrayList<ProteinGroup>();
+            proteinGroup = new ArrayList<>();
         }
         return this.proteinGroup;
     }
@@ -129,7 +127,7 @@ public class ProteinGroupList
      */
     public List<GlobalQuantLayer> getGlobalQuantLayer() {
         if (globalQuantLayer == null) {
-            globalQuantLayer = new ArrayList<GlobalQuantLayer>();
+            globalQuantLayer = new ArrayList<>();
         }
         return this.globalQuantLayer;
     }
@@ -160,7 +158,7 @@ public class ProteinGroupList
      */
     public List<QuantLayer<IdOnly>> getAssayQuantLayer() {
         if (assayQuantLayer == null) {
-            assayQuantLayer = new ArrayList<QuantLayer<IdOnly>>();
+            assayQuantLayer = new ArrayList<>();
         }
         return assayQuantLayer;
     }
@@ -191,7 +189,7 @@ public class ProteinGroupList
      */
     public List<QuantLayer<IdOnly>> getStudyVariableQuantLayer() {
         if (studyVariableQuantLayer == null) {
-            studyVariableQuantLayer = new ArrayList<QuantLayer<IdOnly>>();
+            studyVariableQuantLayer = new ArrayList<>();
         }
         return studyVariableQuantLayer;
     }
@@ -247,7 +245,7 @@ public class ProteinGroupList
      */
     public List<AbstractParam> getParamGroup() {
         if (paramGroup == null) {
-            paramGroup = new ArrayList<AbstractParam>();
+            paramGroup = new ArrayList<>();
         }
         return this.paramGroup;
     }
@@ -260,7 +258,7 @@ public class ProteinGroupList
      */
     @Override
     public List<CvParam> getCvParam() {
-        return new FacadeList<CvParam>(this.getParamGroup(), CvParam.class);
+        return new FacadeList<>(this.getParamGroup(), CvParam.class);
     }
 
     /**
@@ -271,7 +269,7 @@ public class ProteinGroupList
      */
     @Override
     public List<UserParam> getUserParam() {
-        return new FacadeList<UserParam>(this.getParamGroup(), UserParam.class);
+        return new FacadeList<>(this.getParamGroup(), UserParam.class);
     }
 
 }

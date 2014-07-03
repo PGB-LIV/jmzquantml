@@ -68,7 +68,7 @@ public class CvList
      */
     public List<Cv> getCv() {
         if (cv == null) {
-            cv = new ArrayList<Cv>();
+            cv = new ArrayList<>();
         }
         return this.cv;
     }

@@ -313,7 +313,7 @@ public class MzQuantML extends Identifiable
      */
     public List<BibliographicReference> getBibliographicReference() {
         if (bibliographicReference == null) {
-            bibliographicReference = new ArrayList<BibliographicReference>();
+            bibliographicReference = new ArrayList<>();
         }
         return this.bibliographicReference;
     }
@@ -464,7 +464,7 @@ public class MzQuantML extends Identifiable
      */
     public List<PeptideConsensusList> getPeptideConsensusList() {
         if (peptideConsensusList == null) {
-            peptideConsensusList = new ArrayList<PeptideConsensusList>();
+            peptideConsensusList = new ArrayList<>();
         }
         return this.peptideConsensusList;
     }
@@ -519,7 +519,7 @@ public class MzQuantML extends Identifiable
      */
     public List<FeatureList> getFeatureList() {
         if (featureList == null) {
-            featureList = new ArrayList<FeatureList>();
+            featureList = new ArrayList<>();
         }
         return this.featureList;
     }

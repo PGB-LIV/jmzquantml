@@ -81,7 +81,7 @@ public class DataProcessing
      */
     public List<IdOnly> getInputObjects() {
         if (inputObjects == null) {
-            inputObjects = new ArrayList<IdOnly>();
+            inputObjects = new ArrayList<>();
         }
         return inputObjects;
     }
@@ -258,7 +258,7 @@ public class DataProcessing
      */
     public List<ProcessingMethod> getProcessingMethod() {
         if (processingMethod == null) {
-            processingMethod = new ArrayList<ProcessingMethod>();
+            processingMethod = new ArrayList<>();
         }
         return this.processingMethod;
     }

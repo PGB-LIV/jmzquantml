@@ -380,7 +380,7 @@ public class ObjectFactory {
      * @return an instance of {@link QuantLayer }
      */
     public QuantLayer<IdOnly> createQuantLayer() {
-        return new QuantLayer<IdOnly>();
+        return new QuantLayer<>();
     }
 
     /**
@@ -617,7 +617,7 @@ public class ObjectFactory {
      */
     @XmlElementDecl(namespace = "http://psidev.info/psi/pi/mzQuantML/1.0.0", name = "MzQuantML")
     public JAXBElement<MzQuantML> createMzQuantML(MzQuantML value) {
-        return new JAXBElement<MzQuantML>(_MzQuantML_QNAME, MzQuantML.class, null, value);
+        return new JAXBElement<>(_MzQuantML_QNAME, MzQuantML.class, null, value);
     }
 
 }
