@@ -2,8 +2,8 @@
 package uk.ac.liv.jmzqml.model.mzqml;
 
 import java.io.Serializable;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
@@ -14,9 +14,11 @@ import uk.ac.liv.jmzqml.model.MzQuantMLObject;
 /**
  * A reference to an external identification file defined in the document, plus a unique identifier for the object in that file, such as an ID of a SpectrumIdentificationItem, ProteinDetectionHypothesis or ProteinAmbiguityGroup in mzIdentML.
  *
- * <p>Java class for IdentificationRefType complex type.
+ * <p>
+ * Java class for IdentificationRefType complex type.
  *
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>
+ * The following schema fragment specifies the expected content contained within this class.
  *
  * <pre>
  * &lt;complexType name="IdentificationRefType">
@@ -38,7 +40,7 @@ public class IdentificationRef
 
     private final static long serialVersionUID = 100L;
     @XmlAttribute(name = "id_refs", required = true)
-    protected Set<String> idRefs;
+    protected List<String> idRefs;
     @XmlAttribute(name = "identificationFile_ref", required = true)
     protected String identificationFileRef;
     @XmlTransient
@@ -96,9 +98,9 @@ public class IdentificationRef
      *
      * @return the value of the idRefs property.
      */
-    public Set<String> getIdRefs() {
+    public List<String> getIdRefs() {
         if (idRefs == null) {
-            idRefs = new HashSet<>();
+            idRefs = new ArrayList<>();
         }
         return this.idRefs;
     }

@@ -21,7 +21,6 @@
 package uk.ac.liv.jmzqml.xml.jaxb.resolver;
 
 import java.util.List;
-import java.util.Set;
 import uk.ac.liv.jmzqml.MzQuantMLElement;
 import uk.ac.liv.jmzqml.model.mzqml.DataProcessing;
 import uk.ac.liv.jmzqml.model.mzqml.FeatureList;
@@ -65,7 +64,7 @@ public class DataProcessingRefResolver extends AbstractReferenceResolver<DataPro
             object.setSoftware(refObject);
         }
 
-        Set<String> refsInput = object.getInputObjectRefs();
+        List<String> refsInput = object.getInputObjectRefs();
         List<IdOnly> inputObjects = object.getInputObjects();
         if (refsInput != null) {
             for (String refInput : refsInput) {
@@ -104,7 +103,7 @@ public class DataProcessingRefResolver extends AbstractReferenceResolver<DataPro
             object.setInputObjects(inputObjects);
         }
 
-        Set<String> refsOutput = object.getOutputObjectRefs();
+        List<String> refsOutput = object.getOutputObjectRefs();
         List<IdOnly> outputObjects = object.getOutputObjects();
         if (refsOutput != null) {
             for (String refOutput : refsOutput) {

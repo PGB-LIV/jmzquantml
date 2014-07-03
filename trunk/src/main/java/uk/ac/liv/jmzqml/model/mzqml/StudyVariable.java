@@ -3,9 +3,7 @@ package uk.ac.liv.jmzqml.model.mzqml;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
@@ -21,9 +19,11 @@ import uk.ac.liv.jmzqml.model.utils.FacadeList;
 /**
  * A logical grouping of assays into conditions or user-defined study variables such as wild-type versus disease or time points in a time course.
  *
- * <p>Java class for StudyVariableType complex type.
+ * <p>
+ * Java class for StudyVariableType complex type.
  *
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>
+ * The following schema fragment specifies the expected content contained within this class.
  *
  * <pre>
  * &lt;complexType name="StudyVariableType">
@@ -59,7 +59,7 @@ public class StudyVariable
     protected List<AbstractParam> paramGroup;
     @XmlList
     @XmlElement(name = "Assay_refs", required = true)
-    protected Set<String> assayRefs;
+    protected List<String> assayRefs;
     @XmlAttribute(name = "name")
     protected String name;
     @XmlTransient
@@ -87,7 +87,7 @@ public class StudyVariable
             this.assayRefs = null;
         }
         else {
-            this.assayRefs = new HashSet<>();
+            this.assayRefs = new ArrayList<>();
             for (Assay assay : assays) {
                 String refId = assay.getId();
                 if (refId == null) {
@@ -155,9 +155,9 @@ public class StudyVariable
      *
      * @return the value of the assayRefs property.
      */
-    public Set<String> getAssayRefs() {
+    public List<String> getAssayRefs() {
         if (assayRefs == null) {
-            assayRefs = new HashSet<>();
+            assayRefs = new ArrayList<>();
         }
         return this.assayRefs;
     }

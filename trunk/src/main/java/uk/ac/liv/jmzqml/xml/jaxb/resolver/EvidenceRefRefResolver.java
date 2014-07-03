@@ -21,7 +21,6 @@
 package uk.ac.liv.jmzqml.xml.jaxb.resolver;
 
 import java.util.List;
-import java.util.Set;
 import uk.ac.liv.jmzqml.MzQuantMLElement;
 import uk.ac.liv.jmzqml.model.mzqml.Assay;
 import uk.ac.liv.jmzqml.model.mzqml.EvidenceRef;
@@ -69,7 +68,7 @@ public class EvidenceRefRefResolver extends AbstractReferenceResolver<EvidenceRe
         }
 
         //assay_refs
-        Set<String> refs3 = object.getAssayRefs();
+        List<String> refs3 = object.getAssayRefs();
         List<Assay> refObjects3 = object.getAssays();
         if (refs3 != null) {
             for (String ref3 : refs3) {

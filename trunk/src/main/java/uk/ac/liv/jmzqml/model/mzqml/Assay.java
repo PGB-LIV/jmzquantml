@@ -3,9 +3,7 @@ package uk.ac.liv.jmzqml.model.mzqml;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
@@ -21,9 +19,11 @@ import uk.ac.liv.jmzqml.model.utils.FacadeList;
 /**
  * Describes a single analysis of a sample (e.g. with the channel mapping in iTRAQ), which could constitute multiple raw files e.g. if pre-separation steps have occurred.
  *
- * <p>Java class for AssayType complex type.
+ * <p>
+ * Java class for AssayType complex type.
  *
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>
+ * The following schema fragment specifies the expected content contained within this class.
  *
  * <pre>
  * &lt;complexType name="AssayType">
@@ -59,7 +59,7 @@ public class Assay
     protected Label label;
     @XmlList
     @XmlElement(name = "IdentificationFile_refs")
-    protected Set<String> identificationFileRefs;
+    protected List<String> identificationFileRefs;
     @XmlElements({
         @XmlElement(name = "cvParam", type = CvParam.class),
         @XmlElement(name = "userParam", type = UserParam.class)
@@ -121,11 +121,12 @@ public class Assay
      */
     public void setIdentificationFiles(
             List<IdentificationFile> identificationFiles) {
+
         if (identificationFiles == null) {
             this.identificationFileRefs = null;
         }
         else {
-            this.identificationFileRefs = new HashSet<>();
+            this.identificationFileRefs = new ArrayList<>();
             for (IdentificationFile identificationFile : identificationFiles) {
                 String refId = identificationFile.getId();
                 if (refId == null) {
@@ -185,9 +186,9 @@ public class Assay
      *
      * @return the value of the identificationFileRefs property.
      */
-    public Set<String> getIdentificationFileRefs() {
+    public List<String> getIdentificationFileRefs() {
         if (identificationFileRefs == null) {
-            identificationFileRefs = new HashSet<>();
+            identificationFileRefs = new ArrayList<>();
         }
         return this.identificationFileRefs;
     }

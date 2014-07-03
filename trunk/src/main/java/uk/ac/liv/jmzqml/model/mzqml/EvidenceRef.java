@@ -3,9 +3,7 @@ package uk.ac.liv.jmzqml.model.mzqml;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
@@ -16,9 +14,11 @@ import uk.ac.liv.jmzqml.model.MzQuantMLObject;
 /**
  * Evidence associated with the PeptideConsensus, including mandatory associations to features and optional references to identifications that have been assigned to the feature.
  *
- * <p>Java class for EvidenceRefType complex type.
+ * <p>
+ * Java class for EvidenceRefType complex type.
  *
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>
+ * The following schema fragment specifies the expected content contained within this class.
  *
  * <pre>
  * &lt;complexType name="EvidenceRefType">
@@ -42,9 +42,9 @@ public class EvidenceRef
 
     private final static long serialVersionUID = 100L;
     @XmlAttribute(name = "assay_refs", required = true)
-    protected Set<String> assayRefs;
+    protected List<String> assayRefs;
     @XmlAttribute(name = "id_refs")
-    protected Set<String> idRefs;
+    protected List<String> idRefs;
     @XmlAttribute(name = "identificationFile_ref")
     protected String identificationFileRef;
     @XmlAttribute(name = "feature_ref", required = true)
@@ -78,7 +78,7 @@ public class EvidenceRef
             this.assayRefs = null;
         }
         else {
-            this.assayRefs = new HashSet<>();
+            this.assayRefs = new ArrayList<>();
             for (Assay assay : assays) {
                 String refId = assay.getId();
                 if (refId == null) {
@@ -170,9 +170,9 @@ public class EvidenceRef
      *
      * @return the value of the assayRefs property.
      */
-    public Set<String> getAssayRefs() {
+    public List<String> getAssayRefs() {
         if (assayRefs == null) {
-            assayRefs = new HashSet<>();
+            assayRefs = new ArrayList<>();
         }
         return this.assayRefs;
     }
@@ -201,14 +201,14 @@ public class EvidenceRef
      *
      * @return the value of the idRefs property.
      */
-    public Set<String> getIdRefs() {
+    public List<String> getIdRefs() {
         if (idRefs == null) {
-            idRefs = new HashSet<>();
+            idRefs = new ArrayList<>();
         }
         return this.idRefs;
     }
 
-    public void setIdRefs(Set<String> idRefs) {
+    public void setIdRefs(List<String> idRefs) {
         this.idRefs = idRefs;
     }
 

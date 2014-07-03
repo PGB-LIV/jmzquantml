@@ -21,7 +21,6 @@
 package uk.ac.liv.jmzqml.xml.jaxb.resolver;
 
 import java.util.List;
-import java.util.Set;
 import uk.ac.liv.jmzqml.MzQuantMLElement;
 import uk.ac.liv.jmzqml.model.mzqml.Feature;
 import uk.ac.liv.jmzqml.model.mzqml.Protein;
@@ -53,7 +52,7 @@ public class SmallMoleculeRefResolver extends AbstractReferenceResolver<SmallMol
      */
     @Override
     public void updateObject(SmallMolecule object) {
-        Set<String> refs = object.getFeatureRefs();
+        List<String> refs = object.getFeatureRefs();
         List<Feature> features = object.getFeatures();
         if (refs != null) {
             for (String ref1 : refs) {
