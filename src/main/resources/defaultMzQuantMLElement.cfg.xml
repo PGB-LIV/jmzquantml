@@ -5,7 +5,8 @@ Configurations for various properties of model classes.
         - 'autoRefResolving' determines if references within a class are automatically resolved. For example,
             Assay contains references to three separate classes. Setting this property to 'true'
             for the Assay config will cause these references to be resolved during unmarshalling.
-            Note: only elements that specify a refResolverClass can be switched to auto-resolving!
+            Note1: only elements that specify a refResolverClass can be switched to auto-resolving!
+            Note2: users MUST NOT define additional refResolverClass by themselves!
         - Only if an element is idMapped, it can be searched using it's ID.
         - An element cannot be idMapped if it is not indexed.
         - If an element is not indexed it will not be visible to the API on it's own. To access a not indexed
@@ -329,7 +330,7 @@ Configurations for various properties of model classes.
         <xpath>/MzQuantML/InputFiles/MethodFiles/MethodFile</xpath>
     </configurations>
 	
-    <!--<tagName>ModParam is different from ModificationType in PeptideConsensusType -->
+    <!--<tagName>ModParam is different from ModificationType in PeptideConsensusType and SmallMoleculeType -->
     <configurations>
         <autoRefResolving>false</autoRefResolving>
         <clazz>uk.ac.liv.jmzqml.model.mzqml.ModParam</clazz>
@@ -344,9 +345,8 @@ Configurations for various properties of model classes.
         <autoRefResolving>false</autoRefResolving>
         <clazz>uk.ac.liv.jmzqml.model.mzqml.Modification</clazz>
         <idMapped>false</idMapped>
-        <indexed>true</indexed>
+        <indexed>false</indexed>
         <cvParamClass>uk.ac.liv.jmzqml.model.mzqml.params.ModificationCvParam</cvParamClass>
-        <refResolverClass>uk.ac.liv.jmzqml.xml.jaxb.resolver.ModificationRefResolver</refResolverClass>
         <tagName>Modification</tagName>
         <xpath>/MzQuantML/PeptidenConsensusList/PeptideConsensus/Modification</xpath>
     </configurations>	
@@ -511,7 +511,6 @@ Configurations for various properties of model classes.
         <clazz>uk.ac.liv.jmzqml.model.mzqml.QuantLayer</clazz>
         <idMapped>false</idMapped>
         <indexed>false</indexed>
-        <refResolverClass>uk.ac.liv.jmzqml.xml.jaxb.resolver.QuantLayerRefResolver</refResolverClass>
     </configurations>
 
     <configurations>
