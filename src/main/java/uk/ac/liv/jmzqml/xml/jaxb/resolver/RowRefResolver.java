@@ -26,6 +26,7 @@ import uk.ac.liv.jmzqml.model.mzqml.PeptideConsensus;
 import uk.ac.liv.jmzqml.model.mzqml.Protein;
 import uk.ac.liv.jmzqml.model.mzqml.ProteinGroup;
 import uk.ac.liv.jmzqml.model.mzqml.Row;
+import uk.ac.liv.jmzqml.model.mzqml.SmallMolecule;
 import uk.ac.liv.jmzqml.xml.io.MzQuantMLObjectCache;
 import uk.ac.liv.jmzqml.xml.xxindex.MzQuantMLIndexer;
 
@@ -55,22 +56,36 @@ public class RowRefResolver extends AbstractReferenceResolver<Row> {
         // add objects for the refID                      
         String ref = object.getObjectRef();
         if (ref != null) {
-            ProteinGroup pgObject = this.unmarshal(ref, ProteinGroup.class);
-            Protein protObject = this.unmarshal(ref, Protein.class);
-            PeptideConsensus pepObject = this.unmarshal(ref, PeptideConsensus.class);
-            Feature ftObject = this.unmarshal(ref, Feature.class);
-            if (pgObject != null) {
-                object.setObject(pgObject);
+            String protGroupXML = this.getIndexer().getXmlString(ref, ProteinGroup.class);
+            String protXML = this.getIndexer().getXmlString(ref, Protein.class);
+            String pepXML = this.getIndexer().getXmlString(ref, PeptideConsensus.class);
+            String featureXML = this.getIndexer().getXmlString(ref, Feature.class);
+            String smallMolXML = this.getIndexer().getXmlString(ref, SmallMolecule.class);
+
+            if (protGroupXML != null) {
+                ProteinGroup refObject = this.unmarshal(ref, ProteinGroup.class);
+                object.setObject(refObject);
             }
-            if (protObject != null) {
-                object.setObject(protObject);
+            else if (protXML != null) {
+                Protein refObject = this.unmarshal(ref, Protein.class);
+                object.setObject(refObject);
             }
-            if (pepObject != null) {
-                object.setObject(pepObject);
+            else if (pepXML != null) {
+                PeptideConsensus refObject = this.unmarshal(ref, PeptideConsensus.class);
+                object.setObject(refObject);
             }
-            if (ftObject != null) {
-                object.setObject(ftObject);
+            else if (featureXML != null) {
+                Feature refObject = this.unmarshal(ref, Feature.class);
+                object.setObject(refObject);
             }
+            else if (smallMolXML != null) {
+                SmallMolecule refObject = this.unmarshal(ref, SmallMolecule.class);
+                object.setObject(refObject);
+            }
+            else {
+                throw new IllegalStateException("Could not uniquely resolve object reference " + ref);
+            }
+
         }
     }
 

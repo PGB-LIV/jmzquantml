@@ -99,6 +99,9 @@ public class DataProcessingRefResolver extends AbstractReferenceResolver<DataPro
                     QuantLayer refObject = this.unmarshal(refInput, QuantLayer.class);
                     inputObjects.add(refObject);
                 }
+                else {
+                    throw new IllegalStateException("Could not resolve input referecence " + refInput + " to required element");
+                }
             }
             object.setInputObjects(inputObjects);
         }
@@ -137,6 +140,9 @@ public class DataProcessingRefResolver extends AbstractReferenceResolver<DataPro
                 else if (quantLayerXML != null) {
                     QuantLayer refObject = this.unmarshal(refOutput, QuantLayer.class);
                     outputObjects.add(refObject);
+                }
+                else {
+                    throw new IllegalStateException("Could not resolve output referecence " + refOutput + " to required element");
                 }
             }
             object.setOutputObjects(outputObjects);
