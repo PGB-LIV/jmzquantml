@@ -1,7 +1,7 @@
 /*
  * Date: 07-May-2013
  * Author: Da Qi
- * File: uk.ac.liv.jmzqml.xml.jaxb.resolver.SmallMoleculeRefResolver.java
+ * File: uk.ac.liv.jmzqml.xml.jaxb.resolver.IdentificationRefRefResolver.java
  *
  * jmzquantml is Copyright 2013 University of Liverpool.
  *
@@ -20,10 +20,9 @@
 
 package uk.ac.liv.jmzqml.xml.jaxb.resolver;
 
-import java.util.List;
 import uk.ac.liv.jmzqml.MzQuantMLElement;
-import uk.ac.liv.jmzqml.model.mzqml.Feature;
-import uk.ac.liv.jmzqml.model.mzqml.SmallMolecule;
+import uk.ac.liv.jmzqml.model.mzqml.IdentificationFile;
+import uk.ac.liv.jmzqml.model.mzqml.IdentificationRef;
 import uk.ac.liv.jmzqml.xml.io.MzQuantMLObjectCache;
 import uk.ac.liv.jmzqml.xml.xxindex.MzQuantMLIndexer;
 
@@ -33,32 +32,28 @@ import uk.ac.liv.jmzqml.xml.xxindex.MzQuantMLIndexer;
  * @institute University of Liverpool
  * @time 07-May-2013 12:20:40
  */
-public class SmallMoleculeRefResolver extends AbstractReferenceResolver<SmallMolecule> {
+public class IdentificationRefRefResolver extends AbstractReferenceResolver<IdentificationRef> {
 
     /**
      *
      * @param index MzQuantMLIndexer
      * @param cache MzQuantMLObjectCache
      */
-    public SmallMoleculeRefResolver(MzQuantMLIndexer index,
-                                    MzQuantMLObjectCache cache) {
+    public IdentificationRefRefResolver(MzQuantMLIndexer index,
+                                        MzQuantMLObjectCache cache) {
         super(index, cache);
     }
 
     /**
      *
-     * @param object SmallMolecule
+     * @param object IdentificationRef
      */
     @Override
-    public void updateObject(SmallMolecule object) {
-        List<String> refs = object.getFeatureRefs();
-        List<Feature> features = object.getFeatures();
-        if (refs != null) {
-            for (String ref1 : refs) {
-                Feature refObject = this.unmarshal(ref1, Feature.class);
-                features.add(refObject);
-            }
-            object.setFeatures(features);
+    public void updateObject(IdentificationRef object) {
+        String ref1 = object.getIdentificationFileRef();
+        if (ref1 != null) {
+            IdentificationFile refObject1 = this.unmarshal(ref1, IdentificationFile.class);
+            object.setIdentificationFile(refObject1);
         }
     }
 
@@ -71,8 +66,8 @@ public class SmallMoleculeRefResolver extends AbstractReferenceResolver<SmallMol
      */
     @Override
     public void afterUnmarshal(Object target, Object parent) {
-        if (SmallMolecule.class.isInstance(target) && MzQuantMLElement.SmallMolecule.isAutoRefResolving()) {
-            updateObject((SmallMolecule) target);
+        if (IdentificationRef.class.isInstance(target) && MzQuantMLElement.IdentificationRef.isAutoRefResolving()) {
+            updateObject((IdentificationRef) target);
         } // else, not business of this resolver
     }
 
