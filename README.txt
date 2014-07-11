@@ -1,11 +1,11 @@
 =======================================================================
 =                                                                     =
 =                                                                     =
-=                jmzquantmL - Java API for MzQuantML                  =
+=                jmzquantmL - Java API for mzQuantML                  =
 =                                                                     =
 =                                                                     =
-=                                           jmzquantml  1.0.0-1.0.3   =
-=                                 (c) University of Liverpool  2013   =
+=                                           jmzquantml  1.0.0-1.0.5   =
+=                                 (c) University of Liverpool  2014   =
 =                              http://code.google.com/p/jmzquantml/   =
 =                                                                     =
 =                                                                     =
@@ -23,12 +23,12 @@ How to use in maven
   jmzquantml artifact is currently using Googlecode host as its maven
   repository. To use it, add the following to your POM:
   
-  First, add jmzquantml dependency (check the latest version):
+  First, add jmzquantml dependency (check for the latest version):
   
   <dependency>
      <groupId>uk.ac.liv</groupId>
      <artifactId>jmzquantml</artifactId>
-     <version>1.0.0-1.0.3</version>
+     <version>1.0.0-1.0.5</version>
   </dependency>
 
   Second, add wagon-svn extension (current version 1.12) in <build> tag:
@@ -61,8 +61,16 @@ How to use in maven
 
 Changelog
 
-  - Current version 1.0.0-1.0.3
-  - Previous version 1.0.0-1.0.2
+  - Current version 1.0.0-1.0.5
+  - Previous version 1.0.0-1.0.4-alpha
+
+jmzquantml version 1.0.0-1.0.5 -- (7, July 2014)
+  - implemented all the *RefResolver classes
+  - adjusted to Java 1.7
+
+jmzquantml version 1.0.0-1.0.4-alpha -- (2, May 2014)
+  - fixed the bug that xmlExtractor.detectFileEncoding returns null on files that don't have XML header
+  - added missing setIdRefs methods in EvidenceRef
   
 jmzquantml version 1.0.0-1.0.3 -- (31, October 2013)
   - added java documentations
