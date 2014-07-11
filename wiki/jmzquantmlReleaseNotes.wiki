@@ -3,14 +3,24 @@
 
 *_Changelog_*
 
-  * Current version 1.0.0-1.0.3
-  * Previous version 1.0.0-1.0.2
+  * Current version 1.0.0-1.0.5
+  * Previous version 1.0.0-1.0.4-alpha
+
+----
+*jmzquantml version 1.0.0-1.0.5 -- (7, July 2014)*
+  * implemented all the `*RefResolver` classes
+  * adjusted to Java 1.7
+
+----
+*jmzquantml version 1.0.0-1.0.4-alpha -- (2, May 2014)*
+  * fixed the bug that xmlExtractor.detectFileEncoding returns null on files that don't have XML header
+  * added missing setIdRefs methods in !EvidenceRef
 
 ----
 *jmzquantml version 1.0.0-1.0.3 -- (31, October 2013)*
   * added java documentations
-  * resolved assay_refs in EvidenceRef
-  * fixed potential bug of duplicating Assay_refs in StudyVariableRefResolver, ProteinRefResolver and AssayRefResolver
+  * resolved assay_refs in !EvidenceRef
+  * fixed potential bug of duplicating Assay_refs in !StudyVariableRefResolver, !ProteinRefResolver and !AssayRefResolver
 
 ----
 *jmzquantml version 1.0.0-1.0.2 -- (9, May 2013)*
@@ -28,7 +38,7 @@
 ----
 *jmzquantml version 1.0.0-rc3-1.0.5 -- (30, November 2012)*
   * adapted to latest schema changes:
-    ** added a new `<RatioQuantLayer>` with the DataType element
+    ** added a new `<RatioQuantLayer>` with the !DataType element
     ** added a new optional rawFile_ref to `<Feature>`  
   
 ----
