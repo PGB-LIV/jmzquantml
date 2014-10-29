@@ -17,9 +17,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 package uk.ac.liv.jmzqml.xml.jaxb.unmarshaller;
 
+import com.ctc.wstx.sax.WstxSAXParserFactory;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Unmarshaller;
@@ -97,23 +97,21 @@ public class UnmarshallerFactory {
              * will create
              * one by calling the default constructor.
              */
-
             //it is not possible to concurrently reuse a common unmarshaller
             //across all the Adapters because of internal state conflicts
             //when trying to unmarshall a referenced object from within a
             //parent object.
-
             //we don't have a validation handler yet
             //unmarshaller.setEventHandler(new DefaultValidationEventHandler());
-
             // This is used to post-process unmarshalled Java objects and convert
             // ParamAlternative classes to appropriate sub-classes (CvParam or UserParam). 
             unmarshaller.setListener(new RawXMLListener(index, cache));
 
             UnmarshallerHandler uh = unmarshaller.getUnmarshallerHandler();
 
+            SAXParserFactory factory = new WstxSAXParserFactory();
+            
             // Create a new XML parser
-            SAXParserFactory factory = SAXParserFactory.newInstance();
             factory.setNamespaceAware(true);
             SAXParser parser = factory.newSAXParser();
             XMLReader xmlReader = parser.getXMLReader();

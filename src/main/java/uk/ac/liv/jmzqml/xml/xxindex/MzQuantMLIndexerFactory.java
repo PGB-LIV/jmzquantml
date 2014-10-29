@@ -17,12 +17,17 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 package uk.ac.liv.jmzqml.xml.xxindex;
 
+import java.io.ByteArrayInputStream;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.nio.MappedByteBuffer;
+import java.nio.channels.FileChannel;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
@@ -37,6 +42,7 @@ import org.apache.log4j.Logger;
 import psidev.psi.tools.xxindex.SimpleXmlElementExtractor;
 import psidev.psi.tools.xxindex.StandardXpathAccess;
 import psidev.psi.tools.xxindex.XmlElementExtractor;
+import psidev.psi.tools.xxindex.XpathAccess;
 import psidev.psi.tools.xxindex.index.IndexElement;
 import psidev.psi.tools.xxindex.index.XpathIndex;
 import uk.ac.liv.jmzqml.MzQuantMLElement;
@@ -77,7 +83,7 @@ public class MzQuantMLIndexerFactory {
      * @return an object of MzQuantMLIndexer.
      */
     public MzQuantMLIndexer buildIndex(File xmlFile) {
-        return buildIndex(xmlFile, Constants.XML_INDEXED_XPATHS);
+        return buildIndex(xmlFile, Constants.XML_INDEXED_XPATHS, false);
     }
 
     /**
@@ -89,24 +95,37 @@ public class MzQuantMLIndexerFactory {
      * @return an object of MzQuantMLIndexer.
      */
     public MzQuantMLIndexer buildIndex(File xmlFile, Set<String> xpaths) {
-        return new MzQuantMLIndexerImpl(xmlFile, xpaths);
+        return new MzQuantMLIndexerImpl(xmlFile, xpaths, false);
+    }
+
+    public MzQuantMLIndexer buildIndex(File xmlFile, boolean inMemory) {
+        return new MzQuantMLIndexerImpl(xmlFile, Constants.XML_INDEXED_XPATHS, inMemory);
+    }
+
+    public MzQuantMLIndexer buildIndex(File xmlFile, Set<String> xpaths,
+                                       boolean inMemory) {
+        return new MzQuantMLIndexerImpl(xmlFile, xpaths, inMemory);
     }
 
     private class MzQuantMLIndexerImpl implements MzQuantMLIndexer {
 
         private File xmlFile = null;
-        private StandardXpathAccess xpathAccess = null;
+        private boolean inMemory = false;
+        private byte[] xmlFileBuffer;
+        private XpathAccess xpathAccess = null;
         private XmlElementExtractor xmlExtractor = null;
+        private MemoryMappedXmlElementExtractor memoryMappedXmlElementExtractor;
         private XpathIndex index = null;
         private String mzQuantMLAttributeXMLString = null;
         // a unified cache of all the id maps
-        private Map<Class<? extends MzQuantMLObject>, Map<String, IndexElement>> idMapCache =
-                new HashMap<>();
+        private Map<Class<? extends MzQuantMLObject>, Map<String, IndexElement>> idMapCache
+                = new HashMap<>();
 
         /*
          * Constructor
          */
-        private MzQuantMLIndexerImpl(File xmlFile, Set<String> xpaths) {
+        private MzQuantMLIndexerImpl(File xmlFile, Set<String> xpaths,
+                                     boolean inMemory) {
             if (xmlFile == null) {
                 throw new IllegalStateException("XML File to index must not be null");
             }
@@ -116,22 +135,12 @@ public class MzQuantMLIndexerFactory {
 
             //store file reference
             this.xmlFile = xmlFile;
+            this.inMemory = inMemory;
 
             try {
-                // generate XXINDEX
-                logger.info("Creating index: ");
-                xpathAccess = new StandardXpathAccess(xmlFile, xpaths);
-                logger.debug("done!");
 
-                // create xml element extractor
-                xmlExtractor = new SimpleXmlElementExtractor();
-                if (xmlExtractor.detectFileEncoding(xmlFile.toURI().toURL()) != null) {
-                    xmlExtractor.setEncoding(xmlExtractor.detectFileEncoding(xmlFile.toURI().toURL()));
-                }
-                // if XML header doesn't exit, the mzQuantML file should still be valid 
-//                else {
-//                    throw new IllegalStateException("The mzQuantML file doesn't contain encoding information in the header!");
-//                }
+                // create xml element extractor                
+                initXpathAccess(xmlFile, xpaths, inMemory);
 
                 // create index
                 index = xpathAccess.getIndex();
@@ -153,6 +162,43 @@ public class MzQuantMLIndexerFactory {
                 logger.error("MzQuantMLIndexerFactory$MzQuantMLIndexerImpl.MzQuantMLIndexterImpl", e);
                 throw new IllegalStateException("Could not generate MzQuantML index for file: " + xmlFile);
             }
+        }
+
+        private void initXpathAccess(File xmlFile, Set<String> xpaths,
+                                     boolean inMemory)
+                throws IOException {
+            if (inMemory) {
+                // load file into memory
+                loadFileIntoMemory(xmlFile);
+
+                MemoryMappedStandardXpathAccess memoryMappedStandardXpathAccess = new MemoryMappedStandardXpathAccess(xmlFileBuffer, xpaths);
+                memoryMappedXmlElementExtractor = memoryMappedStandardXpathAccess.getExtractor();
+                xpathAccess = memoryMappedStandardXpathAccess;
+            }
+            else {
+                xpathAccess = new StandardXpathAccess(xmlFile, xpaths);
+                xmlExtractor = new SimpleXmlElementExtractor();
+
+                if (xmlExtractor.detectFileEncoding(xmlFile.toURI().toURL()) != null) {
+                    xmlExtractor.setEncoding(xmlExtractor.detectFileEncoding(xmlFile.toURI().toURL()));
+                }
+                // if XML header doesn't exit, the mzQuantML file should still be valid 
+//                else {
+//                    throw new IllegalStateException("The mzQuantML file doesn't contain encoding information in the header!");
+//                }
+            }
+        }
+
+        private void loadFileIntoMemory(File xmlFile)
+                throws IOException {
+            FileInputStream fis = new FileInputStream(xmlFile);
+            FileChannel fc = fis.getChannel();
+
+            MappedByteBuffer mmb = fc.map(FileChannel.MapMode.READ_ONLY, 0, fc.size());
+
+            xmlFileBuffer = new byte[(int) fc.size()];
+            mmb.get(xmlFileBuffer);
+            fis.close();
         }
 
         /*
@@ -194,16 +240,23 @@ public class MzQuantMLIndexerFactory {
 
         @Override
         public List<IndexElement> getIndexElements(String xpath) {
-            return index.getElements(xpath);
+            return new ArrayList<IndexElement>(index.getElements(xpath));
+        }
+
+        @Override
+        public Map<String, IndexElement> getIndexElements(
+                Class<? extends MzQuantMLObject> clazz) {
+            return new HashMap<String, IndexElement>(idMapCache.get(clazz));
         }
 
         @Override
         public Set<String> getXpath() {
-            return index.getKeys();
+            return new HashSet<String>(index.getKeys());
         }
 
         @Override
-        public String getXmlString(String ID, Class<? extends MzQuantMLObject> clazz) {
+        public String getXmlString(String ID,
+                                   Class<? extends MzQuantMLObject> clazz) {
             logger.debug("Getting cached ID: " + ID + " from cache: " + clazz);
 
             Map<String, IndexElement> idMap = idMapCache.get(clazz);
@@ -211,7 +264,7 @@ public class MzQuantMLIndexerFactory {
 
             String xmlSnippet = null;
             if (element != null) {
-                xmlSnippet = readXML(element);
+                xmlSnippet = getXmlString(element);
                 if (logger.isTraceEnabled()) {
                     logger.trace("Retrived xml for class " + clazz + " with ID" + ID + ": " + xmlSnippet);
                 }
@@ -220,7 +273,8 @@ public class MzQuantMLIndexerFactory {
         }
 
         @Override
-        public String getStartTag(String id, Class<? extends MzQuantMLObject> clazz) {
+        public String getStartTag(String id,
+                                  Class<? extends MzQuantMLObject> clazz) {
             logger.debug("Getting start tag of element with id: " + id + " for class: " + clazz);
             String tag = null;
 
@@ -229,7 +283,12 @@ public class MzQuantMLIndexerFactory {
                 IndexElement element = idMap.get(id);
                 if (element != null) {
                     try {
-                        tag = xpathAccess.getStartTag(element);
+                        if (xpathAccess instanceof StandardXpathAccess) {
+                            tag = ((StandardXpathAccess) xpathAccess).getStartTag(element);
+                        }
+                        else if (xpathAccess instanceof MemoryMappedStandardXpathAccess) {
+                            tag = ((MemoryMappedStandardXpathAccess) xpathAccess).getStartTag(element);
+                        }
                     }
                     catch (IOException e) {
                         //TODO: proper handling. Missing start tag of the specific element
@@ -245,7 +304,8 @@ public class MzQuantMLIndexerFactory {
         }
 
         @Override
-        public boolean isIDmapped(String id, Class<? extends MzQuantMLObject> clazz) {
+        public boolean isIDmapped(String id,
+                                  Class<? extends MzQuantMLObject> clazz) {
             if (clazz == null) {
                 return false;
             }
@@ -275,15 +335,15 @@ public class MzQuantMLIndexerFactory {
             }
             return classCache.keySet();
         }
+
+        public String getXmlString(IndexElement byteRange) {
+            return getXmlString(byteRange, 0);
+        }
+
         /*
          * private methods
          */
-
-        private String readXML(IndexElement byteRange) {
-            return readXML(byteRange, 0);
-        }
-
-        private String readXML(IndexElement byteRange, int maxChars) {
+        private String getXmlString(IndexElement byteRange, int maxChars) {
             try {
                 if (byteRange != null) {
                     long stop;
@@ -294,7 +354,8 @@ public class MzQuantMLIndexerFactory {
                     else {
                         stop = byteRange.getStop();
                     }
-                    return xmlExtractor.readString(byteRange.getStart(), stop, xmlFile);
+                    return inMemory ? memoryMappedXmlElementExtractor.readString(byteRange.getStart(), stop, new ByteArrayInputStream(xmlFileBuffer))
+                            : xmlExtractor.readString(byteRange.getStart(), stop, xmlFile);
                 }
                 else {
                     throw new IllegalStateException("Attempting to read NULL ByteRange");
@@ -320,7 +381,8 @@ public class MzQuantMLIndexerFactory {
             long stopPos = ie.get(0).getStart() - 1;
 
             // get mzML start tag content
-            String startTag = xmlExtractor.readString(startPos, stopPos, xmlFile);
+            String startTag = inMemory ? memoryMappedXmlElementExtractor.readString(startPos, stopPos, new ByteArrayInputStream(xmlFileBuffer))
+                    : xmlExtractor.readString(startPos, stopPos, xmlFile);
             if (startTag != null) {
                 //strip newlines that might interfere with later on regex matching
                 startTag = startTag.replace("\n", "");
@@ -343,7 +405,6 @@ public class MzQuantMLIndexerFactory {
                     }
                     logger.debug("Initiating ID map for " + element.getClazz().getName());
 
-
                     Map<String, IndexElement> map = idMapCache.get(element.getClazz());
                     if (map == null) {
                         map = new HashMap<>();
@@ -359,7 +420,13 @@ public class MzQuantMLIndexerFactory {
                 throws IOException {
             List<IndexElement> ranges = index.getElements(xpath);
             for (IndexElement byteRange : ranges) {
-                String xml = xpathAccess.getStartTag(byteRange);
+                String xml = null;
+                if (xpathAccess instanceof StandardXpathAccess) {
+                    xml = ((StandardXpathAccess) xpathAccess).getStartTag(byteRange);
+                }
+                else if (xpathAccess instanceof MemoryMappedStandardXpathAccess) {
+                    xml = ((MemoryMappedStandardXpathAccess) xpathAccess).getStartTag(byteRange);
+                }
                 String id = getIdFromRawXML(xml);
                 if (id != null) {
                     idMap.put(id, byteRange);
