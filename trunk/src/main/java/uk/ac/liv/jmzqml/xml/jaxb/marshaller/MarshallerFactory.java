@@ -17,7 +17,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 package uk.ac.liv.jmzqml.xml.jaxb.marshaller;
 
 import javax.xml.bind.JAXBContext;
@@ -42,7 +41,7 @@ public class MarshallerFactory {
 
     /**
      * A static method to construct an object of MarshallerFactory.
-     * 
+     *
      * @return an instance of MarshallerFactory.
      */
     public static MarshallerFactory getInstance() {
@@ -54,7 +53,7 @@ public class MarshallerFactory {
 
     /**
      * Initialise the Marshaller with pre-defined settings.
-     * 
+     *
      * @return an instance of {@link javax.xml.bind.Marshaller} with initial configurations.
      */
     public Marshaller initializeMarshaller() {
@@ -68,11 +67,12 @@ public class MarshallerFactory {
             Marshaller marshaller = jc.createMarshaller();
             marshaller.setProperty(Constants.JAXB_ENCODING_PROPERTY, "UTF-8");
             marshaller.setProperty(Constants.JAXB_FORMATTING_PROPERTY, true);
+            marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
+            marshaller.setProperty(Marshaller.JAXB_FRAGMENT, true);
 
             // Register a listener that calls before/afterMarshalOperation on ParamAlternative/-List objects.
             // See: ParamAlternative.beforeMarshalOperation and ParamAlternativeList.beforeMarshalOperation
             marshaller.setListener(new ObjectClassListener());
-
 
             logger.info("Marshaller initialized");
 

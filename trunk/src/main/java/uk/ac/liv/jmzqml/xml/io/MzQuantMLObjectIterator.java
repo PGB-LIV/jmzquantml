@@ -17,7 +17,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 package uk.ac.liv.jmzqml.xml.io;
 
 import java.io.StringReader;
@@ -32,6 +31,7 @@ import uk.ac.liv.jmzqml.MzQuantMLElement;
 import uk.ac.liv.jmzqml.model.MzQuantMLObject;
 import uk.ac.liv.jmzqml.xml.jaxb.unmarshaller.UnmarshallerFactory;
 import uk.ac.liv.jmzqml.xml.jaxb.unmarshaller.filters.MzQuantMLNamespaceFilter;
+import uk.ac.liv.jmzqml.xml.util.EscapingXMLUtilities;
 import uk.ac.liv.jmzqml.xml.xxindex.MzQuantMLIndexer;
 
 /**
@@ -73,8 +73,11 @@ public class MzQuantMLObjectIterator<T extends MzQuantMLObject> implements
         try {
             String xmlSt = innerXpathIterator.next();
 
+            //need to clean up XML to ensure that there are no weird control characters
+            String cleanXML = EscapingXMLUtilities.escapeCharacters(xmlSt);
+
             if (logger.isDebugEnabled()) {
-                logger.trace("XML to unmarshal: " + xmlSt);
+                logger.trace("XML to unmarshal: " + cleanXML);
             }
 
             //required for the addition of namespaces to top-level objects
@@ -82,7 +85,7 @@ public class MzQuantMLObjectIterator<T extends MzQuantMLObject> implements
             //initializeUnmarshaller will assign the proper reader to the xmlFilter
             Unmarshaller unmarshaller = UnmarshallerFactory.getInstance().initializeUnmarshaller(index, cache, xmlFilter);
             //unmarshall the desired object
-            JAXBElement<T> holder = unmarshaller.unmarshal(new SAXSource(xmlFilter, new InputSource(new StringReader(xmlSt))), cls);
+            JAXBElement<T> holder = unmarshaller.unmarshal(new SAXSource(xmlFilter, new InputSource(new StringReader(cleanXML))), cls);
 
             retval = holder.getValue();
 
