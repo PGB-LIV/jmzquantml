@@ -50,7 +50,7 @@ public class ModelConstants {
     /**
      * The version of the mzQuantML schema.
      */
-    public static final String MZQML_VERSION = "1.0";
+    public static final String MZQML_VERSION = "1.0.0";
     /**
      * The file name of the mzQuantML schema.
      */

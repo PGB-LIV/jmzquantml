@@ -38,7 +38,6 @@ public class MzQuantMLMarshaller {
      */
     private static final String ENCODING = System.getProperty("file.encoding", "UTF-8");
     private static final String MZQUANTML = "MzQuantML";
-    private static final String MZQUANTML_VERSION = "1.0";
     /**
      * Members.
      */
@@ -96,7 +95,7 @@ public class MzQuantMLMarshaller {
             if (this.fw != null) {
                 
                 if (mzQuantML.getVersion().isEmpty()) {
-                    mzQuantML.setVersion(MZQUANTML_VERSION);
+                    mzQuantML.setVersion(ModelConstants.MZQML_VERSION);
                 }
                 
                 JAXBElement<MzQuantML> jaxbElement = new JAXBElement<>(new QName(ModelConstants.MZQML_NS, MZQUANTML), MzQuantML.class, mzQuantML);
