@@ -217,7 +217,7 @@ public class MzQuantMLMarshaller {
      * @return a string of an mzQuantML header.
      */
     public static String createXmlHeader() {
-        return "<?xml version=\"1.0\" encoding=\"" + ENCODING + "\"?>";
+        return "<?xml version=\"1.0\" encoding=\"" + "UTF-8" + "\"?>";
     }
 
     /**
