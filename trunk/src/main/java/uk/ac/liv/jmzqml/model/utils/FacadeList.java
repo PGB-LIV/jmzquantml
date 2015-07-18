@@ -127,12 +127,12 @@ public class FacadeList<T> extends AbstractCollection<T> implements List<T> {
      */
     @Override
     public boolean isEmpty() {
-        boolean em = false;
+        boolean em = true;
 
         for (Object anOriginalList : this.originalList) {
             Object o = anOriginalList;
             if (clazz.isInstance(o)) {
-                em = true;
+                em = false;
                 break;
             }
         }
