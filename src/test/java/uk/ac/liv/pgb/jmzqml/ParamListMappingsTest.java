@@ -1,7 +1,7 @@
 /*
  * Date: 05-Dec-2013
  * Author: Da Qi
- * File: uk.ac.liv.jmzqml.ParamListMappingsTest.java
+ * File: uk.ac.liv.pgb.jmzqml.ParamListMappingsTest.java
  *
  * jmzquantml is Copyright 2013 University of Liverpool.
  *

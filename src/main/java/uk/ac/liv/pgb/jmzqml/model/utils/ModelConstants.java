@@ -1,7 +1,7 @@
 /*
  * Date: 25-Jul-2012
  * Author: Da Qi
- * File: uk.ac.liv.jmzqml.model.utils.ModelConstants.java
+ * File: uk.ac.liv.pgb.jmzqml.model.utils.ModelConstants.java
  *
  * jmzquantml is Copyright 2012 University of Liverpool.
  *

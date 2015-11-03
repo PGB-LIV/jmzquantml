@@ -1,7 +1,7 @@
 /*
  * Date: 10-Jul-2012
  * Author: Da Qi
- * File: uk.ac.liv.jmzqml.test.xml.unmarshaller.MzQuantMLUnmarshallerTest.java
+ * File: uk.ac.liv.pgb.jmzqml.test.xml.unmarshaller.MzQuantMLUnmarshallerTest.java
  *
  * jmzquantml is Copyright 2012 University of Liverpool.
  *

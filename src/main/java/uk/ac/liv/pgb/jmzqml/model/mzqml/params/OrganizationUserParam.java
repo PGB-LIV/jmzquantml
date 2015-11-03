@@ -1,7 +1,7 @@
 /*
  * Date: 02-May-2013
  * Author: Da Qi
- * File: uk.ac.liv.jmzqml.model.mzqml.params.OrganizationUserParam.java
+ * File: uk.ac.liv.pgb.jmzqml.model.mzqml.params.OrganizationUserParam.java
  *
  * jmzquantml is Copyright 2013 University of Liverpool.
  *

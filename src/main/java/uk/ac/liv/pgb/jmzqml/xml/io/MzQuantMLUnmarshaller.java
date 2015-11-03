@@ -91,9 +91,9 @@ public class MzQuantMLUnmarshaller {
     }
 
     /**
-     * The Constructor of mzQuantMLUnmarshaller from {@link uk.ac.liv.jmzqml.xml.xxindex.MzQuantMLIndexer}.
+     * The Constructor of mzQuantMLUnmarshaller from {@link uk.ac.liv.pgb.jmzqml.xml.xxindex.MzQuantMLIndexer}.
      *
-     * @param indexer an {@link uk.ac.liv.jmzqml.xml.xxindex.MzQuantMLIndexer} object.
+     * @param indexer an {@link uk.ac.liv.pgb.jmzqml.xml.xxindex.MzQuantMLIndexer} object.
      */
     public MzQuantMLUnmarshaller(MzQuantMLIndexer indexer) {
         this.index = indexer;
@@ -217,7 +217,7 @@ public class MzQuantMLUnmarshaller {
      *
      * @param <T>   extends {@link uk.ac.liv.pgb.jmzqml.model.MzQuantMLObject}.
      *
-     * @see #unmarshal(uk.ac.liv.jmzqml.MzQuantMLElement)
+     * @see #unmarshal(uk.ac.liv.pgb.jmzqml.MzQuantMLElement)
      * @param clazz the type of Object to sub-class. It has to be a sub-class of
      *              MzQuantMLObject.
      *
@@ -234,7 +234,7 @@ public class MzQuantMLUnmarshaller {
      *
      * @param <T>   extends {@link uk.ac.liv.pgb.jmzqml.model.MzQuantMLObject}.
      *
-     * @see #unmarshal(uk.ac.liv.jmzqml.MzQuantMLElement)
+     * @see #unmarshal(uk.ac.liv.pgb.jmzqml.MzQuantMLElement)
      * @param xpath the xpath of the Object to be unmarshalled.
      *
      * @return an object of the specified class.
@@ -254,7 +254,7 @@ public class MzQuantMLUnmarshaller {
      *
      * @param <T>     extends {@link uk.ac.liv.pgb.jmzqml.model.MzQuantMLObject}.
      *
-     * @see #unmarshalCollectionFromXpath(uk.ac.liv.jmzqml.MzQuantMLElement)
+     * @see #unmarshalCollectionFromXpath(uk.ac.liv.pgb.jmzqml.MzQuantMLElement)
      * @param element The MzQuantMLElement defining the type of element to
      *                unmarshal.
      *
@@ -320,7 +320,7 @@ public class MzQuantMLUnmarshaller {
      *
      * @param <T>   extends {@link uk.ac.liv.pgb.jmzqml.model.MzQuantMLObject}.
      *
-     * @see #unmarshal(uk.ac.liv.jmzqml.MzQuantMLElement)
+     * @see #unmarshal(uk.ac.liv.pgb.jmzqml.MzQuantMLElement)
      * @param clazz the type of Object to sub-class. It has to be a sub-class of
      *              MzQuantMLObject.
      * @param id    the id of the MzQuantMLObject
@@ -415,7 +415,7 @@ public class MzQuantMLUnmarshaller {
             //TODO: add cache
             Unmarshaller unmarshaller = UnmarshallerFactory.getInstance().initializeUnmarshaller(index, null, xmlFilter);
             //unmarshall the desired object
-            JAXBElement<T> holder = unmarshaller.unmarshal(new SAXSource(xmlFilter, new InputSource(new StringReader(xmlSt))), cls);
+            JAXBElement<T> holder = unmarshaller.unmarshal(new SAXSource(xmlFilter, new InputSource(new StringReader(cleanXML))), cls);
             retval = holder.getValue();
 
             if (logger.isDebugEnabled()) {

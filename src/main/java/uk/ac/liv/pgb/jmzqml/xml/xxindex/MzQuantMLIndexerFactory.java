@@ -1,7 +1,7 @@
 /*
  * Date: 11-May-2012
  * Author: Da Qi
- * File: uk.ac.liv.jmzqml.xml.xxindex.MzQuantMLIndexerFactory.java
+ * File: uk.ac.liv.pgb.jmzqml.xml.xxindex.MzQuantMLIndexerFactory.java
  *
  * jmzquantml is Copyright 2012 University of Liverpool.
  *

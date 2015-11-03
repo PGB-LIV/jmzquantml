@@ -1,7 +1,7 @@
 /*
  * Date: 29-Apr-2013
  * Author: Da Qi
- * File: uk.ac.liv.jmzqml.xml.jaxb.resolver.ContactRoleRefResolver.java
+ * File: uk.ac.liv.pgb.jmzqml.xml.jaxb.resolver.ContactRoleRefResolver.java
  *
  * jmzquantml is Copyright 2013 University of Liverpool.
  *

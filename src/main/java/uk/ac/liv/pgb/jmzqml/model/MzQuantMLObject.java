@@ -1,7 +1,7 @@
 /*
  * Date: 21-Jun-2012
  * Author: Da Qi
- * File: uk.ac.liv.jmzqml.model.MzQuantMLObject.java
+ * File: uk.ac.liv.pgb.jmzqml.model.MzQuantMLObject.java
  *
  * jmzquantml is Copyright 2012 University of Liverpool.
  *

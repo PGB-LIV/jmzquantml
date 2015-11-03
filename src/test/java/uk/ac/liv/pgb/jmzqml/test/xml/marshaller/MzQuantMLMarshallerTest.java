@@ -1,7 +1,7 @@
 /*
  * Date: 02-Apr-2013
  * Author: Da Qi
- * File: uk.ac.liv.jmzqml.test.xml.marshaller.MzQuantMLMarshallerTest.java
+ * File: uk.ac.liv.pgb.jmzqml.pgb.test.xml.marshaller.MzQuantMLMarshallerTest.java
  *
  * jmzquantml is Copyright 2013 University of Liverpool.
  *
@@ -97,11 +97,9 @@ public class MzQuantMLMarshallerTest {
              * /MzQuantML
              *
              */
-
             // Note: writing of '\n' characters is optional and only for readability of the produced XML document
             // Also note: since the XML is produced in individual parts, the overall formatting of the document
             //            is not as nice as it would be when marshalling the whole structure at once.
-
             // XML header
             writer.write(MzQuantMLMarshaller.createXmlHeader() + "\n");
             // mzQuantML start tag

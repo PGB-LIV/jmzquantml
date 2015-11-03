@@ -1,7 +1,7 @@
 /*
  * Date: 05-Jul-2012
  * Author: Da Qi
- * File: uk.ac.liv.jmzqml.model.utils.MzQuantMLElementProperties.java
+ * File: uk.ac.liv.pgb.jmzqml.model.utils.MzQuantMLElementProperties.java
  *
  * jmzquantml is Copyright 2012 University of Liverpool.
  *

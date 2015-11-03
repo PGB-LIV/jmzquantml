@@ -6,9 +6,9 @@
               xmlns:psi-mzq="http://psidev.info/psi/pi/mzQuantML/1.0.0">
     <jxb:globalBindings choiceContentProperty = "true">
         <jxb:serializable uid="100"/>
-        <xjc:superInterface name= "uk.ac.liv.jmzqml.model.MzQuantMLObject"/>
+        <xjc:superInterface name= "uk.ac.liv.pgb.jmzqml.model.MzQuantMLObject"/>
         <xjc:javaType name = "java.util.Calendar" xmlType="xsd:dateTime"
-                      adapter="uk.ac.liv.jmzqml.xml.jaxb.adapter.CalendarAdapter"/>
+                      adapter="uk.ac.liv.pgb.jmzqml.xml.jaxb.adapter.CalendarAdapter"/>
     </jxb:globalBindings>
 	
     <!-- ####              mzQuantML bindings              ####-->
@@ -16,7 +16,7 @@
     <jxb:bindings schemaLocation="mzQuantML_1_0_0_stringId.xsd" node="/xsd:schema">
         
         <jxb:schemaBindings>
-            <jxb:package name = "uk.ac.liv.jmzqml.model.mzqml"/>
+            <jxb:package name = "uk.ac.liv.pgb.jmzqml.model.mzqml"/>
         </jxb:schemaBindings>
 		
         <jxb:bindings node="//xsd:complexType[@name='AbstractContactType']">
@@ -31,7 +31,7 @@
             <jxb:property name="Cv">
                 <jxb:baseType>
                     <xjc:javaType name="Cv"
-                                  adapter="uk.ac.liv.jmzqml.xml.jaxb.adapters.CvAdapter"/>
+                                  adapter="uk.ac.liv.pgb.jmzqml.xml.jaxb.adapters.CvAdapter"/>
                 </jxb:baseType>
             </jxb:property>
         </jxb:bindings>-->
@@ -44,7 +44,7 @@
             <jxb:property name="Organization">
                 <jxb:baseType>
                     <xjc:javaType name="Organization"
-                                  adapter="uk.ac.liv.jmzqml.xml.jaxb.adapters.OrganizationAdapter"/>
+                                  adapter="uk.ac.liv.pgb.jmzqml.xml.jaxb.adapters.OrganizationAdapter"/>
                 </jxb:baseType>
             </jxb:property>
         </jxb:bindings>-->
@@ -61,7 +61,7 @@
             <jxb:property name="IdentificationFile">
                 <jxb:baseType>
                     <xjc:javaType name="IdentificationFile"
-                                  adapter="uk.ac.liv.jmzqml.xml.jaxb.adapters.IdentificationFileAdapter"/>
+                                  adapter="uk.ac.liv.pgb.jmzqml.xml.jaxb.adapters.IdentificationFileAdapter"/>
                 </jxb:baseType>
             </jxb:property>
         </jxb:bindings>	-->		
@@ -70,7 +70,7 @@
             <jxb:property name="RawFilesGroup">
                 <jxb:baseType>
                     <xjc:javaType name="RawFilesGroup"
-                                  adapter="uk.ac.liv.jmzqml.xml.jaxb.adapters.RawFilesGroupAdapter"/>
+                                  adapter="uk.ac.liv.pgb.jmzqml.xml.jaxb.adapters.RawFilesGroupAdapter"/>
                 </jxb:baseType>
             </jxb:property>
         </jxb:bindings>	-->
@@ -99,7 +99,7 @@
             <jxb:property name="ContactRole">
                 <jxb:baseType>
                     <xjc:javaType name="ContactRole"
-                                  adapter="uk.ac.liv.jmzqml.xml.jaxb.adapters.ContactRoleAdapter"/>
+                                  adapter="uk.ac.liv.pgb.jmzqml.xml.jaxb.adapters.ContactRoleAdapter"/>
                 </jxb:baseType>
             </jxb:property>
         </jxb:bindings>-->
@@ -120,7 +120,7 @@
             <jxb:property name="Cv">
                 <jxb:baseType>
                     <xjc:javaType name="Cv"
-                                  adapter="uk.ac.liv.jmzqml.xml.jaxb.adapters.CvAdapter"/>
+                                  adapter="uk.ac.liv.pgb.jmzqml.xml.jaxb.adapters.CvAdapter"/>
                 </jxb:baseType>
             </jxb:property>
         </jxb:bindings>-->
@@ -137,7 +137,7 @@
             <jxb:property name="ExternalData">
                 <jxb:baseType>
                     <xjc:javaType name="ExternalData"
-                                  adapter="uk.ac.liv.jmzqml.xml.jaxb.adapters.ExternalDataAdapter"/>
+                                  adapter="uk.ac.liv.pgb.jmzqml.xml.jaxb.adapters.ExternalDataAdapter"/>
                 </jxb:baseType>
             </jxb:property>
         </jxb:bindings>-->
@@ -146,7 +146,7 @@
             <jxb:property name="SearchDatabase">
                 <jxb:baseType>
                     <xjc:javaType name="SearchDatabase"
-                                  adapter="uk.ac.liv.jmzqml.xml.jaxb.adapters.SearchDatabaseAdapter"/>
+                                  adapter="uk.ac.liv.pgb.jmzqml.xml.jaxb.adapters.SearchDatabaseAdapter"/>
                 </jxb:baseType>
             </jxb:property>
         </jxb:bindings>-->
@@ -167,7 +167,7 @@
             <jxb:property name="Software">
                 <jxb:baseType>
                     <xjc:javaType name="Software"
-                                  adapter="uk.ac.liv.jmzqml.xml.jaxb.adapters.SoftwareAdapter"/>
+                                  adapter="uk.ac.liv.pgb.jmzqml.xml.jaxb.adapters.SoftwareAdapter"/>
                 </jxb:baseType>
             </jxb:property>
         </jxb:bindings>-->
@@ -188,7 +188,7 @@
             <jxb:property name="RawFilesGroup">
                 <jxb:baseType>
                     <xjc:javaType name="RawFilesGroup"
-                                  adapter="uk.ac.liv.jmzqml.xml.jaxb.adapters.RawFilesGroupAdapter"/>
+                                  adapter="uk.ac.liv.pgb.jmzqml.xml.jaxb.adapters.RawFilesGroupAdapter"/>
                 </jxb:baseType>
             </jxb:property>
         </jxb:bindings>-->
@@ -217,7 +217,7 @@
             <jxb:property name="SearchDatabase">
                 <jxb:baseType>
                     <xjc:javaType name="SearchDatabase"
-                                  adapter="uk.ac.liv.jmzqml.xml.jaxb.adapters.SearchDatabaseAdapter"/>
+                                  adapter="uk.ac.liv.pgb.jmzqml.xml.jaxb.adapters.SearchDatabaseAdapter"/>
                 </jxb:baseType>
             </jxb:property>
         </jxb:bindings>-->
@@ -234,7 +234,7 @@
             <jxb:property name="ExternalData">
                 <jxb:baseType>
                     <xjc:javaType name="ExternalData"
-                                  adapter="uk.ac.liv.jmzqml.xml.jaxb.adapters.ExternalDataAdapter"/>
+                                  adapter="uk.ac.liv.pgb.jmzqml.xml.jaxb.adapters.ExternalDataAdapter"/>
                 </jxb:baseType>
             </jxb:property>
         </jxb:bindings>-->
@@ -243,7 +243,7 @@
             <jxb:property name="IdentificationFile">
                 <jxb:baseType>
                     <xjc:javaType name="IdentificationFile"
-                                  adapter="uk.ac.liv.jmzqml.xml.jaxb.adapters.IdentificationFileAdapter"/>
+                                  adapter="uk.ac.liv.pgb.jmzqml.xml.jaxb.adapters.IdentificationFileAdapter"/>
                 </jxb:baseType>
             </jxb:property>
         </jxb:bindings>-->
@@ -276,7 +276,7 @@
             <jxb:property name="Feature">
                 <jxb:baseType>
                     <xjc:javaType name="Feature"
-                                  adapter="uk.ac.liv.jmzqml.xml.jaxb.adapters.FeatureAdapter"/>
+                                  adapter="uk.ac.liv.pgb.jmzqml.xml.jaxb.adapters.FeatureAdapter"/>
                 </jxb:baseType>
             </jxb:property>
         </jxb:bindings>-->
@@ -305,7 +305,7 @@
             <jxb:property name="Organization">
                 <jxb:baseType>
                     <xjc:javaType name="Organization"
-                                  adapter="uk.ac.liv.jmzqml.xml.jaxb.adapters.OrganizationAdapter"/>
+                                  adapter="uk.ac.liv.pgb.jmzqml.xml.jaxb.adapters.OrganizationAdapter"/>
                 </jxb:baseType>
             </jxb:property>
         </jxb:bindings>-->
@@ -322,7 +322,7 @@
             <jxb:property name="SearchDatabase">
                 <jxb:baseType>
                     <xjc:javaType name="SearchDatabase"
-                                  adapter="uk.ac.liv.jmzqml.xml.jaxb.adapters.SearchDatabaseAdapter"/>
+                                  adapter="uk.ac.liv.pgb.jmzqml.xml.jaxb.adapters.SearchDatabaseAdapter"/>
                 </jxb:baseType>
             </jxb:property>
         </jxb:bindings>-->
@@ -347,7 +347,7 @@
             <jxb:property name="Protein">
                 <jxb:baseType>
                     <xjc:javaType name="Protein"
-                                  adapter="uk.ac.liv.jmzqml.xml.jaxb.adapters.ProteinAdapter"/>
+                                  adapter="uk.ac.liv.pgb.jmzqml.xml.jaxb.adapters.ProteinAdapter"/>
                 </jxb:baseType>
             </jxb:property>
         </jxb:bindings>-->
@@ -356,7 +356,7 @@
             <jxb:property name="SearchDatabase">
                 <jxb:baseType>
                     <xjc:javaType name="SearchDatabase"
-                                  adapter="uk.ac.liv.jmzqml.xml.jaxb.adapters.SearchDatabaseAdapter"/>
+                                  adapter="uk.ac.liv.pgb.jmzqml.xml.jaxb.adapters.SearchDatabaseAdapter"/>
                 </jxb:baseType>
             </jxb:property>
         </jxb:bindings>-->
@@ -377,7 +377,7 @@
             <jxb:property name="PeptideConsensus">
                 <jxb:baseType>
                     <xjc:javaType name="PeptideConsensus"
-                                  adapter="uk.ac.liv.jmzqml.xml.jaxb.adapters.PeptideConsensusAdapter"/>
+                                  adapter="uk.ac.liv.pgb.jmzqml.xml.jaxb.adapters.PeptideConsensusAdapter"/>
                 </jxb:baseType>
             </jxb:property>
         </jxb:bindings>-->
@@ -386,7 +386,7 @@
             <jxb:property name="SearchDatabase">
                 <jxb:baseType>
                     <xjc:javaType name="SearchDatabase"
-                                  adapter="uk.ac.liv.jmzqml.xml.jaxb.adapters.SearchDatabaseAdapter"/>
+                                  adapter="uk.ac.liv.pgb.jmzqml.xml.jaxb.adapters.SearchDatabaseAdapter"/>
                 </jxb:baseType>
             </jxb:property>
         </jxb:bindings>-->
@@ -399,7 +399,7 @@
             <jxb:property name="Software">
                 <jxb:baseType>
                     <xjc:javaType name="Software"
-                                  adapter="uk.ac.liv.jmzqml.xml.jaxb.adapters.SoftwareAdapter"/>
+                                  adapter="uk.ac.liv.pgb.jmzqml.xml.jaxb.adapters.SoftwareAdapter"/>
                 </jxb:baseType>
             </jxb:property>
         </jxb:bindings>-->
@@ -424,7 +424,7 @@
             <jxb:property name="Assay">
                 <jxb:baseType>
                     <xjc:javaType name="Assay"
-                                  adapter="uk.ac.liv.jmzqml.xml.jaxb.adapters.AssayAdapter"/>
+                                  adapter="uk.ac.liv.pgb.jmzqml.xml.jaxb.adapters.AssayAdapter"/>
                 </jxb:baseType>
             </jxb:property>
         </jxb:bindings>-->
@@ -433,7 +433,7 @@
             <jxb:property name="StudyVariable">
                 <jxb:baseType>
                     <xjc:javaType name="StudyVariable"
-                                  adapter="uk.ac.liv.jmzqml.xml.jaxb.adapters.StudyVariableAdapter"/>
+                                  adapter="uk.ac.liv.pgb.jmzqml.xml.jaxb.adapters.StudyVariableAdapter"/>
                 </jxb:baseType>
             </jxb:property>
         </jxb:bindings>-->
@@ -442,7 +442,7 @@
             <jxb:property name="Assay">
                 <jxb:baseType>
                     <xjc:javaType name="Assay"
-                                  adapter="uk.ac.liv.jmzqml.xml.jaxb.adapters.AssayAdapter"/>
+                                  adapter="uk.ac.liv.pgb.jmzqml.xml.jaxb.adapters.AssayAdapter"/>
                 </jxb:baseType>
             </jxb:property>
         </jxb:bindings>-->
@@ -451,7 +451,7 @@
             <jxb:property name="StudyVariable">
                 <jxb:baseType>
                     <xjc:javaType name="StudyVariable"
-                                  adapter="uk.ac.liv.jmzqml.xml.jaxb.adapters.StudyVariableAdapter"/>
+                                  adapter="uk.ac.liv.pgb.jmzqml.xml.jaxb.adapters.StudyVariableAdapter"/>
                 </jxb:baseType>
             </jxb:property>
         </jxb:bindings>-->
@@ -464,7 +464,7 @@
             <jxb:property name="MethodFile">
                 <jxb:baseType>
                     <xjc:javaType name="MethodeFile"
-                                  adapter="uk.ac.liv.jmzqml.xml.jaxb.adapters.MethodFileAdapter"/>
+                                  adapter="uk.ac.liv.pgb.jmzqml.xml.jaxb.adapters.MethodFileAdapter"/>
                 </jxb:baseType>
             </jxb:property>
         </jxb:bindings>-->
@@ -497,7 +497,7 @@
             <jxb:property name="Feature">
                 <jxb:baseType>
                     <xjc:javaType name="Feature"
-                                  adapter="uk.ac.liv.jmzqml.xml.jaxb.adapters.FeatureAdapter"/>
+                                  adapter="uk.ac.liv.pgb.jmzqml.xml.jaxb.adapters.FeatureAdapter"/>
                 </jxb:baseType>
             </jxb:property>
         </jxb:bindings>-->
@@ -530,7 +530,7 @@
             <jxb:property name="Assay">
                 <jxb:baseType>
                     <xjc:javaType name="Assay"
-                                  adapter="uk.ac.liv.jmzqml.xml.jaxb.adapters.AssayAdapter"/>
+                                  adapter="uk.ac.liv.pgb.jmzqml.xml.jaxb.adapters.AssayAdapter"/>
                 </jxb:baseType>
             </jxb:property>
         </jxb:bindings>-->
@@ -544,7 +544,7 @@
 			<jxb:property name="">
                 <jxb:baseType>
                     <xjc:javaType name=""
-                                  adapter="uk.ac.liv.jmzqml.xml.jaxb.adapters.Adapter"/>
+                                  adapter="uk.ac.liv.pgb.jmzqml.xml.jaxb.adapters.Adapter"/>
                 </jxb:baseType>
             </jxb:property>
 		</jxb:bindings>

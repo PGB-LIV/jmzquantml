@@ -1,7 +1,7 @@
 /*
  * Date: 11-Sep-2013
  * Author: Da Qi
- * File: uk.ac.liv.jmzqml.xml.jaxb.adapter.package-info.java
+ * File: uk.ac.liv.pgb.jmzqml.xml.jaxb.adapter.package-info.java
  *
  * jmzquantml is Copyright 2013 University of Liverpool.
  *

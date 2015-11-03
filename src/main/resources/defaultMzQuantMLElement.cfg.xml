@@ -29,32 +29,32 @@ Configurations for various properties of model classes.
 	
     <configurations>
         <autoRefResolving>false</autoRefResolving>
-        <clazz>uk.ac.liv.jmzqml.model.mzqml.AbstractContact</clazz>
+        <clazz>uk.ac.liv.pgb.jmzqml.model.mzqml.AbstractContact</clazz>
         <idMapped>false</idMapped>
         <indexed>false</indexed>
     </configurations>
 	
     <configurations>
         <autoRefResolving>false</autoRefResolving>
-        <clazz>uk.ac.liv.jmzqml.model.mzqml.AbstractParam</clazz>
+        <clazz>uk.ac.liv.pgb.jmzqml.model.mzqml.AbstractParam</clazz>
         <idMapped>false</idMapped>
         <indexed>false</indexed>
-        <refResolverClass>uk.ac.liv.jmzqml.xml.jaxb.resolver.AbstractParamUnitCvRefResolver</refResolverClass>
+        <refResolverClass>uk.ac.liv.pgb.jmzqml.xml.jaxb.resolver.AbstractParamUnitCvRefResolver</refResolverClass>
     </configurations>
 	
     <configurations>
         <autoRefResolving>false</autoRefResolving>
-        <clazz>uk.ac.liv.jmzqml.model.mzqml.Affiliation</clazz>
+        <clazz>uk.ac.liv.pgb.jmzqml.model.mzqml.Affiliation</clazz>
         <idMapped>false</idMapped>
         <indexed>true</indexed>
-        <refResolverClass>uk.ac.liv.jmzqml.xml.jaxb.resolver.AffiliationRefResolver</refResolverClass>
+        <refResolverClass>uk.ac.liv.pgb.jmzqml.xml.jaxb.resolver.AffiliationRefResolver</refResolverClass>
         <tagName>Affiliation</tagName>
         <xpath>/MzQuantML/AuditCollection/Person/Affiliation</xpath>
     </configurations>
 	
     <configurations>
         <autoRefResolving>false</autoRefResolving>
-        <clazz>uk.ac.liv.jmzqml.model.mzqml.AnalysisSummary</clazz>
+        <clazz>uk.ac.liv.pgb.jmzqml.model.mzqml.AnalysisSummary</clazz>
         <idMapped>false</idMapped>
         <indexed>true</indexed>
         <tagName>AnalysisSummary</tagName>
@@ -63,7 +63,7 @@ Configurations for various properties of model classes.
     
     <configurations>
         <autoRefResolving>false</autoRefResolving>
-        <clazz>uk.ac.liv.jmzqml.model.mzqml.AssayList</clazz>
+        <clazz>uk.ac.liv.pgb.jmzqml.model.mzqml.AssayList</clazz>
         <idMapped>true</idMapped>
         <indexed>true</indexed>
         <tagName>AssayList</tagName>
@@ -72,19 +72,19 @@ Configurations for various properties of model classes.
 	
     <configurations>
         <autoRefResolving>false</autoRefResolving>
-        <clazz>uk.ac.liv.jmzqml.model.mzqml.Assay</clazz>
+        <clazz>uk.ac.liv.pgb.jmzqml.model.mzqml.Assay</clazz>
         <idMapped>true</idMapped>
         <indexed>true</indexed>
-        <cvParamClass>uk.ac.liv.jmzqml.model.mzqml.params.AssayCvParam</cvParamClass>
-        <userParamClass>uk.ac.liv.jmzqml.model.mzqml.params.AssayUserParam</userParamClass>
-        <refResolverClass>uk.ac.liv.jmzqnl.xml.jaxb.resolver.AssayRefResolver</refResolverClass>
+        <cvParamClass>uk.ac.liv.pgb.jmzqml.model.mzqml.params.AssayCvParam</cvParamClass>
+        <userParamClass>uk.ac.liv.pgb.jmzqml.model.mzqml.params.AssayUserParam</userParamClass>
+        <refResolverClass>uk.ac.liv.pgb.jmzqnl.xml.jaxb.resolver.AssayRefResolver</refResolverClass>
         <tagName>Assay</tagName>
         <xpath>/MzQuantML/AssayList/Assay</xpath>
     </configurations>
 	
     <configurations>
         <autoRefResolving>false</autoRefResolving>
-        <clazz>uk.ac.liv.jmzqml.model.mzqml.AuditCollection</clazz>
+        <clazz>uk.ac.liv.pgb.jmzqml.model.mzqml.AuditCollection</clazz>
         <idMapped>false</idMapped>
         <indexed>true</indexed>
         <tagName>AuditCollection</tagName>
@@ -93,7 +93,7 @@ Configurations for various properties of model classes.
 	
     <configurations>
         <autoRefResolving>false</autoRefResolving>
-        <clazz>uk.ac.liv.jmzqml.model.mzqml.BibliographicReference</clazz>
+        <clazz>uk.ac.liv.pgb.jmzqml.model.mzqml.BibliographicReference</clazz>
         <idMapped>false</idMapped>
         <indexed>true</indexed>
         <tagName>BibliographicReference</tagName>
@@ -103,7 +103,7 @@ Configurations for various properties of model classes.
     <!-- TODO: no sure about this configuration for ColumnDefinition -->
     <configurations>
         <autoRefResolving>false</autoRefResolving>
-        <clazz>uk.ac.liv.jmzqml.model.mzqml.ColumnDefinition</clazz>
+        <clazz>uk.ac.liv.pgb.jmzqml.model.mzqml.ColumnDefinition</clazz>
         <idMapped>false</idMapped>
         <indexed>false</indexed>
         <tagName>ColumnDefinition</tagName>
@@ -111,7 +111,7 @@ Configurations for various properties of model classes.
 	
     <configurations>
         <autoRefResolving>false</autoRefResolving>
-        <clazz>uk.ac.liv.jmzqml.model.mzqml.Column</clazz>
+        <clazz>uk.ac.liv.pgb.jmzqml.model.mzqml.Column</clazz>
         <idMapped>false</idMapped>
         <indexed>false</indexed>	
         <tagName>Column</tagName>
@@ -119,17 +119,17 @@ Configurations for various properties of model classes.
 	
     <configurations>
         <autoRefResolving>false</autoRefResolving>
-        <clazz>uk.ac.liv.jmzqml.model.mzqml.ContactRole</clazz>
+        <clazz>uk.ac.liv.pgb.jmzqml.model.mzqml.ContactRole</clazz>
         <idMapped>false</idMapped>
         <indexed>true</indexed>
-        <refResolverClass>uk.ac.liv.jmzqml.xml.jaxb.resolver.ContactRoleRefResolver</refResolverClass>
+        <refResolverClass>uk.ac.liv.pgb.jmzqml.xml.jaxb.resolver.ContactRoleRefResolver</refResolverClass>
         <tagName>ContactRole</tagName>
         <xpath>/MzQuantML/Provider/ContactRole</xpath>
     </configurations>	
 
     <configurations>
         <autoRefResolving>false</autoRefResolving>
-        <clazz>uk.ac.liv.jmzqml.model.mzqml.Cv</clazz>
+        <clazz>uk.ac.liv.pgb.jmzqml.model.mzqml.Cv</clazz>
         <idMapped>true</idMapped>
         <indexed>true</indexed>
         <tagName>Cv</tagName>
@@ -138,7 +138,7 @@ Configurations for various properties of model classes.
 	
     <configurations>
         <autoRefResolving>false</autoRefResolving>
-        <clazz>uk.ac.liv.jmzqml.model.mzqml.CvList</clazz>
+        <clazz>uk.ac.liv.pgb.jmzqml.model.mzqml.CvList</clazz>
         <idMapped>false</idMapped>
         <indexed>true</indexed>
         <tagName>CvList</tagName>
@@ -147,35 +147,35 @@ Configurations for various properties of model classes.
 	
     <configurations>
         <autoRefResolving>false</autoRefResolving>
-        <clazz>uk.ac.liv.jmzqml.model.mzqml.CvParamRef</clazz>
+        <clazz>uk.ac.liv.pgb.jmzqml.model.mzqml.CvParamRef</clazz>
         <idMapped>false</idMapped>
         <indexed>false</indexed>
-        <cvParamClass>uk.ac.liv.jmzqml.model.mzqml.params.CvParamRefCvParam</cvParamClass>
+        <cvParamClass>uk.ac.liv.pgb.jmzqml.model.mzqml.params.CvParamRefCvParam</cvParamClass>
         <tagName>CvParamRef</tagName>
     </configurations>	
 	
     <configurations>
         <autoRefResolving>false</autoRefResolving>
-        <clazz>uk.ac.liv.jmzqml.model.mzqml.CvParam</clazz>
+        <clazz>uk.ac.liv.pgb.jmzqml.model.mzqml.CvParam</clazz>
         <idMapped>false</idMapped>
         <indexed>false</indexed>
-        <refResolverClass>uk.ac.liv.jmzqml.xml.jaxb.resolver.CvParamRefResolver</refResolverClass>
+        <refResolverClass>uk.ac.liv.pgb.jmzqml.xml.jaxb.resolver.CvParamRefResolver</refResolverClass>
         <tagName>cvParam</tagName>
     </configurations>
 	
     <configurations>
         <autoRefResolving>false</autoRefResolving>
-        <clazz>uk.ac.liv.jmzqml.model.mzqml.DBIdentificationRef</clazz>
+        <clazz>uk.ac.liv.pgb.jmzqml.model.mzqml.DBIdentificationRef</clazz>
         <idMapped>false</idMapped>
         <indexed>true</indexed>
-        <refResolverClass>uk.ac.liv.jmzqml.xml.jaxb.resolver.DBIdentificationRefRefResolver</refResolverClass>
+        <refResolverClass>uk.ac.liv.pgb.jmzqml.xml.jaxb.resolver.DBIdentificationRefRefResolver</refResolverClass>
         <tagName>DBIdentificationRef</tagName>
         <xpath>/MzQuantML/SmallMoleculeList/SmallMolecule/DBIdentificationRef</xpath>
     </configurations>
 	
     <configurations>
         <autoRefResolving>false</autoRefResolving>
-        <clazz>uk.ac.liv.jmzqml.model.mzqml.DataMatrix</clazz>
+        <clazz>uk.ac.liv.pgb.jmzqml.model.mzqml.DataMatrix</clazz>
         <idMapped>false</idMapped>
         <indexed>false</indexed>
         <tagName>DataMatrix</tagName>
@@ -183,7 +183,7 @@ Configurations for various properties of model classes.
 	
     <configurations>
         <autoRefResolving>false</autoRefResolving>
-        <clazz>uk.ac.liv.jmzqml.model.mzqml.DataProcessingList</clazz>
+        <clazz>uk.ac.liv.pgb.jmzqml.model.mzqml.DataProcessingList</clazz>
         <idMapped>false</idMapped>
         <indexed>true</indexed>
         <tagName>DataProcessingList</tagName>
@@ -192,93 +192,93 @@ Configurations for various properties of model classes.
 
     <configurations>
         <autoRefResolving>false</autoRefResolving>
-        <clazz>uk.ac.liv.jmzqml.model.mzqml.DataProcessing</clazz>
+        <clazz>uk.ac.liv.pgb.jmzqml.model.mzqml.DataProcessing</clazz>
         <idMapped>true</idMapped>
         <indexed>true</indexed>
-        <refResolverClass>uk.ac.liv.jmzqml.xml.jaxb.resolver.DataProcessingRefResolver</refResolverClass>
+        <refResolverClass>uk.ac.liv.pgb.jmzqml.xml.jaxb.resolver.DataProcessingRefResolver</refResolverClass>
         <tagName>DataProcessing</tagName>
         <xpath>/MzQuantML/DataProcessingList/DataProcessing</xpath>
     </configurations>
 	
     <configurations>
         <autoRefResolving>false</autoRefResolving>
-        <clazz>uk.ac.liv.jmzqml.model.mzqml.EvidenceRef</clazz>
+        <clazz>uk.ac.liv.pgb.jmzqml.model.mzqml.EvidenceRef</clazz>
         <idMapped>false</idMapped>
         <indexed>true</indexed>
-        <refResolverClass>uk.ac.liv.jmzqml.xml.jaxb.resolver.EvidenceRefRefResolver</refResolverClass>
+        <refResolverClass>uk.ac.liv.pgb.jmzqml.xml.jaxb.resolver.EvidenceRefRefResolver</refResolverClass>
         <tagName>EvidenceRef</tagName>
         <xpath>/MzQuantML/PeptideConsensusList/PeptideConsensus/EvidenceRef</xpath>
     </configurations>
 	
     <configurations>
         <autoRefResolving>false</autoRefResolving>
-        <clazz>uk.ac.liv.jmzqml.model.mzqml.ExternalData</clazz>
+        <clazz>uk.ac.liv.pgb.jmzqml.model.mzqml.ExternalData</clazz>
         <idMapped>false</idMapped>
         <indexed>false</indexed>
     </configurations>
 	
     <configurations>
         <autoRefResolving>false</autoRefResolving>
-        <clazz>uk.ac.liv.jmzqml.model.mzqml.FeatureList</clazz>
+        <clazz>uk.ac.liv.pgb.jmzqml.model.mzqml.FeatureList</clazz>
         <idMapped>true</idMapped>
         <indexed>true</indexed>
-        <cvParamClass>uk.ac.liv.jmzqml.model.mzqml.params.FeatureListCvParam</cvParamClass>
-        <userParamClass>uk.ac.liv.jmzqml.model.mzqml.params.FeatureListUserParam</userParamClass>
-        <refResolverClass>uk.ac.liv.jmzqml.xml.jaxb.resolver.FeatureListRefResolver</refResolverClass>
+        <cvParamClass>uk.ac.liv.pgb.jmzqml.model.mzqml.params.FeatureListCvParam</cvParamClass>
+        <userParamClass>uk.ac.liv.pgb.jmzqml.model.mzqml.params.FeatureListUserParam</userParamClass>
+        <refResolverClass>uk.ac.liv.pgb.jmzqml.xml.jaxb.resolver.FeatureListRefResolver</refResolverClass>
         <tagName>FeatureList</tagName>
         <xpath>/MzQuantML/FeatureList</xpath>
     </configurations>
 	
     <configurations>
         <autoRefResolving>false</autoRefResolving>
-        <clazz>uk.ac.liv.jmzqml.model.mzqml.Feature</clazz>
+        <clazz>uk.ac.liv.pgb.jmzqml.model.mzqml.Feature</clazz>
         <idMapped>true</idMapped>
         <indexed>true</indexed>
-        <cvParamClass>uk.ac.liv.jmzqml.model.mzqml.params.FeatureCvParam</cvParamClass>
-        <userParamClass>uk.ac.liv.jmzqml.model.mzqml.params.FeatureUserParam</userParamClass>
-        <refResolverClass>uk.ac.liv.jmzqml.xml.jaxb.resolver.FeatureRefResolver</refResolverClass>
+        <cvParamClass>uk.ac.liv.pgb.jmzqml.model.mzqml.params.FeatureCvParam</cvParamClass>
+        <userParamClass>uk.ac.liv.pgb.jmzqml.model.mzqml.params.FeatureUserParam</userParamClass>
+        <refResolverClass>uk.ac.liv.pgb.jmzqml.xml.jaxb.resolver.FeatureRefResolver</refResolverClass>
         <tagName>Feature</tagName>
         <xpath>/MzQuantML/FeatureList/Feature</xpath>
     </configurations>	
 	
     <configurations>
         <autoRefResolving>false</autoRefResolving>
-        <clazz>uk.ac.liv.jmzqml.model.mzqml.FileFormat</clazz>
+        <clazz>uk.ac.liv.pgb.jmzqml.model.mzqml.FileFormat</clazz>
         <idMapped>false</idMapped>
         <indexed>false</indexed>
-        <cvParamClass>uk.ac.liv.jmzqml.model.mzqml.params.FileFormatCvParam</cvParamClass>
+        <cvParamClass>uk.ac.liv.pgb.jmzqml.model.mzqml.params.FileFormatCvParam</cvParamClass>
         <tagName>FileFormat</tagName>
     </configurations>	
 
     <configurations>
         <autoRefResolving>false</autoRefResolving>
-        <clazz>uk.ac.liv.jmzqml.model.mzqml.GlobalQuantLayer</clazz>
+        <clazz>uk.ac.liv.pgb.jmzqml.model.mzqml.GlobalQuantLayer</clazz>
         <idMapped>false</idMapped>
         <indexed>false</indexed>
     </configurations>
 
     <configurations>
         <autoRefResolving>false</autoRefResolving>
-        <clazz>uk.ac.liv.jmzqml.model.mzqml.Identifiable</clazz>
+        <clazz>uk.ac.liv.pgb.jmzqml.model.mzqml.Identifiable</clazz>
         <idMapped>false</idMapped>
         <indexed>false</indexed>
     </configurations>	
 	
     <configurations>
         <autoRefResolving>false</autoRefResolving>
-        <clazz>uk.ac.liv.jmzqml.model.mzqml.IdentificationFile</clazz>
+        <clazz>uk.ac.liv.pgb.jmzqml.model.mzqml.IdentificationFile</clazz>
         <idMapped>true</idMapped>
         <indexed>true</indexed>
-        <cvParamClass>uk.ac.liv.jmzqml.model.mzqml.params.IdentificationFileCvParam</cvParamClass>
-        <userParamClass>uk.ac.liv.jmzqml.model.mzqml.params.IdentificationFileUserParam</userParamClass>
-        <refResolverClass>uk.ac.liv.jmzqml.xml.jaxb.resolver.IdentificationFileRefResolver</refResolverClass>
+        <cvParamClass>uk.ac.liv.pgb.jmzqml.model.mzqml.params.IdentificationFileCvParam</cvParamClass>
+        <userParamClass>uk.ac.liv.pgb.jmzqml.model.mzqml.params.IdentificationFileUserParam</userParamClass>
+        <refResolverClass>uk.ac.liv.pgb.jmzqml.xml.jaxb.resolver.IdentificationFileRefResolver</refResolverClass>
         <tagName>IdentificationFile</tagName>
         <xpath>/MzQuantML/InputFiles/IdentificationFiles/IdentificationFile</xpath>
     </configurations>	
 
     <configurations>
         <autoRefResolving>false</autoRefResolving>
-        <clazz>uk.ac.liv.jmzqml.model.mzqml.IdentificationFiles</clazz>
+        <clazz>uk.ac.liv.pgb.jmzqml.model.mzqml.IdentificationFiles</clazz>
         <idMapped>false</idMapped>
         <indexed>true</indexed>
         <tagName>IdentificationFiles</tagName>
@@ -287,16 +287,16 @@ Configurations for various properties of model classes.
 
     <configurations>
         <autoRefResolving>false</autoRefResolving>
-        <clazz>uk.ac.liv.jmzqml.model.mzqml.IdentificationRef</clazz>
+        <clazz>uk.ac.liv.pgb.jmzqml.model.mzqml.IdentificationRef</clazz>
         <idMapped>false</idMapped>
         <indexed>false</indexed>
-        <refResolverClass>uk.ac.liv.jmzqml.xml.jaxb.resolver.IdentificationRefRefResolver</refResolverClass>
+        <refResolverClass>uk.ac.liv.pgb.jmzqml.xml.jaxb.resolver.IdentificationRefRefResolver</refResolverClass>
         <tagName>IdentificationRef</tagName>
     </configurations>
 
     <configurations>
         <autoRefResolving>false</autoRefResolving>
-        <clazz>uk.ac.liv.jmzqml.model.mzqml.InputFiles</clazz>
+        <clazz>uk.ac.liv.pgb.jmzqml.model.mzqml.InputFiles</clazz>
         <idMapped>false</idMapped>
         <indexed>true</indexed>
         <tagName>InputFiles</tagName>
@@ -305,7 +305,7 @@ Configurations for various properties of model classes.
 	
     <configurations>
         <autoRefResolving>false</autoRefResolving>
-        <clazz>uk.ac.liv.jmzqml.model.mzqml.Label</clazz>
+        <clazz>uk.ac.liv.pgb.jmzqml.model.mzqml.Label</clazz>
         <idMapped>false</idMapped>
         <indexed>true</indexed>
         <tagName>Label</tagName>
@@ -314,7 +314,7 @@ Configurations for various properties of model classes.
 	
     <configurations>
         <autoRefResolving>false</autoRefResolving>
-        <clazz>uk.ac.liv.jmzqml.model.mzqml.MethodFiles</clazz>
+        <clazz>uk.ac.liv.pgb.jmzqml.model.mzqml.MethodFiles</clazz>
         <idMapped>false</idMapped>
         <indexed>true</indexed>
         <tagName>MethodFiles</tagName>
@@ -323,7 +323,7 @@ Configurations for various properties of model classes.
 	
     <configurations>
         <autoRefResolving>false</autoRefResolving>
-        <clazz>uk.ac.liv.jmzqml.model.mzqml.MethodFile</clazz>
+        <clazz>uk.ac.liv.pgb.jmzqml.model.mzqml.MethodFile</clazz>
         <idMapped>true</idMapped>
         <indexed>true</indexed>
         <tagName>MethodFile</tagName>
@@ -333,27 +333,27 @@ Configurations for various properties of model classes.
     <!--<tagName>ModParam is different from ModificationType in PeptideConsensusType and SmallMoleculeType -->
     <configurations>
         <autoRefResolving>false</autoRefResolving>
-        <clazz>uk.ac.liv.jmzqml.model.mzqml.ModParam</clazz>
+        <clazz>uk.ac.liv.pgb.jmzqml.model.mzqml.ModParam</clazz>
         <idMapped>false</idMapped>
         <indexed>true</indexed>
-        <cvParamClass>uk.ac.liv.jmzqml.model.mzqml.params.ModParamCvParam</cvParamClass>
+        <cvParamClass>uk.ac.liv.pgb.jmzqml.model.mzqml.params.ModParamCvParam</cvParamClass>
         <tagName>ModParam</tagName>
         <xpath>/MzQuantML/AssayList/Assay/Label/Modification</xpath>
     </configurations>
 	
     <configurations>
         <autoRefResolving>false</autoRefResolving>
-        <clazz>uk.ac.liv.jmzqml.model.mzqml.Modification</clazz>
+        <clazz>uk.ac.liv.pgb.jmzqml.model.mzqml.Modification</clazz>
         <idMapped>false</idMapped>
         <indexed>false</indexed>
-        <cvParamClass>uk.ac.liv.jmzqml.model.mzqml.params.ModificationCvParam</cvParamClass>
+        <cvParamClass>uk.ac.liv.pgb.jmzqml.model.mzqml.params.ModificationCvParam</cvParamClass>
         <tagName>Modification</tagName>
         <xpath>/MzQuantML/PeptidenConsensusList/PeptideConsensus/Modification</xpath>
     </configurations>	
 
     <configurations>
         <autoRefResolving>false</autoRefResolving>
-        <clazz>uk.ac.liv.jmzqml.model.mzqml.MzQuantML</clazz>
+        <clazz>uk.ac.liv.pgb.jmzqml.model.mzqml.MzQuantML</clazz>
         <idMapped>true</idMapped>
         <indexed>true</indexed>
         <tagName>MzQuantML</tagName>
@@ -362,9 +362,9 @@ Configurations for various properties of model classes.
 
     <configurations>
         <autoRefResolving>false</autoRefResolving>
-        <clazz>uk.ac.liv.jmzqml.model.mzqml.Organization</clazz>
-        <cvParamClass>uk.ac.liv.jmzqml.model.mzqml.params.OrganizationCvParam</cvParamClass>
-        <userParamClass>uk.ac.liv.jmzqml.model.mzqml.params.OrganizationUserParam</userParamClass>        
+        <clazz>uk.ac.liv.pgb.jmzqml.model.mzqml.Organization</clazz>
+        <cvParamClass>uk.ac.liv.pgb.jmzqml.model.mzqml.params.OrganizationCvParam</cvParamClass>
+        <userParamClass>uk.ac.liv.pgb.jmzqml.model.mzqml.params.OrganizationUserParam</userParamClass>        
         <idMapped>true</idMapped>
         <indexed>true</indexed>
         <tagName>Organization</tagName>
@@ -373,56 +373,56 @@ Configurations for various properties of model classes.
 
     <configurations>
         <autoRefResolving>false</autoRefResolving>
-        <clazz>uk.ac.liv.jmzqml.model.mzqml.ParamList</clazz>
+        <clazz>uk.ac.liv.pgb.jmzqml.model.mzqml.ParamList</clazz>
         <idMapped>false</idMapped>
         <indexed>false</indexed>
     </configurations>
 
     <configurations>
         <autoRefResolving>false</autoRefResolving>
-        <clazz>uk.ac.liv.jmzqml.model.mzqml.Param</clazz>
+        <clazz>uk.ac.liv.pgb.jmzqml.model.mzqml.Param</clazz>
         <idMapped>false</idMapped>
         <indexed>false</indexed>
     </configurations>    
 
     <configurations>
         <autoRefResolving>false</autoRefResolving>
-        <clazz>uk.ac.liv.jmzqml.model.mzqml.ParentOrganization</clazz>
+        <clazz>uk.ac.liv.pgb.jmzqml.model.mzqml.ParentOrganization</clazz>
         <idMapped>false</idMapped>
         <indexed>false</indexed>
-        <refResolverClass>uk.ac.liv.jmzqml.xml.jaxb.resolver.ParentOrganizationRefResolver</refResolverClass>
+        <refResolverClass>uk.ac.liv.pgb.jmzqml.xml.jaxb.resolver.ParentOrganizationRefResolver</refResolverClass>
         <tagName>ParentOrganization</tagName>
         <xpath>/MzQuantML/AudiCollection/Organization/ParentOrganization</xpath>
     </configurations>
     
     <configurations>
         <autoRefResolving>false</autoRefResolving>
-        <clazz>uk.ac.liv.jmzqml.model.mzqml.PeptideConsensusList</clazz>
+        <clazz>uk.ac.liv.pgb.jmzqml.model.mzqml.PeptideConsensusList</clazz>
         <idMapped>true</idMapped>
         <indexed>true</indexed>
-        <cvParamClass>uk.ac.liv.jmzqml.model.mzqml.params.PeptideConsensusListCvParam</cvParamClass>
-        <userParamClass>uk.ac.liv.jmzqml.model.mzqml.params.PeptideConsensusListUserParam</userParamClass>
+        <cvParamClass>uk.ac.liv.pgb.jmzqml.model.mzqml.params.PeptideConsensusListCvParam</cvParamClass>
+        <userParamClass>uk.ac.liv.pgb.jmzqml.model.mzqml.params.PeptideConsensusListUserParam</userParamClass>
         <tagName>PeptideConsensusList</tagName>
         <xpath>/MzQuantML/PeptideConsensusList</xpath>
     </configurations>    
 
     <configurations>
         <autoRefResolving>false</autoRefResolving>
-        <clazz>uk.ac.liv.jmzqml.model.mzqml.PeptideConsensus</clazz>
+        <clazz>uk.ac.liv.pgb.jmzqml.model.mzqml.PeptideConsensus</clazz>
         <idMapped>true</idMapped>
         <indexed>true</indexed>
-        <cvParamClass>uk.ac.liv.jmzqml.model.mzqml.params.PeptideConsensusCvParam</cvParamClass>
-        <userParamClass>uk.ac.liv.jmzqml.model.mzqml.params.PeptideConsensusUserParam</userParamClass>
-        <refResolverClass>uk.ac.liv.jmzqml.xml.jaxb.resolver.PeptideConsensusRefResolver</refResolverClass>
+        <cvParamClass>uk.ac.liv.pgb.jmzqml.model.mzqml.params.PeptideConsensusCvParam</cvParamClass>
+        <userParamClass>uk.ac.liv.pgb.jmzqml.model.mzqml.params.PeptideConsensusUserParam</userParamClass>
+        <refResolverClass>uk.ac.liv.pgb.jmzqml.xml.jaxb.resolver.PeptideConsensusRefResolver</refResolverClass>
         <tagName>PeptideConsensus</tagName>
         <xpath>/MzQuantML/PeptideConsensusList/PeptideConsensus</xpath>
     </configurations>
     
     <configurations>
         <autoRefResolving>false</autoRefResolving>
-        <clazz>uk.ac.liv.jmzqml.model.mzqml.Person</clazz>
-        <cvParamClass>uk.ac.liv.jmzqml.model.mzqml.params.PersonCvParam</cvParamClass>
-        <userParamClass>uk.ac.liv.jmzqml.model.mzqml.params.PersonUserParam</userParamClass>
+        <clazz>uk.ac.liv.pgb.jmzqml.model.mzqml.Person</clazz>
+        <cvParamClass>uk.ac.liv.pgb.jmzqml.model.mzqml.params.PersonCvParam</cvParamClass>
+        <userParamClass>uk.ac.liv.pgb.jmzqml.model.mzqml.params.PersonUserParam</userParamClass>
         <idMapped>true</idMapped>
         <indexed>true</indexed>
         <tagName>Person</tagName>
@@ -431,7 +431,7 @@ Configurations for various properties of model classes.
 
     <configurations>
         <autoRefResolving>false</autoRefResolving>
-        <clazz>uk.ac.liv.jmzqml.model.mzqml.ProcessingMethod</clazz>
+        <clazz>uk.ac.liv.pgb.jmzqml.model.mzqml.ProcessingMethod</clazz>
         <idMapped>false</idMapped>
         <indexed>true</indexed>
         <tagName>ProcessingMethod</tagName>
@@ -440,82 +440,82 @@ Configurations for various properties of model classes.
 
     <configurations>
         <autoRefResolving>false</autoRefResolving>
-        <clazz>uk.ac.liv.jmzqml.model.mzqml.ProteinGroupList</clazz>
+        <clazz>uk.ac.liv.pgb.jmzqml.model.mzqml.ProteinGroupList</clazz>
         <idMapped>false</idMapped>
         <indexed>true</indexed>
-        <cvParamClass>uk.ac.liv.jmzqml.model.mzqml.params.ProteinGroupListCvParam</cvParamClass>
-        <userParamClass>uk.ac.liv.jmzqml.model.mzqml.params.ProteinGroupListUserParam</userParamClass>
+        <cvParamClass>uk.ac.liv.pgb.jmzqml.model.mzqml.params.ProteinGroupListCvParam</cvParamClass>
+        <userParamClass>uk.ac.liv.pgb.jmzqml.model.mzqml.params.ProteinGroupListUserParam</userParamClass>
         <tagName>ProteinGroupList</tagName>
         <xpath>/MzQuantML/ProteinGroupList</xpath>
     </configurations>
     
     <configurations>
         <autoRefResolving>false</autoRefResolving>
-        <clazz>uk.ac.liv.jmzqml.model.mzqml.ProteinGroup</clazz>
+        <clazz>uk.ac.liv.pgb.jmzqml.model.mzqml.ProteinGroup</clazz>
         <idMapped>true</idMapped>
         <indexed>true</indexed>
-        <cvParamClass>uk.ac.liv.jmzqml.model.mzqml.params.ProteinGroupCvParam</cvParamClass>
-        <userParamClass>uk.ac.liv.jmzqml.model.mzqml.params.ProteinGroupUserParam</userParamClass>
-        <refResolverClass>uk.ac.liv.jmzqml.xml.jaxb.resolver.ProteinGroupRefResolver</refResolverClass>
+        <cvParamClass>uk.ac.liv.pgb.jmzqml.model.mzqml.params.ProteinGroupCvParam</cvParamClass>
+        <userParamClass>uk.ac.liv.pgb.jmzqml.model.mzqml.params.ProteinGroupUserParam</userParamClass>
+        <refResolverClass>uk.ac.liv.pgb.jmzqml.xml.jaxb.resolver.ProteinGroupRefResolver</refResolverClass>
         <tagName>ProteinGroup</tagName>
         <xpath>/MzQuantML/ProteinGroupList/ProteinGroup</xpath>
     </configurations>    
     
     <configurations>
         <autoRefResolving>false</autoRefResolving>
-        <clazz>uk.ac.liv.jmzqml.model.mzqml.ProteinRef</clazz>
+        <clazz>uk.ac.liv.pgb.jmzqml.model.mzqml.ProteinRef</clazz>
         <idMapped>false</idMapped>
         <indexed>true</indexed>
-        <cvParamClass>uk.ac.liv.jmzqml.model.mzqml.params.ProteinRefCvParam</cvParamClass>
-        <userParamClass>uk.ac.liv.jmzqml.model.mzqml.params.ProteinRefUserParam</userParamClass>
-        <refResolverClass>uk.ac.liv.jmzqml.xml.jaxb.resolver.ProteinRefRefResolver</refResolverClass>
+        <cvParamClass>uk.ac.liv.pgb.jmzqml.model.mzqml.params.ProteinRefCvParam</cvParamClass>
+        <userParamClass>uk.ac.liv.pgb.jmzqml.model.mzqml.params.ProteinRefUserParam</userParamClass>
+        <refResolverClass>uk.ac.liv.pgb.jmzqml.xml.jaxb.resolver.ProteinRefRefResolver</refResolverClass>
         <tagName>ProteinRef</tagName>
         <xpath>/MzQuantML/ProteinGroupList/ProteinGroup/ProteinRef</xpath>
     </configurations>  
     
     <configurations>
         <autoRefResolving>false</autoRefResolving>
-        <clazz>uk.ac.liv.jmzqml.model.mzqml.ProteinList</clazz>
+        <clazz>uk.ac.liv.pgb.jmzqml.model.mzqml.ProteinList</clazz>
         <idMapped>true</idMapped>
         <indexed>true</indexed>
-        <cvParamClass>uk.ac.liv.jmzqml.model.mzqml.params.ProteinListCvParam</cvParamClass>
-        <userParamClass>uk.ac.liv.jmzqml.model.mzqml.params.ProteinListUserParam</userParamClass>
+        <cvParamClass>uk.ac.liv.pgb.jmzqml.model.mzqml.params.ProteinListCvParam</cvParamClass>
+        <userParamClass>uk.ac.liv.pgb.jmzqml.model.mzqml.params.ProteinListUserParam</userParamClass>
         <tagName>ProteinList</tagName>
         <xpath>/MzQuantML/ProteinList</xpath>
     </configurations>    
 
     <configurations>
         <autoRefResolving>true</autoRefResolving>
-        <clazz>uk.ac.liv.jmzqml.model.mzqml.Protein</clazz>
+        <clazz>uk.ac.liv.pgb.jmzqml.model.mzqml.Protein</clazz>
         <idMapped>true</idMapped>
         <indexed>true</indexed>
-        <cvParamClass>uk.ac.liv.jmzqml.model.mzqml.params.ProteinCvParam</cvParamClass>
-        <userParamClass>uk.ac.liv.jmzqml.model.mzqml.params.ProteinUserParam</userParamClass>
-        <refResolverClass>uk.ac.liv.jmzqml.xml.jaxb.resolver.ProteinRefResolver</refResolverClass>
+        <cvParamClass>uk.ac.liv.pgb.jmzqml.model.mzqml.params.ProteinCvParam</cvParamClass>
+        <userParamClass>uk.ac.liv.pgb.jmzqml.model.mzqml.params.ProteinUserParam</userParamClass>
+        <refResolverClass>uk.ac.liv.pgb.jmzqml.xml.jaxb.resolver.ProteinRefResolver</refResolverClass>
         <tagName>Protein</tagName>
         <xpath>/MzQuantML/ProteinList/Protein</xpath>
     </configurations>
 
     <configurations>
         <autoRefResolving>false</autoRefResolving>
-        <clazz>uk.ac.liv.jmzqml.model.mzqml.Provider</clazz>
+        <clazz>uk.ac.liv.pgb.jmzqml.model.mzqml.Provider</clazz>
         <idMapped>true</idMapped>
         <indexed>true</indexed>
-        <refResolverClass>uk.ac.liv.jmzqml.xml.jaxb.resolver.ProviderRefResolver</refResolverClass>
+        <refResolverClass>uk.ac.liv.pgb.jmzqml.xml.jaxb.resolver.ProviderRefResolver</refResolverClass>
         <tagName>Provider</tagName>
         <xpath>/MzQuantML/Provider</xpath>
     </configurations>
     
     <configurations>
         <autoRefResolving>false</autoRefResolving>
-        <clazz>uk.ac.liv.jmzqml.model.mzqml.QuantLayer</clazz>
+        <clazz>uk.ac.liv.pgb.jmzqml.model.mzqml.QuantLayer</clazz>
         <idMapped>false</idMapped>
         <indexed>false</indexed>
     </configurations>
 
     <configurations>
         <autoRefResolving>false</autoRefResolving>
-        <clazz>uk.ac.liv.jmzqml.model.mzqml.RatioList</clazz>
+        <clazz>uk.ac.liv.pgb.jmzqml.model.mzqml.RatioList</clazz>
         <idMapped>false</idMapped>
         <indexed>true</indexed>
         <tagName>RatioList</tagName>
@@ -524,93 +524,93 @@ Configurations for various properties of model classes.
     
     <configurations>
         <autoRefResolving>false</autoRefResolving>
-        <clazz>uk.ac.liv.jmzqml.model.mzqml.Ratio</clazz>
+        <clazz>uk.ac.liv.pgb.jmzqml.model.mzqml.Ratio</clazz>
         <idMapped>true</idMapped>
         <indexed>true</indexed>
-        <refResolverClass>uk.ac.liv.jmzqml.xml.jaxb.resolver.RatioRefResolver</refResolverClass>
+        <refResolverClass>uk.ac.liv.pgb.jmzqml.xml.jaxb.resolver.RatioRefResolver</refResolverClass>
         <tagName>Ratio</tagName>
         <xpath>/MzQuantML/RatioList/Ratio</xpath>
     </configurations>    
 
     <configurations>
         <autoRefResolving>false</autoRefResolving>
-        <clazz>uk.ac.liv.jmzqml.model.mzqml.RatioQuantLayer</clazz>
+        <clazz>uk.ac.liv.pgb.jmzqml.model.mzqml.RatioQuantLayer</clazz>
         <idMapped>false</idMapped>
         <indexed>false</indexed>
-        <refResoverClass>uk.ac.liv.jmzqml.xml.jaxb.resolver.RatioQuantLayerRefResolver</refResoverClass>
+        <refResoverClass>uk.ac.liv.pgb.jmzqml.xml.jaxb.resolver.RatioQuantLayerRefResolver</refResoverClass>
     </configurations>
 
     <configurations>
         <autoRefResolving>false</autoRefResolving>
-        <clazz>uk.ac.liv.jmzqml.model.mzqml.RawFile</clazz>
+        <clazz>uk.ac.liv.pgb.jmzqml.model.mzqml.RawFile</clazz>
         <idMapped>true</idMapped>
         <indexed>true</indexed>
-        <cvParamClass>uk.ac.liv.jmzqml.model.mzqml.params.RawFileCvParam</cvParamClass>
-        <userParamClass>uk.ac.liv.jmzqml.model.mzqml.params.RawFileUserParam</userParamClass>
-        <refResolverClass>uk.ac.liv.jmzqml.xml.jaxb.resolver.RawFileRefResolver</refResolverClass>
+        <cvParamClass>uk.ac.liv.pgb.jmzqml.model.mzqml.params.RawFileCvParam</cvParamClass>
+        <userParamClass>uk.ac.liv.pgb.jmzqml.model.mzqml.params.RawFileUserParam</userParamClass>
+        <refResolverClass>uk.ac.liv.pgb.jmzqml.xml.jaxb.resolver.RawFileRefResolver</refResolverClass>
         <tagName>RawFile</tagName>
         <xpath>/MzQuantML/InputFiles/RawFilesGroup/RawFile</xpath>
     </configurations>
     
     <configurations>
         <autoRefResolving>false</autoRefResolving>
-        <clazz>uk.ac.liv.jmzqml.model.mzqml.RawFilesGroup</clazz>
+        <clazz>uk.ac.liv.pgb.jmzqml.model.mzqml.RawFilesGroup</clazz>
         <idMapped>true</idMapped>
         <indexed>true</indexed>
-        <cvParamClass>uk.ac.liv.jmzqml.model.mzqml.params.RawFilesGroupCvParam</cvParamClass>
-        <userParamClass>uk.ac.liv.jmzqml.model.mzqml.params.RawFilesGroupUserParam</userParamClass>
+        <cvParamClass>uk.ac.liv.pgb.jmzqml.model.mzqml.params.RawFilesGroupCvParam</cvParamClass>
+        <userParamClass>uk.ac.liv.pgb.jmzqml.model.mzqml.params.RawFilesGroupUserParam</userParamClass>
         <tagName>RawFilesGroup</tagName>
         <xpath>/MzQuantML/InputFiles/RawFilesGroup</xpath>
     </configurations>  
 
     <configurations>
         <autoRefResolving>false</autoRefResolving>
-        <clazz>uk.ac.liv.jmzqml.model.mzqml.Role</clazz>
+        <clazz>uk.ac.liv.pgb.jmzqml.model.mzqml.Role</clazz>
         <idMapped>false</idMapped>
         <indexed>true</indexed>
-        <cvParamClass>uk.ac.liv.jmzqml.model.mzqml.params.RoleCvParam</cvParamClass>
+        <cvParamClass>uk.ac.liv.pgb.jmzqml.model.mzqml.params.RoleCvParam</cvParamClass>
         <tagName>Role</tagName>
         <xpath>/MzQuantML/Provider/ContactRole/Role</xpath>
     </configurations>
     
     <configurations>
         <autoRefResolving>false</autoRefResolving>
-        <clazz>uk.ac.liv.jmzqml.model.mzqml.Row</clazz>
+        <clazz>uk.ac.liv.pgb.jmzqml.model.mzqml.Row</clazz>
         <idMapped>false</idMapped>
         <indexed>false</indexed>
-        <refResolverClass>uk.ac.liv.jmzqml.xml.jaxb.resolver.RowRefResolver</refResolverClass>
+        <refResolverClass>uk.ac.liv.pgb.jmzqml.xml.jaxb.resolver.RowRefResolver</refResolverClass>
         <tagName>Row</tagName>
     </configurations>  
 
     <configurations>
         <autoRefResolving>false</autoRefResolving>
-        <clazz>uk.ac.liv.jmzqml.model.mzqml.SearchDatabase</clazz>
+        <clazz>uk.ac.liv.pgb.jmzqml.model.mzqml.SearchDatabase</clazz>
         <idMapped>true</idMapped>
         <indexed>true</indexed>
-        <cvParamClass>uk.ac.liv.jmzqml.model.mzqml.params.SearchDatabaseCvParam</cvParamClass>
+        <cvParamClass>uk.ac.liv.pgb.jmzqml.model.mzqml.params.SearchDatabaseCvParam</cvParamClass>
         <tagName>SearchDatabase</tagName>
         <xpath>/MzQuantML/InputFiles/SearchDatabase</xpath>
     </configurations>
     
     <configurations>
         <autoRefResolving>false</autoRefResolving>
-        <clazz>uk.ac.liv.jmzqml.model.mzqml.SmallMoleculeList</clazz>
+        <clazz>uk.ac.liv.pgb.jmzqml.model.mzqml.SmallMoleculeList</clazz>
         <idMapped>false</idMapped>
         <indexed>true</indexed>
-        <cvParamClass>uk.ac.liv.jmzqml.model.mzqml.params.SmallMoleculeListCvParam</cvParamClass>
-        <userParamClass>uk.ac.liv.jmzqml.model.mzqml.params.SmallMoleculeListUserParam</userParamClass>
+        <cvParamClass>uk.ac.liv.pgb.jmzqml.model.mzqml.params.SmallMoleculeListCvParam</cvParamClass>
+        <userParamClass>uk.ac.liv.pgb.jmzqml.model.mzqml.params.SmallMoleculeListUserParam</userParamClass>
         <tagName>SmallMoleculeList</tagName>
         <xpath>/MzQuantML/SmallMoleculeList</xpath>
     </configurations>  
     
     <configurations>
         <autoRefResolving>false</autoRefResolving>
-        <clazz>uk.ac.liv.jmzqml.model.mzqml.SmallMolecule</clazz>
+        <clazz>uk.ac.liv.pgb.jmzqml.model.mzqml.SmallMolecule</clazz>
         <idMapped>true</idMapped>
         <indexed>true</indexed>
-        <cvParamClass>uk.ac.liv.jmzqml.model.mzqml.params.SmallMoleculeCvParam</cvParamClass>
-        <userParamClass>uk.ac.liv.jmzqml.model.mzqml.params.SmallMoleculeUserParam</userParamClass>
-        <refResolverClass>uk.ac.liv.jmzqml.xml.jaxb.resolver.SmallMoleculeRefResolver</refResolverClass>
+        <cvParamClass>uk.ac.liv.pgb.jmzqml.model.mzqml.params.SmallMoleculeCvParam</cvParamClass>
+        <userParamClass>uk.ac.liv.pgb.jmzqml.model.mzqml.params.SmallMoleculeUserParam</userParamClass>
+        <refResolverClass>uk.ac.liv.pgb.jmzqml.xml.jaxb.resolver.SmallMoleculeRefResolver</refResolverClass>
         <tagName>SmallMolecule</tagName>
         <xpath>/MzQuantML/SmallMoleculeList/SmallMolecule</xpath>
     </configurations>
@@ -618,17 +618,17 @@ Configurations for various properties of model classes.
     <!-- Be ware of the other two modification tags, <Label>/<ModParam>, <PeptideConsensus>/<Modification> -->   
     <configurations>
         <autoRefResolving>false</autoRefResolving>
-        <clazz>uk.ac.liv.jmzqml.model.mzqml.SmallMolModification</clazz>
+        <clazz>uk.ac.liv.pgb.jmzqml.model.mzqml.SmallMolModification</clazz>
         <idMapped>false</idMapped>
         <indexed>true</indexed>
-        <cvParamClass>uk.ac.liv.jmzqml.model.mzqml.params.SmallMolModificationCvParam</cvParamClass>
+        <cvParamClass>uk.ac.liv.pgb.jmzqml.model.mzqml.params.SmallMolModificationCvParam</cvParamClass>
         <tagName>SmallMolModification</tagName>
         <xpath>/MzQuantML/SmallMoleculeList/SmallMolecule/SmallMolModification</xpath>
     </configurations>      
 
     <configurations>
         <autoRefResolving>false</autoRefResolving>
-        <clazz>uk.ac.liv.jmzqml.model.mzqml.SoftwareList</clazz>
+        <clazz>uk.ac.liv.pgb.jmzqml.model.mzqml.SoftwareList</clazz>
         <idMapped>false</idMapped>
         <indexed>true</indexed>
         <tagName>SoftwareList</tagName>
@@ -637,18 +637,18 @@ Configurations for various properties of model classes.
     
     <configurations>
         <autoRefResolving>false</autoRefResolving>
-        <clazz>uk.ac.liv.jmzqml.model.mzqml.Software</clazz>
+        <clazz>uk.ac.liv.pgb.jmzqml.model.mzqml.Software</clazz>
         <idMapped>true</idMapped>
         <indexed>true</indexed>
-        <cvParamClass>uk.ac.liv.jmzqml.model.mzqml.params.SoftwareCvParam</cvParamClass>
-        <userParamClass>uk.ac.liv.jmzqml.model.mzqml.params.SoftwareUserParam</userParamClass>
+        <cvParamClass>uk.ac.liv.pgb.jmzqml.model.mzqml.params.SoftwareCvParam</cvParamClass>
+        <userParamClass>uk.ac.liv.pgb.jmzqml.model.mzqml.params.SoftwareUserParam</userParamClass>
         <tagName>Softwaer</tagName>
         <xpath>/MzQuantML/SoftwareList/Software</xpath>
     </configurations>  
     
     <configurations>
         <autoRefResolving>false</autoRefResolving>
-        <clazz>uk.ac.liv.jmzqml.model.mzqml.SourceFile</clazz>
+        <clazz>uk.ac.liv.pgb.jmzqml.model.mzqml.SourceFile</clazz>
         <idMapped>false</idMapped>
         <indexed>true</indexed>
         <tagName>SourceFile</tagName>
@@ -657,7 +657,7 @@ Configurations for various properties of model classes.
     
     <configurations>
         <autoRefResolving>false</autoRefResolving>
-        <clazz>uk.ac.liv.jmzqml.model.mzqml.StudyVariableList</clazz>
+        <clazz>uk.ac.liv.pgb.jmzqml.model.mzqml.StudyVariableList</clazz>
         <idMapped>false</idMapped>
         <indexed>true</indexed>
         <tagName>StudyVariableList</tagName>
@@ -666,19 +666,19 @@ Configurations for various properties of model classes.
 
     <configurations>
         <autoRefResolving>true</autoRefResolving>
-        <clazz>uk.ac.liv.jmzqml.model.mzqml.StudyVariable</clazz>
+        <clazz>uk.ac.liv.pgb.jmzqml.model.mzqml.StudyVariable</clazz>
         <idMapped>true</idMapped>
         <indexed>true</indexed>
-        <cvParamClass>uk.ac.liv.jmzqml.model.mzqml.params.StudyVariableCvParam</cvParamClass>
-        <userParamClass>uk.ac.liv.jmzqml.model.mzqml.params.StudyVariableUserParam</userParamClass>
-        <refResolverClass>uk.ac.liv.jmzqml.xml.jaxb.resolver.StudyVariableRefResolver</refResolverClass>
+        <cvParamClass>uk.ac.liv.pgb.jmzqml.model.mzqml.params.StudyVariableCvParam</cvParamClass>
+        <userParamClass>uk.ac.liv.pgb.jmzqml.model.mzqml.params.StudyVariableUserParam</userParamClass>
+        <refResolverClass>uk.ac.liv.pgb.jmzqml.xml.jaxb.resolver.StudyVariableRefResolver</refResolverClass>
         <tagName>StudyVariable</tagName>
         <xpath>/MzQuantML/StudyVariableList/StudyVariable</xpath>
     </configurations>
     
     <configurations>
         <autoRefResolving>false</autoRefResolving>
-        <clazz>uk.ac.liv.jmzqml.model.mzqml.UserParam</clazz>
+        <clazz>uk.ac.liv.pgb.jmzqml.model.mzqml.UserParam</clazz>
         <idMapped>false</idMapped>
         <indexed>false</indexed>
         <tagName>userParam</tagName>

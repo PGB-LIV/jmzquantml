@@ -1,7 +1,7 @@
 /*
  * Date: 04-Jul-2012
  * Author: Da Qi
- * File: uk.ac.liv.jmzqml.MzQuantMLElement.java
+ * File: uk.ac.liv.pgb.jmzqml.MzQuantMLElement.java
  *
  * jmzquantml is Copyright 2012 University of Liverpool.
  *
@@ -1285,7 +1285,7 @@ public enum MzQuantMLElement {
      * Returns a String contains details of the MzQuantMLElement constant.
      * <p>
      * For example, {@code AnalysisSummary.toString()} returns
-     * "MzQuantMLElement{indexed=true, xpath='/MzQuantML/AnalysisSummary', cached=null, clazz=uk.ac.liv.jmzqml.model.mzqml.AnalysisSummary}".
+     * "MzQuantMLElement{indexed=true, xpath='/MzQuantML/AnalysisSummary', cached=null, clazz=uk.ac.liv.pgb.jmzqml.model.mzqml.AnalysisSummary}".
      *
      * @return a String contains details of the MzQuantMLElement constant.
      *

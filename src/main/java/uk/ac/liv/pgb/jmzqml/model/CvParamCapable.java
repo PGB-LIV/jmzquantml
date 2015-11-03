@@ -1,7 +1,7 @@
 /*
  * Date: 09-Apr-2013
  * Author: Da Qi
- * File: uk.ac.liv.jmzqml.model.CvParamCapable.java
+ * File: uk.ac.liv.pgb.jmzqml.model.CvParamCapable.java
  *
  * jmzquantml is Copyright 2013 University of Liverpool.
  *

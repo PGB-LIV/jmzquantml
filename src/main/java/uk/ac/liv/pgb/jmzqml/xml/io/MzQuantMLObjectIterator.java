@@ -1,7 +1,7 @@
 /*
  * Date: 12-Sep-2012
  * Author: Da Qi
- * File: uk.ac.liv.jmzqml.xml.io.MzQuantMLObjectIterator.java
+ * File: uk.ac.liv.pgb.jmzqml.xml.io.MzQuantMLObjectIterator.java
  *
  * jmzquantml is Copyright 2012 University of Liverpool.
  *

@@ -1,7 +1,7 @@
 /*
  * Date: 26-Jul-2012
  * Author: Da Qi
- * File: uk.ac.liv.jmzqml.xml.jaxb.unmarshaller.listeners.RawXMLListener.java
+ * File: uk.ac.liv.pgb.jmzqml.xml.jaxb.unmarshaller.listeners.RawXMLListener.java
  *
  * jmzquantml is Copyright 2012 University of Liverpool.
  *
@@ -101,12 +101,12 @@ public class RawXMLListener extends Unmarshaller.Listener {
                      * Use the retrieved class name to determine the correct subclasses of CvParam and UserParam to use.
                      */
                     if (param.getCvParam() != null) {
-                        Class<? extends CvParam> cvParamClass = (Class<? extends CvParam>) Class.forName("uk.ac.liv.jmzqml.model.mzqml.params." + className + "CvParam");
+                        Class<? extends CvParam> cvParamClass = (Class<? extends CvParam>) Class.forName("uk.ac.liv.pgb.jmzqml.model.mzqml.params." + className + "CvParam");
                         CvParam cvParam = ParamUpdater.updateCvParamSubclass(param.getCvParam(), cvParamClass);
                         param.setParam(cvParam);
                     }
                     else if (param.getUserParam() != null) {
-                        Class<? extends UserParam> userParamClass = (Class<? extends UserParam>) Class.forName("uk.ac.liv.jmzqml.model.mzqml.params." + className + "UserParam");
+                        Class<? extends UserParam> userParamClass = (Class<? extends UserParam>) Class.forName("uk.ac.liv.pgb.jmzqml.model.mzqml.params." + className + "UserParam");
                         UserParam userParam = ParamUpdater.updateUserParamSubclass(param.getUserParam(), userParamClass);
                         param.setParam(userParam);
                     }
@@ -130,9 +130,9 @@ public class RawXMLListener extends Unmarshaller.Listener {
                         /**
                          * Use the retrieved class name to determine the correct subclasses of CvParam and UserParam to use.
                          */
-                        Class<? extends CvParam> cvParamClass = (Class<? extends CvParam>) Class.forName("uk.ac.liv.jmzqml.model.mzqml.params." + className + "CvParam");
+                        Class<? extends CvParam> cvParamClass = (Class<? extends CvParam>) Class.forName("uk.ac.liv.pgb.jmzqml.model.mzqml.params." + className + "CvParam");
                         ParamUpdater.updateCvParamSubclassesList(paramList.getCvParam(), cvParamClass);
-                        Class<? extends UserParam> userParamClass = (Class<? extends UserParam>) Class.forName("uk.ac.liv.jmzqml.model.mzqml.params." + className + "UserParam");
+                        Class<? extends UserParam> userParamClass = (Class<? extends UserParam>) Class.forName("uk.ac.liv.pgb.jmzqml.model.mzqml.params." + className + "UserParam");
                         ParamUpdater.updateUserParamSubclassesList(paramList.getUserParam(), userParamClass);
                     }
                 }

@@ -1,7 +1,7 @@
 /*
  * Date: 07-May-2013
  * Author: Da Qi
- * File: uk.ac.liv.jmzqml.xml.jaxb.resolver.ProteinRefResolver.java
+ * File: uk.ac.liv.pgb.jmzqml.xml.jaxb.resolver.ProteinRefResolver.java
  *
  * jmzquantml is Copyright 2013 University of Liverpool.
  *

@@ -1,7 +1,7 @@
 /*
  * Date: 25-Jul-2012
  * Author: Da Qi
- * File: uk.ac.liv.jmzqml.xml.jaxb.unmarshaller.filters.MzQuantMLNamespaceFilter.java
+ * File: uk.ac.liv.pgb.jmzqml.xml.jaxb.unmarshaller.filters.MzQuantMLNamespaceFilter.java
  *
  * jmzquantml is Copyright 2012 University of Liverpool.
  *

@@ -1,7 +1,7 @@
 /*
  * Date: 04-Dec-2013
  * Author: Da Qi
- * File: uk.ac.liv.jmzqml.MzQuantMLElementTest.java
+ * File: uk.ac.liv.pgb.jmzqml.MzQuantMLElementTest.java
  *
  * jmzquantml is Copyright 2013 University of Liverpool.
  *
@@ -20,7 +20,6 @@
 
 package uk.ac.liv.pgb.jmzqml;
 
-import uk.ac.liv.pgb.jmzqml.MzQuantMLElement;
 import org.junit.AfterClass;
 import static org.junit.Assert.*;
 import org.junit.BeforeClass;
@@ -160,8 +159,8 @@ public class MzQuantMLElementTest {
     public void testGetClazz() {
         System.out.println("* MzQuantMLElementTest: testGetClazz()");
         Class crClazz = MzQuantMLElement.ContactRole.getClazz();
-        assertEquals("The class of \"ContactRole\" element is not uk.ac.liv.jmzqml.model.mzqml.ContactRole.", uk.ac.liv.pgb.jmzqml.model.mzqml.ContactRole.class, crClazz);
-        assertNotSame("The class of \"ContactRole\" element is same as uk.ac.liv.jmzqml.model.mzqml.Assay.", uk.ac.liv.pgb.jmzqml.model.mzqml.Assay.class, crClazz);
+        assertEquals("The class of \"ContactRole\" element is not uk.ac.liv.pgb.jmzqml.model.mzqml.ContactRole.", uk.ac.liv.pgb.jmzqml.model.mzqml.ContactRole.class, crClazz);
+        assertNotSame("The class of \"ContactRole\" element is same as uk.ac.liv.pgb.jmzqml.model.mzqml.Assay.", uk.ac.liv.pgb.jmzqml.model.mzqml.Assay.class, crClazz);
     }
 
     /**
@@ -172,7 +171,7 @@ public class MzQuantMLElementTest {
         System.out.println("* MzQuantMLElementTest: testGetCvParamClass()");
         assertNull("\"CvList\" element has a CvParamClass.", MzQuantMLElement.CvList.getCvParamClass());
         assertNotNull("\"Feature\" element does not have a CvParamClass.", MzQuantMLElement.Feature.getCvParamClass());
-        assertSame("The CvParam of \"SearchDatabase\" element is not uk.ac.liv.jmzqml.model.mzqml.params.SearchDatabaseCvParam",
+        assertSame("The CvParam of \"SearchDatabase\" element is not uk.ac.liv.pgb.jmzqml.model.mzqml.params.SearchDatabaseCvParam",
                    uk.ac.liv.pgb.jmzqml.model.mzqml.params.SearchDatabaseCvParam.class, MzQuantMLElement.SearchDatabase.getCvParamClass());
     }
 
@@ -184,7 +183,7 @@ public class MzQuantMLElementTest {
         System.out.println("* MzQuantMLElementTest: testGetUserParamClass()");
         assertNull("\"DataMatrix\" element has a UserParamClass.", MzQuantMLElement.DataMatrix.getUserParamClass());
         assertNotNull("\"Software\" element does not have a UserParamClass.", MzQuantMLElement.Software.getUserParamClass());
-        assertSame("The UserParam of \"SmallMolecule\" element is not uk.ac.liv.jmzqml.model.mzqml.params.SmallMoleculeUserParam",
+        assertSame("The UserParam of \"SmallMolecule\" element is not uk.ac.liv.pgb.jmzqml.model.mzqml.params.SmallMoleculeUserParam",
                    uk.ac.liv.pgb.jmzqml.model.mzqml.params.SmallMoleculeUserParam.class, MzQuantMLElement.SmallMolecule.getUserParamClass());
     }
 

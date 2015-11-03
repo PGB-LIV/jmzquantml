@@ -1,7 +1,7 @@
 /*
  * Date: 08-Mar-2013
  * Author: Da Qi
- * File: uk.ac.liv.jmzqml.xml.jaxb.marshaller.listeners.ObjectClassListener.java
+ * File: uk.ac.liv.pgb.jmzqml.xml.jaxb.marshaller.listeners.ObjectClassListener.java
  *
  * jmzquantml is Copyright 2013 University of Liverpool.
  *
