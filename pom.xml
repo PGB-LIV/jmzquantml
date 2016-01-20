@@ -70,7 +70,8 @@
                         <artifactId>maven-javadoc-plugin</artifactId>
                         <version>2.10.3</version>
                         <configuration>
-                            <author>false</author>               
+                            <author>false</author> 
+                            <additionalparam>-Xdoclint:none</additionalparam>              
                             <!--
                             <additionalparam>
                                 -sourceclasspath D:\Users\ddq\Documents\NetBeansProjects\jmzquantml\target\classes
