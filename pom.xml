@@ -28,9 +28,9 @@
         </developer>
     </developers>
     <scm>
-        <connection>scm:git:git@github.com:UKQIDA/jmzquantml.git</connection>    
-        <developerConnection>scm:git:git@github.com:UKQIDA/jmzquantml.git</developerConnection>
-        <url>git@github.com:UKQIDA/jmzquantml.git</url>
+        <connection>scm:git:https://github.com/UKQIDA/jmzquantml.git</connection>    
+        <developerConnection>scm:git:https://github.com/UKQIDA/jmzquantml.git</developerConnection>
+        <url>https://github.com/UKQIDA/jmzquantml.git</url>
     </scm>
     <distributionManagement>
         <snapshotRepository>
