@@ -19,6 +19,12 @@
         <institute>University of Liverpool</institute>
         <inceptionYear>2011</inceptionYear>
     </properties>   
+    <licenses>
+        <license>
+            <name>The Apache License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+        </license>
+    </licenses>
     <developers>
         <developer>
             <name>Da Qi</name>
@@ -31,7 +37,7 @@
         <connection>scm:git:git@github.com:UKQIDA/jmzquantml.git</connection>    
         <developerConnection>scm:git:git@github.com:UKQIDA/jmzquantml.git</developerConnection>
         <url>https://github.com/UKQIDA/jmzquantml.git</url>
-  </scm>
+    </scm>
     <distributionManagement>
         <snapshotRepository>
             <id>ossrh</id>
