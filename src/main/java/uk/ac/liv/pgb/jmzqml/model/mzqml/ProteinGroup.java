@@ -18,9 +18,11 @@ import uk.ac.liv.pgb.jmzqml.model.utils.FacadeList;
 /**
  * A grouping of quantified proteins based on ambiguous assignment of peptide evidence to protein identification. The semantics of elements within the group, such as a leading protein or those sharing equal evidence can be reported using cvParams.
  *
- * <p>Java class for ProteinGroupType complex type.
+ * <p>
+ * Java class for ProteinGroupType complex type.
  *
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>
+ * The following schema fragment specifies the expected content contained within this class.
  *
  * <pre>
  * &lt;complexType name="ProteinGroupType">
@@ -48,7 +50,7 @@ import uk.ac.liv.pgb.jmzqml.model.utils.FacadeList;
 })
 public class ProteinGroup
         extends IdOnly
-        implements Serializable, MzQuantMLObject, ParamGroupCapable {
+        implements ParamGroupCapable {
 
     private final static long serialVersionUID = 100L;
     @XmlElement(name = "IdentificationRef")

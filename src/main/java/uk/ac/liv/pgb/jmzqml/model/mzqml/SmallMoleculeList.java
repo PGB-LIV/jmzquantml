@@ -16,9 +16,11 @@ import uk.ac.liv.pgb.jmzqml.model.utils.FacadeList;
 /**
  * List of small molecules and associated data values.
  *
- * <p>Java class for SmallMoleculeListType complex type.
+ * <p>
+ * Java class for SmallMoleculeListType complex type.
  *
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>
+ * The following schema fragment specifies the expected content contained within this class.
  *
  * <pre>
  * &lt;complexType name="SmallMoleculeListType">
@@ -51,7 +53,7 @@ import uk.ac.liv.pgb.jmzqml.model.utils.FacadeList;
 })
 public class SmallMoleculeList
         extends IdOnly
-        implements Serializable, MzQuantMLObject, ParamGroupCapable {
+        implements ParamGroupCapable {
 
     private final static long serialVersionUID = 100L;
     @XmlElement(name = "SmallMolecule", required = true)

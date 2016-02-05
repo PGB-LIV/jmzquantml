@@ -13,9 +13,11 @@ import javax.xml.bind.annotation.XmlType;
 /**
  * A person's name and contact details. Any additional information such as the address, contact email etc. should be supplied using CV parameters or user parameters.
  *
- * <p>Java class for PersonType complex type.
+ * <p>
+ * Java class for PersonType complex type.
  *
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>
+ * The following schema fragment specifies the expected content contained within this class.
  *
  * <pre>
  * &lt;complexType name="PersonType">
@@ -39,8 +41,7 @@ import javax.xml.bind.annotation.XmlType;
     "affiliation"
 })
 public class Person
-        extends AbstractContact
-        implements Serializable {
+        extends AbstractContact {
 
     private final static long serialVersionUID = 100L;
     @XmlElement(name = "Affiliation")

@@ -20,6 +20,7 @@
 
 package uk.ac.liv.pgb.jmzqml;
 
+import java.util.Arrays;
 import uk.ac.liv.pgb.jmzqml.model.mzqml.MzQuantML;
 import uk.ac.liv.pgb.jmzqml.model.mzqml.Ratio;
 
@@ -53,7 +54,7 @@ public enum ParamListMappings {
      * @return a string array of classNames.
      */
     public String[] getClassNames() {
-        return classNames;
+        return Arrays.copyOf(classNames, classNames.length);
     }
 
     /**

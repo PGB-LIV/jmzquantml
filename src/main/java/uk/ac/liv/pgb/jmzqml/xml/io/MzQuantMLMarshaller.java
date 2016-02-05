@@ -1,3 +1,4 @@
+
 /**
  * JAXB-based Marshaller for a mzQuantML file.
  */
@@ -34,7 +35,7 @@ import uk.ac.liv.pgb.jmzqml.xml.util.EscapingXMLStreamWriter;
  * @author Gerhard Mayer, MPC, Ruhr-University of Bochum
  */
 public class MzQuantMLMarshaller {
-    
+
     private static final Logger logger = Logger.getLogger(MzQuantMLMarshaller.class);
     /**
      * Constants.
@@ -57,16 +58,17 @@ public class MzQuantMLMarshaller {
      */
     public MzQuantMLMarshaller(String fullFileName) {
         try {
-            this.fw = new FileWriter(fullFileName);
+            File file = new File(fullFileName);
+            this.fw = new OutputStreamWriter(new FileOutputStream(file), "UTF-8");
         }
         catch (IOException ioex) {
             ioex.printStackTrace(System.err);
         }
-        
+
         try {
             JAXBContext context = JAXBContext.newInstance(MzQuantML.class);
             this.marsh = context.createMarshaller();
-            
+
             this.marsh.setProperty(Marshaller.JAXB_ENCODING, ENCODING);
             this.marsh.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
             //this.marsh.setProperty(Marshaller.JAXB_FRAGMENT, true);
@@ -96,13 +98,13 @@ public class MzQuantMLMarshaller {
     public void marshall(MzQuantML mzQuantML) {
         try {
             if (this.fw != null) {
-                
+
                 if (mzQuantML.getVersion().isEmpty()) {
                     mzQuantML.setVersion(ModelConstants.MZQML_VERSION);
                 }
-                
+
                 JAXBElement<MzQuantML> jaxbElement = new JAXBElement<>(new QName(ModelConstants.MZQML_NS, MZQUANTML), MzQuantML.class, mzQuantML);
-                
+
                 this.marsh.marshal(jaxbElement, this.fw);
                 this.fw.flush();
                 this.fw.close();
@@ -131,11 +133,11 @@ public class MzQuantMLMarshaller {
         this.marshall(object, sw);
         return sw.toString();
     }
-    
+
     public <T extends MzQuantMLObject> void marshall(T object, OutputStream os) {
         this.marshall(object, os, "UTF-8");
     }
-    
+
     public <T extends MzQuantMLObject> void marshall(T object, OutputStream os,
                                                      String encoding) {
         try {
@@ -145,7 +147,7 @@ public class MzQuantMLMarshaller {
             throw new IllegalStateException("Could not set character encoding!");
         }
     }
-    
+
     @SuppressWarnings("unchecked")
     public <T extends MzQuantMLObject> void marshall(T object, Writer out) {
         this.marshall(object, out, "UTF-8");
@@ -161,7 +163,7 @@ public class MzQuantMLMarshaller {
      */
     public <T extends MzQuantMLObject> void marshall(T object, Writer out,
                                                      String encoding) {
-        
+
         if (object == null) {
             throw new IllegalArgumentException("Cannot marshall a NULL object.");
         }
@@ -169,7 +171,7 @@ public class MzQuantMLMarshaller {
             Marshaller marshaller = MarshallerFactory.getInstance().initializeMarshaller();
             marshaller.setProperty(Marshaller.JAXB_ENCODING, encoding);
             marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
-            
+
             if (!(object instanceof MzQuantML)) {
                 marshaller.setProperty(Constants.JAXB_FRAGMENT_PROPERTY, true);
                 if (logger.isDebugEnabled()) {
@@ -181,7 +183,7 @@ public class MzQuantMLMarshaller {
                     logger.debug("Object '" + object.getClass().getName() + "' will be treated as fragment.");
                 }
             }
-            
+
             QName aQName = ModelConstants.getQNameForClass(object.getClass());
             JAXBElement jaxbElement = new JAXBElement(aQName, object.getClass(), object);
 
@@ -189,7 +191,7 @@ public class MzQuantMLMarshaller {
             // to fix a JAXB bug: http://java.net/jira/browse/JAXB-614
             // also wrapping in IndentingXMLStreamWriter to generate formatted XML
             System.setProperty("javax.xml.stream.XMLOutputFactory", "com.sun.xml.internal.stream.XMLOutputFactoryImpl");
-            
+
             XMLOutputFactory factory = XMLOutputFactory.newFactory();
             XMLStreamWriter xmlStreamWriter = factory.createXMLStreamWriter(out);
 
@@ -197,7 +199,7 @@ public class MzQuantMLMarshaller {
             // Therefore the encoding is hard coded for the default case
             // see EscapingXMLStreamWriter.writeStartDocument()
             IndentingXMLStreamWriter writer = new IndentingXMLStreamWriter(new EscapingXMLStreamWriter(xmlStreamWriter, encoding));
-            
+
             marshaller.marshal(jaxbElement, writer);
         }
         catch (JAXBException ex) {
@@ -208,7 +210,7 @@ public class MzQuantMLMarshaller {
             logger.error("MzQuantMLMarshaller.marshall", ex);
             throw new IllegalStateException("Error while marshalling ojbect: " + object.toString());
         }
-        
+
     }
 
     ///// ///// ///// ///// ///// ///// ///// ///// ///// /////
@@ -244,7 +246,7 @@ public class MzQuantMLMarshaller {
         sb.append(" creationDate=\"").append(dfm.format(new Date())).append("\"");
         // finally close the tag
         sb.append(">");
-        
+
         return sb.toString();
     }
 
@@ -429,7 +431,7 @@ public class MzQuantMLMarshaller {
 
         // finally close the tag
         sb.append(">");
-        
+
         return sb.toString();
     }
 
@@ -474,7 +476,7 @@ public class MzQuantMLMarshaller {
                                                          String pages,
                                                          String title,
                                                          String doi) {
-        
+
         if (id == null) {
             throw new IllegalArgumentException("The 'id' attribute must not be null!");
         }
@@ -487,50 +489,50 @@ public class MzQuantMLMarshaller {
         if (name != null && !name.isEmpty()) {
             sb.append(" name=\"").append(name).append("\"");
         }
-        
+
         if (authors != null && !authors.isEmpty()) {
             sb.append(" authors=\"").append(authors).append("\"");
         }
-        
+
         if (publication != null && !publication.isEmpty()) {
             sb.append(" publication=\"").append(publication).append("\"");
         }
-        
+
         if (publisher != null && !publisher.isEmpty()) {
             sb.append(" publisher=\"").append(publisher).append("\"");
         }
-        
+
         if (editor != null && !editor.isEmpty()) {
             sb.append(" editor=\"").append(editor).append("\"");
         }
-        
+
         if (year != null) {
             sb.append(" year=\"").append(year).append("\"");
         }
-        
+
         if (volume != null && !volume.isEmpty()) {
             sb.append(" volume=\"").append(volume).append("\"");
         }
-        
+
         if (issue != null && !issue.isEmpty()) {
             sb.append(" issue=\"").append(issue).append("\"");
         }
-        
+
         if (pages != null && !pages.isEmpty()) {
             sb.append(" pages=\"").append(pages).append("\"");
         }
-        
+
         if (title != null && !title.isEmpty()) {
             sb.append(" title=\"").append(title).append("\"");
         }
-        
+
         if (doi != null && !doi.isEmpty()) {
             sb.append(" doi=\"").append(doi).append("\"");
         }
 
         // finally close the tag
         sb.append("/>");
-        
+
         return sb.toString();
     }
 
@@ -547,7 +549,7 @@ public class MzQuantMLMarshaller {
         if (id == null) {
             throw new IllegalArgumentException("The 'id' attribute must not be null!");
         }
-        
+
         if (rawFilesGroupRef == null) {
             throw new IllegalArgumentException("The 'rawFilesGroup_ref' attribute must not be null!");
         }
@@ -563,7 +565,7 @@ public class MzQuantMLMarshaller {
 
         // finally close the tag
         sb.append(">");
-        
+
         return sb.toString();
     }
 
@@ -589,7 +591,7 @@ public class MzQuantMLMarshaller {
         if (id == null) {
             throw new IllegalArgumentException("The 'id' attribute must not be null!");
         }
-        
+
         if (finalResult == null) {
             throw new IllegalArgumentException("The 'finalResult' attribute must not be null!");
         }
@@ -605,7 +607,7 @@ public class MzQuantMLMarshaller {
 
         // finally close the tag
         sb.append(" >");
-        
+
         return sb.toString();
     }
 
@@ -638,7 +640,7 @@ public class MzQuantMLMarshaller {
 
         // finally close the tag
         sb.append(" >");
-        
+
         return sb.toString();
     }
 
@@ -671,7 +673,7 @@ public class MzQuantMLMarshaller {
 
         // finally close the tag
         sb.append(" >");
-        
+
         return sb.toString();
     }
 
@@ -704,7 +706,7 @@ public class MzQuantMLMarshaller {
 
         // finally close the tag
         sb.append(" >");
-        
+
         return sb.toString();
     }
 
@@ -752,14 +754,14 @@ public class MzQuantMLMarshaller {
                                                                       String pages,
                                                                       String title,
                                                                       String doi) {
-        
+
         BibliographicReference br = new BibliographicReference();
         if (id == null) {
             throw new IllegalArgumentException("The 'id' attribute must not be null!");
         }
-        
+
         br.setId(id);
-        
+
         if (name != null && !name.isEmpty()) {
             br.setName(name);
         }
@@ -816,9 +818,9 @@ public class MzQuantMLMarshaller {
         if (id == null) {
             throw new IllegalArgumentException("The 'id' attribute must not be null!");
         }
-        
+
         cv.setId(id);
-        
+
         if (fullName != null && !fullName.isEmpty()) {
             cv.setFullName(fullName);
         }
@@ -854,20 +856,20 @@ public class MzQuantMLMarshaller {
                                         String unitName,
                                         String unitCvRef) {
         CvParam cp = new CvParam();
-        
+
         if (name == null) {
             throw new IllegalArgumentException("The 'name' attribute must not be null!");
         }
-        
+
         if (cvRef == null || cvRef.isEmpty()) {
             throw new IllegalArgumentException("The 'cvRef' attribute must not be null or empty!");
         }
-        
+
         cp.setName(name);
-        
+
         Cv cv = createCv(cvRef, null, null, null);
         cp.setCv(cv);
-        
+
         if (accession != null && !accession.isEmpty()) {
             cp.setAccession(accession);
         }
@@ -884,7 +886,7 @@ public class MzQuantMLMarshaller {
             Cv unitCv = createCv(unitCvRef, null, null, null);
             cp.setUnitCv(unitCv);
         }
-        
+
         return cp;
     }
 
@@ -910,7 +912,7 @@ public class MzQuantMLMarshaller {
                                         String unitAccession,
                                         String unitName,
                                         String unitCvRef) {
-        
+
         String id = cvRef.getId();
         return createCvParam(name, id, accession, value, unitAccession, unitName, unitCvRef);
     }
@@ -947,7 +949,7 @@ public class MzQuantMLMarshaller {
                                         Cv cvRef,
                                         String accession) {
         return createCvParam(name, cvRef, accession, null, null, null, null);
-        
+
     }
-    
+
 }

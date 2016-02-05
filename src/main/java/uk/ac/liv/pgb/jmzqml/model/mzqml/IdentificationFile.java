@@ -17,9 +17,11 @@ import uk.ac.liv.pgb.jmzqml.model.utils.FacadeList;
 /**
  * A single identification file associated with this analysis.
  *
- * <p>Java class for IdentificationFileType complex type.
+ * <p>
+ * Java class for IdentificationFileType complex type.
  *
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>
+ * The following schema fragment specifies the expected content contained within this class.
  *
  * <pre>
  * &lt;complexType name="IdentificationFileType">
@@ -42,7 +44,7 @@ import uk.ac.liv.pgb.jmzqml.model.utils.FacadeList;
 })
 public class IdentificationFile
         extends ExternalData
-        implements Serializable, ParamGroupCapable {
+        implements ParamGroupCapable {
 
     private final static long serialVersionUID = 100L;
     @XmlElements({

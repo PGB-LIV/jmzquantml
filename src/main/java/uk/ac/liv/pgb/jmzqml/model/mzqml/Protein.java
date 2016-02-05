@@ -52,7 +52,7 @@ import uk.ac.liv.pgb.jmzqml.model.utils.FacadeList;
 })
 public class Protein
         extends IdOnly
-        implements Serializable, MzQuantMLObject, ParamGroupCapable {
+        implements ParamGroupCapable {
 
     private final static long serialVersionUID = 100L;
     @XmlElement(name = "IdentificationRef")

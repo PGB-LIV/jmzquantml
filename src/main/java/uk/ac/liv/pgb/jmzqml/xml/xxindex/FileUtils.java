@@ -56,7 +56,6 @@ public class FileUtils {
 
             logger.debug(url + " written to local file " + tempFile.getAbsolutePath());
 
-
         }
         catch (IOException e) {
             throw new IllegalStateException("Could not create local file for URL: " + url, e);

@@ -12,9 +12,11 @@ import uk.ac.liv.pgb.jmzqml.model.MzQuantMLObject;
 /**
  * A source controlled vocabulary from which cvParams will be obtained.
  *
- * <p>Java class for CvType complex type.
+ * <p>
+ * Java class for CvType complex type.
  *
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>
+ * The following schema fragment specifies the expected content contained within this class.
  *
  * <pre>
  * &lt;complexType name="CvType">
@@ -34,8 +36,7 @@ import uk.ac.liv.pgb.jmzqml.model.MzQuantMLObject;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "CvType")
 public class Cv
-        extends IdOnly
-        implements Serializable, MzQuantMLObject {
+        extends IdOnly {
 
     private final static long serialVersionUID = 100L;
     /**

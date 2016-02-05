@@ -33,8 +33,7 @@ import org.apache.commons.lang3.builder.HashCodeBuilder;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "UserParamType")
 public class UserParam
-        extends AbstractParam
-        implements Serializable {
+        extends AbstractParam {
 
     private final static long serialVersionUID = 100L;
     /**

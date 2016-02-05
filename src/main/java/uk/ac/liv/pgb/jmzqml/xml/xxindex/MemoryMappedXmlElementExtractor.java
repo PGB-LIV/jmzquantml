@@ -1,3 +1,4 @@
+
 package uk.ac.liv.pgb.jmzqml.xml.xxindex;
 
 import org.apache.commons.logging.Log;
@@ -18,6 +19,7 @@ import java.util.regex.Pattern;
  * @version $Id$
  */
 public class MemoryMappedXmlElementExtractor {
+
     private static final Log log = LogFactory.getLog(MemoryMappedXmlElementExtractor.class);
 
     // XML 1.1 specs
@@ -33,10 +35,8 @@ public class MemoryMappedXmlElementExtractor {
     private boolean useSystemDefaultEncoding;
     private Charset encoding;
 
-
     ////////////////////
     // Constructor
-
     /**
      * Default constructor setting the default character encoding to 'ASCII'.
      */
@@ -58,7 +58,6 @@ public class MemoryMappedXmlElementExtractor {
 
     ////////////////////
     // Getter & Setter
-
     /**
      * @return The currently set encoding.
      */
@@ -77,18 +76,21 @@ public class MemoryMappedXmlElementExtractor {
      * This method will try to find and set a Charset for the given String.
      *
      * @param encoding The encoding to use when converting the read byte array into a String.
+     *
      * @return 0 is returned on success, -1 if the specified encoding is not valid and -2 if
-     * the specified encoding is not supported by this virtual machine.
+     *         the specified encoding is not supported by this virtual machine.
      */
     public int setEncoding(String encoding) {
         int result;
         try {
             this.encoding = Charset.forName(encoding);
             result = 0;
-        } catch (IllegalCharsetNameException icne) {
+        }
+        catch (IllegalCharsetNameException icne) {
             log.error("Illegal encoding: " + encoding, icne);
             result = -1;
-        } catch (UnsupportedCharsetException ucne) {
+        }
+        catch (UnsupportedCharsetException ucne) {
             log.error("Unsupported encoding: " + encoding, ucne);
             result = -2;
         }
@@ -116,16 +118,18 @@ public class MemoryMappedXmlElementExtractor {
 
     ////////////////////
     // Methods
-
     /**
      * Same as readString(long from, long to, File file), but start and stop wrapped in a ByteRange object.
      *
      * @param br          the ByteRange to read.
      * @param inputStream the file to read from.
+     *
      * @return the XML element including start and stop tag in a String.
+     *
      * @throws java.io.IOException if an I/O error occurs while reading.
      */
-    public String readString(IndexElement br, InputStream inputStream) throws IOException {
+    public String readString(IndexElement br, InputStream inputStream)
+            throws IOException {
         return readString(br.getStart(), br.getStop(), inputStream);
     }
 
@@ -133,15 +137,18 @@ public class MemoryMappedXmlElementExtractor {
      * Retrieves bytes from the specified file from position 'from' for a
      * length of 'to - from' bytes.
      *
-     * @param from The position from where to start reading.
-     * @param to   The position to which to read.
+     * @param from        The position from where to start reading.
+     * @param to          The position to which to read.
      * @param inputStream The file input stream to read from.
+     *
      * @return The read byte array.
+     *
      * @throws IOException              If a I/O Exception during the reading process occurred.
      * @throws IllegalArgumentException If the range specified to read (to - from)
      *                                  is to big (&gt; Integer.MAX_VALUE characters).
      */
-    public byte[] readBytes(long from, long to, InputStream inputStream) throws IOException {
+    public byte[] readBytes(long from, long to, InputStream inputStream)
+            throws IOException {
         byte[] bytes;
 
         Long length = to - from;
@@ -163,12 +170,14 @@ public class MemoryMappedXmlElementExtractor {
      * Read a String representing a XML element from the specified file (which will be opened read-only).
      * It will read from position 'from' for length 'to - from'.
      *
-     * @param from The byte position of the start (incl. beginning of start tag) of the XML element.
-     * @param to   The byte position of the end (incl. end of closing tag) of the XML element.
+     * @param from        The byte position of the start (incl. beginning of start tag) of the XML element.
+     * @param to          The byte position of the end (incl. end of closing tag) of the XML element.
      * @param inputStream The file input stream to read from.
+     *
      * @return The XML element including start and stop tag in a String.
      */
-    public String readString(long from, long to, InputStream inputStream) throws IOException {
+    public String readString(long from, long to, InputStream inputStream)
+            throws IOException {
         // retrieve the bytes from the given range in the file
         byte[] bytes = readBytes(from, to, inputStream);
 
@@ -184,11 +193,14 @@ public class MemoryMappedXmlElementExtractor {
      * method limiting the number of read bytes to 1000.
      *
      * @param inputStream The file input stream to read from.
+     *
      * @return A String representing the Charset detected for the provided
-     * file or null if no character encoding could be determined.
+     *         file or null if no character encoding could be determined.
+     *
      * @throws IOException If the specified location could not be opened for reading.
      */
-    public String detectFileEncoding(InputStream inputStream) throws IOException {
+    public String detectFileEncoding(InputStream inputStream)
+            throws IOException {
         return detectFileEncoding(inputStream, 1000);
     }
 
@@ -199,13 +211,16 @@ public class MemoryMappedXmlElementExtractor {
      * the encoding should be provided in the XML header/prolog. It will only try
      * to parse this information from the read bytes.
      *
-     * @param inputStream  The file input stream to read from.
+     * @param inputStream   The file input stream to read from.
      * @param maxReadLength The maximum number of bytes to read from the file.
+     *
      * @return A String representing the Charset detected for the provided
-     * file or null if no character encoding could be determined.
+     *         file or null if no character encoding could be determined.
+     *
      * @throws IOException If the specified location could not be opened for reading.
      */
-    public String detectFileEncoding(InputStream inputStream, int maxReadLength) throws IOException {
+    public String detectFileEncoding(InputStream inputStream, int maxReadLength)
+            throws IOException {
 
         // read a bit of the input file and check if it contains a XML header
         int length = inputStream.available();
@@ -214,7 +229,8 @@ public class MemoryMappedXmlElementExtractor {
         byte[] bytes;
         if (length > maxReadLength) {
             bytes = new byte[maxReadLength];
-        } else {
+        }
+        else {
             bytes = new byte[length];
         }
         // fill the byte buffer
@@ -249,6 +265,7 @@ public class MemoryMappedXmlElementExtractor {
      * bytes used on some Mac OSX versions).
      *
      * @param bytes byte array that may contain zero bytes (\u0000)
+     *
      * @return byte array free of zero bytes.
      */
     public byte[] removeZeroBytes(byte[] bytes) {
@@ -272,7 +289,8 @@ public class MemoryMappedXmlElementExtractor {
         if (count != bytes.length) {
             result = new byte[count];
             System.arraycopy(temp, 0, result, 0, count);
-        } else {
+        }
+        else {
             result = temp;
         }
 
@@ -284,18 +302,23 @@ public class MemoryMappedXmlElementExtractor {
      * defined for this StandardXmlElementExtractor.
      *
      * @param bytes The byte array to convert into a String.
+     *
      * @return The String representation of the byte array.
+     *
      * @throws IllegalStateException                If no character encoding is available.
      * @throws java.io.UnsupportedEncodingException if the set character encoding is not supported.
      * @see setUseSystemDefaultEncoding(boolean)
      * @see setEncoding(String)
      */
-    public String bytes2String(byte[] bytes) throws UnsupportedEncodingException {
+    public String bytes2String(byte[] bytes)
+            throws UnsupportedEncodingException {
 
         // if the user prefers the system default character encoding our life is easy
         if (isUseSystemDefaultEncoding()) {
-            if (log.isDebugEnabled()) log.info("Using system default for encoding.");
-            return new String(bytes);
+            if (log.isDebugEnabled()) {
+                log.info("Using system default for encoding.");
+            }
+            return new String(bytes, "UTF-8");
         }
         // if not we use the set encoding
 
@@ -307,4 +330,5 @@ public class MemoryMappedXmlElementExtractor {
         // use the encoding to translate the byte array into a String
         return new String(bytes, getEncoding().name());
     }
+
 }

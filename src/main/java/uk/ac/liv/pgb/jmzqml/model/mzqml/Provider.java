@@ -12,9 +12,11 @@ import javax.xml.bind.annotation.XmlType;
 /**
  * The provider of the document in terms of the Contact and the software the produced the document instance.
  *
- * <p>Java class for ProviderType complex type.
+ * <p>
+ * Java class for ProviderType complex type.
  *
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>
+ * The following schema fragment specifies the expected content contained within this class.
  *
  * <pre>
  * &lt;complexType name="ProviderType">
@@ -36,8 +38,7 @@ import javax.xml.bind.annotation.XmlType;
     "contactRole"
 })
 public class Provider
-        extends Identifiable
-        implements Serializable {
+        extends Identifiable {
 
     private final static long serialVersionUID = 100L;
     /**

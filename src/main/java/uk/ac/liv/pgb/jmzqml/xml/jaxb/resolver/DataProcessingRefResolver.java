@@ -66,87 +66,85 @@ public class DataProcessingRefResolver extends AbstractReferenceResolver<DataPro
 
         List<String> refsInput = object.getInputObjectRefs();
         List<IdOnly> inputObjects = object.getInputObjects();
-        if (refsInput != null) {
-            for (String refInput : refsInput) {
-                // Decide the class type
-                String rawFilesGroupXML = this.getIndexer().getXmlString(refInput, RawFilesGroup.class);
-                String featureListXML = this.getIndexer().getXmlString(refInput, FeatureList.class);
-                String peptideListXML = this.getIndexer().getXmlString(refInput, PeptideConsensusList.class);
-                String proteinListXML = this.getIndexer().getXmlString(refInput, ProteinList.class);
-                String proteinGroupListXML = this.getIndexer().getXmlString(refInput, ProteinGroupList.class);
-                String quantLayerXML = this.getIndexer().getXmlString(refInput, QuantLayer.class);
-                if (rawFilesGroupXML != null) {
-                    RawFilesGroup refObject = this.unmarshal(refInput, RawFilesGroup.class);
-                    inputObjects.add(refObject);
-                }
-                else if (featureListXML != null) {
-                    FeatureList refObject = this.unmarshal(refInput, FeatureList.class);
-                    inputObjects.add(refObject);
-                }
-                else if (peptideListXML != null) {
-                    PeptideConsensusList refObject = this.unmarshal(refInput, PeptideConsensusList.class);
-                    inputObjects.add(refObject);
-                }
-                else if (proteinListXML != null) {
-                    ProteinList refObject = this.unmarshal(refInput, ProteinList.class);
-                    inputObjects.add(refObject);
-                }
-                else if (proteinGroupListXML != null) {
-                    ProteinGroupList refObject = this.unmarshal(refInput, ProteinGroupList.class);
-                    inputObjects.add(refObject);
-                }
-                else if (quantLayerXML != null) {
-                    QuantLayer refObject = this.unmarshal(refInput, QuantLayer.class);
-                    inputObjects.add(refObject);
-                }
-                else {
-                    throw new IllegalStateException("Could not resolve input referecence " + refInput + " to required element");
-                }
+
+        for (String refInput : refsInput) {
+            // Decide the class type
+            String rawFilesGroupXML = this.getIndexer().getXmlString(refInput, RawFilesGroup.class);
+            String featureListXML = this.getIndexer().getXmlString(refInput, FeatureList.class);
+            String peptideListXML = this.getIndexer().getXmlString(refInput, PeptideConsensusList.class);
+            String proteinListXML = this.getIndexer().getXmlString(refInput, ProteinList.class);
+            String proteinGroupListXML = this.getIndexer().getXmlString(refInput, ProteinGroupList.class);
+            String quantLayerXML = this.getIndexer().getXmlString(refInput, QuantLayer.class);
+            if (rawFilesGroupXML != null) {
+                RawFilesGroup refObject = this.unmarshal(refInput, RawFilesGroup.class);
+                inputObjects.add(refObject);
             }
-            object.setInputObjects(inputObjects);
+            else if (featureListXML != null) {
+                FeatureList refObject = this.unmarshal(refInput, FeatureList.class);
+                inputObjects.add(refObject);
+            }
+            else if (peptideListXML != null) {
+                PeptideConsensusList refObject = this.unmarshal(refInput, PeptideConsensusList.class);
+                inputObjects.add(refObject);
+            }
+            else if (proteinListXML != null) {
+                ProteinList refObject = this.unmarshal(refInput, ProteinList.class);
+                inputObjects.add(refObject);
+            }
+            else if (proteinGroupListXML != null) {
+                ProteinGroupList refObject = this.unmarshal(refInput, ProteinGroupList.class);
+                inputObjects.add(refObject);
+            }
+            else if (quantLayerXML != null) {
+                QuantLayer refObject = this.unmarshal(refInput, QuantLayer.class);
+                inputObjects.add(refObject);
+            }
+            else {
+                throw new IllegalStateException("Could not resolve input referecence " + refInput + " to required element");
+            }
         }
+        object.setInputObjects(inputObjects);
 
         List<String> refsOutput = object.getOutputObjectRefs();
         List<IdOnly> outputObjects = object.getOutputObjects();
-        if (refsOutput != null) {
-            for (String refOutput : refsOutput) {
-                // Decide the class type
-                String rawFilesGroupXML = this.getIndexer().getXmlString(refOutput, RawFilesGroup.class);
-                String featureListXML = this.getIndexer().getXmlString(refOutput, FeatureList.class);
-                String peptideListXML = this.getIndexer().getXmlString(refOutput, PeptideConsensusList.class);
-                String proteinListXML = this.getIndexer().getXmlString(refOutput, ProteinList.class);
-                String proteinGroupListXML = this.getIndexer().getXmlString(refOutput, ProteinGroupList.class);
-                String quantLayerXML = this.getIndexer().getXmlString(refOutput, QuantLayer.class);
-                if (rawFilesGroupXML != null) {
-                    RawFilesGroup refObject = this.unmarshal(refOutput, RawFilesGroup.class);
-                    outputObjects.add(refObject);
-                }
-                else if (featureListXML != null) {
-                    FeatureList refObject = this.unmarshal(refOutput, FeatureList.class);
-                    outputObjects.add(refObject);
-                }
-                else if (peptideListXML != null) {
-                    PeptideConsensusList refObject = this.unmarshal(refOutput, PeptideConsensusList.class);
-                    outputObjects.add(refObject);
-                }
-                else if (proteinListXML != null) {
-                    ProteinList refObject = this.unmarshal(refOutput, ProteinList.class);
-                    outputObjects.add(refObject);
-                }
-                else if (proteinGroupListXML != null) {
-                    ProteinGroupList refObject = this.unmarshal(refOutput, ProteinGroupList.class);
-                    outputObjects.add(refObject);
-                }
-                else if (quantLayerXML != null) {
-                    QuantLayer refObject = this.unmarshal(refOutput, QuantLayer.class);
-                    outputObjects.add(refObject);
-                }
-                else {
-                    throw new IllegalStateException("Could not resolve output referecence " + refOutput + " to required element");
-                }
+
+        for (String refOutput : refsOutput) {
+            // Decide the class type
+            String rawFilesGroupXML = this.getIndexer().getXmlString(refOutput, RawFilesGroup.class);
+            String featureListXML = this.getIndexer().getXmlString(refOutput, FeatureList.class);
+            String peptideListXML = this.getIndexer().getXmlString(refOutput, PeptideConsensusList.class);
+            String proteinListXML = this.getIndexer().getXmlString(refOutput, ProteinList.class);
+            String proteinGroupListXML = this.getIndexer().getXmlString(refOutput, ProteinGroupList.class);
+            String quantLayerXML = this.getIndexer().getXmlString(refOutput, QuantLayer.class);
+            if (rawFilesGroupXML != null) {
+                RawFilesGroup refObject = this.unmarshal(refOutput, RawFilesGroup.class);
+                outputObjects.add(refObject);
             }
-            object.setOutputObjects(outputObjects);
+            else if (featureListXML != null) {
+                FeatureList refObject = this.unmarshal(refOutput, FeatureList.class);
+                outputObjects.add(refObject);
+            }
+            else if (peptideListXML != null) {
+                PeptideConsensusList refObject = this.unmarshal(refOutput, PeptideConsensusList.class);
+                outputObjects.add(refObject);
+            }
+            else if (proteinListXML != null) {
+                ProteinList refObject = this.unmarshal(refOutput, ProteinList.class);
+                outputObjects.add(refObject);
+            }
+            else if (proteinGroupListXML != null) {
+                ProteinGroupList refObject = this.unmarshal(refOutput, ProteinGroupList.class);
+                outputObjects.add(refObject);
+            }
+            else if (quantLayerXML != null) {
+                QuantLayer refObject = this.unmarshal(refOutput, QuantLayer.class);
+                outputObjects.add(refObject);
+            }
+            else {
+                throw new IllegalStateException("Could not resolve output referecence " + refOutput + " to required element");
+            }
         }
+        object.setOutputObjects(outputObjects);
     }
 
     /**

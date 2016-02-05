@@ -18,9 +18,11 @@ import uk.ac.liv.pgb.jmzqml.model.MzQuantMLObject;
 /**
  * Description of the way in which a particular software package was used to analyse data and for example produce different quant layers or lists in the file.
  *
- * <p>Java class for DataProcessingType complex type.
+ * <p>
+ * Java class for DataProcessingType complex type.
  *
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>
+ * The following schema fragment specifies the expected content contained within this class.
  *
  * <pre>
  * &lt;complexType name="DataProcessingType">
@@ -48,8 +50,7 @@ import uk.ac.liv.pgb.jmzqml.model.MzQuantMLObject;
     "processingMethod"
 })
 public class DataProcessing
-        extends IdOnly
-        implements Serializable, MzQuantMLObject {
+        extends IdOnly {
 
     private final static long serialVersionUID = 100L;
     @XmlList

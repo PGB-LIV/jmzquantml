@@ -1247,7 +1247,7 @@ public enum MzQuantMLElement {
 
     private static Map<String, MzQuantMLElementConfig> cfgMap;
 
-    private static Map<String, MzQuantMLElementConfig> getCfg() {
+    private synchronized static Map<String, MzQuantMLElementConfig> getCfg() {
         if (cfgMap == null) {
             cfgMap = new HashMap<>();
         }

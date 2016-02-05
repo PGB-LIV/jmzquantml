@@ -16,9 +16,11 @@ import uk.ac.liv.pgb.jmzqml.model.utils.FacadeList;
 /**
  * A contact is either a person or an organization.
  *
- * <p>Java class for AbstractContactType complex type.
+ * <p>
+ * Java class for AbstractContactType complex type.
  *
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>
+ * The following schema fragment specifies the expected content contained within this class.
  *
  * <pre>
  * &lt;complexType name="AbstractContactType">
@@ -44,7 +46,7 @@ import uk.ac.liv.pgb.jmzqml.model.utils.FacadeList;
 })
 public abstract class AbstractContact
         extends Identifiable
-        implements Serializable, ParamGroupCapable {
+        implements ParamGroupCapable {
 
     private final static long serialVersionUID = 100L;
     @XmlElements({

@@ -10,14 +10,15 @@ import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlSeeAlso;
 import javax.xml.bind.annotation.XmlType;
 
-
 /**
- * Data external to the XML instance document. The location of the data file is given in the location attribute. 
- * 
- * <p>Java class for ExternalDataType complex type.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ * Data external to the XML instance document. The location of the data file is given in the location attribute.
+ *
+ * <p>
+ * Java class for ExternalDataType complex type.
+ *
+ * <p>
+ * The following schema fragment specifies the expected content contained within this class.
+ *
  * <pre>
  * &lt;complexType name="ExternalDataType">
  *   &lt;complexContent>
@@ -31,8 +32,8 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "ExternalDataType", propOrder = {
@@ -47,9 +48,7 @@ import javax.xml.bind.annotation.XmlType;
     SearchDatabase.class
 })
 public class ExternalData
-    extends Identifiable
-    implements Serializable
-{
+        extends Identifiable {
 
     private final static long serialVersionUID = 100L;
     /**
@@ -72,11 +71,11 @@ public class ExternalData
 
     /**
      * Gets the value of the externalFormatDocumentation property.
-     * 
+     *
      * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *         possible object is
+     *         {@link String }
+     *
      */
     public String getExternalFormatDocumentation() {
         return externalFormatDocumentation;
@@ -84,11 +83,11 @@ public class ExternalData
 
     /**
      * Sets the value of the externalFormatDocumentation property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *              allowed object is
+     *              {@link String }
+     *
      */
     public void setExternalFormatDocumentation(String value) {
         this.externalFormatDocumentation = value;
@@ -96,11 +95,11 @@ public class ExternalData
 
     /**
      * Gets the value of the fileFormat property.
-     * 
+     *
      * @return
-     *     possible object is
-     *     {@link FileFormat }
-     *     
+     *         possible object is
+     *         {@link FileFormat }
+     *
      */
     public FileFormat getFileFormat() {
         return fileFormat;
@@ -108,11 +107,11 @@ public class ExternalData
 
     /**
      * Sets the value of the fileFormat property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link FileFormat }
-     *     
+     *              allowed object is
+     *              {@link FileFormat }
+     *
      */
     public void setFileFormat(FileFormat value) {
         this.fileFormat = value;
@@ -120,11 +119,11 @@ public class ExternalData
 
     /**
      * Gets the value of the location property.
-     * 
+     *
      * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *         possible object is
+     *         {@link String }
+     *
      */
     public String getLocation() {
         return location;
@@ -132,11 +131,11 @@ public class ExternalData
 
     /**
      * Sets the value of the location property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *              allowed object is
+     *              {@link String }
+     *
      */
     public void setLocation(String value) {
         this.location = value;

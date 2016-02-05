@@ -15,9 +15,11 @@ import uk.ac.liv.pgb.jmzqml.model.MzQuantMLObject;
 /**
  * A collection of data relating to the objects within the parent list type (e.g. PeptideConsensus, Protein or ProteinGroup)
  *
- * <p>Java class for QuantLayerType complex type.
+ * <p>
+ * Java class for QuantLayerType complex type.
  *
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>
+ * The following schema fragment specifies the expected content contained within this class.
  *
  * <pre>
  * &lt;complexType name="QuantLayerType">
@@ -44,8 +46,7 @@ import uk.ac.liv.pgb.jmzqml.model.MzQuantMLObject;
     "dataMatrix"
 })
 public class QuantLayer<T extends IdOnly>
-        extends IdOnly
-        implements Serializable, MzQuantMLObject {
+        extends IdOnly {
 
     private final static long serialVersionUID = 100L;
     @XmlElement(name = "DataType", required = true)

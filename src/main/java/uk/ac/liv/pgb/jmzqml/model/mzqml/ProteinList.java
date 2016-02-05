@@ -16,9 +16,11 @@ import uk.ac.liv.pgb.jmzqml.model.utils.FacadeList;
 /**
  * The list of all individual proteins (i.e. ungrouped) for which quantitation values are being reported. If quantitation is done on protein groups, the constituent proteins should be listed here with no QuantLayers.
  *
- * <p>Java class for ProteinListType complex type.
+ * <p>
+ * Java class for ProteinListType complex type.
  *
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>
+ * The following schema fragment specifies the expected content contained within this class.
  *
  * <pre>
  * &lt;complexType name="ProteinListType">
@@ -51,7 +53,7 @@ import uk.ac.liv.pgb.jmzqml.model.utils.FacadeList;
 })
 public class ProteinList
         extends IdOnly
-        implements Serializable, MzQuantMLObject, ParamGroupCapable {
+        implements ParamGroupCapable {
 
     private final static long serialVersionUID = 100L;
     @XmlElement(name = "Protein", required = true)

@@ -17,9 +17,11 @@ import uk.ac.liv.pgb.jmzqml.model.utils.FacadeList;
 /**
  * A raw mass spectrometry output file that has been analysed e.g. in mzML format. The same raw file can be referenced in multiple assays, for example if it contains multiple samples differentially labelled or tagged. Note, the name raw file does not necessarily imply that the file has not been processed, since in some quant methods, processed peak list formats such as MGF or DTA can be used, which could be referenced here.
  *
- * <p>Java class for RawFileType complex type.
+ * <p>
+ * Java class for RawFileType complex type.
  *
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>
+ * The following schema fragment specifies the expected content contained within this class.
  *
  * <pre>
  * &lt;complexType name="RawFileType">
@@ -40,7 +42,7 @@ import uk.ac.liv.pgb.jmzqml.model.utils.FacadeList;
 })
 public class RawFile
         extends ExternalData
-        implements Serializable, ParamGroupCapable {
+        implements ParamGroupCapable {
 
     private final static long serialVersionUID = 100L;
     @XmlElements({

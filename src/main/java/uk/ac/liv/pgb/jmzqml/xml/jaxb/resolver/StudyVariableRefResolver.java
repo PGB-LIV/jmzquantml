@@ -53,13 +53,12 @@ public class StudyVariableRefResolver extends AbstractReferenceResolver<StudyVar
     public void updateObject(StudyVariable object) {
         List<String> refs = object.getAssayRefs();
         List<Assay> assays = object.getAssays();
-        if (refs != null) {
-            for (String ref : refs) {
-                Assay refObject = this.unmarshal(ref, Assay.class);
-                assays.add(refObject);
-            }
-            object.setAssays(assays);
+
+        for (String ref : refs) {
+            Assay refObject = this.unmarshal(ref, Assay.class);
+            assays.add(refObject);
         }
+        object.setAssays(assays);
     }
 
     /**

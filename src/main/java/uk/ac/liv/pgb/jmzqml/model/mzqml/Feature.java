@@ -19,9 +19,11 @@ import uk.ac.liv.pgb.jmzqml.model.utils.FacadeList;
 /**
  * A region on a (potentially) two-dimensional map of MS1 scans, defined by the retention time, mass over charge and optionally a mass trace. Quantitative values about features can be added in the associated QuantLayers. For techniques that analyse data from single scans e.g. MS2 tagging approaches, a Feature corresponds with the mz of the parent ions only.
  *
- * <p>Java class for FeatureType complex type.
+ * <p>
+ * Java class for FeatureType complex type.
  *
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>
+ * The following schema fragment specifies the expected content contained within this class.
  *
  * <pre>
  * &lt;complexType name="FeatureType">
@@ -52,7 +54,7 @@ import uk.ac.liv.pgb.jmzqml.model.utils.FacadeList;
 })
 public class Feature
         extends IdOnly
-        implements Serializable, MzQuantMLObject, ParamGroupCapable {
+        implements ParamGroupCapable {
 
     private final static long serialVersionUID = 100L;
     @XmlList

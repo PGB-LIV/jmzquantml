@@ -60,13 +60,11 @@ public class AssayRefResolver extends AbstractReferenceResolver<Assay> {
 
         List<String> refs = object.getIdentificationFileRefs();
         List<IdentificationFile> identificationFiles = object.getIdentificationFiles();
-        if (refs != null) {
-            for (String ref2 : refs) {
-                IdentificationFile refObject2 = this.unmarshal(ref2, IdentificationFile.class);
-                identificationFiles.add(refObject2);
-            }
-            object.setIdentificationFiles(identificationFiles);
+        for (String ref2 : refs) {
+            IdentificationFile refObject2 = this.unmarshal(ref2, IdentificationFile.class);
+            identificationFiles.add(refObject2);
         }
+        object.setIdentificationFiles(identificationFiles);
     }
 
     /**

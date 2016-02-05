@@ -14,9 +14,11 @@ import uk.ac.liv.pgb.jmzqml.model.ParamListCapable;
 /**
  * The setup of a ratio of study variables or assays that is referenced elsewhere in the file. It is expected that the numerator and denominator MUST both be Assays or MUST both be StudyVariables. However, StudyVariables MAY contain 1 to many Assays, thus allowing more complex ratios to be constructed if needed via use of StudyVariables with unbalanced numbers of Assays.
  *
- * <p>Java class for RatioType complex type.
+ * <p>
+ * Java class for RatioType complex type.
  *
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>
+ * The following schema fragment specifies the expected content contained within this class.
  *
  * <pre>
  * &lt;complexType name="RatioType">
@@ -45,8 +47,8 @@ import uk.ac.liv.pgb.jmzqml.model.ParamListCapable;
     "denominatorDataType"
 })
 public class Ratio
-extends IdOnly
-        implements Serializable, MzQuantMLObject, ParamListCapable {
+        extends IdOnly
+        implements ParamListCapable {
 
     private final static long serialVersionUID = 100L;
     /**

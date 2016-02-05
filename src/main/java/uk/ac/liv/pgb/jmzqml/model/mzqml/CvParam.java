@@ -31,8 +31,7 @@ import org.apache.commons.lang3.builder.HashCodeBuilder;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "CVParamType")
 public class CvParam
-        extends AbstractParam
-        implements Serializable {
+        extends AbstractParam {
 
     private final static long serialVersionUID = 100L;
     /**

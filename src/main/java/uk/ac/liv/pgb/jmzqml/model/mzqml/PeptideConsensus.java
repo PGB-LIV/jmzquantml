@@ -18,9 +18,11 @@ import uk.ac.liv.pgb.jmzqml.model.utils.FacadeList;
 /**
  * An element representing a peptide in different assays that may or may not have been identified. If it has been identified, the sequence and modification(s) SHOULD be reported. Within the parent list, it is allowed for there to be multiple instances of the same peptide sequence, for example capturing different charge states or different modifications, if they are differentially quantified. If peptides with different charge states are aggregated, they should be represented by a single PeptideConsensus element.
  *
- * <p>Java class for PeptideConsensusType complex type.
+ * <p>
+ * Java class for PeptideConsensusType complex type.
  *
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>
+ * The following schema fragment specifies the expected content contained within this class.
  *
  * <pre>
  * &lt;complexType name="PeptideConsensusType">
@@ -51,7 +53,7 @@ import uk.ac.liv.pgb.jmzqml.model.utils.FacadeList;
 })
 public class PeptideConsensus
         extends IdOnly
-        implements Serializable, MzQuantMLObject, ParamGroupCapable {
+        implements ParamGroupCapable {
 
     private final static long serialVersionUID = 100L;
     @XmlElement(name = "PeptideSequence")

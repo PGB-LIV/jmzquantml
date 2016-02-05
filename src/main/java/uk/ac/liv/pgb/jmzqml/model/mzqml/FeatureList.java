@@ -20,9 +20,11 @@ import uk.ac.liv.pgb.jmzqml.model.utils.FacadeList;
 /**
  * All the features identified on a single raw file or raw file group.
  *
- * <p>Java class for FeatureListType complex type.
+ * <p>
+ * Java class for FeatureListType complex type.
  *
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>
+ * The following schema fragment specifies the expected content contained within this class.
  *
  * <pre>
  * &lt;complexType name="FeatureListType">
@@ -56,7 +58,7 @@ import uk.ac.liv.pgb.jmzqml.model.utils.FacadeList;
 })
 public class FeatureList
         extends IdOnly
-        implements Serializable, MzQuantMLObject, ParamGroupCapable {
+        implements ParamGroupCapable {
 
     private final static long serialVersionUID = 100L;
     @XmlElement(name = "Feature", required = true)

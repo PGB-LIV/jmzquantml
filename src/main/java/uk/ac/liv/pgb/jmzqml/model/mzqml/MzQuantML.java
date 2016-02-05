@@ -19,9 +19,11 @@ import uk.ac.liv.pgb.jmzqml.xml.jaxb.adapter.CalendarAdapter;
 /**
  * Root element of the instance document.
  *
- * <p>Java class for MzQuantMLType complex type.
+ * <p>
+ * Java class for MzQuantMLType complex type.
  *
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>
+ * The following schema fragment specifies the expected content contained within this class.
  *
  * <pre>
  * &lt;complexType name="MzQuantMLType">
@@ -76,8 +78,7 @@ import uk.ac.liv.pgb.jmzqml.xml.jaxb.adapter.CalendarAdapter;
     "featureList"
 })
 @XmlRootElement(name = "MzQuantML")
-public class MzQuantML extends Identifiable
-        implements Serializable, MzQuantMLObject {
+public class MzQuantML extends Identifiable {
 
     private final static long serialVersionUID = 100L;
     @XmlElement(name = "CvList", required = true)

@@ -70,13 +70,11 @@ public class EvidenceRefRefResolver extends AbstractReferenceResolver<EvidenceRe
         //assay_refs
         List<String> refs3 = object.getAssayRefs();
         List<Assay> refObjects3 = object.getAssays();
-        if (refs3 != null) {
-            for (String ref3 : refs3) {
-                Assay refObject3 = this.unmarshal(ref3, Assay.class);
-                refObjects3.add(refObject3);
-            }
-            object.setAssays(refObjects3);
+        for (String ref3 : refs3) {
+            Assay refObject3 = this.unmarshal(ref3, Assay.class);
+            refObjects3.add(refObject3);
         }
+        object.setAssays(refObjects3);
     }
 
     /**

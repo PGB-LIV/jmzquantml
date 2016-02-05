@@ -53,13 +53,12 @@ public class SmallMoleculeRefResolver extends AbstractReferenceResolver<SmallMol
     public void updateObject(SmallMolecule object) {
         List<String> refs = object.getFeatureRefs();
         List<Feature> features = object.getFeatures();
-        if (refs != null) {
-            for (String ref1 : refs) {
-                Feature refObject = this.unmarshal(ref1, Feature.class);
-                features.add(refObject);
-            }
-            object.setFeatures(features);
+
+        for (String ref1 : refs) {
+            Feature refObject = this.unmarshal(ref1, Feature.class);
+            features.add(refObject);
         }
+        object.setFeatures(features);
     }
 
     /**

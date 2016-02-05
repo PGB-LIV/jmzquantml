@@ -19,9 +19,11 @@ import uk.ac.liv.pgb.jmzqml.model.utils.FacadeList;
 /**
  * The list of all peptides for which quantitation values are reported.
  *
- * <p>Java class for PeptideConsensusListType complex type.
+ * <p>
+ * Java class for PeptideConsensusListType complex type.
  *
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>
+ * The following schema fragment specifies the expected content contained within this class.
  *
  * <pre>
  * &lt;complexType name="PeptideConsensusListType">
@@ -55,7 +57,7 @@ import uk.ac.liv.pgb.jmzqml.model.utils.FacadeList;
 })
 public class PeptideConsensusList
         extends IdOnly
-        implements Serializable, MzQuantMLObject, ParamGroupCapable {
+        implements ParamGroupCapable {
 
     private final static long serialVersionUID = 100L;
     @XmlElement(name = "PeptideConsensus", required = true)

@@ -11,9 +11,11 @@ import uk.ac.liv.pgb.jmzqml.model.MzQuantMLObject;
 /**
  * A QuantLayer in which different data types are allowed in each column.
  *
- * <p>Java class for GlobalQuantLayerType complex type.
+ * <p>
+ * Java class for GlobalQuantLayerType complex type.
  *
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>
+ * The following schema fragment specifies the expected content contained within this class.
  *
  * <pre>
  * &lt;complexType name="GlobalQuantLayerType">
@@ -37,8 +39,7 @@ import uk.ac.liv.pgb.jmzqml.model.MzQuantMLObject;
     "dataMatrix"
 })
 public class GlobalQuantLayer
-        extends IdOnly
-        implements Serializable, MzQuantMLObject {
+        extends IdOnly {
 
     private final static long serialVersionUID = 100L;
     /**

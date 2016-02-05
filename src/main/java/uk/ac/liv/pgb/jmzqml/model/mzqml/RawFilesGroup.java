@@ -16,9 +16,11 @@ import uk.ac.liv.pgb.jmzqml.model.utils.FacadeList;
 /**
  * The raw file or collection of raw files that together form one unit of analysis. This is mandatory unless raw files were not used for quantitation e.g. spectral counting. Multiple raw files should only be provided within a group if they have been used for sample pre-fractionation which are later summed together.
  *
- * <p>Java class for RawFilesGroupType complex type.
+ * <p>
+ * Java class for RawFilesGroupType complex type.
  *
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>
+ * The following schema fragment specifies the expected content contained within this class.
  *
  * <pre>
  * &lt;complexType name="RawFilesGroupType">
@@ -43,7 +45,7 @@ import uk.ac.liv.pgb.jmzqml.model.utils.FacadeList;
 })
 public class RawFilesGroup
         extends IdOnly
-        implements Serializable, MzQuantMLObject, ParamGroupCapable {
+        implements ParamGroupCapable {
 
     private final static long serialVersionUID = 100L;
     @XmlElement(name = "RawFile", required = true)

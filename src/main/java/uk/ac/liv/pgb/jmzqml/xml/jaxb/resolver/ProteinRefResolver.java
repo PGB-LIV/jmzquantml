@@ -59,13 +59,12 @@ public class ProteinRefResolver extends AbstractReferenceResolver<Protein> {
 
         List<String> refs = object.getPeptideConsensusRefs();
         List<PeptideConsensus> peptideConsensuses = object.getPeptideConsensuses();
-        if (refs != null) {
-            for (String ref2 : refs) {
-                PeptideConsensus refObject2 = this.unmarshal(ref2, PeptideConsensus.class);
-                peptideConsensuses.add(refObject2);
-            }
-            object.setPeptideConsensuses(peptideConsensuses);
+
+        for (String ref2 : refs) {
+            PeptideConsensus refObject2 = this.unmarshal(ref2, PeptideConsensus.class);
+            peptideConsensuses.add(refObject2);
         }
+        object.setPeptideConsensuses(peptideConsensuses);
     }
 
     /**

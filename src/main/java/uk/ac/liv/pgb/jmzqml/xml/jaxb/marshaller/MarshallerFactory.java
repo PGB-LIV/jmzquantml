@@ -17,6 +17,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package uk.ac.liv.pgb.jmzqml.xml.jaxb.marshaller;
 
 import javax.xml.bind.JAXBContext;
@@ -37,7 +38,7 @@ public class MarshallerFactory {
 
     private static final Logger logger = Logger.getLogger(MarshallerFactory.class);
     private static MarshallerFactory instance = new MarshallerFactory();
-    private static JAXBContext jc = null;
+    private JAXBContext jc = null;
 
     /**
      * A static method to construct an object of MarshallerFactory.
@@ -56,7 +57,7 @@ public class MarshallerFactory {
      *
      * @return an instance of {@link javax.xml.bind.Marshaller} with initial configurations.
      */
-    public Marshaller initializeMarshaller() {
+    public synchronized Marshaller initializeMarshaller() {
         logger.debug("Initializing Marshaller for mzQuantML.");
         try {
             // Lazy caching of JAXB context.

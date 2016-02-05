@@ -21,6 +21,8 @@
 package uk.ac.liv.pgb.jmzqml.model.utils;
 
 import java.lang.reflect.Field;
+import java.security.AccessController;
+import java.security.PrivilegedAction;
 import java.util.ArrayList;
 import java.util.List;
 import uk.ac.liv.pgb.jmzqml.model.mzqml.AbstractParam;
@@ -80,7 +82,15 @@ public class ParamUpdater {
                 try {
                     Class<? extends CvParam> cls = input.getClass();
                     Field cvRefField = cls.getDeclaredField("cvRef");
-                    cvRefField.setAccessible(true);
+                    AccessController.doPrivileged(new PrivilegedAction() {
+
+                        @Override
+                        public Object run() {
+                            cvRefField.setAccessible(true);
+                            return null;
+                        }
+
+                    });
                     cvRefField.set(newParam, input.getCvRef());
                 }
                 catch (IllegalAccessException | IllegalArgumentException | NoSuchFieldException | SecurityException e) {
@@ -106,7 +116,15 @@ public class ParamUpdater {
                  */
                 try {
                     Field unitCvRefField = AbstractParam.class.getDeclaredField("unitCvRef");
-                    unitCvRefField.setAccessible(true);
+                    AccessController.doPrivileged(new PrivilegedAction() {
+
+                        @Override
+                        public Object run() {
+                            unitCvRefField.setAccessible(true);
+                            return null;
+                        }
+
+                    });
                     unitCvRefField.set(newParam, input.getUnitCvRef());
                 }
                 catch (IllegalAccessException | IllegalArgumentException | NoSuchFieldException | SecurityException e) {
@@ -158,8 +176,8 @@ public class ParamUpdater {
             }
 
             // switch list content
-            //inputs.clear();
-            inputs.removeAll(inputs);
+            inputs.clear();
+            //inputs.removeAll(inputs);
             inputs.addAll(newList);
         }
     }
@@ -223,8 +241,8 @@ public class ParamUpdater {
             }
 
             // switch list content
-            //inputs.clear();
-            inputs.removeAll(inputs);
+            inputs.clear();
+            //inputs.removeAll(inputs);
             inputs.addAll(newList);
         }
     }

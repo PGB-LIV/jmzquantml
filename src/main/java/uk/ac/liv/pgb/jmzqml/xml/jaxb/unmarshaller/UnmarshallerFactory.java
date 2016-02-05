@@ -17,6 +17,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package uk.ac.liv.pgb.jmzqml.xml.jaxb.unmarshaller;
 
 import com.ctc.wstx.sax.WstxSAXParserFactory;
@@ -46,7 +47,7 @@ public class UnmarshallerFactory {
 
     private static final Logger logger = Logger.getLogger(UnmarshallerFactory.class);
     private static UnmarshallerFactory instance = new UnmarshallerFactory();
-    private static JAXBContext jc = null;
+    private JAXBContext jc = null;
 
     /**
      * A static method to construct an object of UnmarshallerFactory.
@@ -69,9 +70,10 @@ public class UnmarshallerFactory {
      *
      * @return an instance of {@link javax.xml.bind.Unmarshaller} with initial configurations.
      */
-    public Unmarshaller initializeUnmarshaller(MzQuantMLIndexer index,
-                                               MzQuantMLObjectCache cache,
-                                               MzQuantMLNamespaceFilter xmlFilter) {
+    public synchronized Unmarshaller initializeUnmarshaller(
+            MzQuantMLIndexer index,
+            MzQuantMLObjectCache cache,
+            MzQuantMLNamespaceFilter xmlFilter) {
         try {
             if (jc == null) {
                 jc = JAXBContext.newInstance(ModelConstants.PACKAGE);
@@ -110,7 +112,7 @@ public class UnmarshallerFactory {
             UnmarshallerHandler uh = unmarshaller.getUnmarshallerHandler();
 
             SAXParserFactory factory = new WstxSAXParserFactory();
-            
+
             // Create a new XML parser
             factory.setNamespaceAware(true);
             SAXParser parser = factory.newSAXParser();

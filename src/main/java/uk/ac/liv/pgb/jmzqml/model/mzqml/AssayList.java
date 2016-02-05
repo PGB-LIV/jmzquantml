@@ -37,8 +37,7 @@ import uk.ac.liv.pgb.jmzqml.model.MzQuantMLObject;
     "assay"
 })
 public class AssayList
-        extends IdOnly
-        implements Serializable, MzQuantMLObject {
+        extends IdOnly {
 
     private final static long serialVersionUID = 100L;
     @XmlElement(name = "Assay", required = true)

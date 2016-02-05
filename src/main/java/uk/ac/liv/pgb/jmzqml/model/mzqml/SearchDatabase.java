@@ -16,14 +16,15 @@ import uk.ac.liv.pgb.jmzqml.model.CvParamListCapable;
 import uk.ac.liv.pgb.jmzqml.model.ParamCapable;
 import uk.ac.liv.pgb.jmzqml.xml.jaxb.adapter.CalendarAdapter;
 
-
 /**
- * A database used for searching mass spectra. Examples include a set of amino acid sequence entries, or annotated spectra libraries. 
- * 
- * <p>Java class for SearchDatabaseType complex type.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ * A database used for searching mass spectra. Examples include a set of amino acid sequence entries, or annotated spectra libraries.
+ *
+ * <p>
+ * Java class for SearchDatabaseType complex type.
+ *
+ * <p>
+ * The following schema fragment specifies the expected content contained within this class.
+ *
  * <pre>
  * &lt;complexType name="SearchDatabaseType">
  *   &lt;complexContent>
@@ -39,8 +40,8 @@ import uk.ac.liv.pgb.jmzqml.xml.jaxb.adapter.CalendarAdapter;
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "SearchDatabaseType", propOrder = {
@@ -48,9 +49,8 @@ import uk.ac.liv.pgb.jmzqml.xml.jaxb.adapter.CalendarAdapter;
     "cvParam"
 })
 public class SearchDatabase
-    extends ExternalData
-    implements Serializable, ParamCapable, CvParamListCapable
-{
+        extends ExternalData
+        implements ParamCapable, CvParamListCapable {
 
     private final static long serialVersionUID = 100L;
     /**
@@ -82,11 +82,11 @@ public class SearchDatabase
 
     /**
      * Gets the value of the databaseName property.
-     * 
+     *
      * @return
-     *     possible object is
-     *     {@link Param }
-     *     
+     *         possible object is
+     *         {@link Param }
+     *
      */
     public Param getDatabaseName() {
         return databaseName;
@@ -94,11 +94,11 @@ public class SearchDatabase
 
     /**
      * Sets the value of the databaseName property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link Param }
-     *     
+     *              allowed object is
+     *              {@link Param }
+     *
      */
     public void setDatabaseName(Param value) {
         this.databaseName = value;
@@ -106,25 +106,25 @@ public class SearchDatabase
 
     /**
      * Gets the value of the cvParam property.
-     * 
+     *
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the cvParam property.
-     * 
+     *
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getCvParam().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link CvParam }
-     * 
-     * 
+     *
+     *
      */
     @Override
     public List<CvParam> getCvParam() {
@@ -136,11 +136,11 @@ public class SearchDatabase
 
     /**
      * Gets the value of the version property.
-     * 
+     *
      * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *         possible object is
+     *         {@link String }
+     *
      */
     public String getVersion() {
         return version;
@@ -148,11 +148,11 @@ public class SearchDatabase
 
     /**
      * Sets the value of the version property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *              allowed object is
+     *              {@link String }
+     *
      */
     public void setVersion(String value) {
         this.version = value;
@@ -160,11 +160,11 @@ public class SearchDatabase
 
     /**
      * Gets the value of the releaseDate property.
-     * 
+     *
      * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *         possible object is
+     *         {@link String }
+     *
      */
     public Calendar getReleaseDate() {
         return releaseDate;
@@ -172,11 +172,11 @@ public class SearchDatabase
 
     /**
      * Sets the value of the releaseDate property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *              allowed object is
+     *              {@link String }
+     *
      */
     public void setReleaseDate(Calendar value) {
         this.releaseDate = value;
@@ -184,11 +184,11 @@ public class SearchDatabase
 
     /**
      * Gets the value of the numDatabaseEntries property.
-     * 
+     *
      * @return
-     *     possible object is
-     *     {@link Long }
-     *     
+     *         possible object is
+     *         {@link Long }
+     *
      */
     public Long getNumDatabaseEntries() {
         return numDatabaseEntries;
@@ -196,11 +196,11 @@ public class SearchDatabase
 
     /**
      * Sets the value of the numDatabaseEntries property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link Long }
-     *     
+     *              allowed object is
+     *              {@link Long }
+     *
      */
     public void setNumDatabaseEntries(Long value) {
         this.numDatabaseEntries = value;

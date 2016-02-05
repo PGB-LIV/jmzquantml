@@ -107,7 +107,7 @@ public class MzQuantMLIndexerFactory {
         return new MzQuantMLIndexerImpl(xmlFile, xpaths, inMemory);
     }
 
-    private class MzQuantMLIndexerImpl implements MzQuantMLIndexer {
+    private static class MzQuantMLIndexerImpl implements MzQuantMLIndexer {
 
         private File xmlFile = null;
         private boolean inMemory = false;
