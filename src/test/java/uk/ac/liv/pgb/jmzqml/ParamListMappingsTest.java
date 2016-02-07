@@ -20,7 +20,6 @@
 
 package uk.ac.liv.pgb.jmzqml;
 
-import uk.ac.liv.pgb.jmzqml.ParamListMappings;
 import static org.junit.Assert.*;
 import org.junit.BeforeClass;
 import org.junit.Test;

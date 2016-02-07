@@ -1,7 +1,6 @@
 
 package uk.ac.liv.pgb.jmzqml.model.mzqml;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -11,18 +10,15 @@ import javax.xml.bind.annotation.XmlElements;
 import javax.xml.bind.annotation.XmlList;
 import javax.xml.bind.annotation.XmlTransient;
 import javax.xml.bind.annotation.XmlType;
-import uk.ac.liv.pgb.jmzqml.model.MzQuantMLObject;
 import uk.ac.liv.pgb.jmzqml.model.ParamGroupCapable;
 import uk.ac.liv.pgb.jmzqml.model.utils.FacadeList;
 
 /**
  * An element to represent a unique identifier of a small molecule for which quantitative values are reported.
  *
- * <p>
- * Java class for SmallMoleculeType complex type.
+ * <p>Java class for SmallMoleculeType complex type.
  *
- * <p>
- * The following schema fragment specifies the expected content contained within this class.
+ * <p>The following schema fragment specifies the expected content contained within this class.
  *
  * <pre>
  * &lt;complexType name="SmallMoleculeType">
@@ -39,8 +35,6 @@ import uk.ac.liv.pgb.jmzqml.model.utils.FacadeList;
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
- *
- *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "SmallMoleculeType", propOrder = {
@@ -106,24 +100,19 @@ public class SmallMolecule
     /**
      * Gets the value of the modification property.
      *
-     * <p>
-     * This accessor method returns a reference to the live list,
+     * <p>This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a
      * <CODE>set</CODE> method for the modification property.
      *
-     * <p>
-     * For example, to add a new item, do as follows:
+     * <p>For example, to add a new item, do as follows:
      * <pre>
      *    getModification().add(newItem);
      * </pre>
      *
-     *
-     * <p>
-     * Objects of the following type(s) are allowed in the list
+     * <p>Objects of the following type(s) are allowed in the list
      * {@link SmallMolModification }
-     *
      *
      * @return the value of the modification property.
      */
@@ -137,24 +126,19 @@ public class SmallMolecule
     /**
      * Gets the value of the dbIdentificationRef property.
      *
-     * <p>
-     * This accessor method returns a reference to the live list,
+     * <p>This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a
      * <CODE>set</CODE> method for the dbIdentificationRef property.
      *
-     * <p>
-     * For example, to add a new item, do as follows:
+     * <p>For example, to add a new item, do as follows:
      * <pre>
      *    getDBIdentificationRef().add(newItem);
      * </pre>
      *
-     *
-     * <p>
-     * Objects of the following type(s) are allowed in the list
+     * <p>Objects of the following type(s) are allowed in the list
      * {@link DBIdentificationRef }
-     *
      *
      * @return the value of the dbIdentificationRef property.
      */
@@ -168,22 +152,19 @@ public class SmallMolecule
     /**
      * Gets the value of the featureRefs property.
      *
-     * <p>
-     * This accessor method returns a reference to the live list,
+     * <p>This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a
      * <CODE>set</CODE> method for the featureRefs property.
      *
-     * <p>
-     * For example, to add a new item, do as follows:
+     * <p>For example, to add a new item, do as follows:
      * <pre>
      *    getFeatureRefs().add(newItem);
      * </pre>
      *
      *
-     * <p>
-     * Objects of the following type(s) are allowed in the list
+     * <p>Objects of the following type(s) are allowed in the list
      * {@link String }
      *
      *
@@ -199,22 +180,19 @@ public class SmallMolecule
     /**
      * Additional parameters or values about this small molecule.Gets the value of the paramGroup property.
      *
-     * <p>
-     * This accessor method returns a reference to the live list,
+     * <p>This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a
      * <CODE>set</CODE> method for the paramGroup property.
      *
-     * <p>
-     * For example, to add a new item, do as follows:
+     * <p>For example, to add a new item, do as follows:
      * <pre>
      *    getParamGroup().add(newItem);
      * </pre>
      *
      *
-     * <p>
-     * Objects of the following type(s) are allowed in the list
+     * <p>Objects of the following type(s) are allowed in the list
      * {@link CvParam }
      * {@link UserParam }
      *

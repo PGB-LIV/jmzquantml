@@ -1,13 +1,11 @@
 
 package uk.ac.liv.pgb.jmzqml.model.mzqml;
 
-import java.io.Serializable;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
-import uk.ac.liv.pgb.jmzqml.model.MzQuantMLObject;
 
 /**
  * A source controlled vocabulary from which cvParams will be obtained.

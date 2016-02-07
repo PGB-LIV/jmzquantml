@@ -1,7 +1,6 @@
 
 package uk.ac.liv.pgb.jmzqml.model.mzqml;
 
-import java.io.Serializable;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
@@ -59,7 +58,7 @@ public class Provider
 
     /**
      *
-     * @return
+     * @return software
      */
     public Software getSoftware() {
         return software;
@@ -67,7 +66,7 @@ public class Provider
 
     /**
      *
-     * @param software
+     * @param software software
      */
     public void setSoftware(Software software) {
         if (software == null) {

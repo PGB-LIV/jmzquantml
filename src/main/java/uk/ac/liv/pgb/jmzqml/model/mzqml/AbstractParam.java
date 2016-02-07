@@ -185,7 +185,7 @@ public abstract class AbstractParam implements Serializable, MzQuantMLObject {
 
     /**
      *
-     * @return
+     * @return unitCv
      */
     public Cv getUnitCv() {
         return unitCv;
@@ -193,7 +193,7 @@ public abstract class AbstractParam implements Serializable, MzQuantMLObject {
 
     /**
      *
-     * @param unitCv
+     * @param unitCv unit control vocabulary
      */
     public void setUnitCv(Cv unitCv) {
         if (unitCv == null) {

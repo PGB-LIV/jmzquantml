@@ -48,9 +48,9 @@ import uk.ac.liv.pgb.jmzqml.xml.xxindex.MzQuantMLIndexer;
 public abstract class AbstractReferenceResolver<T extends MzQuantMLObject>
         extends Unmarshaller.Listener {
 
-    private static final Logger log = Logger.getLogger(AbstractReferenceResolver.class);
-    private MzQuantMLIndexer index = null;
-    private MzQuantMLObjectCache cache = null;
+    private static final Logger LOG = Logger.getLogger(AbstractReferenceResolver.class);
+    private final MzQuantMLIndexer index;
+    private final MzQuantMLObjectCache cache;
 
     /**
      * Constructor of AbstractReferenceResolver
@@ -86,13 +86,13 @@ public abstract class AbstractReferenceResolver<T extends MzQuantMLObject>
         // if the referenced object/element is not yet in the cache (or no cache
         // is available) create it from the XML using the index and ID maps
 
-        log.debug("AbstractReferenceResolver.unmarshal for id: " + refId);
+        LOG.debug("AbstractReferenceResolver.unmarshal for id: " + refId);
         // first retrieve the XML snippet representing the referenced object/element
         String xml;
         // special case for ContactRole.class as we can either have a Person.class or a Organisation.class
 
         if (cls == AbstractContact.class) {
-            log.debug("SPECIAL CASE: ContactRole");
+            LOG.debug("SPECIAL CASE: ContactRole");
             // see if the ID fits a Person
             String personXML = index.getXmlString(refId, Person.class);
             // see if the ID fits an Organisation
@@ -140,7 +140,7 @@ public abstract class AbstractReferenceResolver<T extends MzQuantMLObject>
 
         }
         catch (JAXBException e) {
-            log.error("AbstractReferenceResolver.unmarshal", e);
+            LOG.error("AbstractReferenceResolver.unmarshal", e);
             throw new IllegalStateException("Could not unmarshall refId: " + refId + " for element type: " + cls);
         }
 

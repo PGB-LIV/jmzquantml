@@ -24,9 +24,7 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
-
 import javax.xml.namespace.QName;
-
 import uk.ac.liv.pgb.jmzqml.MzQuantMLElement;
 import uk.ac.liv.pgb.jmzqml.model.MzQuantMLObject;
 import uk.ac.liv.pgb.jmzqml.model.mzqml.MzQuantML;

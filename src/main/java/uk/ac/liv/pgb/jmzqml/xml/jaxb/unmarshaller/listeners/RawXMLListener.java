@@ -23,11 +23,8 @@ package uk.ac.liv.pgb.jmzqml.xml.jaxb.unmarshaller.listeners;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-
 import javax.xml.bind.Unmarshaller;
-
 import org.apache.log4j.Logger;
-
 import uk.ac.liv.pgb.jmzqml.MzQuantMLElement;
 import uk.ac.liv.pgb.jmzqml.ParamListMappings;
 import uk.ac.liv.pgb.jmzqml.ParamMappings;
@@ -169,11 +166,9 @@ public class RawXMLListener extends Unmarshaller.Listener {
                 }
                 ParamUpdater.updateCvParamSubclassesList(cpc.getCvParam(), ele.getCvParamClass());
             }
-            else {
-                // no need to split or subclass params
-                if (ele.getCvParamClass() != null || ele.getUserParamClass() != null) {
-                    throw new IllegalStateException("Element with param subclasses has not been handled! " + target.getClass());
-                }
+            else // no need to split or subclass params
+            if (ele.getCvParamClass() != null || ele.getUserParamClass() != null) {
+                throw new IllegalStateException("Element with param subclasses has not been handled! " + target.getClass());
             }
         }
         catch (ClassNotFoundException | IllegalAccessException | IllegalArgumentException | IllegalStateException | InstantiationException | NoSuchMethodException | SecurityException | InvocationTargetException e) {

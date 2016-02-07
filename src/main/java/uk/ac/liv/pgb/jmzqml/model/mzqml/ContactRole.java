@@ -63,7 +63,7 @@ public class ContactRole
      * @return
      */
     public Person getPerson() {
-        if (contact != null && contact instanceof Person) {
+        if (contact instanceof Person) {
             return (Person) contact;
         }
         else {
@@ -76,7 +76,7 @@ public class ContactRole
      * @return
      */
     public Organization getOrganization() {
-        if (contact != null && contact instanceof Organization) {
+        if (contact instanceof Organization) {
             return (Organization) contact;
         }
         else {

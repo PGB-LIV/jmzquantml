@@ -12,9 +12,11 @@ import uk.ac.liv.pgb.jmzqml.model.MzQuantMLObject;
 /**
  * A reference to an object identified in the SearchDatabase object defined in this file.
  *
- * <p>Java class for DBIdentificationRefType complex type.
+ * <p>
+ * Java class for DBIdentificationRefType complex type.
  *
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>
+ * The following schema fragment specifies the expected content contained within this class.
  *
  * <pre>
  * &lt;complexType name="DBIdentificationRefType">
@@ -86,28 +88,28 @@ public class DBIdentificationRef
      *
      * @return
      */
-    public SearchDatabase getSearchDatabase(){
+    public SearchDatabase getSearchDatabase() {
         return searchDatabase;
     }
-    
+
     /**
      *
      * @param searchDatabase
      */
-    public void setSearchDatabase(SearchDatabase searchDatabase){
-        if (searchDatabase == null){
+    public void setSearchDatabase(SearchDatabase searchDatabase) {
+        if (searchDatabase == null) {
             this.searchDatabaseRef = null;
         }
         else {
             String refId = searchDatabase.getId();
-            if (refId == null){
+            if (refId == null) {
                 throw new IllegalArgumentException("Referenced object does not have an identifier.");
             }
             this.searchDatabaseRef = refId;
         }
         this.searchDatabase = searchDatabase;
     }
-    
+
     /**
      * Gets the value of the idRef property.
      *

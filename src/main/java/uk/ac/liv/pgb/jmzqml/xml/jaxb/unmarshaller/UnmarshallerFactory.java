@@ -47,7 +47,7 @@ public class UnmarshallerFactory {
 
     private static final Logger logger = Logger.getLogger(UnmarshallerFactory.class);
     private static UnmarshallerFactory instance = new UnmarshallerFactory();
-    private JAXBContext jc = null;
+    private JAXBContext jc;
 
     /**
      * A static method to construct an object of UnmarshallerFactory.
@@ -127,15 +127,7 @@ public class UnmarshallerFactory {
             return unmarshaller;
 
         }
-        catch (JAXBException e) {
-            logger.error("UnmarshallerFactory.initializeUnmarshaller", e);
-            throw new IllegalStateException("Could not initialize unmarshaller");
-        }
-        catch (SAXException e) {
-            logger.error("UnmarshallerFactory.initializeUnmarshaller", e);
-            throw new IllegalStateException("Could not initialize unmarshaller");
-        }
-        catch (ParserConfigurationException e) {
+        catch (JAXBException | SAXException | ParserConfigurationException e) {
             logger.error("UnmarshallerFactory.initializeUnmarshaller", e);
             throw new IllegalStateException("Could not initialize unmarshaller");
         }

@@ -34,11 +34,8 @@ import java.util.Map;
 import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
 import javax.naming.ConfigurationException;
-
 import org.apache.log4j.Logger;
-
 import psidev.psi.tools.xxindex.SimpleXmlElementExtractor;
 import psidev.psi.tools.xxindex.StandardXpathAccess;
 import psidev.psi.tools.xxindex.XmlElementExtractor;
@@ -109,14 +106,14 @@ public class MzQuantMLIndexerFactory {
 
     private static class MzQuantMLIndexerImpl implements MzQuantMLIndexer {
 
-        private File xmlFile = null;
-        private boolean inMemory = false;
+        private File xmlFile;
+        private boolean inMemory;
         private byte[] xmlFileBuffer;
-        private XpathAccess xpathAccess = null;
-        private XmlElementExtractor xmlExtractor = null;
+        private XpathAccess xpathAccess;
+        private XmlElementExtractor xmlExtractor;
         private MemoryMappedXmlElementExtractor memoryMappedXmlElementExtractor;
-        private XpathIndex index = null;
-        private String mzQuantMLAttributeXMLString = null;
+        private XpathIndex index;
+        private String mzQuantMLAttributeXMLString;
         // a unified cache of all the id maps
         private Map<Class<? extends MzQuantMLObject>, Map<String, IndexElement>> idMapCache
                 = new HashMap<>();
@@ -240,18 +237,18 @@ public class MzQuantMLIndexerFactory {
 
         @Override
         public List<IndexElement> getIndexElements(String xpath) {
-            return new ArrayList<IndexElement>(index.getElements(xpath));
+            return new ArrayList<>(index.getElements(xpath));
         }
 
         @Override
         public Map<String, IndexElement> getIndexElements(
                 Class<? extends MzQuantMLObject> clazz) {
-            return new HashMap<String, IndexElement>(idMapCache.get(clazz));
+            return new HashMap<>(idMapCache.get(clazz));
         }
 
         @Override
         public Set<String> getXpath() {
-            return new HashSet<String>(index.getKeys());
+            return new HashSet<>(index.getKeys());
         }
 
         @Override
@@ -273,6 +270,38 @@ public class MzQuantMLIndexerFactory {
         }
 
         @Override
+        public String getXmlString(IndexElement byteRange) {
+            return getXmlString(byteRange, 0);
+        }
+
+        /*
+         * private methods
+         */
+        private String getXmlString(IndexElement byteRange, int maxChars) {
+            try {
+                if (byteRange != null) {
+                    long stop;
+                    long limitedStop = byteRange.getStart() + maxChars;
+                    if (maxChars > 0 && byteRange.getStop() > limitedStop) {
+                        stop = limitedStop;
+                    }
+                    else {
+                        stop = byteRange.getStop();
+                    }
+                    return inMemory ? memoryMappedXmlElementExtractor.readString(byteRange.getStart(), stop, new ByteArrayInputStream(xmlFileBuffer))
+                            : xmlExtractor.readString(byteRange.getStart(), stop, xmlFile);
+                }
+                else {
+                    throw new IllegalStateException("Attempting to read NULL ByteRange");
+                }
+            }
+            catch (IOException e) {
+                logger.error("MzQuantMLIndexerFactory$MzQuantMLIndexerImpl.readXML", e);
+                throw new IllegalStateException("Could not extraxt XML from file: " + xmlFile);
+            }
+        }
+
+        @Override
         public String getStartTag(String id,
                                   Class<? extends MzQuantMLObject> clazz) {
             logger.debug("Getting start tag of element with id: " + id + " for class: " + clazz);
@@ -291,8 +320,7 @@ public class MzQuantMLIndexerFactory {
                         }
                     }
                     catch (IOException e) {
-                        //TODO: proper handling. Missing start tag of the specific element
-                        e.printStackTrace();
+                        System.out.println(e.getMessage());
                     }
                 }
                 else {
@@ -334,37 +362,6 @@ public class MzQuantMLIndexerFactory {
                 return null;
             }
             return classCache.keySet();
-        }
-
-        public String getXmlString(IndexElement byteRange) {
-            return getXmlString(byteRange, 0);
-        }
-
-        /*
-         * private methods
-         */
-        private String getXmlString(IndexElement byteRange, int maxChars) {
-            try {
-                if (byteRange != null) {
-                    long stop;
-                    long limitedStop = byteRange.getStart() + maxChars;
-                    if (maxChars > 0 && byteRange.getStop() > limitedStop) {
-                        stop = limitedStop;
-                    }
-                    else {
-                        stop = byteRange.getStop();
-                    }
-                    return inMemory ? memoryMappedXmlElementExtractor.readString(byteRange.getStart(), stop, new ByteArrayInputStream(xmlFileBuffer))
-                            : xmlExtractor.readString(byteRange.getStart(), stop, xmlFile);
-                }
-                else {
-                    throw new IllegalStateException("Attempting to read NULL ByteRange");
-                }
-            }
-            catch (IOException e) {
-                logger.error("MzQuantMLIndexerFactory$MzQuantMLIndexerImpl.readXML", e);
-                throw new IllegalStateException("Could not extraxt XML from file: " + xmlFile);
-            }
         }
 
         private String extractMzQuantMLStartTag(File xmlFile)

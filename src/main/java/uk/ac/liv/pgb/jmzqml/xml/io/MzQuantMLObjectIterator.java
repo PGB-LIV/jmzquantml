@@ -45,12 +45,12 @@ import uk.ac.liv.pgb.jmzqml.xml.xxindex.MzQuantMLIndexer;
 public class MzQuantMLObjectIterator<T extends MzQuantMLObject> implements
         Iterator<T> {
 
-    private static Logger logger = Logger.getLogger(MzQuantMLObjectIterator.class);
-    private Iterator<String> innerXpathIterator;
-    private String xpath;
-    private Class<T> cls;
-    private MzQuantMLIndexer index;
-    private MzQuantMLObjectCache cache;
+    private static final Logger logger = Logger.getLogger(MzQuantMLObjectIterator.class);
+    private final Iterator<String> innerXpathIterator;
+    private final String xpath;
+    private final Class<T> cls;
+    private final MzQuantMLIndexer index;
+    private final MzQuantMLObjectCache cache;
 
     MzQuantMLObjectIterator(MzQuantMLElement element, MzQuantMLIndexer index,
                             MzQuantMLObjectCache cache) {

@@ -20,29 +20,33 @@
 
 package uk.ac.liv.pgb.jmzqml.test.xml.marshaller;
 
-import uk.ac.liv.pgb.jmzqml.model.mzqml.CvList;
-import uk.ac.liv.pgb.jmzqml.model.mzqml.FeatureList;
-import uk.ac.liv.pgb.jmzqml.model.mzqml.AnalysisSummary;
-import uk.ac.liv.pgb.jmzqml.model.mzqml.MzQuantML;
-import uk.ac.liv.pgb.jmzqml.model.mzqml.PeptideConsensusList;
-import uk.ac.liv.pgb.jmzqml.model.mzqml.AssayList;
-import uk.ac.liv.pgb.jmzqml.model.mzqml.ProteinList;
-import uk.ac.liv.pgb.jmzqml.model.mzqml.StudyVariableList;
-import uk.ac.liv.pgb.jmzqml.model.mzqml.Person;
-import uk.ac.liv.pgb.jmzqml.model.mzqml.SoftwareList;
-import uk.ac.liv.pgb.jmzqml.model.mzqml.Provider;
-import uk.ac.liv.pgb.jmzqml.model.mzqml.InputFiles;
-import uk.ac.liv.pgb.jmzqml.model.mzqml.AuditCollection;
-import uk.ac.liv.pgb.jmzqml.model.mzqml.DataProcessingList;
-import uk.ac.liv.pgb.jmzqml.model.mzqml.BibliographicReference;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
+
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URL;
 import java.util.Iterator;
-import static org.junit.Assert.*;
+
 import org.junit.Test;
+
 import uk.ac.liv.pgb.jmzqml.MzQuantMLElement;
+import uk.ac.liv.pgb.jmzqml.model.mzqml.AnalysisSummary;
+import uk.ac.liv.pgb.jmzqml.model.mzqml.AssayList;
+import uk.ac.liv.pgb.jmzqml.model.mzqml.AuditCollection;
+import uk.ac.liv.pgb.jmzqml.model.mzqml.BibliographicReference;
+import uk.ac.liv.pgb.jmzqml.model.mzqml.CvList;
+import uk.ac.liv.pgb.jmzqml.model.mzqml.DataProcessingList;
+import uk.ac.liv.pgb.jmzqml.model.mzqml.FeatureList;
+import uk.ac.liv.pgb.jmzqml.model.mzqml.InputFiles;
+import uk.ac.liv.pgb.jmzqml.model.mzqml.MzQuantML;
+import uk.ac.liv.pgb.jmzqml.model.mzqml.PeptideConsensusList;
+import uk.ac.liv.pgb.jmzqml.model.mzqml.Person;
+import uk.ac.liv.pgb.jmzqml.model.mzqml.ProteinList;
+import uk.ac.liv.pgb.jmzqml.model.mzqml.Provider;
+import uk.ac.liv.pgb.jmzqml.model.mzqml.SoftwareList;
+import uk.ac.liv.pgb.jmzqml.model.mzqml.StudyVariableList;
 import uk.ac.liv.pgb.jmzqml.xml.io.MzQuantMLMarshaller;
 import uk.ac.liv.pgb.jmzqml.xml.io.MzQuantMLUnmarshaller;
 
@@ -187,23 +191,23 @@ public class MzQuantMLMarshallerTest {
          * Do some shallow testing. Confirm correct number of child elements returned for each tested element.
          */
         assertTrue(mzq.getId().equals("Free12345"));
-        assertTrue(cvCount >= 0);
+        assertTrue(cvCount > 0);
         assertTrue(mzq.getCvList().getCv().size() == cvCount);
-        assertTrue(personCount >= 0);
+        assertTrue(personCount > 0);
         assertTrue(mzq.getAuditCollection().getPerson().size() == personCount);
-        assertTrue(orgCount >= 0);
+        assertTrue(orgCount > 0);
         assertTrue(mzq.getAuditCollection().getOrganization().size() == orgCount);
         assertTrue(analSumCount > 0);
         assertTrue(mzq.getAnalysisSummary().getParamGroup().size() == analSumCount);
-        assertTrue(swCount >= 0);
+        assertTrue(swCount > 0);
         assertTrue(mzq.getSoftwareList().getSoftware().size() == swCount);
-        assertTrue(dpCount >= 0);
+        assertTrue(dpCount > 0);
         assertTrue(mzq.getDataProcessingList().getDataProcessing().size() == dpCount);
-        assertTrue(assCount >= 0);
+        assertTrue(assCount > 0);
         assertTrue(mzq.getAssayList().getAssay().size() == assCount);
-        assertTrue(svCount >= 0);
+        assertTrue(svCount > 0);
         assertTrue(mzq.getStudyVariableList().getStudyVariable().size() == svCount);
-        assertTrue(protCount >= 0);
+        assertTrue(protCount > 0);
         assertTrue(mzq.getProteinList().getProtein().size() == protCount);
         assertTrue(mzq.getBibliographicReference().get(0).getAuthors().equals("D. Qi, P. Brownridge, D. Xia, K. Mackay, F. F. Gonzalez-Galarza, J. Kenyani, V. Harman, R. J. Beynon and A. R. Jones"));
         assertTrue(mzq.getBibliographicReference().get(0).getId().equals("BF_DQ1"));

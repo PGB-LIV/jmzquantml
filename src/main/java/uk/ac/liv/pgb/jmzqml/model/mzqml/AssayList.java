@@ -1,14 +1,12 @@
 
 package uk.ac.liv.pgb.jmzqml.model.mzqml;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
-import uk.ac.liv.pgb.jmzqml.model.MzQuantMLObject;
 
 /**
  * The list of assays represented by the file, where each assay captures the concept of one sample analysed - this can be one or more raw files.

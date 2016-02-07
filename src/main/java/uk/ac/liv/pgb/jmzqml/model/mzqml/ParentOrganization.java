@@ -47,7 +47,7 @@ public class ParentOrganization
 
     /**
      *
-     * @return
+     * @return Organization
      */
     public Organization getOrganization() {
         return organization;
@@ -55,7 +55,7 @@ public class ParentOrganization
 
     /**
      *
-     * @param organization
+     * @param organization Organization
      */
     public void setOrganization(Organization organization) {
         if (organization == null) {

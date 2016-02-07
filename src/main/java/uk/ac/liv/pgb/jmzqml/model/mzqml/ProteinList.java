@@ -1,7 +1,6 @@
 
 package uk.ac.liv.pgb.jmzqml.model.mzqml;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -9,18 +8,15 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlElements;
 import javax.xml.bind.annotation.XmlType;
-import uk.ac.liv.pgb.jmzqml.model.MzQuantMLObject;
 import uk.ac.liv.pgb.jmzqml.model.ParamGroupCapable;
 import uk.ac.liv.pgb.jmzqml.model.utils.FacadeList;
 
 /**
  * The list of all individual proteins (i.e. ungrouped) for which quantitation values are being reported. If quantitation is done on protein groups, the constituent proteins should be listed here with no QuantLayers.
  *
- * <p>
- * Java class for ProteinListType complex type.
+ * <p>Java class for ProteinListType complex type.
  *
- * <p>
- * The following schema fragment specifies the expected content contained within this class.
+ * <p>The following schema fragment specifies the expected content contained within this class.
  *
  * <pre>
  * &lt;complexType name="ProteinListType">
@@ -75,22 +71,19 @@ public class ProteinList
     /**
      * Gets the value of the protein property.
      *
-     * <p>
-     * This accessor method returns a reference to the live list,
+     * <p>This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a
      * <CODE>set</CODE> method for the protein property.
      *
-     * <p>
-     * For example, to add a new item, do as follows:
+     * <p>For example, to add a new item, do as follows:
      * <pre>
      *    getProtein().add(newItem);
      * </pre>
      *
      *
-     * <p>
-     * Objects of the following type(s) are allowed in the list
+     * <p>Objects of the following type(s) are allowed in the list
      * {@link Protein }
      *
      *
@@ -106,24 +99,20 @@ public class ProteinList
     /**
      * Gets the value of the globalQuantLayer property.
      *
-     * <p>
-     * This accessor method returns a reference to the live list,
+     * <p>This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a
      * <CODE>set</CODE> method for the globalQuantLayer property.
      *
-     * <p>
-     * For example, to add a new item, do as follows:
+     * <p>For example, to add a new item, do as follows:
      * <pre>
      *    getGlobalQuantLayer().add(newItem);
      * </pre>
      *
      *
-     * <p>
-     * Objects of the following type(s) are allowed in the list
+     * <p>Objects of the following type(s) are allowed in the list
      * {@link GlobalQuantLayer }
-     *
      *
      * @return the value of the globalQuantLayer property.
      */
@@ -137,24 +126,20 @@ public class ProteinList
     /**
      * Gets the value of the assayQuantLayer property.
      *
-     * <p>
-     * This accessor method returns a reference to the live list,
+     * <p>This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a
      * <CODE>set</CODE> method for the assayQuantLayer property.
      *
-     * <p>
-     * For example, to add a new item, do as follows:
+     * <p>For example, to add a new item, do as follows:
      * <pre>
      *    getAssayQuantLayer().add(newItem);
      * </pre>
      *
      *
-     * <p>
-     * Objects of the following type(s) are allowed in the list
+     * <p>Objects of the following type(s) are allowed in the list
      * {@link QuantLayer }
-     *
      *
      * @return the value of the assayQuantLayer property.
      */
@@ -168,24 +153,20 @@ public class ProteinList
     /**
      * Gets the value of the studyVariableQuantLayer property.
      *
-     * <p>
-     * This accessor method returns a reference to the live list,
+     * <p>This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a
      * <CODE>set</CODE> method for the studyVariableQuantLayer property.
      *
-     * <p>
-     * For example, to add a new item, do as follows:
+     * <p>For example, to add a new item, do as follows:
      * <pre>
      *    getStudyVariableQuantLayer().add(newItem);
      * </pre>
      *
      *
-     * <p>
-     * Objects of the following type(s) are allowed in the list
+     * <p>Objects of the following type(s) are allowed in the list
      * {@link QuantLayer }
-     *
      *
      * @return the value of the studyVariableQuantLayer property.
      */
@@ -223,25 +204,21 @@ public class ProteinList
     /**
      * CV terms for the entire list.Gets the value of the paramGroup property.
      *
-     * <p>
-     * This accessor method returns a reference to the live list,
+     * <p>This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a
      * <CODE>set</CODE> method for the paramGroup property.
      *
-     * <p>
-     * For example, to add a new item, do as follows:
+     * <p>For example, to add a new item, do as follows:
      * <pre>
      *    getParamGroup().add(newItem);
      * </pre>
      *
      *
-     * <p>
-     * Objects of the following type(s) are allowed in the list
+     * <p>Objects of the following type(s) are allowed in the list
      * {@link CvParam }
      * {@link UserParam }
-     *
      *
      * @return the value of the paramGroup property.
      */

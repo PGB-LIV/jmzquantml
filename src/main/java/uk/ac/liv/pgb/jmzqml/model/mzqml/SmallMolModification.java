@@ -12,14 +12,15 @@ import javax.xml.bind.annotation.XmlType;
 import uk.ac.liv.pgb.jmzqml.model.CvParamListCapable;
 import uk.ac.liv.pgb.jmzqml.model.MzQuantMLObject;
 
-
 /**
  * A small molecule modification specification, given by cvParams.
- * 
- * <p>Java class for SmallMolModificationType complex type.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ *
+ * <p>
+ * Java class for SmallMolModificationType complex type.
+ *
+ * <p>
+ * The following schema fragment specifies the expected content contained within this class.
+ *
  * <pre>
  * &lt;complexType name="SmallMolModificationType">
  *   &lt;complexContent>
@@ -33,16 +34,15 @@ import uk.ac.liv.pgb.jmzqml.model.MzQuantMLObject;
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "SmallMolModificationType", propOrder = {
     "cvParam"
 })
 public class SmallMolModification
-    implements Serializable, MzQuantMLObject, CvParamListCapable
-{
+        implements Serializable, MzQuantMLObject, CvParamListCapable {
 
     private final static long serialVersionUID = 100L;
     /**
@@ -63,25 +63,25 @@ public class SmallMolModification
 
     /**
      * Gets the value of the cvParam property.
-     * 
+     *
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the cvParam property.
-     * 
+     *
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getCvParam().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link CvParam }
-     * 
-     * 
+     *
+     *
      */
     @Override
     public List<CvParam> getCvParam() {
@@ -93,11 +93,11 @@ public class SmallMolModification
 
     /**
      * Gets the value of the avgMassDelta property.
-     * 
+     *
      * @return
-     *     possible object is
-     *     {@link Double }
-     *     
+     *         possible object is
+     *         {@link Double }
+     *
      */
     public Double getAvgMassDelta() {
         return avgMassDelta;
@@ -105,11 +105,11 @@ public class SmallMolModification
 
     /**
      * Sets the value of the avgMassDelta property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link Double }
-     *     
+     *              allowed object is
+     *              {@link Double }
+     *
      */
     public void setAvgMassDelta(Double value) {
         this.avgMassDelta = value;
@@ -117,11 +117,11 @@ public class SmallMolModification
 
     /**
      * Gets the value of the monoisotopicMassDelta property.
-     * 
+     *
      * @return
-     *     possible object is
-     *     {@link Double }
-     *     
+     *         possible object is
+     *         {@link Double }
+     *
      */
     public Double getMonoisotopicMassDelta() {
         return monoisotopicMassDelta;
@@ -129,11 +129,11 @@ public class SmallMolModification
 
     /**
      * Sets the value of the monoisotopicMassDelta property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link Double }
-     *     
+     *              allowed object is
+     *              {@link Double }
+     *
      */
     public void setMonoisotopicMassDelta(Double value) {
         this.monoisotopicMassDelta = value;

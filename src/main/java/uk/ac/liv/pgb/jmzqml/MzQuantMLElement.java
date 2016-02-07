@@ -1,4 +1,5 @@
-/*
+
+/**
  * Date: 04-Jul-2012
  * Author: Da Qi
  * File: uk.ac.liv.pgb.jmzqml.MzQuantMLElement.java
@@ -33,7 +34,8 @@ import uk.ac.liv.pgb.jmzqml.model.utils.MzQuantMLElementProperties;
 import uk.ac.liv.pgb.jmzqml.xml.jaxb.resolver.AbstractReferenceResolver;
 
 /**
- * An Enum type that each member constant wraps a value of the corresponding subclass of {@link uk.ac.liv.pgb.jmzqml.model.MzQuantMLObject}.
+ * An Enum type that each member constant wraps a value of the corresponding
+ * subclass of {@link uk.ac.liv.pgb.jmzqml.model.MzQuantMLObject}.
  * <p>
  * For performance reasons (Memory Overflow), all the reference auto-resolving have been switched off.
  *
@@ -49,7 +51,8 @@ public enum MzQuantMLElement {
      */
     SetupMzQuanttMLElement(),
     /**
-     * The AbstractContact constant wraps a value of {@link uk.ac.liv.pgb.jmzqml.model.mzqml.AbstractContact} class in an object.
+     * The AbstractContact constant wraps a value of
+     * {@link uk.ac.liv.pgb.jmzqml.model.mzqml.AbstractContact} class in an object.
      * <p>
      * The object contains a set of pre-defined values for {@link uk.ac.liv.pgb.jmzqml.model.mzqml.AbstractContact} in a configuration file.
      */
@@ -64,7 +67,8 @@ public enum MzQuantMLElement {
                     getCfg().get(uk.ac.liv.pgb.jmzqml.model.mzqml.AbstractContact.class.getName()).isAutoRefResolving(),
                     getCfg().get(uk.ac.liv.pgb.jmzqml.model.mzqml.AbstractContact.class.getName()).getRefResolverClass()),
     /**
-     * The AbstractParam constant wraps a value of {@link uk.ac.liv.pgb.jmzqml.model.mzqml.AbstractParam} class in an object.
+     * The AbstractParam constant wraps a value of
+     * {@link uk.ac.liv.pgb.jmzqml.model.mzqml.AbstractParam} class in an object.
      * <p>
      * The object contains a set of pre-defined values for {@link uk.ac.liv.pgb.jmzqml.model.mzqml.AbstractParam} in a configuration file.
      */
@@ -263,16 +267,16 @@ public enum MzQuantMLElement {
      * <p>
      * The object contains a set of pre-defined values for {@link uk.ac.liv.pgb.jmzqml.model.mzqml.CvParam} in a configuration file.
      */
-    CvParam(getCfg().get(uk.ac.liv.pgb.jmzqml.model.mzqml.CvParam.class.getName()).getTagName(),
-            getCfg().get(uk.ac.liv.pgb.jmzqml.model.mzqml.CvParam.class.getName()).isIndexed(),
-            getCfg().get(uk.ac.liv.pgb.jmzqml.model.mzqml.CvParam.class.getName()).getXpath(),
-            getCfg().get(uk.ac.liv.pgb.jmzqml.model.mzqml.CvParam.class.getName()).isCached(),
-            getCfg().get(uk.ac.liv.pgb.jmzqml.model.mzqml.CvParam.class.getName()).isIdMapped(),
-            getCfg().get(uk.ac.liv.pgb.jmzqml.model.mzqml.CvParam.class.getName()).getClazz(),
-            getCfg().get(uk.ac.liv.pgb.jmzqml.model.mzqml.CvParam.class.getName()).getCvParamClass(),
-            getCfg().get(uk.ac.liv.pgb.jmzqml.model.mzqml.CvParam.class.getName()).getUserParamClass(),
-            getCfg().get(uk.ac.liv.pgb.jmzqml.model.mzqml.CvParam.class.getName()).isAutoRefResolving(),
-            getCfg().get(uk.ac.liv.pgb.jmzqml.model.mzqml.CvParam.class.getName()).getRefResolverClass()),
+    CvParam(getCfg().get(CvParam.class.getName()).getTagName(),
+            getCfg().get(CvParam.class.getName()).isIndexed(),
+            getCfg().get(CvParam.class.getName()).getXpath(),
+            getCfg().get(CvParam.class.getName()).isCached(),
+            getCfg().get(CvParam.class.getName()).isIdMapped(),
+            getCfg().get(CvParam.class.getName()).getClazz(),
+            getCfg().get(CvParam.class.getName()).getCvParamClass(),
+            getCfg().get(CvParam.class.getName()).getUserParamClass(),
+            getCfg().get(CvParam.class.getName()).isAutoRefResolving(),
+            getCfg().get(CvParam.class.getName()).getRefResolverClass()),
     /**
      * The DBIdentificationRef constant wraps a value of {@link uk.ac.liv.pgb.jmzqml.model.mzqml.DBIdentificationRef} class in an object.
      * <p>
@@ -1058,16 +1062,16 @@ public enum MzQuantMLElement {
      * <p>
      * The object contains a set of pre-defined values for {@link uk.ac.liv.pgb.jmzqml.model.mzqml.UserParam} in a configuration file.
      */
-    UserParam(getCfg().get(uk.ac.liv.pgb.jmzqml.model.mzqml.UserParam.class.getName()).getTagName(),
-              getCfg().get(uk.ac.liv.pgb.jmzqml.model.mzqml.UserParam.class.getName()).isIndexed(),
-              getCfg().get(uk.ac.liv.pgb.jmzqml.model.mzqml.UserParam.class.getName()).getXpath(),
-              getCfg().get(uk.ac.liv.pgb.jmzqml.model.mzqml.UserParam.class.getName()).isCached(),
-              getCfg().get(uk.ac.liv.pgb.jmzqml.model.mzqml.UserParam.class.getName()).isIdMapped(),
-              getCfg().get(uk.ac.liv.pgb.jmzqml.model.mzqml.UserParam.class.getName()).getClazz(),
-              getCfg().get(uk.ac.liv.pgb.jmzqml.model.mzqml.UserParam.class.getName()).getCvParamClass(),
-              getCfg().get(uk.ac.liv.pgb.jmzqml.model.mzqml.UserParam.class.getName()).getUserParamClass(),
-              getCfg().get(uk.ac.liv.pgb.jmzqml.model.mzqml.UserParam.class.getName()).isAutoRefResolving(),
-              getCfg().get(uk.ac.liv.pgb.jmzqml.model.mzqml.UserParam.class.getName()).getRefResolverClass());
+    UserParam(getCfg().get(UserParam.class.getName()).getTagName(),
+              getCfg().get(UserParam.class.getName()).isIndexed(),
+              getCfg().get(UserParam.class.getName()).getXpath(),
+              getCfg().get(UserParam.class.getName()).isCached(),
+              getCfg().get(UserParam.class.getName()).isIdMapped(),
+              getCfg().get(UserParam.class.getName()).getClazz(),
+              getCfg().get(UserParam.class.getName()).getCvParamClass(),
+              getCfg().get(UserParam.class.getName()).getUserParamClass(),
+              getCfg().get(UserParam.class.getName()).isAutoRefResolving(),
+              getCfg().get(UserParam.class.getName()).getRefResolverClass());
     // variables 
     private String tagName;
     private boolean indexed;
@@ -1079,6 +1083,7 @@ public enum MzQuantMLElement {
     private Class userParamClass;
     private boolean autoRefResolving;
     private Class refResolverClass;
+    private static Map<String, MzQuantMLElementConfig> cfgMap;
 
     /**
      * This should be called first in order to retrieve configuration from a
@@ -1244,8 +1249,6 @@ public enum MzQuantMLElement {
         }
         return null;
     }
-
-    private static Map<String, MzQuantMLElementConfig> cfgMap;
 
     private synchronized static Map<String, MzQuantMLElementConfig> getCfg() {
         if (cfgMap == null) {

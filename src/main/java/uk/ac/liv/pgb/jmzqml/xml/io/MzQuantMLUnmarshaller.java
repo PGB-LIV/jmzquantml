@@ -1,15 +1,9 @@
+
 /**
  * JAXB-based Marshaller for a mzQuantML file.
  */
 package uk.ac.liv.pgb.jmzqml.xml.io;
 
-import uk.ac.liv.pgb.jmzqml.xml.xxindex.FileUtils;
-import uk.ac.liv.pgb.jmzqml.xml.xxindex.MzQuantMLIndexer;
-import uk.ac.liv.pgb.jmzqml.xml.xxindex.MzQuantMLIndexerFactory;
-import uk.ac.liv.pgb.jmzqml.model.mzqml.AnalysisSummary;
-import uk.ac.liv.pgb.jmzqml.model.mzqml.UserParam;
-import uk.ac.liv.pgb.jmzqml.model.mzqml.CvParam;
-import uk.ac.liv.pgb.jmzqml.model.mzqml.ParamList;
 import java.io.*;
 import java.net.URL;
 import java.util.*;
@@ -21,9 +15,16 @@ import org.apache.log4j.Logger;
 import org.xml.sax.InputSource;
 import uk.ac.liv.pgb.jmzqml.MzQuantMLElement;
 import uk.ac.liv.pgb.jmzqml.model.MzQuantMLObject;
+import uk.ac.liv.pgb.jmzqml.model.mzqml.AnalysisSummary;
+import uk.ac.liv.pgb.jmzqml.model.mzqml.CvParam;
+import uk.ac.liv.pgb.jmzqml.model.mzqml.ParamList;
+import uk.ac.liv.pgb.jmzqml.model.mzqml.UserParam;
 import uk.ac.liv.pgb.jmzqml.xml.jaxb.unmarshaller.UnmarshallerFactory;
 import uk.ac.liv.pgb.jmzqml.xml.jaxb.unmarshaller.filters.MzQuantMLNamespaceFilter;
 import uk.ac.liv.pgb.jmzqml.xml.util.EscapingXMLUtilities;
+import uk.ac.liv.pgb.jmzqml.xml.xxindex.FileUtils;
+import uk.ac.liv.pgb.jmzqml.xml.xxindex.MzQuantMLIndexer;
+import uk.ac.liv.pgb.jmzqml.xml.xxindex.MzQuantMLIndexerFactory;
 
 /**
  * Class for unmarshalling an mzQuantML file.
@@ -33,15 +34,16 @@ import uk.ac.liv.pgb.jmzqml.xml.util.EscapingXMLUtilities;
  */
 public class MzQuantMLUnmarshaller {
 
+    private static final int ATT_GRP_NUM = 2;
     private static final Logger logger = Logger.getLogger(MzQuantMLUnmarshaller.class);
     protected final MzQuantMLIndexer index;
     private final MzQuantMLObjectCache cache;
     /**
      * Members.
      */
-    private String mzqName = null;
-    private String mzqID = null;
-    private String mzqVersion = null;
+    private String mzqName;
+    private String mzqID;
+    private String mzqVersion;
     private static final Pattern ID_PATTERN = Pattern.compile("id\\s*=\\s*[\"']([^\"'>]*)?[\"']", Pattern.CASE_INSENSITIVE);
     private static final Pattern VERSION_PATTERN = Pattern.compile("version\\s*=\\s*[\"']([^\"'>]*)?[\"']", Pattern.CASE_INSENSITIVE);
     private static final Pattern NAME_PATTERN = Pattern.compile("name\\s*=\\s*[\"']([^\"'>]*)?[\"']", Pattern.CASE_INSENSITIVE);
@@ -178,7 +180,7 @@ public class MzQuantMLUnmarshaller {
         // parse the tag for attributes
         Matcher match = XML_ATT_PATTERN.matcher(xmlTag);
         while (match.find()) {
-            if (match.groupCount() == 2) {
+            if (match.groupCount() == ATT_GRP_NUM) {
                 // found name - value pair
                 String name = match.group(1);
                 String value = match.group(2);
@@ -271,6 +273,31 @@ public class MzQuantMLUnmarshaller {
     }
 
     /**
+     * Unmarshal one object for the specified class according to the value of id attribute. Note: The class has to
+     * refer to MzQuantMLObject elements.
+     *
+     * @param <T>   extends {@link uk.ac.liv.pgb.jmzqml.model.MzQuantMLObject}.
+     *
+     * @see #unmarshal(uk.ac.liv.pgb.jmzqml.MzQuantMLElement)
+     * @param clazz the type of Object to sub-class. It has to be a sub-class of
+     *              MzQuantMLObject.
+     * @param id    the id of the MzQuantMLObject
+     *
+     * @return an object of the specified class by defined id.
+     *
+     * @throws JAXBException
+     */
+    public <T extends MzQuantMLObject> T unmarshal(Class<T> clazz, String id)
+            throws JAXBException {
+        if (!index.isIDmapped(id, clazz)) {
+            throw new IllegalArgumentException("No entry found for ID: " + id + " and Class: " + clazz
+                    + ". Make sure the element you are looking for has an ID attribute and is id-mapped!");
+        }
+        String xmlSt = index.getXmlString(id, clazz);
+        return generateObject(clazz, xmlSt);
+    }
+
+    /**
      * Unmarshal a collection of elements of the type defined by the {@link uk.ac.liv.pgb.jmzqml.MzQuantMLElement}.
      *
      * @param <T>     extends {@link uk.ac.liv.pgb.jmzqml.model.MzQuantMLObject}.
@@ -312,31 +339,6 @@ public class MzQuantMLUnmarshaller {
     public Set<String> getIDsForElement(MzQuantMLElement element)
             throws ConfigurationException {
         return index.getIDsForElement(element);
-    }
-
-    /**
-     * Unmarshal one object for the specified class according to the value of id attribute. Note: The class has to
-     * refer to MzQuantMLObject elements.
-     *
-     * @param <T>   extends {@link uk.ac.liv.pgb.jmzqml.model.MzQuantMLObject}.
-     *
-     * @see #unmarshal(uk.ac.liv.pgb.jmzqml.MzQuantMLElement)
-     * @param clazz the type of Object to sub-class. It has to be a sub-class of
-     *              MzQuantMLObject.
-     * @param id    the id of the MzQuantMLObject
-     *
-     * @return an object of the specified class by defined id.
-     *
-     * @throws JAXBException
-     */
-    public <T extends MzQuantMLObject> T unmarshal(Class<T> clazz, String id)
-            throws JAXBException {
-        if (!index.isIDmapped(id, clazz)) {
-            throw new IllegalArgumentException("No entry found for ID: " + id + " and Class: " + clazz
-                    + ". Make sure the element you are looking for has an ID attribute and is id-mapped!");
-        }
-        String xmlSt = index.getXmlString(id, clazz);
-        return generateObject(clazz, xmlSt);
     }
 
     /*

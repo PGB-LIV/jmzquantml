@@ -23,7 +23,9 @@ package uk.ac.liv.pgb.jmzqml.xml.jaxb.marshaller;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
+
 import org.apache.log4j.Logger;
+
 import uk.ac.liv.pgb.jmzqml.model.utils.ModelConstants;
 import uk.ac.liv.pgb.jmzqml.xml.Constants;
 import uk.ac.liv.pgb.jmzqml.xml.jaxb.marshaller.listeners.ObjectClassListener;
@@ -38,7 +40,7 @@ public class MarshallerFactory {
 
     private static final Logger logger = Logger.getLogger(MarshallerFactory.class);
     private static MarshallerFactory instance = new MarshallerFactory();
-    private JAXBContext jc = null;
+    private JAXBContext jc;
 
     /**
      * A static method to construct an object of MarshallerFactory.

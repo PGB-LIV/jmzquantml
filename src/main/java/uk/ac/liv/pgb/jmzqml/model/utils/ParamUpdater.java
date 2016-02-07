@@ -81,7 +81,7 @@ public class ParamUpdater {
                  */
                 try {
                     Class<? extends CvParam> cls = input.getClass();
-                    Field cvRefField = cls.getDeclaredField("cvRef");
+                    final Field cvRefField = cls.getDeclaredField("cvRef");
                     AccessController.doPrivileged(new PrivilegedAction() {
 
                         @Override
@@ -115,7 +115,7 @@ public class ParamUpdater {
                  * Use reflection to set the value.
                  */
                 try {
-                    Field unitCvRefField = AbstractParam.class.getDeclaredField("unitCvRef");
+                    final Field unitCvRefField = AbstractParam.class.getDeclaredField("unitCvRef");
                     AccessController.doPrivileged(new PrivilegedAction() {
 
                         @Override

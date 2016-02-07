@@ -1,7 +1,6 @@
 
 package uk.ac.liv.pgb.jmzqml.model.mzqml;
 
-import java.io.Serializable;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
@@ -10,11 +9,9 @@ import javax.xml.bind.annotation.XmlType;
 /**
  * Represents bibliographic references.
  *
- * <p>
- * Java class for BibliographicReferenceType complex type.
+ * <p>Java class for BibliographicReferenceType complex type.
  *
- * <p>
- * The following schema fragment specifies the expected content contained within this class.
+ * <p>The following schema fragment specifies the expected content contained within this class.
  *
  * <pre>
  * &lt;complexType name="BibliographicReferenceType">

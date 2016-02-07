@@ -4,10 +4,6 @@
  */
 package uk.ac.liv.pgb.jmzqml.xml.io;
 
-import uk.ac.liv.pgb.jmzqml.model.mzqml.CvParam;
-import uk.ac.liv.pgb.jmzqml.model.mzqml.Cv;
-import uk.ac.liv.pgb.jmzqml.model.mzqml.BibliographicReference;
-import uk.ac.liv.pgb.jmzqml.model.mzqml.MzQuantML;
 import com.sun.xml.txw2.output.IndentingXMLStreamWriter;
 import java.io.*;
 import java.text.DateFormat;
@@ -20,6 +16,10 @@ import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.XMLStreamWriter;
 import org.apache.log4j.Logger;
 import uk.ac.liv.pgb.jmzqml.model.MzQuantMLObject;
+import uk.ac.liv.pgb.jmzqml.model.mzqml.BibliographicReference;
+import uk.ac.liv.pgb.jmzqml.model.mzqml.Cv;
+import uk.ac.liv.pgb.jmzqml.model.mzqml.CvParam;
+import uk.ac.liv.pgb.jmzqml.model.mzqml.MzQuantML;
 import uk.ac.liv.pgb.jmzqml.model.utils.ModelConstants;
 import uk.ac.liv.pgb.jmzqml.xml.Constants;
 import uk.ac.liv.pgb.jmzqml.xml.jaxb.marshaller.MarshallerFactory;
@@ -45,8 +45,8 @@ public class MzQuantMLMarshaller {
     /**
      * Members.
      */
-    private Marshaller marsh = null;
-    private Writer fw = null;
+    private Marshaller marsh;
+    private Writer fw;
 
     /**
      * JAXB based marshaller constructor.
@@ -233,19 +233,19 @@ public class MzQuantMLMarshaller {
      * @return a start tag of mzQuantML file.
      */
     public static String createMzQuantMLStartTag(String id) {
-        StringBuilder sb = new StringBuilder();
+        StringBuilder sb = new StringBuilder(160);
 
         // tag opening plus id attribute
         sb.append("<MzQuantML id=\"").append(id).append("\"");
         // further attributes
-        sb.append(" version=\"").append(ModelConstants.MZQML_VERSION).append("\"");
-        sb.append(" xmlns=\"").append(ModelConstants.MZQML_NS).append("\"");
+        sb.append(" version=\"").append(ModelConstants.MZQML_VERSION).append('\"');
+        sb.append(" xmlns=\"").append(ModelConstants.MZQML_NS).append('\"');
         sb.append(" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"");
-        sb.append(" xsi:schemaLocation=\"").append(ModelConstants.MZQML_LOCATION).append("\"");
+        sb.append(" xsi:schemaLocation=\"").append(ModelConstants.MZQML_LOCATION).append('\"');
         DateFormat dfm = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
-        sb.append(" creationDate=\"").append(dfm.format(new Date())).append("\"");
+        sb.append(" creationDate=\"").append(dfm.format(new Date())).append('\"');
         // finally close the tag
-        sb.append(">");
+        sb.append('>');
 
         return sb.toString();
     }
@@ -424,13 +424,13 @@ public class MzQuantMLMarshaller {
         }
 
         //required attribute: 'id'
-        StringBuilder sb = new StringBuilder();
+        StringBuilder sb = new StringBuilder(20);
 
         // tag opening plus id attribute
-        sb.append("<AssayList id=\"").append(id).append("\"");
+        sb.append("<AssayList id=\"").append(id).append('\"');
 
         // finally close the tag
-        sb.append(">");
+        sb.append('>');
 
         return sb.toString();
     }
@@ -480,54 +480,54 @@ public class MzQuantMLMarshaller {
         if (id == null) {
             throw new IllegalArgumentException("The 'id' attribute must not be null!");
         }
-        StringBuilder sb = new StringBuilder();
+        StringBuilder sb = new StringBuilder(70);
 
         // tag opening plus id attribute
-        sb.append("<BibliographicReference id=\"").append(id).append("\"");
+        sb.append("<BibliographicReference id=\"").append(id).append('\"');
 
         // the attributes, if provided
         if (name != null && !name.isEmpty()) {
-            sb.append(" name=\"").append(name).append("\"");
+            sb.append(" name=\"").append(name).append('\"');
         }
 
         if (authors != null && !authors.isEmpty()) {
-            sb.append(" authors=\"").append(authors).append("\"");
+            sb.append(" authors=\"").append(authors).append('\"');
         }
 
         if (publication != null && !publication.isEmpty()) {
-            sb.append(" publication=\"").append(publication).append("\"");
+            sb.append(" publication=\"").append(publication).append('\"');
         }
 
         if (publisher != null && !publisher.isEmpty()) {
-            sb.append(" publisher=\"").append(publisher).append("\"");
+            sb.append(" publisher=\"").append(publisher).append('\"');
         }
 
         if (editor != null && !editor.isEmpty()) {
-            sb.append(" editor=\"").append(editor).append("\"");
+            sb.append(" editor=\"").append(editor).append('\"');
         }
 
         if (year != null) {
-            sb.append(" year=\"").append(year).append("\"");
+            sb.append(" year=\"").append(year).append('\"');
         }
 
         if (volume != null && !volume.isEmpty()) {
-            sb.append(" volume=\"").append(volume).append("\"");
+            sb.append(" volume=\"").append(volume).append('\"');
         }
 
         if (issue != null && !issue.isEmpty()) {
-            sb.append(" issue=\"").append(issue).append("\"");
+            sb.append(" issue=\"").append(issue).append('\"');
         }
 
         if (pages != null && !pages.isEmpty()) {
-            sb.append(" pages=\"").append(pages).append("\"");
+            sb.append(" pages=\"").append(pages).append('\"');
         }
 
         if (title != null && !title.isEmpty()) {
-            sb.append(" title=\"").append(title).append("\"");
+            sb.append(" title=\"").append(title).append('\"');
         }
 
         if (doi != null && !doi.isEmpty()) {
-            sb.append(" doi=\"").append(doi).append("\"");
+            sb.append(" doi=\"").append(doi).append('\"');
         }
 
         // finally close the tag
@@ -555,16 +555,16 @@ public class MzQuantMLMarshaller {
         }
 
         //required attribute: 'id', 'rawFilesGroup_ref'
-        StringBuilder sb = new StringBuilder();
+        StringBuilder sb = new StringBuilder(70);
 
         // tag opening plus id attribute
-        sb.append("<FeatureList id=\"").append(id).append("\"");
+        sb.append("<FeatureList id=\"").append(id).append('\"');
 
         // rawFilesGroup_ref attribute
-        sb.append(" rawFilesGroup_ref=\"").append(rawFilesGroupRef).append("\"");
+        sb.append(" rawFilesGroup_ref=\"").append(rawFilesGroupRef).append('\"');
 
         // finally close the tag
-        sb.append(">");
+        sb.append('>');
 
         return sb.toString();
     }
@@ -597,13 +597,13 @@ public class MzQuantMLMarshaller {
         }
 
         //required attribute: 'id', 'rawFilesGroup_ref'
-        StringBuilder sb = new StringBuilder();
+        StringBuilder sb = new StringBuilder(70);
 
         // tag opening plus id attribute
-        sb.append("<PeptideConsensusList id=\"").append(id).append("\"");
+        sb.append("<PeptideConsensusList id=\"").append(id).append('\"');
 
         // rawFilesGroup_ref attribute
-        sb.append(" finalResult=\"").append(finalResult.toString()).append("\"");
+        sb.append(" finalResult=\"").append(finalResult.toString()).append('\"');
 
         // finally close the tag
         sb.append(" >");
@@ -633,10 +633,10 @@ public class MzQuantMLMarshaller {
         }
 
         //required attribute: 'id'
-        StringBuilder sb = new StringBuilder();
+        StringBuilder sb = new StringBuilder(50);
 
         // tag opening plus id attribute
-        sb.append("<ProteinGroupList id=\"").append(id).append("\"");
+        sb.append("<ProteinGroupList id=\"").append(id).append('\"');
 
         // finally close the tag
         sb.append(" >");
@@ -666,10 +666,10 @@ public class MzQuantMLMarshaller {
         }
 
         //required attribute: 'id'
-        StringBuilder sb = new StringBuilder();
+        StringBuilder sb = new StringBuilder(50);
 
         // tag opening plus id attribute
-        sb.append("<ProteinList id=\"").append(id).append("\"");
+        sb.append("<ProteinList id=\"").append(id).append('\"');
 
         // finally close the tag
         sb.append(" >");
@@ -699,10 +699,10 @@ public class MzQuantMLMarshaller {
         }
 
         //required attribute: 'id'
-        StringBuilder sb = new StringBuilder();
+        StringBuilder sb = new StringBuilder(50);
 
         // tag opening plus id attribute
-        sb.append("<SmallMoleculeList id=\"").append(id).append("\"");
+        sb.append("<SmallMoleculeList id=\"").append(id).append('\"');
 
         // finally close the tag
         sb.append(" >");

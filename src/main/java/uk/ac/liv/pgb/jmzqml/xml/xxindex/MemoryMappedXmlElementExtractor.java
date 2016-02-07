@@ -1,10 +1,6 @@
 
 package uk.ac.liv.pgb.jmzqml.xml.xxindex;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
-import psidev.psi.tools.xxindex.index.IndexElement;
-
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
@@ -13,6 +9,9 @@ import java.nio.charset.IllegalCharsetNameException;
 import java.nio.charset.UnsupportedCharsetException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import psidev.psi.tools.xxindex.index.IndexElement;
 
 /**
  * @author Rui Wang
@@ -20,6 +19,7 @@ import java.util.regex.Pattern;
  */
 public class MemoryMappedXmlElementExtractor {
 
+    private static final int MinGrpNum = 1;
     private static final Log log = LogFactory.getLog(MemoryMappedXmlElementExtractor.class);
 
     // XML 1.1 specs
@@ -46,7 +46,8 @@ public class MemoryMappedXmlElementExtractor {
     }
 
     /**
-     * Constructor overwriting the default character encoding with the specified one.
+     * Constructor overwriting the default character encoding with the specified
+     * one.
      *
      * @param encoding The Charset to use to translate the read bytes.
      */
@@ -66,7 +67,8 @@ public class MemoryMappedXmlElementExtractor {
     }
 
     /**
-     * @param encoding The encoding to use when converting the read byte array into a String.
+     * @param encoding The encoding to use when converting the read byte array
+     *                 into a String.
      */
     public void setEncoding(Charset encoding) {
         this.encoding = encoding;
@@ -75,10 +77,12 @@ public class MemoryMappedXmlElementExtractor {
     /**
      * This method will try to find and set a Charset for the given String.
      *
-     * @param encoding The encoding to use when converting the read byte array into a String.
+     * @param encoding The encoding to use when converting the read byte array
+     *                 into a String.
      *
-     * @return 0 is returned on success, -1 if the specified encoding is not valid and -2 if
-     *         the specified encoding is not supported by this virtual machine.
+     * @return 0 is returned on success, -1 if the specified encoding is not
+     *         valid and -2 if the specified encoding is not supported by this virtual
+     *         machine.
      */
     public int setEncoding(String encoding) {
         int result;
@@ -105,9 +109,9 @@ public class MemoryMappedXmlElementExtractor {
     }
 
     /**
-     * A boolean flag which defines if the system default character
-     * encoding is to be used for decoding the read bytes.
-     * Note: If the flag is set any other specified encoding will be ignored!
+     * A boolean flag which defines if the system default character encoding is
+     * to be used for decoding the read bytes. Note: If the flag is set any
+     * other specified encoding will be ignored!
      *
      * @param useSystemDefaultEncoding A flag whether to use the system default
      *                                 character encoding.
@@ -119,7 +123,8 @@ public class MemoryMappedXmlElementExtractor {
     ////////////////////
     // Methods
     /**
-     * Same as readString(long from, long to, File file), but start and stop wrapped in a ByteRange object.
+     * Same as readString(long from, long to, File file), but start and stop
+     * wrapped in a ByteRange object.
      *
      * @param br          the ByteRange to read.
      * @param inputStream the file to read from.
@@ -134,47 +139,22 @@ public class MemoryMappedXmlElementExtractor {
     }
 
     /**
-     * Retrieves bytes from the specified file from position 'from' for a
-     * length of 'to - from' bytes.
-     *
-     * @param from        The position from where to start reading.
-     * @param to          The position to which to read.
-     * @param inputStream The file input stream to read from.
-     *
-     * @return The read byte array.
-     *
-     * @throws IOException              If a I/O Exception during the reading process occurred.
-     * @throws IllegalArgumentException If the range specified to read (to - from)
-     *                                  is to big (&gt; Integer.MAX_VALUE characters).
-     */
-    public byte[] readBytes(long from, long to, InputStream inputStream)
-            throws IOException {
-        byte[] bytes;
-
-        Long length = to - from;
-        if (length > Integer.MAX_VALUE) {
-            throw new IllegalArgumentException("Can not read more than " + Integer.MAX_VALUE + " bytes!");
-        }
-        bytes = new byte[length.intValue()];
-
-        // read into buffer
-        inputStream.skip(from);
-        inputStream.read(bytes, 0, length.intValue());
-
-        return bytes;
-    }
-
-    /**
-     * Convenience method that combines the methods: readBytes(), removeZeroBytes() and bytes2String().
+     * Convenience method that combines the methods: readBytes(),
+     * removeZeroBytes() and bytes2String().
      * <p>
-     * Read a String representing a XML element from the specified file (which will be opened read-only).
-     * It will read from position 'from' for length 'to - from'.
+     * Read a String representing a XML element from the specified file (which
+     * will be opened read-only). It will read from position 'from' for length
+     * 'to - from'.
      *
-     * @param from        The byte position of the start (incl. beginning of start tag) of the XML element.
-     * @param to          The byte position of the end (incl. end of closing tag) of the XML element.
+     * @param from        The byte position of the start (incl. beginning of start tag)
+     *                    of the XML element.
+     * @param to          The byte position of the end (incl. end of closing tag) of the
+     *                    XML element.
      * @param inputStream The file input stream to read from.
      *
      * @return The XML element including start and stop tag in a String.
+     *
+     * @throws java.io.IOException
      */
     public String readString(long from, long to, InputStream inputStream)
             throws IOException {
@@ -189,15 +169,50 @@ public class MemoryMappedXmlElementExtractor {
     }
 
     /**
-     * This method represents the default case of the this#detectFileEncoding(URL, int)
-     * method limiting the number of read bytes to 1000.
+     * Retrieves bytes from the specified file from position 'from' for a length
+     * of 'to - from' bytes.
+     *
+     * @param from        The position from where to start reading.
+     * @param to          The position to which to read.
+     * @param inputStream The file input stream to read from.
+     *
+     * @return The read byte array.
+     *
+     * @throws IOException              If a I/O Exception during the reading process
+     *                                  occurred.
+     * @throws IllegalArgumentException If the range specified to read (to -
+     *                                  from) is to big (&gt; Integer.MAX_VALUE characters).
+     */
+    public byte[] readBytes(long from, long to, InputStream inputStream)
+            throws IOException {
+        byte[] bytes;
+
+        Long length = to - from;
+        if (length > Integer.MAX_VALUE) {
+            throw new IllegalArgumentException("Can not read more than " + Integer.MAX_VALUE + " bytes!");
+        }
+        bytes = new byte[length.intValue()];
+
+        // read into buffer
+        myskip(inputStream, from);
+        //inputStream.skip(from);
+        inputStream.read(bytes, 0, length.intValue());
+
+        return bytes;
+    }
+
+    /**
+     * This method represents the default case of the
+     * this#detectFileEncoding(URL, int) method limiting the number of read
+     * bytes to 1000.
      *
      * @param inputStream The file input stream to read from.
      *
-     * @return A String representing the Charset detected for the provided
-     *         file or null if no character encoding could be determined.
+     * @return A String representing the Charset detected for the provided file
+     *         or null if no character encoding could be determined.
      *
-     * @throws IOException If the specified location could not be opened for reading.
+     * @throws IOException If the specified location could not be opened for
+     *                     reading.
      */
     public String detectFileEncoding(InputStream inputStream)
             throws IOException {
@@ -206,18 +221,19 @@ public class MemoryMappedXmlElementExtractor {
 
     /**
      * This method reads up to maxReadLength bytes from the file specified by
-     * fileLocation and will try to detect the character encoding.
-     * This simple detection is assuming a file according to XML 1.1 specs, where
-     * the encoding should be provided in the XML header/prolog. It will only try
-     * to parse this information from the read bytes.
+     * fileLocation and will try to detect the character encoding. This simple
+     * detection is assuming a file according to XML 1.1 specs, where the
+     * encoding should be provided in the XML header/prolog. It will only try to
+     * parse this information from the read bytes.
      *
      * @param inputStream   The file input stream to read from.
      * @param maxReadLength The maximum number of bytes to read from the file.
      *
-     * @return A String representing the Charset detected for the provided
-     *         file or null if no character encoding could be determined.
+     * @return A String representing the Charset detected for the provided file
+     *         or null if no character encoding could be determined.
      *
-     * @throws IOException If the specified location could not be opened for reading.
+     * @throws IOException If the specified location could not be opened for
+     *                     reading.
      */
     public String detectFileEncoding(InputStream inputStream, int maxReadLength)
             throws IOException {
@@ -251,7 +267,7 @@ public class MemoryMappedXmlElementExtractor {
         if (!mEnc.matches()) {
             return null;
         }
-        if (mEnc.groupCount() < 1) {
+        if (mEnc.groupCount() < MinGrpNum) {
             return null;
         }
 
@@ -306,7 +322,8 @@ public class MemoryMappedXmlElementExtractor {
      * @return The String representation of the byte array.
      *
      * @throws IllegalStateException                If no character encoding is available.
-     * @throws java.io.UnsupportedEncodingException if the set character encoding is not supported.
+     * @throws java.io.UnsupportedEncodingException if the set character
+     *                                              encoding is not supported.
      * @see setUseSystemDefaultEncoding(boolean)
      * @see setEncoding(String)
      */
@@ -329,6 +346,37 @@ public class MemoryMappedXmlElementExtractor {
 
         // use the encoding to translate the byte array into a String
         return new String(bytes, getEncoding().name());
+    }
+
+    /**
+     * Skips n bytes. Codes are from
+     * http://stackoverflow.com/questions/14057720/robust-skipping-of-data-in-a-java-io-inputstream-and-its-subtypes
+     *
+     * @param is inputStream
+     * @param n  number of bytes to skip
+     *
+     * @throws IOException IOException
+     */
+    private void myskip(InputStream is, long n)
+            throws IOException {
+        long m = n;
+        while (m > 0) {
+            long n1 = is.skip(m);
+            if (n1 > 0) {
+                m -= n1;
+            }
+            else if (n1 == 0) { // should we retry? lets read one byte
+                if (is.read() == -1) { // EOF
+                    break;
+                }
+                else {
+                    m--;
+                }
+            }
+            else { // negative? this should never happen but...
+                throw new IOException("skip() returned a negative value - this should never happen");
+            }
+        }
     }
 
 }

@@ -1,7 +1,6 @@
 
 package uk.ac.liv.pgb.jmzqml.model.mzqml;
 
-import java.io.Serializable;
 import javax.xml.bind.annotation.*;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
@@ -53,7 +52,7 @@ public class CvParam
 
     /**
      *
-     * @return
+     * @return cv
      */
     public Cv getCv() {
         return cv;
@@ -61,7 +60,7 @@ public class CvParam
 
     /**
      *
-     * @param cv
+     * @param cv control vocabulary
      */
     public void setCv(Cv cv) {
         if (cv == null) {

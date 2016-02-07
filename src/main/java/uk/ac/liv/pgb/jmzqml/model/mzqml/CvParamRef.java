@@ -9,14 +9,15 @@ import javax.xml.bind.annotation.XmlType;
 import uk.ac.liv.pgb.jmzqml.model.CvParamCapable;
 import uk.ac.liv.pgb.jmzqml.model.MzQuantMLObject;
 
-
 /**
  * Helper complexType to include one cvParam as a sub-element
- * 
- * <p>Java class for cvParamRefType complex type.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ *
+ * <p>
+ * Java class for cvParamRefType complex type.
+ *
+ * <p>
+ * The following schema fragment specifies the expected content contained within this class.
+ *
  * <pre>
  * &lt;complexType name="cvParamRefType">
  *   &lt;complexContent>
@@ -28,16 +29,15 @@ import uk.ac.liv.pgb.jmzqml.model.MzQuantMLObject;
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "cvParamRefType", propOrder = {
     "cvParam"
 })
 public class CvParamRef
-    implements Serializable, MzQuantMLObject, CvParamCapable
-{
+        implements Serializable, MzQuantMLObject, CvParamCapable {
 
     private final static long serialVersionUID = 100L;
     /**
@@ -48,11 +48,11 @@ public class CvParamRef
 
     /**
      * Gets the value of the cvParam property.
-     * 
+     *
      * @return
-     *     possible object is
-     *     {@link CvParam }
-     *     
+     *         possible object is
+     *         {@link CvParam }
+     *
      */
     @Override
     public CvParam getCvParam() {
@@ -61,11 +61,11 @@ public class CvParamRef
 
     /**
      * Sets the value of the cvParam property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link CvParam }
-     *     
+     *              allowed object is
+     *              {@link CvParam }
+     *
      */
     @Override
     public void setCvParam(CvParam value) {

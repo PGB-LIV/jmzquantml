@@ -9,12 +9,13 @@ import javax.xml.bind.annotation.XmlTransient;
 import javax.xml.bind.annotation.XmlType;
 import uk.ac.liv.pgb.jmzqml.model.MzQuantMLObject;
 
-
 /**
- * <p>Java class for AffiliationType complex type.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ * <p>
+ * Java class for AffiliationType complex type.
+ *
+ * <p>
+ * The following schema fragment specifies the expected content contained within this class.
+ *
  * <pre>
  * &lt;complexType name="AffiliationType">
  *   &lt;complexContent>
@@ -24,14 +25,13 @@ import uk.ac.liv.pgb.jmzqml.model.MzQuantMLObject;
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "AffiliationType")
 public class Affiliation
-    implements Serializable, MzQuantMLObject
-{
+        implements Serializable, MzQuantMLObject {
 
     private final static long serialVersionUID = 100L;
     /**
@@ -39,7 +39,7 @@ public class Affiliation
      */
     @XmlAttribute(name = "organization_ref", required = true)
     protected String organizationRef;
-    
+
     /**
      *
      */
@@ -48,11 +48,11 @@ public class Affiliation
 
     /**
      * Gets the value of the organizationRef property.
-     * 
+     *
      * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *         possible object is
+     *         {@link String }
+     *
      */
     public String getOrganizationRef() {
         return organizationRef;
@@ -67,18 +67,20 @@ public class Affiliation
         return organization;
     }
 
-
     /**
      * Set the Organization for this Affiliation. Update the organizationRef property also.
      *
-     * @param organization
+     * @param organization Organization
      */
     public void setOrganization(Organization organization) {
         if (organization == null) {
             this.organizationRef = null;
-        } else {
+        }
+        else {
             String refId = organization.getId();
-            if (refId == null) throw new IllegalArgumentException("Referenced object does not have an identifier.");
+            if (refId == null) {
+                throw new IllegalArgumentException("Referenced object does not have an identifier.");
+            }
             this.organizationRef = refId;
         }
         this.organization = organization;

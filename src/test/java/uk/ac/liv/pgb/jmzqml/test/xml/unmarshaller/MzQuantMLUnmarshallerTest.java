@@ -20,29 +20,11 @@
 
 package uk.ac.liv.pgb.jmzqml.test.xml.unmarshaller;
 
-import uk.ac.liv.pgb.jmzqml.model.mzqml.ModParam;
-import uk.ac.liv.pgb.jmzqml.model.mzqml.Label;
-import uk.ac.liv.pgb.jmzqml.model.mzqml.Assay;
-import uk.ac.liv.pgb.jmzqml.model.mzqml.AnalysisSummary;
-import uk.ac.liv.pgb.jmzqml.model.mzqml.Software;
-import uk.ac.liv.pgb.jmzqml.model.mzqml.PeptideConsensus;
-import uk.ac.liv.pgb.jmzqml.model.mzqml.PeptideConsensusList;
-import uk.ac.liv.pgb.jmzqml.model.mzqml.AssayList;
-import uk.ac.liv.pgb.jmzqml.model.mzqml.ProteinList;
-import uk.ac.liv.pgb.jmzqml.model.mzqml.CvParam;
-import uk.ac.liv.pgb.jmzqml.model.mzqml.StudyVariableList;
-import uk.ac.liv.pgb.jmzqml.model.mzqml.RawFile;
-import uk.ac.liv.pgb.jmzqml.model.mzqml.Cv;
-import uk.ac.liv.pgb.jmzqml.model.mzqml.Row;
-import uk.ac.liv.pgb.jmzqml.model.mzqml.StudyVariable;
-import uk.ac.liv.pgb.jmzqml.model.mzqml.Organization;
-import uk.ac.liv.pgb.jmzqml.model.mzqml.DataMatrix;
-import uk.ac.liv.pgb.jmzqml.model.mzqml.AuditCollection;
-import uk.ac.liv.pgb.jmzqml.model.mzqml.SearchDatabase;
-import uk.ac.liv.pgb.jmzqml.model.mzqml.RawFilesGroup;
-import uk.ac.liv.pgb.jmzqml.model.mzqml.QuantLayer;
-import uk.ac.liv.pgb.jmzqml.model.mzqml.Protein;
-import uk.ac.liv.pgb.jmzqml.model.mzqml.UserParam;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
+
 import java.net.URL;
 import java.util.Arrays;
 import java.util.HashSet;
@@ -50,11 +32,36 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+
 import javax.naming.ConfigurationException;
 import javax.xml.bind.JAXBException;
-import static org.junit.Assert.*;
+
 import org.junit.Test;
+
 import uk.ac.liv.pgb.jmzqml.MzQuantMLElement;
+import uk.ac.liv.pgb.jmzqml.model.mzqml.AnalysisSummary;
+import uk.ac.liv.pgb.jmzqml.model.mzqml.Assay;
+import uk.ac.liv.pgb.jmzqml.model.mzqml.AssayList;
+import uk.ac.liv.pgb.jmzqml.model.mzqml.AuditCollection;
+import uk.ac.liv.pgb.jmzqml.model.mzqml.Cv;
+import uk.ac.liv.pgb.jmzqml.model.mzqml.CvParam;
+import uk.ac.liv.pgb.jmzqml.model.mzqml.DataMatrix;
+import uk.ac.liv.pgb.jmzqml.model.mzqml.Label;
+import uk.ac.liv.pgb.jmzqml.model.mzqml.ModParam;
+import uk.ac.liv.pgb.jmzqml.model.mzqml.Organization;
+import uk.ac.liv.pgb.jmzqml.model.mzqml.PeptideConsensus;
+import uk.ac.liv.pgb.jmzqml.model.mzqml.PeptideConsensusList;
+import uk.ac.liv.pgb.jmzqml.model.mzqml.Protein;
+import uk.ac.liv.pgb.jmzqml.model.mzqml.ProteinList;
+import uk.ac.liv.pgb.jmzqml.model.mzqml.QuantLayer;
+import uk.ac.liv.pgb.jmzqml.model.mzqml.RawFile;
+import uk.ac.liv.pgb.jmzqml.model.mzqml.RawFilesGroup;
+import uk.ac.liv.pgb.jmzqml.model.mzqml.Row;
+import uk.ac.liv.pgb.jmzqml.model.mzqml.SearchDatabase;
+import uk.ac.liv.pgb.jmzqml.model.mzqml.Software;
+import uk.ac.liv.pgb.jmzqml.model.mzqml.StudyVariable;
+import uk.ac.liv.pgb.jmzqml.model.mzqml.StudyVariableList;
+import uk.ac.liv.pgb.jmzqml.model.mzqml.UserParam;
 import uk.ac.liv.pgb.jmzqml.xml.io.MzQuantMLUnmarshaller;
 
 /**
@@ -84,7 +91,6 @@ public class MzQuantMLUnmarshallerTest {
 //        assertNotNull(noidFileURL);
 //        noidUM = new MzQuantMLUnmarshaller(noidFileURL);
 //    }
-
     @Test
     public void testAttributeRetrieval()
             throws Exception {

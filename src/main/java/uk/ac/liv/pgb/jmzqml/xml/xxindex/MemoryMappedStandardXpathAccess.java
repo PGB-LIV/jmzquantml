@@ -1,15 +1,14 @@
 
 package uk.ac.liv.pgb.jmzqml.xml.xxindex;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
-import psidev.psi.tools.xxindex.XpathAccess;
-import psidev.psi.tools.xxindex.index.*;
-
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.*;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import psidev.psi.tools.xxindex.XpathAccess;
+import psidev.psi.tools.xxindex.index.*;
 
 /**
  * @author Rui Wang
@@ -103,6 +102,7 @@ public class MemoryMappedStandardXpathAccess implements XpathAccess {
      *
      * @see psidev.psi.tools.xxindex.index.StandardXpathIndex
      */
+    @Override
     public XpathIndex getIndex() {
         return index;
     }
@@ -131,6 +131,7 @@ public class MemoryMappedStandardXpathAccess implements XpathAccess {
      *
      * @throws IOException when IO Error while reading from the XML file.
      */
+    @Override
     public List<String> getXmlSnippets(String xpath)
             throws IOException {
         return getXmlSnippets(xpath, null, null);
@@ -159,7 +160,7 @@ public class MemoryMappedStandardXpathAccess implements XpathAccess {
      */
     public List<String> getXmlSnippets(String xpath, Long start, Long stop)
             throws IOException {
-        List<String> results = new ArrayList<String>();
+        List<String> results = new ArrayList<>();
         // check xpath
         // check if xpath in index
         if (index.containsXpath(xpath)) {
@@ -187,6 +188,7 @@ public class MemoryMappedStandardXpathAccess implements XpathAccess {
      *
      * @return a Iterator over the Strings representing the XML elements specified with the xpath.
      */
+    @Override
     public Iterator<String> getXmlSnippetIterator(String xpath) {
         return getXmlSnippetIterator(xpath, null, null);
     }
@@ -203,6 +205,7 @@ public class MemoryMappedStandardXpathAccess implements XpathAccess {
      *
      * @return a Iterator over the Strings representing the XML elements specified with the xpath.
      */
+    @Override
     public Iterator<String> getXmlSnippetIterator(String xpath, Long start,
                                                   Long stop) {
         Iterator<String> iter;
@@ -306,7 +309,7 @@ public class MemoryMappedStandardXpathAccess implements XpathAccess {
                 validElements = elements;
             }
             else { // if at least one border is specified, we need a new list containing only valid elements
-                validElements = new ArrayList<IndexElement>();
+                validElements = new ArrayList<>();
                 // iterate over the initial list and add only the valid elements to the new list
                 for (IndexElement element : elements) {
                     if ((start == null || element.getStart() >= start) && (stop == null || element.getStop() <= stop)) {
@@ -321,6 +324,7 @@ public class MemoryMappedStandardXpathAccess implements XpathAccess {
             this.fileBuffer = fileBuffer;
         }
 
+        @Override
         public boolean hasNext() {
             return iterator.hasNext();
         }
@@ -330,6 +334,7 @@ public class MemoryMappedStandardXpathAccess implements XpathAccess {
          *
          * @return the String represetation of the XML snippet.
          */
+        @Override
         public String next() {
             String result;
             IndexElement range = iterator.next();
@@ -342,6 +347,7 @@ public class MemoryMappedStandardXpathAccess implements XpathAccess {
             return result;
         }
 
+        @Override
         public void remove() {
             throw new UnsupportedOperationException();
         }
@@ -383,7 +389,7 @@ public class MemoryMappedStandardXpathAccess implements XpathAccess {
      */
     public List<XmlElement> getXmlElements(String xpath, Long start, Long stop)
             throws IOException {
-        List<XmlElement> results = new ArrayList<XmlElement>();
+        List<XmlElement> results = new ArrayList<>();
         // check xpath
         // check if xpath in index
         // if yes, transform (range + line number) into (xml snippet + line number)
@@ -477,7 +483,7 @@ public class MemoryMappedStandardXpathAccess implements XpathAccess {
                 validElements = elements;
             }
             else { // if at least one borders is specified, we need a new list containing only valid elements
-                validElements = new ArrayList<IndexElement>();
+                validElements = new ArrayList<>();
                 // iterate over the initial list and only add the valid elements to the new list
                 for (IndexElement element : elements) {
                     if ((start == null || element.getStart() >= start) && (stop == null || element.getStop() <= stop)) {
@@ -492,6 +498,7 @@ public class MemoryMappedStandardXpathAccess implements XpathAccess {
             this.inputStream = inputStream;
         }
 
+        @Override
         public boolean hasNext() {
             return iterator.hasNext();
         }
@@ -501,6 +508,7 @@ public class MemoryMappedStandardXpathAccess implements XpathAccess {
          *
          * @return the LineXmlElement represetating of the XML snippet and line number it started..
          */
+        @Override
         public XmlElement next() {
             XmlElement result;
             IndexElement element = iterator.next();
@@ -515,6 +523,7 @@ public class MemoryMappedStandardXpathAccess implements XpathAccess {
             return result;
         }
 
+        @Override
         public void remove() {
             throw new UnsupportedOperationException();
         }

@@ -68,7 +68,7 @@ public class DataMatrix
      */
     public List<Row> getRow() {
         if (row == null) {
-            row = new ArrayList<Row>();
+            row = new ArrayList<>();
         }
         return this.row;
     }

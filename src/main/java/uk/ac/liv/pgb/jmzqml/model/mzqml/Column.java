@@ -11,14 +11,15 @@ import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
 import uk.ac.liv.pgb.jmzqml.model.MzQuantMLObject;
 
-
 /**
  * The datatype and index position of one column of data in the DataMatrix.
- * 
- * <p>Java class for ColumnType complex type.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ *
+ * <p>
+ * Java class for ColumnType complex type.
+ *
+ * <p>
+ * The following schema fragment specifies the expected content contained within this class.
+ *
  * <pre>
  * &lt;complexType name="ColumnType">
  *   &lt;complexContent>
@@ -31,16 +32,15 @@ import uk.ac.liv.pgb.jmzqml.model.MzQuantMLObject;
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "ColumnType", propOrder = {
     "dataType"
 })
 public class Column
-    implements Serializable, MzQuantMLObject
-{
+        implements Serializable, MzQuantMLObject {
 
     private final static long serialVersionUID = 100L;
     /**
@@ -57,11 +57,11 @@ public class Column
 
     /**
      * Gets the value of the dataType property.
-     * 
+     *
      * @return
-     *     possible object is
-     *     {@link CvParamRef }
-     *     
+     *         possible object is
+     *         {@link CvParamRef }
+     *
      */
     public CvParamRef getDataType() {
         return dataType;
@@ -69,11 +69,11 @@ public class Column
 
     /**
      * Sets the value of the dataType property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link CvParamRef }
-     *     
+     *              allowed object is
+     *              {@link CvParamRef }
+     *
      */
     public void setDataType(CvParamRef value) {
         this.dataType = value;
@@ -81,11 +81,11 @@ public class Column
 
     /**
      * Gets the value of the index property.
-     * 
+     *
      * @return
-     *     possible object is
-     *     {@link BigInteger }
-     *     
+     *         possible object is
+     *         {@link BigInteger }
+     *
      */
     public BigInteger getIndex() {
         return index;
@@ -93,11 +93,11 @@ public class Column
 
     /**
      * Sets the value of the index property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link BigInteger }
-     *     
+     *              allowed object is
+     *              {@link BigInteger }
+     *
      */
     public void setIndex(BigInteger value) {
         this.index = value;

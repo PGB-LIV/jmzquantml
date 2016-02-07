@@ -1,12 +1,11 @@
+
 package uk.ac.liv.pgb.jmzqml.xml.xxindex;
 
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-
 import javax.naming.ConfigurationException;
-
 import psidev.psi.tools.xxindex.index.IndexElement;
 import uk.ac.liv.pgb.jmzqml.MzQuantMLElement;
 import uk.ac.liv.pgb.jmzqml.model.MzQuantMLObject;
@@ -48,6 +47,15 @@ public interface MzQuantMLIndexer {
     public String getXmlString(String ID, Class<? extends MzQuantMLObject> clazz);
 
     /**
+     * Read XML string using a byte range
+     *
+     * @param byteRange byte range
+     *
+     * @return xml string
+     */
+    public String getXmlString(IndexElement byteRange);
+
+    /**
      * A method to retrieve the list of {@link psidev.psi.tools.xxindex.index.IndexElement} matching the xpath.
      *
      * @param xpathExpression the xpath defining the XML element.
@@ -66,15 +74,6 @@ public interface MzQuantMLIndexer {
      */
     public Map<String, IndexElement> getIndexElements(
             Class<? extends MzQuantMLObject> clazz);
-
-    /**
-     * Read XML string using a byte range
-     *
-     * @param byteRange byte range
-     *
-     * @return xml string
-     */
-    public String getXmlString(IndexElement byteRange);
 
     /**
      * Retrieves all xpath for which an XML element has been recorded.
