@@ -138,9 +138,9 @@ public class ParamUpdater {
 
                 }
             }
-            else {
-                // no unitCV reference given: not updating!
-            }
+//            else {
+//                // no unitCV reference given: not updating!
+//            }
             newParam.setName(input.getName());
             newParam.setValue(input.getValue());
             newParam.setUnitAccession(input.getUnitAccession());

@@ -32,10 +32,14 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.logging.Level;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
 import javax.naming.ConfigurationException;
+
 import org.apache.log4j.Logger;
+
 import psidev.psi.tools.xxindex.SimpleXmlElementExtractor;
 import psidev.psi.tools.xxindex.StandardXpathAccess;
 import psidev.psi.tools.xxindex.XmlElementExtractor;
@@ -320,13 +324,13 @@ public class MzQuantMLIndexerFactory {
                         }
                     }
                     catch (IOException e) {
-                        System.out.println(e.getMessage());
+                        java.util.logging.Logger.getLogger(FileUtils.class.getName()).log(Level.SEVERE, null, e);
                     }
                 }
-                else {
-                    // TODO: what if the element exists, but its id was not indexed?
-                    // TODO: throw an exception?
-                }
+//                else {
+//                    // TODO: what if the element exists, but its id was not indexed?
+//                    // TODO: throw an exception?
+//                }
             }
             return tag;
         }

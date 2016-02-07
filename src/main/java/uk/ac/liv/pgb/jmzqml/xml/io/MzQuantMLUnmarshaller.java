@@ -48,7 +48,6 @@ public class MzQuantMLUnmarshaller {
     private static final Pattern VERSION_PATTERN = Pattern.compile("version\\s*=\\s*[\"']([^\"'>]*)?[\"']", Pattern.CASE_INSENSITIVE);
     private static final Pattern NAME_PATTERN = Pattern.compile("name\\s*=\\s*[\"']([^\"'>]*)?[\"']", Pattern.CASE_INSENSITIVE);
     private static final Pattern XML_ATT_PATTERN = Pattern.compile("\\s+([A-Za-z_:]+)\\s*=\\s*[\"']([^\"'>]+?)[\"']", Pattern.DOTALL);
-    private final List<String> exMsgs = new ArrayList<>();
 
     /*
      * Constructor

@@ -23,7 +23,7 @@ public interface MzQuantMLIndexer {
      *
      * @return the Iterator of the collection of XML elements matching the xpath.
      */
-    public Iterator<String> getXmlStringIterator(String xpathExpression);
+    Iterator<String> getXmlStringIterator(String xpathExpression);
 
     /**
      * A method to get the number of the XML elements matching the xpath.
@@ -33,7 +33,7 @@ public interface MzQuantMLIndexer {
      * @return the number of XML elements matching the xpath or -1 if no
      *         elements were found for the specified xpath.
      */
-    public int getCount(String xpathExpression);
+    int getCount(String xpathExpression);
 
     /**
      * A method to retrieve the XML String of a specific XML element,
@@ -44,7 +44,7 @@ public interface MzQuantMLIndexer {
      *
      * @return the XML String representation of the requested element.
      */
-    public String getXmlString(String ID, Class<? extends MzQuantMLObject> clazz);
+    String getXmlString(String ID, Class<? extends MzQuantMLObject> clazz);
 
     /**
      * Read XML string using a byte range
@@ -53,7 +53,7 @@ public interface MzQuantMLIndexer {
      *
      * @return xml string
      */
-    public String getXmlString(IndexElement byteRange);
+    String getXmlString(IndexElement byteRange);
 
     /**
      * A method to retrieve the list of {@link psidev.psi.tools.xxindex.index.IndexElement} matching the xpath.
@@ -62,7 +62,7 @@ public interface MzQuantMLIndexer {
      *
      * @return list of {@link psidev.psi.tools.xxindex.index.IndexElement}.
      */
-    public List<IndexElement> getIndexElements(String xpathExpression);
+    List<IndexElement> getIndexElements(String xpathExpression);
 
     /**
      * Get a map of id to byte range mappings
@@ -72,7 +72,7 @@ public interface MzQuantMLIndexer {
      *
      * @return a map of id to byte range mappings
      */
-    public Map<String, IndexElement> getIndexElements(
+    Map<String, IndexElement> getIndexElements(
             Class<? extends MzQuantMLObject> clazz);
 
     /**
@@ -80,7 +80,7 @@ public interface MzQuantMLIndexer {
      *
      * @return a Set of xpath.
      */
-    public Set<String> getXpath();
+    Set<String> getXpath();
 
     /**
      *
@@ -90,14 +90,14 @@ public interface MzQuantMLIndexer {
      * @return the compete start tag for the XML element with the specified
      *         attributes.
      */
-    public String getStartTag(String id, Class<? extends MzQuantMLObject> clazz);
+    String getStartTag(String id, Class<? extends MzQuantMLObject> clazz);
 
     /**
      * Get the attribute XML string of the mzQuantML file.
      *
      * @return the attribute XML string of the mzQuantML file.
      */
-    public String getMzQuantMLAttributeXMLString();
+    String getMzQuantMLAttributeXMLString();
 
     /**
      *
@@ -106,7 +106,7 @@ public interface MzQuantMLIndexer {
      *
      * @return true if the element being ID mapped. See configuration of elements (MzQuantMLElement).
      */
-    public boolean isIDmapped(String id, Class<? extends MzQuantMLObject> clazz);
+    boolean isIDmapped(String id, Class<? extends MzQuantMLObject> clazz);
 
     /**
      * Is dependent on the element being indexed and ID mapped.
@@ -118,7 +118,7 @@ public interface MzQuantMLIndexer {
      *
      * @throws ConfigurationException
      */
-    public Set<String> getIDsForElement(MzQuantMLElement element)
+    Set<String> getIDsForElement(MzQuantMLElement element)
             throws ConfigurationException;
 
 }

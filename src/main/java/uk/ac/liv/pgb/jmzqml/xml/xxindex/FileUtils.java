@@ -9,6 +9,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.URL;
+import java.util.logging.Level;
+
 import org.apache.log4j.Logger;
 
 /**
@@ -60,18 +62,21 @@ public class FileUtils {
             throw new IllegalStateException("Could not create local file for URL: " + url, e);
         }
         finally {
-            try {
-                if (in != null) {
+            if (in != null) {
+                try {
                     in.close();
                 }
-                if (out != null) {
-                    out.close();
+                catch (IOException ex) {
+                    java.util.logging.Logger.getLogger(FileUtils.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
-            catch (IOException e) {
-                /*
-                 * ignore
-                 */
+            if (out != null) {
+                try {
+                    out.close();
+                }
+                catch (IOException ex) {
+                    java.util.logging.Logger.getLogger(FileUtils.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
 
         }
