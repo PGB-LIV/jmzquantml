@@ -15,7 +15,7 @@
     <!-- Properties -->
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <netbeans.hint.license>jmzquantml</netbeans.hint.license>
+        <!--netbeans.hint.license>jmzquantml</netbeans.hint.license-->
         <institute>University of Liverpool</institute>
         <inceptionYear>2011</inceptionYear>
     </properties>   
