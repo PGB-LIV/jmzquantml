@@ -76,7 +76,7 @@ public abstract class AbstractContact
      * {@link UserParam }
      *
      *
-     * @return
+     * @return list of param
      */
     public List<AbstractParam> getParamGroup() {
         if (paramGroup == null) {
