@@ -429,12 +429,12 @@ public class MzQuantMLIndexerFactory {
                     xml = ((MemoryMappedStandardXpathAccess) xpathAccess).getStartTag(byteRange);
                 }
                 String id = getIdFromRawXML(xml);
-                if (id != null) {
+//                if (id != null) {
                     idMap.put(id, byteRange);
-                }
-                else {
-                    throw new IllegalStateException("Error initializing ID cache: No id attribute found for element " + xml);
-                }
+//                }
+//                else {
+//                    throw new IllegalStateException("Error initializing ID cache: No id attribute found for element " + xml);
+//                }
             }
         }
 

@@ -79,7 +79,7 @@ public class MemoryMappedStandardXpathAccess implements XpathAccess {
             throw new IllegalArgumentException("The input file input stream must not be null!");
         }
 
-        this.fileBuffer = fileBuffer;
+        this.fileBuffer = fileBuffer.clone();
 
         // choosing the Extractor to use
         this.index = XmlXpathIndexer.buildIndex(new ByteArrayInputStream(fileBuffer), aXpathInclusionSet, recordLineNumbers);
