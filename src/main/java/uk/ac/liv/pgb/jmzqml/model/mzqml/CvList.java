@@ -13,20 +13,22 @@ import uk.ac.liv.pgb.jmzqml.model.MzQuantMLObject;
 /**
  * The list of controlled vocabularies used in the file.
  *
- * <p>Java class for CvListType complex type.
+ * <p>
+ * Java class for CvListType complex type.
  *
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>
+ * The following schema fragment specifies the expected content contained within this class.
  *
  * <pre>
- * &lt;complexType name="CvListType">
- *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;sequence>
- *         &lt;element name="Cv" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0}CvType" maxOccurs="unbounded"/>
- *       &lt;/sequence>
- *     &lt;/restriction>
- *   &lt;/complexContent>
- * &lt;/complexType>
+ * &lt;complexType name="CvListType"&gt;
+ *   &lt;complexContent&gt;
+ *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+ *       &lt;sequence&gt;
+ *         &lt;element name="Cv" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0}CvType" maxOccurs="unbounded"/&gt;
+ *       &lt;/sequence&gt;
+ *     &lt;/restriction&gt;
+ *   &lt;/complexContent&gt;
+ * &lt;/complexType&gt;
  * </pre>
  *
  *
@@ -49,8 +51,7 @@ public class CvList
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a
-     * <CODE>set</CODE> method for the cv property.
+     * This is why there is not a <CODE>set</CODE> method for the cv property.
      *
      * <p>
      * For example, to add a new item, do as follows:

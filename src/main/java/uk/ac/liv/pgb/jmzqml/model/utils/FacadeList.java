@@ -320,11 +320,12 @@ public class FacadeList<T> extends AbstractCollection<T> implements List<T> {
     }
 
     /**
+     * Returns an array containing all of the elements in this list.
      *
-     * @param <T>
-     * @param a
+     * @param <T> data type
+     * @param a   the array into which the elements of the list are to be stored.
      *
-     * @return
+     * @return an array containing the elements of the list.
      */
     @Override
     public <T> T[] toArray(T... a) {
@@ -343,11 +344,12 @@ public class FacadeList<T> extends AbstractCollection<T> implements List<T> {
     }
 
     /**
+     * Inserts all of the elements in the specified collection into this list, starting at the specified position.
      *
-     * @param index
-     * @param c
+     * @param index index at which to insert the first element from the specified collection
+     * @param c     collection containing elements to be added to this list
      *
-     * @return
+     * @return true if this list changed as a result of the call
      */
     @Override
     public boolean addAll(int index, Collection<? extends T> c) {
@@ -377,10 +379,11 @@ public class FacadeList<T> extends AbstractCollection<T> implements List<T> {
     }
 
     /**
+     * Removes from this list all of its elements that are contained in the specified collection.
      *
-     * @param c
+     * @param c collection containing elements to be removed from this list
      *
-     * @return
+     * @return true if this list changed as a result of the call
      */
     @Override
     public boolean removeAll(Collection<?> c) {
@@ -388,17 +391,12 @@ public class FacadeList<T> extends AbstractCollection<T> implements List<T> {
         return super.removeAll(c);
     }
 
-    /*
-     * public boolean removeAll(Collection<? extends T> c){
-     * this.checkArgumentsInCollection(c);
-     * return false;
-     * }
-     */
     /**
+     * Retains only the elements in this list that are contained in the specified collection.
      *
-     * @param c
+     * @param c collection containing elements to be retained in this list
      *
-     * @return
+     * @return true if this list changed as a result of the call
      */
     @Override
     public boolean retainAll(Collection<?> c) {
@@ -431,7 +429,7 @@ public class FacadeList<T> extends AbstractCollection<T> implements List<T> {
 
     /**
      *
-     * @return
+     * @return hash code integer
      */
     @Override
     public int hashCode() {
@@ -446,9 +444,9 @@ public class FacadeList<T> extends AbstractCollection<T> implements List<T> {
 
     /**
      *
-     * @param comparedToListObject
+     * @param comparedToListObject the object to be compared
      *
-     * @return
+     * @return true if both objects are equal
      */
     @Override
     public boolean equals(Object comparedToListObject) {
@@ -511,10 +509,10 @@ public class FacadeList<T> extends AbstractCollection<T> implements List<T> {
     /**
      * TODO: Move this into set method if not reused in future.
      *
-     * @param index
-     * @param newElement
+     * @param index      index
+     * @param newElement new element
      *
-     * @return
+     * @return the element
      */
     private T setAtIndex(int index, T newElement) {
         int originalListIndex = this.getOriginalIndex(index);
@@ -527,10 +525,10 @@ public class FacadeList<T> extends AbstractCollection<T> implements List<T> {
     /**
      * TODO: Move this into add at index method if not reused in future.
      *
-     * @param index
-     * @param newElement
+     * @param index      index
+     * @param newElement new element
      *
-     * @return
+     * @return the element
      */
     private void addAtIndex(int index, T newElement) {
 

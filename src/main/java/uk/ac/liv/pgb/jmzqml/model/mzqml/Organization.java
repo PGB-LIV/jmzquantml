@@ -16,15 +16,15 @@ import javax.xml.bind.annotation.XmlType;
  * The following schema fragment specifies the expected content contained within this class.
  *
  * <pre>
- * &lt;complexType name="OrganizationType">
- *   &lt;complexContent>
- *     &lt;extension base="{http://psidev.info/psi/pi/mzQuantML/1.0.0}AbstractContactType">
- *       &lt;sequence>
- *         &lt;element name="ParentOrganization" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0}ParentOrganizationType" minOccurs="0"/>
- *       &lt;/sequence>
- *     &lt;/extension>
- *   &lt;/complexContent>
- * &lt;/complexType>
+ * &lt;complexType name="OrganizationType"&gt;
+ *   &lt;complexContent&gt;
+ *     &lt;extension base="{http://psidev.info/psi/pi/mzQuantML/1.0.0}AbstractContactType"&gt;
+ *       &lt;sequence&gt;
+ *         &lt;element name="ParentOrganization" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0}ParentOrganizationType" minOccurs="0"/&gt;
+ *       &lt;/sequence&gt;
+ *     &lt;/extension&gt;
+ *   &lt;/complexContent&gt;
+ * &lt;/complexType&gt;
  * </pre>
  *
  *
@@ -37,9 +37,6 @@ public class Organization
         extends AbstractContact {
 
     private final static long serialVersionUID = 100L;
-    /**
-     *
-     */
     @XmlElement(name = "ParentOrganization")
     protected ParentOrganization parentOrganization;
 

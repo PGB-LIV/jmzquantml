@@ -22,15 +22,15 @@ import uk.ac.liv.pgb.jmzqml.model.utils.FacadeList;
  * The following schema fragment specifies the expected content contained within this class.
  *
  * <pre>
- * &lt;complexType name="AbstractContactType">
- *   &lt;complexContent>
- *     &lt;extension base="{http://psidev.info/psi/pi/mzQuantML/1.0.0}IdentifiableType">
- *       &lt;sequence>
- *         &lt;group ref="{http://psidev.info/psi/pi/mzQuantML/1.0.0}ParamGroup" maxOccurs="unbounded" minOccurs="0"/>
- *       &lt;/sequence>
- *     &lt;/extension>
- *   &lt;/complexContent>
- * &lt;/complexType>
+ * &lt;complexType name="AbstractContactType"&gt;
+ *   &lt;complexContent&gt;
+ *     &lt;extension base="{http://psidev.info/psi/pi/mzQuantML/1.0.0}IdentifiableType"&gt;
+ *       &lt;sequence&gt;
+ *         &lt;group ref="{http://psidev.info/psi/pi/mzQuantML/1.0.0}ParamGroup" maxOccurs="unbounded" minOccurs="0"/&gt;
+ *       &lt;/sequence&gt;
+ *     &lt;/extension&gt;
+ *   &lt;/complexContent&gt;
+ * &lt;/complexType&gt;
  * </pre>
  *
  *
@@ -61,8 +61,7 @@ public abstract class AbstractContact
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a
-     * <CODE>set</CODE> method for the paramGroup property.
+     * This is why there is not a <CODE>set</CODE> method for the paramGroup property.
      *
      * <p>
      * For example, to add a new item, do as follows:
@@ -77,7 +76,7 @@ public abstract class AbstractContact
      * {@link UserParam }
      *
      *
-     * @return the value of the paramGroup property.
+     * @return
      */
     public List<AbstractParam> getParamGroup() {
         if (paramGroup == null) {

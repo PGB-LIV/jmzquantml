@@ -57,8 +57,8 @@ public class ParamUpdater {
      *
      * @return a CvParam with the same property values of input.
      *
-     * @throws IllegalAccessException
-     * @throws InstantiationException
+     * @throws IllegalAccessException exception
+     * @throws InstantiationException exception
      */
     public static <T extends CvParam> T updateCvParamSubclass(CvParam input,
                                                               Class<T> cvParamSubClass)
@@ -160,8 +160,8 @@ public class ParamUpdater {
      * @param cvParamSubClass the class type of the sub-class of {@link uk.ac.liv.pgb.jmzqml.model.mzqml.CvParam}.
      *
      *
-     * @throws IllegalAccessException
-     * @throws InstantiationException
+     * @throws IllegalAccessException exception
+     * @throws InstantiationException exception
      */
     public static <T extends CvParam> void updateCvParamSubclassesList(
             List<CvParam> inputs, Class<T> cvParamSubClass)
@@ -191,8 +191,8 @@ public class ParamUpdater {
      *
      * @return a UserParam with the same property values of input.
      *
-     * @throws IllegalAccessException
-     * @throws InstantiationException
+     * @throws IllegalAccessException exception
+     * @throws InstantiationException exception
      */
     public static <T extends UserParam> T updateUserParamSubclass(
             UserParam input, Class<T> userParamSubClass)
@@ -225,8 +225,8 @@ public class ParamUpdater {
      * @param userParamSubClass the class type of the sub-class of {@link uk.ac.liv.pgb.jmzqml.model.mzqml.UserParam}.
      *
      *
-     * @throws IllegalAccessException
-     * @throws InstantiationException
+     * @throws IllegalAccessException exception
+     * @throws InstantiationException exception
      */
     public static <T extends UserParam> void updateUserParamSubclassesList(
             List<UserParam> inputs, Class<T> userParamSubClass)

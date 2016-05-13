@@ -22,17 +22,17 @@ import uk.ac.liv.pgb.jmzqml.model.MzQuantMLObject;
  * The following schema fragment specifies the expected content contained within this class.
  *
  * <pre>
- * &lt;complexType name="SmallMolModificationType">
- *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;sequence>
- *         &lt;element name="cvParam" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0}CVParamType" maxOccurs="unbounded"/>
- *       &lt;/sequence>
- *       &lt;attribute name="avgMassDelta" type="{http://www.w3.org/2001/XMLSchema}double" />
- *       &lt;attribute name="monoisotopicMassDelta" type="{http://www.w3.org/2001/XMLSchema}double" />
- *     &lt;/restriction>
- *   &lt;/complexContent>
- * &lt;/complexType>
+ * &lt;complexType name="SmallMolModificationType"&gt;
+ *   &lt;complexContent&gt;
+ *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+ *       &lt;sequence&gt;
+ *         &lt;element name="cvParam" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0}CVParamType" maxOccurs="unbounded"/&gt;
+ *       &lt;/sequence&gt;
+ *       &lt;attribute name="avgMassDelta" type="{http://www.w3.org/2001/XMLSchema}double" /&gt;
+ *       &lt;attribute name="monoisotopicMassDelta" type="{http://www.w3.org/2001/XMLSchema}double" /&gt;
+ *     &lt;/restriction&gt;
+ *   &lt;/complexContent&gt;
+ * &lt;/complexType&gt;
  * </pre>
  *
  *
@@ -45,19 +45,10 @@ public class SmallMolModification
         implements Serializable, MzQuantMLObject, CvParamListCapable {
 
     private final static long serialVersionUID = 100L;
-    /**
-     *
-     */
     @XmlElement(required = true)
     protected List<CvParam> cvParam;
-    /**
-     *
-     */
     @XmlAttribute(name = "avgMassDelta")
     protected Double avgMassDelta;
-    /**
-     *
-     */
     @XmlAttribute(name = "monoisotopicMassDelta")
     protected Double monoisotopicMassDelta;
 

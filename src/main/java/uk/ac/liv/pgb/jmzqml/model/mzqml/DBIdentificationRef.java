@@ -19,14 +19,14 @@ import uk.ac.liv.pgb.jmzqml.model.MzQuantMLObject;
  * The following schema fragment specifies the expected content contained within this class.
  *
  * <pre>
- * &lt;complexType name="DBIdentificationRefType">
- *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;attribute name="id_ref" use="required" type="{http://www.w3.org/2001/XMLSchema}string" />
- *       &lt;attribute name="searchDatabase_ref" use="required" type="{http://www.w3.org/2001/XMLSchema}string" />
- *     &lt;/restriction>
- *   &lt;/complexContent>
- * &lt;/complexType>
+ * &lt;complexType name="DBIdentificationRefType"&gt;
+ *   &lt;complexContent&gt;
+ *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+ *       &lt;attribute name="id_ref" use="required" type="{http://www.w3.org/2001/XMLSchema}string" /&gt;
+ *       &lt;attribute name="searchDatabase_ref" use="required" type="{http://www.w3.org/2001/XMLSchema}string" /&gt;
+ *     &lt;/restriction&gt;
+ *   &lt;/complexContent&gt;
+ * &lt;/complexType&gt;
  * </pre>
  *
  *
@@ -37,14 +37,8 @@ public class DBIdentificationRef
         implements Serializable, MzQuantMLObject {
 
     private final static long serialVersionUID = 100L;
-    /**
-     *
-     */
     @XmlAttribute(name = "id_ref", required = true)
     protected String idRef;
-    /**
-     *
-     */
     @XmlAttribute(name = "searchDatabase_ref", required = true)
     protected String searchDatabaseRef;
     /**
@@ -60,7 +54,7 @@ public class DBIdentificationRef
 
     /**
      *
-     * @return
+     * @return external data
      */
     public ExternalData getId() {
         return id;
@@ -68,7 +62,7 @@ public class DBIdentificationRef
 
     /**
      *
-     * @param id
+     * @param id external data
      */
     public void setId(ExternalData id) {
         if (id == null) {
@@ -86,7 +80,7 @@ public class DBIdentificationRef
 
     /**
      *
-     * @return
+     * @return search database
      */
     public SearchDatabase getSearchDatabase() {
         return searchDatabase;
@@ -94,7 +88,7 @@ public class DBIdentificationRef
 
     /**
      *
-     * @param searchDatabase
+     * @param searchDatabase search database
      */
     public void setSearchDatabase(SearchDatabase searchDatabase) {
         if (searchDatabase == null) {

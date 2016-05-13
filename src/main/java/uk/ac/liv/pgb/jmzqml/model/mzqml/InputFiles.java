@@ -13,24 +13,26 @@ import uk.ac.liv.pgb.jmzqml.model.MzQuantMLObject;
 /**
  * All the raw files, identification files and databases used in the quantitation.
  *
- * <p>Java class for InputFilesType complex type.
+ * <p>
+ * Java class for InputFilesType complex type.
  *
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>
+ * The following schema fragment specifies the expected content contained within this class.
  *
  * <pre>
- * &lt;complexType name="InputFilesType">
- *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;sequence>
- *         &lt;element name="RawFilesGroup" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0}RawFilesGroupType" maxOccurs="unbounded" minOccurs="0"/>
- *         &lt;element name="MethodFiles" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0}MethodFilesType" minOccurs="0"/>
- *         &lt;element name="IdentificationFiles" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0}IdentificationFilesType" minOccurs="0"/>
- *         &lt;element name="SearchDatabase" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0}SearchDatabaseType" maxOccurs="unbounded" minOccurs="0"/>
- *         &lt;element name="SourceFile" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0}SourceFileType" maxOccurs="unbounded" minOccurs="0"/>
- *       &lt;/sequence>
- *     &lt;/restriction>
- *   &lt;/complexContent>
- * &lt;/complexType>
+ * &lt;complexType name="InputFilesType"&gt;
+ *   &lt;complexContent&gt;
+ *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+ *       &lt;sequence&gt;
+ *         &lt;element name="RawFilesGroup" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0}RawFilesGroupType" maxOccurs="unbounded" minOccurs="0"/&gt;
+ *         &lt;element name="MethodFiles" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0}MethodFilesType" minOccurs="0"/&gt;
+ *         &lt;element name="IdentificationFiles" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0}IdentificationFilesType" minOccurs="0"/&gt;
+ *         &lt;element name="SearchDatabase" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0}SearchDatabaseType" maxOccurs="unbounded" minOccurs="0"/&gt;
+ *         &lt;element name="SourceFile" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0}SourceFileType" maxOccurs="unbounded" minOccurs="0"/&gt;
+ *       &lt;/sequence&gt;
+ *     &lt;/restriction&gt;
+ *   &lt;/complexContent&gt;
+ * &lt;/complexType&gt;
  * </pre>
  *
  *
@@ -65,8 +67,7 @@ public class InputFiles
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a
-     * <CODE>set</CODE> method for the rawFilesGroup property.
+     * This is why there is not a <CODE>set</CODE> method for the rawFilesGroup property.
      *
      * <p>
      * For example, to add a new item, do as follows:
@@ -144,8 +145,7 @@ public class InputFiles
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a
-     * <CODE>set</CODE> method for the searchDatabase property.
+     * This is why there is not a <CODE>set</CODE> method for the searchDatabase property.
      *
      * <p>
      * For example, to add a new item, do as follows:
@@ -175,8 +175,7 @@ public class InputFiles
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a
-     * <CODE>set</CODE> method for the sourceFile property.
+     * This is why there is not a <CODE>set</CODE> method for the sourceFile property.
      *
      * <p>
      * For example, to add a new item, do as follows:

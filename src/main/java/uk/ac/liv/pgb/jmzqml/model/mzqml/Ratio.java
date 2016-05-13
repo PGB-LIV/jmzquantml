@@ -19,21 +19,21 @@ import uk.ac.liv.pgb.jmzqml.model.ParamListCapable;
  * The following schema fragment specifies the expected content contained within this class.
  *
  * <pre>
- * &lt;complexType name="RatioType">
- *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;sequence>
- *         &lt;element name="RatioCalculation" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0}ParamListType" minOccurs="0"/>
- *         &lt;element name="NumeratorDataType" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0}cvParamRefType"/>
- *         &lt;element name="DenominatorDataType" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0}cvParamRefType"/>
- *       &lt;/sequence>
- *       &lt;attribute name="numerator_ref" use="required" type="{http://www.w3.org/2001/XMLSchema}string" />
- *       &lt;attribute name="denominator_ref" use="required" type="{http://www.w3.org/2001/XMLSchema}string" />
- *       &lt;attribute name="id" use="required" type="{http://www.w3.org/2001/XMLSchema}string" />
- *       &lt;attribute name="name" type="{http://www.w3.org/2001/XMLSchema}string" />
- *     &lt;/restriction>
- *   &lt;/complexContent>
- * &lt;/complexType>
+ * &lt;complexType name="RatioType"&gt;
+ *   &lt;complexContent&gt;
+ *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+ *       &lt;sequence&gt;
+ *         &lt;element name="RatioCalculation" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0}ParamListType" minOccurs="0"/&gt;
+ *         &lt;element name="NumeratorDataType" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0}cvParamRefType"/&gt;
+ *         &lt;element name="DenominatorDataType" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0}cvParamRefType"/&gt;
+ *       &lt;/sequence&gt;
+ *       &lt;attribute name="numerator_ref" use="required" type="{http://www.w3.org/2001/XMLSchema}string" /&gt;
+ *       &lt;attribute name="denominator_ref" use="required" type="{http://www.w3.org/2001/XMLSchema}string" /&gt;
+ *       &lt;attribute name="id" use="required" type="{http://www.w3.org/2001/XMLSchema}string" /&gt;
+ *       &lt;attribute name="name" type="{http://www.w3.org/2001/XMLSchema}string" /&gt;
+ *     &lt;/restriction&gt;
+ *   &lt;/complexContent&gt;
+ * &lt;/complexType&gt;
  * </pre>
  *
  *
@@ -49,50 +49,26 @@ public class Ratio
         implements ParamListCapable {
 
     private final static long serialVersionUID = 100L;
-    /**
-     *
-     */
     @XmlElement(name = "RatioCalculation")
     protected ParamList ratioCalculation;
-    /**
-     *
-     */
     @XmlElement(name = "NumeratorDataType", required = true)
     protected CvParamRef numeratorDataType;
-    /**
-     *
-     */
     @XmlElement(name = "DenominatorDataType", required = true)
     protected CvParamRef denominatorDataType;
-    /**
-     *
-     */
     @XmlAttribute(name = "numerator_ref", required = true)
     protected String numeratorRef;
-    /**
-     *
-     */
     @XmlAttribute(name = "denominator_ref", required = true)
     protected String denominatorRef;
-    /**
-     *
-     */
     @XmlAttribute(name = "name")
     protected String name;
-    /**
-     *
-     */
     @XmlTransient
     protected IdOnly numerator;
-    /**
-     *
-     */
     @XmlTransient
     protected IdOnly denominator;
 
     /**
      *
-     * @return
+     * @return numerator
      */
     public IdOnly getNumerator() {
         return numerator;
@@ -100,7 +76,7 @@ public class Ratio
 
     /**
      *
-     * @param numerator
+     * @param numerator numerator
      */
     public void setNumerator(IdOnly numerator) {
         if (numerator == null) {
@@ -118,7 +94,7 @@ public class Ratio
 
     /**
      *
-     * @return
+     * @return denominator
      */
     public IdOnly getDenominator() {
         return denominator;
@@ -126,7 +102,7 @@ public class Ratio
 
     /**
      *
-     * @param denominator
+     * @param denominator denominator
      */
     public void setDenominator(IdOnly denominator) {
         if (denominator == null) {

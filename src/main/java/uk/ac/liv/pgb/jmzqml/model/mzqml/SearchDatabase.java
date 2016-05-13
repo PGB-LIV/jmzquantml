@@ -25,19 +25,19 @@ import uk.ac.liv.pgb.jmzqml.xml.jaxb.adapter.CalendarAdapter;
  * The following schema fragment specifies the expected content contained within this class.
  *
  * <pre>
- * &lt;complexType name="SearchDatabaseType">
- *   &lt;complexContent>
- *     &lt;extension base="{http://psidev.info/psi/pi/mzQuantML/1.0.0}ExternalDataType">
- *       &lt;sequence>
- *         &lt;element name="DatabaseName" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0}ParamType"/>
- *         &lt;element name="cvParam" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0}CVParamType" maxOccurs="unbounded" minOccurs="0"/>
- *       &lt;/sequence>
- *       &lt;attribute name="version" type="{http://www.w3.org/2001/XMLSchema}string" />
- *       &lt;attribute name="releaseDate" type="{http://www.w3.org/2001/XMLSchema}dateTime" />
- *       &lt;attribute name="numDatabaseEntries" type="{http://www.w3.org/2001/XMLSchema}long" />
- *     &lt;/extension>
- *   &lt;/complexContent>
- * &lt;/complexType>
+ * &lt;complexType name="SearchDatabaseType"&gt;
+ *   &lt;complexContent&gt;
+ *     &lt;extension base="{http://psidev.info/psi/pi/mzQuantML/1.0.0}ExternalDataType"&gt;
+ *       &lt;sequence&gt;
+ *         &lt;element name="DatabaseName" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0}ParamType"/&gt;
+ *         &lt;element name="cvParam" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0}CVParamType" maxOccurs="unbounded" minOccurs="0"/&gt;
+ *       &lt;/sequence&gt;
+ *       &lt;attribute name="version" type="{http://www.w3.org/2001/XMLSchema}string" /&gt;
+ *       &lt;attribute name="releaseDate" type="{http://www.w3.org/2001/XMLSchema}dateTime" /&gt;
+ *       &lt;attribute name="numDatabaseEntries" type="{http://www.w3.org/2001/XMLSchema}long" /&gt;
+ *     &lt;/extension&gt;
+ *   &lt;/complexContent&gt;
+ * &lt;/complexType&gt;
  * </pre>
  *
  *
@@ -52,30 +52,15 @@ public class SearchDatabase
         implements ParamCapable, CvParamListCapable {
 
     private final static long serialVersionUID = 100L;
-    /**
-     *
-     */
     @XmlElement(name = "DatabaseName", required = true)
     protected Param databaseName;
-    /**
-     *
-     */
     protected List<CvParam> cvParam;
-    /**
-     *
-     */
     @XmlAttribute(name = "version")
     protected String version;
-    /**
-     *
-     */
     @XmlAttribute(name = "releaseDate")
     @XmlJavaTypeAdapter(CalendarAdapter.class)
     @XmlSchemaType(name = "dateTime")
     protected Calendar releaseDate;
-    /**
-     *
-     */
     @XmlAttribute(name = "numDatabaseEntries")
     protected Long numDatabaseEntries;
 

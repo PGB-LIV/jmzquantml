@@ -15,18 +15,20 @@ import uk.ac.liv.pgb.jmzqml.model.MzQuantMLObject;
 /**
  * One row of data in a data matrix.
  *
- * <p>Java class for RowType complex type.
+ * <p>
+ * Java class for RowType complex type.
  *
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>
+ * The following schema fragment specifies the expected content contained within this class.
  *
  * <pre>
- * &lt;complexType name="RowType">
- *   &lt;simpleContent>
- *     &lt;extension base="&lt;http://psidev.info/psi/pi/mzQuantML/1.0.0>listOfDoublesOrNulls">
- *       &lt;attribute name="object_ref" use="required" type="{http://www.w3.org/2001/XMLSchema}string" />
- *     &lt;/extension>
- *   &lt;/simpleContent>
- * &lt;/complexType>
+ * &lt;complexType name="RowType"&gt;
+ *   &lt;simpleContent&gt;
+ *     &lt;extension base="&lt;http://psidev.info/psi/pi/mzQuantML/1.0.0&gt;listOfDoublesOrNulls"&gt;
+ *       &lt;attribute name="object_ref" use="required" type="{http://www.w3.org/2001/XMLSchema}string" /&gt;
+ *     &lt;/extension&gt;
+ *   &lt;/simpleContent&gt;
+ * &lt;/complexType&gt;
  * </pre>
  *
  *
@@ -87,8 +89,7 @@ public class Row
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a
-     * <CODE>set</CODE> method for the value property.
+     * This is why there is not a <CODE>set</CODE> method for the value property.
      *
      * <p>
      * For example, to add a new item, do as follows:

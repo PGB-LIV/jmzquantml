@@ -16,25 +16,27 @@ import javax.xml.bind.annotation.XmlType;
 /**
  * Description of the way in which a particular software package was used to analyse data and for example produce different quant layers or lists in the file.
  *
- * <p>Java class for DataProcessingType complex type.
+ * <p>
+ * Java class for DataProcessingType complex type.
  *
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>
+ * The following schema fragment specifies the expected content contained within this class.
  *
  * <pre>
- * &lt;complexType name="DataProcessingType">
- *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;sequence>
- *         &lt;element name="InputObject_refs" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0}listOfStrings" minOccurs="0"/>
- *         &lt;element name="OutputObject_refs" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0}listOfStrings" minOccurs="0"/>
- *         &lt;element name="ProcessingMethod" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0}ProcessingMethodType" maxOccurs="unbounded"/>
- *       &lt;/sequence>
- *       &lt;attribute name="id" use="required" type="{http://www.w3.org/2001/XMLSchema}string" />
- *       &lt;attribute name="software_ref" use="required" type="{http://www.w3.org/2001/XMLSchema}string" />
- *       &lt;attribute name="order" use="required" type="{http://www.w3.org/2001/XMLSchema}positiveInteger" />
- *     &lt;/restriction>
- *   &lt;/complexContent>
- * &lt;/complexType>
+ * &lt;complexType name="DataProcessingType"&gt;
+ *   &lt;complexContent&gt;
+ *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+ *       &lt;sequence&gt;
+ *         &lt;element name="InputObject_refs" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0}listOfStrings" minOccurs="0"/&gt;
+ *         &lt;element name="OutputObject_refs" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0}listOfStrings" minOccurs="0"/&gt;
+ *         &lt;element name="ProcessingMethod" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0}ProcessingMethodType" maxOccurs="unbounded"/&gt;
+ *       &lt;/sequence&gt;
+ *       &lt;attribute name="id" use="required" type="{http://www.w3.org/2001/XMLSchema}string" /&gt;
+ *       &lt;attribute name="software_ref" use="required" type="{http://www.w3.org/2001/XMLSchema}string" /&gt;
+ *       &lt;attribute name="order" use="required" type="{http://www.w3.org/2001/XMLSchema}positiveInteger" /&gt;
+ *     &lt;/restriction&gt;
+ *   &lt;/complexContent&gt;
+ * &lt;/complexType&gt;
  * </pre>
  *
  *
@@ -168,19 +170,21 @@ public class DataProcessing
     /**
      * Gets the value of the inputObjectRefs property.
      *
-     * <p>This accessor method returns a reference to the live list,
+     * <p>
+     * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a
-     * <CODE>set</CODE> method for the inputObjectRefs property.
+     * This is why there is not a <CODE>set</CODE> method for the inputObjectRefs property.
      *
-     * <p>For example, to add a new item, do as follows:
+     * <p>
+     * For example, to add a new item, do as follows:
      * <pre>
      *    getInputObjectRefs().add(newItem);
      * </pre>
      *
      *
-     * <p>Objects of the following type(s) are allowed in the list
+     * <p>
+     * Objects of the following type(s) are allowed in the list
      * {@link String }
      *
      *
@@ -196,19 +200,21 @@ public class DataProcessing
     /**
      * Gets the value of the outputObjectRefs property.
      *
-     * <p>This accessor method returns a reference to the live list,
+     * <p>
+     * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a
-     * <CODE>set</CODE> method for the outputObjectRefs property.
+     * This is why there is not a <CODE>set</CODE> method for the outputObjectRefs property.
      *
-     * <p>For example, to add a new item, do as follows:
+     * <p>
+     * For example, to add a new item, do as follows:
      * <pre>
      *    getOutputObjectRefs().add(newItem);
      * </pre>
      *
      *
-     * <p>Objects of the following type(s) are allowed in the list
+     * <p>
+     * Objects of the following type(s) are allowed in the list
      * {@link String }
      *
      *
@@ -224,19 +230,21 @@ public class DataProcessing
     /**
      * Gets the value of the processingMethod property.
      *
-     * <p>This accessor method returns a reference to the live list,
+     * <p>
+     * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a
-     * <CODE>set</CODE> method for the processingMethod property.
+     * This is why there is not a <CODE>set</CODE> method for the processingMethod property.
      *
-     * <p>For example, to add a new item, do as follows:
+     * <p>
+     * For example, to add a new item, do as follows:
      * <pre>
      *    getProcessingMethod().add(newItem);
      * </pre>
      *
      *
-     * <p>Objects of the following type(s) are allowed in the list
+     * <p>
+     * Objects of the following type(s) are allowed in the list
      * {@link ProcessingMethod }
      *
      *

@@ -19,17 +19,17 @@ import javax.xml.bind.annotation.XmlType;
  * The following schema fragment specifies the expected content contained within this class.
  *
  * <pre>
- * &lt;complexType name="ExternalDataType">
- *   &lt;complexContent>
- *     &lt;extension base="{http://psidev.info/psi/pi/mzQuantML/1.0.0}IdentifiableType">
- *       &lt;sequence>
- *         &lt;element name="ExternalFormatDocumentation" type="{http://www.w3.org/2001/XMLSchema}anyURI" minOccurs="0"/>
- *         &lt;element name="FileFormat" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0}FileFormatType" minOccurs="0"/>
- *       &lt;/sequence>
- *       &lt;attribute name="location" use="required" type="{http://www.w3.org/2001/XMLSchema}anyURI" />
- *     &lt;/extension>
- *   &lt;/complexContent>
- * &lt;/complexType>
+ * &lt;complexType name="ExternalDataType"&gt;
+ *   &lt;complexContent&gt;
+ *     &lt;extension base="{http://psidev.info/psi/pi/mzQuantML/1.0.0}IdentifiableType"&gt;
+ *       &lt;sequence&gt;
+ *         &lt;element name="ExternalFormatDocumentation" type="{http://www.w3.org/2001/XMLSchema}anyURI" minOccurs="0"/&gt;
+ *         &lt;element name="FileFormat" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0}FileFormatType" minOccurs="0"/&gt;
+ *       &lt;/sequence&gt;
+ *       &lt;attribute name="location" use="required" type="{http://www.w3.org/2001/XMLSchema}anyURI" /&gt;
+ *     &lt;/extension&gt;
+ *   &lt;/complexContent&gt;
+ * &lt;/complexType&gt;
  * </pre>
  *
  *
@@ -50,20 +50,11 @@ public class ExternalData
         extends Identifiable {
 
     private final static long serialVersionUID = 100L;
-    /**
-     *
-     */
     @XmlElement(name = "ExternalFormatDocumentation")
     @XmlSchemaType(name = "anyURI")
     protected String externalFormatDocumentation;
-    /**
-     *
-     */
     @XmlElement(name = "FileFormat")
     protected FileFormat fileFormat;
-    /**
-     *
-     */
     @XmlAttribute(name = "location", required = true)
     @XmlSchemaType(name = "anyURI")
     protected String location;

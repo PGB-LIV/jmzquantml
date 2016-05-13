@@ -112,12 +112,12 @@ public class EscapingXMLUtilities {
 
     /**
      * Substitutes all illegal characters in the given string by the value of
-     * {@link EscapingXMLUtilities#substitute}. If no illegal characters
+     * {@link EscapingXMLUtilities#SUBSTITUTE}. If no illegal characters
      * were found, no copy is made and the given string is returned.
      *
-     * @param string
+     * @param string String
      *
-     * @return
+     * @return escaped string
      */
     public static String escapeCharacters(String string) {
 

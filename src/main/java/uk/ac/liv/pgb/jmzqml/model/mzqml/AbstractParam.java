@@ -20,17 +20,17 @@ import uk.ac.liv.pgb.jmzqml.model.MzQuantMLObject;
  * The following schema fragment specifies the expected content contained within this class.
  *
  * <pre>
- * &lt;complexType name="AbstractParamType">
- *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;attribute name="name" use="required" type="{http://www.w3.org/2001/XMLSchema}string" />
- *       &lt;attribute name="value" type="{http://www.w3.org/2001/XMLSchema}string" />
- *       &lt;attribute name="unitAccession" type="{http://www.w3.org/2001/XMLSchema}string" />
- *       &lt;attribute name="unitName" type="{http://www.w3.org/2001/XMLSchema}string" />
- *       &lt;attribute name="unitCvRef" type="{http://www.w3.org/2001/XMLSchema}string" />
- *     &lt;/restriction>
- *   &lt;/complexContent>
- * &lt;/complexType>
+ * &lt;complexType name="AbstractParamType"&gt;
+ *   &lt;complexContent&gt;
+ *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+ *       &lt;attribute name="name" use="required" type="{http://www.w3.org/2001/XMLSchema}string" /&gt;
+ *       &lt;attribute name="value" type="{http://www.w3.org/2001/XMLSchema}string" /&gt;
+ *       &lt;attribute name="unitAccession" type="{http://www.w3.org/2001/XMLSchema}string" /&gt;
+ *       &lt;attribute name="unitName" type="{http://www.w3.org/2001/XMLSchema}string" /&gt;
+ *       &lt;attribute name="unitCvRef" type="{http://www.w3.org/2001/XMLSchema}string" /&gt;
+ *     &lt;/restriction&gt;
+ *   &lt;/complexContent&gt;
+ * &lt;/complexType&gt;
  * </pre>
  *
  *
@@ -44,29 +44,14 @@ import uk.ac.liv.pgb.jmzqml.model.MzQuantMLObject;
 public abstract class AbstractParam implements Serializable, MzQuantMLObject {
 
     private final static long serialVersionUID = 100L;
-    /**
-     *
-     */
     @XmlAttribute(name = "name", required = true)
     protected String name;
-    /**
-     *
-     */
     @XmlAttribute(name = "value")
     protected String value;
-    /**
-     *
-     */
     @XmlAttribute(name = "unitAccession")
     protected String unitAccession;
-    /**
-     *
-     */
     @XmlAttribute(name = "unitName")
     protected String unitName;
-    /**
-     *
-     */
     @XmlAttribute(name = "unitCvRef")
     protected String unitCvRef;
     /**
@@ -184,6 +169,7 @@ public abstract class AbstractParam implements Serializable, MzQuantMLObject {
     }
 
     /**
+     * Sets the value of the unitCvRef property.
      *
      * @return unitCv
      */

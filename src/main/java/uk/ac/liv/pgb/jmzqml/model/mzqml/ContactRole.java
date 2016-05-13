@@ -15,21 +15,23 @@ import uk.ac.liv.pgb.jmzqml.model.MzQuantMLObject;
  * associations to ContactRole allow the use of a Contact in a certain manner. Examples
  * might include a provider, or a data analyst.
  *
- * <p>Java class for ContactRoleType complex type.
+ * <p>
+ * Java class for ContactRoleType complex type.
  *
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>
+ * The following schema fragment specifies the expected content contained within this class.
  *
  * <pre>
- * &lt;complexType name="ContactRoleType">
- *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;sequence>
- *         &lt;element name="Role" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0}RoleType"/>
- *       &lt;/sequence>
- *       &lt;attribute name="contact_ref" use="required" type="{http://www.w3.org/2001/XMLSchema}string" />
- *     &lt;/restriction>
- *   &lt;/complexContent>
- * &lt;/complexType>
+ * &lt;complexType name="ContactRoleType"&gt;
+ *   &lt;complexContent&gt;
+ *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+ *       &lt;sequence&gt;
+ *         &lt;element name="Role" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0}RoleType"/&gt;
+ *       &lt;/sequence&gt;
+ *       &lt;attribute name="contact_ref" use="required" type="{http://www.w3.org/2001/XMLSchema}string" /&gt;
+ *     &lt;/restriction&gt;
+ *   &lt;/complexContent&gt;
+ * &lt;/complexType&gt;
  * </pre>
  *
  *
@@ -60,7 +62,7 @@ public class ContactRole
 
     /**
      *
-     * @return
+     * @return person
      */
     public Person getPerson() {
         if (contact instanceof Person) {
@@ -73,7 +75,7 @@ public class ContactRole
 
     /**
      *
-     * @return
+     * @return organization
      */
     public Organization getOrganization() {
         if (contact instanceof Organization) {
@@ -122,7 +124,7 @@ public class ContactRole
 
     /**
      *
-     * @return
+     * @return abstract contact
      */
     public AbstractContact getContact() {
         return contact;
@@ -131,7 +133,7 @@ public class ContactRole
     /**
      * Set contact. contactRef is also updated.
      *
-     * @param contact
+     * @param contact abstract contact
      */
     public void setContact(AbstractContact contact) {
         if (contact == null) {

@@ -284,7 +284,7 @@ public class MzQuantMLUnmarshaller {
      *
      * @return an object of the specified class by defined id.
      *
-     * @throws JAXBException
+     * @throws JAXBException JAXB exception
      */
     public <T extends MzQuantMLObject> T unmarshal(Class<T> clazz, String id)
             throws JAXBException {
@@ -333,7 +333,7 @@ public class MzQuantMLUnmarshaller {
      *
      * @return a Set of all IDs of the specified element.
      *
-     * @throws ConfigurationException
+     * @throws ConfigurationException exception
      */
     public Set<String> getIDsForElement(MzQuantMLElement element)
             throws ConfigurationException {

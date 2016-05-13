@@ -15,14 +15,14 @@ import org.apache.commons.lang3.builder.HashCodeBuilder;
  * The following schema fragment specifies the expected content contained within this class.
  *
  * <pre>
- * &lt;complexType name="CVParamType">
- *   &lt;complexContent>
- *     &lt;extension base="{http://psidev.info/psi/pi/mzQuantML/1.0.0}AbstractParamType">
- *       &lt;attribute name="cvRef" use="required" type="{http://www.w3.org/2001/XMLSchema}string" />
- *       &lt;attribute name="accession" use="required" type="{http://www.w3.org/2001/XMLSchema}string" />
- *     &lt;/extension>
- *   &lt;/complexContent>
- * &lt;/complexType>
+ * &lt;complexType name="CVParamType"&gt;
+ *   &lt;complexContent&gt;
+ *     &lt;extension base="{http://psidev.info/psi/pi/mzQuantML/1.0.0}AbstractParamType"&gt;
+ *       &lt;attribute name="cvRef" use="required" type="{http://www.w3.org/2001/XMLSchema}string" /&gt;
+ *       &lt;attribute name="accession" use="required" type="{http://www.w3.org/2001/XMLSchema}string" /&gt;
+ *     &lt;/extension&gt;
+ *   &lt;/complexContent&gt;
+ * &lt;/complexType&gt;
  * </pre>
  *
  *
@@ -33,14 +33,8 @@ public class CvParam
         extends AbstractParam {
 
     private final static long serialVersionUID = 100L;
-    /**
-     *
-     */
     @XmlAttribute(name = "cvRef", required = true)
     protected String cvRef;
-    /**
-     *
-     */
     @XmlAttribute(name = "accession", required = true)
     protected String accession;
 

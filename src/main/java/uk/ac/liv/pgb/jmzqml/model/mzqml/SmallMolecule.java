@@ -16,24 +16,26 @@ import uk.ac.liv.pgb.jmzqml.model.utils.FacadeList;
 /**
  * An element to represent a unique identifier of a small molecule for which quantitative values are reported.
  *
- * <p>Java class for SmallMoleculeType complex type.
+ * <p>
+ * Java class for SmallMoleculeType complex type.
  *
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>
+ * The following schema fragment specifies the expected content contained within this class.
  *
  * <pre>
- * &lt;complexType name="SmallMoleculeType">
- *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;sequence>
- *         &lt;element name="Modification" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0}SmallMolModificationType" maxOccurs="unbounded" minOccurs="0"/>
- *         &lt;element name="DBIdentificationRef" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0}DBIdentificationRefType" maxOccurs="unbounded" minOccurs="0"/>
- *         &lt;element name="Feature_refs" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0}listOfStrings" minOccurs="0"/>
- *         &lt;group ref="{http://psidev.info/psi/pi/mzQuantML/1.0.0}ParamGroup" maxOccurs="unbounded" minOccurs="0"/>
- *       &lt;/sequence>
- *       &lt;attribute name="id" use="required" type="{http://www.w3.org/2001/XMLSchema}string" />
- *     &lt;/restriction>
- *   &lt;/complexContent>
- * &lt;/complexType>
+ * &lt;complexType name="SmallMoleculeType"&gt;
+ *   &lt;complexContent&gt;
+ *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+ *       &lt;sequence&gt;
+ *         &lt;element name="Modification" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0}SmallMolModificationType" maxOccurs="unbounded" minOccurs="0"/&gt;
+ *         &lt;element name="DBIdentificationRef" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0}DBIdentificationRefType" maxOccurs="unbounded" minOccurs="0"/&gt;
+ *         &lt;element name="Feature_refs" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0}listOfStrings" minOccurs="0"/&gt;
+ *         &lt;group ref="{http://psidev.info/psi/pi/mzQuantML/1.0.0}ParamGroup" maxOccurs="unbounded" minOccurs="0"/&gt;
+ *       &lt;/sequence&gt;
+ *       &lt;attribute name="id" use="required" type="{http://www.w3.org/2001/XMLSchema}string" /&gt;
+ *     &lt;/restriction&gt;
+ *   &lt;/complexContent&gt;
+ * &lt;/complexType&gt;
  * </pre>
  */
 @XmlAccessorType(XmlAccessType.FIELD)
@@ -100,18 +102,21 @@ public class SmallMolecule
     /**
      * Gets the value of the modification property.
      *
-     * <p>This accessor method returns a reference to the live list,
+     * <p>
+     * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a
-     * <CODE>set</CODE> method for the modification property.
+     * This is why there is not a <CODE>set</CODE> method for the modification property.
      *
-     * <p>For example, to add a new item, do as follows:
+     * <p>
+     * For example, to add a new item, do as follows:
      * <pre>
      *    getModification().add(newItem);
      * </pre>
      *
-     * <p>Objects of the following type(s) are allowed in the list
+     *
+     * <p>
+     * Objects of the following type(s) are allowed in the list
      * {@link SmallMolModification }
      *
      * @return the value of the modification property.
@@ -126,18 +131,21 @@ public class SmallMolecule
     /**
      * Gets the value of the dbIdentificationRef property.
      *
-     * <p>This accessor method returns a reference to the live list,
+     * <p>
+     * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a
-     * <CODE>set</CODE> method for the dbIdentificationRef property.
+     * This is why there is not a <CODE>set</CODE> method for the dbIdentificationRef property.
      *
-     * <p>For example, to add a new item, do as follows:
+     * <p>
+     * For example, to add a new item, do as follows:
      * <pre>
      *    getDBIdentificationRef().add(newItem);
      * </pre>
      *
-     * <p>Objects of the following type(s) are allowed in the list
+     *
+     * <p>
+     * Objects of the following type(s) are allowed in the list
      * {@link DBIdentificationRef }
      *
      * @return the value of the dbIdentificationRef property.
@@ -152,19 +160,21 @@ public class SmallMolecule
     /**
      * Gets the value of the featureRefs property.
      *
-     * <p>This accessor method returns a reference to the live list,
+     * <p>
+     * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a
-     * <CODE>set</CODE> method for the featureRefs property.
+     * This is why there is not a <CODE>set</CODE> method for the featureRefs property.
      *
-     * <p>For example, to add a new item, do as follows:
+     * <p>
+     * For example, to add a new item, do as follows:
      * <pre>
      *    getFeatureRefs().add(newItem);
      * </pre>
      *
      *
-     * <p>Objects of the following type(s) are allowed in the list
+     * <p>
+     * Objects of the following type(s) are allowed in the list
      * {@link String }
      *
      *
@@ -180,19 +190,21 @@ public class SmallMolecule
     /**
      * Additional parameters or values about this small molecule.Gets the value of the paramGroup property.
      *
-     * <p>This accessor method returns a reference to the live list,
+     * <p>
+     * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a
-     * <CODE>set</CODE> method for the paramGroup property.
+     * This is why there is not a <CODE>set</CODE> method for the paramGroup property.
      *
-     * <p>For example, to add a new item, do as follows:
+     * <p>
+     * For example, to add a new item, do as follows:
      * <pre>
      *    getParamGroup().add(newItem);
      * </pre>
      *
      *
-     * <p>Objects of the following type(s) are allowed in the list
+     * <p>
+     * Objects of the following type(s) are allowed in the list
      * {@link CvParam }
      * {@link UserParam }
      *

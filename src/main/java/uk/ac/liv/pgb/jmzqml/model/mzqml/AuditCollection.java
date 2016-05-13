@@ -13,21 +13,23 @@ import uk.ac.liv.pgb.jmzqml.model.MzQuantMLObject;
 /**
  * The complete set of Contacts (people and organisations) for this file.
  *
- * <p>Java class for AuditCollectionType complex type.
+ * <p>
+ * Java class for AuditCollectionType complex type.
  *
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>
+ * The following schema fragment specifies the expected content contained within this class.
  *
  * <pre>
- * &lt;complexType name="AuditCollectionType">
- *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;sequence>
- *         &lt;element name="Person" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0}PersonType" maxOccurs="unbounded" minOccurs="0"/>
- *         &lt;element name="Organization" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0}OrganizationType" maxOccurs="unbounded" minOccurs="0"/>
- *       &lt;/sequence>
- *     &lt;/restriction>
- *   &lt;/complexContent>
- * &lt;/complexType>
+ * &lt;complexType name="AuditCollectionType"&gt;
+ *   &lt;complexContent&gt;
+ *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+ *       &lt;sequence&gt;
+ *         &lt;element name="Person" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0}PersonType" maxOccurs="unbounded" minOccurs="0"/&gt;
+ *         &lt;element name="Organization" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0}OrganizationType" maxOccurs="unbounded" minOccurs="0"/&gt;
+ *       &lt;/sequence&gt;
+ *     &lt;/restriction&gt;
+ *   &lt;/complexContent&gt;
+ * &lt;/complexType&gt;
  * </pre>
  *
  *
@@ -53,8 +55,7 @@ public class AuditCollection
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a
-     * <CODE>set</CODE> method for the person property.
+     * This is why there is not a <CODE>set</CODE> method for the person property.
      *
      * <p>
      * For example, to add a new item, do as follows:
@@ -84,8 +85,7 @@ public class AuditCollection
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a
-     * <CODE>set</CODE> method for the organization property.
+     * This is why there is not a <CODE>set</CODE> method for the organization property.
      *
      * <p>
      * For example, to add a new item, do as follows:

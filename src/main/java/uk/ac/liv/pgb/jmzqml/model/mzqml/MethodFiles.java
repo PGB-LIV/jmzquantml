@@ -13,20 +13,22 @@ import uk.ac.liv.pgb.jmzqml.model.MzQuantMLObject;
 /**
  * All methods files associated with this quantitation analysis to be referenced elsewhere, for example used to describe TraML files used in SRM analysis.
  *
- * <p>Java class for MethodFilesType complex type.
+ * <p>
+ * Java class for MethodFilesType complex type.
  *
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>
+ * The following schema fragment specifies the expected content contained within this class.
  *
  * <pre>
- * &lt;complexType name="MethodFilesType">
- *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;sequence>
- *         &lt;element name="MethodFile" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0}MethodFileType" maxOccurs="unbounded"/>
- *       &lt;/sequence>
- *     &lt;/restriction>
- *   &lt;/complexContent>
- * &lt;/complexType>
+ * &lt;complexType name="MethodFilesType"&gt;
+ *   &lt;complexContent&gt;
+ *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+ *       &lt;sequence&gt;
+ *         &lt;element name="MethodFile" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0}MethodFileType" maxOccurs="unbounded"/&gt;
+ *       &lt;/sequence&gt;
+ *     &lt;/restriction&gt;
+ *   &lt;/complexContent&gt;
+ * &lt;/complexType&gt;
  * </pre>
  *
  *
@@ -49,8 +51,7 @@ public class MethodFiles
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a
-     * <CODE>set</CODE> method for the methodFile property.
+     * This is why there is not a <CODE>set</CODE> method for the methodFile property.
      *
      * <p>
      * For example, to add a new item, do as follows:

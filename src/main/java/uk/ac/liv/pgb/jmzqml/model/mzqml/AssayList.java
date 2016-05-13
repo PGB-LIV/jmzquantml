@@ -11,21 +11,23 @@ import javax.xml.bind.annotation.XmlType;
 /**
  * The list of assays represented by the file, where each assay captures the concept of one sample analysed - this can be one or more raw files.
  *
- * <p>Java class for AssayListType complex type.
+ * <p>
+ * Java class for AssayListType complex type.
  *
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>
+ * The following schema fragment specifies the expected content contained within this class.
  *
  * <pre>
- * &lt;complexType name="AssayListType">
- *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;sequence>
- *         &lt;element name="Assay" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0}AssayType" maxOccurs="unbounded"/>
- *       &lt;/sequence>
- *       &lt;attribute name="id" use="required" type="{http://www.w3.org/2001/XMLSchema}string" />
- *     &lt;/restriction>
- *   &lt;/complexContent>
- * &lt;/complexType>
+ * &lt;complexType name="AssayListType"&gt;
+ *   &lt;complexContent&gt;
+ *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+ *       &lt;sequence&gt;
+ *         &lt;element name="Assay" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0}AssayType" maxOccurs="unbounded"/&gt;
+ *       &lt;/sequence&gt;
+ *       &lt;attribute name="id" use="required" type="{http://www.w3.org/2001/XMLSchema}string" /&gt;
+ *     &lt;/restriction&gt;
+ *   &lt;/complexContent&gt;
+ * &lt;/complexType&gt;
  * </pre>
  *
  *
@@ -48,8 +50,7 @@ public class AssayList
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a
-     * <CODE>set</CODE> method for the assay property.
+     * This is why there is not a <CODE>set</CODE> method for the assay property.
      *
      * <p>
      * For example, to add a new item, do as follows:

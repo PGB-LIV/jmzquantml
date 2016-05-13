@@ -17,13 +17,13 @@ import uk.ac.liv.pgb.jmzqml.model.MzQuantMLObject;
  * The following schema fragment specifies the expected content contained within this class.
  *
  * <pre>
- * &lt;complexType name="AffiliationType">
- *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;attribute name="organization_ref" use="required" type="{http://www.w3.org/2001/XMLSchema}string" />
- *     &lt;/restriction>
- *   &lt;/complexContent>
- * &lt;/complexType>
+ * &lt;complexType name="AffiliationType"&gt;
+ *   &lt;complexContent&gt;
+ *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+ *       &lt;attribute name="organization_ref" use="required" type="{http://www.w3.org/2001/XMLSchema}string" /&gt;
+ *     &lt;/restriction&gt;
+ *   &lt;/complexContent&gt;
+ * &lt;/complexType&gt;
  * </pre>
  *
  *
@@ -34,15 +34,9 @@ public class Affiliation
         implements Serializable, MzQuantMLObject {
 
     private final static long serialVersionUID = 100L;
-    /**
-     *
-     */
     @XmlAttribute(name = "organization_ref", required = true)
     protected String organizationRef;
 
-    /**
-     *
-     */
     @XmlTransient
     protected Organization organization;
 

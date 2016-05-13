@@ -24,34 +24,34 @@ import uk.ac.liv.pgb.jmzqml.xml.jaxb.adapter.CalendarAdapter;
  * The following schema fragment specifies the expected content contained within this class.
  *
  * <pre>
- * &lt;complexType name="MzQuantMLType">
- *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;sequence>
- *         &lt;element name="CvList" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0}CvListType"/>
- *         &lt;element name="Provider" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0}ProviderType" minOccurs="0"/>
- *         &lt;element name="AuditCollection" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0}AuditCollectionType" minOccurs="0"/>
- *         &lt;element name="AnalysisSummary" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0}ParamListType"/>
- *         &lt;element name="InputFiles" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0}InputFilesType"/>
- *         &lt;element name="SoftwareList" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0}SoftwareListType"/>
- *         &lt;element name="DataProcessingList" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0}DataProcessingListType"/>
- *         &lt;element name="BibliographicReference" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0}BibliographicReferenceType" maxOccurs="unbounded" minOccurs="0"/>
- *         &lt;element name="AssayList" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0}AssayListType"/>
- *         &lt;element name="StudyVariableList" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0}StudyVariableListType" minOccurs="0"/>
- *         &lt;element name="RatioList" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0}RatioListType" minOccurs="0"/>
- *         &lt;element name="ProteinGroupList" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0}ProteinGroupListType" minOccurs="0"/>
- *         &lt;element name="ProteinList" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0}ProteinListType" minOccurs="0"/>
- *         &lt;element name="PeptideConsensusList" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0}PeptideConsensusListType" maxOccurs="unbounded" minOccurs="0"/>
- *         &lt;element name="SmallMoleculeList" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0}SmallMoleculeListType" minOccurs="0"/>
- *         &lt;element name="FeatureList" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0}FeatureListType" maxOccurs="unbounded" minOccurs="0"/>
- *       &lt;/sequence>
- *       &lt;attribute name="creationDate" type="{http://www.w3.org/2001/XMLSchema}dateTime" />
- *       &lt;attribute name="version" use="required" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0}versionRegex" />
- *       &lt;attribute name="id" use="required" type="{http://www.w3.org/2001/XMLSchema}string" />
- *       &lt;attribute name="name" type="{http://www.w3.org/2001/XMLSchema}string" />
- *     &lt;/restriction>
- *   &lt;/complexContent>
- * &lt;/complexType>
+ * &lt;complexType name="MzQuantMLType"&gt;
+ *   &lt;complexContent&gt;
+ *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+ *       &lt;sequence&gt;
+ *         &lt;element name="CvList" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0}CvListType"/&gt;
+ *         &lt;element name="Provider" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0}ProviderType" minOccurs="0"/&gt;
+ *         &lt;element name="AuditCollection" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0}AuditCollectionType" minOccurs="0"/&gt;
+ *         &lt;element name="AnalysisSummary" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0}ParamListType"/&gt;
+ *         &lt;element name="InputFiles" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0}InputFilesType"/&gt;
+ *         &lt;element name="SoftwareList" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0}SoftwareListType"/&gt;
+ *         &lt;element name="DataProcessingList" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0}DataProcessingListType"/&gt;
+ *         &lt;element name="BibliographicReference" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0}BibliographicReferenceType" maxOccurs="unbounded" minOccurs="0"/&gt;
+ *         &lt;element name="AssayList" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0}AssayListType"/&gt;
+ *         &lt;element name="StudyVariableList" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0}StudyVariableListType" minOccurs="0"/&gt;
+ *         &lt;element name="RatioList" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0}RatioListType" minOccurs="0"/&gt;
+ *         &lt;element name="ProteinGroupList" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0}ProteinGroupListType" minOccurs="0"/&gt;
+ *         &lt;element name="ProteinList" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0}ProteinListType" minOccurs="0"/&gt;
+ *         &lt;element name="PeptideConsensusList" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0}PeptideConsensusListType" maxOccurs="unbounded" minOccurs="0"/&gt;
+ *         &lt;element name="SmallMoleculeList" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0}SmallMoleculeListType" minOccurs="0"/&gt;
+ *         &lt;element name="FeatureList" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0}FeatureListType" maxOccurs="unbounded" minOccurs="0"/&gt;
+ *       &lt;/sequence&gt;
+ *       &lt;attribute name="creationDate" type="{http://www.w3.org/2001/XMLSchema}dateTime" /&gt;
+ *       &lt;attribute name="version" use="required" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0}versionRegex" /&gt;
+ *       &lt;attribute name="id" use="required" type="{http://www.w3.org/2001/XMLSchema}string" /&gt;
+ *       &lt;attribute name="name" type="{http://www.w3.org/2001/XMLSchema}string" /&gt;
+ *     &lt;/restriction&gt;
+ *   &lt;/complexContent&gt;
+ * &lt;/complexType&gt;
  * </pre>
  *
  *
@@ -293,8 +293,7 @@ public class MzQuantML extends Identifiable {
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a
-     * <CODE>set</CODE> method for the bibliographicReference property.
+     * This is why there is not a <CODE>set</CODE> method for the bibliographicReference property.
      *
      * <p>
      * For example, to add a new item, do as follows:
@@ -444,8 +443,7 @@ public class MzQuantML extends Identifiable {
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a
-     * <CODE>set</CODE> method for the peptideConsensusList property.
+     * This is why there is not a <CODE>set</CODE> method for the peptideConsensusList property.
      *
      * <p>
      * For example, to add a new item, do as follows:
@@ -499,8 +497,7 @@ public class MzQuantML extends Identifiable {
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a
-     * <CODE>set</CODE> method for the featureList property.
+     * This is why there is not a <CODE>set</CODE> method for the featureList property.
      *
      * <p>
      * For example, to add a new item, do as follows:

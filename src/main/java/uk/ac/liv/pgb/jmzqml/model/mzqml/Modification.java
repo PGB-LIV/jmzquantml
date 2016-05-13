@@ -15,24 +15,26 @@ import uk.ac.liv.pgb.jmzqml.model.MzQuantMLObject;
 /**
  * A molecule modification specification. If n modifications have been found on a peptide, there should be n instances of Modification. If multiple	modifications are provided as cvParams, it is assumed that the modification is ambiguous i.e. one modification or another. A cvParam must be provided with the identification of the modification sourced from a suitable CV e.g. UNIMOD. If the modification is not present in the CV (and this will be checked by the semantic validator within a given tolerance window), there is an _unknown modification_CV term that must be used instead. A neutral loss should be defined as an additional CVParam within Modification.
  *
- * <p>Java class for ModificationType complex type.
+ * <p>
+ * Java class for ModificationType complex type.
  *
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>
+ * The following schema fragment specifies the expected content contained within this class.
  *
  * <pre>
- * &lt;complexType name="ModificationType">
- *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;sequence>
- *         &lt;element name="cvParam" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0}CVParamType" maxOccurs="unbounded"/>
- *       &lt;/sequence>
- *       &lt;attribute name="location" type="{http://www.w3.org/2001/XMLSchema}int" />
- *       &lt;attribute name="residues" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0}listOfChars" />
- *       &lt;attribute name="avgMassDelta" type="{http://www.w3.org/2001/XMLSchema}double" />
- *       &lt;attribute name="monoisotopicMassDelta" type="{http://www.w3.org/2001/XMLSchema}double" />
- *     &lt;/restriction>
- *   &lt;/complexContent>
- * &lt;/complexType>
+ * &lt;complexType name="ModificationType"&gt;
+ *   &lt;complexContent&gt;
+ *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+ *       &lt;sequence&gt;
+ *         &lt;element name="cvParam" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0}CVParamType" maxOccurs="unbounded"/&gt;
+ *       &lt;/sequence&gt;
+ *       &lt;attribute name="location" type="{http://www.w3.org/2001/XMLSchema}int" /&gt;
+ *       &lt;attribute name="residues" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0}listOfChars" /&gt;
+ *       &lt;attribute name="avgMassDelta" type="{http://www.w3.org/2001/XMLSchema}double" /&gt;
+ *       &lt;attribute name="monoisotopicMassDelta" type="{http://www.w3.org/2001/XMLSchema}double" /&gt;
+ *     &lt;/restriction&gt;
+ *   &lt;/complexContent&gt;
+ * &lt;/complexType&gt;
  * </pre>
  *
  *
@@ -63,8 +65,7 @@ public class Modification
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a
-     * <CODE>set</CODE> method for the cvParam property.
+     * This is why there is not a <CODE>set</CODE> method for the cvParam property.
      *
      * <p>
      * For example, to add a new item, do as follows:
@@ -119,8 +120,7 @@ public class Modification
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a
-     * <CODE>set</CODE> method for the residues property.
+     * This is why there is not a <CODE>set</CODE> method for the residues property.
      *
      * <p>
      * For example, to add a new item, do as follows:

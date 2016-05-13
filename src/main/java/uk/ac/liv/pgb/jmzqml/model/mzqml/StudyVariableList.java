@@ -13,20 +13,22 @@ import uk.ac.liv.pgb.jmzqml.model.MzQuantMLObject;
 /**
  * The list of experimental conditions used to group results.
  *
- * <p>Java class for StudyVariableListType complex type.
+ * <p>
+ * Java class for StudyVariableListType complex type.
  *
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>
+ * The following schema fragment specifies the expected content contained within this class.
  *
  * <pre>
- * &lt;complexType name="StudyVariableListType">
- *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;sequence>
- *         &lt;element name="StudyVariable" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0}StudyVariableType" maxOccurs="unbounded"/>
- *       &lt;/sequence>
- *     &lt;/restriction>
- *   &lt;/complexContent>
- * &lt;/complexType>
+ * &lt;complexType name="StudyVariableListType"&gt;
+ *   &lt;complexContent&gt;
+ *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+ *       &lt;sequence&gt;
+ *         &lt;element name="StudyVariable" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0}StudyVariableType" maxOccurs="unbounded"/&gt;
+ *       &lt;/sequence&gt;
+ *     &lt;/restriction&gt;
+ *   &lt;/complexContent&gt;
+ * &lt;/complexType&gt;
  * </pre>
  *
  *
@@ -49,8 +51,7 @@ public class StudyVariableList
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a
-     * <CODE>set</CODE> method for the studyVariable property.
+     * This is why there is not a <CODE>set</CODE> method for the studyVariable property.
      *
      * <p>
      * For example, to add a new item, do as follows:

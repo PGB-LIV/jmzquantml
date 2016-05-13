@@ -15,22 +15,24 @@ import uk.ac.liv.pgb.jmzqml.model.MzQuantMLObject;
 /**
  * The modification searched for or used to define the label or tag for quantification. It SHOULD be sourced from UniMod, PSI-MS or PSI-MOD.
  *
- * <p>Java class for ModParamType complex type.
+ * <p>
+ * Java class for ModParamType complex type.
  *
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>
+ * The following schema fragment specifies the expected content contained within this class.
  *
  * <pre>
- * &lt;complexType name="ModParamType">
- *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;sequence>
- *         &lt;element name="cvParam" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0}CVParamType"/>
- *       &lt;/sequence>
- *       &lt;attribute name="massDelta" type="{http://www.w3.org/2001/XMLSchema}float" />
- *       &lt;attribute name="residues" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0}listOfChars" />
- *     &lt;/restriction>
- *   &lt;/complexContent>
- * &lt;/complexType>
+ * &lt;complexType name="ModParamType"&gt;
+ *   &lt;complexContent&gt;
+ *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+ *       &lt;sequence&gt;
+ *         &lt;element name="cvParam" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0}CVParamType"/&gt;
+ *       &lt;/sequence&gt;
+ *       &lt;attribute name="massDelta" type="{http://www.w3.org/2001/XMLSchema}float" /&gt;
+ *       &lt;attribute name="residues" type="{http://psidev.info/psi/pi/mzQuantML/1.0.0}listOfChars" /&gt;
+ *     &lt;/restriction&gt;
+ *   &lt;/complexContent&gt;
+ * &lt;/complexType&gt;
  * </pre>
  *
  *
@@ -107,8 +109,7 @@ public class ModParam
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a
-     * <CODE>set</CODE> method for the residues property.
+     * This is why there is not a <CODE>set</CODE> method for the residues property.
      *
      * <p>
      * For example, to add a new item, do as follows:
