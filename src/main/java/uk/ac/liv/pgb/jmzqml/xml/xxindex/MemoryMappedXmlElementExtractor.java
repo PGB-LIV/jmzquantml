@@ -196,10 +196,12 @@ public class MemoryMappedXmlElementExtractor {
         // read into buffer
         myskip(inputStream, from);
         //inputStream.skip(from);
-        while (inputStream.read(bytes, 0, length.intValue()) > 0) {
+        if (inputStream.read(bytes, 0, length.intValue()) > 0) {
             return bytes;
         }
-        return null;
+        else {
+            return null;
+        }
     }
 
     /**
