@@ -7,4 +7,6 @@
 <suppressions>
   <suppress checks=".*"
              files="uk[\\/]ac[\\/]liv[\\/]pgb[\\/]jmzqml[\\/]model[\\/]mzqml[\\/]"/>
+  <suppress checks="LineLengthCheck"
+            files=".*"/>  
 </suppressions>
