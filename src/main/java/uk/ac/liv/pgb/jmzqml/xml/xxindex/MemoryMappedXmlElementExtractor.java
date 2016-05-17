@@ -62,7 +62,7 @@ public class MemoryMappedXmlElementExtractor {
     /**
      * @return The currently set encoding.
      */
-    public Charset getEncoding() {
+    public final Charset getEncoding() {
         return encoding;
     }
 
@@ -70,7 +70,7 @@ public class MemoryMappedXmlElementExtractor {
      * @param encoding The encoding to use when converting the read byte array
      *                 into a String.
      */
-    public void setEncoding(final Charset encoding) {
+    public final void setEncoding(final Charset encoding) {
         this.encoding = encoding;
     }
 
@@ -84,7 +84,7 @@ public class MemoryMappedXmlElementExtractor {
      *         valid and -2 if the specified encoding is not supported by this virtual
      *         machine.
      */
-    public int setEncoding(final String encoding) {
+    public final int setEncoding(final String encoding) {
         int result;
         try {
             this.encoding = Charset.forName(encoding);
@@ -104,7 +104,7 @@ public class MemoryMappedXmlElementExtractor {
     /**
      * @return Flag whether the system default encoding is used for decoding.
      */
-    public boolean isUseSystemDefaultEncoding() {
+    public final boolean isUseSystemDefaultEncoding() {
         return useSystemDefaultEncoding;
     }
 
@@ -116,7 +116,7 @@ public class MemoryMappedXmlElementExtractor {
      * @param useSystemDefaultEncoding A flag whether to use the system default
      *                                 character encoding.
      */
-    public void setUseSystemDefaultEncoding(
+    public final void setUseSystemDefaultEncoding(
             final boolean useSystemDefaultEncoding) {
         this.useSystemDefaultEncoding = useSystemDefaultEncoding;
     }
@@ -134,8 +134,8 @@ public class MemoryMappedXmlElementExtractor {
      *
      * @throws java.io.IOException if an I/O error occurs while reading.
      */
-    public String readString(final IndexElement br,
-                             final InputStream inputStream)
+    public final String readString(final IndexElement br,
+                                   final InputStream inputStream)
             throws IOException {
         return readString(br.getStart(), br.getStop(), inputStream);
     }
@@ -158,8 +158,8 @@ public class MemoryMappedXmlElementExtractor {
      *
      * @throws java.io.IOException
      */
-    public String readString(final long from, final long to,
-                             final InputStream inputStream)
+    public final String readString(final long from, final long to,
+                                   final InputStream inputStream)
             throws IOException {
         // retrieve the bytes from the given range in the file
         byte[] bytes = readBytes(from, to, inputStream);
@@ -186,8 +186,8 @@ public class MemoryMappedXmlElementExtractor {
      * @throws IllegalArgumentException If the range specified to read (to -
      *                                  from) is to big (&gt; Integer.MAX_VALUE characters).
      */
-    public byte[] readBytes(final long from, final long to,
-                            final InputStream inputStream)
+    public final byte[] readBytes(final long from, final long to,
+                                  final InputStream inputStream)
             throws IOException {
         byte[] bytes;
 
@@ -221,7 +221,7 @@ public class MemoryMappedXmlElementExtractor {
      * @throws IOException If the specified location could not be opened for
      *                     reading.
      */
-    public String detectFileEncoding(final InputStream inputStream)
+    public final String detectFileEncoding(final InputStream inputStream)
             throws IOException {
         return detectFileEncoding(inputStream, 1000);
     }
@@ -242,8 +242,8 @@ public class MemoryMappedXmlElementExtractor {
      * @throws IOException If the specified location could not be opened for
      *                     reading.
      */
-    public String detectFileEncoding(final InputStream inputStream,
-                                     final int maxReadLength)
+    public final String detectFileEncoding(final InputStream inputStream,
+                                           final int maxReadLength)
             throws IOException {
 
         // read a bit of the input file and check if it contains a XML header
@@ -292,7 +292,7 @@ public class MemoryMappedXmlElementExtractor {
      *
      * @return byte array free of zero bytes.
      */
-    public byte[] removeZeroBytes(final byte[] bytes) {
+    public final byte[] removeZeroBytes(final byte[] bytes) {
         // This code is pretty low-level and may seem peculiar.
         // The reason for coding it this way is performance. If a
         // collection is used here rather than a staging array,
@@ -335,7 +335,7 @@ public class MemoryMappedXmlElementExtractor {
      * @see setUseSystemDefaultEncoding(boolean)
      * @see setEncoding(String)
      */
-    public String bytes2String(final byte[] bytes)
+    public final String bytes2String(final byte[] bytes)
             throws UnsupportedEncodingException {
 
         // if the user prefers the system default character encoding our life is easy

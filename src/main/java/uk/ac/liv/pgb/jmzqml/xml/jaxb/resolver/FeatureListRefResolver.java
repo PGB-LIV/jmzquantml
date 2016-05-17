@@ -49,7 +49,7 @@ public class FeatureListRefResolver extends AbstractReferenceResolver<FeatureLis
      * @param object FeatureList
      */
     @Override
-    public void updateObject(final FeatureList object) {
+    public final void updateObject(final FeatureList object) {
 
         String ref = object.getRawFilesGroupRef();
         if (ref != null) {
@@ -66,7 +66,7 @@ public class FeatureListRefResolver extends AbstractReferenceResolver<FeatureLis
      * @param parent object referencing the target. Null if target is root element.
      */
     @Override
-    public void afterUnmarshal(final Object target, final Object parent) {
+    public final void afterUnmarshal(final Object target, final Object parent) {
         if (FeatureList.class.isInstance(target) && MzQuantMLElement.FeatureList.isAutoRefResolving()) {
             updateObject((FeatureList) target);
         } // else, not business of this resolver

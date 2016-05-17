@@ -75,7 +75,8 @@ public abstract class AbstractReferenceResolver<T extends MzQuantMLObject>
      *
      * @return an object of the specified class.
      */
-    public <R extends MzQuantMLObject> R unmarshal(final String refId, final Class<R> cls) {
+    public final <R extends MzQuantMLObject> R unmarshal(final String refId,
+                                                         final Class<R> cls) {
         R retVal;
         Class<R> clz = cls;
 
@@ -83,10 +84,8 @@ public abstract class AbstractReferenceResolver<T extends MzQuantMLObject>
         //        if (cache != null) {
         //            retVal = cache.getCachedObject(refId, cls);
         //        }
-
         // if the referenced object/element is not yet in the cache (or no cache
         // is available) create it from the XML using the index and ID maps
-
         LOG.debug("AbstractReferenceResolver.unmarshal for id: " + refId);
         // first retrieve the XML snippet representing the referenced object/element
         String xml;
@@ -132,25 +131,22 @@ public abstract class AbstractReferenceResolver<T extends MzQuantMLObject>
              * return (R) contact;
              * }
              */
-
             // add it to the cache, if we there is one (as it was not in there)
             // the cache may accept this object or not depending on the settings in MzIdentMLElement
 //                if (cache != null) {
 //                    cache.putInCache(refId, retVal);
 //                }
-
         }
         catch (JAXBException e) {
             LOG.error("AbstractReferenceResolver.unmarshal", e);
             throw new IllegalStateException("Could not unmarshall refId: " + refId + " for element type: " + cls);
         }
 
-
         // finally return the referenced object
         return retVal;
     }
 
-    protected MzQuantMLIndexer getIndexer() {
+    protected final MzQuantMLIndexer getIndexer() {
         return this.index;
     }
 

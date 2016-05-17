@@ -17,7 +17,8 @@ public class CvParamRefResolver extends AbstractReferenceResolver<CvParam> {
      * @param index MzQuantMLIndexer
      * @param cache MzQuantMLObjectCache
      */
-    public CvParamRefResolver(final MzQuantMLIndexer index, final MzQuantMLObjectCache cache) {
+    public CvParamRefResolver(final MzQuantMLIndexer index,
+                              final MzQuantMLObjectCache cache) {
         super(index, cache);
     }
 
@@ -26,7 +27,7 @@ public class CvParamRefResolver extends AbstractReferenceResolver<CvParam> {
      * @param object CvParam
      */
     @Override
-    public void updateObject(final CvParam object) {
+    public final void updateObject(final CvParam object) {
         // add objects for the refID
         String ref = object.getCvRef();
         if (ref != null) {
@@ -43,7 +44,7 @@ public class CvParamRefResolver extends AbstractReferenceResolver<CvParam> {
      * @param parent object referencing the target. Null if target is root element.
      */
     @Override
-    public void afterUnmarshal(final Object target, final Object parent) {
+    public final void afterUnmarshal(final Object target, final Object parent) {
         if (CvParam.class.isInstance(target) && MzQuantMLElement.CvParam.isAutoRefResolving()) {
             updateObject((CvParam) target);
         } // else, not business of this resolver

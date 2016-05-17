@@ -49,7 +49,7 @@ public class ContactRoleRefResolver extends AbstractReferenceResolver<ContactRol
      * @param object ContactRole
      */
     @Override
-    public void updateObject(final ContactRole object) {
+    public final void updateObject(final ContactRole object) {
 
         String ref = object.getContactRef();
         if (ref != null) {
@@ -66,7 +66,7 @@ public class ContactRoleRefResolver extends AbstractReferenceResolver<ContactRol
      * @param parent object referencing the target. Null if target is root element.
      */
     @Override
-    public void afterUnmarshal(final Object target, final Object parent) {
+    public final void afterUnmarshal(final Object target, final Object parent) {
         if (ContactRole.class.isInstance(target) && MzQuantMLElement.ContactRole.isAutoRefResolving()) {
             updateObject((ContactRole) target);
         }

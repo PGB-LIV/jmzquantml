@@ -27,7 +27,7 @@ public class AffiliationRefResolver extends AbstractReferenceResolver<Affiliatio
      * @param object Affiliation
      */
     @Override
-    public void updateObject(final Affiliation object) {
+    public final void updateObject(final Affiliation object) {
         // add objects for the refID
         String ref = object.getOrganizationRef();
         if (ref != null) {
@@ -44,7 +44,7 @@ public class AffiliationRefResolver extends AbstractReferenceResolver<Affiliatio
      * @param parent object referencing the target. Null if target is root element.
      */
     @Override
-    public void afterUnmarshal(final Object target, final Object parent) {
+    public final void afterUnmarshal(final Object target, final Object parent) {
         if (Affiliation.class.isInstance(target) && MzQuantMLElement.Affiliation.isAutoRefResolving()) {
             updateObject((Affiliation) target);
         } // else, not business of this resolver

@@ -112,19 +112,19 @@ public class MemoryMappedStandardXpathAccess implements XpathAccess {
      * @see psidev.psi.tools.xxindex.index.StandardXpathIndex
      */
     @Override
-    public XpathIndex getIndex() {
+    public final XpathIndex getIndex() {
         return index;
     }
 
-    public boolean isIgnoreNSPrefix() {
+    public final boolean isIgnoreNSPrefix() {
         return ignoreNSPrefix;
     }
 
-    public void setIgnoreNSPrefix(final boolean ignoreNSPrefix) {
+    public final void setIgnoreNSPrefix(final boolean ignoreNSPrefix) {
         this.ignoreNSPrefix = ignoreNSPrefix;
     }
 
-    public MemoryMappedXmlElementExtractor getExtractor() {
+    public final MemoryMappedXmlElementExtractor getExtractor() {
         return extractor;
     }
 
@@ -141,7 +141,7 @@ public class MemoryMappedStandardXpathAccess implements XpathAccess {
      * @throws IOException when IO Error while reading from the XML file.
      */
     @Override
-    public List<String> getXmlSnippets(final String xpath)
+    public final List<String> getXmlSnippets(final String xpath)
             throws IOException {
         return getXmlSnippets(xpath, null, null);
     }
@@ -167,8 +167,9 @@ public class MemoryMappedStandardXpathAccess implements XpathAccess {
      * @throws IOException when IO Error while reading from the XML file.
      *
      */
-    public List<String> getXmlSnippets(final String xpath, final Long start,
-                                       final Long stop)
+    public final List<String> getXmlSnippets(final String xpath,
+                                             final Long start,
+                                             final Long stop)
             throws IOException {
         List<String> results = new ArrayList<>();
         // check xpath
@@ -199,7 +200,7 @@ public class MemoryMappedStandardXpathAccess implements XpathAccess {
      * @return a Iterator over the Strings representing the XML elements specified with the xpath.
      */
     @Override
-    public Iterator<String> getXmlSnippetIterator(final String xpath) {
+    public final Iterator<String> getXmlSnippetIterator(final String xpath) {
         return getXmlSnippetIterator(xpath, null, null);
     }
 
@@ -216,9 +217,9 @@ public class MemoryMappedStandardXpathAccess implements XpathAccess {
      * @return a Iterator over the Strings representing the XML elements specified with the xpath.
      */
     @Override
-    public Iterator<String> getXmlSnippetIterator(final String xpath,
-                                                  final Long start,
-                                                  final Long stop) {
+    public final Iterator<String> getXmlSnippetIterator(final String xpath,
+                                                        final Long start,
+                                                        final Long stop) {
         Iterator<String> iter;
         if (index.containsXpath(xpath)) {
             // retrieve ByteRange from index
@@ -240,7 +241,7 @@ public class MemoryMappedStandardXpathAccess implements XpathAccess {
      *
      * @return the number of elements that correspond to the specified xpath or -1 if the xpath is not recognized.
      */
-    public int getXmlElementCount(final String xpath) {
+    public final int getXmlElementCount(final String xpath) {
         return index.getElementCount(xpath);
     }
 
@@ -256,7 +257,7 @@ public class MemoryMappedStandardXpathAccess implements XpathAccess {
      *
      * @throws java.io.IOException in case of reading errors from the underlying XML file.
      */
-    public String getStartTag(final IndexElement element)
+    public final String getStartTag(final IndexElement element)
             throws IOException {
         String startTag = null;
         // start reading (byte by byte) from the start position, until we find
@@ -312,7 +313,8 @@ public class MemoryMappedStandardXpathAccess implements XpathAccess {
 
         public XmlSnippetIterator(final List<IndexElement> elements,
                                   final MemoryMappedXmlElementExtractor extractor,
-                                  final byte[] fileBuffer, final Long start, final Long stop) {
+                                  final byte[] fileBuffer, final Long start,
+                                  final Long stop) {
             List<IndexElement> validElements; // the list of elements we will iterate over
 
             // if both borders are unspecified, use all elements (initial list)
@@ -377,7 +379,7 @@ public class MemoryMappedStandardXpathAccess implements XpathAccess {
      *
      * @throws IOException when IO Error while reading from the XML file.
      */
-    public List<XmlElement> getXmlElements(final String xpath)
+    public final List<XmlElement> getXmlElements(final String xpath)
             throws IOException {
         return getXmlElements(xpath, null, null);
     }
@@ -398,8 +400,9 @@ public class MemoryMappedStandardXpathAccess implements XpathAccess {
      *
      * @throws IOException when IO Error while reading from the XML file.
      */
-    public List<XmlElement> getXmlElements(final String xpath, final Long start,
-                                           final Long stop)
+    public final List<XmlElement> getXmlElements(final String xpath,
+                                                 final Long start,
+                                                 final Long stop)
             throws IOException {
         List<XmlElement> results = new ArrayList<>();
         // check xpath
@@ -433,7 +436,7 @@ public class MemoryMappedStandardXpathAccess implements XpathAccess {
      * @return a Iterator over the LineXmlElement representing the XML elements specified with
      *         the xpath and their starting line number.
      */
-    public Iterator<XmlElement> getXmlElementIterator(final String xpath) {
+    public final Iterator<XmlElement> getXmlElementIterator(final String xpath) {
         return getXmlElementIterator(xpath, null, null);
     }
 
@@ -450,9 +453,9 @@ public class MemoryMappedStandardXpathAccess implements XpathAccess {
      * @return a Iterator over the LineXmlElement representing the XML elements specified with
      *         the xpath and their starting line number.
      */
-    public Iterator<XmlElement> getXmlElementIterator(final String xpath,
-                                                      final Long start,
-                                                      final Long stop) {
+    public final Iterator<XmlElement> getXmlElementIterator(final String xpath,
+                                                            final Long start,
+                                                            final Long stop) {
         Iterator<XmlElement> iter;
         if (index.containsXpath(xpath)) {
             // retrieve ByteRange from index

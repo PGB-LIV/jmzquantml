@@ -67,7 +67,7 @@ public class FacadeList<T> extends AbstractCollection<T> implements List<T> {
      * @return boolean value
      */
     @Override
-    public boolean add(final T t) {
+    public final boolean add(final T t) {
         checkArgument(t);
         return originalList.add(t);
     }
@@ -80,7 +80,7 @@ public class FacadeList<T> extends AbstractCollection<T> implements List<T> {
      * @param element the new element
      */
     @Override
-    public void add(final int index, final T element) {
+    public final void add(final int index, final T element) {
         this.checkArgument(element);
         this.checkIndex(index);
         this.addAtIndex(index, element);
@@ -95,7 +95,7 @@ public class FacadeList<T> extends AbstractCollection<T> implements List<T> {
      * @return T element has been removed
      */
     @Override
-    public T remove(final int index) {
+    public final T remove(final int index) {
         T elementAtIndex = this.getAtIndex(index);
         this.originalList.remove(elementAtIndex);
         return elementAtIndex;
@@ -109,7 +109,7 @@ public class FacadeList<T> extends AbstractCollection<T> implements List<T> {
      * @return boolean true a object has been found and removed
      */
     @Override
-    public boolean remove(final Object o) {
+    public final boolean remove(final Object o) {
         checkArgument(o);
         return this.originalList.remove(o);
     }
@@ -122,7 +122,7 @@ public class FacadeList<T> extends AbstractCollection<T> implements List<T> {
      * @return T element to get
      */
     @Override
-    public T get(final int index) {
+    public final T get(final int index) {
         return this.getAtIndex(index);
     }
 
@@ -135,7 +135,7 @@ public class FacadeList<T> extends AbstractCollection<T> implements List<T> {
      * @return T old element in the position
      */
     @Override
-    public T set(final int index, final T element) {
+    public final T set(final int index, final T element) {
         this.checkArgument(element);
         this.checkIndex(index);
         return this.setAtIndex(index, element);
@@ -147,7 +147,7 @@ public class FacadeList<T> extends AbstractCollection<T> implements List<T> {
      * @return int size of the sublist
      */
     @Override
-    public int size() {
+    public final int size() {
         int cnt = 0;
 
         for (Object anOriginalList : this.originalList) {
@@ -166,7 +166,7 @@ public class FacadeList<T> extends AbstractCollection<T> implements List<T> {
      * @return boolean true means empty
      */
     @Override
-    public boolean isEmpty() {
+    public final boolean isEmpty() {
         boolean em = true;
 
         for (Object anOriginalList : this.originalList) {
@@ -188,7 +188,7 @@ public class FacadeList<T> extends AbstractCollection<T> implements List<T> {
      * @return boolean true means sublist contains the input object
      */
     @Override
-    public boolean contains(final Object o) {
+    public final boolean contains(final Object o) {
         checkArgument(o);
         return this.originalList.contains(o);
     }
@@ -199,7 +199,7 @@ public class FacadeList<T> extends AbstractCollection<T> implements List<T> {
      * @return an iterator of the sublist
      */
     @Override
-    public Iterator<T> iterator() {
+    public final Iterator<T> iterator() {
         return new SublistIterator(this.originalList);
     }
 
@@ -211,7 +211,7 @@ public class FacadeList<T> extends AbstractCollection<T> implements List<T> {
      * @return int index of the object
      */
     @Override
-    public int indexOf(final Object o) {
+    public final int indexOf(final Object o) {
         checkArgument(o);
         int cnt = 0;
         for (Object anOriginalList : this.originalList) {
@@ -233,7 +233,7 @@ public class FacadeList<T> extends AbstractCollection<T> implements List<T> {
      * @return int index of the object
      */
     @Override
-    public int lastIndexOf(final Object o) {
+    public final int lastIndexOf(final Object o) {
         checkArgument(o);
 
         int pointer = -1;
@@ -256,7 +256,7 @@ public class FacadeList<T> extends AbstractCollection<T> implements List<T> {
      * @return a list iterator
      */
     @Override
-    public ListIterator<T> listIterator() {
+    public final ListIterator<T> listIterator() {
         return new SubListListIterator(originalList);
     }
 
@@ -267,7 +267,7 @@ public class FacadeList<T> extends AbstractCollection<T> implements List<T> {
      * @return a list iterator
      */
     @Override
-    public ListIterator<T> listIterator(final int index) {
+    public final ListIterator<T> listIterator(final int index) {
         return new SubListListIterator(originalList, index);
     }
 
@@ -283,7 +283,7 @@ public class FacadeList<T> extends AbstractCollection<T> implements List<T> {
      * @return unmodifiable sublist
      */
     @Override
-    public List<T> subList(final int fromIndex, final int toIndex) {
+    public final List<T> subList(final int fromIndex, final int toIndex) {
         checkIndex(fromIndex);
         checkIndex(toIndex - 1);
 
@@ -317,7 +317,7 @@ public class FacadeList<T> extends AbstractCollection<T> implements List<T> {
      * @return object array
      */
     @Override
-    public Object[] toArray() {
+    public final Object[] toArray() {
         Object[] arr = new Object[this.size()];
         int index = 0;
         for (T element : this) {
@@ -336,7 +336,7 @@ public class FacadeList<T> extends AbstractCollection<T> implements List<T> {
      * @return an array containing the elements of the list.
      */
     @Override
-    public <T> T[] toArray(final T... a) {
+    public final <T> T[] toArray(final T... a) {
         int size = this.size();
         // Make a new array of a's runtime type, but my contents:
         if (a.length < size) {
@@ -360,7 +360,7 @@ public class FacadeList<T> extends AbstractCollection<T> implements List<T> {
      * @return true if this list changed as a result of the call
      */
     @Override
-    public boolean addAll(final int index, final Collection<? extends T> c) {
+    public final boolean addAll(final int index, final Collection<? extends T> c) {
         checkIndex(index);
         this.checkArgumentsInCollection(c);
         // find index in the original list first
@@ -394,7 +394,7 @@ public class FacadeList<T> extends AbstractCollection<T> implements List<T> {
      * @return true if this list changed as a result of the call
      */
     @Override
-    public boolean removeAll(final Collection<?> c) {
+    public final boolean removeAll(final Collection<?> c) {
         this.checkArgumentsInCollection(c);
         return super.removeAll(c);
     }
@@ -407,7 +407,7 @@ public class FacadeList<T> extends AbstractCollection<T> implements List<T> {
      * @return true if this list changed as a result of the call
      */
     @Override
-    public boolean retainAll(final Collection<?> c) {
+    public final boolean retainAll(final Collection<?> c) {
         this.checkArgumentsInCollection(c);
         return super.retainAll(c);
     }
@@ -418,7 +418,7 @@ public class FacadeList<T> extends AbstractCollection<T> implements List<T> {
      * @return String list string
      */
     @Override
-    public String toString() {
+    public final String toString() {
         StringBuilder buffer = new StringBuilder();
 
         buffer.append('[');
@@ -440,7 +440,7 @@ public class FacadeList<T> extends AbstractCollection<T> implements List<T> {
      * @return hash code integer
      */
     @Override
-    public int hashCode() {
+    public final int hashCode() {
         int hashCode = 1;
         Iterator<T> i = this.iterator();
         while (i.hasNext()) {
@@ -458,7 +458,7 @@ public class FacadeList<T> extends AbstractCollection<T> implements List<T> {
      * @return true if both objects are equal
      */
     @Override
-    public boolean equals(final Object comparedToListObject) {
+    public final boolean equals(final Object comparedToListObject) {
         if (!(comparedToListObject instanceof FacadeList)) {
             return false;
         }

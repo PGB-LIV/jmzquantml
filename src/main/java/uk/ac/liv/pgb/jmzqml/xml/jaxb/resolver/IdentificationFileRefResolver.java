@@ -49,7 +49,7 @@ public class IdentificationFileRefResolver extends AbstractReferenceResolver<Ide
      * @param object IdentificationFile
      */
     @Override
-    public void updateObject(final IdentificationFile object) {
+    public final void updateObject(final IdentificationFile object) {
 
         String ref = object.getSearchDatabaseRef();
         if (ref != null) {
@@ -66,7 +66,7 @@ public class IdentificationFileRefResolver extends AbstractReferenceResolver<Ide
      * @param parent object referencing the target. Null if target is root element.
      */
     @Override
-    public void afterUnmarshal(final Object target, final Object parent) {
+    public final void afterUnmarshal(final Object target, final Object parent) {
         if (IdentificationFile.class.isInstance(target) && MzQuantMLElement.IdentificationFile.isAutoRefResolving()) {
             updateObject((IdentificationFile) target);
         } // else, not business of this resolver

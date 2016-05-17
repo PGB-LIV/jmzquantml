@@ -52,7 +52,7 @@ public class EvidenceRefRefResolver extends AbstractReferenceResolver<EvidenceRe
      * @param object EvidenceRef
      */
     @Override
-    public void updateObject(final EvidenceRef object) {
+    public final void updateObject(final EvidenceRef object) {
         //feature_ref
         String ref1 = object.getFeatureRef();
         if (ref1 != null) {
@@ -85,7 +85,7 @@ public class EvidenceRefRefResolver extends AbstractReferenceResolver<EvidenceRe
      * @param parent object referencing the target. Null if target is root element.
      */
     @Override
-    public void afterUnmarshal(final Object target, final Object parent) {
+    public final void afterUnmarshal(final Object target, final Object parent) {
         if (EvidenceRef.class.isInstance(target) && MzQuantMLElement.EvidenceRef.isAutoRefResolving()) {
             updateObject((EvidenceRef) target);
         } // else, not business of this resolver

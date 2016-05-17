@@ -49,7 +49,7 @@ public class IdentificationRefRefResolver extends AbstractReferenceResolver<Iden
      * @param object IdentificationRef
      */
     @Override
-    public void updateObject(final IdentificationRef object) {
+    public final void updateObject(final IdentificationRef object) {
         String ref1 = object.getIdentificationFileRef();
         if (ref1 != null) {
             IdentificationFile refObject1 = this.unmarshal(ref1, IdentificationFile.class);
@@ -65,7 +65,7 @@ public class IdentificationRefRefResolver extends AbstractReferenceResolver<Iden
      * @param parent object referencing the target. Null if target is root element.
      */
     @Override
-    public void afterUnmarshal(final Object target, final Object parent) {
+    public final void afterUnmarshal(final Object target, final Object parent) {
         if (IdentificationRef.class.isInstance(target) && MzQuantMLElement.IdentificationRef.isAutoRefResolving()) {
             updateObject((IdentificationRef) target);
         } // else, not business of this resolver
