@@ -28,7 +28,7 @@ public class AbstractParamUnitCvRefResolver extends AbstractReferenceResolver<Ab
      * @param object AbstractParam
      */
     @Override
-    public void updateObject(final AbstractParam object) {
+    public final void updateObject(final AbstractParam object) {
         // add objects for the refID
         String ref = object.getUnitCvRef();
         if (ref != null) {
@@ -45,7 +45,7 @@ public class AbstractParamUnitCvRefResolver extends AbstractReferenceResolver<Ab
      * @param parent object referencing the target. Null if target is root element.
      */
     @Override
-    public void afterUnmarshal(final Object target, final Object parent) {
+    public final void afterUnmarshal(final Object target, final Object parent) {
         if (AbstractParam.class.isInstance(target) && MzQuantMLElement.AbstractParam.isAutoRefResolving()) {
             updateObject((AbstractParam) target);
         } // else, not business of this resolver
