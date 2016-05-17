@@ -49,21 +49,21 @@ public class Constants {
      * The name of the property used to specify whether or not the marshaller will generate document level events (ie calling startDocument or endDocument).
      */
     public static final String JAXB_FRAGMENT_PROPERTY = "jaxb.fragment";
-    private static final Set<String> tempXpathsToIndex = new HashSet<>();
-    private static final Set<String> xpathsToIndex;
+    private static final Set<String> TEMP_XPATHS_TO_INDEX = new HashSet<>();
+    private static final Set<String> XPATHS_TO_INDEX;
 
     static {
         for (MzQuantMLElement element : MzQuantMLElement.values()) {
             if (element.isIndexed()) {
-                tempXpathsToIndex.add(element.getXpath());
+                TEMP_XPATHS_TO_INDEX.add(element.getXpath());
             }
         }
         //finally make the set unmordifiable
-        xpathsToIndex = Collections.unmodifiableSet(tempXpathsToIndex);
+        XPATHS_TO_INDEX = Collections.unmodifiableSet(TEMP_XPATHS_TO_INDEX);
     }
 
     /**
      * The set of indexed xpath.
      */
-    public static final Set<String> XML_INDEXED_XPATHS = xpathsToIndex;
+    public static final Set<String> XML_INDEXED_XPATHS = XPATHS_TO_INDEX;
 }

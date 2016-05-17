@@ -50,7 +50,7 @@ import uk.ac.liv.pgb.jmzqml.xml.xxindex.MzQuantMLIndexer;
  */
 public class RawXMLListener extends Unmarshaller.Listener {
 
-    private static final Logger logger = Logger.getLogger(RawXMLListener.class);
+    private static final Logger LOGGER = Logger.getLogger(RawXMLListener.class);
     private final MzQuantMLIndexer index;
     private final MzQuantMLObjectCache cache;
 
@@ -74,7 +74,7 @@ public class RawXMLListener extends Unmarshaller.Listener {
     @Override
     public void afterUnmarshal(Object target, Object parent) {
 
-        logger.debug("Handling " + target.getClass() + " in afterUnmarshal.");
+        LOGGER.debug("Handling " + target.getClass() + " in afterUnmarshal.");
         // retreive the enum type for this class (for the meta data about this class/element)
         MzQuantMLElement element = MzQuantMLElement.getType(target.getClass());
 
@@ -172,7 +172,7 @@ public class RawXMLListener extends Unmarshaller.Listener {
             }
         }
         catch (ClassNotFoundException | IllegalAccessException | IllegalArgumentException | IllegalStateException | InstantiationException | NoSuchMethodException | SecurityException | InvocationTargetException e) {
-            logger.error("Exception during post unmarshall processing! ", e);
+            LOGGER.error("Exception during post unmarshall processing! ", e);
             throw new IllegalStateException("Error during post unmarshall processing!", e);
         }
     }
@@ -190,7 +190,7 @@ public class RawXMLListener extends Unmarshaller.Listener {
                 resolver.afterUnmarshal(target, parent);
             }
             catch (IllegalAccessException | IllegalArgumentException | InstantiationException | NoSuchMethodException | SecurityException | InvocationTargetException e) {
-                logger.error("Error trying to instantiate reference resolver: " + cls.getName(), e);
+                LOGGER.error("Error trying to instantiate reference resolver: " + cls.getName(), e);
                 throw new IllegalStateException("Could not instantiate reference resolver: " + cls.getName());
             }
         }

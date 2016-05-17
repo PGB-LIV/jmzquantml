@@ -45,7 +45,7 @@ import uk.ac.liv.pgb.jmzqml.xml.xxindex.MzQuantMLIndexer;
  */
 public class UnmarshallerFactory {
 
-    private static final Logger logger = Logger.getLogger(UnmarshallerFactory.class);
+    private static final Logger LOGGER = Logger.getLogger(UnmarshallerFactory.class);
     private static UnmarshallerFactory instance = new UnmarshallerFactory();
     private JAXBContext jc;
 
@@ -122,13 +122,13 @@ public class UnmarshallerFactory {
             xmlFilter.setParent(xmlReader);
             xmlFilter.setContentHandler(uh);
 
-            logger.debug("Unmarshaller Initialized");
+            LOGGER.debug("Unmarshaller Initialized");
 
             return unmarshaller;
 
         }
         catch (JAXBException | SAXException | ParserConfigurationException e) {
-            logger.error("UnmarshallerFactory.initializeUnmarshaller", e);
+            LOGGER.error("UnmarshallerFactory.initializeUnmarshaller", e);
             throw new IllegalStateException("Could not initialize unmarshaller");
         }
     }

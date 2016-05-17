@@ -61,16 +61,16 @@ public class ModelConstants {
     public static final String MZQML_LOCATION = MZQML_NS + " " + MZQML_SCHEMA;
 
     private static Map<Class<? extends MzQuantMLObject>, QName> modelQNames = new HashMap<>();
-    private static final Map<Class<? extends MzQuantMLObject>, QName> tempModelQNames = new HashMap<>();
+    private static final Map<Class<? extends MzQuantMLObject>, QName> TEMP_MODEL_QNAMES = new HashMap<>();
 
     static {
         for (MzQuantMLElement element : MzQuantMLElement.values()) {
             if (element.getTagName() != null) {
-                tempModelQNames.put(element.getClazz(), new QName(MZQML_NS, element.getTagName()));
+                TEMP_MODEL_QNAMES.put(element.getClazz(), new QName(MZQML_NS, element.getTagName()));
             }
         }
         //now make set unmodifiable
-        modelQNames = Collections.unmodifiableMap(tempModelQNames);
+        modelQNames = Collections.unmodifiableMap(TEMP_MODEL_QNAMES);
     }
 
     /**

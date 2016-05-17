@@ -4,11 +4,20 @@ package uk.ac.liv.pgb.jmzqml.xml.xxindex;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Set;
+
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import psidev.psi.tools.xxindex.XpathAccess;
-import psidev.psi.tools.xxindex.index.*;
+import psidev.psi.tools.xxindex.index.ByteBuffer;
+import psidev.psi.tools.xxindex.index.IndexElement;
+import psidev.psi.tools.xxindex.index.XmlElement;
+import psidev.psi.tools.xxindex.index.XmlXpathIndexer;
+import psidev.psi.tools.xxindex.index.XpathIndex;
 
 /**
  * @author Rui Wang
@@ -16,7 +25,7 @@ import psidev.psi.tools.xxindex.index.*;
  */
 public class MemoryMappedStandardXpathAccess implements XpathAccess {
 
-    private static final Log log = LogFactory.getLog(MemoryMappedStandardXpathAccess.class);
+    private static final Log LOG = LogFactory.getLog(MemoryMappedStandardXpathAccess.class);
 
     private byte[] fileBuffer;
     private XpathIndex index;
@@ -175,7 +184,7 @@ public class MemoryMappedStandardXpathAccess implements XpathAccess {
         }
         else {
             // Error message
-            log.info("The index does not contain any entry for the requested xpath: " + xpath);
+            LOG.info("The index does not contain any entry for the requested xpath: " + xpath);
         }
         return results;
     }
@@ -216,7 +225,7 @@ public class MemoryMappedStandardXpathAccess implements XpathAccess {
             iter = new XmlSnippetIterator(ranges, extractor, fileBuffer, start, stop);
         }
         else {
-            log.info("The index does not contain any entry for the requested xpath: " + xpath);
+            LOG.info("The index does not contain any entry for the requested xpath: " + xpath);
             // return iterator over empty list
             List<String> s = Collections.emptyList();
             iter = s.iterator();
@@ -407,7 +416,7 @@ public class MemoryMappedStandardXpathAccess implements XpathAccess {
         }
         else {
             // Error message
-            log.info("The index does not contain any entry for the requested xpath: " + xpath);
+            LOG.info("The index does not contain any entry for the requested xpath: " + xpath);
         }
         return results;
     }
@@ -449,7 +458,7 @@ public class MemoryMappedStandardXpathAccess implements XpathAccess {
         }
         else {
             // Error message
-            log.info("The index does not contain any entry for the requested xpath: " + xpath);
+            LOG.info("The index does not contain any entry for the requested xpath: " + xpath);
             // return iterator over empty list
             List<XmlElement> s = Collections.emptyList();
             iter = s.iterator();

@@ -19,8 +19,8 @@ import psidev.psi.tools.xxindex.index.IndexElement;
  */
 public class MemoryMappedXmlElementExtractor {
 
-    private static final int MinGrpNum = 1;
-    private static final Log log = LogFactory.getLog(MemoryMappedXmlElementExtractor.class);
+    private static final int MIN_GRP_NUM = 1;
+    private static final Log LOG = LogFactory.getLog(MemoryMappedXmlElementExtractor.class);
 
     // XML 1.1 specs
     // [3]  S            ::=  (#x20 | #x9 | #xD | #xA)+             /* spaces, carriage returns, line feeds, or tabs */
@@ -29,8 +29,8 @@ public class MemoryMappedXmlElementExtractor {
     // [25] Eq           ::=  S? '=' S?
     // [80] EncodingDecl ::=  S 'encoding' Eq ('"' EncName '"' | "'" EncName "'" )
     // [81] EncName      ::=  [A-Za-z] ([A-Za-z0-9._] | '-')*        /* Encoding name contains only Latin characters */
-    protected static final Pattern xmlHeader = Pattern.compile(".*<\\?xml.+\\?>.*", Pattern.DOTALL);
-    protected static final Pattern xmlEnc = Pattern.compile(".*encoding\\s*=\\s*[\"']([A-Za-z]([A-Za-z0-9._]|[-])*)[\"'](.*)", Pattern.DOTALL);
+    protected static final Pattern XML_HEADER = Pattern.compile(".*<\\?xml.+\\?>.*", Pattern.DOTALL);
+    protected static final Pattern XML_ENC = Pattern.compile(".*encoding\\s*=\\s*[\"']([A-Za-z]([A-Za-z0-9._]|[-])*)[\"'](.*)", Pattern.DOTALL);
 
     private boolean useSystemDefaultEncoding;
     private Charset encoding;
@@ -91,11 +91,11 @@ public class MemoryMappedXmlElementExtractor {
             result = 0;
         }
         catch (IllegalCharsetNameException icne) {
-            log.error("Illegal encoding: " + encoding, icne);
+            LOG.error("Illegal encoding: " + encoding, icne);
             result = -1;
         }
         catch (UnsupportedCharsetException ucne) {
-            log.error("Unsupported encoding: " + encoding, ucne);
+            LOG.error("Unsupported encoding: " + encoding, ucne);
             result = -2;
         }
         return result;
@@ -259,23 +259,23 @@ public class MemoryMappedXmlElementExtractor {
         String fileStart = new String(bytes, "ASCII");
 
         // first check if there is a XML header
-        Matcher mHead = MemoryMappedXmlElementExtractor.xmlHeader.matcher(fileStart);
+        Matcher mHead = MemoryMappedXmlElementExtractor.XML_HEADER.matcher(fileStart);
         if (!mHead.matches()) {
             // no XML header not found
-            log.debug("No XML header found for input");
+            LOG.debug("No XML header found for input");
             return null;
         }
 
-        Matcher mEnc = MemoryMappedXmlElementExtractor.xmlEnc.matcher(fileStart);
+        Matcher mEnc = MemoryMappedXmlElementExtractor.XML_ENC.matcher(fileStart);
         if (!mEnc.matches()) {
             return null;
         }
-        if (mEnc.groupCount() < MinGrpNum) {
+        if (mEnc.groupCount() < MIN_GRP_NUM) {
             return null;
         }
 
         String charsetName = mEnc.group(1);
-        log.debug("Detected charset " + charsetName + " for input");
+        LOG.debug("Detected charset " + charsetName + " for input");
         return charsetName;
     }
 
@@ -335,8 +335,8 @@ public class MemoryMappedXmlElementExtractor {
 
         // if the user prefers the system default character encoding our life is easy
         if (isUseSystemDefaultEncoding()) {
-            if (log.isDebugEnabled()) {
-                log.info("Using system default for encoding.");
+            if (LOG.isDebugEnabled()) {
+                LOG.info("Using system default for encoding.");
             }
             return new String(bytes, "UTF-8");
         }

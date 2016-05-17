@@ -45,7 +45,7 @@ import uk.ac.liv.pgb.jmzqml.xml.xxindex.MzQuantMLIndexer;
 public class MzQuantMLObjectIterator<T extends MzQuantMLObject> implements
         Iterator<T> {
 
-    private static final Logger logger = Logger.getLogger(MzQuantMLObjectIterator.class);
+    private static final Logger LOGGER = Logger.getLogger(MzQuantMLObjectIterator.class);
     private final Iterator<String> innerXpathIterator;
     private final String xpath;
     private final Class<T> cls;
@@ -76,8 +76,8 @@ public class MzQuantMLObjectIterator<T extends MzQuantMLObject> implements
             //need to clean up XML to ensure that there are no weird control characters
             String cleanXML = EscapingXMLUtilities.escapeCharacters(xmlSt);
 
-            if (logger.isDebugEnabled()) {
-                logger.trace("XML to unmarshal: " + cleanXML);
+            if (LOGGER.isDebugEnabled()) {
+                LOGGER.trace("XML to unmarshal: " + cleanXML);
             }
 
             //required for the addition of namespaces to top-level objects
@@ -89,12 +89,12 @@ public class MzQuantMLObjectIterator<T extends MzQuantMLObject> implements
 
             retval = holder.getValue();
 
-            if (logger.isDebugEnabled()) {
-                logger.debug("unmarshalled object = " + retval);
+            if (LOGGER.isDebugEnabled()) {
+                LOGGER.debug("unmarshalled object = " + retval);
             }
         }
         catch (JAXBException e) {
-            logger.error("MzQuantMLObjectIterator.next", e);
+            LOGGER.error("MzQuantMLObjectIterator.next", e);
             throw new IllegalStateException("Could not unmarshal object at xpath: " + xpath);
         }
         return retval;

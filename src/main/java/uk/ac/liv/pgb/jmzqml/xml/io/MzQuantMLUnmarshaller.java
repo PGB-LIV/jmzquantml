@@ -4,12 +4,22 @@
  */
 package uk.ac.liv.pgb.jmzqml.xml.io;
 
-import java.io.*;
+import java.io.File;
+import java.io.StringReader;
 import java.net.URL;
-import java.util.*;
-import java.util.regex.*;
+
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Set;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 import javax.naming.ConfigurationException;
-import javax.xml.bind.*;
+import javax.xml.bind.JAXBElement;
+import javax.xml.bind.JAXBException;
+import javax.xml.bind.Unmarshaller;
+
 import javax.xml.transform.sax.SAXSource;
 import org.apache.log4j.Logger;
 import org.xml.sax.InputSource;
@@ -35,7 +45,7 @@ import uk.ac.liv.pgb.jmzqml.xml.xxindex.MzQuantMLIndexerFactory;
 public class MzQuantMLUnmarshaller {
 
     private static final int ATT_GRP_NUM = 2;
-    private static final Logger logger = Logger.getLogger(MzQuantMLUnmarshaller.class);
+    private static final Logger LOGGER = Logger.getLogger(MzQuantMLUnmarshaller.class);
     protected final MzQuantMLIndexer index;
     private final MzQuantMLObjectCache cache;
     /**
@@ -350,7 +360,7 @@ public class MzQuantMLUnmarshaller {
             retval = retrieveFromXML(clazz, xpath);
         }
         else {
-            logger.info("No xpath or index entry for class " + clazz + "! Can not unmarshal!");
+            LOGGER.info("No xpath or index entry for class " + clazz + "! Can not unmarshal!");
         }
         return retval;
     }
@@ -373,7 +383,7 @@ public class MzQuantMLUnmarshaller {
             }
         }
         catch (JAXBException e) {
-            logger.error("MzQuantMLUnmarshaller unmarshal error: ", e);
+            LOGGER.error("MzQuantMLUnmarshaller unmarshal error: ", e);
             throw new IllegalStateException("Could not unmarshal object at xpath: " + xpath);
         }
         return retval;
@@ -387,8 +397,8 @@ public class MzQuantMLUnmarshaller {
         //need to clean up XML to ensure that there are no weird control characters
         String cleanXML = EscapingXMLUtilities.escapeCharacters(xmlSt);
 
-        if (logger.isDebugEnabled()) {
-            logger.trace("XML to unmarshal: " + cleanXML);
+        if (LOGGER.isDebugEnabled()) {
+            LOGGER.trace("XML to unmarshal: " + cleanXML);
         }
 
 //        if (cls.equals(MzQuantMLElement.AnalysisSummary.getClazz())) {
@@ -419,8 +429,8 @@ public class MzQuantMLUnmarshaller {
             JAXBElement<T> holder = unmarshaller.unmarshal(new SAXSource(xmlFilter, new InputSource(new StringReader(cleanXML))), cls);
             retval = holder.getValue();
 
-            if (logger.isDebugEnabled()) {
-                logger.debug("unmarshalled object = " + retval);
+            if (LOGGER.isDebugEnabled()) {
+                LOGGER.debug("unmarshalled object = " + retval);
             }
 
             return retval;

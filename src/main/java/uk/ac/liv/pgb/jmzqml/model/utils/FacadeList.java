@@ -1,7 +1,15 @@
 
 package uk.ac.liv.pgb.jmzqml.model.utils;
 
-import java.util.*;
+import java.util.AbstractCollection;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Iterator;
+import java.util.List;
+import java.util.ListIterator;
+import java.util.NoSuchElementException;
 
 /**
  *
@@ -437,7 +445,8 @@ public class FacadeList<T> extends AbstractCollection<T> implements List<T> {
         Iterator<T> i = this.iterator();
         while (i.hasNext()) {
             T obj = i.next();
-            hashCode = 31 * hashCode + (obj == null ? 0 : obj.hashCode());
+            int code = obj == null ? 0 : obj.hashCode();
+            hashCode = 31 * hashCode + code;
         }
         return hashCode;
     }
@@ -568,7 +577,8 @@ public class FacadeList<T> extends AbstractCollection<T> implements List<T> {
 
     private void checkIndex(int index, String errMsg) {
         if (index < 0 || index >= this.size()) {
-            throw new IndexOutOfBoundsException(errMsg == null ? ("Input sublist index does not exist: " + index) : errMsg);
+            String msg = errMsg == null ? ("Input sublist index does not exist: " + index) : errMsg;
+            throw new IndexOutOfBoundsException(msg);
         }
     }
 
@@ -784,7 +794,8 @@ public class FacadeList<T> extends AbstractCollection<T> implements List<T> {
                     cnt++;
                 }
             }
-            return nextIndex == -1 ? cnt : nextIndex;
+            int ret = nextIndex == -1 ? cnt : nextIndex;
+            return ret;
         }
 
         @Override

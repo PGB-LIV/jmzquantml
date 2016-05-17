@@ -5,11 +5,23 @@
 package uk.ac.liv.pgb.jmzqml.xml.io;
 
 import com.sun.xml.txw2.output.IndentingXMLStreamWriter;
-import java.io.*;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
+import java.io.StringWriter;
+import java.io.UnsupportedEncodingException;
+import java.io.Writer;
+
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import javax.xml.bind.*;
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBElement;
+import javax.xml.bind.JAXBException;
+import javax.xml.bind.Marshaller;
+
 import javax.xml.namespace.QName;
 import javax.xml.stream.XMLOutputFactory;
 import javax.xml.stream.XMLStreamException;
@@ -36,7 +48,7 @@ import uk.ac.liv.pgb.jmzqml.xml.util.EscapingXMLStreamWriter;
  */
 public class MzQuantMLMarshaller {
 
-    private static final Logger logger = Logger.getLogger(MzQuantMLMarshaller.class);
+    private static final Logger LOGGER = Logger.getLogger(MzQuantMLMarshaller.class);
     /**
      * Constants.
      */
@@ -174,13 +186,13 @@ public class MzQuantMLMarshaller {
 
             if (!(object instanceof MzQuantML)) {
                 marshaller.setProperty(Constants.JAXB_FRAGMENT_PROPERTY, true);
-                if (logger.isDebugEnabled()) {
-                    logger.debug("Object '" + object.getClass().getName() + "' will be treated as root element.");
+                if (LOGGER.isDebugEnabled()) {
+                    LOGGER.debug("Object '" + object.getClass().getName() + "' will be treated as root element.");
                 }
             }
             else {
-                if (logger.isDebugEnabled()) {
-                    logger.debug("Object '" + object.getClass().getName() + "' will be treated as fragment.");
+                if (LOGGER.isDebugEnabled()) {
+                    LOGGER.debug("Object '" + object.getClass().getName() + "' will be treated as fragment.");
                 }
             }
 
@@ -203,11 +215,11 @@ public class MzQuantMLMarshaller {
             marshaller.marshal(jaxbElement, writer);
         }
         catch (JAXBException ex) {
-            logger.error("MzQuantMLMarshaller.marshall", ex);
+            LOGGER.error("MzQuantMLMarshaller.marshall", ex);
             throw new IllegalStateException("Error while marshalling object: " + object.toString());
         }
         catch (XMLStreamException ex) {
-            logger.error("MzQuantMLMarshaller.marshall", ex);
+            LOGGER.error("MzQuantMLMarshaller.marshall", ex);
             throw new IllegalStateException("Error while marshalling ojbect: " + object.toString());
         }
 

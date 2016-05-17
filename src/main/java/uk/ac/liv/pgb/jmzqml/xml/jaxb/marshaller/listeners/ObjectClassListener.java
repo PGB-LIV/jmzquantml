@@ -62,11 +62,11 @@ import uk.ac.liv.pgb.jmzqml.model.mzqml.StudyVariableList;
  */
 public class ObjectClassListener extends Marshaller.Listener {
 
-    private static final Logger log = Logger.getLogger(ObjectClassListener.class);
+    private static final Logger LOGGER = Logger.getLogger(ObjectClassListener.class);
 
     @Override
     public void beforeMarshal(Object source) {
-        log.debug("Handling " + source.getClass() + " in beforeMarshal.");
+        LOGGER.debug("Handling " + source.getClass() + " in beforeMarshal.");
         if (source instanceof ParamList) {
             List<AbstractParam> paramList = ((ParamList) source).getParamGroup();
             if (paramList.isEmpty()) {

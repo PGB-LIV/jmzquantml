@@ -38,7 +38,7 @@ import uk.ac.liv.pgb.jmzqml.xml.jaxb.marshaller.listeners.ObjectClassListener;
  */
 public class MarshallerFactory {
 
-    private static final Logger logger = Logger.getLogger(MarshallerFactory.class);
+    private static final Logger LOGGER = Logger.getLogger(MarshallerFactory.class);
     private static MarshallerFactory instance = new MarshallerFactory();
     private JAXBContext jc;
 
@@ -60,7 +60,7 @@ public class MarshallerFactory {
      * @return an instance of {@link javax.xml.bind.Marshaller} with initial configurations.
      */
     public synchronized Marshaller initializeMarshaller() {
-        logger.debug("Initializing Marshaller for mzQuantML.");
+        LOGGER.debug("Initializing Marshaller for mzQuantML.");
         try {
             // Lazy caching of JAXB context.
             if (jc == null) {
@@ -77,13 +77,13 @@ public class MarshallerFactory {
             // See: ParamAlternative.beforeMarshalOperation and ParamAlternativeList.beforeMarshalOperation
             marshaller.setListener(new ObjectClassListener());
 
-            logger.info("Marshaller initialized");
+            LOGGER.info("Marshaller initialized");
 
             return marshaller;
 
         }
         catch (JAXBException e) {
-            logger.error("MarshallerFactory.initializeMarshaller", e);
+            LOGGER.error("MarshallerFactory.initializeMarshaller", e);
             throw new IllegalStateException("Can't initialize marshaller: " + e.getMessage());
         }
 

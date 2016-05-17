@@ -17,6 +17,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package uk.ac.liv.pgb.jmzqml.xml.xxindex;
 
 import java.io.ByteArrayInputStream;
@@ -60,8 +61,8 @@ import uk.ac.liv.pgb.jmzqml.xml.Constants;
  */
 public class MzQuantMLIndexerFactory {
 
-    private static final Logger logger = Logger.getLogger(MzQuantMLIndexerFactory.class);
-    private static final MzQuantMLIndexerFactory instance = new MzQuantMLIndexerFactory();
+    private static final Logger LOGGER = Logger.getLogger(MzQuantMLIndexerFactory.class);
+    private static final MzQuantMLIndexerFactory INSTANCE = new MzQuantMLIndexerFactory();
     private static final Pattern ID_PATTERN = Pattern.compile("\\sid\\s*=\\s*['\"]([^'\"]*)['\"]", Pattern.CASE_INSENSITIVE);
 
     private MzQuantMLIndexerFactory() {
@@ -73,7 +74,7 @@ public class MzQuantMLIndexerFactory {
      * @return an instance of MzQuantMLIndexerFactory.
      */
     public static MzQuantMLIndexerFactory getInstance() {
-        return instance;
+        return INSTANCE;
     }
 
     /**
@@ -148,7 +149,7 @@ public class MzQuantMLIndexerFactory {
 
                 // check if the xxindex contains this root
                 if (!index.containsXpath(MzQuantMLElement.MzQuantML.getXpath())) {
-                    logger.info("Index does not contain mzQuantML root! We are not dealing with an mzQuantML file!");
+                    LOGGER.info("Index does not contain mzQuantML root! We are not dealing with an mzQuantML file!");
                     throw new IllegalStateException("Index does not contain mzQuantML root!");
                 }
 
@@ -160,7 +161,7 @@ public class MzQuantMLIndexerFactory {
 
             }
             catch (IOException e) {
-                logger.error("MzQuantMLIndexerFactory$MzQuantMLIndexerImpl.MzQuantMLIndexterImpl", e);
+                LOGGER.error("MzQuantMLIndexerFactory$MzQuantMLIndexerImpl.MzQuantMLIndexterImpl", e);
                 throw new IllegalStateException("Could not generate MzQuantML index for file: " + xmlFile);
             }
         }
@@ -258,7 +259,7 @@ public class MzQuantMLIndexerFactory {
         @Override
         public String getXmlString(String ID,
                                    Class<? extends MzQuantMLObject> clazz) {
-            logger.debug("Getting cached ID: " + ID + " from cache: " + clazz);
+            LOGGER.debug("Getting cached ID: " + ID + " from cache: " + clazz);
 
             Map<String, IndexElement> idMap = idMapCache.get(clazz);
             IndexElement element = idMap.get(ID);
@@ -266,8 +267,8 @@ public class MzQuantMLIndexerFactory {
             String xmlSnippet = null;
             if (element != null) {
                 xmlSnippet = getXmlString(element);
-                if (logger.isTraceEnabled()) {
-                    logger.trace("Retrived xml for class " + clazz + " with ID" + ID + ": " + xmlSnippet);
+                if (LOGGER.isTraceEnabled()) {
+                    LOGGER.trace("Retrived xml for class " + clazz + " with ID" + ID + ": " + xmlSnippet);
                 }
             }
             return xmlSnippet;
@@ -292,15 +293,16 @@ public class MzQuantMLIndexerFactory {
                     else {
                         stop = byteRange.getStop();
                     }
-                    return inMemory ? memoryMappedXmlElementExtractor.readString(byteRange.getStart(), stop, new ByteArrayInputStream(xmlFileBuffer))
+                    String ret = inMemory ? memoryMappedXmlElementExtractor.readString(byteRange.getStart(), stop, new ByteArrayInputStream(xmlFileBuffer))
                             : xmlExtractor.readString(byteRange.getStart(), stop, xmlFile);
+                    return ret;
                 }
                 else {
                     throw new IllegalStateException("Attempting to read NULL ByteRange");
                 }
             }
             catch (IOException e) {
-                logger.error("MzQuantMLIndexerFactory$MzQuantMLIndexerImpl.readXML", e);
+                LOGGER.error("MzQuantMLIndexerFactory$MzQuantMLIndexerImpl.readXML", e);
                 throw new IllegalStateException("Could not extraxt XML from file: " + xmlFile);
             }
         }
@@ -308,7 +310,7 @@ public class MzQuantMLIndexerFactory {
         @Override
         public String getStartTag(String id,
                                   Class<? extends MzQuantMLObject> clazz) {
-            logger.debug("Getting start tag of element with id: " + id + " for class: " + clazz);
+            LOGGER.debug("Getting start tag of element with id: " + id + " for class: " + clazz);
             String tag = null;
 
             Map<String, IndexElement> idMap = idMapCache.get(clazz);
@@ -402,9 +404,9 @@ public class MzQuantMLIndexerFactory {
                 if (element.isIdMapped() && element.isIndexed()) {
                     if (element.getClazz().isAssignableFrom(Identifiable.class)
                             || element.getClazz().isAssignableFrom(IdOnly.class)) {
-                        logger.warn("Element for class " + element.getClazz() + " may not contain an 'id' attribute, but was selected for id mapping!");
+                        LOGGER.warn("Element for class " + element.getClazz() + " may not contain an 'id' attribute, but was selected for id mapping!");
                     }
-                    logger.debug("Initiating ID map for " + element.getClazz().getName());
+                    LOGGER.debug("Initiating ID map for " + element.getClazz().getName());
 
                     Map<String, IndexElement> map = idMapCache.get(element.getClazz());
                     if (map == null) {
@@ -430,7 +432,7 @@ public class MzQuantMLIndexerFactory {
                 }
                 String id = getIdFromRawXML(xml);
 //                if (id != null) {
-                    idMap.put(id, byteRange);
+                idMap.put(id, byteRange);
 //                }
 //                else {
 //                    throw new IllegalStateException("Error initializing ID cache: No id attribute found for element " + xml);
