@@ -71,9 +71,9 @@ public class UnmarshallerFactory {
      * @return an instance of {@link javax.xml.bind.Unmarshaller} with initial configurations.
      */
     public synchronized Unmarshaller initializeUnmarshaller(
-            MzQuantMLIndexer index,
-            MzQuantMLObjectCache cache,
-            MzQuantMLNamespaceFilter xmlFilter) {
+            final MzQuantMLIndexer index,
+            final MzQuantMLObjectCache cache,
+            final MzQuantMLNamespaceFilter xmlFilter) {
         try {
             if (jc == null) {
                 jc = JAXBContext.newInstance(ModelConstants.PACKAGE);

@@ -67,7 +67,7 @@ public class MzQuantMLUnmarshaller {
      *
      * @param mzQuantMLFileURL a mzQuantML file URL.
      */
-    public MzQuantMLUnmarshaller(URL mzQuantMLFileURL) {
+    public MzQuantMLUnmarshaller(final URL mzQuantMLFileURL) {
         this(FileUtils.getFileFromURL(mzQuantMLFileURL));
     }
 
@@ -76,7 +76,7 @@ public class MzQuantMLUnmarshaller {
      *
      * @param mzQuantMLFile a mzQuantML File.
      */
-    public MzQuantMLUnmarshaller(File mzQuantMLFile) {
+    public MzQuantMLUnmarshaller(final File mzQuantMLFile) {
         this(MzQuantMLIndexerFactory.getInstance().buildIndex(mzQuantMLFile));
     }
 
@@ -85,19 +85,22 @@ public class MzQuantMLUnmarshaller {
      *
      * @param mzQuantMLFileName the full name string of the file to be unmarshalled.
      */
-    public MzQuantMLUnmarshaller(String mzQuantMLFileName) {
+    public MzQuantMLUnmarshaller(final String mzQuantMLFileName) {
         this(new File(mzQuantMLFileName));
     }
 
-    public MzQuantMLUnmarshaller(URL mzQuantMLFileURL, boolean inMemory) {
+    public MzQuantMLUnmarshaller(final URL mzQuantMLFileURL,
+                                 final boolean inMemory) {
         this(FileUtils.getFileFromURL(mzQuantMLFileURL), inMemory);
     }
 
-    public MzQuantMLUnmarshaller(File mzQuantMLFile, boolean inMemory) {
+    public MzQuantMLUnmarshaller(final File mzQuantMLFile,
+                                 final boolean inMemory) {
         this(MzQuantMLIndexerFactory.getInstance().buildIndex(mzQuantMLFile, inMemory));
     }
 
-    public MzQuantMLUnmarshaller(String mzQuantMLFileName, boolean inMemory) {
+    public MzQuantMLUnmarshaller(final String mzQuantMLFileName,
+                                 final boolean inMemory) {
         this(new File(mzQuantMLFileName), inMemory);
     }
 
@@ -106,7 +109,7 @@ public class MzQuantMLUnmarshaller {
      *
      * @param indexer an {@link uk.ac.liv.pgb.jmzqml.xml.xxindex.MzQuantMLIndexer} object.
      */
-    public MzQuantMLUnmarshaller(MzQuantMLIndexer indexer) {
+    public MzQuantMLUnmarshaller(final MzQuantMLIndexer indexer) {
         this.index = indexer;
         this.cache = null;
     }
@@ -169,8 +172,8 @@ public class MzQuantMLUnmarshaller {
      * @return A map of all the found name-value attribute pairs or null if no
      *         element with the specified id was found.
      */
-    public Map<String, String> getElementAttributes(String id,
-                                                    Class<? extends MzQuantMLObject> clazz) {
+    public Map<String, String> getElementAttributes(final String id,
+                                                    final Class<? extends MzQuantMLObject> clazz) {
 
         // retrieve the start tag of the corresponding XML element
         String tag = index.getStartTag(id, clazz);
@@ -182,7 +185,7 @@ public class MzQuantMLUnmarshaller {
         return getElementAttributes(tag);
     }
 
-    public Map<String, String> getElementAttributes(String xmlTag) {
+    public Map<String, String> getElementAttributes(final String xmlTag) {
 
         Map<String, String> attributes = new HashMap<>();
 
@@ -213,7 +216,7 @@ public class MzQuantMLUnmarshaller {
      * @return the number of XML elements matching the xpath or -1 if no
      *         elements were found for the specified xpath.
      */
-    public int getObjectCountForXpath(String xpath) {
+    public int getObjectCountForXpath(final String xpath) {
         if (xpath != null) {
             return index.getCount(xpath);
         }
@@ -234,7 +237,7 @@ public class MzQuantMLUnmarshaller {
      *
      * @return an object of the specified class.
      */
-    public <T extends MzQuantMLObject> T unmarshal(Class<T> clazz) {
+    public <T extends MzQuantMLObject> T unmarshal(final Class<T> clazz) {
         String xpath = MzQuantMLElement.getType(clazz).getXpath();
         return doUnmarshal(clazz, xpath);
     }
@@ -250,7 +253,7 @@ public class MzQuantMLUnmarshaller {
      *
      * @return an object of the specified class.
      */
-    public <T extends MzQuantMLObject> T unmarshal(String xpath) {
+    public <T extends MzQuantMLObject> T unmarshal(final String xpath) {
         Class<T> clazz = MzQuantMLElement.getType(xpath).getClazz();
         return doUnmarshal(clazz, xpath);
     }
@@ -272,7 +275,8 @@ public class MzQuantMLUnmarshaller {
      * @return an MzQuantMLObject according to the type defined by the
      *         MzQuantMLElement.
      */
-    public <T extends MzQuantMLObject> T unmarshal(MzQuantMLElement element) {
+    public <T extends MzQuantMLObject> T unmarshal(
+            final MzQuantMLElement element) {
         // Class and xpath of the element to unmarshal
         Class<T> clazz = element.getClazz();
         String xpath = element.getXpath();
@@ -296,7 +300,8 @@ public class MzQuantMLUnmarshaller {
      *
      * @throws JAXBException JAXB exception
      */
-    public <T extends MzQuantMLObject> T unmarshal(Class<T> clazz, String id)
+    public <T extends MzQuantMLObject> T unmarshal(final Class<T> clazz,
+                                                   final String id)
             throws JAXBException {
         if (!index.isIDmapped(id, clazz)) {
             throw new IllegalArgumentException("No entry found for ID: " + id + " and Class: " + clazz
@@ -315,7 +320,7 @@ public class MzQuantMLUnmarshaller {
      * @return an Iterator of MzQuantMLObject according to the type defined by the MzQuantMLElement.
      */
     public <T extends MzQuantMLObject> Iterator<T> unmarshalCollectionFromXpath(
-            MzQuantMLElement element) {
+            final MzQuantMLElement element) {
         // caching deactivated
 //        int indexCnt = getObjectCount(element);
 //
@@ -345,7 +350,7 @@ public class MzQuantMLUnmarshaller {
      *
      * @throws ConfigurationException exception
      */
-    public Set<String> getIDsForElement(MzQuantMLElement element)
+    public Set<String> getIDsForElement(final MzQuantMLElement element)
             throws ConfigurationException {
         return index.getIDsForElement(element);
     }
@@ -353,8 +358,8 @@ public class MzQuantMLUnmarshaller {
     /*
      * private methods
      */
-    private <T extends MzQuantMLObject> T doUnmarshal(Class<T> clazz,
-                                                      String xpath) {
+    private <T extends MzQuantMLObject> T doUnmarshal(final Class<T> clazz,
+                                                      final String xpath) {
         T retval = null;
         if (xpath != null) {
             retval = retrieveFromXML(clazz, xpath);
@@ -365,8 +370,8 @@ public class MzQuantMLUnmarshaller {
         return retval;
     }
 
-    private <T extends MzQuantMLObject> T retrieveFromXML(Class<T> cls,
-                                                          String xpath) {
+    private <T extends MzQuantMLObject> T retrieveFromXML(final Class<T> cls,
+                                                          final String xpath) {
         T retval = null;
         try {
             Iterator<String> xpathIter = index.getXmlStringIterator(xpath);
@@ -389,8 +394,8 @@ public class MzQuantMLUnmarshaller {
         return retval;
     }
 
-    private <T extends MzQuantMLObject> T generateObject(Class<T> cls,
-                                                         String xmlSt)
+    private <T extends MzQuantMLObject> T generateObject(final Class<T> cls,
+                                                         final String xmlSt)
             throws JAXBException {
         T retval;
 

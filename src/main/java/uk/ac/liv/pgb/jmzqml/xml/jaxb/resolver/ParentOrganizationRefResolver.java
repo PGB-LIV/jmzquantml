@@ -17,8 +17,8 @@ public class ParentOrganizationRefResolver extends AbstractReferenceResolver<Par
      * @param index MzQuantMLIndexer
      * @param cache MzQuantMLObjectCache
      */
-    public ParentOrganizationRefResolver(MzQuantMLIndexer index,
-                                         MzQuantMLObjectCache cache) {
+    public ParentOrganizationRefResolver(final MzQuantMLIndexer index,
+                                         final MzQuantMLObjectCache cache) {
         super(index, cache);
     }
 
@@ -27,7 +27,7 @@ public class ParentOrganizationRefResolver extends AbstractReferenceResolver<Par
      * @param object ParentOrganization
      */
     @Override
-    public void updateObject(ParentOrganization object) {
+    public void updateObject(final ParentOrganization object) {
         // add objects for the refID
         String ref = object.getOrganizationRef();
         if (ref != null) {
@@ -44,7 +44,7 @@ public class ParentOrganizationRefResolver extends AbstractReferenceResolver<Par
      * @param parent object referencing the target. Null if target is root element.
      */
     @Override
-    public void afterUnmarshal(Object target, Object parent) {
+    public void afterUnmarshal(final Object target, final Object parent) {
         if (ParentOrganization.class.isInstance(target) && MzQuantMLElement.ParentOrganization.isAutoRefResolving()) {
             updateObject((ParentOrganization) target);
         } // else, not business of this resolver

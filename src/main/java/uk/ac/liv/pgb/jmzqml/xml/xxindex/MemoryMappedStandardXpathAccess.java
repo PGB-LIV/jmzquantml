@@ -312,7 +312,7 @@ public class MemoryMappedStandardXpathAccess implements XpathAccess {
 
         public XmlSnippetIterator(final List<IndexElement> elements,
                                   final MemoryMappedXmlElementExtractor extractor,
-                                  final byte[] fileBuffer, Long start, Long stop) {
+                                  final byte[] fileBuffer, final Long start, final Long stop) {
             List<IndexElement> validElements; // the list of elements we will iterate over
 
             // if both borders are unspecified, use all elements (initial list)

@@ -39,8 +39,8 @@ public class ProteinGroupRefResolver extends AbstractReferenceResolver<ProteinGr
      * @param index MzQuantMLIndexer
      * @param cache MzQuantMLObjectCache
      */
-    public ProteinGroupRefResolver(MzQuantMLIndexer index,
-                                   MzQuantMLObjectCache cache) {
+    public ProteinGroupRefResolver(final MzQuantMLIndexer index,
+                                   final MzQuantMLObjectCache cache) {
         super(index, cache);
     }
 
@@ -49,7 +49,7 @@ public class ProteinGroupRefResolver extends AbstractReferenceResolver<ProteinGr
      * @param object ProteinGroup
      */
     @Override
-    public void updateObject(ProteinGroup object) {
+    public void updateObject(final ProteinGroup object) {
         String ref = object.getSearchDatabaseRef();
         if (ref != null) {
             SearchDatabase refObject = this.unmarshal(ref, SearchDatabase.class);
@@ -65,7 +65,7 @@ public class ProteinGroupRefResolver extends AbstractReferenceResolver<ProteinGr
      * @param parent object referencing the target. Null if target is root element.
      */
     @Override
-    public void afterUnmarshal(Object target, Object parent) {
+    public void afterUnmarshal(final Object target, final Object parent) {
         if (ProteinGroup.class.isInstance(target) && MzQuantMLElement.ProteinGroup.isAutoRefResolving()) {
             updateObject((ProteinGroup) target);
         } // else, not business of this resolver

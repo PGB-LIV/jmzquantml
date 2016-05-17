@@ -39,7 +39,8 @@ public class RawFileRefResolver extends AbstractReferenceResolver<RawFile> {
      * @param index MzQuantMLIndexer
      * @param cache MzQuantMLObjectCache
      */
-    public RawFileRefResolver(MzQuantMLIndexer index, MzQuantMLObjectCache cache) {
+    public RawFileRefResolver(final MzQuantMLIndexer index,
+                              final MzQuantMLObjectCache cache) {
         super(index, cache);
     }
 
@@ -48,7 +49,7 @@ public class RawFileRefResolver extends AbstractReferenceResolver<RawFile> {
      * @param object RawFile
      */
     @Override
-    public void updateObject(RawFile object) {
+    public void updateObject(final RawFile object) {
 
         String ref = object.getMethodFileRef();
         if (ref != null) {
@@ -65,7 +66,7 @@ public class RawFileRefResolver extends AbstractReferenceResolver<RawFile> {
      * @param parent object referencing the target. Null if target is root element.
      */
     @Override
-    public void afterUnmarshal(Object target, Object parent) {
+    public void afterUnmarshal(final Object target, final Object parent) {
         if (RawFile.class.isInstance(target) && MzQuantMLElement.RawFile.isAutoRefResolving()) {
             updateObject((RawFile) target);
         } // else, not business of this resolver

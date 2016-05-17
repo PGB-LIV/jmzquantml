@@ -41,7 +41,8 @@ public class ProteinRefResolver extends AbstractReferenceResolver<Protein> {
      * @param index MzQuantMLIndexer
      * @param cache MzQuantMLObjectCache
      */
-    public ProteinRefResolver(MzQuantMLIndexer index, MzQuantMLObjectCache cache) {
+    public ProteinRefResolver(final MzQuantMLIndexer index,
+                              final MzQuantMLObjectCache cache) {
         super(index, cache);
     }
 
@@ -50,7 +51,7 @@ public class ProteinRefResolver extends AbstractReferenceResolver<Protein> {
      * @param object Protein
      */
     @Override
-    public void updateObject(Protein object) {
+    public void updateObject(final Protein object) {
         String ref1 = object.getSearchDatabaseRef();
         if (ref1 != null) {
             SearchDatabase refObject1 = this.unmarshal(ref1, SearchDatabase.class);
@@ -75,7 +76,7 @@ public class ProteinRefResolver extends AbstractReferenceResolver<Protein> {
      * @param parent object referencing the target. Null if target is root element.
      */
     @Override
-    public void afterUnmarshal(Object target, Object parent) {
+    public void afterUnmarshal(final Object target, final Object parent) {
         if (Protein.class.isInstance(target) && MzQuantMLElement.Protein.isAutoRefResolving()) {
             updateObject((Protein) target);
         } // else, not business of this resolver

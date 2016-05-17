@@ -39,8 +39,8 @@ public class PeptideConsensusRefResolver extends AbstractReferenceResolver<Pepti
      * @param index MzQuantMLIndexer
      * @param cache MzQuantMLObjectCache
      */
-    public PeptideConsensusRefResolver(MzQuantMLIndexer index,
-                                       MzQuantMLObjectCache cache) {
+    public PeptideConsensusRefResolver(final MzQuantMLIndexer index,
+                                       final MzQuantMLObjectCache cache) {
         super(index, cache);
     }
 
@@ -49,7 +49,7 @@ public class PeptideConsensusRefResolver extends AbstractReferenceResolver<Pepti
      * @param object PeptideConsensus
      */
     @Override
-    public void updateObject(PeptideConsensus object) {
+    public void updateObject(final PeptideConsensus object) {
         String ref = object.getSearchDatabaseRef();
         if (ref != null) {
             SearchDatabase refObject = this.unmarshal(ref, SearchDatabase.class);
@@ -65,7 +65,7 @@ public class PeptideConsensusRefResolver extends AbstractReferenceResolver<Pepti
      * @param parent object referencing the target. Null if target is root element.
      */
     @Override
-    public void afterUnmarshal(Object target, Object parent) {
+    public void afterUnmarshal(final Object target, final Object parent) {
         if (PeptideConsensus.class.isInstance(target) && MzQuantMLElement.PeptideConsensus.isAutoRefResolving()) {
             updateObject((PeptideConsensus) target);
         } // else, not business of this resolver

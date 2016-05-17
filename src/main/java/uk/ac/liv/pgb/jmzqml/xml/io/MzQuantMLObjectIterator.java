@@ -17,6 +17,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package uk.ac.liv.pgb.jmzqml.xml.io;
 
 import java.io.StringReader;
@@ -52,8 +53,9 @@ public class MzQuantMLObjectIterator<T extends MzQuantMLObject> implements
     private final MzQuantMLIndexer index;
     private final MzQuantMLObjectCache cache;
 
-    MzQuantMLObjectIterator(MzQuantMLElement element, MzQuantMLIndexer index,
-                            MzQuantMLObjectCache cache) {
+    MzQuantMLObjectIterator(final MzQuantMLElement element,
+                            final MzQuantMLIndexer index,
+                            final MzQuantMLObjectCache cache) {
         innerXpathIterator = index.getXmlStringIterator(element.getXpath());
         this.xpath = element.getXpath();
         this.cls = element.getClazz();

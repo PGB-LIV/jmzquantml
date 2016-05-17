@@ -40,8 +40,8 @@ public class SmallMoleculeRefResolver extends AbstractReferenceResolver<SmallMol
      * @param index MzQuantMLIndexer
      * @param cache MzQuantMLObjectCache
      */
-    public SmallMoleculeRefResolver(MzQuantMLIndexer index,
-                                    MzQuantMLObjectCache cache) {
+    public SmallMoleculeRefResolver(final MzQuantMLIndexer index,
+                                    final MzQuantMLObjectCache cache) {
         super(index, cache);
     }
 
@@ -50,7 +50,7 @@ public class SmallMoleculeRefResolver extends AbstractReferenceResolver<SmallMol
      * @param object SmallMolecule
      */
     @Override
-    public void updateObject(SmallMolecule object) {
+    public void updateObject(final SmallMolecule object) {
         List<String> refs = object.getFeatureRefs();
         List<Feature> features = object.getFeatures();
 
@@ -69,7 +69,7 @@ public class SmallMoleculeRefResolver extends AbstractReferenceResolver<SmallMol
      * @param parent object referencing the target. Null if target is root element.
      */
     @Override
-    public void afterUnmarshal(Object target, Object parent) {
+    public void afterUnmarshal(final Object target, final Object parent) {
         if (SmallMolecule.class.isInstance(target) && MzQuantMLElement.SmallMolecule.isAutoRefResolving()) {
             updateObject((SmallMolecule) target);
         } // else, not business of this resolver

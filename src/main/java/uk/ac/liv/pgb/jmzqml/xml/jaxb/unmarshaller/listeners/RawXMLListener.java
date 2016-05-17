@@ -59,7 +59,8 @@ public class RawXMLListener extends Unmarshaller.Listener {
      * @param index MzQuantMLIndexer
      * @param cache MzQuantMLObjectCache
      */
-    public RawXMLListener(MzQuantMLIndexer index, MzQuantMLObjectCache cache) {
+    public RawXMLListener(final MzQuantMLIndexer index,
+                          final MzQuantMLObjectCache cache) {
         this.index = index;
         this.cache = cache;
     }
@@ -72,7 +73,7 @@ public class RawXMLListener extends Unmarshaller.Listener {
      * @param parent object referencing the target. Null if target is root element.
      */
     @Override
-    public void afterUnmarshal(Object target, Object parent) {
+    public void afterUnmarshal(final Object target, final Object parent) {
 
         LOGGER.debug("Handling " + target.getClass() + " in afterUnmarshal.");
         // retreive the enum type for this class (for the meta data about this class/element)
@@ -86,7 +87,7 @@ public class RawXMLListener extends Unmarshaller.Listener {
     }
 
     @SuppressWarnings("unchecked")
-    private void paramHandling(Object target, MzQuantMLElement ele) {
+    private void paramHandling(final Object target, final MzQuantMLElement ele) {
         try {
             if (target instanceof ParamCapable) {
                 ParamMappings mapping = ParamMappings.getType(target.getClass());
@@ -177,8 +178,8 @@ public class RawXMLListener extends Unmarshaller.Listener {
         }
     }
 
-    private void referenceResolving(Object target, Object parent,
-                                    MzQuantMLElement element) {
+    private void referenceResolving(final Object target, final Object parent,
+                                    final MzQuantMLElement element) {
         if (element.isAutoRefResolving()) {
             Class<AbstractReferenceResolver<?>> cls = element.getRefResolverClass();
             if (cls == null) {

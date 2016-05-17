@@ -17,8 +17,8 @@ public class ProviderRefResolver extends AbstractReferenceResolver<Provider> {
      * @param index MzQuantMLIndexer
      * @param cache MzQuantMLObjectCache
      */
-    public ProviderRefResolver(MzQuantMLIndexer index,
-                               MzQuantMLObjectCache cache) {
+    public ProviderRefResolver(final MzQuantMLIndexer index,
+                               final MzQuantMLObjectCache cache) {
         super(index, cache);
     }
 
@@ -27,7 +27,7 @@ public class ProviderRefResolver extends AbstractReferenceResolver<Provider> {
      * @param object Provider
      */
     @Override
-    public void updateObject(Provider object) {
+    public void updateObject(final Provider object) {
         // add objects for the refID
         String ref = object.getSoftwareRef();
         if (ref != null) {
@@ -44,7 +44,7 @@ public class ProviderRefResolver extends AbstractReferenceResolver<Provider> {
      * @param parent object referencing the target. Null if target is root element.
      */
     @Override
-    public void afterUnmarshal(Object target, Object parent) {
+    public void afterUnmarshal(final Object target, final Object parent) {
         if (Provider.class.isInstance(target) && MzQuantMLElement.Provider.isAutoRefResolving()) {
             updateObject((Provider) target);
         } // else, not business of this resolver

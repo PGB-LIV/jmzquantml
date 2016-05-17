@@ -43,7 +43,7 @@ public enum ParamListMappings {
     private Class clazz;
     private String[] classNames;
 
-    private ParamListMappings(String[] classNames, Class clazz) {
+    private ParamListMappings(final String[] classNames, final Class clazz) {
         this.classNames = classNames;
         this.clazz = clazz;
     }
@@ -73,7 +73,7 @@ public enum ParamListMappings {
      *
      * @return a member of ParamListMappings.
      */
-    public static ParamListMappings getType(Class clazz) {
+    public static ParamListMappings getType(final Class clazz) {
         for (ParamListMappings type : ParamListMappings.values()) {
             if (type.getClazz() == clazz) {
                 return type;

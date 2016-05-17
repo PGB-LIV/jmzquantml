@@ -41,8 +41,8 @@ public class RatioQuantLayerRefResolver extends AbstractReferenceResolver<RatioQ
      * @param index MzQuantMLIndexer
      * @param cache MzQuantMLObjectCache
      */
-    public RatioQuantLayerRefResolver(MzQuantMLIndexer index,
-                                      MzQuantMLObjectCache cache) {
+    public RatioQuantLayerRefResolver(final MzQuantMLIndexer index,
+                                      final MzQuantMLObjectCache cache) {
         super(index, cache);
     }
 
@@ -51,7 +51,7 @@ public class RatioQuantLayerRefResolver extends AbstractReferenceResolver<RatioQ
      * @param object RatioQuantLayer
      */
     @Override
-    public void updateObject(RatioQuantLayer object) {
+    public void updateObject(final RatioQuantLayer object) {
 
         //ColumnIndex
         List<String> refs1 = object.getColumnIndex();
@@ -72,7 +72,7 @@ public class RatioQuantLayerRefResolver extends AbstractReferenceResolver<RatioQ
      * @param parent object referencing the target. Null if target is root element.
      */
     @Override
-    public void afterUnmarshal(Object target, Object parent) {
+    public void afterUnmarshal(final Object target, final Object parent) {
         if (RatioQuantLayer.class.isInstance(target) && MzQuantMLElement.RatioQuantLayer.isAutoRefResolving()) {
             updateObject((RatioQuantLayer) target);
         } // else, not business of this resolver

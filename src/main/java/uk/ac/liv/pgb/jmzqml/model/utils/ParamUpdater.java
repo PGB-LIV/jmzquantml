@@ -37,8 +37,8 @@ import uk.ac.liv.pgb.jmzqml.model.mzqml.UserParam;
  */
 public class ParamUpdater {
 
-    private static void updateAbstractParamProperties(AbstractParam input,
-                                                      AbstractParam newParam)
+    private static void updateAbstractParamProperties(final AbstractParam input,
+                                                      final AbstractParam newParam)
             throws NoSuchFieldException, IllegalAccessException {
         if (input == null || newParam == null) {
             throw new IllegalArgumentException("Neither input or newParam can be null");
@@ -60,8 +60,9 @@ public class ParamUpdater {
      * @throws IllegalAccessException exception
      * @throws InstantiationException exception
      */
-    public static <T extends CvParam> T updateCvParamSubclass(CvParam input,
-                                                              Class<T> cvParamSubClass)
+    public static <T extends CvParam> T updateCvParamSubclass(
+            final CvParam input,
+            final Class<T> cvParamSubClass)
             throws IllegalAccessException, InstantiationException {
         if (input != null) {
             // create a tmp holder of the new ParamSubclass
@@ -164,7 +165,7 @@ public class ParamUpdater {
      * @throws InstantiationException exception
      */
     public static <T extends CvParam> void updateCvParamSubclassesList(
-            List<CvParam> inputs, Class<T> cvParamSubClass)
+            final List<CvParam> inputs, final Class<T> cvParamSubClass)
             throws InstantiationException, IllegalAccessException {
         if (inputs != null && inputs.size() > 0) {
             // create tmp holder
@@ -195,7 +196,7 @@ public class ParamUpdater {
      * @throws InstantiationException exception
      */
     public static <T extends UserParam> T updateUserParamSubclass(
-            UserParam input, Class<T> userParamSubClass)
+            final UserParam input, final Class<T> userParamSubClass)
             throws InstantiationException, IllegalAccessException {
         if (input != null) {
             // create a tmp holder of the new ParamSubclass
@@ -229,7 +230,7 @@ public class ParamUpdater {
      * @throws InstantiationException exception
      */
     public static <T extends UserParam> void updateUserParamSubclassesList(
-            List<UserParam> inputs, Class<T> userParamSubClass)
+            final List<UserParam> inputs, final Class<T> userParamSubClass)
             throws InstantiationException, IllegalAccessException {
         if (inputs != null && inputs.size() > 0) {
             // create tmp holder
