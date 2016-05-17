@@ -39,8 +39,8 @@ public class DBIdentificationRefRefResolver extends AbstractReferenceResolver<DB
      * @param index MzQuantMLIndexer
      * @param cache MzQuantMLObjectCache
      */
-    public DBIdentificationRefRefResolver(MzQuantMLIndexer index,
-                                          MzQuantMLObjectCache cache) {
+    public DBIdentificationRefRefResolver(final MzQuantMLIndexer index,
+                                          final MzQuantMLObjectCache cache) {
         super(index, cache);
     }
 
@@ -49,7 +49,7 @@ public class DBIdentificationRefRefResolver extends AbstractReferenceResolver<DB
      * @param object DBIdentificationRef
      */
     @Override
-    public void updateObject(DBIdentificationRef object) {
+    public void updateObject(final DBIdentificationRef object) {
         String ref = object.getSearchDatabaseRef();
         if (ref != null) {
             SearchDatabase refObject = this.unmarshal(ref, SearchDatabase.class);
@@ -65,7 +65,7 @@ public class DBIdentificationRefRefResolver extends AbstractReferenceResolver<DB
      * @param parent object referencing the target. Null if target is root element.
      */
     @Override
-    public void afterUnmarshal(Object target, Object parent) {
+    public void afterUnmarshal(final Object target, final Object parent) {
         if (DBIdentificationRef.class.isInstance(target) && MzQuantMLElement.DBIdentificationRef.isAutoRefResolving()) {
             updateObject((DBIdentificationRef) target);
         } // else, not business of this resolver

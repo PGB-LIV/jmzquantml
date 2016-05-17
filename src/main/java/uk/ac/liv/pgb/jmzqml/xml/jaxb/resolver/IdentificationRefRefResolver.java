@@ -39,8 +39,8 @@ public class IdentificationRefRefResolver extends AbstractReferenceResolver<Iden
      * @param index MzQuantMLIndexer
      * @param cache MzQuantMLObjectCache
      */
-    public IdentificationRefRefResolver(MzQuantMLIndexer index,
-                                        MzQuantMLObjectCache cache) {
+    public IdentificationRefRefResolver(final MzQuantMLIndexer index,
+                                        final MzQuantMLObjectCache cache) {
         super(index, cache);
     }
 
@@ -49,7 +49,7 @@ public class IdentificationRefRefResolver extends AbstractReferenceResolver<Iden
      * @param object IdentificationRef
      */
     @Override
-    public void updateObject(IdentificationRef object) {
+    public void updateObject(final IdentificationRef object) {
         String ref1 = object.getIdentificationFileRef();
         if (ref1 != null) {
             IdentificationFile refObject1 = this.unmarshal(ref1, IdentificationFile.class);
@@ -65,7 +65,7 @@ public class IdentificationRefRefResolver extends AbstractReferenceResolver<Iden
      * @param parent object referencing the target. Null if target is root element.
      */
     @Override
-    public void afterUnmarshal(Object target, Object parent) {
+    public void afterUnmarshal(final Object target, final Object parent) {
         if (IdentificationRef.class.isInstance(target) && MzQuantMLElement.IdentificationRef.isAutoRefResolving()) {
             updateObject((IdentificationRef) target);
         } // else, not business of this resolver

@@ -80,7 +80,8 @@ public class ModelConstants {
      *
      * @return true if the class is registered as a class of mzQuantmL model.
      */
-    public static boolean isRegisteredClass(Class<? extends MzQuantMLObject> cls) {
+    public static boolean isRegisteredClass(
+            final Class<? extends MzQuantMLObject> cls) {
         return modelQNames.containsKey(cls);
     }
 
@@ -91,7 +92,8 @@ public class ModelConstants {
      *
      * @return the QName of matching Class.
      */
-    public static QName getQNameForClass(Class<? extends MzQuantMLObject> cls) {
+    public static QName getQNameForClass(
+            final Class<? extends MzQuantMLObject> cls) {
         if (isRegisteredClass(cls)) {
             return modelQNames.get(cls);
         }
@@ -107,7 +109,7 @@ public class ModelConstants {
      *
      * @return the string element name of matching Class.
      */
-    public static String getElementNameForClass(Class<MzQuantMLObject> cls) {
+    public static String getElementNameForClass(final Class<MzQuantMLObject> cls) {
         if (isRegisteredClass(cls)) {
             return modelQNames.get(cls).getLocalPart();
         }
@@ -124,7 +126,7 @@ public class ModelConstants {
      * @return the Class of matching element name.
      */
     public static Class<? extends MzQuantMLObject> getClassForElementName(
-            String name) {
+            final String name) {
         for (Entry<Class<? extends MzQuantMLObject>, QName> entry : modelQNames.entrySet()) {
             if (entry.getValue().getLocalPart().equals(name)) {
                 return entry.getKey();

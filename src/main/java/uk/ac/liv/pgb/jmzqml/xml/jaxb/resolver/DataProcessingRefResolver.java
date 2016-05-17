@@ -47,8 +47,8 @@ public class DataProcessingRefResolver extends AbstractReferenceResolver<DataPro
      * @param index MzQuantMLIndexer
      * @param cache MzQuantMLObjectCache
      */
-    public DataProcessingRefResolver(MzQuantMLIndexer index,
-                                     MzQuantMLObjectCache cache) {
+    public DataProcessingRefResolver(final MzQuantMLIndexer index,
+                                     final MzQuantMLObjectCache cache) {
         super(index, cache);
     }
 
@@ -57,7 +57,7 @@ public class DataProcessingRefResolver extends AbstractReferenceResolver<DataPro
      * @param object DataProcessing
      */
     @Override
-    public void updateObject(DataProcessing object) {
+    public void updateObject(final DataProcessing object) {
         String ref = object.getSoftwareRef();
         if (ref != null) {
             Software refObject = this.unmarshal(ref, Software.class);
@@ -155,7 +155,7 @@ public class DataProcessingRefResolver extends AbstractReferenceResolver<DataPro
      * @param parent object referencing the target. Null if target is root element.
      */
     @Override
-    public void afterUnmarshal(Object target, Object parent) {
+    public void afterUnmarshal(final Object target, final Object parent) {
         if (DataProcessing.class.isInstance(target) && MzQuantMLElement.DataProcessing.isAutoRefResolving()) {
             updateObject((DataProcessing) target);
         }

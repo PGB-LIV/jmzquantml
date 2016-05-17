@@ -59,8 +59,8 @@ public abstract class AbstractReferenceResolver<T extends MzQuantMLObject>
      * @param cache MzQuantMLObjectCache
      *
      */
-    protected AbstractReferenceResolver(MzQuantMLIndexer index,
-                                        MzQuantMLObjectCache cache) {
+    protected AbstractReferenceResolver(final MzQuantMLIndexer index,
+                                        final MzQuantMLObjectCache cache) {
         this.index = index;
         this.cache = cache;
     }
@@ -75,8 +75,9 @@ public abstract class AbstractReferenceResolver<T extends MzQuantMLObject>
      *
      * @return an object of the specified class.
      */
-    public <R extends MzQuantMLObject> R unmarshal(String refId, Class<R> cls) {
+    public <R extends MzQuantMLObject> R unmarshal(final String refId, final Class<R> cls) {
         R retVal;
+        Class<R> clz = cls;
 
         // check if we have a cache to look up, if so see if it contains the referenced object already
         //        if (cache != null) {
@@ -99,11 +100,11 @@ public abstract class AbstractReferenceResolver<T extends MzQuantMLObject>
             String organisationXML = index.getXmlString(refId, Organization.class);
             if (personXML != null && organisationXML == null) {
                 xml = personXML;
-                cls = MzQuantMLElement.Person.getClazz();
+                clz = MzQuantMLElement.Person.getClazz();
             }
             else if (personXML == null && organisationXML != null) {
                 xml = organisationXML;
-                cls = MzQuantMLElement.Organization.getClazz();
+                clz = MzQuantMLElement.Organization.getClazz();
             }
             else {
                 throw new IllegalStateException("Could not uniquely resolve ContactRole reference " + refId);
@@ -121,7 +122,7 @@ public abstract class AbstractReferenceResolver<T extends MzQuantMLObject>
             Unmarshaller unmarshaller = UnmarshallerFactory.getInstance().initializeUnmarshaller(index, cache, xmlFilter);
 
             // need to do it this way because snippet does not have a XmlRootElement annotation
-            JAXBElement<R> holder = unmarshaller.unmarshal(new SAXSource(xmlFilter, new InputSource(new StringReader(xml))), cls);
+            JAXBElement<R> holder = unmarshaller.unmarshal(new SAXSource(xmlFilter, new InputSource(new StringReader(xml))), clz);
             retVal = holder.getValue();
 
             /*

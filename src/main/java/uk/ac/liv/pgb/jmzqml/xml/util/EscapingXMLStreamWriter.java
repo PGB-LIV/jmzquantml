@@ -17,7 +17,7 @@ public class EscapingXMLStreamWriter implements XMLStreamWriter {
     private final XMLStreamWriter writer;
     private String charEncoding;
 
-    public EscapingXMLStreamWriter(XMLStreamWriter writer) {
+    public EscapingXMLStreamWriter(final XMLStreamWriter writer) {
 
         if (null == writer) {
             throw new IllegalArgumentException("null");
@@ -27,7 +27,7 @@ public class EscapingXMLStreamWriter implements XMLStreamWriter {
         this.charEncoding = "UTF-8";
     }
 
-    public EscapingXMLStreamWriter(XMLStreamWriter writer, String encoding) {
+    public EscapingXMLStreamWriter(final XMLStreamWriter writer, final String encoding) {
         this(writer);
         if (encoding != null) {
             this.charEncoding = encoding;
@@ -35,34 +35,34 @@ public class EscapingXMLStreamWriter implements XMLStreamWriter {
     }
 
     @Override
-    public void writeStartElement(String s) throws XMLStreamException {
+    public void writeStartElement(final String s) throws XMLStreamException {
         writer.writeStartElement(s);
     }
 
     @Override
-    public void writeStartElement(String s, String s1) throws XMLStreamException {
+    public void writeStartElement(final String s, final String s1) throws XMLStreamException {
         writer.writeStartElement(s, s1);
     }
 
     @Override
-    public void writeStartElement(String s, String s1, String s2)
+    public void writeStartElement(final String s, final String s1, final String s2)
             throws XMLStreamException {
         writer.writeStartElement(s, s1, s2);
     }
 
     @Override
-    public void writeEmptyElement(String s, String s1) throws XMLStreamException {
+    public void writeEmptyElement(final String s, final String s1) throws XMLStreamException {
         writer.writeEmptyElement(s, s1);
     }
 
     @Override
-    public void writeEmptyElement(String s, String s1, String s2)
+    public void writeEmptyElement(final String s, final String s1, final String s2)
             throws XMLStreamException {
         writer.writeEmptyElement(s, s1, s2);
     }
 
     @Override
-    public void writeEmptyElement(String s) throws XMLStreamException {
+    public void writeEmptyElement(final String s) throws XMLStreamException {
         writer.writeEmptyElement(s);
     }
 
@@ -87,60 +87,60 @@ public class EscapingXMLStreamWriter implements XMLStreamWriter {
     }
 
     @Override
-    public void writeAttribute(String localName, String value) throws XMLStreamException {
+    public void writeAttribute(final String localName, final String value) throws XMLStreamException {
         writer.writeAttribute(localName, EscapingXMLUtilities.escapeCharacters(value));
     }
 
     @Override
-    public void writeAttribute(String prefix, String namespaceUri, String localName, String value)
+    public void writeAttribute(final String prefix, final String namespaceUri, final String localName, final String value)
             throws XMLStreamException {
         writer.writeAttribute(prefix, namespaceUri, localName, EscapingXMLUtilities.escapeCharacters(value));
     }
 
     @Override
-    public void writeAttribute(String namespaceUri, String localName, String value)
+    public void writeAttribute(final String namespaceUri, final String localName, final String value)
             throws XMLStreamException {
         writer.writeAttribute(namespaceUri, localName, EscapingXMLUtilities.escapeCharacters(value));
     }
 
     @Override
-    public void writeNamespace(String s, String s1) throws XMLStreamException {
+    public void writeNamespace(final String s, final String s1) throws XMLStreamException {
         writer.writeNamespace(s, s1);
     }
 
     @Override
-    public void writeDefaultNamespace(String s) throws XMLStreamException {
+    public void writeDefaultNamespace(final String s) throws XMLStreamException {
         writer.writeDefaultNamespace(s);
     }
 
     @Override
-    public void writeComment(String s) throws XMLStreamException {
+    public void writeComment(final String s) throws XMLStreamException {
         writer.writeComment(s);
     }
 
     @Override
-    public void writeProcessingInstruction(String s) throws XMLStreamException {
+    public void writeProcessingInstruction(final String s) throws XMLStreamException {
         writer.writeProcessingInstruction(s);
     }
 
     @Override
-    public void writeProcessingInstruction(String s, String s1)
+    public void writeProcessingInstruction(final String s, final String s1)
             throws XMLStreamException {
         writer.writeProcessingInstruction(s, s1);
     }
 
     @Override
-    public void writeCData(String s) throws XMLStreamException {
+    public void writeCData(final String s) throws XMLStreamException {
         writer.writeCData(EscapingXMLUtilities.escapeCharacters(s));
     }
 
     @Override
-    public void writeDTD(String s) throws XMLStreamException {
+    public void writeDTD(final String s) throws XMLStreamException {
         writer.writeDTD(s);
     }
 
     @Override
-    public void writeEntityRef(String s) throws XMLStreamException {
+    public void writeEntityRef(final String s) throws XMLStreamException {
         writer.writeEntityRef(s);
     }
 
@@ -150,44 +150,44 @@ public class EscapingXMLStreamWriter implements XMLStreamWriter {
     }
 
     @Override
-    public void writeStartDocument(String s) throws XMLStreamException {
+    public void writeStartDocument(final String s) throws XMLStreamException {
         writer.writeStartDocument(s);
     }
 
     @Override
-    public void writeStartDocument(String s, String s1)
+    public void writeStartDocument(final String s, final String s1)
             throws XMLStreamException {
         writer.writeStartDocument(s, s1);
     }
 
     @Override
-    public void writeCharacters(String s) throws XMLStreamException {
+    public void writeCharacters(final String s) throws XMLStreamException {
         writer.writeCharacters(EscapingXMLUtilities.escapeCharacters(s));
     }
 
     @Override
-    public void writeCharacters(char[] chars, int start, int len)
+    public void writeCharacters(final char[] chars, final int start, final int len)
             throws XMLStreamException {
         writer.writeCharacters(EscapingXMLUtilities.escapeCharacters(new String(chars, start, len)));
     }
 
     @Override
-    public String getPrefix(String s) throws XMLStreamException {
+    public String getPrefix(final String s) throws XMLStreamException {
         return writer.getPrefix(s);
     }
 
     @Override
-    public void setPrefix(String s, String s1) throws XMLStreamException {
+    public void setPrefix(final String s, final String s1) throws XMLStreamException {
         writer.setPrefix(s, s1);
     }
 
     @Override
-    public void setDefaultNamespace(String s) throws XMLStreamException {
+    public void setDefaultNamespace(final String s) throws XMLStreamException {
         writer.setDefaultNamespace(s);
     }
 
     @Override
-    public void setNamespaceContext(NamespaceContext namespaceContext)
+    public void setNamespaceContext(final NamespaceContext namespaceContext)
             throws XMLStreamException {
         writer.setNamespaceContext(namespaceContext);
     }
@@ -198,7 +198,7 @@ public class EscapingXMLStreamWriter implements XMLStreamWriter {
     }
 
     @Override
-    public Object getProperty(String s) throws IllegalArgumentException {
+    public Object getProperty(final String s) throws IllegalArgumentException {
         return writer.getProperty(s);
     }
 }

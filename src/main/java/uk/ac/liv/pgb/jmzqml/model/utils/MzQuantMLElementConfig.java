@@ -53,7 +53,7 @@ public class MzQuantMLElementConfig {
      *
      * @param indexed the value of indexed attribute.
      */
-    public void setIndexed(boolean indexed) {
+    public void setIndexed(final boolean indexed) {
         this.indexed = indexed;
     }
 
@@ -71,7 +71,7 @@ public class MzQuantMLElementConfig {
      *
      * @param xpath the value of xpath attribute.
      */
-    public void setXpath(String xpath) {
+    public void setXpath(final String xpath) {
         this.xpath = xpath;
     }
 
@@ -89,7 +89,7 @@ public class MzQuantMLElementConfig {
      *
      * @param cached the value of cache attribute.
      */
-    public void setCached(boolean cached) {
+    public void setCached(final boolean cached) {
         this.cached = cached;
     }
 
@@ -107,7 +107,7 @@ public class MzQuantMLElementConfig {
      *
      * @param idMapped the value of idMapped attribute.
      */
-    public void setIdMapped(boolean idMapped) {
+    public void setIdMapped(final boolean idMapped) {
         this.idMapped = idMapped;
     }
 
@@ -125,7 +125,7 @@ public class MzQuantMLElementConfig {
      *
      * @param clazz the value of clazz attribute.
      */
-    public void setClazz(Class clazz) {
+    public void setClazz(final Class clazz) {
         this.clazz = clazz;
     }
 
@@ -143,7 +143,7 @@ public class MzQuantMLElementConfig {
      *
      * @param cvParamClass the value of cvParamClass attribute.
      */
-    public void setCvParamClass(Class cvParamClass) {
+    public void setCvParamClass(final Class cvParamClass) {
         this.cvParamClass = cvParamClass;
     }
 
@@ -161,7 +161,7 @@ public class MzQuantMLElementConfig {
      *
      * @param userParamClass the value of userParamClass attribute.
      */
-    public void setUserParamClass(Class userParamClass) {
+    public void setUserParamClass(final Class userParamClass) {
         this.userParamClass = userParamClass;
     }
 
@@ -179,7 +179,7 @@ public class MzQuantMLElementConfig {
      *
      * @param autoRefResolving the value of autoRefResolving attribute.
      */
-    public void setAutoRefResolving(boolean autoRefResolving) {
+    public void setAutoRefResolving(final boolean autoRefResolving) {
         this.autoRefResolving = autoRefResolving;
     }
 
@@ -197,7 +197,7 @@ public class MzQuantMLElementConfig {
      *
      * @param refResolverClass the value of refResolverClass attribute.
      */
-    public void setRefResolverClass(Class refResolverClass) {
+    public void setRefResolverClass(final Class refResolverClass) {
         this.refResolverClass = refResolverClass;
     }
 
@@ -215,7 +215,7 @@ public class MzQuantMLElementConfig {
      *
      * @param tagName the value of tagName attribute.
      */
-    public void setTagName(String tagName) {
+    public void setTagName(final String tagName) {
         this.tagName = tagName;
     }
 

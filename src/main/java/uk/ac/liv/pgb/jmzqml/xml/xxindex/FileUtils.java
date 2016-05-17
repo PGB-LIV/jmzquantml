@@ -28,7 +28,7 @@ public class FileUtils {
      *
      * @return a File object
      */
-    public static File getFileFromURL(URL url) {
+    public static File getFileFromURL(final URL url) {
 
         File tempFile;
         BufferedInputStream in = null;

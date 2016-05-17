@@ -84,7 +84,7 @@ public class MzQuantMLIndexerFactory {
      *
      * @return an object of MzQuantMLIndexer.
      */
-    public MzQuantMLIndexer buildIndex(File xmlFile) {
+    public MzQuantMLIndexer buildIndex(final File xmlFile) {
         return buildIndex(xmlFile, Constants.XML_INDEXED_XPATHS, false);
     }
 
@@ -96,16 +96,19 @@ public class MzQuantMLIndexerFactory {
      *
      * @return an object of MzQuantMLIndexer.
      */
-    public MzQuantMLIndexer buildIndex(File xmlFile, Set<String> xpaths) {
+    public MzQuantMLIndexer buildIndex(final File xmlFile,
+                                       final Set<String> xpaths) {
         return new MzQuantMLIndexerImpl(xmlFile, xpaths, false);
     }
 
-    public MzQuantMLIndexer buildIndex(File xmlFile, boolean inMemory) {
+    public MzQuantMLIndexer buildIndex(final File xmlFile,
+                                       final boolean inMemory) {
         return new MzQuantMLIndexerImpl(xmlFile, Constants.XML_INDEXED_XPATHS, inMemory);
     }
 
-    public MzQuantMLIndexer buildIndex(File xmlFile, Set<String> xpaths,
-                                       boolean inMemory) {
+    public MzQuantMLIndexer buildIndex(final File xmlFile,
+                                       final Set<String> xpaths,
+                                       final boolean inMemory) {
         return new MzQuantMLIndexerImpl(xmlFile, xpaths, inMemory);
     }
 
@@ -126,8 +129,9 @@ public class MzQuantMLIndexerFactory {
         /*
          * Constructor
          */
-        private MzQuantMLIndexerImpl(File xmlFile, Set<String> xpaths,
-                                     boolean inMemory) {
+        private MzQuantMLIndexerImpl(final File xmlFile,
+                                     final Set<String> xpaths,
+                                     final boolean inMemory) {
             if (xmlFile == null) {
                 throw new IllegalStateException("XML File to index must not be null");
             }
@@ -166,8 +170,9 @@ public class MzQuantMLIndexerFactory {
             }
         }
 
-        private void initXpathAccess(File xmlFile, Set<String> xpaths,
-                                     boolean inMemory)
+        private void initXpathAccess(final File xmlFile,
+                                     final Set<String> xpaths,
+                                     final boolean inMemory)
                 throws IOException {
             if (inMemory) {
                 // load file into memory
@@ -191,7 +196,7 @@ public class MzQuantMLIndexerFactory {
             }
         }
 
-        private void loadFileIntoMemory(File xmlFile)
+        private void loadFileIntoMemory(final File xmlFile)
                 throws IOException {
             FileInputStream fis = new FileInputStream(xmlFile);
             FileChannel fc = fis.getChannel();
@@ -212,7 +217,8 @@ public class MzQuantMLIndexerFactory {
         }
 
         @Override
-        public Iterator<String> getXmlStringIterator(String xpathExpression) {
+        public Iterator<String> getXmlStringIterator(
+                final String xpathExpression) {
             if (index.containsXpath(xpathExpression)) {
                 return xpathAccess.getXmlSnippetIterator(xpathExpression);
             }
@@ -229,7 +235,7 @@ public class MzQuantMLIndexerFactory {
          *         elements were found for the specified xpath.
          */
         @Override
-        public int getCount(String xpathExpression) {
+        public int getCount(final String xpathExpression) {
             int retValue = -1;
             if (index.containsXpath(xpathExpression)) {
                 List<IndexElement> tmpList = index.getElements(xpathExpression);
@@ -241,13 +247,13 @@ public class MzQuantMLIndexerFactory {
         }
 
         @Override
-        public List<IndexElement> getIndexElements(String xpath) {
+        public List<IndexElement> getIndexElements(final String xpath) {
             return new ArrayList<>(index.getElements(xpath));
         }
 
         @Override
         public Map<String, IndexElement> getIndexElements(
-                Class<? extends MzQuantMLObject> clazz) {
+                final Class<? extends MzQuantMLObject> clazz) {
             return new HashMap<>(idMapCache.get(clazz));
         }
 
@@ -257,8 +263,8 @@ public class MzQuantMLIndexerFactory {
         }
 
         @Override
-        public String getXmlString(String ID,
-                                   Class<? extends MzQuantMLObject> clazz) {
+        public String getXmlString(final String ID,
+                                   final Class<? extends MzQuantMLObject> clazz) {
             LOGGER.debug("Getting cached ID: " + ID + " from cache: " + clazz);
 
             Map<String, IndexElement> idMap = idMapCache.get(clazz);
@@ -275,14 +281,15 @@ public class MzQuantMLIndexerFactory {
         }
 
         @Override
-        public String getXmlString(IndexElement byteRange) {
+        public String getXmlString(final IndexElement byteRange) {
             return getXmlString(byteRange, 0);
         }
 
         /*
          * private methods
          */
-        private String getXmlString(IndexElement byteRange, int maxChars) {
+        private String getXmlString(final IndexElement byteRange,
+                                    final int maxChars) {
             try {
                 if (byteRange != null) {
                     long stop;
@@ -308,8 +315,8 @@ public class MzQuantMLIndexerFactory {
         }
 
         @Override
-        public String getStartTag(String id,
-                                  Class<? extends MzQuantMLObject> clazz) {
+        public String getStartTag(final String id,
+                                  final Class<? extends MzQuantMLObject> clazz) {
             LOGGER.debug("Getting start tag of element with id: " + id + " for class: " + clazz);
             String tag = null;
 
@@ -338,8 +345,8 @@ public class MzQuantMLIndexerFactory {
         }
 
         @Override
-        public boolean isIDmapped(String id,
-                                  Class<? extends MzQuantMLObject> clazz) {
+        public boolean isIDmapped(final String id,
+                                  final Class<? extends MzQuantMLObject> clazz) {
             if (clazz == null) {
                 return false;
             }
@@ -348,7 +355,7 @@ public class MzQuantMLIndexerFactory {
         }
 
         @Override
-        public Set<String> getIDsForElement(MzQuantMLElement element)
+        public Set<String> getIDsForElement(final MzQuantMLElement element)
                 throws ConfigurationException {
             if (element.isIdMapped()) {
                 return idMapCache.get(element.<MzQuantMLObject>getClazz()).keySet();
@@ -359,7 +366,7 @@ public class MzQuantMLIndexerFactory {
         }
 
         public <T extends MzQuantMLObject> Set<String> getElementIDs(
-                Class<T> clazz) {
+                final Class<T> clazz) {
             if (idMapCache == null) {
                 return null;
             }
@@ -370,7 +377,7 @@ public class MzQuantMLIndexerFactory {
             return classCache.keySet();
         }
 
-        private String extractMzQuantMLStartTag(File xmlFile)
+        private String extractMzQuantMLStartTag(final File xmlFile)
                 throws IOException {
             // get start position of the mzIdentML element
             List<IndexElement> ie = index.getElements("/MzQuantML");
@@ -418,8 +425,8 @@ public class MzQuantMLIndexerFactory {
             }
         }
 
-        private void initIdMapCache(Map<String, IndexElement> idMap,
-                                    String xpath)
+        private void initIdMapCache(final Map<String, IndexElement> idMap,
+                                    final String xpath)
                 throws IOException {
             List<IndexElement> ranges = index.getElements(xpath);
             for (IndexElement byteRange : ranges) {
@@ -440,7 +447,7 @@ public class MzQuantMLIndexerFactory {
             }
         }
 
-        private String getIdFromRawXML(String xml) {
+        private String getIdFromRawXML(final String xml) {
             Matcher match = ID_PATTERN.matcher(xml);
 
             // TODO: more checks: if no id found or more than one match, ...

@@ -68,7 +68,7 @@ public class MzQuantMLMarshaller {
      * @param fullFileName a String type file name.
      *
      */
-    public MzQuantMLMarshaller(String fullFileName) {
+    public MzQuantMLMarshaller(final String fullFileName) {
         try {
             File file = new File(fullFileName);
             this.fw = new OutputStreamWriter(new FileOutputStream(file), "UTF-8");
@@ -107,7 +107,7 @@ public class MzQuantMLMarshaller {
      *
      * @param mzQuantML the MzQuantML object to be marshalled.
      */
-    public void marshall(MzQuantML mzQuantML) {
+    public void marshall(final MzQuantML mzQuantML) {
         try {
             if (this.fw != null) {
 
@@ -140,18 +140,20 @@ public class MzQuantMLMarshaller {
      *
      * @return the mzQuantML string of the object
      */
-    public <T extends MzQuantMLObject> String marshall(T object) {
+    public <T extends MzQuantMLObject> String marshall(final T object) {
         StringWriter sw = new StringWriter();
         this.marshall(object, sw);
         return sw.toString();
     }
 
-    public <T extends MzQuantMLObject> void marshall(T object, OutputStream os) {
+    public <T extends MzQuantMLObject> void marshall(final T object,
+                                                     final OutputStream os) {
         this.marshall(object, os, "UTF-8");
     }
 
-    public <T extends MzQuantMLObject> void marshall(T object, OutputStream os,
-                                                     String encoding) {
+    public <T extends MzQuantMLObject> void marshall(final T object,
+                                                     final OutputStream os,
+                                                     final String encoding) {
         try {
             this.marshall(object, new OutputStreamWriter(os, encoding), encoding);
         }
@@ -161,7 +163,8 @@ public class MzQuantMLMarshaller {
     }
 
     @SuppressWarnings("unchecked")
-    public <T extends MzQuantMLObject> void marshall(T object, Writer out) {
+    public <T extends MzQuantMLObject> void marshall(final T object,
+                                                     final Writer out) {
         this.marshall(object, out, "UTF-8");
     }
 
@@ -173,8 +176,9 @@ public class MzQuantMLMarshaller {
      * @param out      the writer to which the {@code object} is written.
      * @param encoding character encoding
      */
-    public <T extends MzQuantMLObject> void marshall(T object, Writer out,
-                                                     String encoding) {
+    public <T extends MzQuantMLObject> void marshall(final T object,
+                                                     final Writer out,
+                                                     final String encoding) {
 
         if (object == null) {
             throw new IllegalArgumentException("Cannot marshall a NULL object.");
@@ -244,7 +248,7 @@ public class MzQuantMLMarshaller {
      *
      * @return a start tag of mzQuantML file.
      */
-    public static String createMzQuantMLStartTag(String id) {
+    public static String createMzQuantMLStartTag(final String id) {
         StringBuilder sb = new StringBuilder(160);
 
         // tag opening plus id attribute
@@ -430,7 +434,7 @@ public class MzQuantMLMarshaller {
      *
      * @return a start tag of {@link uk.ac.liv.pgb.jmzqml.model.mzqml.AssayList}.
      */
-    public static String createAssayListStartTag(String id) {
+    public static String createAssayListStartTag(final String id) {
         if (id == null) {
             throw new IllegalArgumentException("The 'id' attribute must not be null!");
         }
@@ -476,18 +480,18 @@ public class MzQuantMLMarshaller {
      *
      * @return a {@link uk.ac.liv.pgb.jmzqml.model.mzqml.BibliographicReference} string tag, representing bibliographic references.
      */
-    public static String createBibliographicReferenceTag(String id,
-                                                         String name,
-                                                         String authors,
-                                                         String publication,
-                                                         String publisher,
-                                                         String editor,
-                                                         Integer year,
-                                                         String volume,
-                                                         String issue,
-                                                         String pages,
-                                                         String title,
-                                                         String doi) {
+    public static String createBibliographicReferenceTag(final String id,
+                                                         final String name,
+                                                         final String authors,
+                                                         final String publication,
+                                                         final String publisher,
+                                                         final String editor,
+                                                         final Integer year,
+                                                         final String volume,
+                                                         final String issue,
+                                                         final String pages,
+                                                         final String title,
+                                                         final String doi) {
 
         if (id == null) {
             throw new IllegalArgumentException("The 'id' attribute must not be null!");
@@ -556,8 +560,8 @@ public class MzQuantMLMarshaller {
      *
      * @return a start tag of {@link uk.ac.liv.pgb.jmzqml.model.mzqml.FeatureList}.
      */
-    public static String createFeatureListStartTag(String id,
-                                                   String rawFilesGroupRef) {
+    public static String createFeatureListStartTag(final String id,
+                                                   final String rawFilesGroupRef) {
         if (id == null) {
             throw new IllegalArgumentException("The 'id' attribute must not be null!");
         }
@@ -598,8 +602,8 @@ public class MzQuantMLMarshaller {
      *
      * @return a start tag of {@link uk.ac.liv.pgb.jmzqml.model.mzqml.PeptideConsensusList}.
      */
-    public static String createPeptideConsensusListStartTag(String id,
-                                                            Boolean finalResult) {
+    public static String createPeptideConsensusListStartTag(final String id,
+                                                            final Boolean finalResult) {
         if (id == null) {
             throw new IllegalArgumentException("The 'id' attribute must not be null!");
         }
@@ -639,7 +643,7 @@ public class MzQuantMLMarshaller {
      *
      * @return a start tag of {@link uk.ac.liv.pgb.jmzqml.model.mzqml.ProteinGroupList}.
      */
-    public static String createProteinGroupListStartTag(String id) {
+    public static String createProteinGroupListStartTag(final String id) {
         if (id == null) {
             throw new IllegalArgumentException("The 'id' attribute must not be null!");
         }
@@ -672,7 +676,7 @@ public class MzQuantMLMarshaller {
      *
      * @return a start tag of {@link uk.ac.liv.pgb.jmzqml.model.mzqml.ProteinList}.
      */
-    public static String createProteinListStartTag(String id) {
+    public static String createProteinListStartTag(final String id) {
         if (id == null) {
             throw new IllegalArgumentException("The 'id' attribute must not be null!");
         }
@@ -705,7 +709,7 @@ public class MzQuantMLMarshaller {
      *
      * @return a start tag of {@link uk.ac.liv.pgb.jmzqml.model.mzqml.SmallMoleculeList}.
      */
-    public static String createSmallMoleculeListStartTag(String id) {
+    public static String createSmallMoleculeListStartTag(final String id) {
         if (id == null) {
             throw new IllegalArgumentException("The 'id' attribute must not be null!");
         }
@@ -754,18 +758,19 @@ public class MzQuantMLMarshaller {
      *
      * @return the {@link uk.ac.liv.pgb.jmzqml.model.mzqml.BibliographicReference} object, representing bibliographic references.
      */
-    public static BibliographicReference createBibliographicReference(String id,
-                                                                      String name,
-                                                                      String authors,
-                                                                      String publication,
-                                                                      String publisher,
-                                                                      String editor,
-                                                                      Integer year,
-                                                                      String volume,
-                                                                      String issue,
-                                                                      String pages,
-                                                                      String title,
-                                                                      String doi) {
+    public static BibliographicReference createBibliographicReference(
+            final String id,
+            final String name,
+            final String authors,
+            final String publication,
+            final String publisher,
+            final String editor,
+            final Integer year,
+            final String volume,
+            final String issue,
+            final String pages,
+            final String title,
+            final String doi) {
 
         BibliographicReference br = new BibliographicReference();
         if (id == null) {
@@ -822,10 +827,10 @@ public class MzQuantMLMarshaller {
      *
      * @return the {@link uk.ac.liv.pgb.jmzqml.model.mzqml.Cv} object, a source controlled vocabulary from which cvParams will be obtained.
      */
-    public static Cv createCv(String id,
-                              String fullName,
-                              String uri,
-                              String version) {
+    public static Cv createCv(final String id,
+                              final String fullName,
+                              final String uri,
+                              final String version) {
         Cv cv = new Cv();
         if (id == null) {
             throw new IllegalArgumentException("The 'id' attribute must not be null!");
@@ -860,13 +865,13 @@ public class MzQuantMLMarshaller {
      *
      * @return the {@link uk.ac.liv.pgb.jmzqml.model.mzqml.CvParam} object, a single entry from an ontology or a controlled vocabulary.
      */
-    public static CvParam createCvParam(String name,
-                                        String cvRef,
-                                        String accession,
-                                        String value,
-                                        String unitAccession,
-                                        String unitName,
-                                        String unitCvRef) {
+    public static CvParam createCvParam(final String name,
+                                        final String cvRef,
+                                        final String accession,
+                                        final String value,
+                                        final String unitAccession,
+                                        final String unitName,
+                                        final String unitCvRef) {
         CvParam cp = new CvParam();
 
         if (name == null) {
@@ -917,13 +922,13 @@ public class MzQuantMLMarshaller {
      *
      * @return the {@link uk.ac.liv.pgb.jmzqml.model.mzqml.CvParam} object, a single entry from an ontology or a controlled vocabulary.
      */
-    public static CvParam createCvParam(String name,
-                                        Cv cvRef,
-                                        String accession,
-                                        String value,
-                                        String unitAccession,
-                                        String unitName,
-                                        String unitCvRef) {
+    public static CvParam createCvParam(final String name,
+                                        final Cv cvRef,
+                                        final String accession,
+                                        final String value,
+                                        final String unitAccession,
+                                        final String unitName,
+                                        final String unitCvRef) {
 
         String id = cvRef.getId();
         return createCvParam(name, id, accession, value, unitAccession, unitName, unitCvRef);
@@ -940,9 +945,9 @@ public class MzQuantMLMarshaller {
      *
      * @return the {@link uk.ac.liv.pgb.jmzqml.model.mzqml.CvParam} object, a single entry from an ontology or a controlled vocabulary.
      */
-    public static CvParam createCvParam(String name,
-                                        String cvRef,
-                                        String accession) {
+    public static CvParam createCvParam(final String name,
+                                        final String cvRef,
+                                        final String accession) {
         return createCvParam(name, cvRef, accession, null, null, null, null);
     }
 
@@ -957,9 +962,9 @@ public class MzQuantMLMarshaller {
      *
      * @return the {@link uk.ac.liv.pgb.jmzqml.model.mzqml.CvParam} object, a single entry from an ontology or a controlled vocabulary.
      */
-    public static CvParam createCvParam(String name,
-                                        Cv cvRef,
-                                        String accession) {
+    public static CvParam createCvParam(final String name,
+                                        final Cv cvRef,
+                                        final String accession) {
         return createCvParam(name, cvRef, accession, null, null, null, null);
 
     }

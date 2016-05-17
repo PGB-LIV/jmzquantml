@@ -39,8 +39,8 @@ public class FeatureListRefResolver extends AbstractReferenceResolver<FeatureLis
      * @param index MzQuantMLIndexer
      * @param cache MzQuantMLObjectCache
      */
-    public FeatureListRefResolver(MzQuantMLIndexer index,
-                                  MzQuantMLObjectCache cache) {
+    public FeatureListRefResolver(final MzQuantMLIndexer index,
+                                  final MzQuantMLObjectCache cache) {
         super(index, cache);
     }
 
@@ -49,7 +49,7 @@ public class FeatureListRefResolver extends AbstractReferenceResolver<FeatureLis
      * @param object FeatureList
      */
     @Override
-    public void updateObject(FeatureList object) {
+    public void updateObject(final FeatureList object) {
 
         String ref = object.getRawFilesGroupRef();
         if (ref != null) {
@@ -66,7 +66,7 @@ public class FeatureListRefResolver extends AbstractReferenceResolver<FeatureLis
      * @param parent object referencing the target. Null if target is root element.
      */
     @Override
-    public void afterUnmarshal(Object target, Object parent) {
+    public void afterUnmarshal(final Object target, final Object parent) {
         if (FeatureList.class.isInstance(target) && MzQuantMLElement.FeatureList.isAutoRefResolving()) {
             updateObject((FeatureList) target);
         } // else, not business of this resolver

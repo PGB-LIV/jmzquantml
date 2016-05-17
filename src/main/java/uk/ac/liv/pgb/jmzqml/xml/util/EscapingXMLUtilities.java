@@ -106,7 +106,7 @@ public class EscapingXMLUtilities {
         }
     }
 
-    private static boolean isIllegal(char c) {
+    private static boolean isIllegal(final char c) {
         return ILLEGAL_CHARS.contains(c);
     }
 
@@ -119,7 +119,7 @@ public class EscapingXMLUtilities {
      *
      * @return escaped string
      */
-    public static String escapeCharacters(String string) {
+    public static String escapeCharacters(final String string) {
 
         char[] copy = null;
         boolean copied = false;

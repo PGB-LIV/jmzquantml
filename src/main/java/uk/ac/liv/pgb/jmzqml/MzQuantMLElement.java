@@ -10,7 +10,7 @@
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- *      http://www.apache.org/licenses/LICENSE-2.0
+ * http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -18,7 +18,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 package uk.ac.liv.pgb.jmzqml;
 
 import java.net.URL;
@@ -1095,16 +1094,16 @@ public enum MzQuantMLElement {
         loadProperties();
     }
 
-    private <T extends MzQuantMLObject> MzQuantMLElement(String tagName,
-                                                         boolean indexed,
-                                                         String xpath,
-                                                         boolean cached,
-                                                         boolean idMapped,
-                                                         Class<T> clazz,
-                                                         Class cvParamClass,
-                                                         Class userParamClass,
-                                                         boolean autoRefResolving,
-                                                         Class refResolverClass) {
+    private <T extends MzQuantMLObject> MzQuantMLElement(final String tagName,
+                                                         final boolean indexed,
+                                                         final String xpath,
+                                                         final boolean cached,
+                                                         final boolean idMapped,
+                                                         final Class<T> clazz,
+                                                         final Class cvParamClass,
+                                                         final Class userParamClass,
+                                                         final boolean autoRefResolving,
+                                                         final Class refResolverClass) {
         this.tagName = tagName;
         this.indexed = indexed;
         this.cached = cached;
@@ -1225,7 +1224,7 @@ public enum MzQuantMLElement {
      *
      * @return a {@link uk.ac.liv.pgb.jmzqml.MzQuantMLElement} constant.
      */
-    public static MzQuantMLElement getType(Class clazz) {
+    public static MzQuantMLElement getType(final Class clazz) {
         for (MzQuantMLElement type : MzQuantMLElement.values()) {
             if (type.getClazz() == clazz) {
                 return type;
@@ -1241,7 +1240,7 @@ public enum MzQuantMLElement {
      *
      * @return a {@link uk.ac.liv.pgb.jmzqml.MzQuantMLElement} constant.
      */
-    public static MzQuantMLElement getType(String xpath) {
+    public static MzQuantMLElement getType(final String xpath) {
         for (MzQuantMLElement type : MzQuantMLElement.values()) {
             if (type.getXpath() != null && type.getXpath().equals(xpath)) {
                 return type;

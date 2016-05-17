@@ -41,7 +41,7 @@ public class AssayRefResolver extends AbstractReferenceResolver<Assay> {
      * @param index MzQuantMLIndexer
      * @param cache MzQuantMLObjectCache
      */
-    public AssayRefResolver(MzQuantMLIndexer index, MzQuantMLObjectCache cache) {
+    public AssayRefResolver(final MzQuantMLIndexer index, final MzQuantMLObjectCache cache) {
         super(index, cache);
     }
 
@@ -50,7 +50,7 @@ public class AssayRefResolver extends AbstractReferenceResolver<Assay> {
      * @param object Assay
      */
     @Override
-    public void updateObject(Assay object) {
+    public void updateObject(final Assay object) {
 
         String ref1 = object.getRawFilesGroupRef();
         if (ref1 != null) {
@@ -75,7 +75,7 @@ public class AssayRefResolver extends AbstractReferenceResolver<Assay> {
      * @param parent object referencing the target. Null if target is root element.
      */
     @Override
-    public void afterUnmarshal(Object target, Object parent) {
+    public void afterUnmarshal(final Object target, final Object parent) {
         if (Assay.class.isInstance(target) && MzQuantMLElement.Assay.isAutoRefResolving()) {
             updateObject((Assay) target);
         } // else, not business of this resolver

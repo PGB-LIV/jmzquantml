@@ -39,8 +39,8 @@ public class ContactRoleRefResolver extends AbstractReferenceResolver<ContactRol
      * @param index MzQuantMLIndexer
      * @param cache MzQuantMLObjectCache
      */
-    public ContactRoleRefResolver(MzQuantMLIndexer index,
-                                  MzQuantMLObjectCache cache) {
+    public ContactRoleRefResolver(final MzQuantMLIndexer index,
+                                  final MzQuantMLObjectCache cache) {
         super(index, cache);
     }
 
@@ -49,7 +49,7 @@ public class ContactRoleRefResolver extends AbstractReferenceResolver<ContactRol
      * @param object ContactRole
      */
     @Override
-    public void updateObject(ContactRole object) {
+    public void updateObject(final ContactRole object) {
 
         String ref = object.getContactRef();
         if (ref != null) {
@@ -66,7 +66,7 @@ public class ContactRoleRefResolver extends AbstractReferenceResolver<ContactRol
      * @param parent object referencing the target. Null if target is root element.
      */
     @Override
-    public void afterUnmarshal(Object target, Object parent) {
+    public void afterUnmarshal(final Object target, final Object parent) {
         if (ContactRole.class.isInstance(target) && MzQuantMLElement.ContactRole.isAutoRefResolving()) {
             updateObject((ContactRole) target);
         }
