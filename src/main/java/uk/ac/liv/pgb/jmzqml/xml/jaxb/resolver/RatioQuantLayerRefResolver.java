@@ -51,7 +51,7 @@ public class RatioQuantLayerRefResolver extends AbstractReferenceResolver<RatioQ
      * @param object RatioQuantLayer
      */
     @Override
-    public void updateObject(final RatioQuantLayer object) {
+    public final void updateObject(final RatioQuantLayer object) {
 
         //ColumnIndex
         List<String> refs1 = object.getColumnIndex();
@@ -72,7 +72,7 @@ public class RatioQuantLayerRefResolver extends AbstractReferenceResolver<RatioQ
      * @param parent object referencing the target. Null if target is root element.
      */
     @Override
-    public void afterUnmarshal(final Object target, final Object parent) {
+    public final void afterUnmarshal(final Object target, final Object parent) {
         if (RatioQuantLayer.class.isInstance(target) && MzQuantMLElement.RatioQuantLayer.isAutoRefResolving()) {
             updateObject((RatioQuantLayer) target);
         } // else, not business of this resolver

@@ -107,7 +107,7 @@ public class MzQuantMLMarshaller {
      *
      * @param mzQuantML the MzQuantML object to be marshalled.
      */
-    public void marshall(final MzQuantML mzQuantML) {
+    public final void marshall(final MzQuantML mzQuantML) {
         try {
             if (this.fw != null) {
 
@@ -140,20 +140,20 @@ public class MzQuantMLMarshaller {
      *
      * @return the mzQuantML string of the object
      */
-    public <T extends MzQuantMLObject> String marshall(final T object) {
+    public final <T extends MzQuantMLObject> String marshall(final T object) {
         StringWriter sw = new StringWriter();
         this.marshall(object, sw);
         return sw.toString();
     }
 
-    public <T extends MzQuantMLObject> void marshall(final T object,
-                                                     final OutputStream os) {
+    public final <T extends MzQuantMLObject> void marshall(final T object,
+                                                           final OutputStream os) {
         this.marshall(object, os, "UTF-8");
     }
 
-    public <T extends MzQuantMLObject> void marshall(final T object,
-                                                     final OutputStream os,
-                                                     final String encoding) {
+    public final <T extends MzQuantMLObject> void marshall(final T object,
+                                                           final OutputStream os,
+                                                           final String encoding) {
         try {
             this.marshall(object, new OutputStreamWriter(os, encoding), encoding);
         }
@@ -163,8 +163,8 @@ public class MzQuantMLMarshaller {
     }
 
     @SuppressWarnings("unchecked")
-    public <T extends MzQuantMLObject> void marshall(final T object,
-                                                     final Writer out) {
+    public final <T extends MzQuantMLObject> void marshall(final T object,
+                                                           final Writer out) {
         this.marshall(object, out, "UTF-8");
     }
 
@@ -176,9 +176,9 @@ public class MzQuantMLMarshaller {
      * @param out      the writer to which the {@code object} is written.
      * @param encoding character encoding
      */
-    public <T extends MzQuantMLObject> void marshall(final T object,
-                                                     final Writer out,
-                                                     final String encoding) {
+    public final <T extends MzQuantMLObject> void marshall(final T object,
+                                                           final Writer out,
+                                                           final String encoding) {
 
         if (object == null) {
             throw new IllegalArgumentException("Cannot marshall a NULL object.");

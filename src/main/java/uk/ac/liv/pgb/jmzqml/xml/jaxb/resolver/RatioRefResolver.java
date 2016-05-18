@@ -50,7 +50,7 @@ public class RatioRefResolver extends AbstractReferenceResolver<Ratio> {
      * @param object Ratio
      */
     @Override
-    public void updateObject(final Ratio object) {
+    public final void updateObject(final Ratio object) {
 
         String refDen = object.getDenominatorRef();
         if (refDen != null) {
@@ -95,7 +95,7 @@ public class RatioRefResolver extends AbstractReferenceResolver<Ratio> {
      * @param parent object referencing the target. Null if target is root element.
      */
     @Override
-    public void afterUnmarshal(final Object target, final Object parent) {
+    public final void afterUnmarshal(final Object target, final Object parent) {
         if (Ratio.class.isInstance(target) && MzQuantMLElement.Ratio.isAutoRefResolving()) {
             updateObject((Ratio) target);
         } // else, not business of this resolver

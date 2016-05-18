@@ -54,9 +54,9 @@ public class MzQuantMLNamespaceFilter extends XMLFilterImpl {
     }
 
     @Override
-    public void startElement(final String uri, final String localName,
-                             final String qName,
-                             final Attributes atts)
+    public final void startElement(final String uri, final String localName,
+                                   final String qName,
+                                   final Attributes atts)
             throws SAXException {
         // the elements are defined by a qualified schema, but we rip them out of context with the xxindex
         // so the namespace information is lost and we have to add it again here manually       

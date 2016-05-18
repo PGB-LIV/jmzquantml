@@ -50,7 +50,7 @@ public class SmallMoleculeRefResolver extends AbstractReferenceResolver<SmallMol
      * @param object SmallMolecule
      */
     @Override
-    public void updateObject(final SmallMolecule object) {
+    public final void updateObject(final SmallMolecule object) {
         List<String> refs = object.getFeatureRefs();
         List<Feature> features = object.getFeatures();
 
@@ -69,7 +69,7 @@ public class SmallMoleculeRefResolver extends AbstractReferenceResolver<SmallMol
      * @param parent object referencing the target. Null if target is root element.
      */
     @Override
-    public void afterUnmarshal(final Object target, final Object parent) {
+    public final void afterUnmarshal(final Object target, final Object parent) {
         if (SmallMolecule.class.isInstance(target) && MzQuantMLElement.SmallMolecule.isAutoRefResolving()) {
             updateObject((SmallMolecule) target);
         } // else, not business of this resolver

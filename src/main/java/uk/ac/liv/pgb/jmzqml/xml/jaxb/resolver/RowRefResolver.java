@@ -53,7 +53,7 @@ public class RowRefResolver extends AbstractReferenceResolver<Row> {
      * @param object Row
      */
     @Override
-    public void updateObject(final Row object) {
+    public final void updateObject(final Row object) {
         // add objects for the refID                      
         String ref = object.getObjectRef();
         if (ref != null) {
@@ -98,7 +98,7 @@ public class RowRefResolver extends AbstractReferenceResolver<Row> {
      * @param parent object referencing the target. Null if target is root element.
      */
     @Override
-    public void afterUnmarshal(final Object target, final Object parent) {
+    public final void afterUnmarshal(final Object target, final Object parent) {
         if (Row.class.isInstance(target) && MzQuantMLElement.Row.isAutoRefResolving()) {
             updateObject((Row) target);
         } // else, not business of this resolver

@@ -49,7 +49,7 @@ public class ProteinRefRefResolver extends AbstractReferenceResolver<ProteinRef>
      * @param object ProteinRef
      */
     @Override
-    public void updateObject(final ProteinRef object) {
+    public final void updateObject(final ProteinRef object) {
         String ref = object.getProteinRef();
         if (ref != null) {
             Protein refObject = this.unmarshal(ref, Protein.class);
@@ -65,7 +65,7 @@ public class ProteinRefRefResolver extends AbstractReferenceResolver<ProteinRef>
      * @param parent object referencing the target. Null if target is root element.
      */
     @Override
-    public void afterUnmarshal(final Object target, final Object parent) {
+    public final void afterUnmarshal(final Object target, final Object parent) {
         if (ProteinRef.class.isInstance(target) && MzQuantMLElement.ProteinRef.isAutoRefResolving()) {
             updateObject((ProteinRef) target);
         } // else, not business of this resolver

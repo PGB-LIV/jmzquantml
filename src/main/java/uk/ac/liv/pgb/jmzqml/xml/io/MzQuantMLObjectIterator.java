@@ -64,12 +64,12 @@ public class MzQuantMLObjectIterator<T extends MzQuantMLObject> implements
     }
 
     @Override
-    public boolean hasNext() {
+    public final boolean hasNext() {
         return innerXpathIterator != null && innerXpathIterator.hasNext();
     }
 
     @Override
-    public T next() {
+    public final T next() {
         T retval;
 
         try {
@@ -103,7 +103,7 @@ public class MzQuantMLObjectIterator<T extends MzQuantMLObject> implements
     }
 
     @Override
-    public void remove() {
+    public final void remove() {
         throw new UnsupportedOperationException(MzQuantMLObjectIterator.class.getName() + " can't be used to remove object while iterating");
     }
 

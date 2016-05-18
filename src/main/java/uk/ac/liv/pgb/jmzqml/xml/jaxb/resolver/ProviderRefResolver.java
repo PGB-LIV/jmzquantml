@@ -27,7 +27,7 @@ public class ProviderRefResolver extends AbstractReferenceResolver<Provider> {
      * @param object Provider
      */
     @Override
-    public void updateObject(final Provider object) {
+    public final void updateObject(final Provider object) {
         // add objects for the refID
         String ref = object.getSoftwareRef();
         if (ref != null) {
@@ -44,7 +44,7 @@ public class ProviderRefResolver extends AbstractReferenceResolver<Provider> {
      * @param parent object referencing the target. Null if target is root element.
      */
     @Override
-    public void afterUnmarshal(final Object target, final Object parent) {
+    public final void afterUnmarshal(final Object target, final Object parent) {
         if (Provider.class.isInstance(target) && MzQuantMLElement.Provider.isAutoRefResolving()) {
             updateObject((Provider) target);
         } // else, not business of this resolver

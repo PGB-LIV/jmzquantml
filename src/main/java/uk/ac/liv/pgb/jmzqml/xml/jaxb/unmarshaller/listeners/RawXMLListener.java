@@ -73,7 +73,7 @@ public class RawXMLListener extends Unmarshaller.Listener {
      * @param parent object referencing the target. Null if target is root element.
      */
     @Override
-    public void afterUnmarshal(final Object target, final Object parent) {
+    public final void afterUnmarshal(final Object target, final Object parent) {
 
         LOGGER.debug("Handling " + target.getClass() + " in afterUnmarshal.");
         // retreive the enum type for this class (for the meta data about this class/element)

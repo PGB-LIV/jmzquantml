@@ -27,7 +27,7 @@ public class ParentOrganizationRefResolver extends AbstractReferenceResolver<Par
      * @param object ParentOrganization
      */
     @Override
-    public void updateObject(final ParentOrganization object) {
+    public final void updateObject(final ParentOrganization object) {
         // add objects for the refID
         String ref = object.getOrganizationRef();
         if (ref != null) {
@@ -44,7 +44,7 @@ public class ParentOrganizationRefResolver extends AbstractReferenceResolver<Par
      * @param parent object referencing the target. Null if target is root element.
      */
     @Override
-    public void afterUnmarshal(final Object target, final Object parent) {
+    public final void afterUnmarshal(final Object target, final Object parent) {
         if (ParentOrganization.class.isInstance(target) && MzQuantMLElement.ParentOrganization.isAutoRefResolving()) {
             updateObject((ParentOrganization) target);
         } // else, not business of this resolver

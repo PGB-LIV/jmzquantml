@@ -50,7 +50,7 @@ public class StudyVariableRefResolver extends AbstractReferenceResolver<StudyVar
      * @param object StudyVariable
      */
     @Override
-    public void updateObject(final StudyVariable object) {
+    public final void updateObject(final StudyVariable object) {
         List<String> refs = object.getAssayRefs();
         List<Assay> assays = object.getAssays();
 
@@ -69,7 +69,7 @@ public class StudyVariableRefResolver extends AbstractReferenceResolver<StudyVar
      * @param parent object referencing the target. Null if target is root element.
      */
     @Override
-    public void afterUnmarshal(final Object target, final Object parent) {
+    public final void afterUnmarshal(final Object target, final Object parent) {
         if (StudyVariable.class.isInstance(target) && MzQuantMLElement.StudyVariable.isAutoRefResolving()) {
             updateObject((StudyVariable) target);
         } // else, not business of this resolver

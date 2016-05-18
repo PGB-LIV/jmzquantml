@@ -39,7 +39,7 @@ public class MzQuantMLElementProperties {
      *
      * @return a list of MzQuantMLElementConfig.
      */
-    public List<MzQuantMLElementConfig> getConfigurations() {
+    public final List<MzQuantMLElementConfig> getConfigurations() {
         return configurations;
     }
 
@@ -48,7 +48,7 @@ public class MzQuantMLElementProperties {
      *
      * @param configurations list of MzQuantMLElementConfig.
      */
-    public void setConfigurations(
+    public final void setConfigurations(
             final List<MzQuantMLElementConfig> configurations) {
         this.configurations = configurations;
     }
