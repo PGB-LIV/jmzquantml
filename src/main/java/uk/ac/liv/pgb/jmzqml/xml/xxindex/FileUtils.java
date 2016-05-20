@@ -57,24 +57,20 @@ public class FileUtils {
 
             logger.debug(url + " written to local file " + tempFile.getAbsolutePath());
 
-        }
-        catch (IOException e) {
+        } catch (IOException e) {
             throw new IllegalStateException("Could not create local file for URL: " + url, e);
-        }
-        finally {
+        } finally {
             if (in != null) {
                 try {
                     in.close();
-                }
-                catch (IOException ex) {
+                } catch (IOException ex) {
                     java.util.logging.Logger.getLogger(FileUtils.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
             if (out != null) {
                 try {
                     out.close();
-                }
-                catch (IOException ex) {
+                } catch (IOException ex) {
                     java.util.logging.Logger.getLogger(FileUtils.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }

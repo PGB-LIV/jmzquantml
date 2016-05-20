@@ -82,8 +82,7 @@ public class ProteinGroup
     public void setSearchDatabase(SearchDatabase searchDatabase) {
         if (searchDatabase == null) {
             this.searchDatabaseRef = null;
-        }
-        else {
+        } else {
             String refId = searchDatabase.getId();
             if (refId == null) {
                 throw new IllegalArgumentException("Referenced object does not have an identifier.");

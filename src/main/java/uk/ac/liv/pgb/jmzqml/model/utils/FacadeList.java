@@ -302,8 +302,7 @@ public class FacadeList<T> extends AbstractCollection<T> implements List<T> {
         while (listIter.hasNext()) {
             if (cnt < diff) {
                 result.add(listIter.next());
-            }
-            else {
+            } else {
                 break;
             }
             cnt++;
@@ -378,8 +377,7 @@ public class FacadeList<T> extends AbstractCollection<T> implements List<T> {
         for (Object t : c) {
             if (t == null) {
                 throw new NullPointerException("Input collection has one or more NULL elements");
-            }
-            else if (!clazz.isInstance(t)) {
+            } else if (!clazz.isInstance(t)) {
                 throw new ClassCastException("Input collection has mismatching element types, expected: "
                         + clazz.getName() + " found: " + t.getClass().getName());
             }
@@ -711,8 +709,7 @@ public class FacadeList<T> extends AbstractCollection<T> implements List<T> {
                     throw new IndexOutOfBoundsException("Index out of the bound of the sublist: " + startIndex);
                 }
                 currPosition = startSuperPosition - 1;
-            }
-            else {
+            } else {
                 startSuperPosition = 0;
             }
 
@@ -822,8 +819,7 @@ public class FacadeList<T> extends AbstractCollection<T> implements List<T> {
             if (currPosition >= startSuperPosition) {
                 this.superList.remove(this.currPosition);
                 this.currPosition--;
-            }
-            else {
+            } else {
                 this.superList.remove(startSuperPosition);
             }
         }
@@ -833,12 +829,10 @@ public class FacadeList<T> extends AbstractCollection<T> implements List<T> {
             if (this.nextOrPreviousHasBeenCalled && !this.addOrRemoveCalled) {
                 if (currPosition >= startSuperPosition) {
                     this.superList.set(this.currPosition, t);
-                }
-                else {
+                } else {
                     this.superList.set(startSuperPosition, t);
                 }
-            }
-            else {
+            } else {
                 throw new IllegalStateException();
             }
         }

@@ -100,14 +100,13 @@ public abstract class AbstractReferenceResolver<T extends MzQuantMLObject>
             if (personXML != null && organisationXML == null) {
                 xml = personXML;
                 clz = MzQuantMLElement.Person.getClazz();
-            }else if (personXML == null && organisationXML != null) {
+            } else if (personXML == null && organisationXML != null) {
                 xml = organisationXML;
                 clz = MzQuantMLElement.Organization.getClazz();
-            }else {
+            } else {
                 throw new IllegalStateException("Could not uniquely resolve ContactRole reference " + refId);
             }
-        }
-        else {
+        } else {
             xml = index.getXmlString(refId, cls);
         }
 
@@ -134,7 +133,7 @@ public abstract class AbstractReferenceResolver<T extends MzQuantMLObject>
 //                if (cache != null) {
 //                    cache.putInCache(refId, retVal);
 //                }
-        }catch (JAXBException e) {
+        } catch (JAXBException e) {
             LOG.error("AbstractReferenceResolver.unmarshal", e);
             throw new IllegalStateException("Could not unmarshall refId: " + refId + " for element type: " + cls);
         }

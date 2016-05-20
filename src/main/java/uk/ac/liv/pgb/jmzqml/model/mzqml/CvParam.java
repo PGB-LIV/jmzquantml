@@ -59,8 +59,7 @@ public class CvParam
     public void setCv(Cv cv) {
         if (cv == null) {
             this.cvRef = null;
-        }
-        else {
+        } else {
             String refId = cv.getId();
             if (refId == null) {
                 throw new IllegalArgumentException("Referenced object does not have an identifier.");

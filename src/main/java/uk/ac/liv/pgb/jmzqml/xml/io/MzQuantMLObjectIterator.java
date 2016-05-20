@@ -94,8 +94,7 @@ public class MzQuantMLObjectIterator<T extends MzQuantMLObject> implements
             if (LOGGER.isDebugEnabled()) {
                 LOGGER.debug("unmarshalled object = " + retval);
             }
-        }
-        catch (JAXBException e) {
+        } catch (JAXBException e) {
             LOGGER.error("MzQuantMLObjectIterator.next", e);
             throw new IllegalStateException("Could not unmarshal object at xpath: " + xpath);
         }

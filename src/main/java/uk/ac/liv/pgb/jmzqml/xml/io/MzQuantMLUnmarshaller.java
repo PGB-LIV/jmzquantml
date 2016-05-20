@@ -198,8 +198,7 @@ public class MzQuantMLUnmarshaller {
                 String value = match.group(2);
                 // stick the found attributes in the map
                 attributes.put(name, value);
-            }
-            else {
+            } else {
                 // not a name - value pair, something is wrong!
                 System.out.println("Unexpected number of groups for XML attribute: " + match.groupCount() + " in tag: " + xmlTag);
             }
@@ -219,8 +218,7 @@ public class MzQuantMLUnmarshaller {
     public final int getObjectCountForXpath(final String xpath) {
         if (xpath != null) {
             return index.getCount(xpath);
-        }
-        else {
+        } else {
             return -1;
         }
     }
@@ -363,8 +361,7 @@ public class MzQuantMLUnmarshaller {
         T retval = null;
         if (xpath != null) {
             retval = retrieveFromXML(clazz, xpath);
-        }
-        else {
+        } else {
             LOGGER.info("No xpath or index entry for class " + clazz + "! Can not unmarshal!");
         }
         return retval;
@@ -386,8 +383,7 @@ public class MzQuantMLUnmarshaller {
                 String xmlSt = xpathIter.next();
                 retval = generateObject(cls, xmlSt);
             }
-        }
-        catch (JAXBException e) {
+        } catch (JAXBException e) {
             LOGGER.error("MzQuantMLUnmarshaller unmarshal error: ", e);
             throw new IllegalStateException("Could not unmarshal object at xpath: " + xpath);
         }
@@ -422,8 +418,7 @@ public class MzQuantMLUnmarshaller {
                 as.getUserParam().add(up);
             }
             return (T) as;
-        }
-        else {
+        } else {
             // Create a filter to intercept events -- and patch the missing namespace
             MzQuantMLNamespaceFilter xmlFilter = new MzQuantMLNamespaceFilter();
 

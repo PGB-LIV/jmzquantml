@@ -91,8 +91,7 @@ public class DataProcessing
     public void setInputObjects(List<IdOnly> inputObjects) {
         if (inputObjects == null) {
             this.inputObjectRefs = null;
-        }
-        else {
+        } else {
             this.inputObjectRefs = new ArrayList<>();
             for (IdOnly inObj : inputObjects) {
                 String refId = inObj.getId();
@@ -125,8 +124,7 @@ public class DataProcessing
     public void setOutputObjects(List<IdOnly> outputObjects) {
         if (outputObjects == null) {
             this.outputObjectRefs = null;
-        }
-        else {
+        } else {
             this.outputObjectRefs = new ArrayList<>();
             for (IdOnly outObj : outputObjects) {
                 String refId = outObj.getId();
@@ -156,8 +154,7 @@ public class DataProcessing
     public void setSoftware(Software software) {
         if (software == null) {
             this.softwareRef = null;
-        }
-        else {
+        } else {
             String refId = software.getId();
             if (refId == null) {
                 throw new IllegalArgumentException("Referenced object does not have an identifier.");

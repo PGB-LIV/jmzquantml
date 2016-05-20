@@ -85,8 +85,7 @@ public class SmallMolecule
     public void setFeatures(List<Feature> features) {
         if (features == null) {
             this.featureRefs = null;
-        }
-        else {
+        } else {
             this.featureRefs = new ArrayList<>();
             for (Feature feature : features) {
                 String refId = feature.getId();

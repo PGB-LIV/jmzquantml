@@ -94,8 +94,7 @@ public class FeatureList
     public void setRawFilesGroup(RawFilesGroup rawFilesGroup) {
         if (rawFilesGroup == null) {
             this.rawFilesGroupRef = null;
-        }
-        else {
+        } else {
             String refId = rawFilesGroup.getId();
             if (refId == null) {
                 throw new IllegalArgumentException("Referenced object does not have an identifier.");

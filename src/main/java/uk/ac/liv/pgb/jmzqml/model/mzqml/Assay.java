@@ -89,8 +89,7 @@ public class Assay
     public void setRawFilesGroup(RawFilesGroup rawFilesGroup) {
         if (rawFilesGroup == null) {
             this.rawFilesGroupRef = null;
-        }
-        else {
+        } else {
             String refId = rawFilesGroup.getId();
             if (refId == null) {
                 throw new IllegalArgumentException("Referenced object does not have an identifier.");
@@ -122,8 +121,7 @@ public class Assay
 
         if (identificationFiles == null) {
             this.identificationFileRefs = null;
-        }
-        else {
+        } else {
             this.identificationFileRefs = new ArrayList<>();
             for (IdentificationFile identificationFile : identificationFiles) {
                 String refId = identificationFile.getId();

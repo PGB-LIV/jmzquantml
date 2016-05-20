@@ -72,8 +72,7 @@ public class RatioQuantLayer
     public void setColumnIndex(List<Ratio> columns) {
         if (columns == null) {
             this.columnIndex = null;
-        }
-        else {
+        } else {
             for (Ratio column : columns) {
                 String refId = column.getId();
                 if (refId == null) {

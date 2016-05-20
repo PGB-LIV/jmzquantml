@@ -184,8 +184,7 @@ public abstract class AbstractParam implements Serializable, MzQuantMLObject {
     public void setUnitCv(Cv unitCv) {
         if (unitCv == null) {
             this.unitCvRef = null;
-        }
-        else {
+        } else {
             String refId = unitCv.getId();
             if (refId == null) {
                 throw new IllegalArgumentException("Referenced object does not have an identifier.");

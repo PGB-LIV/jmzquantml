@@ -163,8 +163,7 @@ public class MzQuantMLIndexerFactory {
                 // extract the MzQuantML attributes from the MzQuantML start tag
                 mzQuantMLAttributeXMLString = extractMzQuantMLStartTag(xmlFile);
 
-            }
-            catch (IOException e) {
+            } catch (IOException e) {
                 LOGGER.error("MzQuantMLIndexerFactory$MzQuantMLIndexerImpl.MzQuantMLIndexterImpl", e);
                 throw new IllegalStateException("Could not generate MzQuantML index for file: " + xmlFile);
             }
@@ -181,8 +180,7 @@ public class MzQuantMLIndexerFactory {
                 MemoryMappedStandardXpathAccess memoryMappedStandardXpathAccess = new MemoryMappedStandardXpathAccess(xmlFileBuffer, xpaths);
                 memoryMappedXmlElementExtractor = memoryMappedStandardXpathAccess.getExtractor();
                 xpathAccess = memoryMappedStandardXpathAccess;
-            }
-            else {
+            } else {
                 xpathAccess = new StandardXpathAccess(xmlFile, xpaths);
                 xmlExtractor = new SimpleXmlElementExtractor();
 
@@ -221,8 +219,7 @@ public class MzQuantMLIndexerFactory {
                 final String xpathExpression) {
             if (index.containsXpath(xpathExpression)) {
                 return xpathAccess.getXmlSnippetIterator(xpathExpression);
-            }
-            else {
+            } else {
                 return null;
             }
         }
@@ -296,19 +293,16 @@ public class MzQuantMLIndexerFactory {
                     long limitedStop = byteRange.getStart() + maxChars;
                     if (maxChars > 0 && byteRange.getStop() > limitedStop) {
                         stop = limitedStop;
-                    }
-                    else {
+                    } else {
                         stop = byteRange.getStop();
                     }
                     String ret = inMemory ? memoryMappedXmlElementExtractor.readString(byteRange.getStart(), stop, new ByteArrayInputStream(xmlFileBuffer))
                             : xmlExtractor.readString(byteRange.getStart(), stop, xmlFile);
                     return ret;
-                }
-                else {
+                } else {
                     throw new IllegalStateException("Attempting to read NULL ByteRange");
                 }
-            }
-            catch (IOException e) {
+            } catch (IOException e) {
                 LOGGER.error("MzQuantMLIndexerFactory$MzQuantMLIndexerImpl.readXML", e);
                 throw new IllegalStateException("Could not extraxt XML from file: " + xmlFile);
             }
@@ -327,12 +321,10 @@ public class MzQuantMLIndexerFactory {
                     try {
                         if (xpathAccess instanceof StandardXpathAccess) {
                             tag = ((StandardXpathAccess) xpathAccess).getStartTag(element);
-                        }
-                        else if (xpathAccess instanceof MemoryMappedStandardXpathAccess) {
+                        } else if (xpathAccess instanceof MemoryMappedStandardXpathAccess) {
                             tag = ((MemoryMappedStandardXpathAccess) xpathAccess).getStartTag(element);
                         }
-                    }
-                    catch (IOException e) {
+                    } catch (IOException e) {
                         java.util.logging.Logger.getLogger(FileUtils.class.getName()).log(Level.SEVERE, null, e);
                     }
                 }
@@ -359,8 +351,7 @@ public class MzQuantMLIndexerFactory {
                 throws ConfigurationException {
             if (element.isIdMapped()) {
                 return idMapCache.get(element.<MzQuantMLObject>getClazz()).keySet();
-            }
-            else {
+            } else {
                 throw new ConfigurationException("API not configured to support ID mapping for element: " + element.getTagName());
             }
         }
@@ -433,8 +424,7 @@ public class MzQuantMLIndexerFactory {
                 String xml = null;
                 if (xpathAccess instanceof StandardXpathAccess) {
                     xml = ((StandardXpathAccess) xpathAccess).getStartTag(byteRange);
-                }
-                else if (xpathAccess instanceof MemoryMappedStandardXpathAccess) {
+                } else if (xpathAccess instanceof MemoryMappedStandardXpathAccess) {
                     xml = ((MemoryMappedStandardXpathAccess) xpathAccess).getStartTag(byteRange);
                 }
                 String id = getIdFromRawXML(xml);
@@ -453,8 +443,7 @@ public class MzQuantMLIndexerFactory {
             // TODO: more checks: if no id found or more than one match, ...
             if (match.find()) {
                 return match.group(1).intern();
-            }
-            else {
+            } else {
                 throw new IllegalStateException("Invalid ID in xml: " + xml);
             }
         }

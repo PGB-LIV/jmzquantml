@@ -102,8 +102,7 @@ public class RawXMLListener extends Unmarshaller.Listener {
                         Class<? extends CvParam> cvParamClass = (Class<? extends CvParam>) Class.forName("uk.ac.liv.pgb.jmzqml.model.mzqml.params." + className + "CvParam");
                         CvParam cvParam = ParamUpdater.updateCvParamSubclass(param.getCvParam(), cvParamClass);
                         param.setParam(cvParam);
-                    }
-                    else if (param.getUserParam() != null) {
+                    } else if (param.getUserParam() != null) {
                         Class<? extends UserParam> userParamClass = (Class<? extends UserParam>) Class.forName("uk.ac.liv.pgb.jmzqml.model.mzqml.params." + className + "UserParam");
                         UserParam userParam = ParamUpdater.updateUserParamSubclass(param.getUserParam(), userParamClass);
                         param.setParam(userParam);
@@ -134,8 +133,7 @@ public class RawXMLListener extends Unmarshaller.Listener {
                         ParamUpdater.updateUserParamSubclassesList(paramList.getUserParam(), userParamClass);
                     }
                 }
-            }
-            else if (target instanceof ParamGroupCapable) {
+            } else if (target instanceof ParamGroupCapable) {
                 // in this case we not only have to subclass the params, but also to split them up
                 ParamGroupCapable apg = (ParamGroupCapable) target;
                 // first we are going to split the List<Param> in a List<CvParam> and a List<UserParam>
@@ -150,8 +148,7 @@ public class RawXMLListener extends Unmarshaller.Listener {
                     throw new IllegalStateException("Subclass of AbstractParamGroup does not have UserParam subclass! " + target.getClass());
                 }
                 ParamUpdater.updateUserParamSubclassesList(apg.getUserParam(), ele.getUserParamClass());
-            }
-            else if (target instanceof CvParamCapable) {
+            } else if (target instanceof CvParamCapable) {
                 // no need to split up params, but we need to subclass them
                 CvParamCapable cpc = (CvParamCapable) target;
                 if (ele.getCvParamClass() == null) {
@@ -159,20 +156,16 @@ public class RawXMLListener extends Unmarshaller.Listener {
                 }
                 CvParam param = cpc.getCvParam();
                 cpc.setCvParam(ParamUpdater.updateCvParamSubclass(param, ele.<CvParam>getCvParamClass()));
-            }
-            else if (target instanceof CvParamListCapable) {
+            } else if (target instanceof CvParamListCapable) {
                 CvParamListCapable cpc = (CvParamListCapable) target;
                 if (ele.getCvParamClass() == null) {
                     throw new IllegalStateException("Subclass of AbstractParamGroup does not have CvParam subclass! " + target.getClass());
                 }
                 ParamUpdater.updateCvParamSubclassesList(cpc.getCvParam(), ele.getCvParamClass());
-            }
-            else // no need to split or subclass params
-            if (ele.getCvParamClass() != null || ele.getUserParamClass() != null) {
+            } else if (ele.getCvParamClass() != null || ele.getUserParamClass() != null) { // no need to split or subclass params
                 throw new IllegalStateException("Element with param subclasses has not been handled! " + target.getClass());
             }
-        }
-        catch (ClassNotFoundException | IllegalAccessException | IllegalArgumentException | IllegalStateException | InstantiationException | NoSuchMethodException | SecurityException | InvocationTargetException e) {
+        } catch (ClassNotFoundException | IllegalAccessException | IllegalArgumentException | IllegalStateException | InstantiationException | NoSuchMethodException | SecurityException | InvocationTargetException e) {
             LOGGER.error("Exception during post unmarshall processing! ", e);
             throw new IllegalStateException("Error during post unmarshall processing!", e);
         }
@@ -189,8 +182,7 @@ public class RawXMLListener extends Unmarshaller.Listener {
                 Constructor<AbstractReferenceResolver<?>> con = cls.getDeclaredConstructor(MzQuantMLIndexer.class, MzQuantMLObjectCache.class);
                 AbstractReferenceResolver<?> resolver = (AbstractReferenceResolver<?>) con.newInstance(index, cache);
                 resolver.afterUnmarshal(target, parent);
-            }
-            catch (IllegalAccessException | IllegalArgumentException | InstantiationException | NoSuchMethodException | SecurityException | InvocationTargetException e) {
+            } catch (IllegalAccessException | IllegalArgumentException | InstantiationException | NoSuchMethodException | SecurityException | InvocationTargetException e) {
                 LOGGER.error("Error trying to instantiate reference resolver: " + cls.getName(), e);
                 throw new IllegalStateException("Could not instantiate reference resolver: " + cls.getName());
             }

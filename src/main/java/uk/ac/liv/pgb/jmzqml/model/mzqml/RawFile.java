@@ -71,8 +71,7 @@ public class RawFile
     public void setMethodFile(MethodFile methodFile) {
         if (methodFile == null) {
             this.methodFileRef = null;
-        }
-        else {
+        } else {
             String refId = methodFile.getId();
             if (refId == null) {
                 throw new IllegalArgumentException("Referenced object does not have an identifier.");

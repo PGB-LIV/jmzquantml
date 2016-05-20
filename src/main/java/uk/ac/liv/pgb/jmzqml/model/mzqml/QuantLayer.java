@@ -35,7 +35,7 @@ import javax.xml.bind.annotation.XmlType;
  * </pre>
  *
  *
- * @param <T> extends IdOnly 
+ * @param <T> extends IdOnly
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "QuantLayerType", propOrder = {
@@ -77,8 +77,7 @@ public class QuantLayer<T extends IdOnly>
     public void setColumnIndex(List<T> columns) {
         if (columns == null) {
             this.columnIndex = null;
-        }
-        else {
+        } else {
             for (T column : columns) {
                 String refId = column.getId();
                 if (refId == null) {

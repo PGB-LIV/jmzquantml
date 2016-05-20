@@ -78,28 +78,22 @@ public class DataProcessingRefResolver extends AbstractReferenceResolver<DataPro
             if (rawFilesGroupXML != null) {
                 RawFilesGroup refObject = this.unmarshal(refInput, RawFilesGroup.class);
                 inputObjects.add(refObject);
-            }
-            else if (featureListXML != null) {
+            } else if (featureListXML != null) {
                 FeatureList refObject = this.unmarshal(refInput, FeatureList.class);
                 inputObjects.add(refObject);
-            }
-            else if (peptideListXML != null) {
+            } else if (peptideListXML != null) {
                 PeptideConsensusList refObject = this.unmarshal(refInput, PeptideConsensusList.class);
                 inputObjects.add(refObject);
-            }
-            else if (proteinListXML != null) {
+            } else if (proteinListXML != null) {
                 ProteinList refObject = this.unmarshal(refInput, ProteinList.class);
                 inputObjects.add(refObject);
-            }
-            else if (proteinGroupListXML != null) {
+            } else if (proteinGroupListXML != null) {
                 ProteinGroupList refObject = this.unmarshal(refInput, ProteinGroupList.class);
                 inputObjects.add(refObject);
-            }
-            else if (quantLayerXML != null) {
+            } else if (quantLayerXML != null) {
                 QuantLayer refObject = this.unmarshal(refInput, QuantLayer.class);
                 inputObjects.add(refObject);
-            }
-            else {
+            } else {
                 throw new IllegalStateException("Could not resolve input referecence " + refInput + " to required element");
             }
         }
@@ -119,28 +113,22 @@ public class DataProcessingRefResolver extends AbstractReferenceResolver<DataPro
             if (rawFilesGroupXML != null) {
                 RawFilesGroup refObject = this.unmarshal(refOutput, RawFilesGroup.class);
                 outputObjects.add(refObject);
-            }
-            else if (featureListXML != null) {
+            } else if (featureListXML != null) {
                 FeatureList refObject = this.unmarshal(refOutput, FeatureList.class);
                 outputObjects.add(refObject);
-            }
-            else if (peptideListXML != null) {
+            } else if (peptideListXML != null) {
                 PeptideConsensusList refObject = this.unmarshal(refOutput, PeptideConsensusList.class);
                 outputObjects.add(refObject);
-            }
-            else if (proteinListXML != null) {
+            } else if (proteinListXML != null) {
                 ProteinList refObject = this.unmarshal(refOutput, ProteinList.class);
                 outputObjects.add(refObject);
-            }
-            else if (proteinGroupListXML != null) {
+            } else if (proteinGroupListXML != null) {
                 ProteinGroupList refObject = this.unmarshal(refOutput, ProteinGroupList.class);
                 outputObjects.add(refObject);
-            }
-            else if (quantLayerXML != null) {
+            } else if (quantLayerXML != null) {
                 QuantLayer refObject = this.unmarshal(refOutput, QuantLayer.class);
                 outputObjects.add(refObject);
-            }
-            else {
+            } else {
                 throw new IllegalStateException("Could not resolve output referecence " + refOutput + " to required element");
             }
         }

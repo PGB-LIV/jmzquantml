@@ -96,8 +96,7 @@ public class ModelConstants {
             final Class<? extends MzQuantMLObject> cls) {
         if (isRegisteredClass(cls)) {
             return modelQNames.get(cls);
-        }
-        else {
+        } else {
             throw new IllegalStateException("No QName registered for class: " + cls);
         }
     }
@@ -112,8 +111,7 @@ public class ModelConstants {
     public static String getElementNameForClass(final Class<MzQuantMLObject> cls) {
         if (isRegisteredClass(cls)) {
             return modelQNames.get(cls).getLocalPart();
-        }
-        else {
+        } else {
             throw new IllegalStateException("No Element Name registered for class: " + cls);
         }
     }

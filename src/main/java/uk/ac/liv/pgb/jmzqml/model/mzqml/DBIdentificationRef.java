@@ -67,8 +67,7 @@ public class DBIdentificationRef
     public void setId(ExternalData id) {
         if (id == null) {
             this.idRef = null;
-        }
-        else {
+        } else {
             String refId = id.getId();
             if (refId == null) {
                 throw new IllegalArgumentException("Referenced object does not have an identifier.");
@@ -93,8 +92,7 @@ public class DBIdentificationRef
     public void setSearchDatabase(SearchDatabase searchDatabase) {
         if (searchDatabase == null) {
             this.searchDatabaseRef = null;
-        }
-        else {
+        } else {
             String refId = searchDatabase.getId();
             if (refId == null) {
                 throw new IllegalArgumentException("Referenced object does not have an identifier.");

@@ -64,8 +64,7 @@ public class Param
     public CvParam getCvParam() {
         if (paramGroup instanceof CvParam) {
             return (CvParam) paramGroup;
-        }
-        else {
+        } else {
             return null;
         }
     }
@@ -77,8 +76,7 @@ public class Param
     public UserParam getUserParam() {
         if (paramGroup instanceof UserParam) {
             return (UserParam) paramGroup;
-        }
-        else {
+        } else {
             return null;
         }
     }

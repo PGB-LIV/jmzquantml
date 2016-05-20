@@ -183,8 +183,7 @@ public class MemoryMappedStandardXpathAccess implements XpathAccess {
                     results.add(extractor.readString(range.getStart(), range.getStop(), new ByteArrayInputStream(fileBuffer)));
                 }
             }
-        }
-        else {
+        } else {
             // Error message
             LOG.info("The index does not contain any entry for the requested xpath: " + xpath);
         }
@@ -226,8 +225,7 @@ public class MemoryMappedStandardXpathAccess implements XpathAccess {
             List<IndexElement> ranges = index.getElements(xpath);
 
             iter = new XmlSnippetIterator(ranges, extractor, fileBuffer, start, stop);
-        }
-        else {
+        } else {
             LOG.info("The index does not contain any entry for the requested xpath: " + xpath);
             // return iterator over empty list
             List<String> s = Collections.emptyList();
@@ -320,8 +318,7 @@ public class MemoryMappedStandardXpathAccess implements XpathAccess {
             // if both borders are unspecified, use all elements (initial list)
             if (start == null && stop == null) {
                 validElements = elements;
-            }
-            else { // if at least one border is specified, we need a new list containing only valid elements
+            } else { // if at least one border is specified, we need a new list containing only valid elements
                 validElements = new ArrayList<>();
                 // iterate over the initial list and add only the valid elements to the new list
                 for (IndexElement element : elements) {
@@ -353,8 +350,7 @@ public class MemoryMappedStandardXpathAccess implements XpathAccess {
             IndexElement range = iterator.next();
             try {
                 result = extractor.readString(range.getStart(), range.getStop(), new ByteArrayInputStream(fileBuffer));
-            }
-            catch (IOException e) {
+            } catch (IOException e) {
                 throw new IllegalStateException("Caught IOException while reading from file", e);
             }
             return result;
@@ -419,8 +415,7 @@ public class MemoryMappedStandardXpathAccess implements XpathAccess {
                     results.add(new XmlElement(tmp, posTmp));
                 }
             }
-        }
-        else {
+        } else {
             // Error message
             LOG.info("The index does not contain any entry for the requested xpath: " + xpath);
         }
@@ -462,8 +457,7 @@ public class MemoryMappedStandardXpathAccess implements XpathAccess {
             List<IndexElement> elements = index.getElements(xpath);
 
             iter = new XmlElementIterator(elements, extractor, new ByteArrayInputStream(fileBuffer), start, stop);
-        }
-        else {
+        } else {
             // Error message
             LOG.info("The index does not contain any entry for the requested xpath: " + xpath);
             // return iterator over empty list
@@ -498,8 +492,7 @@ public class MemoryMappedStandardXpathAccess implements XpathAccess {
             // if both borders are unspecified, iterate over all elements (initial list)
             if (start == null && stop == null) {
                 validElements = elements;
-            }
-            else { // if at least one borders is specified, we need a new list containing only valid elements
+            } else { // if at least one borders is specified, we need a new list containing only valid elements
                 validElements = new ArrayList<>();
                 // iterate over the initial list and only add the valid elements to the new list
                 for (IndexElement element : elements) {
@@ -533,8 +526,7 @@ public class MemoryMappedStandardXpathAccess implements XpathAccess {
                 String xmlSnippet = extractor.readString(element.getStart(), element.getStop(), inputStream);
                 long position = element.getLineNumber();
                 result = new XmlElement(xmlSnippet, position);
-            }
-            catch (IOException e) {
+            } catch (IOException e) {
                 throw new IllegalStateException("Caught IOException while reading from file");
             }
             return result;

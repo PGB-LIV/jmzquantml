@@ -83,8 +83,7 @@ public class StudyVariable
     public void setAssays(List<Assay> assays) {
         if (assays == null) {
             this.assayRefs = null;
-        }
-        else {
+        } else {
             this.assayRefs = new ArrayList<>();
             for (Assay assay : assays) {
                 String refId = assay.getId();

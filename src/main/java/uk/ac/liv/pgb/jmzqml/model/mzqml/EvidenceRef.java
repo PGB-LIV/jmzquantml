@@ -76,8 +76,7 @@ public class EvidenceRef
     public void setAssays(List<Assay> assays) {
         if (assays == null) {
             this.assayRefs = null;
-        }
-        else {
+        } else {
             this.assayRefs = new ArrayList<>();
             for (Assay assay : assays) {
                 String refId = assay.getId();
@@ -107,8 +106,7 @@ public class EvidenceRef
     public void setIdentificationFile(IdentificationFile identificationFile) {
         if (identificationFile == null) {
             this.identificationFileRef = null;
-        }
-        else {
+        } else {
             String refId = identificationFile.getId();
             if (refId == null) {
                 throw new IllegalArgumentException("Referenced object does not have an identifier.");
@@ -135,8 +133,7 @@ public class EvidenceRef
     public void setFeature(Feature feature) {
         if (feature == null) {
             this.featureRef = null;
-        }
-        else {
+        } else {
             String refId = feature.getId();
             if (refId == null) {
                 throw new IllegalArgumentException("Referenced object does not have an identifier.");

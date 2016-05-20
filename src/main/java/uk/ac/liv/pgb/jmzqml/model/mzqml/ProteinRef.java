@@ -74,8 +74,7 @@ public class ProteinRef
     public void setProtein(Protein protein) {
         if (protein == null) {
             this.proteinRef = null;
-        }
-        else {
+        } else {
             String refId = protein.getId();
             if (refId == null) {
                 throw new IllegalArgumentException("Referenced object does not have an identifier.");

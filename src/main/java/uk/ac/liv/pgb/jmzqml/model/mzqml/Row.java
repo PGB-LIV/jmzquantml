@@ -71,8 +71,7 @@ public class Row
     public void setObject(IdOnly object) {
         if (object == null) {
             this.objectRef = null;
-        }
-        else {
+        } else {
             String refId = object.getId();
             if (refId == null) {
                 throw new IllegalArgumentException("Referenced object does not have an identifier.");

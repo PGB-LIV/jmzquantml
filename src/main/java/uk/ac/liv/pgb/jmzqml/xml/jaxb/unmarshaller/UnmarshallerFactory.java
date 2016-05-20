@@ -126,8 +126,7 @@ public class UnmarshallerFactory {
 
             return unmarshaller;
 
-        }
-        catch (JAXBException | SAXException | ParserConfigurationException e) {
+        } catch (JAXBException | SAXException | ParserConfigurationException e) {
             LOGGER.error("UnmarshallerFactory.initializeUnmarshaller", e);
             throw new IllegalStateException("Could not initialize unmarshaller");
         }

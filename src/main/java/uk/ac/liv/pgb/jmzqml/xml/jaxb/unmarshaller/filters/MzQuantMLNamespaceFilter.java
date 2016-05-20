@@ -63,8 +63,7 @@ public class MzQuantMLNamespaceFilter extends XMLFilterImpl {
         LOGGER.trace("Chaning namespace. uri: " + uri + " \tlocalname: " + localName + "\tqName: " + qName + " \tatts: " + atts);
         if (uri.length() == 0) {
             super.startElement(ModelConstants.MZQML_NS, localName, qName, atts);
-        }
-        else {
+        } else {
             super.startElement(uri, localName, qName, atts);
         }
     }

@@ -95,8 +95,7 @@ public class Feature
     public void setRawFile(RawFile rawFile) {
         if (rawFile == null) {
             this.rawFileRef = null;
-        }
-        else {
+        } else {
             String refId = rawFile.getId();
             if (refId == null) {
                 throw new IllegalArgumentException("Referenced object does not have an identifier.");

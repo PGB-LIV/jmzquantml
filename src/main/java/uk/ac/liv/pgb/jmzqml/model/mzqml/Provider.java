@@ -65,8 +65,7 @@ public class Provider
     public void setSoftware(Software software) {
         if (software == null) {
             this.analysisSoftwareRef = null;
-        }
-        else {
+        } else {
             String refId = software.getId();
             if (refId == null) {
                 throw new IllegalArgumentException("Referenced object does not have an identifier.");

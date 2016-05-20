@@ -59,8 +59,7 @@ public class ParentOrganization
     public void setOrganization(Organization organization) {
         if (organization == null) {
             this.organizationRef = null;
-        }
-        else {
+        } else {
             String refId = organization.getId();
             if (refId == null) {
                 throw new IllegalArgumentException("Referenced object does not have an identifier.");

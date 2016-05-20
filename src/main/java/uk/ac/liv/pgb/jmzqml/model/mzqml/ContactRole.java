@@ -67,8 +67,7 @@ public class ContactRole
     public Person getPerson() {
         if (contact instanceof Person) {
             return (Person) contact;
-        }
-        else {
+        } else {
             return null;
         }
     }
@@ -80,8 +79,7 @@ public class ContactRole
     public Organization getOrganization() {
         if (contact instanceof Organization) {
             return (Organization) contact;
-        }
-        else {
+        } else {
             return null;
         }
     }
@@ -138,8 +136,7 @@ public class ContactRole
     public void setContact(AbstractContact contact) {
         if (contact == null) {
             this.contactRef = null;
-        }
-        else {
+        } else {
             String refId = contact.getId();
             if (refId == null) {
                 throw new IllegalArgumentException("Referenced object does not have an identifier.");

@@ -63,8 +63,7 @@ public class IdentificationRef
     public void setIdentificationFile(IdentificationFile identificationFile) {
         if (identificationFile == null) {
             this.identificationFileRef = null;
-        }
-        else {
+        } else {
             String refId = identificationFile.getId();
             if (refId == null) {
                 throw new IllegalArgumentException("Referenced object does not have an identifier.");

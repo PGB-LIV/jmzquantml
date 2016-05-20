@@ -89,12 +89,10 @@ public class MemoryMappedXmlElementExtractor {
         try {
             this.encoding = Charset.forName(encoding);
             result = 0;
-        }
-        catch (IllegalCharsetNameException icne) {
+        } catch (IllegalCharsetNameException icne) {
             LOG.error("Illegal encoding: " + encoding, icne);
             result = -1;
-        }
-        catch (UnsupportedCharsetException ucne) {
+        } catch (UnsupportedCharsetException ucne) {
             LOG.error("Unsupported encoding: " + encoding, ucne);
             result = -2;
         }
@@ -202,8 +200,7 @@ public class MemoryMappedXmlElementExtractor {
         //inputStream.skip(from);
         if (inputStream.read(bytes, 0, length.intValue()) > 0) {
             return bytes;
-        }
-        else {
+        } else {
             return null;
         }
     }
@@ -253,8 +250,7 @@ public class MemoryMappedXmlElementExtractor {
         byte[] bytes;
         if (length > maxReadLength) {
             bytes = new byte[maxReadLength];
-        }
-        else {
+        } else {
             bytes = new byte[length];
         }
         // fill the byte buffer
@@ -313,8 +309,7 @@ public class MemoryMappedXmlElementExtractor {
         if (count != bytes.length) {
             result = new byte[count];
             System.arraycopy(temp, 0, result, 0, count);
-        }
-        else {
+        } else {
             result = temp;
         }
 
@@ -372,16 +367,13 @@ public class MemoryMappedXmlElementExtractor {
             long n1 = is.skip(m);
             if (n1 > 0) {
                 m -= n1;
-            }
-            else if (n1 == 0) { // should we retry? lets read one byte
+            } else if (n1 == 0) { // should we retry? lets read one byte
                 if (is.read() == -1) { // EOF
                     break;
-                }
-                else {
+                } else {
                     m--;
                 }
-            }
-            else { // negative? this should never happen but...
+            } else { // negative? this should never happen but...
                 throw new IOException("skip() returned a negative value - this should never happen");
             }
         }

@@ -81,8 +81,7 @@ public class Ratio
     public void setNumerator(IdOnly numerator) {
         if (numerator == null) {
             this.numeratorRef = null;
-        }
-        else {
+        } else {
             String refId = numerator.getId();
             if (refId == null) {
                 throw new IllegalArgumentException("Referenced object does not have an identifier.");
@@ -107,8 +106,7 @@ public class Ratio
     public void setDenominator(IdOnly denominator) {
         if (denominator == null) {
             this.denominatorRef = null;
-        }
-        else {
+        } else {
             String refId = denominator.getId();
             if (refId == null) {
                 throw new IllegalArgumentException("Referenced object does not have an identifier.");

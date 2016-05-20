@@ -81,8 +81,7 @@ public class MarshallerFactory {
 
             return marshaller;
 
-        }
-        catch (JAXBException e) {
+        } catch (JAXBException e) {
             LOGGER.error("MarshallerFactory.initializeMarshaller", e);
             throw new IllegalStateException("Can't initialize marshaller: " + e.getMessage());
         }

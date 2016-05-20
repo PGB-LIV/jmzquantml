@@ -66,24 +66,19 @@ public class RowRefResolver extends AbstractReferenceResolver<Row> {
             if (protGroupXML != null) {
                 ProteinGroup refObject = this.unmarshal(ref, ProteinGroup.class);
                 object.setObject(refObject);
-            }
-            else if (protXML != null) {
+            } else if (protXML != null) {
                 Protein refObject = this.unmarshal(ref, Protein.class);
                 object.setObject(refObject);
-            }
-            else if (pepXML != null) {
+            } else if (pepXML != null) {
                 PeptideConsensus refObject = this.unmarshal(ref, PeptideConsensus.class);
                 object.setObject(refObject);
-            }
-            else if (featureXML != null) {
+            } else if (featureXML != null) {
                 Feature refObject = this.unmarshal(ref, Feature.class);
                 object.setObject(refObject);
-            }
-            else if (smallMolXML != null) {
+            } else if (smallMolXML != null) {
                 SmallMolecule refObject = this.unmarshal(ref, SmallMolecule.class);
                 object.setObject(refObject);
-            }
-            else {
+            } else {
                 throw new IllegalStateException("Could not uniquely resolve object reference " + ref);
             }
 

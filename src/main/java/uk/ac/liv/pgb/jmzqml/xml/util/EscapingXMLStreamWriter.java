@@ -23,8 +23,7 @@ public class EscapingXMLStreamWriter implements XMLStreamWriter {
 
         if (null == writer) {
             throw new IllegalArgumentException("null");
-        }
-        else {
+        } else {
             this.writer = writer;
         }
         this.charEncoding = "UTF-8";
