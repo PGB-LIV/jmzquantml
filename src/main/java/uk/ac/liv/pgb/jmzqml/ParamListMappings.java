@@ -43,7 +43,7 @@ public enum ParamListMappings {
     private Class clazz;
     private String[] classNames;
 
-    private ParamListMappings(final String[] classNamesp, final Class clazzp) {
+    ParamListMappings(final String[] classNamesp, final Class clazzp) {
         this.classNames = classNamesp;
         this.clazz = clazzp;
     }

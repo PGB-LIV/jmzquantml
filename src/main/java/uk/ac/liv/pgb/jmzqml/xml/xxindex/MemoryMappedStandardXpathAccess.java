@@ -300,19 +300,19 @@ public class MemoryMappedStandardXpathAccess implements XpathAccess {
 //        private InputStream inputStream;
         private byte[] fileBuffer;
 
-        public XmlSnippetIterator(final List<IndexElement> ranges,
-                                  final MemoryMappedXmlElementExtractor extractorp,
-                                  final byte[] fileBufferp) {
+        XmlSnippetIterator(final List<IndexElement> ranges,
+                           final MemoryMappedXmlElementExtractor extractorp,
+                           final byte[] fileBufferp) {
             this.iterator = ranges.iterator();
             this.extractor = extractorp;
 //            this.inputStream = inputStream;
             this.fileBuffer = fileBufferp;
         }
 
-        public XmlSnippetIterator(final List<IndexElement> elements,
-                                  final MemoryMappedXmlElementExtractor extractorp,
-                                  final byte[] fileBufferp, final Long start,
-                                  final Long stop) {
+        XmlSnippetIterator(final List<IndexElement> elements,
+                           final MemoryMappedXmlElementExtractor extractorp,
+                           final byte[] fileBufferp, final Long start,
+                           final Long stop) {
             List<IndexElement> validElements; // the list of elements we will iterate over
 
             // if both borders are unspecified, use all elements (initial list)
@@ -476,18 +476,18 @@ public class MemoryMappedStandardXpathAccess implements XpathAccess {
         private MemoryMappedXmlElementExtractor extractor;
         private InputStream inputStream;
 
-        public XmlElementIterator(final List<IndexElement> elements,
-                                  final MemoryMappedXmlElementExtractor extractorp,
-                                  final InputStream inputStreamp) {
+        XmlElementIterator(final List<IndexElement> elements,
+                           final MemoryMappedXmlElementExtractor extractorp,
+                           final InputStream inputStreamp) {
             this.iterator = elements.iterator();
             this.extractor = extractorp;
             this.inputStream = inputStreamp;
         }
 
-        public XmlElementIterator(final List<IndexElement> elements,
-                                  final MemoryMappedXmlElementExtractor extractorp,
-                                  final InputStream inputStreamp,
-                                  final Long start, final Long stop) {
+        XmlElementIterator(final List<IndexElement> elements,
+                           final MemoryMappedXmlElementExtractor extractorp,
+                           final InputStream inputStreamp,
+                           final Long start, final Long stop) {
             List<IndexElement> validElements; // the list of elements we will iterate over
             // if both borders are unspecified, iterate over all elements (initial list)
             if (start == null && stop == null) {

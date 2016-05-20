@@ -1223,20 +1223,20 @@ public enum MzQuantMLElement {
      *
      * @param <T>
      */
-    private <T extends MzQuantMLObject> MzQuantMLElement() {
+    <T extends MzQuantMLObject> MzQuantMLElement() {
         loadProperties();
     }
 
-    private <T extends MzQuantMLObject> MzQuantMLElement(final String tagNamep,
-                                                         final boolean indexedp,
-                                                         final String xpathp,
-                                                         final boolean cachedp,
-                                                         final boolean idMappedp,
-                                                         final Class<T> clazzp,
-                                                         final Class cvParamClassp,
-                                                         final Class userParamClassp,
-                                                         final boolean autoRefResolvingp,
-                                                         final Class refResolverClassp) {
+    <T extends MzQuantMLObject> MzQuantMLElement(final String tagNamep,
+                                                 final boolean indexedp,
+                                                 final String xpathp,
+                                                 final boolean cachedp,
+                                                 final boolean idMappedp,
+                                                 final Class<T> clazzp,
+                                                 final Class cvParamClassp,
+                                                 final Class userParamClassp,
+                                                 final boolean autoRefResolvingp,
+                                                 final Class refResolverClassp) {
         this.tagName = tagNamep;
         this.indexed = indexedp;
         this.cached = cachedp;

@@ -596,7 +596,7 @@ public class FacadeList<T> extends AbstractCollection<T> implements List<T> {
         private int currPosition = -1;
         private boolean nextHasBeenCalled;
 
-        public SublistIterator(final List<T> superListp) {
+        SublistIterator(final List<T> superListp) {
             this.superList = superListp;
         }
 
@@ -672,8 +672,8 @@ public class FacadeList<T> extends AbstractCollection<T> implements List<T> {
             this(superListp, 0);
         }
 
-        public SubListListIterator(final List<T> superListp,
-                                   final int startIndexp) {
+        SubListListIterator(final List<T> superListp,
+                            final int startIndexp) {
             if (superListp == null) {
                 throw new NullPointerException("Input super list cannot be null");
             }
