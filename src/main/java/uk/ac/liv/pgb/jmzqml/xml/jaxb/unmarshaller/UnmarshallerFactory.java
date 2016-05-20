@@ -43,7 +43,7 @@ import uk.ac.liv.pgb.jmzqml.xml.xxindex.MzQuantMLIndexer;
  * @institute University of Liverpool
  * @time 25-Jul-2012 17:09:11
  */
-public class UnmarshallerFactory {
+public final class UnmarshallerFactory {
 
     private static final Logger LOGGER = Logger.getLogger(UnmarshallerFactory.class);
     private static UnmarshallerFactory instance = new UnmarshallerFactory();

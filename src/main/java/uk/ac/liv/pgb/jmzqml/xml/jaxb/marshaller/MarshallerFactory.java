@@ -36,7 +36,7 @@ import uk.ac.liv.pgb.jmzqml.xml.jaxb.marshaller.listeners.ObjectClassListener;
  * @institute University of Liverpool
  * @time 08-Mar-2013 15:19:22
  */
-public class MarshallerFactory {
+public final class MarshallerFactory {
 
     private static final Logger LOGGER = Logger.getLogger(MarshallerFactory.class);
     private static MarshallerFactory instance = new MarshallerFactory();

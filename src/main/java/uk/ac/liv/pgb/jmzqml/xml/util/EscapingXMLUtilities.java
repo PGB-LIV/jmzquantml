@@ -10,7 +10,7 @@ import it.unimi.dsi.fastutil.chars.CharOpenHashSet;
  * Time: 14:39
  * To change this template use File | Settings | File Templates.
  */
-public class EscapingXMLUtilities {
+public final class EscapingXMLUtilities {
 
     public static final char SUBSTITUTE = '\uFFFD';
     private static final CharOpenHashSet ILLEGAL_CHARS;
@@ -57,11 +57,11 @@ public class EscapingXMLUtilities {
          * \u000D Carriage return
          *
          * //valid, but discouraged
-         * \u0080 	<control>
-         * \u0081 	<control>
+         * \u0080  <control>
+         * \u0081 <control>
          * \u0082 BREAK PERMITTED HERE
          * \u0083 NO BREAK HERE
-         * \u0084 	<control>
+         * \u0084 <control>
          * \u0085 NEXT LINE (NEL)
          * \u0086 START OF SELECTED AREA
          * \u0087 END OF SELECTED AREA
@@ -82,7 +82,7 @@ public class EscapingXMLUtilities {
          * \u0096 START OF GUARDED AREA
          * \u0097 END OF GUARDED AREA
          * \u0098 START OF STRING
-         * \u0099 	<control>
+         * \u0099 <control>
          * \u009A SINGLE CHARACTER INTRODUCER
          * \u009B CONTROL SEQUENCE INTRODUCER
          * \u009C STRING TERMINATOR

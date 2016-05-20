@@ -59,7 +59,7 @@ import uk.ac.liv.pgb.jmzqml.xml.Constants;
  * @time 00:42:25 11-May-2012
  * @institution University of Liverpool
  */
-public class MzQuantMLIndexerFactory {
+public final class MzQuantMLIndexerFactory {
 
     private static final Logger LOGGER = Logger.getLogger(MzQuantMLIndexerFactory.class);
     private static final MzQuantMLIndexerFactory INSTANCE = new MzQuantMLIndexerFactory();
@@ -112,7 +112,7 @@ public class MzQuantMLIndexerFactory {
         return new MzQuantMLIndexerImpl(xmlFile, xpaths, inMemory);
     }
 
-    private static class MzQuantMLIndexerImpl implements MzQuantMLIndexer {
+    private static final class MzQuantMLIndexerImpl implements MzQuantMLIndexer {
 
         private File xmlFile;
         private boolean inMemory;
