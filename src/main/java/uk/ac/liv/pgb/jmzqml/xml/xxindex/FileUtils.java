@@ -17,7 +17,7 @@ import org.apache.log4j.Logger;
  *
  * @author Da Qi
  */
-public class FileUtils {
+public final class FileUtils {
 
     private static Logger logger = Logger.getLogger(FileUtils.class);
 

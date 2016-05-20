@@ -35,7 +35,7 @@ import uk.ac.liv.pgb.jmzqml.model.mzqml.MzQuantML;
  * @institute University of Liverpool
  * @time 25-Jul-2012 16:41:05
  */
-public class ModelConstants {
+public final class ModelConstants {
 
     /**
      * The package name of {@link uk.ac.liv.pgb.jmzqml.model.mzqml.MzQuantML}.

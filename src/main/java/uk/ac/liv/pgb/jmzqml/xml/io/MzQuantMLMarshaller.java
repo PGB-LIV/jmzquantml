@@ -54,6 +54,7 @@ public class MzQuantMLMarshaller {
      */
     private static final String ENCODING = System.getProperty("file.encoding", "UTF-8");
     private static final String MZQUANTML = "MzQuantML";
+    private static final int INI_STRING_LEN = 160;
     /**
      * Members.
      */
@@ -239,7 +240,7 @@ public class MzQuantMLMarshaller {
      * @return a start tag of mzQuantML file.
      */
     public static String createMzQuantMLStartTag(final String id) {
-        StringBuilder sb = new StringBuilder(160);
+        StringBuilder sb = new StringBuilder(INI_STRING_LEN);
 
         // tag opening plus id attribute
         sb.append("<MzQuantML id=\"").append(id).append("\"");
@@ -430,7 +431,7 @@ public class MzQuantMLMarshaller {
         }
 
         //required attribute: 'id'
-        StringBuilder sb = new StringBuilder(20);
+        StringBuilder sb = new StringBuilder(INI_STRING_LEN);
 
         // tag opening plus id attribute
         sb.append("<AssayList id=\"").append(id).append('\"');
@@ -486,7 +487,7 @@ public class MzQuantMLMarshaller {
         if (id == null) {
             throw new IllegalArgumentException("The 'id' attribute must not be null!");
         }
-        StringBuilder sb = new StringBuilder(70);
+        StringBuilder sb = new StringBuilder(INI_STRING_LEN);
 
         // tag opening plus id attribute
         sb.append("<BibliographicReference id=\"").append(id).append('\"');
@@ -561,7 +562,7 @@ public class MzQuantMLMarshaller {
         }
 
         //required attribute: 'id', 'rawFilesGroup_ref'
-        StringBuilder sb = new StringBuilder(70);
+        StringBuilder sb = new StringBuilder(INI_STRING_LEN);
 
         // tag opening plus id attribute
         sb.append("<FeatureList id=\"").append(id).append('\"');
@@ -603,7 +604,7 @@ public class MzQuantMLMarshaller {
         }
 
         //required attribute: 'id', 'rawFilesGroup_ref'
-        StringBuilder sb = new StringBuilder(70);
+        StringBuilder sb = new StringBuilder(INI_STRING_LEN);
 
         // tag opening plus id attribute
         sb.append("<PeptideConsensusList id=\"").append(id).append('\"');
@@ -639,7 +640,7 @@ public class MzQuantMLMarshaller {
         }
 
         //required attribute: 'id'
-        StringBuilder sb = new StringBuilder(50);
+        StringBuilder sb = new StringBuilder(INI_STRING_LEN);
 
         // tag opening plus id attribute
         sb.append("<ProteinGroupList id=\"").append(id).append('\"');
@@ -672,7 +673,7 @@ public class MzQuantMLMarshaller {
         }
 
         //required attribute: 'id'
-        StringBuilder sb = new StringBuilder(50);
+        StringBuilder sb = new StringBuilder(INI_STRING_LEN);
 
         // tag opening plus id attribute
         sb.append("<ProteinList id=\"").append(id).append('\"');
@@ -705,7 +706,7 @@ public class MzQuantMLMarshaller {
         }
 
         //required attribute: 'id'
-        StringBuilder sb = new StringBuilder(50);
+        StringBuilder sb = new StringBuilder(INI_STRING_LEN);
 
         // tag opening plus id attribute
         sb.append("<SmallMoleculeList id=\"").append(id).append('\"');

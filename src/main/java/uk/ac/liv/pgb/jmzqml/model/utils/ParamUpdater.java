@@ -35,7 +35,7 @@ import uk.ac.liv.pgb.jmzqml.model.mzqml.UserParam;
  * @institute University of Liverpool
  * @time 09-Apr-2013 23:59:04
  */
-public class ParamUpdater {
+public final class ParamUpdater {
 
     private static void updateAbstractParamProperties(final AbstractParam input,
                                                       final AbstractParam newParam)

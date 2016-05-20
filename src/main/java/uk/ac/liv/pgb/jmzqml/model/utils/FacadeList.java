@@ -41,6 +41,7 @@ public class FacadeList<T> extends AbstractCollection<T> implements List<T> {
 
     private List<T> originalList;
     private Class<T> clazz;
+    private final int HASH_CODE = 31;
 
     /**
      * Constructor of FacadeList.
@@ -444,7 +445,7 @@ public class FacadeList<T> extends AbstractCollection<T> implements List<T> {
         while (i.hasNext()) {
             T obj = i.next();
             int code = obj == null ? 0 : obj.hashCode();
-            hashCode = 31 * hashCode + code;
+            hashCode = HASH_CODE * hashCode + code;
         }
         return hashCode;
     }

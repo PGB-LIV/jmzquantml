@@ -31,7 +31,7 @@ import uk.ac.liv.pgb.jmzqml.MzQuantMLElement;
  * @institute University of Liverpool
  * @time 06-Jul-2012 11:26:26
  */
-public class Constants {
+public final class Constants {
 
     /**
      * The name of the property used to specify the output encoding in the marshalled XML data.

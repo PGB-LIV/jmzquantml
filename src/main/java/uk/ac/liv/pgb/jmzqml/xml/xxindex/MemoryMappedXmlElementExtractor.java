@@ -34,6 +34,8 @@ public class MemoryMappedXmlElementExtractor {
 
     private boolean useSystemDefaultEncoding;
     private Charset encoding;
+    private final int UNSUPPORTED_CHARSET = -2;
+    private final int READ_BYTE = 1000;
 
     ////////////////////
     // Constructor
@@ -94,7 +96,7 @@ public class MemoryMappedXmlElementExtractor {
             result = -1;
         } catch (UnsupportedCharsetException ucne) {
             LOG.error("Unsupported encoding: " + encodingp, ucne);
-            result = -2;
+            result = UNSUPPORTED_CHARSET;
         }
         return result;
     }
@@ -220,7 +222,7 @@ public class MemoryMappedXmlElementExtractor {
      */
     public final String detectFileEncoding(final InputStream inputStream)
             throws IOException {
-        return detectFileEncoding(inputStream, 1000);
+        return detectFileEncoding(inputStream, READ_BYTE);
     }
 
     /**
