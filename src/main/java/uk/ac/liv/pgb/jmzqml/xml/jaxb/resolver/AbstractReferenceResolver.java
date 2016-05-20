@@ -55,14 +55,14 @@ public abstract class AbstractReferenceResolver<T extends MzQuantMLObject>
     /**
      * Constructor of AbstractReferenceResolver
      *
-     * @param index MzQuantMLIndexer
-     * @param cache MzQuantMLObjectCache
+     * @param indexp MzQuantMLIndexer
+     * @param cachep MzQuantMLObjectCache
      *
      */
-    protected AbstractReferenceResolver(final MzQuantMLIndexer index,
-                                        final MzQuantMLObjectCache cache) {
-        this.index = index;
-        this.cache = cache;
+    protected AbstractReferenceResolver(final MzQuantMLIndexer indexp,
+                                        final MzQuantMLObjectCache cachep) {
+        this.index = indexp;
+        this.cache = cachep;
     }
 
     /**

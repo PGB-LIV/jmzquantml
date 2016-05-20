@@ -49,8 +49,8 @@ public class MzQuantMLElementProperties {
      * @param configurations list of MzQuantMLElementConfig.
      */
     public final void setConfigurations(
-            final List<MzQuantMLElementConfig> configurations) {
-        this.configurations = configurations;
+            final List<MzQuantMLElementConfig> configurationsp) {
+        this.configurations = configurationsp;
     }
 
 }

@@ -43,9 +43,9 @@ public class MemoryMappedStandardXpathAccess implements XpathAccess {
      *
      * @throws java.io.IOException when the file could not be accessed
      */
-    public MemoryMappedStandardXpathAccess(final byte[] fileBuffer)
+    public MemoryMappedStandardXpathAccess(final byte[] fileBufferp)
             throws IOException {
-        this(fileBuffer, null);
+        this(fileBufferp, null);
     }
 
     /**
@@ -62,10 +62,10 @@ public class MemoryMappedStandardXpathAccess implements XpathAccess {
      *
      * @throws IOException when the file could not be accessed
      */
-    public MemoryMappedStandardXpathAccess(final byte[] fileBuffer,
+    public MemoryMappedStandardXpathAccess(final byte[] fileBufferp,
                                            final Set<String> aXpathInclusionSet)
             throws IOException {
-        this(fileBuffer, aXpathInclusionSet, true);
+        this(fileBufferp, aXpathInclusionSet, true);
     }
 
     /**
@@ -79,22 +79,22 @@ public class MemoryMappedStandardXpathAccess implements XpathAccess {
      *
      * @throws IOException when the file could not be accessed
      */
-    public MemoryMappedStandardXpathAccess(final byte[] fileBuffer,
+    public MemoryMappedStandardXpathAccess(final byte[] fileBufferp,
                                            final Set<String> aXpathInclusionSet,
                                            final boolean recordLineNumbers)
             throws IOException {
 
-        if (fileBuffer == null) {
+        if (fileBufferp == null) {
             throw new IllegalArgumentException("The input file input stream must not be null!");
         }
 
-        this.fileBuffer = fileBuffer.clone();
+        this.fileBuffer = fileBufferp.clone();
 
         // choosing the Extractor to use
-        this.index = XmlXpathIndexer.buildIndex(new ByteArrayInputStream(fileBuffer), aXpathInclusionSet, recordLineNumbers);
+        this.index = XmlXpathIndexer.buildIndex(new ByteArrayInputStream(fileBufferp), aXpathInclusionSet, recordLineNumbers);
         this.extractor = new MemoryMappedXmlElementExtractor();
 
-        String enc = extractor.detectFileEncoding(new ByteArrayInputStream(fileBuffer));
+        String enc = extractor.detectFileEncoding(new ByteArrayInputStream(fileBufferp));
         if (enc != null) {
             extractor.setEncoding(enc);
         }
@@ -120,8 +120,8 @@ public class MemoryMappedStandardXpathAccess implements XpathAccess {
         return ignoreNSPrefix;
     }
 
-    public final void setIgnoreNSPrefix(final boolean ignoreNSPrefix) {
-        this.ignoreNSPrefix = ignoreNSPrefix;
+    public final void setIgnoreNSPrefix(final boolean ignoreNSPrefixp) {
+        this.ignoreNSPrefix = ignoreNSPrefixp;
     }
 
     public final MemoryMappedXmlElementExtractor getExtractor() {
@@ -301,17 +301,17 @@ public class MemoryMappedStandardXpathAccess implements XpathAccess {
         private byte[] fileBuffer;
 
         public XmlSnippetIterator(final List<IndexElement> ranges,
-                                  final MemoryMappedXmlElementExtractor extractor,
-                                  final byte[] fileBuffer) {
+                                  final MemoryMappedXmlElementExtractor extractorp,
+                                  final byte[] fileBufferp) {
             this.iterator = ranges.iterator();
-            this.extractor = extractor;
+            this.extractor = extractorp;
 //            this.inputStream = inputStream;
-            this.fileBuffer = fileBuffer;
+            this.fileBuffer = fileBufferp;
         }
 
         public XmlSnippetIterator(final List<IndexElement> elements,
-                                  final MemoryMappedXmlElementExtractor extractor,
-                                  final byte[] fileBuffer, final Long start,
+                                  final MemoryMappedXmlElementExtractor extractorp,
+                                  final byte[] fileBufferp, final Long start,
                                   final Long stop) {
             List<IndexElement> validElements; // the list of elements we will iterate over
 
@@ -329,9 +329,9 @@ public class MemoryMappedStandardXpathAccess implements XpathAccess {
             }
             // only use the IndexElements that are in the valid range
             this.iterator = validElements.iterator();
-            this.extractor = extractor;
+            this.extractor = extractorp;
 //            this.inputStream = inputStream;
-            this.fileBuffer = fileBuffer;
+            this.fileBuffer = fileBufferp;
         }
 
         @Override
@@ -477,16 +477,16 @@ public class MemoryMappedStandardXpathAccess implements XpathAccess {
         private InputStream inputStream;
 
         public XmlElementIterator(final List<IndexElement> elements,
-                                  final MemoryMappedXmlElementExtractor extractor,
-                                  final InputStream inputStream) {
+                                  final MemoryMappedXmlElementExtractor extractorp,
+                                  final InputStream inputStreamp) {
             this.iterator = elements.iterator();
-            this.extractor = extractor;
-            this.inputStream = inputStream;
+            this.extractor = extractorp;
+            this.inputStream = inputStreamp;
         }
 
         public XmlElementIterator(final List<IndexElement> elements,
-                                  final MemoryMappedXmlElementExtractor extractor,
-                                  final InputStream inputStream,
+                                  final MemoryMappedXmlElementExtractor extractorp,
+                                  final InputStream inputStreamp,
                                   final Long start, final Long stop) {
             List<IndexElement> validElements; // the list of elements we will iterate over
             // if both borders are unspecified, iterate over all elements (initial list)
@@ -504,8 +504,8 @@ public class MemoryMappedStandardXpathAccess implements XpathAccess {
 
             // only use the IndexElements that are in the valid range
             this.iterator = validElements.iterator();
-            this.extractor = extractor;
-            this.inputStream = inputStream;
+            this.extractor = extractorp;
+            this.inputStream = inputStreamp;
         }
 
         @Override

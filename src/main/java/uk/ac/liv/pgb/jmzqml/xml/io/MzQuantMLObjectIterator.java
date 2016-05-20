@@ -54,13 +54,13 @@ public class MzQuantMLObjectIterator<T extends MzQuantMLObject> implements
     private final MzQuantMLObjectCache cache;
 
     MzQuantMLObjectIterator(final MzQuantMLElement element,
-                            final MzQuantMLIndexer index,
-                            final MzQuantMLObjectCache cache) {
-        innerXpathIterator = index.getXmlStringIterator(element.getXpath());
+                            final MzQuantMLIndexer indexp,
+                            final MzQuantMLObjectCache cachep) {
+        innerXpathIterator = indexp.getXmlStringIterator(element.getXpath());
         this.xpath = element.getXpath();
         this.cls = element.getClazz();
-        this.index = index;
-        this.cache = cache;
+        this.index = indexp;
+        this.cache = cachep;
     }
 
     @Override

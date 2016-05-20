@@ -45,15 +45,15 @@ public class FacadeList<T> extends AbstractCollection<T> implements List<T> {
     /**
      * Constructor of FacadeList.
      *
-     * @param originalList the original list.
-     * @param clazz        the class type of the object.
+     * @param originalListp the original list.
+     * @param cls           the class type of the object.
      */
-    public FacadeList(final List originalList, final Class<T> clazz) {
-        if (originalList == null || clazz == null) {
+    public FacadeList(final List originalListp, final Class<T> cls) {
+        if (originalListp == null || cls == null) {
             throw new IllegalArgumentException("Error: Neither original input list nor sublist class can be NULL");
         }
-        this.originalList = originalList;
-        this.clazz = clazz;
+        this.originalList = originalListp;
+        this.clazz = cls;
     }
 
     private FacadeList() {
@@ -595,8 +595,8 @@ public class FacadeList<T> extends AbstractCollection<T> implements List<T> {
         private int currPosition = -1;
         private boolean nextHasBeenCalled;
 
-        public SublistIterator(final List<T> superList) {
-            this.superList = superList;
+        public SublistIterator(final List<T> superListp) {
+            this.superList = superListp;
         }
 
         @Override
@@ -667,21 +667,22 @@ public class FacadeList<T> extends AbstractCollection<T> implements List<T> {
         private boolean nextOrPreviousHasBeenCalled;
         private boolean addOrRemoveCalled;
 
-        private SubListListIterator(final List<T> superList) {
-            this(superList, 0);
+        private SubListListIterator(final List<T> superListp) {
+            this(superListp, 0);
         }
 
-        public SubListListIterator(final List<T> superList, final int startIndex) {
-            if (superList == null) {
+        public SubListListIterator(final List<T> superListp,
+                                   final int startIndexp) {
+            if (superListp == null) {
                 throw new NullPointerException("Input super list cannot be null");
             }
 
-            if (startIndex < 0 || superList.size() > 0 && startIndex >= superList.size() || superList.isEmpty() && startIndex > 0) {
+            if (startIndexp < 0 || superListp.size() > 0 && startIndexp >= superListp.size() || superListp.isEmpty() && startIndexp > 0) {
                 throw new IndexOutOfBoundsException("Start index of the iterator cannot be less than zero or greater-equal than the size of the list");
             }
 
-            this.superList = superList;
-            this.startIndex = startIndex;
+            this.superList = superListp;
+            this.startIndex = startIndexp;
 
             initNextPosition();
         }

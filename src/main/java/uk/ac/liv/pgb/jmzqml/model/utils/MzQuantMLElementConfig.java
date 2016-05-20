@@ -53,8 +53,8 @@ public class MzQuantMLElementConfig {
      *
      * @param indexed the value of indexed attribute.
      */
-    public final void setIndexed(final boolean indexed) {
-        this.indexed = indexed;
+    public final void setIndexed(final boolean indexedp) {
+        this.indexed = indexedp;
     }
 
     /**
@@ -71,8 +71,8 @@ public class MzQuantMLElementConfig {
      *
      * @param xpath the value of xpath attribute.
      */
-    public final void setXpath(final String xpath) {
-        this.xpath = xpath;
+    public final void setXpath(final String xpathp) {
+        this.xpath = xpathp;
     }
 
     /**
@@ -89,8 +89,8 @@ public class MzQuantMLElementConfig {
      *
      * @param cached the value of cache attribute.
      */
-    public final void setCached(final boolean cached) {
-        this.cached = cached;
+    public final void setCached(final boolean cachedp) {
+        this.cached = cachedp;
     }
 
     /**
@@ -107,8 +107,8 @@ public class MzQuantMLElementConfig {
      *
      * @param idMapped the value of idMapped attribute.
      */
-    public final void setIdMapped(final boolean idMapped) {
-        this.idMapped = idMapped;
+    public final void setIdMapped(final boolean idMappedp) {
+        this.idMapped = idMappedp;
     }
 
     /**
@@ -125,8 +125,8 @@ public class MzQuantMLElementConfig {
      *
      * @param clazz the value of clazz attribute.
      */
-    public final void setClazz(final Class clazz) {
-        this.clazz = clazz;
+    public final void setClazz(final Class clazzp) {
+        this.clazz = clazzp;
     }
 
     /**
@@ -143,8 +143,8 @@ public class MzQuantMLElementConfig {
      *
      * @param cvParamClass the value of cvParamClass attribute.
      */
-    public final void setCvParamClass(final Class cvParamClass) {
-        this.cvParamClass = cvParamClass;
+    public final void setCvParamClass(final Class cvParamClassp) {
+        this.cvParamClass = cvParamClassp;
     }
 
     /**
@@ -161,8 +161,8 @@ public class MzQuantMLElementConfig {
      *
      * @param userParamClass the value of userParamClass attribute.
      */
-    public final void setUserParamClass(final Class userParamClass) {
-        this.userParamClass = userParamClass;
+    public final void setUserParamClass(final Class userParamClassp) {
+        this.userParamClass = userParamClassp;
     }
 
     /**
@@ -179,8 +179,8 @@ public class MzQuantMLElementConfig {
      *
      * @param autoRefResolving the value of autoRefResolving attribute.
      */
-    public final void setAutoRefResolving(final boolean autoRefResolving) {
-        this.autoRefResolving = autoRefResolving;
+    public final void setAutoRefResolving(final boolean autoRefResolvingp) {
+        this.autoRefResolving = autoRefResolvingp;
     }
 
     /**
@@ -197,8 +197,8 @@ public class MzQuantMLElementConfig {
      *
      * @param refResolverClass the value of refResolverClass attribute.
      */
-    public final void setRefResolverClass(final Class refResolverClass) {
-        this.refResolverClass = refResolverClass;
+    public final void setRefResolverClass(final Class refResolverClassp) {
+        this.refResolverClass = refResolverClassp;
     }
 
     /**
@@ -215,8 +215,8 @@ public class MzQuantMLElementConfig {
      *
      * @param tagName the value of tagName attribute.
      */
-    public final void setTagName(final String tagName) {
-        this.tagName = tagName;
+    public final void setTagName(final String tagNamep) {
+        this.tagName = tagNamep;
     }
 
 }

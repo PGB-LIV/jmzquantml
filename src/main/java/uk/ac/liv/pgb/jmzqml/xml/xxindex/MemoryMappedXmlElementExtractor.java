@@ -52,9 +52,9 @@ public class MemoryMappedXmlElementExtractor {
      * @param encoding The Charset to use to translate the read bytes.
      */
     @SuppressWarnings(value = "unused")
-    public MemoryMappedXmlElementExtractor(final Charset encoding) {
+    public MemoryMappedXmlElementExtractor(final Charset encodingp) {
         this();
-        setEncoding(encoding);
+        setEncoding(encodingp);
     }
 
     ////////////////////
@@ -70,8 +70,8 @@ public class MemoryMappedXmlElementExtractor {
      * @param encoding The encoding to use when converting the read byte array
      *                 into a String.
      */
-    public final void setEncoding(final Charset encoding) {
-        this.encoding = encoding;
+    public final void setEncoding(final Charset encodingp) {
+        this.encoding = encodingp;
     }
 
     /**
@@ -84,16 +84,16 @@ public class MemoryMappedXmlElementExtractor {
      *         valid and -2 if the specified encoding is not supported by this virtual
      *         machine.
      */
-    public final int setEncoding(final String encoding) {
+    public final int setEncoding(final String encodingp) {
         int result;
         try {
-            this.encoding = Charset.forName(encoding);
+            this.encoding = Charset.forName(encodingp);
             result = 0;
         } catch (IllegalCharsetNameException icne) {
-            LOG.error("Illegal encoding: " + encoding, icne);
+            LOG.error("Illegal encoding: " + encodingp, icne);
             result = -1;
         } catch (UnsupportedCharsetException ucne) {
-            LOG.error("Unsupported encoding: " + encoding, ucne);
+            LOG.error("Unsupported encoding: " + encodingp, ucne);
             result = -2;
         }
         return result;
@@ -115,8 +115,8 @@ public class MemoryMappedXmlElementExtractor {
      *                                 character encoding.
      */
     public final void setUseSystemDefaultEncoding(
-            final boolean useSystemDefaultEncoding) {
-        this.useSystemDefaultEncoding = useSystemDefaultEncoding;
+            final boolean useSystemDefaultEncodingp) {
+        this.useSystemDefaultEncoding = useSystemDefaultEncodingp;
     }
 
     ////////////////////

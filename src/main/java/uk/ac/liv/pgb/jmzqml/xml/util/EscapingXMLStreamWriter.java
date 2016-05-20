@@ -19,19 +19,19 @@ public class EscapingXMLStreamWriter implements XMLStreamWriter {
     private final XMLStreamWriter writer;
     private String charEncoding;
 
-    public EscapingXMLStreamWriter(final XMLStreamWriter writer) {
+    public EscapingXMLStreamWriter(final XMLStreamWriter writerp) {
 
-        if (null == writer) {
+        if (null == writerp) {
             throw new IllegalArgumentException("null");
         } else {
-            this.writer = writer;
+            this.writer = writerp;
         }
         this.charEncoding = "UTF-8";
     }
 
-    public EscapingXMLStreamWriter(final XMLStreamWriter writer,
+    public EscapingXMLStreamWriter(final XMLStreamWriter writerp,
                                    final String encoding) {
-        this(writer);
+        this(writerp);
         if (encoding != null) {
             this.charEncoding = encoding;
         }

@@ -59,10 +59,10 @@ public class RawXMLListener extends Unmarshaller.Listener {
      * @param index MzQuantMLIndexer
      * @param cache MzQuantMLObjectCache
      */
-    public RawXMLListener(final MzQuantMLIndexer index,
-                          final MzQuantMLObjectCache cache) {
-        this.index = index;
-        this.cache = cache;
+    public RawXMLListener(final MzQuantMLIndexer indexp,
+                          final MzQuantMLObjectCache cachep) {
+        this.index = indexp;
+        this.cache = cachep;
     }
 
     /**

@@ -1094,26 +1094,26 @@ public enum MzQuantMLElement {
         loadProperties();
     }
 
-    private <T extends MzQuantMLObject> MzQuantMLElement(final String tagName,
-                                                         final boolean indexed,
-                                                         final String xpath,
-                                                         final boolean cached,
-                                                         final boolean idMapped,
-                                                         final Class<T> clazz,
-                                                         final Class cvParamClass,
-                                                         final Class userParamClass,
-                                                         final boolean autoRefResolving,
-                                                         final Class refResolverClass) {
-        this.tagName = tagName;
-        this.indexed = indexed;
-        this.cached = cached;
-        this.xpath = xpath;
-        this.idMapped = idMapped;
-        this.clazz = clazz;
-        this.cvParamClass = cvParamClass;
-        this.userParamClass = userParamClass;
-        this.autoRefResolving = autoRefResolving;
-        this.refResolverClass = refResolverClass;
+    private <T extends MzQuantMLObject> MzQuantMLElement(final String tagNamep,
+                                                         final boolean indexedp,
+                                                         final String xpathp,
+                                                         final boolean cachedp,
+                                                         final boolean idMappedp,
+                                                         final Class<T> clazzp,
+                                                         final Class cvParamClassp,
+                                                         final Class userParamClassp,
+                                                         final boolean autoRefResolvingp,
+                                                         final Class refResolverClassp) {
+        this.tagName = tagNamep;
+        this.indexed = indexedp;
+        this.cached = cachedp;
+        this.xpath = xpathp;
+        this.idMapped = idMappedp;
+        this.clazz = clazzp;
+        this.cvParamClass = cvParamClassp;
+        this.userParamClass = userParamClassp;
+        this.autoRefResolving = autoRefResolvingp;
+        this.refResolverClass = refResolverClassp;
     }
 
     /**

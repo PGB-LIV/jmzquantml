@@ -129,24 +129,24 @@ public final class MzQuantMLIndexerFactory {
         /*
          * Constructor
          */
-        private MzQuantMLIndexerImpl(final File xmlFile,
+        private MzQuantMLIndexerImpl(final File xmlFilep,
                                      final Set<String> xpaths,
-                                     final boolean inMemory) {
-            if (xmlFile == null) {
+                                     final boolean inMemoryp) {
+            if (xmlFilep == null) {
                 throw new IllegalStateException("XML File to index must not be null");
             }
-            if (!xmlFile.exists()) {
-                throw new IllegalStateException("XML File to index does not exist: " + xmlFile.getAbsolutePath());
+            if (!xmlFilep.exists()) {
+                throw new IllegalStateException("XML File to index does not exist: " + xmlFilep.getAbsolutePath());
             }
 
             //store file reference
-            this.xmlFile = xmlFile;
-            this.inMemory = inMemory;
+            this.xmlFile = xmlFilep;
+            this.inMemory = inMemoryp;
 
             try {
 
                 // create xml element extractor                
-                initXpathAccess(xmlFile, xpaths, inMemory);
+                initXpathAccess(xmlFilep, xpaths, inMemoryp);
 
                 // create index
                 index = xpathAccess.getIndex();
@@ -161,31 +161,31 @@ public final class MzQuantMLIndexerFactory {
                 initIdMaps();
 
                 // extract the MzQuantML attributes from the MzQuantML start tag
-                mzQuantMLAttributeXMLString = extractMzQuantMLStartTag(xmlFile);
+                mzQuantMLAttributeXMLString = extractMzQuantMLStartTag(xmlFilep);
 
             } catch (IOException e) {
                 LOGGER.error("MzQuantMLIndexerFactory$MzQuantMLIndexerImpl.MzQuantMLIndexterImpl", e);
-                throw new IllegalStateException("Could not generate MzQuantML index for file: " + xmlFile);
+                throw new IllegalStateException("Could not generate MzQuantML index for file: " + xmlFilep);
             }
         }
 
-        private void initXpathAccess(final File xmlFile,
+        private void initXpathAccess(final File xmlFilep,
                                      final Set<String> xpaths,
-                                     final boolean inMemory)
+                                     final boolean inMemoryp)
                 throws IOException {
-            if (inMemory) {
+            if (inMemoryp) {
                 // load file into memory
-                loadFileIntoMemory(xmlFile);
+                loadFileIntoMemory(xmlFilep);
 
                 MemoryMappedStandardXpathAccess memoryMappedStandardXpathAccess = new MemoryMappedStandardXpathAccess(xmlFileBuffer, xpaths);
                 memoryMappedXmlElementExtractor = memoryMappedStandardXpathAccess.getExtractor();
                 xpathAccess = memoryMappedStandardXpathAccess;
             } else {
-                xpathAccess = new StandardXpathAccess(xmlFile, xpaths);
+                xpathAccess = new StandardXpathAccess(xmlFilep, xpaths);
                 xmlExtractor = new SimpleXmlElementExtractor();
 
-                if (xmlExtractor.detectFileEncoding(xmlFile.toURI().toURL()) != null) {
-                    xmlExtractor.setEncoding(xmlExtractor.detectFileEncoding(xmlFile.toURI().toURL()));
+                if (xmlExtractor.detectFileEncoding(xmlFilep.toURI().toURL()) != null) {
+                    xmlExtractor.setEncoding(xmlExtractor.detectFileEncoding(xmlFilep.toURI().toURL()));
                 }
                 // if XML header doesn't exit, the mzQuantML file should still be valid 
 //                else {
@@ -194,9 +194,9 @@ public final class MzQuantMLIndexerFactory {
             }
         }
 
-        private void loadFileIntoMemory(final File xmlFile)
+        private void loadFileIntoMemory(final File xmlFilep)
                 throws IOException {
-            FileInputStream fis = new FileInputStream(xmlFile);
+            FileInputStream fis = new FileInputStream(xmlFilep);
             FileChannel fc = fis.getChannel();
 
             MappedByteBuffer mmb = fc.map(FileChannel.MapMode.READ_ONLY, 0, fc.size());
@@ -368,7 +368,7 @@ public final class MzQuantMLIndexerFactory {
             return classCache.keySet();
         }
 
-        private String extractMzQuantMLStartTag(final File xmlFile)
+        private String extractMzQuantMLStartTag(final File xmlFilep)
                 throws IOException {
             // get start position of the mzIdentML element
             List<IndexElement> ie = index.getElements("/MzQuantML");
@@ -383,7 +383,7 @@ public final class MzQuantMLIndexerFactory {
 
             // get mzML start tag content
             String startTag = inMemory ? memoryMappedXmlElementExtractor.readString(startPos, stopPos, new ByteArrayInputStream(xmlFileBuffer))
-                    : xmlExtractor.readString(startPos, stopPos, xmlFile);
+                    : xmlExtractor.readString(startPos, stopPos, xmlFilep);
             if (startTag != null) {
                 //strip newlines that might interfere with later on regex matching
                 startTag = startTag.replace("\n", "");

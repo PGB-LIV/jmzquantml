@@ -43,9 +43,9 @@ public enum ParamListMappings {
     private Class clazz;
     private String[] classNames;
 
-    private ParamListMappings(final String[] classNames, final Class clazz) {
-        this.classNames = classNames;
-        this.clazz = clazz;
+    private ParamListMappings(final String[] classNamesp, final Class clazzp) {
+        this.classNames = classNamesp;
+        this.clazz = clazzp;
     }
 
     /**
