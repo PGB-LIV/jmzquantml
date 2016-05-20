@@ -34,8 +34,8 @@ public class MemoryMappedXmlElementExtractor {
 
     private boolean useSystemDefaultEncoding;
     private Charset encoding;
-    private final int UNSUPPORTED_CHARSET = -2;
-    private final int READ_BYTE = 1000;
+    private static final int UNSUPPORTED_CHARSET = -2;
+    private static final int READ_BYTE = 1000;
 
     ////////////////////
     // Constructor

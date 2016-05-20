@@ -19,6 +19,14 @@ import org.apache.log4j.Logger;
  */
 public final class FileUtils {
 
+    /**
+     * Instantiates a new FileUtils.
+     * Private to prevent instantiation
+     */
+    private FileUtils() {
+
+    }
+
     private static Logger logger = Logger.getLogger(FileUtils.class);
 
     /**

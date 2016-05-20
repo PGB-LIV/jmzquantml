@@ -39,12 +39,12 @@ public interface MzQuantMLIndexer {
      * A method to retrieve the XML String of a specific XML element,
      * providing the unique ID of the element and the Java mapped Class.
      *
-     * @param ID    the unique ID from the id attribute of a XML element.
+     * @param id    the unique ID from the id attribute of a XML element.
      * @param clazz the Java Class representing the XML element.
      *
      * @return the XML String representation of the requested element.
      */
-    String getXmlString(String ID, Class<? extends MzQuantMLObject> clazz);
+    String getXmlString(String id, Class<? extends MzQuantMLObject> clazz);
 
     /**
      * Read XML string using a byte range

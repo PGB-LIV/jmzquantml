@@ -38,6 +38,13 @@ import uk.ac.liv.pgb.jmzqml.model.mzqml.MzQuantML;
 public final class ModelConstants {
 
     /**
+     * Instantiates a new ModelConstants.
+     * Private to prevent instantiation
+     */
+    private ModelConstants(){
+        
+    }
+    /**
      * The package name of {@link uk.ac.liv.pgb.jmzqml.model.mzqml.MzQuantML}.
      */
     public static final String PACKAGE = MzQuantML.class.getPackage().getName();

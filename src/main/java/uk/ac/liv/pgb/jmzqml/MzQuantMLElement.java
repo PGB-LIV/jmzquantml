@@ -1085,38 +1085,6 @@ public enum MzQuantMLElement {
     private static Map<String, MzQuantMLElementConfig> cfgMap;
 
     /**
-     * This should be called first in order to retrieve configuration from a
-     * file and populate cfgMap.
-     *
-     * @param <T>
-     */
-    private <T extends MzQuantMLObject> MzQuantMLElement() {
-        loadProperties();
-    }
-
-    private <T extends MzQuantMLObject> MzQuantMLElement(final String tagNamep,
-                                                         final boolean indexedp,
-                                                         final String xpathp,
-                                                         final boolean cachedp,
-                                                         final boolean idMappedp,
-                                                         final Class<T> clazzp,
-                                                         final Class cvParamClassp,
-                                                         final Class userParamClassp,
-                                                         final boolean autoRefResolvingp,
-                                                         final Class refResolverClassp) {
-        this.tagName = tagNamep;
-        this.indexed = indexedp;
-        this.cached = cachedp;
-        this.xpath = xpathp;
-        this.idMapped = idMappedp;
-        this.clazz = clazzp;
-        this.cvParamClass = cvParamClassp;
-        this.userParamClass = userParamClassp;
-        this.autoRefResolving = autoRefResolvingp;
-        this.refResolverClass = refResolverClassp;
-    }
-
-    /**
      * Returns the value of {@code tagName} property defined in configuration file. If no {@code tagName} property is defined, returns {@code NULL}.
      *
      * @return the value of {@code tagName} property defined in configuration file.
@@ -1249,6 +1217,58 @@ public enum MzQuantMLElement {
         return null;
     }
 
+    /**
+     * This should be called first in order to retrieve configuration from a
+     * file and populate cfgMap.
+     *
+     * @param <T>
+     */
+    private <T extends MzQuantMLObject> MzQuantMLElement() {
+        loadProperties();
+    }
+
+    private <T extends MzQuantMLObject> MzQuantMLElement(final String tagNamep,
+                                                         final boolean indexedp,
+                                                         final String xpathp,
+                                                         final boolean cachedp,
+                                                         final boolean idMappedp,
+                                                         final Class<T> clazzp,
+                                                         final Class cvParamClassp,
+                                                         final Class userParamClassp,
+                                                         final boolean autoRefResolvingp,
+                                                         final Class refResolverClassp) {
+        this.tagName = tagNamep;
+        this.indexed = indexedp;
+        this.cached = cachedp;
+        this.xpath = xpathp;
+        this.idMapped = idMappedp;
+        this.clazz = clazzp;
+        this.cvParamClass = cvParamClassp;
+        this.userParamClass = userParamClassp;
+        this.autoRefResolving = autoRefResolvingp;
+        this.refResolverClass = refResolverClassp;
+    }
+
+    /**
+     * Returns a String contains details of the MzQuantMLElement constant.
+     * <p>
+     * For example, {@code AnalysisSummary.toString()} returns
+     * "MzQuantMLElement{indexed=true, xpath='/MzQuantML/AnalysisSummary', cached=null, clazz=uk.ac.liv.pgb.jmzqml.model.mzqml.AnalysisSummary}".
+     *
+     * @return a String contains details of the MzQuantMLElement constant.
+     *
+     *
+     */
+    @Override
+    public String toString() {
+        return "MzQuantMLElement{"
+                + "indexed=" + indexed
+                + ", xpath='" + xpath + '\''
+                + ", cached=" + cached
+                + ", clazz=" + clazz
+                + '}';
+    }
+
     private synchronized static Map<String, MzQuantMLElementConfig> getCfg() {
         if (cfgMap == null) {
             cfgMap = new HashMap<>();
@@ -1281,26 +1301,6 @@ public enum MzQuantMLElement {
                 localCfg.put(clazz.getName(), cfg);
             }
         }
-    }
-
-    /**
-     * Returns a String contains details of the MzQuantMLElement constant.
-     * <p>
-     * For example, {@code AnalysisSummary.toString()} returns
-     * "MzQuantMLElement{indexed=true, xpath='/MzQuantML/AnalysisSummary', cached=null, clazz=uk.ac.liv.pgb.jmzqml.model.mzqml.AnalysisSummary}".
-     *
-     * @return a String contains details of the MzQuantMLElement constant.
-     *
-     *
-     */
-    @Override
-    public String toString() {
-        return "MzQuantMLElement{"
-                + "indexed=" + indexed
-                + ", xpath='" + xpath + '\''
-                + ", cached=" + cached
-                + ", clazz=" + clazz
-                + '}';
     }
 
 }

@@ -34,6 +34,14 @@ import uk.ac.liv.pgb.jmzqml.MzQuantMLElement;
 public final class Constants {
 
     /**
+     * Instantiates a new Constants.
+     * Private to prevent instantiation
+     */
+    private Constants() {
+
+    }
+
+    /**
      * The name of the property used to specify the output encoding in the marshalled XML data.
      */
     public static final String JAXB_ENCODING_PROPERTY = "jaxb.encoding";

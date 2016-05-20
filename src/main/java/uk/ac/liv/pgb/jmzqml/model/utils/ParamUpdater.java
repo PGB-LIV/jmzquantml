@@ -37,6 +37,14 @@ import uk.ac.liv.pgb.jmzqml.model.mzqml.UserParam;
  */
 public final class ParamUpdater {
 
+    /**
+     * Instantiates a new ParamUpdater.
+     * Private to prevent instantiation
+     */
+    private ParamUpdater() {
+
+    }
+
     private static void updateAbstractParamProperties(final AbstractParam input,
                                                       final AbstractParam newParam)
             throws NoSuchFieldException, IllegalAccessException {

@@ -41,7 +41,7 @@ public class FacadeList<T> extends AbstractCollection<T> implements List<T> {
 
     private List<T> originalList;
     private Class<T> clazz;
-    private final int HASH_CODE = 31;
+    private static final int HASH_CODE = 31;
 
     /**
      * Constructor of FacadeList.

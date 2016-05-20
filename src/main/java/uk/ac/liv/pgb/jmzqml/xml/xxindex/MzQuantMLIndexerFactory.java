@@ -260,18 +260,18 @@ public final class MzQuantMLIndexerFactory {
         }
 
         @Override
-        public String getXmlString(final String ID,
+        public String getXmlString(final String id,
                                    final Class<? extends MzQuantMLObject> clazz) {
-            LOGGER.debug("Getting cached ID: " + ID + " from cache: " + clazz);
+            LOGGER.debug("Getting cached ID: " + id + " from cache: " + clazz);
 
             Map<String, IndexElement> idMap = idMapCache.get(clazz);
-            IndexElement element = idMap.get(ID);
+            IndexElement element = idMap.get(id);
 
             String xmlSnippet = null;
             if (element != null) {
                 xmlSnippet = getXmlString(element);
                 if (LOGGER.isTraceEnabled()) {
-                    LOGGER.trace("Retrived xml for class " + clazz + " with ID" + ID + ": " + xmlSnippet);
+                    LOGGER.trace("Retrived xml for class " + clazz + " with ID" + id + ": " + xmlSnippet);
                 }
             }
             return xmlSnippet;
