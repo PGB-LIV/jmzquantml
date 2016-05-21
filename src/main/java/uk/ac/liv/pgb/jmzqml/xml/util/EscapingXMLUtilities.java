@@ -132,8 +132,11 @@ public final class EscapingXMLUtilities {
                 copy[i] = SUBSTITUTE;
             }
         }
-        String ret = copied ? new String(copy) : string;
-        return ret;
+        if (copied) {
+            return new String(copy);
+        } else {
+            return string;
+        }
     }
 
 }

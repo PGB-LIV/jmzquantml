@@ -296,9 +296,11 @@ public final class MzQuantMLIndexerFactory {
                     } else {
                         stop = byteRange.getStop();
                     }
-                    String ret = inMemory ? memoryMappedXmlElementExtractor.readString(byteRange.getStart(), stop, new ByteArrayInputStream(xmlFileBuffer))
-                            : xmlExtractor.readString(byteRange.getStart(), stop, xmlFile);
-                    return ret;
+                    if (inMemory) {
+                        return memoryMappedXmlElementExtractor.readString(byteRange.getStart(), stop, new ByteArrayInputStream(xmlFileBuffer));
+                    } else {
+                        return xmlExtractor.readString(byteRange.getStart(), stop, xmlFile);
+                    }
                 } else {
                     throw new IllegalStateException("Attempting to read NULL ByteRange");
                 }
@@ -382,8 +384,10 @@ public final class MzQuantMLIndexerFactory {
             long stopPos = ie.get(0).getStart() - 1;
 
             // get mzML start tag content
-            String startTag = inMemory ? memoryMappedXmlElementExtractor.readString(startPos, stopPos, new ByteArrayInputStream(xmlFileBuffer))
-                    : xmlExtractor.readString(startPos, stopPos, xmlFilep);
+            String startTag = xmlExtractor.readString(startPos, stopPos, xmlFilep);
+            if (inMemory) {
+                startTag = memoryMappedXmlElementExtractor.readString(startPos, stopPos, new ByteArrayInputStream(xmlFileBuffer));
+            }
             if (startTag != null) {
                 //strip newlines that might interfere with later on regex matching
                 startTag = startTag.replace("\n", "");

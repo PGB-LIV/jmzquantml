@@ -444,7 +444,10 @@ public class FacadeList<T> extends AbstractCollection<T> implements List<T> {
         Iterator<T> i = this.iterator();
         while (i.hasNext()) {
             T obj = i.next();
-            int code = obj == null ? 0 : obj.hashCode();
+            int code = 0;
+            if (obj != null) {
+                code = obj.hashCode();
+            }
             hashCode = HASH_CODE * hashCode + code;
         }
         return hashCode;
@@ -576,7 +579,10 @@ public class FacadeList<T> extends AbstractCollection<T> implements List<T> {
 
     private void checkIndex(final int index, final String errMsg) {
         if (index < 0 || index >= this.size()) {
-            String msg = errMsg == null ? ("Input sublist index does not exist: " + index) : errMsg;
+            String msg = errMsg;
+            if (errMsg == null) {
+                msg = "Input sublist index does not exist: " + index;
+            }
             throw new IndexOutOfBoundsException(msg);
         }
     }
@@ -793,8 +799,11 @@ public class FacadeList<T> extends AbstractCollection<T> implements List<T> {
                     cnt++;
                 }
             }
-            int ret = nextIndex == -1 ? cnt : nextIndex;
-            return ret;
+            if (nextIndex == -1) {
+                return cnt;
+            } else {
+                return nextIndex;
+            }
         }
 
         @Override
