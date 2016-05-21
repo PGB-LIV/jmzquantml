@@ -38,7 +38,8 @@ import uk.ac.liv.pgb.jmzqml.xml.jaxb.marshaller.listeners.ObjectClassListener;
  */
 public final class MarshallerFactory {
 
-    private static final Logger LOGGER = Logger.getLogger(MarshallerFactory.class);
+    private static final Logger LOGGER = Logger.getLogger(
+            MarshallerFactory.class);
     private static MarshallerFactory instance = new MarshallerFactory();
     private JAXBContext jc;
 
@@ -51,13 +52,17 @@ public final class MarshallerFactory {
         return instance;
     }
 
+    /**
+     * constructor
+     */
     private MarshallerFactory() {
     }
 
     /**
      * Initialise the Marshaller with pre-defined settings.
      *
-     * @return an instance of {@link javax.xml.bind.Marshaller} with initial configurations.
+     * @return an instance of {@link javax.xml.bind.Marshaller} with initial
+     *         configurations.
      */
     public synchronized Marshaller initializeMarshaller() {
         LOGGER.debug("Initializing Marshaller for mzQuantML.");
@@ -70,7 +75,8 @@ public final class MarshallerFactory {
             Marshaller marshaller = jc.createMarshaller();
             marshaller.setProperty(Constants.JAXB_ENCODING_PROPERTY, "UTF-8");
             marshaller.setProperty(Constants.JAXB_FORMATTING_PROPERTY, true);
-            marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
+            marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT,
+                                   Boolean.TRUE);
             marshaller.setProperty(Marshaller.JAXB_FRAGMENT, true);
 
             // Register a listener that calls before/afterMarshalOperation on ParamAlternative/-List objects.
@@ -83,7 +89,8 @@ public final class MarshallerFactory {
 
         } catch (JAXBException e) {
             LOGGER.error("MarshallerFactory.initializeMarshaller", e);
-            throw new IllegalStateException("Can't initialize marshaller: " + e.getMessage());
+            throw new IllegalStateException("Can't initialize marshaller: " + e.
+                    getMessage());
         }
 
     }

@@ -17,11 +17,13 @@ import uk.ac.liv.pgb.jmzqml.model.MzQuantMLObject;
 public interface MzQuantMLIndexer {
 
     /**
-     * A method to retrieve a collection of XML elements from the specific xpath.
+     * A method to retrieve a collection of XML elements from the specific
+     * xpath.
      *
      * @param xpathExpression the xpath defining the XML element.
      *
-     * @return the Iterator of the collection of XML elements matching the xpath.
+     * @return the Iterator of the collection of XML elements matching the
+     *         xpath.
      */
     Iterator<String> getXmlStringIterator(String xpathExpression);
 
@@ -56,7 +58,8 @@ public interface MzQuantMLIndexer {
     String getXmlString(IndexElement byteRange);
 
     /**
-     * A method to retrieve the list of {@link psidev.psi.tools.xxindex.index.IndexElement} matching the xpath.
+     * A method to retrieve the list of
+     * {@link psidev.psi.tools.xxindex.index.IndexElement} matching the xpath.
      *
      * @param xpathExpression the xpath defining the XML element.
      *
@@ -104,7 +107,8 @@ public interface MzQuantMLIndexer {
      * @param id    the value of id attribute of XML element.
      * @param clazz the type of class corresponding to XML element.
      *
-     * @return true if the element being ID mapped. See configuration of elements (MzQuantMLElement).
+     * @return true if the element being ID mapped. See configuration of
+     *         elements (MzQuantMLElement).
      */
     boolean isIDmapped(String id, Class<? extends MzQuantMLObject> clazz);
 
@@ -116,7 +120,7 @@ public interface MzQuantMLIndexer {
      *
      * @return a Set of all IDs of the specified element.
      *
-     * @throws ConfigurationException
+     * @throws ConfigurationException exception
      */
     Set<String> getIDsForElement(MzQuantMLElement element)
             throws ConfigurationException;

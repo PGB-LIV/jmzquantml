@@ -58,6 +58,9 @@ public final class UnmarshallerFactory {
         return instance;
     }
 
+    /**
+     * constructor
+     */
     private UnmarshallerFactory() {
     }
 

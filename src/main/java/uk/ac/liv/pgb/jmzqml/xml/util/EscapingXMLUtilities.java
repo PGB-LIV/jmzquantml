@@ -15,11 +15,14 @@ public final class EscapingXMLUtilities {
     public static final char SUBSTITUTE = '\uFFFD';
     private static final CharOpenHashSet ILLEGAL_CHARS;
 
+    /**
+     * Constructor
+     */
     private EscapingXMLUtilities() {
     }
 
     static {
-        /**
+        /*
          * // excluded control characters
          * \u0000 Null character
          * \u0001 Start of header
@@ -57,7 +60,7 @@ public final class EscapingXMLUtilities {
          * \u000D Carriage return
          *
          * //valid, but discouraged
-         * \u0080  <control>
+         * \u0080 <control>
          * \u0081 <control>
          * \u0082 BREAK PERMITTED HERE
          * \u0083 NO BREAK HERE
@@ -106,6 +109,12 @@ public final class EscapingXMLUtilities {
         }
     }
 
+    /**
+     *
+     * @param c input char
+     *
+     * @return true if the char is one of illegal chars
+     */
     private static boolean isIllegal(final char c) {
         return ILLEGAL_CHARS.contains(c);
     }

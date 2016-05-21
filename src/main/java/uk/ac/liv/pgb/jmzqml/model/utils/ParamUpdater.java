@@ -45,23 +45,37 @@ public final class ParamUpdater {
 
     }
 
+    /**
+     *
+     * @param input    input
+     * @param newParam new param
+     *
+     * @throws NoSuchFieldException   no such file exception
+     * @throws IllegalAccessException illegal access exception
+     */
     private static void updateAbstractParamProperties(final AbstractParam input,
                                                       final AbstractParam newParam)
             throws NoSuchFieldException, IllegalAccessException {
         if (input == null || newParam == null) {
-            throw new IllegalArgumentException("Neither input or newParam can be null");
+            throw new IllegalArgumentException(
+                    "Neither input or newParam can be null");
         }
-        Field unitRefField = input.getClass().getSuperclass().getDeclaredField("unitCvRef");
+        Field unitRefField = input.getClass().getSuperclass().getDeclaredField(
+                "unitCvRef");
         unitRefField.setAccessible(true);
         unitRefField.set(newParam, input.getUnitCvRef());
     }
 
     /**
-     * A method to populate the property values of a CvParam to specified sub-class of CvParam.
+     * A method to populate the property values of a CvParam to specified
+     * sub-class of CvParam.
      *
-     * @param <T>             extends {@link uk.ac.liv.pgb.jmzqml.model.mzqml.CvParam}.
-     * @param input           the instance of {@link uk.ac.liv.pgb.jmzqml.model.mzqml.CvParam}.
-     * @param cvParamSubClass the class type of the sub-class of {@link uk.ac.liv.pgb.jmzqml.model.mzqml.CvParam}.
+     * @param <T>             extends
+     *                        {@link uk.ac.liv.pgb.jmzqml.model.mzqml.CvParam}.
+     * @param input           the instance of
+     *                        {@link uk.ac.liv.pgb.jmzqml.model.mzqml.CvParam}.
+     * @param cvParamSubClass the class type of the sub-class of
+     *                        {@link uk.ac.liv.pgb.jmzqml.model.mzqml.CvParam}.
      *
      * @return a CvParam with the same property values of input.
      *
@@ -78,13 +92,15 @@ public final class ParamUpdater {
             // copy fields
             newParam.setAccession(input.getAccession());
             /**
-             * Check for null value as otherwise cvRef will be overwritten and set to null.
+             * Check for null value as otherwise cvRef will be overwritten and
+             * set to null.
              */
             if (input.getCv() != null) {
                 newParam.setCv(input.getCv());
             } else {
                 /**
-                 * No set*ref methods is provided so if auto resolving is off there is no way to record the cvParam.
+                 * No set*ref methods is provided so if auto resolving is off
+                 * there is no way to record the cvParam.
                  * Use reflection to set the value.
                  */
                 try {
@@ -100,13 +116,16 @@ public final class ParamUpdater {
 
                     });
                     cvRefField.set(newParam, input.getCvRef());
-                } catch (IllegalAccessException | IllegalArgumentException | NoSuchFieldException | SecurityException e) {
-                    throw new InstantiationError("Unable to create new instance of CvParam subclass due to problem updating cvRef.");
+                } catch (IllegalAccessException | IllegalArgumentException |
+                        NoSuchFieldException | SecurityException e) {
+                    throw new InstantiationError(
+                            "Unable to create new instance of CvParam subclass due to problem updating cvRef.");
                 }
                 try {
                     ParamUpdater.updateAbstractParamProperties(input, newParam);
                 } catch (IllegalAccessException | NoSuchFieldException e) {
-                    throw new InstantiationError("Unable to create new instance of CvParam subclass due to problem updating superclass properties.");
+                    throw new InstantiationError(
+                            "Unable to create new instance of CvParam subclass due to problem updating superclass properties.");
 
                 }
             }
@@ -116,11 +135,13 @@ public final class ParamUpdater {
             } else if (input.getUnitCvRef() != null) {
                 // no unitCv object reference! might only be a reference string (not auto-resolving)
                 /**
-                 * No set*ref methods is provided so if auto resolving is off there is no way to record the cvParam.
+                 * No set*ref methods is provided so if auto resolving is off
+                 * there is no way to record the cvParam.
                  * Use reflection to set the value.
                  */
                 try {
-                    final Field unitCvRefField = AbstractParam.class.getDeclaredField("unitCvRef");
+                    final Field unitCvRefField = AbstractParam.class.
+                            getDeclaredField("unitCvRef");
                     AccessController.doPrivileged(new PrivilegedAction() {
 
                         @Override
@@ -131,13 +152,16 @@ public final class ParamUpdater {
 
                     });
                     unitCvRefField.set(newParam, input.getUnitCvRef());
-                } catch (IllegalAccessException | IllegalArgumentException | NoSuchFieldException | SecurityException e) {
-                    throw new InstantiationError("Unable to create new instance of CvParam subclass due to problem updating unitCvRef.");
+                } catch (IllegalAccessException | IllegalArgumentException |
+                        NoSuchFieldException | SecurityException e) {
+                    throw new InstantiationError(
+                            "Unable to create new instance of CvParam subclass due to problem updating unitCvRef.");
                 }
                 try {
                     ParamUpdater.updateAbstractParamProperties(input, newParam);
                 } catch (IllegalAccessException | NoSuchFieldException e) {
-                    throw new InstantiationError("Unable to create new instance of CvParam subclass due to problem updating superclass properties.");
+                    throw new InstantiationError(
+                            "Unable to create new instance of CvParam subclass due to problem updating superclass properties.");
 
                 }
             }
@@ -156,11 +180,15 @@ public final class ParamUpdater {
     }
 
     /**
-     * A method to populate the property values of a list of CvParam to specified sub-class of CvParam.
+     * A method to populate the property values of a list of CvParam to
+     * specified sub-class of CvParam.
      *
-     * @param <T>             extends {@link uk.ac.liv.pgb.jmzqml.model.mzqml.CvParam}.
-     * @param inputs          the list of {@link uk.ac.liv.pgb.jmzqml.model.mzqml.CvParam}.
-     * @param cvParamSubClass the class type of the sub-class of {@link uk.ac.liv.pgb.jmzqml.model.mzqml.CvParam}.
+     * @param <T>             extends
+     *                        {@link uk.ac.liv.pgb.jmzqml.model.mzqml.CvParam}.
+     * @param inputs          the list of
+     *                        {@link uk.ac.liv.pgb.jmzqml.model.mzqml.CvParam}.
+     * @param cvParamSubClass the class type of the sub-class of
+     *                        {@link uk.ac.liv.pgb.jmzqml.model.mzqml.CvParam}.
      *
      *
      * @throws IllegalAccessException exception
@@ -186,11 +214,15 @@ public final class ParamUpdater {
     }
 
     /**
-     * A method to populate the property values of a UserParam to specified sub-class of UserParam.
+     * A method to populate the property values of a UserParam to specified
+     * sub-class of UserParam.
      *
-     * @param <T>               extends {@link uk.ac.liv.pgb.jmzqml.model.mzqml.UserParam}.
-     * @param input             the instance of {@link uk.ac.liv.pgb.jmzqml.model.mzqml.UserParam}.
-     * @param userParamSubClass the class type of the sub-class of {@link uk.ac.liv.pgb.jmzqml.model.mzqml.UserParam}.
+     * @param <T>               extends
+     *                          {@link uk.ac.liv.pgb.jmzqml.model.mzqml.UserParam}.
+     * @param input             the instance of
+     *                          {@link uk.ac.liv.pgb.jmzqml.model.mzqml.UserParam}.
+     * @param userParamSubClass the class type of the sub-class of
+     *                          {@link uk.ac.liv.pgb.jmzqml.model.mzqml.UserParam}.
      *
      * @return a UserParam with the same property values of input.
      *
@@ -206,7 +238,8 @@ public final class ParamUpdater {
             try {
                 ParamUpdater.updateAbstractParamProperties(input, newParam);
             } catch (IllegalAccessException | NoSuchFieldException e) {
-                throw new InstantiationException("Unable to create new instance of UserParam subclass due to problem updating superclass properties.");
+                throw new InstantiationException(
+                        "Unable to create new instance of UserParam subclass due to problem updating superclass properties.");
             }
             // copy fields
             newParam.setName(input.getName());
@@ -220,11 +253,15 @@ public final class ParamUpdater {
     }
 
     /**
-     * A method to populate the property values of a list of UserParam to specified sub-class of UserParam.
+     * A method to populate the property values of a list of UserParam to
+     * specified sub-class of UserParam.
      *
-     * @param <T>               extends {@link uk.ac.liv.pgb.jmzqml.model.mzqml.UserParam}.
-     * @param inputs            the list of {@link uk.ac.liv.pgb.jmzqml.model.mzqml.UserParam}.
-     * @param userParamSubClass the class type of the sub-class of {@link uk.ac.liv.pgb.jmzqml.model.mzqml.UserParam}.
+     * @param <T>               extends
+     *                          {@link uk.ac.liv.pgb.jmzqml.model.mzqml.UserParam}.
+     * @param inputs            the list of
+     *                          {@link uk.ac.liv.pgb.jmzqml.model.mzqml.UserParam}.
+     * @param userParamSubClass the class type of the sub-class of
+     *                          {@link uk.ac.liv.pgb.jmzqml.model.mzqml.UserParam}.
      *
      *
      * @throws IllegalAccessException exception
@@ -239,7 +276,8 @@ public final class ParamUpdater {
 
             // copy values to new SubClasses
             for (UserParam userParam : inputs) {
-                newList.add(updateUserParamSubclass(userParam, userParamSubClass));
+                newList.add(
+                        updateUserParamSubclass(userParam, userParamSubClass));
             }
 
             // switch list content

@@ -46,7 +46,7 @@ public class MzQuantMLElementProperties {
     /**
      * Set the list of MzQuantMLElementConfig.
      *
-     * @param configurations list of MzQuantMLElementConfig.
+     * @param configurationsp list of MzQuantMLElementConfig.
      */
     public final void setConfigurations(
             final List<MzQuantMLElementConfig> configurationsp) {

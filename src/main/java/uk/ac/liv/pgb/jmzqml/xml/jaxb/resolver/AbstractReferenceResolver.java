@@ -48,7 +48,8 @@ import uk.ac.liv.pgb.jmzqml.xml.xxindex.MzQuantMLIndexer;
 public abstract class AbstractReferenceResolver<T extends MzQuantMLObject>
         extends Unmarshaller.Listener {
 
-    private static final Logger LOG = Logger.getLogger(AbstractReferenceResolver.class);
+    private static final Logger LOG = Logger.getLogger(
+            AbstractReferenceResolver.class);
     private final MzQuantMLIndexer index;
     private final MzQuantMLObjectCache cache;
 
@@ -66,7 +67,8 @@ public abstract class AbstractReferenceResolver<T extends MzQuantMLObject>
     }
 
     /**
-     * Unmarshal one object for the specified class according to the reference id. Note: The class has to
+     * Unmarshal one object for the specified class according to the reference
+     * id. Note: The class has to
      * refer to MzQuantMLObject elements.
      *
      * @param <R>   extends {@link uk.ac.liv.pgb.jmzqml.model.MzQuantMLObject}.
@@ -96,7 +98,8 @@ public abstract class AbstractReferenceResolver<T extends MzQuantMLObject>
             // see if the ID fits a Person
             String personXML = index.getXmlString(refId, Person.class);
             // see if the ID fits an Organisation
-            String organisationXML = index.getXmlString(refId, Organization.class);
+            String organisationXML = index.getXmlString(refId,
+                                                        Organization.class);
             if (personXML != null && organisationXML == null) {
                 xml = personXML;
                 clz = MzQuantMLElement.Person.getClazz();
@@ -104,7 +107,8 @@ public abstract class AbstractReferenceResolver<T extends MzQuantMLObject>
                 xml = organisationXML;
                 clz = MzQuantMLElement.Organization.getClazz();
             } else {
-                throw new IllegalStateException("Could not uniquely resolve ContactRole reference " + refId);
+                throw new IllegalStateException(
+                        "Could not uniquely resolve ContactRole reference " + refId);
             }
         } else {
             xml = index.getXmlString(refId, cls);
@@ -115,10 +119,12 @@ public abstract class AbstractReferenceResolver<T extends MzQuantMLObject>
             MzQuantMLNamespaceFilter xmlFilter = new MzQuantMLNamespaceFilter();
 
             // initializeUnmarshaller will assign the proper reader to the xmlFilter
-            Unmarshaller unmarshaller = UnmarshallerFactory.getInstance().initializeUnmarshaller(index, cache, xmlFilter);
+            Unmarshaller unmarshaller = UnmarshallerFactory.getInstance().
+                    initializeUnmarshaller(index, cache, xmlFilter);
 
             // need to do it this way because snippet does not have a XmlRootElement annotation
-            JAXBElement<R> holder = unmarshaller.unmarshal(new SAXSource(xmlFilter, new InputSource(new StringReader(xml))), clz);
+            JAXBElement<R> holder = unmarshaller.unmarshal(new SAXSource(
+                    xmlFilter, new InputSource(new StringReader(xml))), clz);
             retVal = holder.getValue();
 
             /*
@@ -135,13 +141,19 @@ public abstract class AbstractReferenceResolver<T extends MzQuantMLObject>
 //                }
         } catch (JAXBException e) {
             LOG.error("AbstractReferenceResolver.unmarshal", e);
-            throw new IllegalStateException("Could not unmarshall refId: " + refId + " for element type: " + cls);
+            throw new IllegalStateException(
+                    "Could not unmarshall refId: " + refId + " for element type: " + cls);
         }
 
         // finally return the referenced object
         return retVal;
     }
 
+    /**
+     * Get index
+     *
+     * @return index
+     */
     protected final MzQuantMLIndexer getIndexer() {
         return this.index;
     }

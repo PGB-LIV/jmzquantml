@@ -6,11 +6,13 @@ import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.XMLStreamWriter;
 
 /**
- * Delegating {@link javax.xml.stream.XMLStreamWriter} that filters out UTF-8 characters that
+ * Delegating {@link javax.xml.stream.XMLStreamWriter} that filters out UTF-8
+ * characters that
  * are illegal in XML.
  *
  * <p>
- * See forum post: http://glassfish.10926.n7.nabble.com/Escaping-illegal-characters-during-marshalling-td59751.html#a20090044
+ * See forum post:
+ * http://glassfish.10926.n7.nabble.com/Escaping-illegal-characters-during-marshalling-td59751.html#a20090044
  *
  * @author Erik van Zijst
  */
@@ -19,6 +21,10 @@ public class EscapingXMLStreamWriter implements XMLStreamWriter {
     private final XMLStreamWriter writer;
     private String charEncoding;
 
+    /**
+     *
+     * @param writerp XML stream writer
+     */
     public EscapingXMLStreamWriter(final XMLStreamWriter writerp) {
 
         if (null == writerp) {
@@ -29,6 +35,11 @@ public class EscapingXMLStreamWriter implements XMLStreamWriter {
         this.charEncoding = "UTF-8";
     }
 
+    /**
+     *
+     * @param writerp  XML stream writer
+     * @param encoding character encoding
+     */
     public EscapingXMLStreamWriter(final XMLStreamWriter writerp,
                                    final String encoding) {
         this(writerp);
@@ -102,7 +113,8 @@ public class EscapingXMLStreamWriter implements XMLStreamWriter {
     @Override
     public final void writeAttribute(final String localName, final String value)
             throws XMLStreamException {
-        writer.writeAttribute(localName, EscapingXMLUtilities.escapeCharacters(value));
+        writer.writeAttribute(localName, EscapingXMLUtilities.escapeCharacters(
+                              value));
     }
 
     @Override
@@ -110,14 +122,16 @@ public class EscapingXMLStreamWriter implements XMLStreamWriter {
                                      final String namespaceUri,
                                      final String localName, final String value)
             throws XMLStreamException {
-        writer.writeAttribute(prefix, namespaceUri, localName, EscapingXMLUtilities.escapeCharacters(value));
+        writer.writeAttribute(prefix, namespaceUri, localName,
+                              EscapingXMLUtilities.escapeCharacters(value));
     }
 
     @Override
     public final void writeAttribute(final String namespaceUri,
                                      final String localName, final String value)
             throws XMLStreamException {
-        writer.writeAttribute(namespaceUri, localName, EscapingXMLUtilities.escapeCharacters(value));
+        writer.writeAttribute(namespaceUri, localName, EscapingXMLUtilities.
+                              escapeCharacters(value));
     }
 
     @Override
@@ -196,7 +210,8 @@ public class EscapingXMLStreamWriter implements XMLStreamWriter {
     public final void writeCharacters(final char[] chars, final int start,
                                       final int len)
             throws XMLStreamException {
-        writer.writeCharacters(EscapingXMLUtilities.escapeCharacters(new String(chars, start, len)));
+        writer.writeCharacters(EscapingXMLUtilities.escapeCharacters(new String(
+                chars, start, len)));
     }
 
     @Override

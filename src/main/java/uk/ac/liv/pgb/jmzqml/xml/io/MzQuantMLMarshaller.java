@@ -48,11 +48,13 @@ import uk.ac.liv.pgb.jmzqml.xml.util.EscapingXMLStreamWriter;
  */
 public class MzQuantMLMarshaller {
 
-    private static final Logger LOGGER = Logger.getLogger(MzQuantMLMarshaller.class);
+    private static final Logger LOGGER = Logger.getLogger(
+            MzQuantMLMarshaller.class);
     /**
      * Constants.
      */
-    private static final String ENCODING = System.getProperty("file.encoding", "UTF-8");
+    private static final String ENCODING = System.getProperty("file.encoding",
+                                                              "UTF-8");
     private static final String MZQUANTML = "MzQuantML";
     private static final int INI_STRING_LEN = 160;
     /**
@@ -64,7 +66,8 @@ public class MzQuantMLMarshaller {
     /**
      * JAXB based marshaller constructor.
      * <p>
-     * To marshal a mzQuantML file, an MzQuantMLMarshaller should be created first.
+     * To marshal a mzQuantML file, an MzQuantMLMarshaller should be created
+     * first.
      *
      * @param fullFileName a String type file name.
      *
@@ -84,7 +87,8 @@ public class MzQuantMLMarshaller {
             this.marsh.setProperty(Marshaller.JAXB_ENCODING, ENCODING);
             this.marsh.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
             //this.marsh.setProperty(Marshaller.JAXB_FRAGMENT, true);
-            this.marsh.setProperty(Marshaller.JAXB_SCHEMA_LOCATION, ModelConstants.MZQML_LOCATION);
+            this.marsh.setProperty(Marshaller.JAXB_SCHEMA_LOCATION,
+                                   ModelConstants.MZQML_LOCATION);
         } catch (JAXBException jaxbex) {
             jaxbex.printStackTrace(System.err);
         }
@@ -93,7 +97,8 @@ public class MzQuantMLMarshaller {
     /**
      * Constructor of an empty marshaller.
      * <p>
-     * The empty marshaller MUST NOT call method {@code marshall(MzQuantML mzQuantML)}.
+     * The empty marshaller MUST NOT call method
+     * {@code marshall(MzQuantML mzQuantML)}.
      *
      */
     public MzQuantMLMarshaller() {
@@ -102,7 +107,8 @@ public class MzQuantMLMarshaller {
     /**
      * Marshalling of a whole MzQuantML object.
      * <p>
-     * This method marshals an whole mzQuantML object to the file whose name is used to create the MzQuantMLMarshaller.
+     * This method marshals an whole mzQuantML object to the file whose name is
+     * used to create the MzQuantMLMarshaller.
      *
      * @param mzQuantML the MzQuantML object to be marshalled.
      */
@@ -114,7 +120,9 @@ public class MzQuantMLMarshaller {
                     mzQuantML.setVersion(ModelConstants.MZQML_VERSION);
                 }
 
-                JAXBElement<MzQuantML> jaxbElement = new JAXBElement<>(new QName(ModelConstants.MZQML_NS, MZQUANTML), MzQuantML.class, mzQuantML);
+                JAXBElement<MzQuantML> jaxbElement = new JAXBElement<>(
+                        new QName(ModelConstants.MZQML_NS, MZQUANTML),
+                        MzQuantML.class, mzQuantML);
 
                 this.marsh.marshal(jaxbElement, this.fw);
                 this.fw.flush();
@@ -130,10 +138,12 @@ public class MzQuantMLMarshaller {
     /**
      * Marshalling of an {@link uk.ac.liv.pgb.jmzqml.model.MzQuantMLObject}.
      * <p>
-     * An {@link uk.ac.liv.pgb.jmzqml.model.MzQuantMLObject} will be marshalled to an mzQuantML string.
+     * An {@link uk.ac.liv.pgb.jmzqml.model.MzQuantMLObject} will be marshalled
+     * to an mzQuantML string.
      *
      * @param <T>    extends {@link uk.ac.liv.pgb.jmzqml.model.MzQuantMLObject}
-     * @param object a subclass of {@link uk.ac.liv.pgb.jmzqml.model.MzQuantMLObject}
+     * @param object a subclass of
+     *               {@link uk.ac.liv.pgb.jmzqml.model.MzQuantMLObject}
      *
      * @return the mzQuantML string of the object
      */
@@ -143,21 +153,42 @@ public class MzQuantMLMarshaller {
         return sw.toString();
     }
 
+    /**
+     *
+     * @param <T>    MzQuantMLObject
+     * @param object object
+     * @param os     output stream
+     */
     public final <T extends MzQuantMLObject> void marshall(final T object,
                                                            final OutputStream os) {
         this.marshall(object, os, "UTF-8");
     }
 
+    /**
+     *
+     * @param <T>      MzQuantMLObject
+     * @param object   object
+     * @param os       output stream
+     * @param encoding char encoding
+     */
     public final <T extends MzQuantMLObject> void marshall(final T object,
                                                            final OutputStream os,
                                                            final String encoding) {
         try {
-            this.marshall(object, new OutputStreamWriter(os, encoding), encoding);
+            this.
+                    marshall(object, new OutputStreamWriter(os, encoding),
+                             encoding);
         } catch (UnsupportedEncodingException e) {
             throw new IllegalStateException("Could not set character encoding!");
         }
     }
 
+    /**
+     *
+     * @param <T>    MzQuantMLObject
+     * @param object ojbect
+     * @param out    out writer
+     */
     @SuppressWarnings("unchecked")
     public final <T extends MzQuantMLObject> void marshall(final T object,
                                                            final Writer out) {
@@ -165,10 +196,13 @@ public class MzQuantMLMarshaller {
     }
 
     /**
-     * An {@link uk.ac.liv.pgb.jmzqml.model.MzQuantMLObject} is marshalled to a specific writer.
+     * An {@link uk.ac.liv.pgb.jmzqml.model.MzQuantMLObject} is marshalled to a
+     * specific writer.
      *
-     * @param <T>      extends {@link uk.ac.liv.pgb.jmzqml.model.MzQuantMLObject}
-     * @param object   a subclass of {@link uk.ac.liv.pgb.jmzqml.model.MzQuantMLObject}
+     * @param <T>      extends
+     *                 {@link uk.ac.liv.pgb.jmzqml.model.MzQuantMLObject}
+     * @param object   a subclass of
+     *                 {@link uk.ac.liv.pgb.jmzqml.model.MzQuantMLObject}
      * @param out      the writer to which the {@code object} is written.
      * @param encoding character encoding
      */
@@ -180,26 +214,32 @@ public class MzQuantMLMarshaller {
             throw new IllegalArgumentException("Cannot marshall a NULL object.");
         }
         try {
-            Marshaller marshaller = MarshallerFactory.getInstance().initializeMarshaller();
+            Marshaller marshaller = MarshallerFactory.getInstance().
+                    initializeMarshaller();
             marshaller.setProperty(Marshaller.JAXB_ENCODING, encoding);
-            marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
+            marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT,
+                                   Boolean.TRUE);
 
             if (!(object instanceof MzQuantML)) {
                 marshaller.setProperty(Constants.JAXB_FRAGMENT_PROPERTY, true);
                 if (LOGGER.isDebugEnabled()) {
-                    LOGGER.debug("Object '" + object.getClass().getName() + "' will be treated as root element.");
+                    LOGGER.debug(
+                            "Object '" + object.getClass().getName() + "' will be treated as root element.");
                 }
             } else if (LOGGER.isDebugEnabled()) {
-                LOGGER.debug("Object '" + object.getClass().getName() + "' will be treated as fragment.");
+                LOGGER.debug(
+                        "Object '" + object.getClass().getName() + "' will be treated as fragment.");
             }
 
             QName aQName = ModelConstants.getQNameForClass(object.getClass());
-            JAXBElement jaxbElement = new JAXBElement(aQName, object.getClass(), object);
+            JAXBElement jaxbElement = new JAXBElement(aQName, object.getClass(),
+                                                      object);
 
             // before marshalling out, wrap in a Custom XMLStreamWriter
             // to fix a JAXB bug: http://java.net/jira/browse/JAXB-614
             // also wrapping in IndentingXMLStreamWriter to generate formatted XML
-            System.setProperty("javax.xml.stream.XMLOutputFactory", "com.sun.xml.internal.stream.XMLOutputFactoryImpl");
+            System.setProperty("javax.xml.stream.XMLOutputFactory",
+                               "com.sun.xml.internal.stream.XMLOutputFactoryImpl");
 
             XMLOutputFactory factory = XMLOutputFactory.newFactory();
             XMLStreamWriter xmlStreamWriter = factory.createXMLStreamWriter(out);
@@ -207,15 +247,18 @@ public class MzQuantMLMarshaller {
             // Note: the EscapingXMLStreamWriter should default to "UTF-8" as character encoding, but does not on all platforms.
             // Therefore the encoding is hard coded for the default case
             // see EscapingXMLStreamWriter.writeStartDocument()
-            IndentingXMLStreamWriter writer = new IndentingXMLStreamWriter(new EscapingXMLStreamWriter(xmlStreamWriter, encoding));
+            IndentingXMLStreamWriter writer = new IndentingXMLStreamWriter(
+                    new EscapingXMLStreamWriter(xmlStreamWriter, encoding));
 
             marshaller.marshal(jaxbElement, writer);
         } catch (JAXBException ex) {
             LOGGER.error("MzQuantMLMarshaller.marshall", ex);
-            throw new IllegalStateException("Error while marshalling object: " + object.toString());
+            throw new IllegalStateException(
+                    "Error while marshalling object: " + object.toString());
         } catch (XMLStreamException ex) {
             LOGGER.error("MzQuantMLMarshaller.marshall", ex);
-            throw new IllegalStateException("Error while marshalling ojbect: " + object.toString());
+            throw new IllegalStateException(
+                    "Error while marshalling ojbect: " + object.toString());
         }
 
     }
@@ -245,12 +288,15 @@ public class MzQuantMLMarshaller {
         // tag opening plus id attribute
         sb.append("<MzQuantML id=\"").append(id).append("\"");
         // further attributes
-        sb.append(" version=\"").append(ModelConstants.MZQML_VERSION).append('\"');
+        sb.append(" version=\"").append(ModelConstants.MZQML_VERSION).append(
+                '\"');
         sb.append(" xmlns=\"").append(ModelConstants.MZQML_NS).append('\"');
         sb.append(" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"");
-        sb.append(" xsi:schemaLocation=\"").append(ModelConstants.MZQML_LOCATION).append('\"');
+        sb.append(" xsi:schemaLocation=\"").
+                append(ModelConstants.MZQML_LOCATION).append('\"');
         DateFormat dfm = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
-        sb.append(" creationDate=\"").append(dfm.format(new Date())).append('\"');
+        sb.append(" creationDate=\"").append(dfm.format(new Date())).
+                append('\"');
         // finally close the tag
         sb.append('>');
 
@@ -270,43 +316,52 @@ public class MzQuantMLMarshaller {
      * mzQuantML element start and closing tags in alphabetical order
      */
     /**
-     * The helper method creates a start tag of {@link uk.ac.liv.pgb.jmzqml.model.mzqml.AnalysisSummary}.
+     * The helper method creates a start tag of
+     * {@link uk.ac.liv.pgb.jmzqml.model.mzqml.AnalysisSummary}.
      *
-     * @return a start tag of {@link uk.ac.liv.pgb.jmzqml.model.mzqml.AnalysisSummary}.
+     * @return a start tag of
+     *         {@link uk.ac.liv.pgb.jmzqml.model.mzqml.AnalysisSummary}.
      */
     public static String createAnalysisSummaryStartTag() {
         return "<AnalysisSummary>";
     }
 
     /**
-     * The helper method creates a closing tag of {@link uk.ac.liv.pgb.jmzqml.model.mzqml.AnalysisSummary}.
+     * The helper method creates a closing tag of
+     * {@link uk.ac.liv.pgb.jmzqml.model.mzqml.AnalysisSummary}.
      *
-     * @return a closing tag of {@link uk.ac.liv.pgb.jmzqml.model.mzqml.AnalysisSummary}.
+     * @return a closing tag of
+     *         {@link uk.ac.liv.pgb.jmzqml.model.mzqml.AnalysisSummary}.
      */
     public static String createAnalysisSummaryClosingTag() {
         return "</AnalysisSummary>";
     }
 
     /**
-     * The helper method creates a start tag of {@link uk.ac.liv.pgb.jmzqml.model.mzqml.AuditCollection}.
+     * The helper method creates a start tag of
+     * {@link uk.ac.liv.pgb.jmzqml.model.mzqml.AuditCollection}.
      *
-     * @return a start tag of {@link uk.ac.liv.pgb.jmzqml.model.mzqml.AuditCollection}.
+     * @return a start tag of
+     *         {@link uk.ac.liv.pgb.jmzqml.model.mzqml.AuditCollection}.
      */
     public static String createAuditCollectionStartTag() {
         return "<AuditCollection>";
     }
 
     /**
-     * The helper method creates a closing tag of {@link uk.ac.liv.pgb.jmzqml.model.mzqml.AuditCollection}.
+     * The helper method creates a closing tag of
+     * {@link uk.ac.liv.pgb.jmzqml.model.mzqml.AuditCollection}.
      *
-     * @return a closing tag of {@link uk.ac.liv.pgb.jmzqml.model.mzqml.AuditCollection}.
+     * @return a closing tag of
+     *         {@link uk.ac.liv.pgb.jmzqml.model.mzqml.AuditCollection}.
      */
     public static String createAuditCollectionClosingTag() {
         return "</AuditCollection>";
     }
 
     /**
-     * The helper method creates a start tag of {@link uk.ac.liv.pgb.jmzqml.model.mzqml.CvList}.
+     * The helper method creates a start tag of
+     * {@link uk.ac.liv.pgb.jmzqml.model.mzqml.CvList}.
      *
      * @return a start tag of {@link uk.ac.liv.pgb.jmzqml.model.mzqml.CvList}.
      */
@@ -315,7 +370,8 @@ public class MzQuantMLMarshaller {
     }
 
     /**
-     * The helper method creates a closing tag of {@link uk.ac.liv.pgb.jmzqml.model.mzqml.CvList}.
+     * The helper method creates a closing tag of
+     * {@link uk.ac.liv.pgb.jmzqml.model.mzqml.CvList}.
      *
      * @return a closing tag of {@link uk.ac.liv.pgb.jmzqml.model.mzqml.CvList}.
      */
@@ -324,90 +380,110 @@ public class MzQuantMLMarshaller {
     }
 
     /**
-     * The helper method creates a start tag of {@link uk.ac.liv.pgb.jmzqml.model.mzqml.DataProcessingList}.
+     * The helper method creates a start tag of
+     * {@link uk.ac.liv.pgb.jmzqml.model.mzqml.DataProcessingList}.
      *
-     * @return a start tag of {@link uk.ac.liv.pgb.jmzqml.model.mzqml.DataProcessingList}.
+     * @return a start tag of
+     *         {@link uk.ac.liv.pgb.jmzqml.model.mzqml.DataProcessingList}.
      */
     public static String createDataProcessingListStartTag() {
         return "<DataProcessingList>";
     }
 
     /**
-     * The helper method creates a closing tag of {@link uk.ac.liv.pgb.jmzqml.model.mzqml.DataProcessingList}.
+     * The helper method creates a closing tag of
+     * {@link uk.ac.liv.pgb.jmzqml.model.mzqml.DataProcessingList}.
      *
-     * @return a closing tag of {@link uk.ac.liv.pgb.jmzqml.model.mzqml.DataProcessingList}.
+     * @return a closing tag of
+     *         {@link uk.ac.liv.pgb.jmzqml.model.mzqml.DataProcessingList}.
      */
     public static String createDataProcessingListClosingTag() {
         return "</DataProcessingList>";
     }
 
     /**
-     * The helper method creates a start tag of {@link uk.ac.liv.pgb.jmzqml.model.mzqml.InputFiles}.
+     * The helper method creates a start tag of
+     * {@link uk.ac.liv.pgb.jmzqml.model.mzqml.InputFiles}.
      *
-     * @return a start tag of {@link uk.ac.liv.pgb.jmzqml.model.mzqml.InputFiles}.
+     * @return a start tag of
+     *         {@link uk.ac.liv.pgb.jmzqml.model.mzqml.InputFiles}.
      */
     public static String createInputFilesStartTag() {
         return "<InputFiles>";
     }
 
     /**
-     * The helper method creates a closing tag of {@link uk.ac.liv.pgb.jmzqml.model.mzqml.InputFiles}.
+     * The helper method creates a closing tag of
+     * {@link uk.ac.liv.pgb.jmzqml.model.mzqml.InputFiles}.
      *
-     * @return a closing tag of {@link uk.ac.liv.pgb.jmzqml.model.mzqml.InputFiles}.
+     * @return a closing tag of
+     *         {@link uk.ac.liv.pgb.jmzqml.model.mzqml.InputFiles}.
      */
     public static String createInputFilesClosingTag() {
         return "</InputFiles>";
     }
 
     /**
-     * The helper method creates a start tag of {@link uk.ac.liv.pgb.jmzqml.model.mzqml.RatioList}.
+     * The helper method creates a start tag of
+     * {@link uk.ac.liv.pgb.jmzqml.model.mzqml.RatioList}.
      *
-     * @return a start tag of {@link uk.ac.liv.pgb.jmzqml.model.mzqml.RatioList}.
+     * @return a start tag of
+     *         {@link uk.ac.liv.pgb.jmzqml.model.mzqml.RatioList}.
      */
     public static String createRatioListStartTag() {
         return "<RatioList>";
     }
 
     /**
-     * The helper method creates a closing tag of {@link uk.ac.liv.pgb.jmzqml.model.mzqml.RatioList}.
+     * The helper method creates a closing tag of
+     * {@link uk.ac.liv.pgb.jmzqml.model.mzqml.RatioList}.
      *
-     * @return a closing tag of {@link uk.ac.liv.pgb.jmzqml.model.mzqml.RatioList}.
+     * @return a closing tag of
+     *         {@link uk.ac.liv.pgb.jmzqml.model.mzqml.RatioList}.
      */
     public static String createRatioListClosingTag() {
         return "</RatioList>";
     }
 
     /**
-     * The helper method creates a start tag of {@link uk.ac.liv.pgb.jmzqml.model.mzqml.SoftwareList}.
+     * The helper method creates a start tag of
+     * {@link uk.ac.liv.pgb.jmzqml.model.mzqml.SoftwareList}.
      *
-     * @return a start tag of {@link uk.ac.liv.pgb.jmzqml.model.mzqml.SoftwareList}.
+     * @return a start tag of
+     *         {@link uk.ac.liv.pgb.jmzqml.model.mzqml.SoftwareList}.
      */
     public static String createSoftwareListStartTag() {
         return "<SoftwareList>";
     }
 
     /**
-     * The helper method creates a closing tag of {@link uk.ac.liv.pgb.jmzqml.model.mzqml.SoftwareList}.
+     * The helper method creates a closing tag of
+     * {@link uk.ac.liv.pgb.jmzqml.model.mzqml.SoftwareList}.
      *
-     * @return a closing tag of {@link uk.ac.liv.pgb.jmzqml.model.mzqml.SoftwareList}.
+     * @return a closing tag of
+     *         {@link uk.ac.liv.pgb.jmzqml.model.mzqml.SoftwareList}.
      */
     public static String createSoftwareListClosingTag() {
         return "</SoftwareList>";
     }
 
     /**
-     * The helper method creates a start tag of {@link uk.ac.liv.pgb.jmzqml.model.mzqml.StudyVariableList}.
+     * The helper method creates a start tag of
+     * {@link uk.ac.liv.pgb.jmzqml.model.mzqml.StudyVariableList}.
      *
-     * @return a start tag of {@link uk.ac.liv.pgb.jmzqml.model.mzqml.StudyVariableList}.
+     * @return a start tag of
+     *         {@link uk.ac.liv.pgb.jmzqml.model.mzqml.StudyVariableList}.
      */
     public static String createStudyVariableListStartTag() {
         return "<StudyVariableList>";
     }
 
     /**
-     * The helper method creates a closing tag of {@link uk.ac.liv.pgb.jmzqml.model.mzqml.StudyVariableList}.
+     * The helper method creates a closing tag of
+     * {@link uk.ac.liv.pgb.jmzqml.model.mzqml.StudyVariableList}.
      *
-     * @return a closing tag of {@link uk.ac.liv.pgb.jmzqml.model.mzqml.StudyVariableList}.
+     * @return a closing tag of
+     *         {@link uk.ac.liv.pgb.jmzqml.model.mzqml.StudyVariableList}.
      */
     public static String createStudyVariableListClosingTag() {
         return "</StudyVariableList>";
@@ -419,15 +495,18 @@ public class MzQuantMLMarshaller {
      *
      */
     /**
-     * The helper method creates a start tag with ID of {@link uk.ac.liv.pgb.jmzqml.model.mzqml.AssayList}.
+     * The helper method creates a start tag with ID of
+     * {@link uk.ac.liv.pgb.jmzqml.model.mzqml.AssayList}.
      *
      * @param id the ID of AssayList.
      *
-     * @return a start tag of {@link uk.ac.liv.pgb.jmzqml.model.mzqml.AssayList}.
+     * @return a start tag of
+     *         {@link uk.ac.liv.pgb.jmzqml.model.mzqml.AssayList}.
      */
     public static String createAssayListStartTag(final String id) {
         if (id == null) {
-            throw new IllegalArgumentException("The 'id' attribute must not be null!");
+            throw new IllegalArgumentException(
+                    "The 'id' attribute must not be null!");
         }
 
         //required attribute: 'id'
@@ -443,21 +522,31 @@ public class MzQuantMLMarshaller {
     }
 
     /**
-     * The helper method creates a closing tag of {@link uk.ac.liv.pgb.jmzqml.model.mzqml.AssayList}.
+     * The helper method creates a closing tag of
+     * {@link uk.ac.liv.pgb.jmzqml.model.mzqml.AssayList}.
      *
-     * @return a closing tag of {@link uk.ac.liv.pgb.jmzqml.model.mzqml.AssayList}.
+     * @return a closing tag of
+     *         {@link uk.ac.liv.pgb.jmzqml.model.mzqml.AssayList}.
      */
     public static String createAssayListClosingTag() {
         return "</AssayList>";
     }
 
     /**
-     * The helper method creates a tag of {@link uk.ac.liv.pgb.jmzqml.model.mzqml.BibliographicReference} with all the attributes.
-     * The id attribute of {@link uk.ac.liv.pgb.jmzqml.model.mzqml.BibliographicReference} is mandatorily required.
+     * The helper method creates a tag of
+     * {@link uk.ac.liv.pgb.jmzqml.model.mzqml.BibliographicReference} with all
+     * the attributes.
+     * The id attribute of
+     * {@link uk.ac.liv.pgb.jmzqml.model.mzqml.BibliographicReference} is
+     * mandatorily required.
      * The other attributes are optional.
      *
-     * @param id          (required) An identifier is an unambiguous string that is unique within the scope (i.e. a document, a set of related documents, or a repository) of its use.
-     * @param name        (optional) The potentially ambiguous common identifier, such as a human-readable name for the instance.
+     * @param id          (required) An identifier is an unambiguous string that
+     *                    is unique within the scope (i.e. a document, a set of
+     *                    related documents, or a repository) of its use.
+     * @param name        (optional) The potentially ambiguous common
+     *                    identifier, such as a human-readable name for the
+     *                    instance.
      * @param authors     (optional) The names of the authors of the reference.
      * @param publication (optional) The name of the journal, book etc.
      * @param publisher   (optional) The publisher of the publication.
@@ -469,7 +558,8 @@ public class MzQuantMLMarshaller {
      * @param title       (optional) The title of the BibliographicReference.
      * @param doi         (optional) The DOI of the referenced publication.
      *
-     * @return a {@link uk.ac.liv.pgb.jmzqml.model.mzqml.BibliographicReference} string tag, representing bibliographic references.
+     * @return a {@link uk.ac.liv.pgb.jmzqml.model.mzqml.BibliographicReference}
+     *         string tag, representing bibliographic references.
      */
     public static String createBibliographicReferenceTag(final String id,
                                                          final String name,
@@ -485,7 +575,8 @@ public class MzQuantMLMarshaller {
                                                          final String doi) {
 
         if (id == null) {
-            throw new IllegalArgumentException("The 'id' attribute must not be null!");
+            throw new IllegalArgumentException(
+                    "The 'id' attribute must not be null!");
         }
         StringBuilder sb = new StringBuilder(INI_STRING_LEN);
 
@@ -544,21 +635,26 @@ public class MzQuantMLMarshaller {
     }
 
     /**
-     * The helper method creates a start tag with ID and rawFilesGroupRef of {@link uk.ac.liv.pgb.jmzqml.model.mzqml.FeatureList}.
+     * The helper method creates a start tag with ID and rawFilesGroupRef of
+     * {@link uk.ac.liv.pgb.jmzqml.model.mzqml.FeatureList}.
      *
-     * @param id               (required) the ID of {@link uk.ac.liv.pgb.jmzqml.model.mzqml.FeatureList}.
+     * @param id               (required) the ID of
+     *                         {@link uk.ac.liv.pgb.jmzqml.model.mzqml.FeatureList}.
      * @param rawFilesGroupRef (required) the reference to rawFilesGroup.
      *
-     * @return a start tag of {@link uk.ac.liv.pgb.jmzqml.model.mzqml.FeatureList}.
+     * @return a start tag of
+     *         {@link uk.ac.liv.pgb.jmzqml.model.mzqml.FeatureList}.
      */
     public static String createFeatureListStartTag(final String id,
                                                    final String rawFilesGroupRef) {
         if (id == null) {
-            throw new IllegalArgumentException("The 'id' attribute must not be null!");
+            throw new IllegalArgumentException(
+                    "The 'id' attribute must not be null!");
         }
 
         if (rawFilesGroupRef == null) {
-            throw new IllegalArgumentException("The 'rawFilesGroup_ref' attribute must not be null!");
+            throw new IllegalArgumentException(
+                    "The 'rawFilesGroup_ref' attribute must not be null!");
         }
 
         //required attribute: 'id', 'rawFilesGroup_ref'
@@ -577,30 +673,37 @@ public class MzQuantMLMarshaller {
     }
 
     /**
-     * The helper method creates a closing tag of {@link uk.ac.liv.pgb.jmzqml.model.mzqml.FeatureList}.
+     * The helper method creates a closing tag of
+     * {@link uk.ac.liv.pgb.jmzqml.model.mzqml.FeatureList}.
      *
-     * @return a closing tag of {@link uk.ac.liv.pgb.jmzqml.model.mzqml.FeatureList}.
+     * @return a closing tag of
+     *         {@link uk.ac.liv.pgb.jmzqml.model.mzqml.FeatureList}.
      */
     public static String createFeatureListClosingTag() {
         return "</FeatureList>";
     }
 
     /**
-     * The helper method creates a start tag with ID and finalResult of {@link uk.ac.liv.pgb.jmzqml.model.mzqml.PeptideConsensuList}.
+     * The helper method creates a start tag with ID and finalResult of
+     * {@link uk.ac.liv.pgb.jmzqml.model.mzqml.PeptideConsensuList}.
      *
-     * @param id          (required) the ID of {@link uk.ac.liv.pgb.jmzqml.model.mzqml.PeptideConsensusList}.
+     * @param id          (required) the ID of
+     *                    {@link uk.ac.liv.pgb.jmzqml.model.mzqml.PeptideConsensusList}.
      * @param finalResult (required) the boolean value of finalResult attribute.
      *
-     * @return a start tag of {@link uk.ac.liv.pgb.jmzqml.model.mzqml.PeptideConsensusList}.
+     * @return a start tag of
+     *         {@link uk.ac.liv.pgb.jmzqml.model.mzqml.PeptideConsensusList}.
      */
     public static String createPeptideConsensusListStartTag(final String id,
                                                             final Boolean finalResult) {
         if (id == null) {
-            throw new IllegalArgumentException("The 'id' attribute must not be null!");
+            throw new IllegalArgumentException(
+                    "The 'id' attribute must not be null!");
         }
 
         if (finalResult == null) {
-            throw new IllegalArgumentException("The 'finalResult' attribute must not be null!");
+            throw new IllegalArgumentException(
+                    "The 'finalResult' attribute must not be null!");
         }
 
         //required attribute: 'id', 'rawFilesGroup_ref'
@@ -619,24 +722,30 @@ public class MzQuantMLMarshaller {
     }
 
     /**
-     * The helper method creates a closing tag of {@link uk.ac.liv.pgb.jmzqml.model.mzqml.PeptideConsensusList}.
+     * The helper method creates a closing tag of
+     * {@link uk.ac.liv.pgb.jmzqml.model.mzqml.PeptideConsensusList}.
      *
-     * @return a closing tag of {@link uk.ac.liv.pgb.jmzqml.model.mzqml.PeptideConsensusList}.
+     * @return a closing tag of
+     *         {@link uk.ac.liv.pgb.jmzqml.model.mzqml.PeptideConsensusList}.
      */
     public static String createPeptideConsensusListClosingTag() {
         return "</PeptideConsensusList>";
     }
 
     /**
-     * The helper method creates a start tag with ID of {@link uk.ac.liv.pgb.jmzqml.model.mzqml.ProteinGroupList}.
+     * The helper method creates a start tag with ID of
+     * {@link uk.ac.liv.pgb.jmzqml.model.mzqml.ProteinGroupList}.
      *
-     * @param id the ID of {@link uk.ac.liv.pgb.jmzqml.model.mzqml.ProteinGroupList}.
+     * @param id the ID of
+     *           {@link uk.ac.liv.pgb.jmzqml.model.mzqml.ProteinGroupList}.
      *
-     * @return a start tag of {@link uk.ac.liv.pgb.jmzqml.model.mzqml.ProteinGroupList}.
+     * @return a start tag of
+     *         {@link uk.ac.liv.pgb.jmzqml.model.mzqml.ProteinGroupList}.
      */
     public static String createProteinGroupListStartTag(final String id) {
         if (id == null) {
-            throw new IllegalArgumentException("The 'id' attribute must not be null!");
+            throw new IllegalArgumentException(
+                    "The 'id' attribute must not be null!");
         }
 
         //required attribute: 'id'
@@ -652,24 +761,29 @@ public class MzQuantMLMarshaller {
     }
 
     /**
-     * The helper method creates a closing tag of {@link uk.ac.liv.pgb.jmzqml.model.mzqml.ProteinGroupList}.
+     * The helper method creates a closing tag of
+     * {@link uk.ac.liv.pgb.jmzqml.model.mzqml.ProteinGroupList}.
      *
-     * @return a closing tag of {@link uk.ac.liv.pgb.jmzqml.model.mzqml.ProteinGroupList}.
+     * @return a closing tag of
+     *         {@link uk.ac.liv.pgb.jmzqml.model.mzqml.ProteinGroupList}.
      */
     public static String createProteinGroupListClosingTag() {
         return "</ProteinGroupList>";
     }
 
     /**
-     * The helper method creates a start tag with ID of {@link uk.ac.liv.pgb.jmzqml.model.mzqml.ProteinList}.
+     * The helper method creates a start tag with ID of
+     * {@link uk.ac.liv.pgb.jmzqml.model.mzqml.ProteinList}.
      *
      * @param id the ID of {@link uk.ac.liv.pgb.jmzqml.model.mzqml.ProteinList}.
      *
-     * @return a start tag of {@link uk.ac.liv.pgb.jmzqml.model.mzqml.ProteinList}.
+     * @return a start tag of
+     *         {@link uk.ac.liv.pgb.jmzqml.model.mzqml.ProteinList}.
      */
     public static String createProteinListStartTag(final String id) {
         if (id == null) {
-            throw new IllegalArgumentException("The 'id' attribute must not be null!");
+            throw new IllegalArgumentException(
+                    "The 'id' attribute must not be null!");
         }
 
         //required attribute: 'id'
@@ -685,24 +799,30 @@ public class MzQuantMLMarshaller {
     }
 
     /**
-     * The helper method creates a closing tag of {@link uk.ac.liv.pgb.jmzqml.model.mzqml.ProteinList}.
+     * The helper method creates a closing tag of
+     * {@link uk.ac.liv.pgb.jmzqml.model.mzqml.ProteinList}.
      *
-     * @return a closing tag of {@link uk.ac.liv.pgb.jmzqml.model.mzqml.ProteinList}.
+     * @return a closing tag of
+     *         {@link uk.ac.liv.pgb.jmzqml.model.mzqml.ProteinList}.
      */
     public static String createProteinListClosingTag() {
         return "</ProteinList>";
     }
 
     /**
-     * The helper method creates a start tag with ID of {@link uk.ac.liv.pgb.jmzqml.model.mzqml.SmallMoleculeList}.
+     * The helper method creates a start tag with ID of
+     * {@link uk.ac.liv.pgb.jmzqml.model.mzqml.SmallMoleculeList}.
      *
-     * @param id the ID of {@link uk.ac.liv.pgb.jmzqml.model.mzqml.SmallMoleculeList}.
+     * @param id the ID of
+     *           {@link uk.ac.liv.pgb.jmzqml.model.mzqml.SmallMoleculeList}.
      *
-     * @return a start tag of {@link uk.ac.liv.pgb.jmzqml.model.mzqml.SmallMoleculeList}.
+     * @return a start tag of
+     *         {@link uk.ac.liv.pgb.jmzqml.model.mzqml.SmallMoleculeList}.
      */
     public static String createSmallMoleculeListStartTag(final String id) {
         if (id == null) {
-            throw new IllegalArgumentException("The 'id' attribute must not be null!");
+            throw new IllegalArgumentException(
+                    "The 'id' attribute must not be null!");
         }
 
         //required attribute: 'id'
@@ -718,9 +838,11 @@ public class MzQuantMLMarshaller {
     }
 
     /**
-     * The helper method creates a closing tag of {@link uk.ac.liv.pgb.jmzqml.model.mzqml.SmallMoleculeList}.
+     * The helper method creates a closing tag of
+     * {@link uk.ac.liv.pgb.jmzqml.model.mzqml.SmallMoleculeList}.
      *
-     * @return a closing tag of {@link uk.ac.liv.pgb.jmzqml.model.mzqml.SmallMoleculeList}.
+     * @return a closing tag of
+     *         {@link uk.ac.liv.pgb.jmzqml.model.mzqml.SmallMoleculeList}.
      */
     public static String createSmallMoleculeListClosingTag() {
         return "</SmallMoleculeList>";
@@ -730,12 +852,20 @@ public class MzQuantMLMarshaller {
     // mzQuantML element object
     ///// ///// ///// ///// /////
     /**
-     * The helper method creates a {@link uk.ac.liv.pgb.jmzqml.model.mzqml.BibliographicReference} object with all the attributes.
-     * The id attribute of {@link uk.ac.liv.pgb.jmzqml.model.mzqml.BibliographicReference} is mandatorily required.
+     * The helper method creates a
+     * {@link uk.ac.liv.pgb.jmzqml.model.mzqml.BibliographicReference} object
+     * with all the attributes.
+     * The id attribute of
+     * {@link uk.ac.liv.pgb.jmzqml.model.mzqml.BibliographicReference} is
+     * mandatorily required.
      * The other attributes are optional.
      *
-     * @param id          (required) An identifier is an unambiguous string that is unique within the scope (i.e. a document, a set of related documents, or a repository) of its use.
-     * @param name        (optional) The potentially ambiguous common identifier, such as a human-readable name for the instance.
+     * @param id          (required) An identifier is an unambiguous string that
+     *                    is unique within the scope (i.e. a document, a set of
+     *                    related documents, or a repository) of its use.
+     * @param name        (optional) The potentially ambiguous common
+     *                    identifier, such as a human-readable name for the
+     *                    instance.
      * @param authors     (optional) The names of the authors of the reference.
      * @param publication (optional) The name of the journal, book etc.
      * @param publisher   (optional) The publisher of the publication.
@@ -747,7 +877,9 @@ public class MzQuantMLMarshaller {
      * @param title       (optional) The title of the BibliographicReference.
      * @param doi         (optional) The DOI of the referenced publication.
      *
-     * @return the {@link uk.ac.liv.pgb.jmzqml.model.mzqml.BibliographicReference} object, representing bibliographic references.
+     * @return the
+     *         {@link uk.ac.liv.pgb.jmzqml.model.mzqml.BibliographicReference}
+     *         object, representing bibliographic references.
      */
     public static BibliographicReference createBibliographicReference(
             final String id,
@@ -765,7 +897,8 @@ public class MzQuantMLMarshaller {
 
         BibliographicReference br = new BibliographicReference();
         if (id == null) {
-            throw new IllegalArgumentException("The 'id' attribute must not be null!");
+            throw new IllegalArgumentException(
+                    "The 'id' attribute must not be null!");
         }
 
         br.setId(id);
@@ -807,16 +940,20 @@ public class MzQuantMLMarshaller {
     }
 
     /**
-     * The helper method creates a {@link uk.ac.liv.pgb.jmzqml.model.mzqml.Cv} object with all the attributes.
-     * The id, fullName and URI attributes of {@link uk.ac.liv.pgb.jmzqml.model.mzqml.Cv} are mandatorily required.
+     * The helper method creates a {@link uk.ac.liv.pgb.jmzqml.model.mzqml.Cv}
+     * object with all the attributes.
+     * The id, fullName and URI attributes of
+     * {@link uk.ac.liv.pgb.jmzqml.model.mzqml.Cv} are mandatorily required.
      * The version attributes is optional.
      *
-     * @param id       (required) The unique identifier of this cv within the document to be referenced by cvParam elements.
+     * @param id       (required) The unique identifier of this cv within the
+     *                 document to be referenced by cvParam elements.
      * @param fullName (required) The full name of the CV.
      * @param uri      (required) The URI of the source CV.
      * @param version  (optional) The version of the CV.
      *
-     * @return the {@link uk.ac.liv.pgb.jmzqml.model.mzqml.Cv} object, a source controlled vocabulary from which cvParams will be obtained.
+     * @return the {@link uk.ac.liv.pgb.jmzqml.model.mzqml.Cv} object, a source
+     *         controlled vocabulary from which cvParams will be obtained.
      */
     public static Cv createCv(final String id,
                               final String fullName,
@@ -824,7 +961,8 @@ public class MzQuantMLMarshaller {
                               final String version) {
         Cv cv = new Cv();
         if (id == null) {
-            throw new IllegalArgumentException("The 'id' attribute must not be null!");
+            throw new IllegalArgumentException(
+                    "The 'id' attribute must not be null!");
         }
 
         cv.setId(id);
@@ -842,19 +980,28 @@ public class MzQuantMLMarshaller {
     }
 
     /**
-     * The helper method creates a {@link uk.ac.liv.pgb.jmzqml.model.mzqml.CvParam} object with all the attributes.
-     * The name, cvRef (String type) and accession attributes of CvParam are mandatorily required.
+     * The helper method creates a
+     * {@link uk.ac.liv.pgb.jmzqml.model.mzqml.CvParam} object with all the
+     * attributes.
+     * The name, cvRef (String type) and accession attributes of CvParam are
+     * mandatorily required.
      * The other attributes are optional.
      *
      * @param name          (required) The name of the parameter.
-     * @param cvRef         (required) A string reference to the CV element from which this term originates.
-     * @param accession     (required) The accession or ID number of this CV term in the source CV.
+     * @param cvRef         (required) A string reference to the CV element from
+     *                      which this term originates.
+     * @param accession     (required) The accession or ID number of this CV
+     *                      term in the source CV.
      * @param value         (optional) The user-entered value of the parameter.
-     * @param unitAccession (optional) An accession number identifying the unit within the OBO foundry Unit CV.
+     * @param unitAccession (optional) An accession number identifying the unit
+     *                      within the OBO foundry Unit CV.
      * @param unitName      (optional) The name of the unit.
-     * @param unitCvRef     (optional) If a unit term is referenced, this attribute MUST refer to the CV 'id' attribute defined in the cvList in this file.
+     * @param unitCvRef     (optional) If a unit term is referenced, this
+     *                      attribute MUST refer to the CV 'id' attribute
+     *                      defined in the cvList in this file.
      *
-     * @return the {@link uk.ac.liv.pgb.jmzqml.model.mzqml.CvParam} object, a single entry from an ontology or a controlled vocabulary.
+     * @return the {@link uk.ac.liv.pgb.jmzqml.model.mzqml.CvParam} object, a
+     *         single entry from an ontology or a controlled vocabulary.
      */
     public static CvParam createCvParam(final String name,
                                         final String cvRef,
@@ -866,11 +1013,13 @@ public class MzQuantMLMarshaller {
         CvParam cp = new CvParam();
 
         if (name == null) {
-            throw new IllegalArgumentException("The 'name' attribute must not be null!");
+            throw new IllegalArgumentException(
+                    "The 'name' attribute must not be null!");
         }
 
         if (cvRef == null || cvRef.isEmpty()) {
-            throw new IllegalArgumentException("The 'cvRef' attribute must not be null or empty!");
+            throw new IllegalArgumentException(
+                    "The 'cvRef' attribute must not be null or empty!");
         }
 
         cp.setName(name);
@@ -899,19 +1048,28 @@ public class MzQuantMLMarshaller {
     }
 
     /**
-     * The helper method creates a {@link uk.ac.liv.pgb.jmzqml.model.mzqml.CvParam} object with all the attributes.
-     * The name, cvRef (Cv type) and accession attributes of CvParam are mandatorily required.
+     * The helper method creates a
+     * {@link uk.ac.liv.pgb.jmzqml.model.mzqml.CvParam} object with all the
+     * attributes.
+     * The name, cvRef (Cv type) and accession attributes of CvParam are
+     * mandatorily required.
      * The other attributes are optional.
      *
      * @param name          (required) The name of the parameter.
-     * @param cvRef         (required) An object reference to the CV element from which this term originates.
-     * @param accession     (required) The accession or ID number of this CV term in the source CV.
+     * @param cvRef         (required) An object reference to the CV element
+     *                      from which this term originates.
+     * @param accession     (required) The accession or ID number of this CV
+     *                      term in the source CV.
      * @param value         (optional) The user-entered value of the parameter.
-     * @param unitAccession (optional) An accession number identifying the unit within the OBO foundry Unit CV.
+     * @param unitAccession (optional) An accession number identifying the unit
+     *                      within the OBO foundry Unit CV.
      * @param unitName      (optional) The name of the unit.
-     * @param unitCvRef     (optional) If a unit term is referenced, this attribute MUST refer to the CV 'id' attribute defined in the cvList in this file.
+     * @param unitCvRef     (optional) If a unit term is referenced, this
+     *                      attribute MUST refer to the CV 'id' attribute
+     *                      defined in the cvList in this file.
      *
-     * @return the {@link uk.ac.liv.pgb.jmzqml.model.mzqml.CvParam} object, a single entry from an ontology or a controlled vocabulary.
+     * @return the {@link uk.ac.liv.pgb.jmzqml.model.mzqml.CvParam} object, a
+     *         single entry from an ontology or a controlled vocabulary.
      */
     public static CvParam createCvParam(final String name,
                                         final Cv cvRef,
@@ -922,19 +1080,26 @@ public class MzQuantMLMarshaller {
                                         final String unitCvRef) {
 
         String id = cvRef.getId();
-        return createCvParam(name, id, accession, value, unitAccession, unitName, unitCvRef);
+        return createCvParam(name, id, accession, value, unitAccession, unitName,
+                             unitCvRef);
     }
 
     /**
-     * The helper method creates a {@link uk.ac.liv.pgb.jmzqml.model.mzqml.CvParam} object with required attributes only.
-     * The name, cvRef (String type) and accession attributes of CvParam are mandatorily required.
+     * The helper method creates a
+     * {@link uk.ac.liv.pgb.jmzqml.model.mzqml.CvParam} object with required
+     * attributes only.
+     * The name, cvRef (String type) and accession attributes of CvParam are
+     * mandatorily required.
      *
      *
      * @param name      (required) The name of the parameter.
-     * @param cvRef     (required) A reference to the CV element from which this term originates.
-     * @param accession (required) The accession or ID number of this CV term in the source CV.
+     * @param cvRef     (required) A reference to the CV element from which this
+     *                  term originates.
+     * @param accession (required) The accession or ID number of this CV term in
+     *                  the source CV.
      *
-     * @return the {@link uk.ac.liv.pgb.jmzqml.model.mzqml.CvParam} object, a single entry from an ontology or a controlled vocabulary.
+     * @return the {@link uk.ac.liv.pgb.jmzqml.model.mzqml.CvParam} object, a
+     *         single entry from an ontology or a controlled vocabulary.
      */
     public static CvParam createCvParam(final String name,
                                         final String cvRef,
@@ -943,15 +1108,21 @@ public class MzQuantMLMarshaller {
     }
 
     /**
-     * The helper method creates a {@link uk.ac.liv.pgb.jmzqml.model.mzqml.CvParam} object with required attributes only.
-     * The name, cvRef (Cv type) and accession attributes of CvParam are mandatorily required.
+     * The helper method creates a
+     * {@link uk.ac.liv.pgb.jmzqml.model.mzqml.CvParam} object with required
+     * attributes only.
+     * The name, cvRef (Cv type) and accession attributes of CvParam are
+     * mandatorily required.
      *
      *
      * @param name      (required) The name of the parameter.
-     * @param cvRef     (required) A reference to the CV element from which this term originates.
-     * @param accession (required) The accession or ID number of this CV term in the source CV.
+     * @param cvRef     (required) A reference to the CV element from which this
+     *                  term originates.
+     * @param accession (required) The accession or ID number of this CV term in
+     *                  the source CV.
      *
-     * @return the {@link uk.ac.liv.pgb.jmzqml.model.mzqml.CvParam} object, a single entry from an ontology or a controlled vocabulary.
+     * @return the {@link uk.ac.liv.pgb.jmzqml.model.mzqml.CvParam} object, a
+     *         single entry from an ontology or a controlled vocabulary.
      */
     public static CvParam createCvParam(final String name,
                                         final Cv cvRef,

@@ -56,8 +56,8 @@ public class RawXMLListener extends Unmarshaller.Listener {
 
     /**
      *
-     * @param index MzQuantMLIndexer
-     * @param cache MzQuantMLObjectCache
+     * @param indexp MzQuantMLIndexer
+     * @param cachep MzQuantMLObjectCache
      */
     public RawXMLListener(final MzQuantMLIndexer indexp,
                           final MzQuantMLObjectCache cachep) {
@@ -70,7 +70,8 @@ public class RawXMLListener extends Unmarshaller.Listener {
      * applies to the specified object.
      *
      * @param target the object to modify after unmarshalling.
-     * @param parent object referencing the target. Null if target is root element.
+     * @param parent object referencing the target. Null if target is root
+     *               element.
      */
     @Override
     public final void afterUnmarshal(final Object target, final Object parent) {
@@ -86,6 +87,11 @@ public class RawXMLListener extends Unmarshaller.Listener {
         referenceResolving(target, parent, element);
     }
 
+    /**
+     *
+     * @param target target object
+     * @param ele    mzQuantML element
+     */
     @SuppressWarnings("unchecked")
     private void paramHandling(final Object target, final MzQuantMLElement ele) {
         try {
@@ -96,15 +102,21 @@ public class RawXMLListener extends Unmarshaller.Listener {
                 Param param = (Param) method.invoke(target);
                 if (param != null) {
                     /**
-                     * Use the retrieved class name to determine the correct subclasses of CvParam and UserParam to use.
+                     * Use the retrieved class name to determine the correct
+                     * subclasses of CvParam and UserParam to use.
                      */
                     if (param.getCvParam() != null) {
-                        Class<? extends CvParam> cvParamClass = (Class<? extends CvParam>) Class.forName("uk.ac.liv.pgb.jmzqml.model.mzqml.params." + className + "CvParam");
-                        CvParam cvParam = ParamUpdater.updateCvParamSubclass(param.getCvParam(), cvParamClass);
+                        Class<? extends CvParam> cvParamClass = (Class<? extends CvParam>) Class.
+                                forName("uk.ac.liv.pgb.jmzqml.model.mzqml.params." + className + "CvParam");
+                        CvParam cvParam = ParamUpdater.updateCvParamSubclass(
+                                param.getCvParam(), cvParamClass);
                         param.setParam(cvParam);
                     } else if (param.getUserParam() != null) {
-                        Class<? extends UserParam> userParamClass = (Class<? extends UserParam>) Class.forName("uk.ac.liv.pgb.jmzqml.model.mzqml.params." + className + "UserParam");
-                        UserParam userParam = ParamUpdater.updateUserParamSubclass(param.getUserParam(), userParamClass);
+                        Class<? extends UserParam> userParamClass = (Class<? extends UserParam>) Class.
+                                forName("uk.ac.liv.pgb.jmzqml.model.mzqml.params." + className + "UserParam");
+                        UserParam userParam = ParamUpdater.
+                                updateUserParamSubclass(param.getUserParam(),
+                                                        userParamClass);
                         param.setParam(userParam);
                     }
                 }
@@ -114,23 +126,31 @@ public class RawXMLListener extends Unmarshaller.Listener {
             // NOTE: the order of the if statements is IMPORTANT!
             // (every AbstractParamGroup is a CvParamCapable, but not vice versa)
             if (target instanceof ParamListCapable) {
-                ParamListMappings mappings = ParamListMappings.getType(target.getClass());
+                ParamListMappings mappings = ParamListMappings.getType(target.
+                        getClass());
                 String[] classNames = mappings.getClassNames();
                 for (String className : classNames) {
                     /**
-                     * Use the retrieved class name to dynamically call the appropriate get method in the class implementing
+                     * Use the retrieved class name to dynamically call the
+                     * appropriate get method in the class implementing
                      * ParamListCapable
                      */
-                    Method method = target.getClass().getMethod("get" + className);
+                    Method method = target.getClass().getMethod(
+                            "get" + className);
                     ParamList paramList = (ParamList) method.invoke(target);
                     if (paramList != null) {
                         /**
-                         * Use the retrieved class name to determine the correct subclasses of CvParam and UserParam to use.
+                         * Use the retrieved class name to determine the correct
+                         * subclasses of CvParam and UserParam to use.
                          */
-                        Class<? extends CvParam> cvParamClass = (Class<? extends CvParam>) Class.forName("uk.ac.liv.pgb.jmzqml.model.mzqml.params." + className + "CvParam");
-                        ParamUpdater.updateCvParamSubclassesList(paramList.getCvParam(), cvParamClass);
-                        Class<? extends UserParam> userParamClass = (Class<? extends UserParam>) Class.forName("uk.ac.liv.pgb.jmzqml.model.mzqml.params." + className + "UserParam");
-                        ParamUpdater.updateUserParamSubclassesList(paramList.getUserParam(), userParamClass);
+                        Class<? extends CvParam> cvParamClass = (Class<? extends CvParam>) Class.
+                                forName("uk.ac.liv.pgb.jmzqml.model.mzqml.params." + className + "CvParam");
+                        ParamUpdater.updateCvParamSubclassesList(paramList.
+                                getCvParam(), cvParamClass);
+                        Class<? extends UserParam> userParamClass = (Class<? extends UserParam>) Class.
+                                forName("uk.ac.liv.pgb.jmzqml.model.mzqml.params." + className + "UserParam");
+                        ParamUpdater.updateUserParamSubclassesList(paramList.
+                                getUserParam(), userParamClass);
                     }
                 }
             } else if (target instanceof ParamGroupCapable) {
@@ -141,50 +161,87 @@ public class RawXMLListener extends Unmarshaller.Listener {
                 // then we are going to subclass the params
 
                 if (ele.getCvParamClass() == null) {
-                    throw new IllegalStateException("Subclass of AbstractParamGroup does not have CvParam subclass! " + target.getClass());
+                    throw new IllegalStateException(
+                            "Subclass of AbstractParamGroup does not have CvParam subclass! " + target.
+                            getClass());
                 }
-                ParamUpdater.updateCvParamSubclassesList(apg.getCvParam(), ele.getCvParamClass());
+                ParamUpdater.updateCvParamSubclassesList(apg.getCvParam(), ele.
+                                                         getCvParamClass());
                 if (ele.getUserParamClass() == null) {
-                    throw new IllegalStateException("Subclass of AbstractParamGroup does not have UserParam subclass! " + target.getClass());
+                    throw new IllegalStateException(
+                            "Subclass of AbstractParamGroup does not have UserParam subclass! " + target.
+                            getClass());
                 }
-                ParamUpdater.updateUserParamSubclassesList(apg.getUserParam(), ele.getUserParamClass());
+                ParamUpdater.updateUserParamSubclassesList(apg.getUserParam(),
+                                                           ele.
+                                                           getUserParamClass());
             } else if (target instanceof CvParamCapable) {
                 // no need to split up params, but we need to subclass them
                 CvParamCapable cpc = (CvParamCapable) target;
                 if (ele.getCvParamClass() == null) {
-                    throw new IllegalStateException("Subcalss of  AbstactParamGroup does not have CvParam subclass! " + target.getClass());
+                    throw new IllegalStateException(
+                            "Subcalss of  AbstactParamGroup does not have CvParam subclass! " + target.
+                            getClass());
                 }
                 CvParam param = cpc.getCvParam();
-                cpc.setCvParam(ParamUpdater.updateCvParamSubclass(param, ele.<CvParam>getCvParamClass()));
+                cpc.setCvParam(ParamUpdater.updateCvParamSubclass(param, ele.
+                                                                  <CvParam>getCvParamClass()));
             } else if (target instanceof CvParamListCapable) {
                 CvParamListCapable cpc = (CvParamListCapable) target;
                 if (ele.getCvParamClass() == null) {
-                    throw new IllegalStateException("Subclass of AbstractParamGroup does not have CvParam subclass! " + target.getClass());
+                    throw new IllegalStateException(
+                            "Subclass of AbstractParamGroup does not have CvParam subclass! " + target.
+                            getClass());
                 }
-                ParamUpdater.updateCvParamSubclassesList(cpc.getCvParam(), ele.getCvParamClass());
+                ParamUpdater.updateCvParamSubclassesList(cpc.getCvParam(), ele.
+                                                         getCvParamClass());
             } else if (ele.getCvParamClass() != null || ele.getUserParamClass() != null) { // no need to split or subclass params
-                throw new IllegalStateException("Element with param subclasses has not been handled! " + target.getClass());
+                throw new IllegalStateException(
+                        "Element with param subclasses has not been handled! " + target.
+                        getClass());
             }
-        } catch (ClassNotFoundException | IllegalAccessException | IllegalArgumentException | IllegalStateException | InstantiationException | NoSuchMethodException | SecurityException | InvocationTargetException e) {
+        } catch (ClassNotFoundException | IllegalAccessException |
+                IllegalArgumentException | IllegalStateException |
+                InstantiationException | NoSuchMethodException |
+                SecurityException | InvocationTargetException e) {
             LOGGER.error("Exception during post unmarshall processing! ", e);
-            throw new IllegalStateException("Error during post unmarshall processing!", e);
+            throw new IllegalStateException(
+                    "Error during post unmarshall processing!", e);
         }
     }
 
+    /**
+     *
+     * @param target  target object
+     * @param parent  parent object
+     * @param element mzQuantML element
+     */
     private void referenceResolving(final Object target, final Object parent,
                                     final MzQuantMLElement element) {
         if (element.isAutoRefResolving()) {
-            Class<AbstractReferenceResolver<?>> cls = element.getRefResolverClass();
+            Class<AbstractReferenceResolver<?>> cls = element.
+                    getRefResolverClass();
             if (cls == null) {
-                throw new IllegalStateException("Can not auto-resolve references if no reference resolver was defined for class: " + element.getClazz());
+                throw new IllegalStateException(
+                        "Can not auto-resolve references if no reference resolver was defined for class: " + element.
+                        getClazz());
             }
             try {
-                Constructor<AbstractReferenceResolver<?>> con = cls.getDeclaredConstructor(MzQuantMLIndexer.class, MzQuantMLObjectCache.class);
-                AbstractReferenceResolver<?> resolver = (AbstractReferenceResolver<?>) con.newInstance(index, cache);
+                Constructor<AbstractReferenceResolver<?>> con = cls.
+                        getDeclaredConstructor(MzQuantMLIndexer.class,
+                                               MzQuantMLObjectCache.class);
+                AbstractReferenceResolver<?> resolver = (AbstractReferenceResolver<?>) con.
+                        newInstance(index, cache);
                 resolver.afterUnmarshal(target, parent);
-            } catch (IllegalAccessException | IllegalArgumentException | InstantiationException | NoSuchMethodException | SecurityException | InvocationTargetException e) {
-                LOGGER.error("Error trying to instantiate reference resolver: " + cls.getName(), e);
-                throw new IllegalStateException("Could not instantiate reference resolver: " + cls.getName());
+            } catch (IllegalAccessException | IllegalArgumentException |
+                    InstantiationException | NoSuchMethodException |
+                    SecurityException | InvocationTargetException e) {
+                LOGGER.error(
+                        "Error trying to instantiate reference resolver: " + cls.
+                        getName(), e);
+                throw new IllegalStateException(
+                        "Could not instantiate reference resolver: " + cls.
+                        getName());
             }
         }
     }

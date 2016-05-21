@@ -20,7 +20,8 @@ import psidev.psi.tools.xxindex.index.IndexElement;
 public class MemoryMappedXmlElementExtractor {
 
     private static final int MIN_GRP_NUM = 1;
-    private static final Log LOG = LogFactory.getLog(MemoryMappedXmlElementExtractor.class);
+    private static final Log LOG = LogFactory.getLog(
+            MemoryMappedXmlElementExtractor.class);
 
     // XML 1.1 specs
     // [3]  S            ::=  (#x20 | #x9 | #xD | #xA)+             /* spaces, carriage returns, line feeds, or tabs */
@@ -29,8 +30,11 @@ public class MemoryMappedXmlElementExtractor {
     // [25] Eq           ::=  S? '=' S?
     // [80] EncodingDecl ::=  S 'encoding' Eq ('"' EncName '"' | "'" EncName "'" )
     // [81] EncName      ::=  [A-Za-z] ([A-Za-z0-9._] | '-')*        /* Encoding name contains only Latin characters */
-    protected static final Pattern XML_HEADER = Pattern.compile(".*<\\?xml.+\\?>.*", Pattern.DOTALL);
-    protected static final Pattern XML_ENC = Pattern.compile(".*encoding\\s*=\\s*[\"']([A-Za-z]([A-Za-z0-9._]|[-])*)[\"'](.*)", Pattern.DOTALL);
+    protected static final Pattern XML_HEADER = Pattern.compile(
+            ".*<\\?xml.+\\?>.*", Pattern.DOTALL);
+    protected static final Pattern XML_ENC = Pattern.compile(
+            ".*encoding\\s*=\\s*[\"']([A-Za-z]([A-Za-z0-9._]|[-])*)[\"'](.*)",
+            Pattern.DOTALL);
 
     private boolean useSystemDefaultEncoding;
     private Charset encoding;
@@ -51,7 +55,7 @@ public class MemoryMappedXmlElementExtractor {
      * Constructor overwriting the default character encoding with the specified
      * one.
      *
-     * @param encoding The Charset to use to translate the read bytes.
+     * @param encodingp The Charset to use to translate the read bytes.
      */
     @SuppressWarnings(value = "unused")
     public MemoryMappedXmlElementExtractor(final Charset encodingp) {
@@ -69,8 +73,8 @@ public class MemoryMappedXmlElementExtractor {
     }
 
     /**
-     * @param encoding The encoding to use when converting the read byte array
-     *                 into a String.
+     * @param encodingp The encoding to use when converting the read byte array
+     *                  into a String.
      */
     public final void setEncoding(final Charset encodingp) {
         this.encoding = encodingp;
@@ -79,8 +83,8 @@ public class MemoryMappedXmlElementExtractor {
     /**
      * This method will try to find and set a Charset for the given String.
      *
-     * @param encoding The encoding to use when converting the read byte array
-     *                 into a String.
+     * @param encodingp The encoding to use when converting the read byte array
+     *                  into a String.
      *
      * @return 0 is returned on success, -1 if the specified encoding is not
      *         valid and -2 if the specified encoding is not supported by this virtual
@@ -113,8 +117,8 @@ public class MemoryMappedXmlElementExtractor {
      * to be used for decoding the read bytes. Note: If the flag is set any
      * other specified encoding will be ignored!
      *
-     * @param useSystemDefaultEncoding A flag whether to use the system default
-     *                                 character encoding.
+     * @param useSystemDefaultEncodingp A flag whether to use the system default
+     *                                  character encoding.
      */
     public final void setUseSystemDefaultEncoding(
             final boolean useSystemDefaultEncodingp) {
@@ -148,15 +152,17 @@ public class MemoryMappedXmlElementExtractor {
      * will be opened read-only). It will read from position 'from' for length
      * 'to - from'.
      *
-     * @param from        The byte position of the start (incl. beginning of start tag)
+     * @param from        The byte position of the start (incl. beginning of
+     *                    start tag)
      *                    of the XML element.
-     * @param to          The byte position of the end (incl. end of closing tag) of the
+     * @param to          The byte position of the end (incl. end of closing
+     *                    tag) of the
      *                    XML element.
      * @param inputStream The file input stream to read from.
      *
      * @return The XML element including start and stop tag in a String.
      *
-     * @throws java.io.IOException
+     * @throws IOException
      */
     public final String readString(final long from, final long to,
                                    final InputStream inputStream)
@@ -181,7 +187,8 @@ public class MemoryMappedXmlElementExtractor {
      *
      * @return The read byte array.
      *
-     * @throws IOException              If a I/O Exception during the reading process
+     * @throws IOException              If a I/O Exception during the reading
+     *                                  process
      *                                  occurred.
      * @throws IllegalArgumentException If the range specified to read (to -
      *                                  from) is to big (&gt; Integer.MAX_VALUE characters).
@@ -193,7 +200,8 @@ public class MemoryMappedXmlElementExtractor {
 
         Long length = to - from;
         if (length > Integer.MAX_VALUE) {
-            throw new IllegalArgumentException("Can not read more than " + Integer.MAX_VALUE + " bytes!");
+            throw new IllegalArgumentException(
+                    "Can not read more than " + Integer.MAX_VALUE + " bytes!");
         }
         bytes = new byte[length.intValue()];
 
@@ -262,14 +270,16 @@ public class MemoryMappedXmlElementExtractor {
         String fileStart = new String(bytes, "ASCII");
 
         // first check if there is a XML header
-        Matcher mHead = MemoryMappedXmlElementExtractor.XML_HEADER.matcher(fileStart);
+        Matcher mHead = MemoryMappedXmlElementExtractor.XML_HEADER.matcher(
+                fileStart);
         if (!mHead.matches()) {
             // no XML header not found
             LOG.debug("No XML header found for input");
             return null;
         }
 
-        Matcher mEnc = MemoryMappedXmlElementExtractor.XML_ENC.matcher(fileStart);
+        Matcher mEnc = MemoryMappedXmlElementExtractor.XML_ENC.
+                matcher(fileStart);
         if (!mEnc.matches()) {
             return null;
         }
@@ -326,7 +336,8 @@ public class MemoryMappedXmlElementExtractor {
      *
      * @return The String representation of the byte array.
      *
-     * @throws IllegalStateException                If no character encoding is available.
+     * @throws IllegalStateException                If no character encoding is
+     *                                              available.
      * @throws java.io.UnsupportedEncodingException if the set character
      *                                              encoding is not supported.
      * @see setUseSystemDefaultEncoding(boolean)
@@ -346,7 +357,8 @@ public class MemoryMappedXmlElementExtractor {
 
         // quick check that there is one
         if (getEncoding() == null) {
-            throw new IllegalStateException("No character encoding available to convert the byte array!");
+            throw new IllegalStateException(
+                    "No character encoding available to convert the byte array!");
         }
 
         // use the encoding to translate the byte array into a String
@@ -376,7 +388,8 @@ public class MemoryMappedXmlElementExtractor {
                     m--;
                 }
             } else { // negative? this should never happen but...
-                throw new IOException("skip() returned a negative value - this should never happen");
+                throw new IOException(
+                        "skip() returned a negative value - this should never happen");
             }
         }
     }

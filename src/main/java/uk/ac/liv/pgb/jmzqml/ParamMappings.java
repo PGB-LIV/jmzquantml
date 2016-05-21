@@ -37,6 +37,11 @@ public enum ParamMappings {
     private Class clazz;
     private String className;
 
+    /**
+     *
+     * @param classNamep class name
+     * @param clazzp     class
+     */
     ParamMappings(final String classNamep, final Class clazzp) {
         this.className = classNamep;
         this.clazz = clazzp;

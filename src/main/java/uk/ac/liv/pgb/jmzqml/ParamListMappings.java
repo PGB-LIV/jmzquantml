@@ -43,6 +43,11 @@ public enum ParamListMappings {
     private Class clazz;
     private String[] classNames;
 
+    /**
+     *
+     * @param classNamesp class name
+     * @param clazzp      class
+     */
     ParamListMappings(final String[] classNamesp, final Class clazzp) {
         this.classNames = classNamesp;
         this.clazz = clazzp;
@@ -67,7 +72,8 @@ public enum ParamListMappings {
     }
 
     /**
-     * Gets a member of ParamListMappings according to the value of clazz property.
+     * Gets a member of ParamListMappings according to the value of clazz
+     * property.
      *
      * @param clazz the value of clazz property.
      *

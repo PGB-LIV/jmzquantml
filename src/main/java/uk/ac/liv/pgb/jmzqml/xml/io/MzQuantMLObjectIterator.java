@@ -46,13 +46,20 @@ import uk.ac.liv.pgb.jmzqml.xml.xxindex.MzQuantMLIndexer;
 public class MzQuantMLObjectIterator<T extends MzQuantMLObject> implements
         Iterator<T> {
 
-    private static final Logger LOGGER = Logger.getLogger(MzQuantMLObjectIterator.class);
+    private static final Logger LOGGER = Logger.getLogger(
+            MzQuantMLObjectIterator.class);
     private final Iterator<String> innerXpathIterator;
     private final String xpath;
     private final Class<T> cls;
     private final MzQuantMLIndexer index;
     private final MzQuantMLObjectCache cache;
 
+    /**
+     *
+     * @param element element
+     * @param indexp  index
+     * @param cachep  cache
+     */
     MzQuantMLObjectIterator(final MzQuantMLElement element,
                             final MzQuantMLIndexer indexp,
                             final MzQuantMLObjectCache cachep) {
@@ -85,9 +92,11 @@ public class MzQuantMLObjectIterator<T extends MzQuantMLObject> implements
             //required for the addition of namespaces to top-level objects
             MzQuantMLNamespaceFilter xmlFilter = new MzQuantMLNamespaceFilter();
             //initializeUnmarshaller will assign the proper reader to the xmlFilter
-            Unmarshaller unmarshaller = UnmarshallerFactory.getInstance().initializeUnmarshaller(index, cache, xmlFilter);
+            Unmarshaller unmarshaller = UnmarshallerFactory.getInstance().
+                    initializeUnmarshaller(index, cache, xmlFilter);
             //unmarshall the desired object
-            JAXBElement<T> holder = unmarshaller.unmarshal(new SAXSource(xmlFilter, new InputSource(new StringReader(cleanXML))), cls);
+            JAXBElement<T> holder = unmarshaller.unmarshal(new SAXSource(
+                    xmlFilter, new InputSource(new StringReader(cleanXML))), cls);
 
             retval = holder.getValue();
 
@@ -96,14 +105,16 @@ public class MzQuantMLObjectIterator<T extends MzQuantMLObject> implements
             }
         } catch (JAXBException e) {
             LOGGER.error("MzQuantMLObjectIterator.next", e);
-            throw new IllegalStateException("Could not unmarshal object at xpath: " + xpath);
+            throw new IllegalStateException(
+                    "Could not unmarshal object at xpath: " + xpath);
         }
         return retval;
     }
 
     @Override
     public final void remove() {
-        throw new UnsupportedOperationException(MzQuantMLObjectIterator.class.getName() + " can't be used to remove object while iterating");
+        throw new UnsupportedOperationException(MzQuantMLObjectIterator.class.
+                getName() + " can't be used to remove object while iterating");
     }
 
 }
