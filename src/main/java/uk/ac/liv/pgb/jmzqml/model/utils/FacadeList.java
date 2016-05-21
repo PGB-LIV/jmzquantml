@@ -66,7 +66,7 @@ public class FacadeList<T> extends AbstractCollection<T> implements List<T> {
     }
 
     /**
-     * constructor
+     * constructor.
      */
     private FacadeList() {
         // set to private
@@ -85,7 +85,7 @@ public class FacadeList<T> extends AbstractCollection<T> implements List<T> {
     }
 
     /**
-     * Add a new element to the sublist
+     * Add a new element to the sublist.
      * This will add the new element to the immediate index after the element at
      * (index -1) in the sublist
      *
@@ -100,7 +100,7 @@ public class FacadeList<T> extends AbstractCollection<T> implements List<T> {
     }
 
     /**
-     * Remove a element from the original list
+     * Remove a element from the original list.
      * The index here is the index of the specified element int the original
      * list
      *
@@ -116,7 +116,7 @@ public class FacadeList<T> extends AbstractCollection<T> implements List<T> {
     }
 
     /**
-     * Remove an object from the sublist
+     * Remove an object from the sublist.
      *
      * @param o object to be removed
      *
@@ -141,7 +141,7 @@ public class FacadeList<T> extends AbstractCollection<T> implements List<T> {
     }
 
     /**
-     * Set an new element based on the index of the sublist
+     * Set an new element based on the index of the sublist.
      *
      * @param index   index of the sublist
      * @param element new element
@@ -156,7 +156,7 @@ public class FacadeList<T> extends AbstractCollection<T> implements List<T> {
     }
 
     /**
-     * Get the size of the sublist
+     * Get the size of the sublist.
      *
      * @return int size of the sublist
      */
@@ -175,7 +175,7 @@ public class FacadeList<T> extends AbstractCollection<T> implements List<T> {
     }
 
     /**
-     * Check whether the sublist is empty
+     * Check whether the sublist is empty.
      *
      * @return boolean true means empty
      */
@@ -195,7 +195,7 @@ public class FacadeList<T> extends AbstractCollection<T> implements List<T> {
     }
 
     /**
-     * Check whether the sublist contains the element
+     * Check whether the sublist contains the element.
      *
      * @param o input object
      *
@@ -208,7 +208,7 @@ public class FacadeList<T> extends AbstractCollection<T> implements List<T> {
     }
 
     /**
-     * Get an iterator of the sublist
+     * Get an iterator of the sublist.
      *
      * @return an iterator of the sublist
      */
@@ -218,7 +218,7 @@ public class FacadeList<T> extends AbstractCollection<T> implements List<T> {
     }
 
     /**
-     * Get the index of sublist using a given object
+     * Get the index of sublist using a given object.
      *
      * @param o input object
      *
@@ -240,7 +240,7 @@ public class FacadeList<T> extends AbstractCollection<T> implements List<T> {
     }
 
     /**
-     * Get the last index of sublist using a given object
+     * Get the last index of sublist using a given object.
      *
      * @param o input object
      *
@@ -442,7 +442,7 @@ public class FacadeList<T> extends AbstractCollection<T> implements List<T> {
 
     /**
      * This method is overridden to print out the list in concatenated string
-     * format
+     * format.
      *
      * @return String list string
      */
@@ -513,7 +513,7 @@ public class FacadeList<T> extends AbstractCollection<T> implements List<T> {
 
     /**
      * Check the legality of the argument
-     * if illegal, then throw an IllegalArgument exception
+     * if illegal, then throw an IllegalArgument exception.
      *
      * @param o Object to check
      */
@@ -530,7 +530,7 @@ public class FacadeList<T> extends AbstractCollection<T> implements List<T> {
 
     /**
      * check whether the input index is greater or equal than zero, and less
-     * than the size of the original list
+     * than the size of the original list.
      *
      * @param index input index
      *
@@ -584,7 +584,7 @@ public class FacadeList<T> extends AbstractCollection<T> implements List<T> {
     }
 
     /**
-     * Get the index from the original list
+     * Get the index from the original list.
      *
      * @param index index for the sublist
      *
@@ -633,11 +633,11 @@ public class FacadeList<T> extends AbstractCollection<T> implements List<T> {
     private class SublistIterator implements Iterator<T> {
 
         private List<T> superList;
-        /**
+        /*
          * Next position in the super list
          */
         //private int nextPosition;
-        /**
+        /*
          * Current position keeps track of the superlist index of the last
          * instance returned by next()
          * or -1 if next() has not been called
@@ -705,20 +705,20 @@ public class FacadeList<T> extends AbstractCollection<T> implements List<T> {
     private class SubListListIterator implements ListIterator<T> {
 
         private List<T> superList;
-        /**
+        /*
          * Current position keeps track of the superlist index of the last
          * instance returned by next()
          * or -1 if next() has not been called
          * The value of this index will be affected by next() and previous()
          */
         private int currPosition = -1;
-        /**
+        /*
          * Start super position is the superlist index of the first element in
          * the sublist
          * Once set, this should never change
          */
         private int startSuperPosition = -1;
-        /**
+        /*
          * start index is the starting index of the sublist
          * Once set, this should never change
          */
@@ -758,7 +758,7 @@ public class FacadeList<T> extends AbstractCollection<T> implements List<T> {
         }
 
         /**
-         * set the currPosition according the start index
+         * set the currPosition according the start index.
          */
         private void initNextPosition() {
             if (this.startIndex > 0) {

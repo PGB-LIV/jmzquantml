@@ -32,11 +32,11 @@ import uk.ac.liv.pgb.jmzqml.model.mzqml.Ratio;
  */
 public enum ParamListMappings {
 
-    /**
+    /*
      * Ratio member
      */
     Ratio(new String[]{"RatioCalculation"}, Ratio.class),
-    /**
+    /*
      * MzQuantML member
      */
     MzQuantML(new String[]{"AnalysisSummary"}, MzQuantML.class);

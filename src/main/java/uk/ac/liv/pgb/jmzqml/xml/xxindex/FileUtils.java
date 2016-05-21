@@ -30,7 +30,7 @@ public final class FileUtils {
     private static Logger logger = Logger.getLogger(FileUtils.class);
 
     /**
-     * A method to get File from URL
+     * A method to get File from URL.
      *
      * @param url a URL
      *
@@ -63,23 +63,29 @@ public final class FileUtils {
                 out.write(b);
             }
 
-            logger.debug(url + " written to local file " + tempFile.getAbsolutePath());
+            logger.debug(url + " written to local file " + tempFile.
+                    getAbsolutePath());
 
         } catch (IOException e) {
-            throw new IllegalStateException("Could not create local file for URL: " + url, e);
+            throw new IllegalStateException(
+                    "Could not create local file for URL: " + url, e);
         } finally {
             if (in != null) {
                 try {
                     in.close();
                 } catch (IOException ex) {
-                    java.util.logging.Logger.getLogger(FileUtils.class.getName()).log(Level.SEVERE, null, ex);
+                    java.util.logging.Logger.
+                            getLogger(FileUtils.class.getName()).log(
+                            Level.SEVERE, null, ex);
                 }
             }
             if (out != null) {
                 try {
                     out.close();
                 } catch (IOException ex) {
-                    java.util.logging.Logger.getLogger(FileUtils.class.getName()).log(Level.SEVERE, null, ex);
+                    java.util.logging.Logger.
+                            getLogger(FileUtils.class.getName()).log(
+                            Level.SEVERE, null, ex);
                 }
             }
 

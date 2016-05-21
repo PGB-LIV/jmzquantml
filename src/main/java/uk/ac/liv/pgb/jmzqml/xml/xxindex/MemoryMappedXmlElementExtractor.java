@@ -162,7 +162,7 @@ public class MemoryMappedXmlElementExtractor {
      *
      * @return The XML element including start and stop tag in a String.
      *
-     * @throws IOException
+     * @throws IOException io exception
      */
     public final String readString(final long from, final long to,
                                    final InputStream inputStream)

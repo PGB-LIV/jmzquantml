@@ -54,7 +54,7 @@ public abstract class AbstractReferenceResolver<T extends MzQuantMLObject>
     private final MzQuantMLObjectCache cache;
 
     /**
-     * Constructor of AbstractReferenceResolver
+     * Constructor of AbstractReferenceResolver.
      *
      * @param indexp MzQuantMLIndexer
      * @param cachep MzQuantMLObjectCache
@@ -68,8 +68,8 @@ public abstract class AbstractReferenceResolver<T extends MzQuantMLObject>
 
     /**
      * Unmarshal one object for the specified class according to the reference
-     * id. Note: The class has to
-     * refer to MzQuantMLObject elements.
+     * id.
+     * Note: The class has to refer to MzQuantMLObject elements.
      *
      * @param <R>   extends {@link uk.ac.liv.pgb.jmzqml.model.MzQuantMLObject}.
      * @param refId the reference id of the object.
@@ -150,7 +150,7 @@ public abstract class AbstractReferenceResolver<T extends MzQuantMLObject>
     }
 
     /**
-     * Get index
+     * Get index.
      *
      * @return index
      */

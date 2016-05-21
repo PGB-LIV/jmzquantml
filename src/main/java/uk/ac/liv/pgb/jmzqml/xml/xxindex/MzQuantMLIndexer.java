@@ -49,7 +49,7 @@ public interface MzQuantMLIndexer {
     String getXmlString(String id, Class<? extends MzQuantMLObject> clazz);
 
     /**
-     * Read XML string using a byte range
+     * Read XML string using a byte range.
      *
      * @param byteRange byte range
      *
@@ -68,7 +68,7 @@ public interface MzQuantMLIndexer {
     List<IndexElement> getIndexElements(String xpathExpression);
 
     /**
-     * Get a map of id to byte range mappings
+     * Get a map of id to byte range mappings.
      *
      *
      * @param clazz class type

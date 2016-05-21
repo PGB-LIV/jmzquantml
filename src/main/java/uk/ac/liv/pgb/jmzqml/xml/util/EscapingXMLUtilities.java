@@ -16,7 +16,7 @@ public final class EscapingXMLUtilities {
     private static final CharOpenHashSet ILLEGAL_CHARS;
 
     /**
-     * Constructor
+     * Constructor.
      */
     private EscapingXMLUtilities() {
     }

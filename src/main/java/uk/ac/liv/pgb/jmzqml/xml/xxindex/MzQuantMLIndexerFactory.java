@@ -68,7 +68,7 @@ public final class MzQuantMLIndexerFactory {
             "\\sid\\s*=\\s*['\"]([^'\"]*)['\"]", Pattern.CASE_INSENSITIVE);
 
     /**
-     * constructor
+     * constructor.
      */
     private MzQuantMLIndexerFactory() {
     }
@@ -488,7 +488,7 @@ public final class MzQuantMLIndexerFactory {
         }
 
         /**
-         * Method to generate and populate ID maps for the XML elements that
+         * Method to generate and populate ID maps for the XML elements that.
          *
          * @throws IOException io exception
          */

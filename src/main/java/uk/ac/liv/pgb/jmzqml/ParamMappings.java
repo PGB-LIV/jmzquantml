@@ -30,7 +30,7 @@ import uk.ac.liv.pgb.jmzqml.model.mzqml.SearchDatabase;
  */
 public enum ParamMappings {
 
-    /**
+    /*
      * SearchDatabase member
      */
     SearchDatabase("DatabaseName", SearchDatabase.class);

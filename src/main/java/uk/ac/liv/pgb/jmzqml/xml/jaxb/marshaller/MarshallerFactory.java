@@ -53,7 +53,7 @@ public final class MarshallerFactory {
     }
 
     /**
-     * constructor
+     * constructor.
      */
     private MarshallerFactory() {
     }

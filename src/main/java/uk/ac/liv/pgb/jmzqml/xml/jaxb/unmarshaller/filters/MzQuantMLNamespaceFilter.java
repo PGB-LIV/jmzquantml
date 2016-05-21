@@ -38,14 +38,14 @@ public class MzQuantMLNamespaceFilter extends XMLFilterImpl {
     private static final Logger LOGGER = Logger.getLogger(MzQuantMLNamespaceFilter.class);
 
     /**
-     * Constructor of MzQuantMLNamespaceFilter
+     * Constructor of MzQuantMLNamespaceFilter.
      */
     public MzQuantMLNamespaceFilter() {
         LOGGER.debug("MzQuantMLNamespaceFilter created. Remember to call setParent(XMLReader)");
     }
 
     /**
-     * Constructor of MzQuantMLNamespaceFilter
+     * Constructor of MzQuantMLNamespaceFilter.
      *
      * @param reader XMLReader
      */

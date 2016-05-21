@@ -45,7 +45,8 @@ import uk.ac.liv.pgb.jmzqml.xml.xxindex.MzQuantMLIndexer;
  */
 public final class UnmarshallerFactory {
 
-    private static final Logger LOGGER = Logger.getLogger(UnmarshallerFactory.class);
+    private static final Logger LOGGER = Logger.getLogger(
+            UnmarshallerFactory.class);
     private static UnmarshallerFactory instance = new UnmarshallerFactory();
     private JAXBContext jc;
 
@@ -59,7 +60,7 @@ public final class UnmarshallerFactory {
     }
 
     /**
-     * constructor
+     * constructor.
      */
     private UnmarshallerFactory() {
     }
@@ -71,7 +72,8 @@ public final class UnmarshallerFactory {
      * @param cache     MzQuantMLObjectCache
      * @param xmlFilter MzQuantMLNamespcaceFilter
      *
-     * @return an instance of {@link javax.xml.bind.Unmarshaller} with initial configurations.
+     * @return an instance of {@link javax.xml.bind.Unmarshaller} with initial
+     *         configurations.
      */
     public synchronized Unmarshaller initializeUnmarshaller(
             final MzQuantMLIndexer index,
