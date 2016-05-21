@@ -41,9 +41,9 @@ public final class ModelConstants {
      * Instantiates a new ModelConstants.
      * Private to prevent instantiation
      */
-    private ModelConstants(){
-        
+    private ModelConstants() { 
     }
+
     /**
      * The package name of {@link uk.ac.liv.pgb.jmzqml.model.mzqml.MzQuantML}.
      */

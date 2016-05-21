@@ -145,7 +145,7 @@ public final class MzQuantMLIndexerFactory {
 
             try {
 
-                // create xml element extractor                
+                // create xml element extractor
                 initXpathAccess(xmlFilep, xpaths, inMemoryp);
 
                 // create index
@@ -187,7 +187,7 @@ public final class MzQuantMLIndexerFactory {
                 if (xmlExtractor.detectFileEncoding(xmlFilep.toURI().toURL()) != null) {
                     xmlExtractor.setEncoding(xmlExtractor.detectFileEncoding(xmlFilep.toURI().toURL()));
                 }
-                // if XML header doesn't exit, the mzQuantML file should still be valid 
+                // if XML header doesn't exit, the mzQuantML file should still be valid
 //                else {
 //                    throw new IllegalStateException("The mzQuantML file doesn't contain encoding information in the header!");
 //                }
@@ -398,7 +398,7 @@ public final class MzQuantMLIndexerFactory {
         private void initIdMaps()
                 throws IOException {
             for (MzQuantMLElement element : MzQuantMLElement.values()) {
-                // only for elements were an ID map is needed and a xpath is given            
+                // only for elements were an ID map is needed and a xpath is given     
                 if (element.isIdMapped() && element.isIndexed()) {
                     if (element.getClazz().isAssignableFrom(Identifiable.class)
                             || element.getClazz().isAssignableFrom(IdOnly.class)) {

@@ -59,7 +59,7 @@ public class MzQuantMLNamespaceFilter extends XMLFilterImpl {
                                    final Attributes atts)
             throws SAXException {
         // the elements are defined by a qualified schema, but we rip them out of context with the xxindex
-        // so the namespace information is lost and we have to add it again here manually       
+        // so the namespace information is lost and we have to add it again here manually
         LOGGER.trace("Chaning namespace. uri: " + uri + " \tlocalname: " + localName + "\tqName: " + qName + " \tatts: " + atts);
         if (uri.length() == 0) {
             super.startElement(ModelConstants.MZQML_NS, localName, qName, atts);

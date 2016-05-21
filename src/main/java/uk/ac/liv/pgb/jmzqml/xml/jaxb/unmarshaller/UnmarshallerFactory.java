@@ -106,7 +106,7 @@ public final class UnmarshallerFactory {
             //we don't have a validation handler yet
             //unmarshaller.setEventHandler(new DefaultValidationEventHandler());
             // This is used to post-process unmarshalled Java objects and convert
-            // ParamAlternative classes to appropriate sub-classes (CvParam or UserParam). 
+            // ParamAlternative classes to appropriate sub-classes (CvParam or UserParam).
             unmarshaller.setListener(new RawXMLListener(index, cache));
 
             UnmarshallerHandler uh = unmarshaller.getUnmarshallerHandler();

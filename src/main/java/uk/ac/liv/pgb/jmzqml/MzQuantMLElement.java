@@ -1071,7 +1071,7 @@ public enum MzQuantMLElement {
               getCfg().get(UserParam.class.getName()).getUserParamClass(),
               getCfg().get(UserParam.class.getName()).isAutoRefResolving(),
               getCfg().get(UserParam.class.getName()).getRefResolverClass());
-    // variables 
+    // variables
     private String tagName;
     private boolean indexed;
     private String xpath;

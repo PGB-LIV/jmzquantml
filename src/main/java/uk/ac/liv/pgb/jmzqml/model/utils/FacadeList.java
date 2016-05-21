@@ -634,7 +634,7 @@ public class FacadeList<T> extends AbstractCollection<T> implements List<T> {
 
         @Override
         public void remove() {
-            if (this.nextHasBeenCalled == false) {
+            if (!this.nextHasBeenCalled) {
                 throw new IllegalStateException("Next method for sublist iterator must be called at least once before remove can be called.");
             }
 
@@ -813,7 +813,7 @@ public class FacadeList<T> extends AbstractCollection<T> implements List<T> {
 
         @Override
         public void remove() {
-            if (this.nextOrPreviousHasBeenCalled == false) {
+            if (!this.nextOrPreviousHasBeenCalled) {
                 throw new IllegalStateException("Next method for sublist iterator must be called at least once before remove can be called.");
             }
             this.nextOrPreviousHasBeenCalled = false;

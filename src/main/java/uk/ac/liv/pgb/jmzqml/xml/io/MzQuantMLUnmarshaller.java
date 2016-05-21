@@ -46,7 +46,7 @@ public class MzQuantMLUnmarshaller {
 
     private static final int ATT_GRP_NUM = 2;
     private static final Logger LOGGER = Logger.getLogger(MzQuantMLUnmarshaller.class);
-    protected final MzQuantMLIndexer index;
+    private final MzQuantMLIndexer index;
     private final MzQuantMLObjectCache cache;
     /**
      * Members.
