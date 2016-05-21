@@ -54,7 +54,7 @@ public class RowRefResolver extends AbstractReferenceResolver<Row> {
      */
     @Override
     public final void updateObject(final Row object) {
-        // add objects for the refID                   
+        // add objects for the refID              
         String ref = object.getObjectRef();
         if (ref != null) {
             String protGroupXML = this.getIndexer().getXmlString(ref, ProteinGroup.class);

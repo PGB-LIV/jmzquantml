@@ -41,7 +41,7 @@ public final class ModelConstants {
      * Instantiates a new ModelConstants.
      * Private to prevent instantiation
      */
-    private ModelConstants() { 
+    private ModelConstants() {
     }
 
     /**

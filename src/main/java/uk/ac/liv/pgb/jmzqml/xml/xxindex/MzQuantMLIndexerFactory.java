@@ -398,7 +398,7 @@ public final class MzQuantMLIndexerFactory {
         private void initIdMaps()
                 throws IOException {
             for (MzQuantMLElement element : MzQuantMLElement.values()) {
-                // only for elements were an ID map is needed and a xpath is given     
+                // only for elements were an ID map is needed and a xpath is given
                 if (element.isIdMapped() && element.isIndexed()) {
                     if (element.getClazz().isAssignableFrom(Identifiable.class)
                             || element.getClazz().isAssignableFrom(IdOnly.class)) {
