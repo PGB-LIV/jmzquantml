@@ -7,211 +7,211 @@ See <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a>
 Any modifications to this file will be lost upon recompilation of the source schema. 
 Generated on: 2016.05.03 at 03:44:39 PM BST 
 
-  -->
-  <bindings xmlns:tns="http://psidev.info/psi/pi/mzQuantML/1.0.0" if-exists="true" scd="x-schema::tns">
-    <schemaBindings map="false">
-      <package name="uk.ac.liv.pgb.jmzqml.model.mzqml"/>
-    </schemaBindings>
-    <bindings if-exists="true" scd="~tns:MzQuantMLType">
-      <class ref="uk.ac.liv.pgb.jmzqml.model.mzqml.MzQuantML"/>
+    -->
+    <bindings xmlns:tns="http://psidev.info/psi/pi/mzQuantML/1.0.0" if-exists="true" scd="x-schema::tns">
+        <schemaBindings map="false">
+            <package name="uk.ac.liv.pgb.jmzqml.model.mzqml"/>
+        </schemaBindings>
+        <bindings if-exists="true" scd="~tns:MzQuantMLType">
+            <class ref="uk.ac.liv.pgb.jmzqml.model.mzqml.MzQuantML"/>
+        </bindings>
+        <bindings if-exists="true" scd="~tns:CvListType">
+            <class ref="uk.ac.liv.pgb.jmzqml.model.mzqml.CvList"/>
+        </bindings>
+        <bindings if-exists="true" scd="~tns:InputFilesType">
+            <class ref="uk.ac.liv.pgb.jmzqml.model.mzqml.InputFiles"/>
+        </bindings>
+        <bindings if-exists="true" scd="~tns:SearchDatabaseType">
+            <class ref="uk.ac.liv.pgb.jmzqml.model.mzqml.SearchDatabase"/>
+        </bindings>
+        <bindings if-exists="true" scd="~tns:SourceFileType">
+            <class ref="uk.ac.liv.pgb.jmzqml.model.mzqml.SourceFile"/>
+        </bindings>
+        <bindings if-exists="true" scd="~tns:StudyVariableListType">
+            <class ref="uk.ac.liv.pgb.jmzqml.model.mzqml.StudyVariableList"/>
+        </bindings>
+        <bindings if-exists="true" scd="~tns:CvType">
+            <class ref="uk.ac.liv.pgb.jmzqml.model.mzqml.Cv"/>
+        </bindings>
+        <bindings if-exists="true" scd="~tns:RatioListType">
+            <class ref="uk.ac.liv.pgb.jmzqml.model.mzqml.RatioList"/>
+        </bindings>
+        <bindings if-exists="true" scd="~tns:ProteinGroupListType">
+            <class ref="uk.ac.liv.pgb.jmzqml.model.mzqml.ProteinGroupList"/>
+        </bindings>
+        <bindings if-exists="true" scd="~tns:ProteinListType">
+            <class ref="uk.ac.liv.pgb.jmzqml.model.mzqml.ProteinList"/>
+        </bindings>
+        <bindings if-exists="true" scd="~tns:ProteinGroupType">
+            <class ref="uk.ac.liv.pgb.jmzqml.model.mzqml.ProteinGroup"/>
+        </bindings>
+        <bindings if-exists="true" scd="~tns:ProteinRefType">
+            <class ref="uk.ac.liv.pgb.jmzqml.model.mzqml.ProteinRef"/>
+        </bindings>
+        <bindings if-exists="true" scd="~tns:ProteinType">
+            <class ref="uk.ac.liv.pgb.jmzqml.model.mzqml.Protein"/>
+        </bindings>
+        <bindings if-exists="true" scd="~tns:IdentificationRefType">
+            <class ref="uk.ac.liv.pgb.jmzqml.model.mzqml.IdentificationRef"/>
+        </bindings>
+        <bindings if-exists="true" scd="~tns:EvidenceRefType">
+            <class ref="uk.ac.liv.pgb.jmzqml.model.mzqml.EvidenceRef"/>
+        </bindings>
+        <bindings if-exists="true" scd="~tns:DBIdentificationRefType">
+            <class ref="uk.ac.liv.pgb.jmzqml.model.mzqml.DBIdentificationRef"/>
+        </bindings>
+        <bindings if-exists="true" scd="~tns:PeptideConsensusListType">
+            <class ref="uk.ac.liv.pgb.jmzqml.model.mzqml.PeptideConsensusList"/>
+        </bindings>
+        <bindings if-exists="true" scd="~tns:SmallMoleculeListType">
+            <class ref="uk.ac.liv.pgb.jmzqml.model.mzqml.SmallMoleculeList"/>
+        </bindings>
+        <bindings if-exists="true" scd="~tns:PeptideConsensusType">
+            <class ref="uk.ac.liv.pgb.jmzqml.model.mzqml.PeptideConsensus"/>
+        </bindings>
+        <bindings if-exists="true" scd="~tns:SmallMoleculeType">
+            <class ref="uk.ac.liv.pgb.jmzqml.model.mzqml.SmallMolecule"/>
+        </bindings>
+        <bindings if-exists="true" scd="~tns:ModificationType">
+            <class ref="uk.ac.liv.pgb.jmzqml.model.mzqml.Modification"/>
+        </bindings>
+        <bindings if-exists="true" scd="~tns:SmallMolModificationType">
+            <class ref="uk.ac.liv.pgb.jmzqml.model.mzqml.SmallMolModification"/>
+        </bindings>
+        <bindings if-exists="true" scd="~tns:QuantLayerType">
+            <class ref="uk.ac.liv.pgb.jmzqml.model.mzqml.QuantLayer"/>
+        </bindings>
+        <bindings if-exists="true" scd="~tns:RatioQuantLayerType">
+            <class ref="uk.ac.liv.pgb.jmzqml.model.mzqml.RatioQuantLayer"/>
+        </bindings>
+        <bindings if-exists="true" scd="~tns:GlobalQuantLayerType">
+            <class ref="uk.ac.liv.pgb.jmzqml.model.mzqml.GlobalQuantLayer"/>
+        </bindings>
+        <bindings if-exists="true" scd="~tns:ColumnDefinitionType">
+            <class ref="uk.ac.liv.pgb.jmzqml.model.mzqml.ColumnDefinition"/>
+        </bindings>
+        <bindings if-exists="true" scd="~tns:ColumnType">
+            <class ref="uk.ac.liv.pgb.jmzqml.model.mzqml.Column"/>
+        </bindings>
+        <bindings if-exists="true" scd="~tns:DataMatrixType">
+            <class ref="uk.ac.liv.pgb.jmzqml.model.mzqml.DataMatrix"/>
+        </bindings>
+        <bindings if-exists="true" scd="~tns:RowType">
+            <class ref="uk.ac.liv.pgb.jmzqml.model.mzqml.Row"/>
+        </bindings>
+        <bindings if-exists="true" scd="~tns:StudyVariableType">
+            <class ref="uk.ac.liv.pgb.jmzqml.model.mzqml.StudyVariable"/>
+        </bindings>
+        <bindings if-exists="true" scd="~tns:AssayListType">
+            <class ref="uk.ac.liv.pgb.jmzqml.model.mzqml.AssayList"/>
+        </bindings>
+        <bindings if-exists="true" scd="~tns:AssayType">
+            <class ref="uk.ac.liv.pgb.jmzqml.model.mzqml.Assay"/>
+        </bindings>
+        <bindings if-exists="true" scd="~tns:RawFilesGroupType">
+            <class ref="uk.ac.liv.pgb.jmzqml.model.mzqml.RawFilesGroup"/>
+        </bindings>
+        <bindings if-exists="true" scd="~tns:RawFileType">
+            <class ref="uk.ac.liv.pgb.jmzqml.model.mzqml.RawFile"/>
+        </bindings>
+        <bindings if-exists="true" scd="~tns:IdentificationFilesType">
+            <class ref="uk.ac.liv.pgb.jmzqml.model.mzqml.IdentificationFiles"/>
+        </bindings>
+        <bindings if-exists="true" scd="~tns:IdentificationFileType">
+            <class ref="uk.ac.liv.pgb.jmzqml.model.mzqml.IdentificationFile"/>
+        </bindings>
+        <bindings if-exists="true" scd="~tns:MethodFilesType">
+            <class ref="uk.ac.liv.pgb.jmzqml.model.mzqml.MethodFiles"/>
+        </bindings>
+        <bindings if-exists="true" scd="~tns:MethodFileType">
+            <class ref="uk.ac.liv.pgb.jmzqml.model.mzqml.MethodFile"/>
+        </bindings>
+        <bindings if-exists="true" scd="~tns:LabelType">
+            <class ref="uk.ac.liv.pgb.jmzqml.model.mzqml.Label"/>
+        </bindings>
+        <bindings if-exists="true" scd="~tns:RatioType">
+            <class ref="uk.ac.liv.pgb.jmzqml.model.mzqml.Ratio"/>
+        </bindings>
+        <bindings if-exists="true" scd="~tns:FeatureListType">
+            <class ref="uk.ac.liv.pgb.jmzqml.model.mzqml.FeatureList"/>
+        </bindings>
+        <bindings if-exists="true" scd="~tns:FeatureType">
+            <class ref="uk.ac.liv.pgb.jmzqml.model.mzqml.Feature"/>
+        </bindings>
+        <bindings if-exists="true" scd="~tns:ModParamType">
+            <class ref="uk.ac.liv.pgb.jmzqml.model.mzqml.ModParam"/>
+        </bindings>
+        <bindings if-exists="true" scd="~tns:DataProcessingListType">
+            <class ref="uk.ac.liv.pgb.jmzqml.model.mzqml.DataProcessingList"/>
+        </bindings>
+        <bindings if-exists="true" scd="~tns:DataProcessingType">
+            <class ref="uk.ac.liv.pgb.jmzqml.model.mzqml.DataProcessing"/>
+        </bindings>
+        <bindings if-exists="true" scd="~tns:ProcessingMethodType">
+            <class ref="uk.ac.liv.pgb.jmzqml.model.mzqml.ProcessingMethod"/>
+        </bindings>
+        <bindings if-exists="true" scd="~tns:SoftwareListType">
+            <class ref="uk.ac.liv.pgb.jmzqml.model.mzqml.SoftwareList"/>
+        </bindings>
+        <bindings if-exists="true" scd="~tns:SoftwareType">
+            <class ref="uk.ac.liv.pgb.jmzqml.model.mzqml.Software"/>
+        </bindings>
+        <bindings if-exists="true" scd="~tns:cvParamRefType">
+            <class ref="uk.ac.liv.pgb.jmzqml.model.mzqml.CvParamRef"/>
+        </bindings>
+        <bindings if-exists="true" scd="~tns:CVParamType">
+            <class ref="uk.ac.liv.pgb.jmzqml.model.mzqml.CvParam"/>
+        </bindings>
+        <bindings if-exists="true" scd="~tns:AbstractParamType">
+            <class ref="uk.ac.liv.pgb.jmzqml.model.mzqml.AbstractParam"/>
+        </bindings>
+        <bindings if-exists="true" scd="~tns:UserParamType">
+            <class ref="uk.ac.liv.pgb.jmzqml.model.mzqml.UserParam"/>
+        </bindings>
+        <bindings if-exists="true" scd="~tns:ParamListType">
+            <class ref="uk.ac.liv.pgb.jmzqml.model.mzqml.ParamList"/>
+        </bindings>
+        <bindings if-exists="true" scd="~tns:ParamType">
+            <class ref="uk.ac.liv.pgb.jmzqml.model.mzqml.Param"/>
+        </bindings>
+        <bindings if-exists="true" scd="~tns:ExternalDataType">
+            <class ref="uk.ac.liv.pgb.jmzqml.model.mzqml.ExternalData"/>
+        </bindings>
+        <bindings if-exists="true" scd="~tns:FileFormatType">
+            <class ref="uk.ac.liv.pgb.jmzqml.model.mzqml.FileFormat"/>
+        </bindings>
+        <bindings if-exists="true" scd="~tns:ProviderType">
+            <class ref="uk.ac.liv.pgb.jmzqml.model.mzqml.Provider"/>
+        </bindings>
+        <bindings if-exists="true" scd="~tns:PersonType">
+            <class ref="uk.ac.liv.pgb.jmzqml.model.mzqml.Person"/>
+        </bindings>
+        <bindings if-exists="true" scd="~tns:AffiliationType">
+            <class ref="uk.ac.liv.pgb.jmzqml.model.mzqml.Affiliation"/>
+        </bindings>
+        <bindings if-exists="true" scd="~tns:OrganizationType">
+            <class ref="uk.ac.liv.pgb.jmzqml.model.mzqml.Organization"/>
+        </bindings>
+        <bindings if-exists="true" scd="~tns:ParentOrganizationType">
+            <class ref="uk.ac.liv.pgb.jmzqml.model.mzqml.ParentOrganization"/>
+        </bindings>
+        <bindings if-exists="true" scd="~tns:AbstractContactType">
+            <class ref="uk.ac.liv.pgb.jmzqml.model.mzqml.AbstractContact"/>
+        </bindings>
+        <bindings if-exists="true" scd="~tns:ContactRoleType">
+            <class ref="uk.ac.liv.pgb.jmzqml.model.mzqml.ContactRole"/>
+        </bindings>
+        <bindings if-exists="true" scd="~tns:RoleType">
+            <class ref="uk.ac.liv.pgb.jmzqml.model.mzqml.Role"/>
+        </bindings>
+        <bindings if-exists="true" scd="~tns:BibliographicReferenceType">
+            <class ref="uk.ac.liv.pgb.jmzqml.model.mzqml.BibliographicReference"/>
+        </bindings>
+        <bindings if-exists="true" scd="~tns:AuditCollectionType">
+            <class ref="uk.ac.liv.pgb.jmzqml.model.mzqml.AuditCollection"/>
+        </bindings>
+        <bindings if-exists="true" scd="~tns:IdentifiableType">
+            <class ref="uk.ac.liv.pgb.jmzqml.model.mzqml.Identifiable"/>
+        </bindings>
     </bindings>
-    <bindings if-exists="true" scd="~tns:CvListType">
-      <class ref="uk.ac.liv.pgb.jmzqml.model.mzqml.CvList"/>
-    </bindings>
-    <bindings if-exists="true" scd="~tns:InputFilesType">
-      <class ref="uk.ac.liv.pgb.jmzqml.model.mzqml.InputFiles"/>
-    </bindings>
-    <bindings if-exists="true" scd="~tns:SearchDatabaseType">
-      <class ref="uk.ac.liv.pgb.jmzqml.model.mzqml.SearchDatabase"/>
-    </bindings>
-    <bindings if-exists="true" scd="~tns:SourceFileType">
-      <class ref="uk.ac.liv.pgb.jmzqml.model.mzqml.SourceFile"/>
-    </bindings>
-    <bindings if-exists="true" scd="~tns:StudyVariableListType">
-      <class ref="uk.ac.liv.pgb.jmzqml.model.mzqml.StudyVariableList"/>
-    </bindings>
-    <bindings if-exists="true" scd="~tns:CvType">
-      <class ref="uk.ac.liv.pgb.jmzqml.model.mzqml.Cv"/>
-    </bindings>
-    <bindings if-exists="true" scd="~tns:RatioListType">
-      <class ref="uk.ac.liv.pgb.jmzqml.model.mzqml.RatioList"/>
-    </bindings>
-    <bindings if-exists="true" scd="~tns:ProteinGroupListType">
-      <class ref="uk.ac.liv.pgb.jmzqml.model.mzqml.ProteinGroupList"/>
-    </bindings>
-    <bindings if-exists="true" scd="~tns:ProteinListType">
-      <class ref="uk.ac.liv.pgb.jmzqml.model.mzqml.ProteinList"/>
-    </bindings>
-    <bindings if-exists="true" scd="~tns:ProteinGroupType">
-      <class ref="uk.ac.liv.pgb.jmzqml.model.mzqml.ProteinGroup"/>
-    </bindings>
-    <bindings if-exists="true" scd="~tns:ProteinRefType">
-      <class ref="uk.ac.liv.pgb.jmzqml.model.mzqml.ProteinRef"/>
-    </bindings>
-    <bindings if-exists="true" scd="~tns:ProteinType">
-      <class ref="uk.ac.liv.pgb.jmzqml.model.mzqml.Protein"/>
-    </bindings>
-    <bindings if-exists="true" scd="~tns:IdentificationRefType">
-      <class ref="uk.ac.liv.pgb.jmzqml.model.mzqml.IdentificationRef"/>
-    </bindings>
-    <bindings if-exists="true" scd="~tns:EvidenceRefType">
-      <class ref="uk.ac.liv.pgb.jmzqml.model.mzqml.EvidenceRef"/>
-    </bindings>
-    <bindings if-exists="true" scd="~tns:DBIdentificationRefType">
-      <class ref="uk.ac.liv.pgb.jmzqml.model.mzqml.DBIdentificationRef"/>
-    </bindings>
-    <bindings if-exists="true" scd="~tns:PeptideConsensusListType">
-      <class ref="uk.ac.liv.pgb.jmzqml.model.mzqml.PeptideConsensusList"/>
-    </bindings>
-    <bindings if-exists="true" scd="~tns:SmallMoleculeListType">
-      <class ref="uk.ac.liv.pgb.jmzqml.model.mzqml.SmallMoleculeList"/>
-    </bindings>
-    <bindings if-exists="true" scd="~tns:PeptideConsensusType">
-      <class ref="uk.ac.liv.pgb.jmzqml.model.mzqml.PeptideConsensus"/>
-    </bindings>
-    <bindings if-exists="true" scd="~tns:SmallMoleculeType">
-      <class ref="uk.ac.liv.pgb.jmzqml.model.mzqml.SmallMolecule"/>
-    </bindings>
-    <bindings if-exists="true" scd="~tns:ModificationType">
-      <class ref="uk.ac.liv.pgb.jmzqml.model.mzqml.Modification"/>
-    </bindings>
-    <bindings if-exists="true" scd="~tns:SmallMolModificationType">
-      <class ref="uk.ac.liv.pgb.jmzqml.model.mzqml.SmallMolModification"/>
-    </bindings>
-    <bindings if-exists="true" scd="~tns:QuantLayerType">
-      <class ref="uk.ac.liv.pgb.jmzqml.model.mzqml.QuantLayer"/>
-    </bindings>
-    <bindings if-exists="true" scd="~tns:RatioQuantLayerType">
-      <class ref="uk.ac.liv.pgb.jmzqml.model.mzqml.RatioQuantLayer"/>
-    </bindings>
-    <bindings if-exists="true" scd="~tns:GlobalQuantLayerType">
-      <class ref="uk.ac.liv.pgb.jmzqml.model.mzqml.GlobalQuantLayer"/>
-    </bindings>
-    <bindings if-exists="true" scd="~tns:ColumnDefinitionType">
-      <class ref="uk.ac.liv.pgb.jmzqml.model.mzqml.ColumnDefinition"/>
-    </bindings>
-    <bindings if-exists="true" scd="~tns:ColumnType">
-      <class ref="uk.ac.liv.pgb.jmzqml.model.mzqml.Column"/>
-    </bindings>
-    <bindings if-exists="true" scd="~tns:DataMatrixType">
-      <class ref="uk.ac.liv.pgb.jmzqml.model.mzqml.DataMatrix"/>
-    </bindings>
-    <bindings if-exists="true" scd="~tns:RowType">
-      <class ref="uk.ac.liv.pgb.jmzqml.model.mzqml.Row"/>
-    </bindings>
-    <bindings if-exists="true" scd="~tns:StudyVariableType">
-      <class ref="uk.ac.liv.pgb.jmzqml.model.mzqml.StudyVariable"/>
-    </bindings>
-    <bindings if-exists="true" scd="~tns:AssayListType">
-      <class ref="uk.ac.liv.pgb.jmzqml.model.mzqml.AssayList"/>
-    </bindings>
-    <bindings if-exists="true" scd="~tns:AssayType">
-      <class ref="uk.ac.liv.pgb.jmzqml.model.mzqml.Assay"/>
-    </bindings>
-    <bindings if-exists="true" scd="~tns:RawFilesGroupType">
-      <class ref="uk.ac.liv.pgb.jmzqml.model.mzqml.RawFilesGroup"/>
-    </bindings>
-    <bindings if-exists="true" scd="~tns:RawFileType">
-      <class ref="uk.ac.liv.pgb.jmzqml.model.mzqml.RawFile"/>
-    </bindings>
-    <bindings if-exists="true" scd="~tns:IdentificationFilesType">
-      <class ref="uk.ac.liv.pgb.jmzqml.model.mzqml.IdentificationFiles"/>
-    </bindings>
-    <bindings if-exists="true" scd="~tns:IdentificationFileType">
-      <class ref="uk.ac.liv.pgb.jmzqml.model.mzqml.IdentificationFile"/>
-    </bindings>
-    <bindings if-exists="true" scd="~tns:MethodFilesType">
-      <class ref="uk.ac.liv.pgb.jmzqml.model.mzqml.MethodFiles"/>
-    </bindings>
-    <bindings if-exists="true" scd="~tns:MethodFileType">
-      <class ref="uk.ac.liv.pgb.jmzqml.model.mzqml.MethodFile"/>
-    </bindings>
-    <bindings if-exists="true" scd="~tns:LabelType">
-      <class ref="uk.ac.liv.pgb.jmzqml.model.mzqml.Label"/>
-    </bindings>
-    <bindings if-exists="true" scd="~tns:RatioType">
-      <class ref="uk.ac.liv.pgb.jmzqml.model.mzqml.Ratio"/>
-    </bindings>
-    <bindings if-exists="true" scd="~tns:FeatureListType">
-      <class ref="uk.ac.liv.pgb.jmzqml.model.mzqml.FeatureList"/>
-    </bindings>
-    <bindings if-exists="true" scd="~tns:FeatureType">
-      <class ref="uk.ac.liv.pgb.jmzqml.model.mzqml.Feature"/>
-    </bindings>
-    <bindings if-exists="true" scd="~tns:ModParamType">
-      <class ref="uk.ac.liv.pgb.jmzqml.model.mzqml.ModParam"/>
-    </bindings>
-    <bindings if-exists="true" scd="~tns:DataProcessingListType">
-      <class ref="uk.ac.liv.pgb.jmzqml.model.mzqml.DataProcessingList"/>
-    </bindings>
-    <bindings if-exists="true" scd="~tns:DataProcessingType">
-      <class ref="uk.ac.liv.pgb.jmzqml.model.mzqml.DataProcessing"/>
-    </bindings>
-    <bindings if-exists="true" scd="~tns:ProcessingMethodType">
-      <class ref="uk.ac.liv.pgb.jmzqml.model.mzqml.ProcessingMethod"/>
-    </bindings>
-    <bindings if-exists="true" scd="~tns:SoftwareListType">
-      <class ref="uk.ac.liv.pgb.jmzqml.model.mzqml.SoftwareList"/>
-    </bindings>
-    <bindings if-exists="true" scd="~tns:SoftwareType">
-      <class ref="uk.ac.liv.pgb.jmzqml.model.mzqml.Software"/>
-    </bindings>
-    <bindings if-exists="true" scd="~tns:cvParamRefType">
-      <class ref="uk.ac.liv.pgb.jmzqml.model.mzqml.CvParamRef"/>
-    </bindings>
-    <bindings if-exists="true" scd="~tns:CVParamType">
-      <class ref="uk.ac.liv.pgb.jmzqml.model.mzqml.CvParam"/>
-    </bindings>
-    <bindings if-exists="true" scd="~tns:AbstractParamType">
-      <class ref="uk.ac.liv.pgb.jmzqml.model.mzqml.AbstractParam"/>
-    </bindings>
-    <bindings if-exists="true" scd="~tns:UserParamType">
-      <class ref="uk.ac.liv.pgb.jmzqml.model.mzqml.UserParam"/>
-    </bindings>
-    <bindings if-exists="true" scd="~tns:ParamListType">
-      <class ref="uk.ac.liv.pgb.jmzqml.model.mzqml.ParamList"/>
-    </bindings>
-    <bindings if-exists="true" scd="~tns:ParamType">
-      <class ref="uk.ac.liv.pgb.jmzqml.model.mzqml.Param"/>
-    </bindings>
-    <bindings if-exists="true" scd="~tns:ExternalDataType">
-      <class ref="uk.ac.liv.pgb.jmzqml.model.mzqml.ExternalData"/>
-    </bindings>
-    <bindings if-exists="true" scd="~tns:FileFormatType">
-      <class ref="uk.ac.liv.pgb.jmzqml.model.mzqml.FileFormat"/>
-    </bindings>
-    <bindings if-exists="true" scd="~tns:ProviderType">
-      <class ref="uk.ac.liv.pgb.jmzqml.model.mzqml.Provider"/>
-    </bindings>
-    <bindings if-exists="true" scd="~tns:PersonType">
-      <class ref="uk.ac.liv.pgb.jmzqml.model.mzqml.Person"/>
-    </bindings>
-    <bindings if-exists="true" scd="~tns:AffiliationType">
-      <class ref="uk.ac.liv.pgb.jmzqml.model.mzqml.Affiliation"/>
-    </bindings>
-    <bindings if-exists="true" scd="~tns:OrganizationType">
-      <class ref="uk.ac.liv.pgb.jmzqml.model.mzqml.Organization"/>
-    </bindings>
-    <bindings if-exists="true" scd="~tns:ParentOrganizationType">
-      <class ref="uk.ac.liv.pgb.jmzqml.model.mzqml.ParentOrganization"/>
-    </bindings>
-    <bindings if-exists="true" scd="~tns:AbstractContactType">
-      <class ref="uk.ac.liv.pgb.jmzqml.model.mzqml.AbstractContact"/>
-    </bindings>
-    <bindings if-exists="true" scd="~tns:ContactRoleType">
-      <class ref="uk.ac.liv.pgb.jmzqml.model.mzqml.ContactRole"/>
-    </bindings>
-    <bindings if-exists="true" scd="~tns:RoleType">
-      <class ref="uk.ac.liv.pgb.jmzqml.model.mzqml.Role"/>
-    </bindings>
-    <bindings if-exists="true" scd="~tns:BibliographicReferenceType">
-      <class ref="uk.ac.liv.pgb.jmzqml.model.mzqml.BibliographicReference"/>
-    </bindings>
-    <bindings if-exists="true" scd="~tns:AuditCollectionType">
-      <class ref="uk.ac.liv.pgb.jmzqml.model.mzqml.AuditCollection"/>
-    </bindings>
-    <bindings if-exists="true" scd="~tns:IdentifiableType">
-      <class ref="uk.ac.liv.pgb.jmzqml.model.mzqml.Identifiable"/>
-    </bindings>
-  </bindings>
 </bindings>

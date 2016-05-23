@@ -11,13 +11,15 @@ import javax.xml.bind.annotation.XmlType;
 import uk.ac.liv.pgb.jmzqml.model.MzQuantMLObject;
 
 /**
- * Abstract entity allowing either cvParam or userParam to be referenced in other schemas.
+ * Abstract entity allowing either cvParam or userParam to be referenced in
+ * other schemas.
  *
  * <p>
  * Java class for AbstractParamType complex type.
  *
  * <p>
- * The following schema fragment specifies the expected content contained within this class.
+ * The following schema fragment specifies the expected content contained within
+ * this class.
  *
  * <pre>
  * &lt;complexType name="AbstractParamType"&gt;
@@ -187,7 +189,8 @@ public abstract class AbstractParam implements Serializable, MzQuantMLObject {
         } else {
             String refId = unitCv.getId();
             if (refId == null) {
-                throw new IllegalArgumentException("Referenced object does not have an identifier.");
+                throw new IllegalArgumentException(
+                        "Referenced object does not have an identifier.");
             }
             this.unitCvRef = refId;
         }

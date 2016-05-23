@@ -75,7 +75,8 @@ public class MzQuantMLMarshaller {
     public MzQuantMLMarshaller(final String fullFileName) {
         try {
             File file = new File(fullFileName);
-            this.fw = new OutputStreamWriter(new FileOutputStream(file), "UTF-8");
+            this.fw
+                    = new OutputStreamWriter(new FileOutputStream(file), "UTF-8");
         } catch (IOException ioex) {
             ioex.printStackTrace(System.err);
         }
@@ -224,11 +225,13 @@ public class MzQuantMLMarshaller {
                 marshaller.setProperty(Constants.JAXB_FRAGMENT_PROPERTY, true);
                 if (LOGGER.isDebugEnabled()) {
                     LOGGER.debug(
-                            "Object '" + object.getClass().getName() + "' will be treated as root element.");
+                            "Object '" + object.getClass().getName()
+                            + "' will be treated as root element.");
                 }
             } else if (LOGGER.isDebugEnabled()) {
                 LOGGER.debug(
-                        "Object '" + object.getClass().getName() + "' will be treated as fragment.");
+                        "Object '" + object.getClass().getName()
+                        + "' will be treated as fragment.");
             }
 
             QName aQName = ModelConstants.getQNameForClass(object.getClass());
@@ -244,7 +247,8 @@ public class MzQuantMLMarshaller {
             XMLOutputFactory factory = XMLOutputFactory.newFactory();
             XMLStreamWriter xmlStreamWriter = factory.createXMLStreamWriter(out);
 
-            // Note: the EscapingXMLStreamWriter should default to "UTF-8" as character encoding, but does not on all platforms.
+            // Note: the EscapingXMLStreamWriter should default to "UTF-8" as 
+            // character encoding, but does not on all platforms.
             // Therefore the encoding is hard coded for the default case
             // see EscapingXMLStreamWriter.writeStartDocument()
             IndentingXMLStreamWriter writer = new IndentingXMLStreamWriter(

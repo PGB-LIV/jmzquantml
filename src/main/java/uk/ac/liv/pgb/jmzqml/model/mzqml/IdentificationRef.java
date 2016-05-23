@@ -12,13 +12,17 @@ import javax.xml.bind.annotation.XmlType;
 import uk.ac.liv.pgb.jmzqml.model.MzQuantMLObject;
 
 /**
- * A reference to an external identification file defined in the document, plus a unique identifier for the object in that file, such as an ID of a SpectrumIdentificationItem, ProteinDetectionHypothesis or ProteinAmbiguityGroup in mzIdentML.
+ * A reference to an external identification file defined in the document, plus
+ * a unique identifier for the object in that file, such as an ID of a
+ * SpectrumIdentificationItem, ProteinDetectionHypothesis or
+ * ProteinAmbiguityGroup in mzIdentML.
  *
  * <p>
  * Java class for IdentificationRefType complex type.
  *
  * <p>
- * The following schema fragment specifies the expected content contained within this class.
+ * The following schema fragment specifies the expected content contained within
+ * this class.
  *
  * <pre>
  * &lt;complexType name="IdentificationRefType"&gt;
@@ -66,7 +70,8 @@ public class IdentificationRef
         } else {
             String refId = identificationFile.getId();
             if (refId == null) {
-                throw new IllegalArgumentException("Referenced object does not have an identifier.");
+                throw new IllegalArgumentException(
+                        "Referenced object does not have an identifier.");
             }
             this.identificationFileRef = refId;
         }
@@ -80,7 +85,8 @@ public class IdentificationRef
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the idRefs property.
+     * This is why there is not a <CODE>set</CODE> method for the idRefs
+     * property.
      *
      * <p>
      * For example, to add a new item, do as follows:

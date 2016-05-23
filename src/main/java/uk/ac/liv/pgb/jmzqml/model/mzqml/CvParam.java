@@ -12,7 +12,8 @@ import org.apache.commons.lang3.builder.HashCodeBuilder;
  * Java class for CVParamType complex type.
  *
  * <p>
- * The following schema fragment specifies the expected content contained within this class.
+ * The following schema fragment specifies the expected content contained within
+ * this class.
  *
  * <pre>
  * &lt;complexType name="CVParamType"&gt;
@@ -62,7 +63,8 @@ public class CvParam
         } else {
             String refId = cv.getId();
             if (refId == null) {
-                throw new IllegalArgumentException("Referenced object does not have an identifier.");
+                throw new IllegalArgumentException(
+                        "Referenced object does not have an identifier.");
             }
             this.cvRef = refId;
         }

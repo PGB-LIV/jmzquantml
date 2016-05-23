@@ -63,11 +63,14 @@ public class FeatureListRefResolver extends AbstractReferenceResolver<FeatureLis
      * applies to the specified object.
      *
      * @param target the object to modify after unmarshalling.
-     * @param parent object referencing the target. Null if target is root element.
+     * @param parent object referencing the target. Null if target is root
+     *               element.
      */
     @Override
     public final void afterUnmarshal(final Object target, final Object parent) {
-        if (FeatureList.class.isInstance(target) && MzQuantMLElement.FeatureList.isAutoRefResolving()) {
+        if (FeatureList.class.isInstance(target)
+                && MzQuantMLElement.FeatureList.
+                isAutoRefResolving()) {
             updateObject((FeatureList) target);
         } // else, not business of this resolver
     }

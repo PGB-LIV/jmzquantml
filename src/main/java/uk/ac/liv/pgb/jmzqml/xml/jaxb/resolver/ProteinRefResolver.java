@@ -54,15 +54,18 @@ public class ProteinRefResolver extends AbstractReferenceResolver<Protein> {
     public final void updateObject(final Protein object) {
         String ref1 = object.getSearchDatabaseRef();
         if (ref1 != null) {
-            SearchDatabase refObject1 = this.unmarshal(ref1, SearchDatabase.class);
+            SearchDatabase refObject1 = this.unmarshal(ref1,
+                                                       SearchDatabase.class);
             object.setSearchDatabase(refObject1);
         }
 
         List<String> refs = object.getPeptideConsensusRefs();
-        List<PeptideConsensus> peptideConsensuses = object.getPeptideConsensuses();
+        List<PeptideConsensus> peptideConsensuses = object.
+                getPeptideConsensuses();
 
         for (String ref2 : refs) {
-            PeptideConsensus refObject2 = this.unmarshal(ref2, PeptideConsensus.class);
+            PeptideConsensus refObject2 = this.unmarshal(ref2,
+                                                         PeptideConsensus.class);
             peptideConsensuses.add(refObject2);
         }
         object.setPeptideConsensuses(peptideConsensuses);
@@ -73,11 +76,13 @@ public class ProteinRefResolver extends AbstractReferenceResolver<Protein> {
      * applies to the specified object.
      *
      * @param target the object to modify after unmarshalling.
-     * @param parent object referencing the target. Null if target is root element.
+     * @param parent object referencing the target. Null if target is root
+     *               element.
      */
     @Override
     public final void afterUnmarshal(final Object target, final Object parent) {
-        if (Protein.class.isInstance(target) && MzQuantMLElement.Protein.isAutoRefResolving()) {
+        if (Protein.class.isInstance(target) && MzQuantMLElement.Protein.
+                isAutoRefResolving()) {
             updateObject((Protein) target);
         } // else, not business of this resolver
     }

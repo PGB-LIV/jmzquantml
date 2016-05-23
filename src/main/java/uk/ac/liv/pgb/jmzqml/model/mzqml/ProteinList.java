@@ -12,13 +12,16 @@ import uk.ac.liv.pgb.jmzqml.model.ParamGroupCapable;
 import uk.ac.liv.pgb.jmzqml.model.utils.FacadeList;
 
 /**
- * The list of all individual proteins (i.e. ungrouped) for which quantitation values are being reported. If quantitation is done on protein groups, the constituent proteins should be listed here with no QuantLayers.
+ * The list of all individual proteins (i.e. ungrouped) for which quantitation
+ * values are being reported. If quantitation is done on protein groups, the
+ * constituent proteins should be listed here with no QuantLayers.
  *
  * <p>
  * Java class for ProteinListType complex type.
  *
  * <p>
- * The following schema fragment specifies the expected content contained within this class.
+ * The following schema fragment specifies the expected content contained within
+ * this class.
  *
  * <pre>
  * &lt;complexType name="ProteinListType"&gt;
@@ -77,7 +80,8 @@ public class ProteinList
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the protein property.
+     * This is why there is not a <CODE>set</CODE> method for the protein
+     * property.
      *
      * <p>
      * For example, to add a new item, do as follows:
@@ -107,7 +111,8 @@ public class ProteinList
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the globalQuantLayer property.
+     * This is why there is not a <CODE>set</CODE> method for the
+     * globalQuantLayer property.
      *
      * <p>
      * For example, to add a new item, do as follows:
@@ -136,7 +141,8 @@ public class ProteinList
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the assayQuantLayer property.
+     * This is why there is not a <CODE>set</CODE> method for the
+     * assayQuantLayer property.
      *
      * <p>
      * For example, to add a new item, do as follows:
@@ -165,7 +171,8 @@ public class ProteinList
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the studyVariableQuantLayer property.
+     * This is why there is not a <CODE>set</CODE> method for the
+     * studyVariableQuantLayer property.
      *
      * <p>
      * For example, to add a new item, do as follows:
@@ -218,7 +225,8 @@ public class ProteinList
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the paramGroup property.
+     * This is why there is not a <CODE>set</CODE> method for the paramGroup
+     * property.
      *
      * <p>
      * For example, to add a new item, do as follows:

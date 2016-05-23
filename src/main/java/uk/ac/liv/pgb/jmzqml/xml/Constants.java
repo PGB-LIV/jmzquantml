@@ -42,19 +42,26 @@ public final class Constants {
     }
 
     /**
-     * The name of the property used to specify the output encoding in the marshalled XML data.
+     * The name of the property used to specify the output encoding in the
+     * marshalled XML data.
      */
     public static final String JAXB_ENCODING_PROPERTY = "jaxb.encoding";
     /**
-     * The name of the property used to specify whether or not the marshalled XML data is formatted with linefeeds and indentation.
+     * The name of the property used to specify whether or not the marshalled
+     * XML data is formatted with linefeeds and indentation.
      */
-    public static final String JAXB_FORMATTING_PROPERTY = "jaxb.formatted.output";
+    public static final String JAXB_FORMATTING_PROPERTY
+            = "jaxb.formatted.output";
     /**
-     * The name of the property used to specify the xsi:schemaLocation attribute value to place in the marshalled XML output.
+     * The name of the property used to specify the xsi:schemaLocation attribute
+     * value to place in the marshalled XML output.
      */
-    public static final String JAXB_SCHEMALOCATION_PROPERTY = "jaxb.schemaLocation";
+    public static final String JAXB_SCHEMALOCATION_PROPERTY
+            = "jaxb.schemaLocation";
     /**
-     * The name of the property used to specify whether or not the marshaller will generate document level events (ie calling startDocument or endDocument).
+     * The name of the property used to specify whether or not the marshaller
+     * will generate document level events (ie calling startDocument or
+     * endDocument).
      */
     public static final String JAXB_FRAGMENT_PROPERTY = "jaxb.fragment";
     private static final Set<String> TEMP_XPATHS_TO_INDEX = new HashSet<>();

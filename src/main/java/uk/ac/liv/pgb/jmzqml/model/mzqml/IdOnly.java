@@ -10,13 +10,15 @@ import javax.xml.bind.annotation.XmlType;
 import uk.ac.liv.pgb.jmzqml.model.MzQuantMLObject;
 
 /**
- * Other classes in the model can be specified as sub-classes, inheriting from IdOnly. IdOnly gives classes a unique identifier within the scope.
+ * Other classes in the model can be specified as sub-classes, inheriting from
+ * IdOnly. IdOnly gives classes a unique identifier within the scope.
  *
  * <p>
  * Java class for IdOnlyType complex type.
  *
  * <p>
- * The following schema fragment specifies the expected content contained within this class.
+ * The following schema fragment specifies the expected content contained within
+ * this class.
  *
  * <pre>
  * &lt;complexType name="IdOnlyType"&gt;

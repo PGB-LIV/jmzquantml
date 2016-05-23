@@ -13,13 +13,22 @@ import uk.ac.liv.pgb.jmzqml.model.CvParamListCapable;
 import uk.ac.liv.pgb.jmzqml.model.MzQuantMLObject;
 
 /**
- * A molecule modification specification. If n modifications have been found on a peptide, there should be n instances of Modification. If multiple	modifications are provided as cvParams, it is assumed that the modification is ambiguous i.e. one modification or another. A cvParam must be provided with the identification of the modification sourced from a suitable CV e.g. UNIMOD. If the modification is not present in the CV (and this will be checked by the semantic validator within a given tolerance window), there is an _unknown modification_CV term that must be used instead. A neutral loss should be defined as an additional CVParam within Modification.
+ * A molecule modification specification. If n modifications have been found on
+ * a peptide, there should be n instances of Modification. If multiple
+ * modifications are provided as cvParams, it is assumed that the modification
+ * is ambiguous i.e. one modification or another. A cvParam must be provided
+ * with the identification of the modification sourced from a suitable CV e.g.
+ * UNIMOD. If the modification is not present in the CV (and this will be
+ * checked by the semantic validator within a given tolerance window), there is
+ * an _unknown modification_CV term that must be used instead. A neutral loss
+ * should be defined as an additional CVParam within Modification.
  *
  * <p>
  * Java class for ModificationType complex type.
  *
  * <p>
- * The following schema fragment specifies the expected content contained within this class.
+ * The following schema fragment specifies the expected content contained within
+ * this class.
  *
  * <pre>
  * &lt;complexType name="ModificationType"&gt;
@@ -65,7 +74,8 @@ public class Modification
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the cvParam property.
+     * This is why there is not a <CODE>set</CODE> method for the cvParam
+     * property.
      *
      * <p>
      * For example, to add a new item, do as follows:
@@ -120,7 +130,8 @@ public class Modification
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the residues property.
+     * This is why there is not a <CODE>set</CODE> method for the residues
+     * property.
      *
      * <p>
      * For example, to add a new item, do as follows:

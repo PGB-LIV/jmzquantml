@@ -235,7 +235,8 @@ public class MzQuantMLUnmarshaller {
             } else {
                 // not a name - value pair, something is wrong!
                 System.out.println(
-                        "Unexpected number of groups for XML attribute: " + match.
+                        "Unexpected number of groups for XML attribute: "
+                        + match.
                         groupCount() + " in tag: " + xmlTag);
             }
 
@@ -343,7 +344,8 @@ public class MzQuantMLUnmarshaller {
         if (!index.isIDmapped(id, clazz)) {
             throw new IllegalArgumentException(
                     "No entry found for ID: " + id + " and Class: " + clazz
-                    + ". Make sure the element you are looking for has an ID attribute and is id-mapped!");
+                    + ". Make sure the element you are looking for has an ID "
+                    + "attribute and is id-mapped!");
         }
         String xmlSt = index.getXmlString(id, clazz);
         return generateObject(clazz, xmlSt);
@@ -415,7 +417,8 @@ public class MzQuantMLUnmarshaller {
             retval = retrieveFromXML(clazz, xpath);
         } else {
             LOGGER.info(
-                    "No xpath or index entry for class " + clazz + "! Can not unmarshal!");
+                    "No xpath or index entry for class " + clazz
+                    + "! Can not unmarshal!");
         }
         return retval;
     }

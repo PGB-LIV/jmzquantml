@@ -46,7 +46,9 @@ public class ParentOrganizationRefResolver extends AbstractReferenceResolver<Par
      */
     @Override
     public final void afterUnmarshal(final Object target, final Object parent) {
-        if (ParentOrganization.class.isInstance(target) && MzQuantMLElement.ParentOrganization.isAutoRefResolving()) {
+        if (ParentOrganization.class.isInstance(target)
+                && MzQuantMLElement.ParentOrganization.
+                isAutoRefResolving()) {
             updateObject((ParentOrganization) target);
         } // else, not business of this resolver
     }

@@ -10,13 +10,16 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
 /**
- * A person's name and contact details. Any additional information such as the address, contact email etc. should be supplied using CV parameters or user parameters.
+ * A person's name and contact details. Any additional information such as the
+ * address, contact email etc. should be supplied using CV parameters or user
+ * parameters.
  *
  * <p>
  * Java class for PersonType complex type.
  *
  * <p>
- * The following schema fragment specifies the expected content contained within this class.
+ * The following schema fragment specifies the expected content contained within
+ * this class.
  *
  * <pre>
  * &lt;complexType name="PersonType"&gt;
@@ -59,7 +62,8 @@ public class Person
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the affiliation property.
+     * This is why there is not a <CODE>set</CODE> method for the affiliation
+     * property.
      *
      * <p>
      * For example, to add a new item, do as follows:

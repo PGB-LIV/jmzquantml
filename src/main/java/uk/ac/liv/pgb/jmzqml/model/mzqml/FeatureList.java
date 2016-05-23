@@ -20,7 +20,8 @@ import uk.ac.liv.pgb.jmzqml.model.utils.FacadeList;
  * Java class for FeatureListType complex type.
  *
  * <p>
- * The following schema fragment specifies the expected content contained within this class.
+ * The following schema fragment specifies the expected content contained within
+ * this class.
  *
  * <pre>
  * &lt;complexType name="FeatureListType"&gt;
@@ -97,7 +98,8 @@ public class FeatureList
         } else {
             String refId = rawFilesGroup.getId();
             if (refId == null) {
-                throw new IllegalArgumentException("Referenced object does not have an identifier.");
+                throw new IllegalArgumentException(
+                        "Referenced object does not have an identifier.");
             }
             this.rawFilesGroupRef = refId;
         }
@@ -111,7 +113,8 @@ public class FeatureList
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the feature property.
+     * This is why there is not a <CODE>set</CODE> method for the feature
+     * property.
      *
      * <p>
      * For example, to add a new item, do as follows:
@@ -141,7 +144,8 @@ public class FeatureList
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the featureQuantLayer property.
+     * This is why there is not a <CODE>set</CODE> method for the
+     * featureQuantLayer property.
      *
      * <p>
      * For example, to add a new item, do as follows:
@@ -171,7 +175,8 @@ public class FeatureList
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the ms2AssayQuantLayer property.
+     * This is why there is not a <CODE>set</CODE> method for the
+     * ms2AssayQuantLayer property.
      *
      * <p>
      * For example, to add a new item, do as follows:
@@ -201,7 +206,8 @@ public class FeatureList
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the ms2StudyVariableQuantLayer property.
+     * This is why there is not a <CODE>set</CODE> method for the
+     * ms2StudyVariableQuantLayer property.
      *
      * <p>
      * For example, to add a new item, do as follows:
@@ -249,13 +255,15 @@ public class FeatureList
     }
 
     /**
-     * CV terms for the FeatureList, such as the MassTrace encoding scheme.Gets the value of the paramGroup property.
+     * CV terms for the FeatureList, such as the MassTrace encoding scheme.Gets
+     * the value of the paramGroup property.
      *
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the paramGroup property.
+     * This is why there is not a <CODE>set</CODE> method for the paramGroup
+     * property.
      *
      * <p>
      * For example, to add a new item, do as follows:

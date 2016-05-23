@@ -15,13 +15,16 @@ import uk.ac.liv.pgb.jmzqml.model.ParamGroupCapable;
 import uk.ac.liv.pgb.jmzqml.model.utils.FacadeList;
 
 /**
- * Describes a single analysis of a sample (e.g. with the channel mapping in iTRAQ), which could constitute multiple raw files e.g. if pre-separation steps have occurred.
+ * Describes a single analysis of a sample (e.g. with the channel mapping in
+ * iTRAQ), which could constitute multiple raw files e.g. if pre-separation
+ * steps have occurred.
  *
  * <p>
  * Java class for AssayType complex type.
  *
  * <p>
- * The following schema fragment specifies the expected content contained within this class.
+ * The following schema fragment specifies the expected content contained within
+ * this class.
  *
  * <pre>
  * &lt;complexType name="AssayType"&gt;
@@ -92,7 +95,8 @@ public class Assay
         } else {
             String refId = rawFilesGroup.getId();
             if (refId == null) {
-                throw new IllegalArgumentException("Referenced object does not have an identifier.");
+                throw new IllegalArgumentException(
+                        "Referenced object does not have an identifier.");
             }
             this.rawFilesGroupRef = refId;
         }
@@ -126,7 +130,8 @@ public class Assay
             for (IdentificationFile identificationFile : identificationFiles) {
                 String refId = identificationFile.getId();
                 if (refId == null) {
-                    throw new IllegalArgumentException("Referenced object does not have an identifier.");
+                    throw new IllegalArgumentException(
+                            "Referenced object does not have an identifier.");
                 }
                 this.identificationFileRefs.add(refId);
             }
@@ -165,7 +170,8 @@ public class Assay
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the identificationFileRefs property.
+     * This is why there is not a <CODE>set</CODE> method for the
+     * identificationFileRefs property.
      *
      * <p>
      * For example, to add a new item, do as follows:
@@ -189,13 +195,15 @@ public class Assay
     }
 
     /**
-     * Additional parameters about the Assay.Gets the value of the paramGroup property.
+     * Additional parameters about the Assay.Gets the value of the paramGroup
+     * property.
      *
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the paramGroup property.
+     * This is why there is not a <CODE>set</CODE> method for the paramGroup
+     * property.
      *
      * <p>
      * For example, to add a new item, do as follows:

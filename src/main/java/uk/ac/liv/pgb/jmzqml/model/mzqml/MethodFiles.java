@@ -11,13 +11,15 @@ import javax.xml.bind.annotation.XmlType;
 import uk.ac.liv.pgb.jmzqml.model.MzQuantMLObject;
 
 /**
- * All methods files associated with this quantitation analysis to be referenced elsewhere, for example used to describe TraML files used in SRM analysis.
+ * All methods files associated with this quantitation analysis to be referenced
+ * elsewhere, for example used to describe TraML files used in SRM analysis.
  *
  * <p>
  * Java class for MethodFilesType complex type.
  *
  * <p>
- * The following schema fragment specifies the expected content contained within this class.
+ * The following schema fragment specifies the expected content contained within
+ * this class.
  *
  * <pre>
  * &lt;complexType name="MethodFilesType"&gt;
@@ -51,7 +53,8 @@ public class MethodFiles
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the methodFile property.
+     * This is why there is not a <CODE>set</CODE> method for the methodFile
+     * property.
      *
      * <p>
      * For example, to add a new item, do as follows:

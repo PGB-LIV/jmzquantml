@@ -60,9 +60,11 @@ public class AssayRefResolver extends AbstractReferenceResolver<Assay> {
         }
 
         List<String> refs = object.getIdentificationFileRefs();
-        List<IdentificationFile> identificationFiles = object.getIdentificationFiles();
+        List<IdentificationFile> identificationFiles = object.
+                getIdentificationFiles();
         for (String ref2 : refs) {
-            IdentificationFile refObject2 = this.unmarshal(ref2, IdentificationFile.class);
+            IdentificationFile refObject2 = this.unmarshal(ref2,
+                                                           IdentificationFile.class);
             identificationFiles.add(refObject2);
         }
         object.setIdentificationFiles(identificationFiles);
@@ -73,11 +75,13 @@ public class AssayRefResolver extends AbstractReferenceResolver<Assay> {
      * applies to the specified object.
      *
      * @param target the object to modify after unmarshalling.
-     * @param parent object referencing the target. Null if target is root element.
+     * @param parent object referencing the target. Null if target is root
+     *               element.
      */
     @Override
     public final void afterUnmarshal(final Object target, final Object parent) {
-        if (Assay.class.isInstance(target) && MzQuantMLElement.Assay.isAutoRefResolving()) {
+        if (Assay.class.isInstance(target) && MzQuantMLElement.Assay.
+                isAutoRefResolving()) {
             updateObject((Assay) target);
         } // else, not business of this resolver
     }

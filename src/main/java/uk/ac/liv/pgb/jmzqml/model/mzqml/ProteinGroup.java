@@ -14,13 +14,17 @@ import uk.ac.liv.pgb.jmzqml.model.ParamGroupCapable;
 import uk.ac.liv.pgb.jmzqml.model.utils.FacadeList;
 
 /**
- * A grouping of quantified proteins based on ambiguous assignment of peptide evidence to protein identification. The semantics of elements within the group, such as a leading protein or those sharing equal evidence can be reported using cvParams.
+ * A grouping of quantified proteins based on ambiguous assignment of peptide
+ * evidence to protein identification. The semantics of elements within the
+ * group, such as a leading protein or those sharing equal evidence can be
+ * reported using cvParams.
  *
  * <p>
  * Java class for ProteinGroupType complex type.
  *
  * <p>
- * The following schema fragment specifies the expected content contained within this class.
+ * The following schema fragment specifies the expected content contained within
+ * this class.
  *
  * <pre>
  * &lt;complexType name="ProteinGroupType"&gt;
@@ -85,7 +89,8 @@ public class ProteinGroup
         } else {
             String refId = searchDatabase.getId();
             if (refId == null) {
-                throw new IllegalArgumentException("Referenced object does not have an identifier.");
+                throw new IllegalArgumentException(
+                        "Referenced object does not have an identifier.");
             }
             this.searchDatabaseRef = refId;
         }
@@ -99,7 +104,8 @@ public class ProteinGroup
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the identificationRef property.
+     * This is why there is not a <CODE>set</CODE> method for the
+     * identificationRef property.
      *
      * <p>
      * For example, to add a new item, do as follows:
@@ -129,7 +135,8 @@ public class ProteinGroup
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the proteinRef property.
+     * This is why there is not a <CODE>set</CODE> method for the proteinRef
+     * property.
      *
      * <p>
      * For example, to add a new item, do as follows:
@@ -153,13 +160,15 @@ public class ProteinGroup
     }
 
     /**
-     * Additional parameters or values about this protein group.Gets the value of the paramGroup property.
+     * Additional parameters or values about this protein group.Gets the value
+     * of the paramGroup property.
      *
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the paramGroup property.
+     * This is why there is not a <CODE>set</CODE> method for the paramGroup
+     * property.
      *
      * <p>
      * For example, to add a new item, do as follows:

@@ -13,13 +13,15 @@ import uk.ac.liv.pgb.jmzqml.model.CvParamCapable;
 import uk.ac.liv.pgb.jmzqml.model.MzQuantMLObject;
 
 /**
- * The modification searched for or used to define the label or tag for quantification. It SHOULD be sourced from UniMod, PSI-MS or PSI-MOD.
+ * The modification searched for or used to define the label or tag for
+ * quantification. It SHOULD be sourced from UniMod, PSI-MS or PSI-MOD.
  *
  * <p>
  * Java class for ModParamType complex type.
  *
  * <p>
- * The following schema fragment specifies the expected content contained within this class.
+ * The following schema fragment specifies the expected content contained within
+ * this class.
  *
  * <pre>
  * &lt;complexType name="ModParamType"&gt;
@@ -109,7 +111,8 @@ public class ModParam
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the residues property.
+     * This is why there is not a <CODE>set</CODE> method for the residues
+     * property.
      *
      * <p>
      * For example, to add a new item, do as follows:

@@ -18,7 +18,8 @@ import uk.ac.liv.pgb.jmzqml.model.utils.FacadeList;
  * Java class for SmallMoleculeListType complex type.
  *
  * <p>
- * The following schema fragment specifies the expected content contained within this class.
+ * The following schema fragment specifies the expected content contained within
+ * this class.
  *
  * <pre>
  * &lt;complexType name="SmallMoleculeListType"&gt;
@@ -77,7 +78,8 @@ public class SmallMoleculeList
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the smallMolecule property.
+     * This is why there is not a <CODE>set</CODE> method for the smallMolecule
+     * property.
      *
      * <p>
      * For example, to add a new item, do as follows:
@@ -107,7 +109,8 @@ public class SmallMoleculeList
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the globalQuantLayer property.
+     * This is why there is not a <CODE>set</CODE> method for the
+     * globalQuantLayer property.
      *
      * <p>
      * For example, to add a new item, do as follows:
@@ -137,7 +140,8 @@ public class SmallMoleculeList
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the assayQuantLayer property.
+     * This is why there is not a <CODE>set</CODE> method for the
+     * assayQuantLayer property.
      *
      * <p>
      * For example, to add a new item, do as follows:
@@ -167,7 +171,8 @@ public class SmallMoleculeList
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the studyVariableQuantLayer property.
+     * This is why there is not a <CODE>set</CODE> method for the
+     * studyVariableQuantLayer property.
      *
      * <p>
      * For example, to add a new item, do as follows:
@@ -221,7 +226,8 @@ public class SmallMoleculeList
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the paramGroup property.
+     * This is why there is not a <CODE>set</CODE> method for the paramGroup
+     * property.
      *
      * <p>
      * For example, to add a new item, do as follows:

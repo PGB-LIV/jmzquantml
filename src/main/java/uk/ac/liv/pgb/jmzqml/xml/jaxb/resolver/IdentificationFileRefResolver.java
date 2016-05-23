@@ -63,11 +63,14 @@ public class IdentificationFileRefResolver extends AbstractReferenceResolver<Ide
      * applies to the specified object.
      *
      * @param target the object to modify after unmarshalling.
-     * @param parent object referencing the target. Null if target is root element.
+     * @param parent object referencing the target. Null if target is root
+     *               element.
      */
     @Override
     public final void afterUnmarshal(final Object target, final Object parent) {
-        if (IdentificationFile.class.isInstance(target) && MzQuantMLElement.IdentificationFile.isAutoRefResolving()) {
+        if (IdentificationFile.class.isInstance(target)
+                && MzQuantMLElement.IdentificationFile.
+                isAutoRefResolving()) {
             updateObject((IdentificationFile) target);
         } // else, not business of this resolver
     }

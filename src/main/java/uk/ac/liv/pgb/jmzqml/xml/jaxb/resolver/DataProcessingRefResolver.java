@@ -69,32 +69,46 @@ public class DataProcessingRefResolver extends AbstractReferenceResolver<DataPro
 
         for (String refInput : refsInput) {
             // Decide the class type
-            String rawFilesGroupXML = this.getIndexer().getXmlString(refInput, RawFilesGroup.class);
-            String featureListXML = this.getIndexer().getXmlString(refInput, FeatureList.class);
-            String peptideListXML = this.getIndexer().getXmlString(refInput, PeptideConsensusList.class);
-            String proteinListXML = this.getIndexer().getXmlString(refInput, ProteinList.class);
-            String proteinGroupListXML = this.getIndexer().getXmlString(refInput, ProteinGroupList.class);
-            String quantLayerXML = this.getIndexer().getXmlString(refInput, QuantLayer.class);
+            String rawFilesGroupXML = this.getIndexer().getXmlString(refInput,
+                                                                     RawFilesGroup.class);
+            String featureListXML = this.getIndexer().getXmlString(refInput,
+                                                                   FeatureList.class);
+            String peptideListXML = this.getIndexer().getXmlString(refInput,
+                                                                   PeptideConsensusList.class);
+            String proteinListXML = this.getIndexer().getXmlString(refInput,
+                                                                   ProteinList.class);
+            String proteinGroupListXML = this.getIndexer().
+                    getXmlString(refInput, ProteinGroupList.class);
+            String quantLayerXML = this.getIndexer().getXmlString(refInput,
+                                                                  QuantLayer.class);
             if (rawFilesGroupXML != null) {
-                RawFilesGroup refObject = this.unmarshal(refInput, RawFilesGroup.class);
+                RawFilesGroup refObject = this.unmarshal(refInput,
+                                                         RawFilesGroup.class);
                 inputObjects.add(refObject);
             } else if (featureListXML != null) {
-                FeatureList refObject = this.unmarshal(refInput, FeatureList.class);
+                FeatureList refObject = this.unmarshal(refInput,
+                                                       FeatureList.class);
                 inputObjects.add(refObject);
             } else if (peptideListXML != null) {
-                PeptideConsensusList refObject = this.unmarshal(refInput, PeptideConsensusList.class);
+                PeptideConsensusList refObject = this.unmarshal(refInput,
+                                                                PeptideConsensusList.class);
                 inputObjects.add(refObject);
             } else if (proteinListXML != null) {
-                ProteinList refObject = this.unmarshal(refInput, ProteinList.class);
+                ProteinList refObject = this.unmarshal(refInput,
+                                                       ProteinList.class);
                 inputObjects.add(refObject);
             } else if (proteinGroupListXML != null) {
-                ProteinGroupList refObject = this.unmarshal(refInput, ProteinGroupList.class);
+                ProteinGroupList refObject = this.unmarshal(refInput,
+                                                            ProteinGroupList.class);
                 inputObjects.add(refObject);
             } else if (quantLayerXML != null) {
-                QuantLayer refObject = this.unmarshal(refInput, QuantLayer.class);
+                QuantLayer refObject = this.
+                        unmarshal(refInput, QuantLayer.class);
                 inputObjects.add(refObject);
             } else {
-                throw new IllegalStateException("Could not resolve input referecence " + refInput + " to required element");
+                throw new IllegalStateException(
+                        "Could not resolve input referecence " + refInput
+                        + " to required element");
             }
         }
         object.setInputObjects(inputObjects);
@@ -104,32 +118,46 @@ public class DataProcessingRefResolver extends AbstractReferenceResolver<DataPro
 
         for (String refOutput : refsOutput) {
             // Decide the class type
-            String rawFilesGroupXML = this.getIndexer().getXmlString(refOutput, RawFilesGroup.class);
-            String featureListXML = this.getIndexer().getXmlString(refOutput, FeatureList.class);
-            String peptideListXML = this.getIndexer().getXmlString(refOutput, PeptideConsensusList.class);
-            String proteinListXML = this.getIndexer().getXmlString(refOutput, ProteinList.class);
-            String proteinGroupListXML = this.getIndexer().getXmlString(refOutput, ProteinGroupList.class);
-            String quantLayerXML = this.getIndexer().getXmlString(refOutput, QuantLayer.class);
+            String rawFilesGroupXML = this.getIndexer().getXmlString(refOutput,
+                                                                     RawFilesGroup.class);
+            String featureListXML = this.getIndexer().getXmlString(refOutput,
+                                                                   FeatureList.class);
+            String peptideListXML = this.getIndexer().getXmlString(refOutput,
+                                                                   PeptideConsensusList.class);
+            String proteinListXML = this.getIndexer().getXmlString(refOutput,
+                                                                   ProteinList.class);
+            String proteinGroupListXML = this.getIndexer().getXmlString(
+                    refOutput, ProteinGroupList.class);
+            String quantLayerXML = this.getIndexer().getXmlString(refOutput,
+                                                                  QuantLayer.class);
             if (rawFilesGroupXML != null) {
-                RawFilesGroup refObject = this.unmarshal(refOutput, RawFilesGroup.class);
+                RawFilesGroup refObject = this.unmarshal(refOutput,
+                                                         RawFilesGroup.class);
                 outputObjects.add(refObject);
             } else if (featureListXML != null) {
-                FeatureList refObject = this.unmarshal(refOutput, FeatureList.class);
+                FeatureList refObject = this.unmarshal(refOutput,
+                                                       FeatureList.class);
                 outputObjects.add(refObject);
             } else if (peptideListXML != null) {
-                PeptideConsensusList refObject = this.unmarshal(refOutput, PeptideConsensusList.class);
+                PeptideConsensusList refObject = this.unmarshal(refOutput,
+                                                                PeptideConsensusList.class);
                 outputObjects.add(refObject);
             } else if (proteinListXML != null) {
-                ProteinList refObject = this.unmarshal(refOutput, ProteinList.class);
+                ProteinList refObject = this.unmarshal(refOutput,
+                                                       ProteinList.class);
                 outputObjects.add(refObject);
             } else if (proteinGroupListXML != null) {
-                ProteinGroupList refObject = this.unmarshal(refOutput, ProteinGroupList.class);
+                ProteinGroupList refObject = this.unmarshal(refOutput,
+                                                            ProteinGroupList.class);
                 outputObjects.add(refObject);
             } else if (quantLayerXML != null) {
-                QuantLayer refObject = this.unmarshal(refOutput, QuantLayer.class);
+                QuantLayer refObject = this.unmarshal(refOutput,
+                                                      QuantLayer.class);
                 outputObjects.add(refObject);
             } else {
-                throw new IllegalStateException("Could not resolve output referecence " + refOutput + " to required element");
+                throw new IllegalStateException(
+                        "Could not resolve output referecence " + refOutput
+                        + " to required element");
             }
         }
         object.setOutputObjects(outputObjects);
@@ -140,11 +168,14 @@ public class DataProcessingRefResolver extends AbstractReferenceResolver<DataPro
      * applies to the specified object.
      *
      * @param target the object to modify after unmarshalling.
-     * @param parent object referencing the target. Null if target is root element.
+     * @param parent object referencing the target. Null if target is root
+     *               element.
      */
     @Override
     public final void afterUnmarshal(final Object target, final Object parent) {
-        if (DataProcessing.class.isInstance(target) && MzQuantMLElement.DataProcessing.isAutoRefResolving()) {
+        if (DataProcessing.class.isInstance(target)
+                && MzQuantMLElement.DataProcessing.
+                isAutoRefResolving()) {
             updateObject((DataProcessing) target);
         }
     }

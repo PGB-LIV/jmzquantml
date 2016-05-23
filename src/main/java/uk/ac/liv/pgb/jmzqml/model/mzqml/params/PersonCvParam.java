@@ -29,6 +29,7 @@ import uk.ac.liv.pgb.jmzqml.model.mzqml.CvParam;
  * @time 02-May-2013 17:45:40
  */
 public class PersonCvParam extends CvParam {
-	private static final long serialVersionUID = 1L;
-    
+
+    private static final long serialVersionUID = 1L;
+
 }

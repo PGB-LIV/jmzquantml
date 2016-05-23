@@ -54,31 +54,41 @@ public class RatioRefResolver extends AbstractReferenceResolver<Ratio> {
 
         String refDen = object.getDenominatorRef();
         if (refDen != null) {
-            String assayXML = this.getIndexer().getXmlString(refDen, Assay.class);
-            String studyVariableXML = this.getIndexer().getXmlString(refDen, StudyVariable.class);
+            String assayXML = this.getIndexer().
+                    getXmlString(refDen, Assay.class);
+            String studyVariableXML = this.getIndexer().getXmlString(refDen,
+                                                                     StudyVariable.class);
             if (assayXML != null && studyVariableXML == null) {
                 Assay refObject = this.unmarshal(refDen, Assay.class);
                 object.setDenominator(refObject);
             } else if (assayXML == null && studyVariableXML != null) {
-                StudyVariable refObject = this.unmarshal(refDen, StudyVariable.class);
+                StudyVariable refObject = this.unmarshal(refDen,
+                                                         StudyVariable.class);
                 object.setDenominator(refObject);
             } else {
-                throw new IllegalStateException("Could not uniquely resolve Denominator reference " + refDen);
+                throw new IllegalStateException(
+                        "Could not uniquely resolve Denominator reference "
+                        + refDen);
             }
         }
 
         String refNum = object.getNumeratorRef();
         if (refNum != null) {
-            String assayXML = this.getIndexer().getXmlString(refNum, Assay.class);
-            String studyVariableXML = this.getIndexer().getXmlString(refNum, StudyVariable.class);
+            String assayXML = this.getIndexer().
+                    getXmlString(refNum, Assay.class);
+            String studyVariableXML = this.getIndexer().getXmlString(refNum,
+                                                                     StudyVariable.class);
             if (assayXML != null && studyVariableXML == null) {
                 Assay refObject = this.unmarshal(refNum, Assay.class);
                 object.setNumerator(refObject);
             } else if (assayXML == null && studyVariableXML != null) {
-                StudyVariable refObject = this.unmarshal(refNum, StudyVariable.class);
+                StudyVariable refObject = this.unmarshal(refNum,
+                                                         StudyVariable.class);
                 object.setNumerator(refObject);
             } else {
-                throw new IllegalStateException("Could not uniquely resolve Numerator reference " + refNum);
+                throw new IllegalStateException(
+                        "Could not uniquely resolve Numerator reference "
+                        + refNum);
             }
         }
     }
@@ -88,11 +98,13 @@ public class RatioRefResolver extends AbstractReferenceResolver<Ratio> {
      * applies to the specified object.
      *
      * @param target the object to modify after unmarshalling.
-     * @param parent object referencing the target. Null if target is root element.
+     * @param parent object referencing the target. Null if target is root
+     *               element.
      */
     @Override
     public final void afterUnmarshal(final Object target, final Object parent) {
-        if (Ratio.class.isInstance(target) && MzQuantMLElement.Ratio.isAutoRefResolving()) {
+        if (Ratio.class.isInstance(target) && MzQuantMLElement.Ratio.
+                isAutoRefResolving()) {
             updateObject((Ratio) target);
         } // else, not business of this resolver
     }

@@ -15,13 +15,15 @@ import uk.ac.liv.pgb.jmzqml.model.ParamGroupCapable;
 import uk.ac.liv.pgb.jmzqml.model.utils.FacadeList;
 
 /**
- * One protein that has been quantified in the file, including references to peptides on which the quantification is based.
+ * One protein that has been quantified in the file, including references to
+ * peptides on which the quantification is based.
  *
  * <p>
  * Java class for ProteinType complex type.
  *
  * <p>
- * The following schema fragment specifies the expected content contained within this class.
+ * The following schema fragment specifies the expected content contained within
+ * this class.
  *
  * <pre>
  * &lt;complexType name="ProteinType"&gt;
@@ -97,7 +99,8 @@ public class Protein
             for (PeptideConsensus peptideConsensus : peptideConsensuses) {
                 String refId = peptideConsensus.getId();
                 if (refId == null) {
-                    throw new IllegalArgumentException("Referenced object does not have an identifier.");
+                    throw new IllegalArgumentException(
+                            "Referenced object does not have an identifier.");
                 }
                 this.peptideConsensusRefs.add(refId);
             }
@@ -125,7 +128,8 @@ public class Protein
         } else {
             String refId = searchDatabase.getId();
             if (refId == null) {
-                throw new IllegalArgumentException("Referenced object does not have an identifier.");
+                throw new IllegalArgumentException(
+                        "Referenced object does not have an identifier.");
             }
             this.searchDatabaseRef = refId;
         }
@@ -139,7 +143,8 @@ public class Protein
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the identificationRef property.
+     * This is why there is not a <CODE>set</CODE> method for the
+     * identificationRef property.
      *
      * <p>
      * For example, to add a new item, do as follows:
@@ -169,7 +174,8 @@ public class Protein
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the peptideConsensusRefs property.
+     * This is why there is not a <CODE>set</CODE> method for the
+     * peptideConsensusRefs property.
      *
      * <p>
      * For example, to add a new item, do as follows:
@@ -193,13 +199,15 @@ public class Protein
     }
 
     /**
-     * Additional parameters or values about this protein.Gets the value of the paramGroup property.
+     * Additional parameters or values about this protein.Gets the value of the
+     * paramGroup property.
      *
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the paramGroup property.
+     * This is why there is not a <CODE>set</CODE> method for the paramGroup
+     * property.
      *
      * <p>
      * For example, to add a new item, do as follows:

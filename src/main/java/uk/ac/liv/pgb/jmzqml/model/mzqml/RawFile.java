@@ -14,13 +14,19 @@ import uk.ac.liv.pgb.jmzqml.model.ParamGroupCapable;
 import uk.ac.liv.pgb.jmzqml.model.utils.FacadeList;
 
 /**
- * A raw mass spectrometry output file that has been analysed e.g. in mzML format. The same raw file can be referenced in multiple assays, for example if it contains multiple samples differentially labelled or tagged. Note, the name raw file does not necessarily imply that the file has not been processed, since in some quant methods, processed peak list formats such as MGF or DTA can be used, which could be referenced here.
+ * A raw mass spectrometry output file that has been analysed e.g. in mzML
+ * format. The same raw file can be referenced in multiple assays, for example
+ * if it contains multiple samples differentially labelled or tagged. Note, the
+ * name raw file does not necessarily imply that the file has not been
+ * processed, since in some quant methods, processed peak list formats such as
+ * MGF or DTA can be used, which could be referenced here.
  *
  * <p>
  * Java class for RawFileType complex type.
  *
  * <p>
- * The following schema fragment specifies the expected content contained within this class.
+ * The following schema fragment specifies the expected content contained within
+ * this class.
  *
  * <pre>
  * &lt;complexType name="RawFileType"&gt;
@@ -74,7 +80,8 @@ public class RawFile
         } else {
             String refId = methodFile.getId();
             if (refId == null) {
-                throw new IllegalArgumentException("Referenced object does not have an identifier.");
+                throw new IllegalArgumentException(
+                        "Referenced object does not have an identifier.");
             }
             this.methodFileRef = refId;
         }
@@ -82,13 +89,15 @@ public class RawFile
     }
 
     /**
-     * Additional parameters about the raw file.Gets the value of the paramGroup property.
+     * Additional parameters about the raw file.Gets the value of the paramGroup
+     * property.
      *
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the paramGroup property.
+     * This is why there is not a <CODE>set</CODE> method for the paramGroup
+     * property.
      *
      * <p>
      * For example, to add a new item, do as follows:

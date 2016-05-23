@@ -6,13 +6,15 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlType;
 
 /**
- * A single methods file associated with this analysis e.g. a TraML file used for SRM analysis.
+ * A single methods file associated with this analysis e.g. a TraML file used
+ * for SRM analysis.
  *
  * <p>
  * Java class for MethodFileType complex type.
  *
  * <p>
- * The following schema fragment specifies the expected content contained within this class.
+ * The following schema fragment specifies the expected content contained within
+ * this class.
  *
  * <pre>
  * &lt;complexType name="MethodFileType"&gt;

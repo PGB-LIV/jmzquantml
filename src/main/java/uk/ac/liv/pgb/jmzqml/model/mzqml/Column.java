@@ -18,7 +18,8 @@ import uk.ac.liv.pgb.jmzqml.model.MzQuantMLObject;
  * Java class for ColumnType complex type.
  *
  * <p>
- * The following schema fragment specifies the expected content contained within this class.
+ * The following schema fragment specifies the expected content contained within
+ * this class.
  *
  * <pre>
  * &lt;complexType name="ColumnType"&gt;

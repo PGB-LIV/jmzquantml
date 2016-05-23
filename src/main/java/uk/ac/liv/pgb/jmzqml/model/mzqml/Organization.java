@@ -7,13 +7,16 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
 /**
- * Organizations are entities like companies, universities, government agencies. Any additional information such as the address, email etc. should be supplied either as CV parameters or as user parameters.
+ * Organizations are entities like companies, universities, government agencies.
+ * Any additional information such as the address, email etc. should be supplied
+ * either as CV parameters or as user parameters.
  *
  * <p>
  * Java class for OrganizationType complex type.
  *
  * <p>
- * The following schema fragment specifies the expected content contained within this class.
+ * The following schema fragment specifies the expected content contained within
+ * this class.
  *
  * <pre>
  * &lt;complexType name="OrganizationType"&gt;

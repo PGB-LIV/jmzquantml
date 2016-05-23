@@ -11,13 +11,15 @@ import javax.xml.bind.annotation.XmlType;
 import uk.ac.liv.pgb.jmzqml.model.MzQuantMLObject;
 
 /**
- * All the raw files, identification files and databases used in the quantitation.
+ * All the raw files, identification files and databases used in the
+ * quantitation.
  *
  * <p>
  * Java class for InputFilesType complex type.
  *
  * <p>
- * The following schema fragment specifies the expected content contained within this class.
+ * The following schema fragment specifies the expected content contained within
+ * this class.
  *
  * <pre>
  * &lt;complexType name="InputFilesType"&gt;
@@ -67,7 +69,8 @@ public class InputFiles
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the rawFilesGroup property.
+     * This is why there is not a <CODE>set</CODE> method for the rawFilesGroup
+     * property.
      *
      * <p>
      * For example, to add a new item, do as follows:
@@ -145,7 +148,8 @@ public class InputFiles
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the searchDatabase property.
+     * This is why there is not a <CODE>set</CODE> method for the searchDatabase
+     * property.
      *
      * <p>
      * For example, to add a new item, do as follows:
@@ -175,7 +179,8 @@ public class InputFiles
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the sourceFile property.
+     * This is why there is not a <CODE>set</CODE> method for the sourceFile
+     * property.
      *
      * <p>
      * For example, to add a new item, do as follows:

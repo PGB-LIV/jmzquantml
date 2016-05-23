@@ -10,13 +10,15 @@ import javax.xml.bind.annotation.XmlSeeAlso;
 import javax.xml.bind.annotation.XmlType;
 
 /**
- * Data external to the XML instance document. The location of the data file is given in the location attribute.
+ * Data external to the XML instance document. The location of the data file is
+ * given in the location attribute.
  *
  * <p>
  * Java class for ExternalDataType complex type.
  *
  * <p>
- * The following schema fragment specifies the expected content contained within this class.
+ * The following schema fragment specifies the expected content contained within
+ * this class.
  *
  * <pre>
  * &lt;complexType name="ExternalDataType"&gt;

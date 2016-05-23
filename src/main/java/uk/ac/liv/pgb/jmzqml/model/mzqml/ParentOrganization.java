@@ -10,13 +10,15 @@ import javax.xml.bind.annotation.XmlType;
 import uk.ac.liv.pgb.jmzqml.model.MzQuantMLObject;
 
 /**
- * The containing organization (the university or business which a lab belongs to, etc.)
+ * The containing organization (the university or business which a lab belongs
+ * to, etc.)
  *
  * <p>
  * Java class for ParentOrganizationType complex type.
  *
  * <p>
- * The following schema fragment specifies the expected content contained within this class.
+ * The following schema fragment specifies the expected content contained within
+ * this class.
  *
  * <pre>
  * &lt;complexType name="ParentOrganizationType"&gt;
@@ -62,7 +64,8 @@ public class ParentOrganization
         } else {
             String refId = organization.getId();
             if (refId == null) {
-                throw new IllegalArgumentException("Referenced object does not have an identifier.");
+                throw new IllegalArgumentException(
+                        "Referenced object does not have an identifier.");
             }
             this.organizationRef = refId;
         }

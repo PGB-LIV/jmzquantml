@@ -12,13 +12,16 @@ import javax.xml.bind.annotation.XmlType;
 import uk.ac.liv.pgb.jmzqml.model.MzQuantMLObject;
 
 /**
- * Evidence associated with the PeptideConsensus, including mandatory associations to features and optional references to identifications that have been assigned to the feature.
+ * Evidence associated with the PeptideConsensus, including mandatory
+ * associations to features and optional references to identifications that have
+ * been assigned to the feature.
  *
  * <p>
  * Java class for EvidenceRefType complex type.
  *
  * <p>
- * The following schema fragment specifies the expected content contained within this class.
+ * The following schema fragment specifies the expected content contained within
+ * this class.
  *
  * <pre>
  * &lt;complexType name="EvidenceRefType"&gt;
@@ -81,7 +84,8 @@ public class EvidenceRef
             for (Assay assay : assays) {
                 String refId = assay.getId();
                 if (refId == null) {
-                    throw new IllegalArgumentException("Referenced object does not have an identifier.");
+                    throw new IllegalArgumentException(
+                            "Referenced object does not have an identifier.");
                 }
                 this.assayRefs.add(refId);
             }
@@ -109,7 +113,8 @@ public class EvidenceRef
         } else {
             String refId = identificationFile.getId();
             if (refId == null) {
-                throw new IllegalArgumentException("Referenced object does not have an identifier.");
+                throw new IllegalArgumentException(
+                        "Referenced object does not have an identifier.");
             }
             this.identificationFileRef = refId;
         }
@@ -136,7 +141,8 @@ public class EvidenceRef
         } else {
             String refId = feature.getId();
             if (refId == null) {
-                throw new IllegalArgumentException("Referenced object does not have an identifier.");
+                throw new IllegalArgumentException(
+                        "Referenced object does not have an identifier.");
             }
             this.featureRef = refId;
         }
@@ -150,7 +156,8 @@ public class EvidenceRef
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the assayRefs property.
+     * This is why there is not a <CODE>set</CODE> method for the assayRefs
+     * property.
      *
      * <p>
      * For example, to add a new item, do as follows:
@@ -180,7 +187,8 @@ public class EvidenceRef
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the idRefs property.
+     * This is why there is not a <CODE>set</CODE> method for the idRefs
+     * property.
      *
      * <p>
      * For example, to add a new item, do as follows:

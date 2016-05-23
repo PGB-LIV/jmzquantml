@@ -42,11 +42,14 @@ public class AbstractParamUnitCvRefResolver extends AbstractReferenceResolver<Ab
      * applies to the specified object.
      *
      * @param target the object to modify after unmarshalling.
-     * @param parent object referencing the target. Null if target is root element.
+     * @param parent object referencing the target. Null if target is root
+     *               element.
      */
     @Override
     public final void afterUnmarshal(final Object target, final Object parent) {
-        if (AbstractParam.class.isInstance(target) && MzQuantMLElement.AbstractParam.isAutoRefResolving()) {
+        if (AbstractParam.class.isInstance(target)
+                && MzQuantMLElement.AbstractParam.
+                isAutoRefResolving()) {
             updateObject((AbstractParam) target);
         } // else, not business of this resolver
     }

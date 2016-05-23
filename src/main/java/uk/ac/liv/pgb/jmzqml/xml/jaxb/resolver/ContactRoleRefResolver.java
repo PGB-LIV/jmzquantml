@@ -53,7 +53,8 @@ public class ContactRoleRefResolver extends AbstractReferenceResolver<ContactRol
 
         String ref = object.getContactRef();
         if (ref != null) {
-            AbstractContact refObject = this.unmarshal(ref, AbstractContact.class);
+            AbstractContact refObject = this.unmarshal(ref,
+                                                       AbstractContact.class);
             object.setContact(refObject);
         }
     }
@@ -63,11 +64,14 @@ public class ContactRoleRefResolver extends AbstractReferenceResolver<ContactRol
      * applies to the specified object.
      *
      * @param target the object to modify after unmarshalling.
-     * @param parent object referencing the target. Null if target is root element.
+     * @param parent object referencing the target. Null if target is root
+     *               element.
      */
     @Override
     public final void afterUnmarshal(final Object target, final Object parent) {
-        if (ContactRole.class.isInstance(target) && MzQuantMLElement.ContactRole.isAutoRefResolving()) {
+        if (ContactRole.class.isInstance(target)
+                && MzQuantMLElement.ContactRole.
+                isAutoRefResolving()) {
             updateObject((ContactRole) target);
         }
     }

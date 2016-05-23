@@ -28,7 +28,8 @@ import uk.ac.liv.pgb.jmzqml.model.mzqml.UserParam;
  * @institute University of Liverpool
  * @time 02-May-2013 23:09:33
  */
-public class MzQuantMLUserParam extends UserParam{
-	private static final long serialVersionUID = 1L;
+public class MzQuantMLUserParam extends UserParam {
+
+    private static final long serialVersionUID = 1L;
 
 }

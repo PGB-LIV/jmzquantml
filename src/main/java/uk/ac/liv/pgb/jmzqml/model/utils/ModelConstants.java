@@ -51,7 +51,8 @@ public final class ModelConstants {
     /**
      * The name space of the mzQuantML schema.
      */
-    public static final String MZQML_NS = "http://psidev.info/psi/pi/mzQuantML/1.0.0";
+    public static final String MZQML_NS
+            = "http://psidev.info/psi/pi/mzQuantML/1.0.0";
     /**
      * The version of the mzQuantML schema.
      */
@@ -60,20 +61,25 @@ public final class ModelConstants {
      * The file name of the mzQuantML schema.
      */
     //public static final String MZQML_SCHEMA = "http://psidev.info/psi/pi/mzQuantML/mzQuantML_1_0_0.xsd";
-    public static final String MZQML_SCHEMA = "http://www.psidev.info/sites/default/files/mzQuantML_1_0_0.xsd";
+    public static final String MZQML_SCHEMA
+            = "http://www.psidev.info/sites/default/files/mzQuantML_1_0_0.xsd";
 
     /**
      * The location of the mzQuantML schema.
      */
     public static final String MZQML_LOCATION = MZQML_NS + " " + MZQML_SCHEMA;
 
-    private static Map<Class<? extends MzQuantMLObject>, QName> modelQNames = new HashMap<>();
-    private static final Map<Class<? extends MzQuantMLObject>, QName> TEMP_MODEL_QNAMES = new HashMap<>();
+    private static Map<Class<? extends MzQuantMLObject>, QName> modelQNames
+            = new HashMap<>();
+    private static final Map<Class<? extends MzQuantMLObject>, QName> TEMP_MODEL_QNAMES
+            = new HashMap<>();
 
     static {
         for (MzQuantMLElement element : MzQuantMLElement.values()) {
             if (element.getTagName() != null) {
-                TEMP_MODEL_QNAMES.put(element.getClazz(), new QName(MZQML_NS, element.getTagName()));
+                TEMP_MODEL_QNAMES.put(element.getClazz(), new QName(MZQML_NS,
+                                                                    element.
+                                                                    getTagName()));
             }
         }
         //now make set unmodifiable
@@ -81,7 +87,8 @@ public final class ModelConstants {
     }
 
     /**
-     * This method detects if a given class is registered as a class of mzQuantML model.
+     * This method detects if a given class is registered as a class of
+     * mzQuantML model.
      *
      * @param cls a Class parameter.
      *
@@ -104,7 +111,8 @@ public final class ModelConstants {
         if (isRegisteredClass(cls)) {
             return modelQNames.get(cls);
         } else {
-            throw new IllegalStateException("No QName registered for class: " + cls);
+            throw new IllegalStateException(
+                    "No QName registered for class: " + cls);
         }
     }
 
@@ -119,7 +127,8 @@ public final class ModelConstants {
         if (isRegisteredClass(cls)) {
             return modelQNames.get(cls).getLocalPart();
         } else {
-            throw new IllegalStateException("No Element Name registered for class: " + cls);
+            throw new IllegalStateException(
+                    "No Element Name registered for class: " + cls);
         }
     }
 
@@ -132,7 +141,8 @@ public final class ModelConstants {
      */
     public static Class<? extends MzQuantMLObject> getClassForElementName(
             final String name) {
-        for (Entry<Class<? extends MzQuantMLObject>, QName> entry : modelQNames.entrySet()) {
+        for (Entry<Class<? extends MzQuantMLObject>, QName> entry : modelQNames.
+                entrySet()) {
             if (entry.getValue().getLocalPart().equals(name)) {
                 return entry.getKey();
             }

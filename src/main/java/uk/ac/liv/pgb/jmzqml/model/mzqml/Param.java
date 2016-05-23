@@ -10,13 +10,15 @@ import javax.xml.bind.annotation.XmlType;
 import uk.ac.liv.pgb.jmzqml.model.MzQuantMLObject;
 
 /**
- * Helper type to allow either a cvParam or a userParam to be provided for an element.
+ * Helper type to allow either a cvParam or a userParam to be provided for an
+ * element.
  *
  * <p>
  * Java class for ParamType complex type.
  *
  * <p>
- * The following schema fragment specifies the expected content contained within this class.
+ * The following schema fragment specifies the expected content contained within
+ * this class.
  *
  * <pre>
  * &lt;complexType name="ParamType"&gt;

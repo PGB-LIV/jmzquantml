@@ -57,11 +57,15 @@ public class RowRefResolver extends AbstractReferenceResolver<Row> {
         // add objects for the refID
         String ref = object.getObjectRef();
         if (ref != null) {
-            String protGroupXML = this.getIndexer().getXmlString(ref, ProteinGroup.class);
+            String protGroupXML = this.getIndexer().getXmlString(ref,
+                                                                 ProteinGroup.class);
             String protXML = this.getIndexer().getXmlString(ref, Protein.class);
-            String pepXML = this.getIndexer().getXmlString(ref, PeptideConsensus.class);
-            String featureXML = this.getIndexer().getXmlString(ref, Feature.class);
-            String smallMolXML = this.getIndexer().getXmlString(ref, SmallMolecule.class);
+            String pepXML = this.getIndexer().getXmlString(ref,
+                                                           PeptideConsensus.class);
+            String featureXML = this.getIndexer().getXmlString(ref,
+                                                               Feature.class);
+            String smallMolXML = this.getIndexer().getXmlString(ref,
+                                                                SmallMolecule.class);
 
             if (protGroupXML != null) {
                 ProteinGroup refObject = this.unmarshal(ref, ProteinGroup.class);
@@ -70,16 +74,19 @@ public class RowRefResolver extends AbstractReferenceResolver<Row> {
                 Protein refObject = this.unmarshal(ref, Protein.class);
                 object.setObject(refObject);
             } else if (pepXML != null) {
-                PeptideConsensus refObject = this.unmarshal(ref, PeptideConsensus.class);
+                PeptideConsensus refObject = this.unmarshal(ref,
+                                                            PeptideConsensus.class);
                 object.setObject(refObject);
             } else if (featureXML != null) {
                 Feature refObject = this.unmarshal(ref, Feature.class);
                 object.setObject(refObject);
             } else if (smallMolXML != null) {
-                SmallMolecule refObject = this.unmarshal(ref, SmallMolecule.class);
+                SmallMolecule refObject = this.unmarshal(ref,
+                                                         SmallMolecule.class);
                 object.setObject(refObject);
             } else {
-                throw new IllegalStateException("Could not uniquely resolve object reference " + ref);
+                throw new IllegalStateException(
+                        "Could not uniquely resolve object reference " + ref);
             }
 
         }
@@ -90,11 +97,13 @@ public class RowRefResolver extends AbstractReferenceResolver<Row> {
      * applies to the specified object.
      *
      * @param target the object to modify after unmarshalling.
-     * @param parent object referencing the target. Null if target is root element.
+     * @param parent object referencing the target. Null if target is root
+     *               element.
      */
     @Override
     public final void afterUnmarshal(final Object target, final Object parent) {
-        if (Row.class.isInstance(target) && MzQuantMLElement.Row.isAutoRefResolving()) {
+        if (Row.class.isInstance(target) && MzQuantMLElement.Row.
+                isAutoRefResolving()) {
             updateObject((Row) target);
         } // else, not business of this resolver
     }

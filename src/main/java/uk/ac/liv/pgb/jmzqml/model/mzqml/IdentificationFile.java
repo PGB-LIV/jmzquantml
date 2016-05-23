@@ -20,7 +20,8 @@ import uk.ac.liv.pgb.jmzqml.model.utils.FacadeList;
  * Java class for IdentificationFileType complex type.
  *
  * <p>
- * The following schema fragment specifies the expected content contained within this class.
+ * The following schema fragment specifies the expected content contained within
+ * this class.
  *
  * <pre>
  * &lt;complexType name="IdentificationFileType"&gt;
@@ -68,7 +69,8 @@ public class IdentificationFile
     /**
      * Sets the value of the searchDatabase of the identificationFile.
      *
-     * @param searchDatabase the value of the searchDatabase of the identificationFile.
+     * @param searchDatabase the value of the searchDatabase of the
+     *                       identificationFile.
      */
     public void setSearchDatabase(SearchDatabase searchDatabase) {
         if (searchDatabase == null) {
@@ -76,7 +78,8 @@ public class IdentificationFile
         } else {
             String refId = searchDatabase.getId();
             if (refId == null) {
-                throw new IllegalArgumentException("Referenced object does not have an identifier.");
+                throw new IllegalArgumentException(
+                        "Referenced object does not have an identifier.");
             }
             this.searchDatabaseRef = refId;
         }
@@ -84,13 +87,15 @@ public class IdentificationFile
     }
 
     /**
-     * Optional CV or user params for IdentificationFile.Gets the value of the paramGroup property.
+     * Optional CV or user params for IdentificationFile.Gets the value of the
+     * paramGroup property.
      *
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the paramGroup property.
+     * This is why there is not a <CODE>set</CODE> method for the paramGroup
+     * property.
      *
      * <p>
      * For example, to add a new item, do as follows:

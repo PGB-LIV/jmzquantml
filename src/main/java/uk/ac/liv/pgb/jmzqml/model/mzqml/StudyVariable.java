@@ -15,13 +15,15 @@ import uk.ac.liv.pgb.jmzqml.model.ParamGroupCapable;
 import uk.ac.liv.pgb.jmzqml.model.utils.FacadeList;
 
 /**
- * A logical grouping of assays into conditions or user-defined study variables such as wild-type versus disease or time points in a time course.
+ * A logical grouping of assays into conditions or user-defined study variables
+ * such as wild-type versus disease or time points in a time course.
  *
  * <p>
  * Java class for StudyVariableType complex type.
  *
  * <p>
- * The following schema fragment specifies the expected content contained within this class.
+ * The following schema fragment specifies the expected content contained within
+ * this class.
  *
  * <pre>
  * &lt;complexType name="StudyVariableType"&gt;
@@ -88,7 +90,8 @@ public class StudyVariable
             for (Assay assay : assays) {
                 String refId = assay.getId();
                 if (refId == null) {
-                    throw new IllegalArgumentException("Referenced object does not have an identifier.");
+                    throw new IllegalArgumentException(
+                            "Referenced object does not have an identifier.");
                 }
                 this.assayRefs.add(refId);
             }
@@ -97,13 +100,17 @@ public class StudyVariable
     }
 
     /**
-     * The type of StudyVariable e.g. Phenotypic, biological replicate, technical replicate, time points etc. and references to all the assays that are part of this study variable.Gets the value of the paramGroup property.
+     * The type of StudyVariable e.g. Phenotypic, biological replicate,
+     * technical replicate, time points etc. and references to all the assays
+     * that are part of this study variable.Gets the value of the paramGroup
+     * property.
      *
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the paramGroup property.
+     * This is why there is not a <CODE>set</CODE> method for the paramGroup
+     * property.
      *
      * <p>
      * For example, to add a new item, do as follows:
@@ -134,7 +141,8 @@ public class StudyVariable
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the assayRefs property.
+     * This is why there is not a <CODE>set</CODE> method for the assayRefs
+     * property.
      *
      * <p>
      * For example, to add a new item, do as follows:

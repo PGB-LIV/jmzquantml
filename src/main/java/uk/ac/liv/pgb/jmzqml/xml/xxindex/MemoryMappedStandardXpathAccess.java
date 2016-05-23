@@ -213,7 +213,8 @@ public class MemoryMappedStandardXpathAccess implements XpathAccess {
             List<IndexElement> ranges = index.getElements(xpath);
             // get String for ByteRange
             for (IndexElement range : ranges) {
-                if ((start == null || range.getStart() >= start) && (stop == null || range.
+                if ((start == null || range.getStart() >= start) && (stop
+                        == null || range.
                         getStop() <= stop)) {
                     results.add(extractor.readString(range.getStart(), range.
                                                      getStop(),
@@ -224,7 +225,8 @@ public class MemoryMappedStandardXpathAccess implements XpathAccess {
         } else {
             // Error message
             LOG.info(
-                    "The index does not contain any entry for the requested xpath: " + xpath);
+                    "The index does not contain any entry for the requested xpath: "
+                    + xpath);
         }
         return results;
     }
@@ -276,7 +278,8 @@ public class MemoryMappedStandardXpathAccess implements XpathAccess {
                                           stop);
         } else {
             LOG.info(
-                    "The index does not contain any entry for the requested xpath: " + xpath);
+                    "The index does not contain any entry for the requested xpath: "
+                    + xpath);
             // return iterator over empty list
             List<String> s = Collections.emptyList();
             iter = s.iterator();
@@ -319,7 +322,8 @@ public class MemoryMappedStandardXpathAccess implements XpathAccess {
         long skipped = inputStream.skip(start);
         if (skipped != start) {
             throw new IllegalStateException(
-                    "Could not position at requested location, reading compromised! Location: " + start);
+                    "Could not position at requested location, reading compromised! Location: "
+                    + start);
         }
 
         // check whether we are dealing with a gzip'ed file
@@ -390,7 +394,8 @@ public class MemoryMappedStandardXpathAccess implements XpathAccess {
                 validElements = new ArrayList<>();
                 // iterate over the initial list and add only the valid elements to the new list
                 for (IndexElement element : elements) {
-                    if ((start == null || element.getStart() >= start) && (stop == null || element.
+                    if ((start == null || element.getStart() >= start) && (stop
+                            == null || element.
                             getStop() <= stop)) {
                         validElements.add(element);
                     }
@@ -491,7 +496,8 @@ public class MemoryMappedStandardXpathAccess implements XpathAccess {
             List<IndexElement> elements = index.getElements(xpath);
             // get String for ByteRange and get the line number for the range
             for (IndexElement element : elements) {
-                if ((start == null || element.getStart() >= start) && (stop == null || element.
+                if ((start == null || element.getStart() >= start) && (stop
+                        == null || element.
                         getStop() <= stop)) {
                     String tmp = extractor.readString(element.getStart(),
                                                       element.getStop(),
@@ -504,7 +510,8 @@ public class MemoryMappedStandardXpathAccess implements XpathAccess {
         } else {
             // Error message
             LOG.info(
-                    "The index does not contain any entry for the requested xpath: " + xpath);
+                    "The index does not contain any entry for the requested xpath: "
+                    + xpath);
         }
         return results;
     }
@@ -558,7 +565,8 @@ public class MemoryMappedStandardXpathAccess implements XpathAccess {
         } else {
             // Error message
             LOG.info(
-                    "The index does not contain any entry for the requested xpath: " + xpath);
+                    "The index does not contain any entry for the requested xpath: "
+                    + xpath);
             // return iterator over empty list
             List<XmlElement> s = Collections.emptyList();
             iter = s.iterator();
@@ -610,7 +618,8 @@ public class MemoryMappedStandardXpathAccess implements XpathAccess {
                 validElements = new ArrayList<>();
                 // iterate over the initial list and only add the valid elements to the new list
                 for (IndexElement element : elements) {
-                    if ((start == null || element.getStart() >= start) && (stop == null || element.
+                    if ((start == null || element.getStart() >= start) && (stop
+                            == null || element.
                             getStop() <= stop)) {
                         validElements.add(element);
                     }

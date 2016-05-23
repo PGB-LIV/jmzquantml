@@ -11,13 +11,15 @@ import javax.xml.bind.annotation.XmlType;
 import uk.ac.liv.pgb.jmzqml.model.MzQuantMLObject;
 
 /**
- * A matrix of data stored in rows and columns, as defined in the parent QuantLayer.
+ * A matrix of data stored in rows and columns, as defined in the parent
+ * QuantLayer.
  *
  * <p>
  * Java class for DataMatrixType complex type.
  *
  * <p>
- * The following schema fragment specifies the expected content contained within this class.
+ * The following schema fragment specifies the expected content contained within
+ * this class.
  *
  * <pre>
  * &lt;complexType name="DataMatrixType"&gt;

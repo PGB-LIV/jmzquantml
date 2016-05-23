@@ -10,13 +10,18 @@ import javax.xml.bind.annotation.XmlType;
 import uk.ac.liv.pgb.jmzqml.model.ParamListCapable;
 
 /**
- * The setup of a ratio of study variables or assays that is referenced elsewhere in the file. It is expected that the numerator and denominator MUST both be Assays or MUST both be StudyVariables. However, StudyVariables MAY contain 1 to many Assays, thus allowing more complex ratios to be constructed if needed via use of StudyVariables with unbalanced numbers of Assays.
+ * The setup of a ratio of study variables or assays that is referenced
+ * elsewhere in the file. It is expected that the numerator and denominator MUST
+ * both be Assays or MUST both be StudyVariables. However, StudyVariables MAY
+ * contain 1 to many Assays, thus allowing more complex ratios to be constructed
+ * if needed via use of StudyVariables with unbalanced numbers of Assays.
  *
  * <p>
  * Java class for RatioType complex type.
  *
  * <p>
- * The following schema fragment specifies the expected content contained within this class.
+ * The following schema fragment specifies the expected content contained within
+ * this class.
  *
  * <pre>
  * &lt;complexType name="RatioType"&gt;
@@ -84,7 +89,8 @@ public class Ratio
         } else {
             String refId = numerator.getId();
             if (refId == null) {
-                throw new IllegalArgumentException("Referenced object does not have an identifier.");
+                throw new IllegalArgumentException(
+                        "Referenced object does not have an identifier.");
             }
             this.numeratorRef = refId;
         }
@@ -109,7 +115,8 @@ public class Ratio
         } else {
             String refId = denominator.getId();
             if (refId == null) {
-                throw new IllegalArgumentException("Referenced object does not have an identifier.");
+                throw new IllegalArgumentException(
+                        "Referenced object does not have an identifier.");
             }
             this.denominatorRef = refId;
         }

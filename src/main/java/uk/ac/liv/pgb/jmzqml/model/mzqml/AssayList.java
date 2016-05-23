@@ -9,13 +9,15 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
 /**
- * The list of assays represented by the file, where each assay captures the concept of one sample analysed - this can be one or more raw files.
+ * The list of assays represented by the file, where each assay captures the
+ * concept of one sample analysed - this can be one or more raw files.
  *
  * <p>
  * Java class for AssayListType complex type.
  *
  * <p>
- * The following schema fragment specifies the expected content contained within this class.
+ * The following schema fragment specifies the expected content contained within
+ * this class.
  *
  * <pre>
  * &lt;complexType name="AssayListType"&gt;
@@ -50,7 +52,8 @@ public class AssayList
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the assay property.
+     * This is why there is not a <CODE>set</CODE> method for the assay
+     * property.
      *
      * <p>
      * For example, to add a new item, do as follows:

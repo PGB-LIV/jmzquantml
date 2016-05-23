@@ -10,13 +10,16 @@ import javax.xml.bind.annotation.XmlType;
 import uk.ac.liv.pgb.jmzqml.model.MzQuantMLObject;
 
 /**
- * Other classes in the model can be specified as sub-classes, inheriting from Identifiable. Identifiable gives classes a unique identifier within the scope and a name that need not be unique.
+ * Other classes in the model can be specified as sub-classes, inheriting from
+ * Identifiable. Identifiable gives classes a unique identifier within the scope
+ * and a name that need not be unique.
  *
  * <p>
  * Java class for IdentifiableType complex type.
  *
  * <p>
- * The following schema fragment specifies the expected content contained within this class.
+ * The following schema fragment specifies the expected content contained within
+ * this class.
  *
  * <pre>
  * &lt;complexType name="IdentifiableType"&gt;

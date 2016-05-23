@@ -9,13 +9,15 @@ import javax.xml.bind.annotation.XmlTransient;
 import javax.xml.bind.annotation.XmlType;
 
 /**
- * The provider of the document in terms of the Contact and the software the produced the document instance.
+ * The provider of the document in terms of the Contact and the software the
+ * produced the document instance.
  *
  * <p>
  * Java class for ProviderType complex type.
  *
  * <p>
- * The following schema fragment specifies the expected content contained within this class.
+ * The following schema fragment specifies the expected content contained within
+ * this class.
  *
  * <pre>
  * &lt;complexType name="ProviderType"&gt;
@@ -68,7 +70,8 @@ public class Provider
         } else {
             String refId = software.getId();
             if (refId == null) {
-                throw new IllegalArgumentException("Referenced object does not have an identifier.");
+                throw new IllegalArgumentException(
+                        "Referenced object does not have an identifier.");
             }
             this.analysisSoftwareRef = refId;
         }

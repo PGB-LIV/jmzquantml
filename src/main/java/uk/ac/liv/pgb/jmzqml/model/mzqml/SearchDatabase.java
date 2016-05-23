@@ -16,13 +16,15 @@ import uk.ac.liv.pgb.jmzqml.model.ParamCapable;
 import uk.ac.liv.pgb.jmzqml.xml.jaxb.adapter.CalendarAdapter;
 
 /**
- * A database used for searching mass spectra. Examples include a set of amino acid sequence entries, or annotated spectra libraries.
+ * A database used for searching mass spectra. Examples include a set of amino
+ * acid sequence entries, or annotated spectra libraries.
  *
  * <p>
  * Java class for SearchDatabaseType complex type.
  *
  * <p>
- * The following schema fragment specifies the expected content contained within this class.
+ * The following schema fragment specifies the expected content contained within
+ * this class.
  *
  * <pre>
  * &lt;complexType name="SearchDatabaseType"&gt;
@@ -95,7 +97,8 @@ public class SearchDatabase
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the cvParam property.
+     * This is why there is not a <CODE>set</CODE> method for the cvParam
+     * property.
      *
      * <p>
      * For example, to add a new item, do as follows:

@@ -66,11 +66,14 @@ public class SmallMoleculeRefResolver extends AbstractReferenceResolver<SmallMol
      * applies to the specified object.
      *
      * @param target the object to modify after unmarshalling.
-     * @param parent object referencing the target. Null if target is root element.
+     * @param parent object referencing the target. Null if target is root
+     *               element.
      */
     @Override
     public final void afterUnmarshal(final Object target, final Object parent) {
-        if (SmallMolecule.class.isInstance(target) && MzQuantMLElement.SmallMolecule.isAutoRefResolving()) {
+        if (SmallMolecule.class.isInstance(target)
+                && MzQuantMLElement.SmallMolecule.
+                isAutoRefResolving()) {
             updateObject((SmallMolecule) target);
         } // else, not business of this resolver
     }

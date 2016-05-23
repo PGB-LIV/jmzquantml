@@ -15,13 +15,18 @@ import uk.ac.liv.pgb.jmzqml.model.ParamGroupCapable;
 import uk.ac.liv.pgb.jmzqml.model.utils.FacadeList;
 
 /**
- * A region on a (potentially) two-dimensional map of MS1 scans, defined by the retention time, mass over charge and optionally a mass trace. Quantitative values about features can be added in the associated QuantLayers. For techniques that analyse data from single scans e.g. MS2 tagging approaches, a Feature corresponds with the mz of the parent ions only.
+ * A region on a (potentially) two-dimensional map of MS1 scans, defined by the
+ * retention time, mass over charge and optionally a mass trace. Quantitative
+ * values about features can be added in the associated QuantLayers. For
+ * techniques that analyse data from single scans e.g. MS2 tagging approaches, a
+ * Feature corresponds with the mz of the parent ions only.
  *
  * <p>
  * Java class for FeatureType complex type.
  *
  * <p>
- * The following schema fragment specifies the expected content contained within this class.
+ * The following schema fragment specifies the expected content contained within
+ * this class.
  *
  * <pre>
  * &lt;complexType name="FeatureType"&gt;
@@ -98,7 +103,8 @@ public class Feature
         } else {
             String refId = rawFile.getId();
             if (refId == null) {
-                throw new IllegalArgumentException("Referenced object does not have an identifier.");
+                throw new IllegalArgumentException(
+                        "Referenced object does not have an identifier.");
             }
             this.rawFileRef = refId;
         }
@@ -112,7 +118,8 @@ public class Feature
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the massTrace property.
+     * This is why there is not a <CODE>set</CODE> method for the massTrace
+     * property.
      *
      * <p>
      * For example, to add a new item, do as follows:
@@ -136,13 +143,15 @@ public class Feature
     }
 
     /**
-     * Additional parameters or values about this feature.Gets the value of the paramGroup property.
+     * Additional parameters or values about this feature.Gets the value of the
+     * paramGroup property.
      *
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the paramGroup property.
+     * This is why there is not a <CODE>set</CODE> method for the paramGroup
+     * property.
      *
      * <p>
      * For example, to add a new item, do as follows:

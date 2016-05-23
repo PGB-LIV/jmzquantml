@@ -29,6 +29,7 @@ import uk.ac.liv.pgb.jmzqml.model.mzqml.UserParam;
  * @time 23-Apr-2013 15:29:09
  */
 public class ProteinUserParam extends UserParam {
-	private static final long serialVersionUID = 1L;
+
+    private static final long serialVersionUID = 1L;
 
 }

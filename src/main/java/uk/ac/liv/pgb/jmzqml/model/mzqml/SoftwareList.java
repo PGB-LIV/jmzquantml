@@ -11,13 +11,15 @@ import javax.xml.bind.annotation.XmlType;
 import uk.ac.liv.pgb.jmzqml.model.MzQuantMLObject;
 
 /**
- * List and descriptions of software used to acquire and/or process the data in this file.
+ * List and descriptions of software used to acquire and/or process the data in
+ * this file.
  *
  * <p>
  * Java class for SoftwareListType complex type.
  *
  * <p>
- * The following schema fragment specifies the expected content contained within this class.
+ * The following schema fragment specifies the expected content contained within
+ * this class.
  *
  * <pre>
  * &lt;complexType name="SoftwareListType"&gt;
@@ -51,7 +53,8 @@ public class SoftwareList
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the software property.
+     * This is why there is not a <CODE>set</CODE> method for the software
+     * property.
      *
      * <p>
      * For example, to add a new item, do as follows:

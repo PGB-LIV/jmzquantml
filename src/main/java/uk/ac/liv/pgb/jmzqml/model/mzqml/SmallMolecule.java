@@ -14,13 +14,15 @@ import uk.ac.liv.pgb.jmzqml.model.ParamGroupCapable;
 import uk.ac.liv.pgb.jmzqml.model.utils.FacadeList;
 
 /**
- * An element to represent a unique identifier of a small molecule for which quantitative values are reported.
+ * An element to represent a unique identifier of a small molecule for which
+ * quantitative values are reported.
  *
  * <p>
  * Java class for SmallMoleculeType complex type.
  *
  * <p>
- * The following schema fragment specifies the expected content contained within this class.
+ * The following schema fragment specifies the expected content contained within
+ * this class.
  *
  * <pre>
  * &lt;complexType name="SmallMoleculeType"&gt;
@@ -90,7 +92,8 @@ public class SmallMolecule
             for (Feature feature : features) {
                 String refId = feature.getId();
                 if (refId == null) {
-                    throw new IllegalArgumentException("Referenced object does not have an identifier.");
+                    throw new IllegalArgumentException(
+                            "Referenced object does not have an identifier.");
                 }
                 this.featureRefs.add(refId);
             }
@@ -105,7 +108,8 @@ public class SmallMolecule
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the modification property.
+     * This is why there is not a <CODE>set</CODE> method for the modification
+     * property.
      *
      * <p>
      * For example, to add a new item, do as follows:
@@ -134,7 +138,8 @@ public class SmallMolecule
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the dbIdentificationRef property.
+     * This is why there is not a <CODE>set</CODE> method for the
+     * dbIdentificationRef property.
      *
      * <p>
      * For example, to add a new item, do as follows:
@@ -163,7 +168,8 @@ public class SmallMolecule
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the featureRefs property.
+     * This is why there is not a <CODE>set</CODE> method for the featureRefs
+     * property.
      *
      * <p>
      * For example, to add a new item, do as follows:
@@ -187,13 +193,15 @@ public class SmallMolecule
     }
 
     /**
-     * Additional parameters or values about this small molecule.Gets the value of the paramGroup property.
+     * Additional parameters or values about this small molecule.Gets the value
+     * of the paramGroup property.
      *
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the paramGroup property.
+     * This is why there is not a <CODE>set</CODE> method for the paramGroup
+     * property.
      *
      * <p>
      * For example, to add a new item, do as follows:

@@ -15,13 +15,15 @@ import uk.ac.liv.pgb.jmzqml.model.MzQuantMLObject;
 import uk.ac.liv.pgb.jmzqml.model.utils.FacadeList;
 
 /**
- * Helper type to allow multiple cvParams or userParams to be given for an element.
+ * Helper type to allow multiple cvParams or userParams to be given for an
+ * element.
  *
  * <p>
  * Java class for ParamListType complex type.
  *
  * <p>
- * The following schema fragment specifies the expected content contained within this class.
+ * The following schema fragment specifies the expected content contained within
+ * this class.
  *
  * <pre>
  * &lt;complexType name="ParamListType"&gt;
@@ -56,7 +58,8 @@ public class ParamList
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the paramGroup property.
+     * This is why there is not a <CODE>set</CODE> method for the paramGroup
+     * property.
      *
      * <p>
      * For example, to add a new item, do as follows:

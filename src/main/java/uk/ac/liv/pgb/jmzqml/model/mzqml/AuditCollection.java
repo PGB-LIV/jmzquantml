@@ -17,7 +17,8 @@ import uk.ac.liv.pgb.jmzqml.model.MzQuantMLObject;
  * Java class for AuditCollectionType complex type.
  *
  * <p>
- * The following schema fragment specifies the expected content contained within this class.
+ * The following schema fragment specifies the expected content contained within
+ * this class.
  *
  * <pre>
  * &lt;complexType name="AuditCollectionType"&gt;
@@ -55,7 +56,8 @@ public class AuditCollection
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the person property.
+     * This is why there is not a <CODE>set</CODE> method for the person
+     * property.
      *
      * <p>
      * For example, to add a new item, do as follows:
@@ -85,7 +87,8 @@ public class AuditCollection
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the organization property.
+     * This is why there is not a <CODE>set</CODE> method for the organization
+     * property.
      *
      * <p>
      * For example, to add a new item, do as follows:

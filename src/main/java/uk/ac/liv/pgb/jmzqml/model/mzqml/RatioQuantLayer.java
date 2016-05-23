@@ -11,13 +11,15 @@ import javax.xml.bind.annotation.XmlTransient;
 import javax.xml.bind.annotation.XmlType;
 
 /**
- * A collection of data relating to the objects within the parent list type (e.g. PeptideConsensus, Protein or ProteinGroup)
+ * A collection of data relating to the objects within the parent list type
+ * (e.g. PeptideConsensus, Protein or ProteinGroup)
  *
  * <p>
  * Java class for RatioQuantLayerType complex type.
  *
  * <p>
- * The following schema fragment specifies the expected content contained within this class.
+ * The following schema fragment specifies the expected content contained within
+ * this class.
  *
  * <pre>
  * &lt;complexType name="RatioQuantLayerType"&gt;
@@ -76,7 +78,8 @@ public class RatioQuantLayer
             for (Ratio column : columns) {
                 String refId = column.getId();
                 if (refId == null) {
-                    throw new IllegalArgumentException("Referenced object does not have an identifier.");
+                    throw new IllegalArgumentException(
+                            "Referenced object does not have an identifier.");
                 }
                 this.columnIndex.add(refId);
             }
@@ -91,7 +94,8 @@ public class RatioQuantLayer
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the columnIndex property.
+     * This is why there is not a <CODE>set</CODE> method for the columnIndex
+     * property.
      *
      * <p>
      * For example, to add a new item, do as follows:

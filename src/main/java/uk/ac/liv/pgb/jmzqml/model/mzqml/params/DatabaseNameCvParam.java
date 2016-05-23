@@ -28,7 +28,8 @@ import uk.ac.liv.pgb.jmzqml.model.mzqml.CvParam;
  * @institute University of Liverpool
  * @time 23-Apr-2013 15:00:57
  */
-public class DatabaseNameCvParam extends CvParam{
-	private static final long serialVersionUID = 1L;
+public class DatabaseNameCvParam extends CvParam {
+
+    private static final long serialVersionUID = 1L;
 
 }

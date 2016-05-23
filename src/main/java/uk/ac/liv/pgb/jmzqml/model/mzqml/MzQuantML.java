@@ -21,7 +21,8 @@ import uk.ac.liv.pgb.jmzqml.xml.jaxb.adapter.CalendarAdapter;
  * Java class for MzQuantMLType complex type.
  *
  * <p>
- * The following schema fragment specifies the expected content contained within this class.
+ * The following schema fragment specifies the expected content contained within
+ * this class.
  *
  * <pre>
  * &lt;complexType name="MzQuantMLType"&gt;
@@ -293,7 +294,8 @@ public class MzQuantML extends Identifiable {
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the bibliographicReference property.
+     * This is why there is not a <CODE>set</CODE> method for the
+     * bibliographicReference property.
      *
      * <p>
      * For example, to add a new item, do as follows:
@@ -443,7 +445,8 @@ public class MzQuantML extends Identifiable {
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the peptideConsensusList property.
+     * This is why there is not a <CODE>set</CODE> method for the
+     * peptideConsensusList property.
      *
      * <p>
      * For example, to add a new item, do as follows:
@@ -497,7 +500,8 @@ public class MzQuantML extends Identifiable {
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the featureList property.
+     * This is why there is not a <CODE>set</CODE> method for the featureList
+     * property.
      *
      * <p>
      * For example, to add a new item, do as follows:

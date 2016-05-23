@@ -19,7 +19,8 @@ import uk.ac.liv.pgb.jmzqml.model.MzQuantMLObject;
  * Java class for RowType complex type.
  *
  * <p>
- * The following schema fragment specifies the expected content contained within this class.
+ * The following schema fragment specifies the expected content contained within
+ * this class.
  *
  * <pre>
  * &lt;complexType name="RowType"&gt;
@@ -74,7 +75,8 @@ public class Row
         } else {
             String refId = object.getId();
             if (refId == null) {
-                throw new IllegalArgumentException("Referenced object does not have an identifier.");
+                throw new IllegalArgumentException(
+                        "Referenced object does not have an identifier.");
             }
             this.objectRef = refId;
         }
@@ -88,7 +90,8 @@ public class Row
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the value property.
+     * This is why there is not a <CODE>set</CODE> method for the value
+     * property.
      *
      * <p>
      * For example, to add a new item, do as follows:

@@ -29,6 +29,7 @@ import uk.ac.liv.pgb.jmzqml.model.mzqml.CvParam;
  * @time 23-Apr-2013 15:23:17
  */
 public class ProteinGroupListCvParam extends CvParam {
-	private static final long serialVersionUID = 1L;
+
+    private static final long serialVersionUID = 1L;
 
 }

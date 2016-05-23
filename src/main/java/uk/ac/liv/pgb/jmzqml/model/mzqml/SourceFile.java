@@ -6,13 +6,15 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlType;
 
 /**
- * A file from which this MzQuantML instance was created, including potentially MzQuantML files for earlier stages in a workflow.
+ * A file from which this MzQuantML instance was created, including potentially
+ * MzQuantML files for earlier stages in a workflow.
  *
  * <p>
  * Java class for SourceFileType complex type.
  *
  * <p>
- * The following schema fragment specifies the expected content contained within this class.
+ * The following schema fragment specifies the expected content contained within
+ * this class.
  *
  * <pre>
  * &lt;complexType name="SourceFileType"&gt;

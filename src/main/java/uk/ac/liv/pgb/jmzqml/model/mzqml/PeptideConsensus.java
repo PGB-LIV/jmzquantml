@@ -14,13 +14,20 @@ import uk.ac.liv.pgb.jmzqml.model.ParamGroupCapable;
 import uk.ac.liv.pgb.jmzqml.model.utils.FacadeList;
 
 /**
- * An element representing a peptide in different assays that may or may not have been identified. If it has been identified, the sequence and modification(s) SHOULD be reported. Within the parent list, it is allowed for there to be multiple instances of the same peptide sequence, for example capturing different charge states or different modifications, if they are differentially quantified. If peptides with different charge states are aggregated, they should be represented by a single PeptideConsensus element.
+ * An element representing a peptide in different assays that may or may not
+ * have been identified. If it has been identified, the sequence and
+ * modification(s) SHOULD be reported. Within the parent list, it is allowed for
+ * there to be multiple instances of the same peptide sequence, for example
+ * capturing different charge states or different modifications, if they are
+ * differentially quantified. If peptides with different charge states are
+ * aggregated, they should be represented by a single PeptideConsensus element.
  *
  * <p>
  * Java class for PeptideConsensusType complex type.
  *
  * <p>
- * The following schema fragment specifies the expected content contained within this class.
+ * The following schema fragment specifies the expected content contained within
+ * this class.
  *
  * <pre>
  * &lt;complexType name="PeptideConsensusType"&gt;
@@ -92,7 +99,8 @@ public class PeptideConsensus
         } else {
             String refId = searchDatabase.getId();
             if (refId == null) {
-                throw new IllegalArgumentException("Referenced object does not have an identifier.");
+                throw new IllegalArgumentException(
+                        "Referenced object does not have an identifier.");
             }
             this.searchDatabaseRef = refId;
         }
@@ -130,7 +138,8 @@ public class PeptideConsensus
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the modification property.
+     * This is why there is not a <CODE>set</CODE> method for the modification
+     * property.
      *
      * <p>
      * For example, to add a new item, do as follows:
@@ -160,7 +169,8 @@ public class PeptideConsensus
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the evidenceRef property.
+     * This is why there is not a <CODE>set</CODE> method for the evidenceRef
+     * property.
      *
      * <p>
      * For example, to add a new item, do as follows:
@@ -184,13 +194,15 @@ public class PeptideConsensus
     }
 
     /**
-     * Additional parameters or values about this peptide.Gets the value of the paramGroup property.
+     * Additional parameters or values about this peptide.Gets the value of the
+     * paramGroup property.
      *
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the paramGroup property.
+     * This is why there is not a <CODE>set</CODE> method for the paramGroup
+     * property.
      *
      * <p>
      * For example, to add a new item, do as follows:
@@ -221,7 +233,8 @@ public class PeptideConsensus
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the charge property.
+     * This is why there is not a <CODE>set</CODE> method for the charge
+     * property.
      *
      * <p>
      * For example, to add a new item, do as follows:

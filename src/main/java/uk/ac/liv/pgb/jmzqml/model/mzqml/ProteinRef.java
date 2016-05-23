@@ -16,13 +16,16 @@ import uk.ac.liv.pgb.jmzqml.model.ParamGroupCapable;
 import uk.ac.liv.pgb.jmzqml.model.utils.FacadeList;
 
 /**
- * A reference to one of the Proteins contained within this group, along with CV terms describing the role it plays within the group, such as representative or anchor protein, same set or sub-set.
+ * A reference to one of the Proteins contained within this group, along with CV
+ * terms describing the role it plays within the group, such as representative
+ * or anchor protein, same set or sub-set.
  *
  * <p>
  * Java class for ProteinRefType complex type.
  *
  * <p>
- * The following schema fragment specifies the expected content contained within this class.
+ * The following schema fragment specifies the expected content contained within
+ * this class.
  *
  * <pre>
  * &lt;complexType name="ProteinRefType"&gt;
@@ -77,7 +80,8 @@ public class ProteinRef
         } else {
             String refId = protein.getId();
             if (refId == null) {
-                throw new IllegalArgumentException("Referenced object does not have an identifier.");
+                throw new IllegalArgumentException(
+                        "Referenced object does not have an identifier.");
             }
             this.proteinRef = refId;
         }
@@ -85,13 +89,16 @@ public class ProteinRef
     }
 
     /**
-     * Additional parameters or values about this protein, including its role within the group, such as representative or anchor protein, same set or sub-set.Gets the value of the paramGroup property.
+     * Additional parameters or values about this protein, including its role
+     * within the group, such as representative or anchor protein, same set or
+     * sub-set.Gets the value of the paramGroup property.
      *
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the paramGroup property.
+     * This is why there is not a <CODE>set</CODE> method for the paramGroup
+     * property.
      *
      * <p>
      * For example, to add a new item, do as follows:

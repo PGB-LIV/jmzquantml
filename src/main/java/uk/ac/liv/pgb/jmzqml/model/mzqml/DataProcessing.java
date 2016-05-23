@@ -14,13 +14,16 @@ import javax.xml.bind.annotation.XmlTransient;
 import javax.xml.bind.annotation.XmlType;
 
 /**
- * Description of the way in which a particular software package was used to analyse data and for example produce different quant layers or lists in the file.
+ * Description of the way in which a particular software package was used to
+ * analyse data and for example produce different quant layers or lists in the
+ * file.
  *
  * <p>
  * Java class for DataProcessingType complex type.
  *
  * <p>
- * The following schema fragment specifies the expected content contained within this class.
+ * The following schema fragment specifies the expected content contained within
+ * this class.
  *
  * <pre>
  * &lt;complexType name="DataProcessingType"&gt;
@@ -96,7 +99,8 @@ public class DataProcessing
             for (IdOnly inObj : inputObjects) {
                 String refId = inObj.getId();
                 if (refId == null) {
-                    throw new IllegalArgumentException("Referenced object does not have an identifier.");
+                    throw new IllegalArgumentException(
+                            "Referenced object does not have an identifier.");
                 }
                 this.inputObjectRefs.add(refId);
             }
@@ -129,7 +133,8 @@ public class DataProcessing
             for (IdOnly outObj : outputObjects) {
                 String refId = outObj.getId();
                 if (refId == null) {
-                    throw new IllegalArgumentException("Referenced object does not have an identifier.");
+                    throw new IllegalArgumentException(
+                            "Referenced object does not have an identifier.");
                 }
                 this.outputObjectRefs.add(refId);
             }
@@ -157,7 +162,8 @@ public class DataProcessing
         } else {
             String refId = software.getId();
             if (refId == null) {
-                throw new IllegalArgumentException("Referenced object does not have an identifier.");
+                throw new IllegalArgumentException(
+                        "Referenced object does not have an identifier.");
             }
             this.softwareRef = refId;
         }
@@ -171,7 +177,8 @@ public class DataProcessing
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the inputObjectRefs property.
+     * This is why there is not a <CODE>set</CODE> method for the
+     * inputObjectRefs property.
      *
      * <p>
      * For example, to add a new item, do as follows:
@@ -201,7 +208,8 @@ public class DataProcessing
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the outputObjectRefs property.
+     * This is why there is not a <CODE>set</CODE> method for the
+     * outputObjectRefs property.
      *
      * <p>
      * For example, to add a new item, do as follows:
@@ -231,7 +239,8 @@ public class DataProcessing
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the processingMethod property.
+     * This is why there is not a <CODE>set</CODE> method for the
+     * processingMethod property.
      *
      * <p>
      * For example, to add a new item, do as follows:

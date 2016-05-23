@@ -14,7 +14,8 @@ import uk.ac.liv.pgb.jmzqml.model.MzQuantMLObject;
  * Java class for AffiliationType complex type.
  *
  * <p>
- * The following schema fragment specifies the expected content contained within this class.
+ * The following schema fragment specifies the expected content contained within
+ * this class.
  *
  * <pre>
  * &lt;complexType name="AffiliationType"&gt;
@@ -62,7 +63,8 @@ public class Affiliation
     }
 
     /**
-     * Set the Organization for this Affiliation. Update the organizationRef property also.
+     * Set the Organization for this Affiliation. Update the organizationRef
+     * property also.
      *
      * @param organization Organization
      */
@@ -72,7 +74,8 @@ public class Affiliation
         } else {
             String refId = organization.getId();
             if (refId == null) {
-                throw new IllegalArgumentException("Referenced object does not have an identifier.");
+                throw new IllegalArgumentException(
+                        "Referenced object does not have an identifier.");
             }
             this.organizationRef = refId;
         }

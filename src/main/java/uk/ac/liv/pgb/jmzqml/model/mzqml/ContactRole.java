@@ -11,15 +11,19 @@ import javax.xml.bind.annotation.XmlType;
 import uk.ac.liv.pgb.jmzqml.model.MzQuantMLObject;
 
 /**
- * The role that a Contact plays in an organization or with respect to the associating class. A Contact may have several Roles within scope, and as such,
- * associations to ContactRole allow the use of a Contact in a certain manner. Examples
+ * The role that a Contact plays in an organization or with respect to the
+ * associating class. A Contact may have several Roles within scope, and as
+ * such,
+ * associations to ContactRole allow the use of a Contact in a certain manner.
+ * Examples
  * might include a provider, or a data analyst.
  *
  * <p>
  * Java class for ContactRoleType complex type.
  *
  * <p>
- * The following schema fragment specifies the expected content contained within this class.
+ * The following schema fragment specifies the expected content contained within
+ * this class.
  *
  * <pre>
  * &lt;complexType name="ContactRoleType"&gt;
@@ -139,7 +143,8 @@ public class ContactRole
         } else {
             String refId = contact.getId();
             if (refId == null) {
-                throw new IllegalArgumentException("Referenced object does not have an identifier.");
+                throw new IllegalArgumentException(
+                        "Referenced object does not have an identifier.");
             }
             this.contactRef = refId;
         }

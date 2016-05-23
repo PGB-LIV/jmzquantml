@@ -63,7 +63,8 @@ public class EvidenceRefRefResolver extends AbstractReferenceResolver<EvidenceRe
         //identificationFile_ref
         String ref2 = object.getIdentificationFileRef();
         if (ref2 != null) {
-            IdentificationFile refObject2 = this.unmarshal(ref2, IdentificationFile.class);
+            IdentificationFile refObject2 = this.unmarshal(ref2,
+                                                           IdentificationFile.class);
             object.setIdentificationFile(refObject2);
         }
 
@@ -82,11 +83,14 @@ public class EvidenceRefRefResolver extends AbstractReferenceResolver<EvidenceRe
      * applies to the specified object.
      *
      * @param target the object to modify after unmarshalling.
-     * @param parent object referencing the target. Null if target is root element.
+     * @param parent object referencing the target. Null if target is root
+     *               element.
      */
     @Override
     public final void afterUnmarshal(final Object target, final Object parent) {
-        if (EvidenceRef.class.isInstance(target) && MzQuantMLElement.EvidenceRef.isAutoRefResolving()) {
+        if (EvidenceRef.class.isInstance(target)
+                && MzQuantMLElement.EvidenceRef.
+                isAutoRefResolving()) {
             updateObject((EvidenceRef) target);
         } // else, not business of this resolver
     }

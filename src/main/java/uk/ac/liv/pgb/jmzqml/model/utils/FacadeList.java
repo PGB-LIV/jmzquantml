@@ -306,12 +306,14 @@ public class FacadeList<T> extends AbstractCollection<T> implements List<T> {
 
         if (fromIndex > toIndex) {
             throw new IndexOutOfBoundsException(
-                    "The start index needs to be greater than the end index: start index: " + fromIndex + " end index: " + toIndex);
+                    "The start index needs to be greater than the end index: start index: "
+                    + fromIndex + " end index: " + toIndex);
         }
 
         if (toIndex > this.size()) {
             throw new IndexOutOfBoundsException(
-                    "The end index should not be greater than the size of the list: " + toIndex);
+                    "The end index should not be greater than the size of the list: "
+                    + toIndex);
         }
 
         List<T> result = new ArrayList<>();
@@ -523,7 +525,8 @@ public class FacadeList<T> extends AbstractCollection<T> implements List<T> {
         }
         if (!clazz.isInstance(o)) {
             throw new ClassCastException(
-                    "Argument must be an instance of " + clazz.getName() + ". Received instance of " + o.
+                    "Argument must be an instance of " + clazz.getName()
+                    + ". Received instance of " + o.
                     getClass().getName());
         }
     }
@@ -550,7 +553,9 @@ public class FacadeList<T> extends AbstractCollection<T> implements List<T> {
             }
         }
         throw new IndexOutOfBoundsException(
-                "Input index for sublist should be greater than or equal than zero, and less than the size of the list: " + index);
+                "Input index for sublist should be greater than or equal than "
+                + "zero, and less than the size of the list: "
+                + index);
     }
 
     /**
@@ -691,7 +696,8 @@ public class FacadeList<T> extends AbstractCollection<T> implements List<T> {
         public void remove() {
             if (!this.nextHasBeenCalled) {
                 throw new IllegalStateException(
-                        "Next method for sublist iterator must be called at least once before remove can be called.");
+                        "Next method for sublist iterator must be called at "
+                        + "least once before remove can be called.");
             }
 
             this.superList.remove(this.currPosition);
@@ -745,10 +751,12 @@ public class FacadeList<T> extends AbstractCollection<T> implements List<T> {
                 throw new NullPointerException("Input super list cannot be null");
             }
 
-            if (startIndexp < 0 || superListp.size() > 0 && startIndexp >= superListp.
+            if (startIndexp < 0 || superListp.size() > 0 && startIndexp
+                    >= superListp.
                     size() || superListp.isEmpty() && startIndexp > 0) {
                 throw new IndexOutOfBoundsException(
-                        "Start index of the iterator cannot be less than zero or greater-equal than the size of the list");
+                        "Start index of the iterator cannot be less than zero "
+                        + "or greater-equal than the size of the list");
             }
 
             this.superList = superListp;
@@ -762,7 +770,7 @@ public class FacadeList<T> extends AbstractCollection<T> implements List<T> {
          */
         private void initNextPosition() {
             if (this.startIndex > 0) {
-                int matchCnt = 0;    // Keep track of how many instances of interest we have encountered
+                int matchCnt = 0; // Keep track of how many instances of interest we have encountered
                 int cnt = 0;
                 for (Object o : superList) {
                     if (clazz.isInstance(o)) {
@@ -778,7 +786,8 @@ public class FacadeList<T> extends AbstractCollection<T> implements List<T> {
 
                 if (startSuperPosition == -1) {
                     throw new IndexOutOfBoundsException(
-                            "Index out of the bound of the sublist: " + startIndex);
+                            "Index out of the bound of the sublist: "
+                            + startIndex);
                 }
                 currPosition = startSuperPosition - 1;
             } else {
@@ -889,7 +898,8 @@ public class FacadeList<T> extends AbstractCollection<T> implements List<T> {
         public void remove() {
             if (!this.nextOrPreviousHasBeenCalled) {
                 throw new IllegalStateException(
-                        "Next method for sublist iterator must be called at least once before remove can be called.");
+                        "Next method for sublist iterator must be called at "
+                        + "least once before remove can be called.");
             }
             this.nextOrPreviousHasBeenCalled = false;
             this.addOrRemoveCalled = true;

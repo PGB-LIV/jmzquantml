@@ -79,8 +79,10 @@ public final class MarshallerFactory {
                                    Boolean.TRUE);
             marshaller.setProperty(Marshaller.JAXB_FRAGMENT, true);
 
-            // Register a listener that calls before/afterMarshalOperation on ParamAlternative/-List objects.
-            // See: ParamAlternative.beforeMarshalOperation and ParamAlternativeList.beforeMarshalOperation
+            // Register a listener that calls before/afterMarshalOperation on 
+            // ParamAlternative/-List objects.
+            // See: ParamAlternative.beforeMarshalOperation and 
+            // ParamAlternativeList.beforeMarshalOperation
             marshaller.setListener(new ObjectClassListener());
 
             LOGGER.info("Marshaller initialized");

@@ -21,5 +21,3 @@
  * @apiviz.exclude
  */
 package uk.ac.liv.pgb.jmzqml.xml.jaxb.adapter;
-
-
