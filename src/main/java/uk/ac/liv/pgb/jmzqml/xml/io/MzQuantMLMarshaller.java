@@ -133,7 +133,7 @@ public class MzQuantMLMarshaller {
             }
         }
         catch (JAXBException | IOException ex) {
-            LOGGER.error(ex.getMessage());
+            LOGGER.error(ex);
         }
     }
 
