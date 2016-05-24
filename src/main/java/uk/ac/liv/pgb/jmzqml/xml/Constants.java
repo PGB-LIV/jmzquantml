@@ -71,14 +71,14 @@ public final class Constants {
     public static final Set<String> XML_INDEXED_XPATHS;
 
     static {
-        Set<String> TEMP_XPATHS_TO_INDEX = new HashSet<>();
+        Set<String> tempXpathsToIndex = new HashSet<>();
         for (MzQuantMLElement element : MzQuantMLElement.values()) {
             if (element.isIndexed()) {
-                TEMP_XPATHS_TO_INDEX.add(element.getXpath());
+                tempXpathsToIndex.add(element.getXpath());
             }
         }
         //finally make the set unmordifiable
-        XML_INDEXED_XPATHS = Collections.unmodifiableSet(TEMP_XPATHS_TO_INDEX);
+        XML_INDEXED_XPATHS = Collections.unmodifiableSet(tempXpathsToIndex);
     }
 
 }

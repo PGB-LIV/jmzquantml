@@ -120,7 +120,7 @@ public final class ParamUpdater {
                 }
                 catch (IllegalAccessException | IllegalArgumentException |
                         NoSuchFieldException | SecurityException e) {
-                    throw new InstantiationError(
+                    throw new InstantiationException(
                             "Unable to create new instance of CvParam subclass "
                             + "due to problem updating cvRef.\n"
                             + e.getMessage());
@@ -129,7 +129,7 @@ public final class ParamUpdater {
                     ParamUpdater.updateAbstractParamProperties(input, newParam);
                 }
                 catch (IllegalAccessException | NoSuchFieldException e) {
-                    throw new InstantiationError(
+                    throw new InstantiationException(
                             "Unable to create new instance of CvParam subclass "
                             + "due to problem updating superclass properties.\n"
                             + e.getMessage());
@@ -163,7 +163,7 @@ public final class ParamUpdater {
                 }
                 catch (IllegalAccessException | IllegalArgumentException |
                         NoSuchFieldException | SecurityException e) {
-                    throw new InstantiationError(
+                    throw new InstantiationException(
                             "Unable to create new instance of CvParam subclass "
                             + "due to problem updating unitCvRef.\n"
                             + e.getLocalizedMessage());
