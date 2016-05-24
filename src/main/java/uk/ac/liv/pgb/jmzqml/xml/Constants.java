@@ -80,5 +80,5 @@ public final class Constants {
     /**
      * The set of indexed xpath.
      */
-    public static final Set<String> XML_INDEXED_XPATHS = XPATHS_TO_INDEX;
+    protected static final Set<String> XML_INDEXED_XPATHS = XPATHS_TO_INDEX;
 }
