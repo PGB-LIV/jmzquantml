@@ -45,30 +45,30 @@ public final class Constants {
      * The name of the property used to specify the output encoding in the
      * marshalled XML data.
      */
-    public static String JAXB_ENCODING_PROPERTY = "jaxb.encoding";
+    public static final String JAXB_ENCODING_PROPERTY = "jaxb.encoding";
     /**
      * The name of the property used to specify whether or not the marshalled
      * XML data is formatted with linefeeds and indentation.
      */
-    public static String JAXB_FORMATTING_PROPERTY
+    public static final String JAXB_FORMATTING_PROPERTY
             = "jaxb.formatted.output";
     /**
      * The name of the property used to specify the xsi:schemaLocation attribute
      * value to place in the marshalled XML output.
      */
-    public static String JAXB_SCHEMALOCATION_PROPERTY
+    public static final String JAXB_SCHEMALOCATION_PROPERTY
             = "jaxb.schemaLocation";
     /**
      * The name of the property used to specify whether or not the marshaller
      * will generate document level events (ie calling startDocument or
      * endDocument).
      */
-    public static String JAXB_FRAGMENT_PROPERTY = "jaxb.fragment";  
-    
+    public static final String JAXB_FRAGMENT_PROPERTY = "jaxb.fragment";
+
     /**
      * The set of indexed xpath.
      */
-    public static Set<String> XML_INDEXED_XPATHS;
+    public static final Set<String> XML_INDEXED_XPATHS;
 
     static {
         Set<String> TEMP_XPATHS_TO_INDEX = new HashSet<>();
@@ -79,5 +79,6 @@ public final class Constants {
         }
         //finally make the set unmordifiable
         XML_INDEXED_XPATHS = Collections.unmodifiableSet(TEMP_XPATHS_TO_INDEX);
-    }    
+    }
+
 }
