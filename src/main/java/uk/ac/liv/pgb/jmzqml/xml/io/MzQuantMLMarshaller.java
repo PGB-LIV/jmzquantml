@@ -77,8 +77,8 @@ public class MzQuantMLMarshaller {
             File file = new File(fullFileName);
             this.fw
                     = new OutputStreamWriter(new FileOutputStream(file), "UTF-8");
-        }
-        catch (IOException ioex) {
+        } catch (IOException ioex) {
+            LOGGER.error(ioex);
             ioex.printStackTrace(System.err);
         }
 
@@ -91,8 +91,8 @@ public class MzQuantMLMarshaller {
             //this.marsh.setProperty(Marshaller.JAXB_FRAGMENT, true);
             this.marsh.setProperty(Marshaller.JAXB_SCHEMA_LOCATION,
                                    ModelConstants.MZQML_LOCATION);
-        }
-        catch (JAXBException jaxbex) {
+        } catch (JAXBException jaxbex) {
+            LOGGER.error(jaxbex);
             jaxbex.printStackTrace(System.err);
         }
     }
@@ -131,8 +131,7 @@ public class MzQuantMLMarshaller {
                 this.fw.flush();
                 this.fw.close();
             }
-        }
-        catch (JAXBException | IOException ex) {
+        } catch (JAXBException | IOException ex) {
             LOGGER.error(ex);
         }
     }
@@ -180,8 +179,7 @@ public class MzQuantMLMarshaller {
             this.
                     marshall(object, new OutputStreamWriter(os, encoding),
                              encoding);
-        }
-        catch (UnsupportedEncodingException e) {
+        } catch (UnsupportedEncodingException e) {
             throw new IllegalStateException("Could not set character encoding!");
         }
     }
@@ -230,8 +228,7 @@ public class MzQuantMLMarshaller {
                             "Object '" + object.getClass().getName()
                             + "' will be treated as root element.");
                 }
-            }
-            else if (LOGGER.isDebugEnabled()) {
+            } else if (LOGGER.isDebugEnabled()) {
                 LOGGER.debug(
                         "Object '" + object.getClass().getName()
                         + "' will be treated as fragment.");
@@ -258,13 +255,11 @@ public class MzQuantMLMarshaller {
                     new EscapingXMLStreamWriter(xmlStreamWriter, encoding));
 
             marshaller.marshal(jaxbElement, writer);
-        }
-        catch (JAXBException ex) {
+        } catch (JAXBException ex) {
             LOGGER.error("MzQuantMLMarshaller.marshall", ex);
             throw new IllegalStateException(
                     "Error while marshalling object: " + object.toString());
-        }
-        catch (XMLStreamException ex) {
+        } catch (XMLStreamException ex) {
             LOGGER.error("MzQuantMLMarshaller.marshall", ex);
             throw new IllegalStateException(
                     "Error while marshalling ojbect: " + object.toString());

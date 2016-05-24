@@ -101,8 +101,7 @@ public final class ParamUpdater {
              */
             if (input.getCv() != null) {
                 newParam.setCv(input.getCv());
-            }
-            else {
+            } else {
                 /**
                  * No set*ref methods is provided so if auto resolving is off
                  * there is no way to record the cvParam.
@@ -121,8 +120,7 @@ public final class ParamUpdater {
 
                     });
                     cvRefField.set(newParam, input.getCvRef());
-                }
-                catch (IllegalAccessException | IllegalArgumentException |
+                } catch (IllegalAccessException | IllegalArgumentException |
                         NoSuchFieldException | SecurityException e) {
                     LOGGER.error(e);
                     throw new InstantiationException(
@@ -132,8 +130,7 @@ public final class ParamUpdater {
                 }
                 try {
                     ParamUpdater.updateAbstractParamProperties(input, newParam);
-                }
-                catch (IllegalAccessException | NoSuchFieldException e) {
+                } catch (IllegalAccessException | NoSuchFieldException e) {
                     LOGGER.error(e);
                     throw new InstantiationException(
                             "Unable to create new instance of CvParam subclass "
@@ -145,8 +142,7 @@ public final class ParamUpdater {
 
             if (input.getUnitCv() != null) {
                 newParam.setUnitCv(input.getUnitCv());
-            }
-            else if (input.getUnitCvRef() != null) {
+            } else if (input.getUnitCvRef() != null) {
                 // no unitCv object reference! might only be a reference string (not auto-resolving)
                 /**
                  * No set*ref methods is provided so if auto resolving is off
@@ -166,8 +162,7 @@ public final class ParamUpdater {
 
                     });
                     unitCvRefField.set(newParam, input.getUnitCvRef());
-                }
-                catch (IllegalAccessException | IllegalArgumentException |
+                } catch (IllegalAccessException | IllegalArgumentException |
                         NoSuchFieldException | SecurityException e) {
                     LOGGER.error(e);
                     throw new InstantiationException(
@@ -177,8 +172,8 @@ public final class ParamUpdater {
                 }
                 try {
                     ParamUpdater.updateAbstractParamProperties(input, newParam);
-                }
-                catch (IllegalAccessException | NoSuchFieldException e) {
+                } catch (IllegalAccessException | NoSuchFieldException e) {
+                    LOGGER.error(e);
                     throw new InstantiationError(
                             "Unable to create new instance of CvParam subclass "
                             + "due to problem updating superclass properties.\n"
@@ -258,8 +253,7 @@ public final class ParamUpdater {
             T newParam = userParamSubClass.newInstance();
             try {
                 ParamUpdater.updateAbstractParamProperties(input, newParam);
-            }
-            catch (IllegalAccessException | NoSuchFieldException e) {
+            } catch (IllegalAccessException | NoSuchFieldException e) {
                 LOGGER.error(e);
                 throw new InstantiationException(
                         "Unable to create new instance of UserParam subclass "
