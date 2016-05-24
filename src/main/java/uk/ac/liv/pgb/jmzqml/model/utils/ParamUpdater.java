@@ -25,6 +25,7 @@ import java.security.AccessController;
 import java.security.PrivilegedAction;
 import java.util.ArrayList;
 import java.util.List;
+import org.apache.log4j.Logger;
 import uk.ac.liv.pgb.jmzqml.model.mzqml.AbstractParam;
 import uk.ac.liv.pgb.jmzqml.model.mzqml.CvParam;
 import uk.ac.liv.pgb.jmzqml.model.mzqml.UserParam;
@@ -36,6 +37,9 @@ import uk.ac.liv.pgb.jmzqml.model.mzqml.UserParam;
  * @time 09-Apr-2013 23:59:04
  */
 public final class ParamUpdater {
+
+    private static final Logger LOGGER = Logger.getLogger(
+            ParamUpdater.class);
 
     /**
      * Instantiates a new ParamUpdater.
@@ -120,6 +124,7 @@ public final class ParamUpdater {
                 }
                 catch (IllegalAccessException | IllegalArgumentException |
                         NoSuchFieldException | SecurityException e) {
+                    LOGGER.error(e);
                     throw new InstantiationException(
                             "Unable to create new instance of CvParam subclass "
                             + "due to problem updating cvRef.\n"
@@ -129,6 +134,7 @@ public final class ParamUpdater {
                     ParamUpdater.updateAbstractParamProperties(input, newParam);
                 }
                 catch (IllegalAccessException | NoSuchFieldException e) {
+                    LOGGER.error(e);
                     throw new InstantiationException(
                             "Unable to create new instance of CvParam subclass "
                             + "due to problem updating superclass properties.\n"
@@ -163,6 +169,7 @@ public final class ParamUpdater {
                 }
                 catch (IllegalAccessException | IllegalArgumentException |
                         NoSuchFieldException | SecurityException e) {
+                    LOGGER.error(e);
                     throw new InstantiationException(
                             "Unable to create new instance of CvParam subclass "
                             + "due to problem updating unitCvRef.\n"
@@ -253,6 +260,7 @@ public final class ParamUpdater {
                 ParamUpdater.updateAbstractParamProperties(input, newParam);
             }
             catch (IllegalAccessException | NoSuchFieldException e) {
+                LOGGER.error(e);
                 throw new InstantiationException(
                         "Unable to create new instance of UserParam subclass "
                         + "due to problem updating superclass properties.\n"
