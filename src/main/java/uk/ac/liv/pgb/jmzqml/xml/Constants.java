@@ -45,40 +45,39 @@ public final class Constants {
      * The name of the property used to specify the output encoding in the
      * marshalled XML data.
      */
-    public static final String JAXB_ENCODING_PROPERTY = "jaxb.encoding";
+    public static String JAXB_ENCODING_PROPERTY = "jaxb.encoding";
     /**
      * The name of the property used to specify whether or not the marshalled
      * XML data is formatted with linefeeds and indentation.
      */
-    public static final String JAXB_FORMATTING_PROPERTY
+    public static String JAXB_FORMATTING_PROPERTY
             = "jaxb.formatted.output";
     /**
      * The name of the property used to specify the xsi:schemaLocation attribute
      * value to place in the marshalled XML output.
      */
-    public static final String JAXB_SCHEMALOCATION_PROPERTY
+    public static String JAXB_SCHEMALOCATION_PROPERTY
             = "jaxb.schemaLocation";
     /**
      * The name of the property used to specify whether or not the marshaller
      * will generate document level events (ie calling startDocument or
      * endDocument).
      */
-    public static final String JAXB_FRAGMENT_PROPERTY = "jaxb.fragment";
-    private static final Set<String> TEMP_XPATHS_TO_INDEX = new HashSet<>();
-    private static final Set<String> XPATHS_TO_INDEX;
+    public static String JAXB_FRAGMENT_PROPERTY = "jaxb.fragment";  
+    
+    /**
+     * The set of indexed xpath.
+     */
+    public static Set<String> XML_INDEXED_XPATHS;
 
     static {
+        Set<String> TEMP_XPATHS_TO_INDEX = new HashSet<>();
         for (MzQuantMLElement element : MzQuantMLElement.values()) {
             if (element.isIndexed()) {
                 TEMP_XPATHS_TO_INDEX.add(element.getXpath());
             }
         }
         //finally make the set unmordifiable
-        XPATHS_TO_INDEX = Collections.unmodifiableSet(TEMP_XPATHS_TO_INDEX);
-    }
-
-    /**
-     * The set of indexed xpath.
-     */
-    protected static final Set<String> XML_INDEXED_XPATHS = XPATHS_TO_INDEX;
+        XML_INDEXED_XPATHS = Collections.unmodifiableSet(TEMP_XPATHS_TO_INDEX);
+    }    
 }

@@ -60,7 +60,7 @@ public class MzQuantMLNamespaceFilter extends XMLFilterImpl {
                                    final String qName,
                                    final Attributes atts)
             throws SAXException {
-        // the elements are defined by a qualified schema, but we rip them out 
+        // the elements are defined by a qualified schema, but we rip them out
         // of context with the xxindex. so the namespace information is lost and
         // we have to add it again here manually
         LOGGER.trace(

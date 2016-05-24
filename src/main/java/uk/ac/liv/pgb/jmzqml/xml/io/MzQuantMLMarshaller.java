@@ -250,7 +250,7 @@ public class MzQuantMLMarshaller {
             XMLOutputFactory factory = XMLOutputFactory.newFactory();
             XMLStreamWriter xmlStreamWriter = factory.createXMLStreamWriter(out);
 
-            // Note: the EscapingXMLStreamWriter should default to "UTF-8" as 
+            // Note: the EscapingXMLStreamWriter should default to "UTF-8" as
             // character encoding, but does not on all platforms.
             // Therefore the encoding is hard coded for the default case
             // see EscapingXMLStreamWriter.writeStartDocument()

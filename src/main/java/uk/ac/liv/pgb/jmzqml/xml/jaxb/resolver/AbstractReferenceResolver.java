@@ -82,7 +82,7 @@ public abstract class AbstractReferenceResolver<T extends MzQuantMLObject>
         R retVal;
         Class<R> clz = cls;
 
-        // check if we have a cache to look up, if so see if it contains the 
+        // check if we have a cache to look up, if so see if it contains the
         // referenced object already
         //        if (cache != null) {
         //            retVal = cache.getCachedObject(refId, cls);
@@ -92,7 +92,7 @@ public abstract class AbstractReferenceResolver<T extends MzQuantMLObject>
         LOG.debug("AbstractReferenceResolver.unmarshal for id: " + refId);
         // first retrieve the XML snippet representing the referenced object/element
         String xml;
-        // special case for ContactRole.class as we can either have a 
+        // special case for ContactRole.class as we can either have a
         // Person.class or a Organisation.class
 
         if (cls == AbstractContact.class) {

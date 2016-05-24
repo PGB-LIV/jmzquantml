@@ -24,7 +24,7 @@ public class MemoryMappedXmlElementExtractor {
             MemoryMappedXmlElementExtractor.class);
 
     // XML 1.1 specs
-    // [3]  S            ::=  (#x20 | #x9 | #xD | #xA)+     
+    // [3]  S            ::=  (#x20 | #x9 | #xD | #xA)+
     /*
      * spaces, carriage returns, line feeds, or tabs
      */
@@ -32,7 +32,7 @@ public class MemoryMappedXmlElementExtractor {
     // [24] VersionInfo  ::=  S 'version' Eq ("'" VersionNum "'" | '"' VersionNum '"')
     // [25] Eq           ::=  S? '=' S?
     // [80] EncodingDecl ::=  S 'encoding' Eq ('"' EncName '"' | "'" EncName "'" )
-    // [81] EncName      ::=  [A-Za-z] ([A-Za-z0-9._] | '-')*        
+    // [81] EncName      ::=  [A-Za-z] ([A-Za-z0-9._] | '-')*
     /*
      * Encoding name contains only Latin characters
      */

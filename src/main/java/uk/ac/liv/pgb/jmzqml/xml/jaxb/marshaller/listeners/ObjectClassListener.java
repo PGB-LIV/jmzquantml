@@ -180,8 +180,8 @@ public class ObjectClassListener extends Marshaller.Listener {
 //            // we have to re-unite the CvParam and UserParam we split in the unmarshall process
 //            apg.updateParamList();
 //        }
-        // Since the ID of a referenced object is updated when the referenced 
-        // object is updated/added and the object is not taken into account for 
+        // Since the ID of a referenced object is updated when the referenced
+        // object is updated/added and the object is not taken into account for
         // the marshalling process, we don't really need
         // to do anything else here (regarding the automatic reference resolving).
     }
