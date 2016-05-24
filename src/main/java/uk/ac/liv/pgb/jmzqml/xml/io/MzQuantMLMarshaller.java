@@ -537,6 +537,7 @@ public class MzQuantMLMarshaller {
     }
 
     /**
+     * @deprecated
      * The helper method creates a tag of
      * {@link uk.ac.liv.pgb.jmzqml.model.mzqml.BibliographicReference} with all
      * the attributes.
@@ -565,6 +566,7 @@ public class MzQuantMLMarshaller {
      * @return a {@link uk.ac.liv.pgb.jmzqml.model.mzqml.BibliographicReference}
      *         string tag, representing bibliographic references.
      */
+    @Deprecated
     public static String createBibliographicReferenceTag(final String id,
                                                          final String name,
                                                          final String authors,
@@ -856,6 +858,7 @@ public class MzQuantMLMarshaller {
     // mzQuantML element object
     ///// ///// ///// ///// /////
     /**
+     * @deprecated
      * The helper method creates a
      * {@link uk.ac.liv.pgb.jmzqml.model.mzqml.BibliographicReference} object
      * with all the attributes.
@@ -885,6 +888,7 @@ public class MzQuantMLMarshaller {
      *         {@link uk.ac.liv.pgb.jmzqml.model.mzqml.BibliographicReference}
      *         object, representing bibliographic references.
      */
+    @Deprecated
     public static BibliographicReference createBibliographicReference(
             final String id,
             final String name,
