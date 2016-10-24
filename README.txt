@@ -6,7 +6,7 @@
 =                                                                     =
 =                                           jmzquantml  1.0.0-1.1.0   =
 =                                 (c) University of Liverpool  2014   =
-=                             https://github.com/PGB-LIV/jmzquantml   =
+=                              http://pgb-liv.github.io/jmzquantml/   =
 =                                                                     =
 =                                                                     =
 =======================================================================
@@ -16,7 +16,7 @@ Description
 
   jmzquantml is a JAVA API for reading and writing mzQuantML file 
   which is designed for recording quantitative proteomic data and 
-  meta-data.
+  meta-data. For more information please visit http://pgb-liv.github.io/jmzquantml/.
 
 How to use in maven
   
