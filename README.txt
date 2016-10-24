@@ -6,7 +6,7 @@
 =                                                                     =
 =                                           jmzquantml  1.0.0-1.0.5   =
 =                                 (c) University of Liverpool  2014   =
-=                              http://code.google.com/p/jmzquantml/   =
+=                             https://github.com/PGB-LIV/jmzquantml   =
 =                                                                     =
 =                                                                     =
 =======================================================================
@@ -20,50 +20,28 @@ Description
 
 How to use in maven
   
-  jmzquantml artifact is currently using Googlecode host as its maven
-  repository. To use it, add the following to your POM:
+  jmzquantml artifact is currently hosting in the Maven Central Repository (http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22jmzquantml%22):
   
-  First, add jmzquantml dependency (check for the latest version):
+  Simply add jmzquantml dependency (check for the latest version) to your pom.xml:
   
   <dependency>
-     <groupId>uk.ac.liv</groupId>
+     <groupId>uk.ac.liv.pgb</groupId>
      <artifactId>jmzquantml</artifactId>
-     <version>1.0.0-1.0.5</version>
+     <version>1.0.0-1.1.0</version>
   </dependency>
-
-  Second, add wagon-svn extension (current version 1.12) in <build> tag:
-  
-  <extensions>
-     <extension>
-        <groupId>org.jvnet.wagon-svn</groupId>
-        <artifactId>wagon-svn</artifactId>
-        <version>1.12</version>
-     </extension>
-  </extensions>
-
-  Finally, add plugin repository and jmzquantml repository:
-  
-  <pluginRepositories>
-     <pluginRepository>
-        <id>maven2-repository.dev.java.net</id>
-        <name>Java.net Repository for Maven</name>
-        <url>http://download.java.net/maven/2/</url>
-     </pluginRepository>
-  </pluginRepositories>
-  <repositories>
-     <repository>
-        <id>jmzquantml-maven-repo</id>
-        <name>Maven Repository for jmzquantml release</name>
-        <url>http://jmzquantml.googlecode.com/svn/maven/repo</url>
-     </repository>
-  </repositories>
 
 
 Changelog
 
-  - Current version 1.0.0-1.0.5
-  - Previous version 1.0.0-1.0.4-alpha
+  - Current version 1.0.0-1.1.0
+  - Previous version 1.0.0-1.0.5
 
+
+jmzquantml version 1.0.0-1.1.0 -- (24, January 2016)
+  - changed GroupId to "uk.ac.liv.pgb"
+  - moved souce code from GoogleCode to GitHub
+  - moved artifact to Maven Central Repositroy
+  
 jmzquantml version 1.0.0-1.0.5 -- (7, July 2014)
   - implemented all the *RefResolver classes
   - adjusted to Java 1.7
