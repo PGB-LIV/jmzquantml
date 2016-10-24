@@ -4,7 +4,7 @@
 =                jmzquantmL - Java API for mzQuantML                  =
 =                                                                     =
 =                                                                     =
-=                                           jmzquantml  1.0.0-1.0.5   =
+=                                           jmzquantml  1.0.0-1.1.0   =
 =                                 (c) University of Liverpool  2014   =
 =                             https://github.com/PGB-LIV/jmzquantml   =
 =                                                                     =
