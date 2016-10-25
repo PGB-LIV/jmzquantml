@@ -20,7 +20,7 @@ Description
 
 How to use in maven
   
-  jmzquantml artifact is currently hosting in the Maven Central Repository (http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22jmzquantml%22):
+  jmzquantml artifact is currently hosted in the Maven Central Repository (http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22jmzquantml%22):
   
   Simply add jmzquantml dependency (check for the latest version) to your pom.xml:
   
